@@ -1,0 +1,47 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is the fastest safe way to lose weight?", a: "Aim for 0.5–1 kg (1–2 lb) per week through a moderate calorie deficit, high protein, and regular activity. Faster loss risks muscle loss and rebound." },
+  { q: "Why am I not losing weight in a deficit?", a: "Common reasons include underestimating portions, water retention masking fat loss, too little protein, or needing to recalculate your lower calorie needs. Track consistently for 2–3 weeks before judging." },
+];
+---
+
+<ContentLayout
+  title="Weight Loss Guide — How to Lose Fat the Right Way"
+  h1="The Complete Weight Loss Guide"
+  description="A science-based weight loss guide: how to set a calorie deficit, keep your muscle, and lose fat sustainably without crash diets."
+  path="/guides/weight-loss-guide/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="Lose fat without losing your mind — or your muscle. Here's the sustainable approach that actually works."
+  updated="January 2025"
+  faqs={faqs}
+>
+  <h2>It all comes down to energy balance</h2>
+  <p>Fat loss happens when you consistently consume fewer calories than you burn. This is the <a href="/guides/calorie-deficit-guide/">calorie deficit</a>, and it's the one non-negotiable principle of weight loss. Every diet that works — keto, intermittent fasting, low-fat — works because it helps you eat fewer calories, whether you realize it or not.</p>
+
+  <h2>Step 1: Set your calorie target</h2>
+  <p>Find your <a href="/tdee-calculator/">TDEE</a> and subtract 300–500 calories. This produces about 0.3–0.5 kg of fat loss per week — fast enough to stay motivated, slow enough to protect muscle and stay sane. Use the <a href="/weight-loss-calculator/">weight loss calculator</a> to estimate your timeline.</p>
+
+  <h2>Step 2: Prioritize protein</h2>
+  <p>Protein is your most important macro when losing weight. It preserves muscle in a deficit, keeps you full, and has a high thermic effect. Aim for 1.6–2.2 g per kg of body weight. See the <a href="/protein-calculator/">protein calculator</a> for your target.</p>
+
+  <h2>Step 3: Lift weights</h2>
+  <p>Resistance training signals your body to keep muscle while you lose fat. Without it, a portion of the weight you lose will be lean tissue — which lowers your metabolism and leaves you "skinny fat". Two to four sessions a week is plenty.</p>
+
+  <h2>Step 4: Be patient and consistent</h2>
+  <p>Weight fluctuates daily due to water, food volume, and hormones. Judge progress over 2–3 week trends, not single days. Weigh yourself under the same conditions and track the average.</p>
+
+  <h2>Common mistakes to avoid</h2>
+  <ul>
+    <li><strong>Cutting too hard:</strong> extreme deficits cause muscle loss, fatigue, and rebound eating.</li>
+    <li><strong>Forgetting liquid calories:</strong> drinks, oils, and "healthy" extras add up fast.</li>
+    <li><strong>Not recalculating:</strong> your needs drop as you lose weight.</li>
+    <li><strong>Ignoring sleep and stress:</strong> both strongly influence appetite and adherence.</li>
+  </ul>
+
+  <h2>Breaking through plateaus</h2>
+  <p>If the scale stalls for more than 2–3 weeks, recalculate your TDEE at your new weight, tighten your tracking, or add activity. Small adjustments beat drastic cuts.</p>
+</ContentLayout>

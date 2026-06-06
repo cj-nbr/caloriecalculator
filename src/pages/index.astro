@@ -1,0 +1,300 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/ui/Section.astro";
+import Button from "../components/ui/Button.astro";
+import CalorieCalculator from "../components/calculators/CalorieCalculator.astro";
+import FaqSection from "../components/FaqSection.astro";
+import { SITE, NAV } from "../data/site";
+import { HOME_FAQS } from "../data/faqs";
+import {
+  organizationSchema,
+  websiteSchema,
+  faqSchema,
+  calculatorSchema,
+} from "../lib/seo";
+
+const calculators = NAV[0].children!;
+
+const trust = [
+  { label: "Science-based formulas", icon: "M9 12l2 2 4-4" },
+  { label: "Instant calculations", icon: "M13 2L3 14h9l-1 8 10-12h-9z" },
+  { label: "Mobile friendly", icon: "M7 2h10v20H7zM11 18h2" },
+  { label: "Free forever", icon: "M20 6L9 17l-5-5" },
+];
+
+const features = [
+  {
+    title: "BMR & TDEE breakdown",
+    body: "See exactly how many calories your body burns at rest and in total each day, calculated with the trusted Mifflin-St Jeor equation.",
+    accent: "from-grad-develop-start to-grad-develop-end",
+    icon: "M3 3v18h18M7 15l3-4 3 2 4-6",
+  },
+  {
+    title: "Goal-based targets",
+    body: "Get tailored calorie numbers for maintenance, weight loss, and weight gain — from a gentle 0.5 lb/week to aggressive cutting or bulking.",
+    accent: "from-grad-preview-start to-grad-preview-end",
+    icon: "M12 2v20M2 12h20",
+  },
+  {
+    title: "Macro recommendations",
+    body: "Turn your calorie target into grams of protein, carbs, and fat with a clear visual breakdown you can actually follow.",
+    accent: "from-grad-ship-start to-grad-ship-end",
+    icon: "M21 12a9 9 0 1 1-9-9v9z",
+  },
+  {
+    title: "Weekly & timeline view",
+    body: "Understand your weekly calorie budget and estimate how long it will take to reach your target weight at your chosen pace.",
+    accent: "from-grad-develop-start to-grad-preview-end",
+    icon: "M3 3v18h18M7 14l4-4 3 3 5-6",
+  },
+];
+
+const jsonLd = [
+  organizationSchema(),
+  websiteSchema(),
+  calculatorSchema(
+    "Calorie Calculator",
+    "Free calorie calculator to find your daily calorie needs for weight loss, gain, or maintenance.",
+    "/"
+  ),
+  faqSchema(HOME_FAQS),
+];
+---
+
+<Layout
+  title="Calorie Calculator — Free Daily Calorie, TDEE & Calorie Deficit Calculator"
+  description="Free calorie calculator to find your daily calorie needs for weight loss, weight gain, or maintenance. Get your TDEE, calorie deficit, BMR and macros instantly — 100% free."
+  jsonLd={jsonLd}
+>
+  <!-- ── Hero ─────────────────────────────────────────── -->
+  <section class="relative overflow-hidden">
+    <div class="bg-grid pointer-events-none absolute inset-0 -z-10" aria-hidden="true"></div>
+    <div
+      class="pointer-events-none absolute left-1/2 top-0 -z-10 h-[400px] w-[800px] -translate-x-1/2 rounded-full opacity-20 blur-[120px]"
+      style="background: radial-gradient(circle, #007cf0, transparent 70%);"
+      aria-hidden="true"
+    >
+    </div>
+    <div class="container-page pb-10 pt-16 text-center sm:pt-24">
+      <a
+        href="/guides/how-many-calories-should-i-eat/"
+        class="inline-flex items-center gap-2 rounded-full border border-hairline bg-canvas-soft px-3 py-1 text-xs text-body transition-colors hover:text-ink"
+      >
+        <span class="h-1.5 w-1.5 rounded-full bg-success"></span>
+        Science-based · Updated for 2025
+      </a>
+      <h1 class="mx-auto mt-6 max-w-4xl text-display-xl text-ink">
+        Free Calorie Calculator for <span class="text-gradient">Accurate Daily Calorie Needs</span>
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-body">
+        Find exactly how many calories to eat for weight loss, weight gain, or
+        maintenance. Get your BMR, TDEE, and personalized macros in seconds —
+        completely free.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+        <Button href="#calculator" size="lg">Calculate Calories</Button>
+        <Button href="/guides/how-many-calories-should-i-eat/" variant="secondary" size="lg">
+          Learn More
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Trust row ────────────────────────────────────── -->
+  <div class="border-y border-hairline bg-canvas-soft/50">
+    <div class="container-page grid grid-cols-2 gap-4 py-6 sm:grid-cols-4">
+      {
+        trust.map((t) => (
+          <div class="flex items-center justify-center gap-2 text-sm text-body">
+            <svg class="h-4 w-4 text-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d={t.icon} />
+            </svg>
+            {t.label}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- ── Calculator ───────────────────────────────────── -->
+  <Section id="calculator" class="scroll-mt-20">
+    <div class="mb-8 text-center">
+      <h2 class="text-display-md text-ink">Calculate your daily calories</h2>
+      <p class="mx-auto mt-3 max-w-xl text-body">
+        Enter your details below. Everything updates instantly and stays private
+        on your device.
+      </p>
+    </div>
+    <CalorieCalculator />
+  </Section>
+
+  <!-- ── Features ─────────────────────────────────────── -->
+  <Section class="border-t border-hairline">
+    <div class="mb-12 max-w-2xl">
+      <h2 class="text-display-md text-ink">Everything you need to hit your goal</h2>
+      <p class="mt-3 text-body">
+        More than a number — a complete, science-backed picture of your nutrition.
+      </p>
+    </div>
+    <div class="grid gap-5 sm:grid-cols-2">
+      {
+        features.map((f) => (
+          <article class="card group p-6 transition-colors hover:border-hairline-strong">
+            <div class={`mb-4 inline-grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br ${f.accent} text-white`}>
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d={f.icon} />
+              </svg>
+            </div>
+            <h3 class="text-base font-semibold text-ink">{f.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-body">{f.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </Section>
+
+  <!-- ── All calculators ──────────────────────────────── -->
+  <Section class="border-t border-hairline">
+    <div class="mb-10 text-center">
+      <h2 class="text-display-md text-ink">Explore all {calculators.length} calculators</h2>
+      <p class="mx-auto mt-3 max-w-xl text-body">
+        A complete toolkit for calories, body composition, and nutrition.
+      </p>
+    </div>
+    <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        calculators.map((c) => (
+          <a
+            href={c.href}
+            class="card group flex items-center justify-between gap-3 p-4 transition-all hover:border-hairline-strong hover:bg-canvas-soft"
+          >
+            <div>
+              <span class="block text-sm font-medium text-ink">{c.label}</span>
+              {c.desc && <span class="block text-xs text-mute">{c.desc}</span>}
+            </div>
+            <svg class="h-4 w-4 shrink-0 text-mute transition-transform group-hover:translate-x-0.5 group-hover:text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </a>
+        ))
+      }
+    </div>
+  </Section>
+
+  <!-- ── Educational / SEO content ────────────────────── -->
+  <Section class="border-t border-hairline">
+    <div class="prose-content mx-auto max-w-3xl">
+      <h2>The free calorie calculator that does the math for you</h2>
+      <p>
+        Our <strong>calorie calculator</strong> is a fast, accurate, and completely
+        <strong>free</strong> tool that tells you exactly how many calories to eat
+        each day to reach your goal — whether that's losing fat, gaining weight, or
+        maintaining where you are. Instead of guessing, you get a personalized
+        <strong>daily calorie calculator</strong> result in seconds, backed by the
+        same science-based formulas used by dietitians and researchers worldwide.
+      </p>
+
+      <h3>How the calorie calculator works</h3>
+      <p>
+        The number of calories you need each day depends on your age, sex, height,
+        weight, and activity level. Your body burns a baseline amount just to stay
+        alive — your <a href="/bmr-calculator/">Basal Metabolic Rate (BMR)</a> — and
+        burns more on top of that through movement and exercise. Add them together and
+        you get your <a href="/tdee-calculator/">Total Daily Energy Expenditure (TDEE)</a>.
+        Our built-in <strong>TDEE calculator</strong> handles this automatically using
+        the trusted Mifflin-St Jeor equation, so your <strong>maintenance calorie
+        calculator</strong> number is as accurate as a simple formula can get.
+      </p>
+
+      <h3>Calorie calculator for weight loss and weight gain</h3>
+      <p>
+        Once you know your maintenance calories, reaching any goal becomes simple math.
+        To lose weight, you eat fewer calories than you burn — a
+        <a href="/guides/calorie-deficit-guide/">calorie deficit</a>. Our
+        <strong>calorie deficit calculator</strong> shows you the daily target for a
+        gentle, steady, or aggressive pace, so you always know how many calories you
+        should eat to lose weight safely. A deficit of about 500 calories per day
+        produces roughly one pound of fat loss per week, since a pound of body fat
+        stores about 3,500 calories. Want to build muscle instead? Use the
+        <strong>calorie calculator to gain weight</strong> by selecting a weight-gain
+        goal, which adds a controlled surplus on top of your TDEE. If you're tracking a
+        specific target, the <a href="/weight-loss-calculator/">weight loss calculator</a>
+        estimates how long it will take to reach your goal weight.
+      </p>
+
+      <h3>From calories to food and macros</h3>
+      <p>
+        Knowing your calorie target is only half the picture — what you eat matters too.
+        Every result from this <strong>free food calorie calculator</strong> also splits
+        your daily total into grams of protein, carbohydrates, and fat with our
+        <a href="/macro-calculator/">macro calculator</a>. Whether you're logging a home
+        recipe, a restaurant meal, or a quick snack, you can match the calories of your
+        food against your personalized budget. Pair it with the
+        <a href="/protein-calculator/">protein calculator</a> to make sure you're eating
+        enough protein to preserve muscle while you lose fat or build it while you gain.
+      </p>
+
+      <h3>Your daily food calorie calculator and tracker</h3>
+      <p>
+        Think of this as your everyday <strong>online calorie calculator</strong> — a
+        fast, app-like <strong>food calorie calculator</strong> you can return to any
+        time you need to check your numbers. There's nothing to download: it works
+        instantly in your browser on phone, tablet, or desktop, which makes it a
+        practical free alternative to a paid <strong>food calorie calculator app</strong>.
+        Your most recent results are saved on your own device so you can pick up where
+        you left off, and you can copy, print, or share your results with a single tap.
+        Because your calorie needs change as your body changes, it's smart to revisit the
+        calculator every few weeks — recalculating after every 4–5 kg (about 10 lb) of
+        weight change keeps your daily target accurate and your progress steady.
+      </p>
+
+      <h3>Why choose our calorie calculator?</h3>
+      <ul>
+        <li><strong>Calorie calculator free</strong> — every tool here is 100% free, with no sign-up, no paywall, and no limits.</li>
+        <li><strong>Private by design</strong> — calculations run entirely in your browser; your data never leaves your device.</li>
+        <li><strong>Science-based</strong> — built on the Mifflin-St Jeor BMR equation and standard activity multipliers.</li>
+        <li><strong>Works everywhere</strong> — a mobile-first, app-like experience that loads instantly on any device.</li>
+        <li><strong>Complete toolkit</strong> — 11 connected calculators covering calories, BMI, body fat, water intake, and more.</li>
+      </ul>
+
+      <p>
+        Whether you searched for a <strong>daily calorie calculator</strong>, a
+        <strong>calorie deficit calculator</strong>, a <strong>TDEE calculator</strong>,
+        or simply a reliable <strong>free food calorie calculator</strong>, you're in the
+        right place. Enter your details above to get your personalized numbers, then
+        explore the guides below to put your plan into action and reach your goal faster.
+      </p>
+
+      <div class="not-prose mt-8">
+        <Button href="/guides/how-many-calories-should-i-eat/" variant="secondary">
+          Read the full guide
+        </Button>
+      </div>
+    </div>
+  </Section>
+
+  <!-- ── FAQ ──────────────────────────────────────────── -->
+  <Section class="border-t border-hairline">
+    <FaqSection items={HOME_FAQS} />
+  </Section>
+
+  <!-- ── CTA banner ───────────────────────────────────── -->
+  <Section class="border-t border-hairline">
+    <div class="card relative overflow-hidden p-8 text-center sm:p-14">
+      <div
+        class="pointer-events-none absolute inset-0 opacity-[0.12]"
+        style="background: linear-gradient(120deg, #007cf0, #00dfd8, #7928ca, #ff0080);"
+        aria-hidden="true"
+      >
+      </div>
+      <div class="relative">
+        <h2 class="text-display-md text-ink">Ready to take control of your nutrition?</h2>
+        <p class="mx-auto mt-3 max-w-lg text-body">
+          Calculate your personalized calorie and macro targets now — free, instant,
+          and private.
+        </p>
+        <div class="mt-7">
+          <Button href="#calculator" size="lg">Calculate My Calories</Button>
+        </div>
+      </div>
+    </div>
+  </Section>
+</Layout>

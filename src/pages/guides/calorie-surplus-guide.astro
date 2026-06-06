@@ -1,0 +1,43 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is a calorie surplus?", a: "A calorie surplus means eating more calories than your body burns. Combined with resistance training, the extra energy supports muscle growth and weight gain." },
+  { q: "How big should a calorie surplus be?", a: "A surplus of 250–500 calories per day supports lean muscle gain. Larger surpluses add more fat without building muscle any faster." },
+];
+---
+
+<ContentLayout
+  title="Calorie Surplus Guide — Eat to Build Muscle"
+  h1="Calorie Surplus: The Complete Guide"
+  description="What a calorie surplus is, how big yours should be, and how to use it to build muscle while minimizing fat gain."
+  path="/guides/calorie-surplus-guide/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="To build muscle you need extra fuel. Here's how to run a calorie surplus that adds mostly muscle, not fat."
+  updated="January 2025"
+  faqs={faqs}
+>
+  <h2>What is a calorie surplus?</h2>
+  <p>A calorie surplus is the opposite of a deficit: you eat more energy than your body burns. That extra energy gives your body the raw materials it needs to repair and build new muscle tissue after training. Without a surplus (or at least maintenance), building significant muscle is very difficult.</p>
+
+  <h2>How big should it be?</h2>
+  <p>More is not better here. A moderate surplus of 250–500 calories per day above your <a href="/tdee-calculator/">TDEE</a> supports muscle growth while keeping fat gain in check. Your body can only build muscle so fast — extra calories beyond that simply become body fat.</p>
+
+  <h2>The role of protein and training</h2>
+  <p>A surplus tells your body it <em>can</em> build muscle; resistance training tells it that it <em>should</em>. Without progressive strength training, a surplus just adds fat. Pair your extra calories with 1.6–2.2 g of <a href="/protein-calculator/">protein</a> per kg and consistent lifting.</p>
+
+  <h2>Lean bulk vs. dirty bulk</h2>
+  <p>A <strong>lean bulk</strong> uses a small, controlled surplus to add muscle with minimal fat — the smarter long-term approach. A <strong>dirty bulk</strong> piles on calories without limits; you gain faster, but most of it is fat you'll have to diet off later.</p>
+
+  <h2>Foods that make a surplus easier</h2>
+  <ul>
+    <li>Calorie-dense whole foods: nuts, oils, whole grains, dairy</li>
+    <li>Smoothies and shakes for easy extra calories</li>
+    <li>Adding healthy fats to existing meals</li>
+  </ul>
+
+  <h2>Track your gains</h2>
+  <p>Weigh in weekly and aim for 0.25–0.5 kg of gain per week. If you're gaining faster, trim the surplus to keep it lean. Use the <a href="/macro-calculator/">macro calculator</a> to structure your intake.</p>
+</ContentLayout>

@@ -1,0 +1,40 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import ExerciseCalculator from "../components/calculators/ExerciseCalculator.astro";
+import { GENERAL } from "../data/exercises";
+import type { FaqItem } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "How are calories burned during exercise calculated?", a: "We use the MET (Metabolic Equivalent of Task) method: calories = MET × 3.5 × your weight in kg ÷ 200 × minutes. Each activity has a MET value reflecting its intensity, so heavier people and longer or harder sessions burn more calories." },
+  { q: "How many calories does exercise burn?", a: "It depends on the activity, your body weight, and the duration. For example, a 70 kg person burns roughly 300 calories in 30 minutes of running at 6 mph, or about 150 calories walking briskly for the same time." },
+  { q: "Does body weight affect calories burned?", a: "Yes. Heavier bodies require more energy to move, so they burn more calories doing the same activity. That's why this calculator asks for your weight." },
+  { q: "Are these calorie burn numbers exact?", a: "They're solid estimates based on average MET values. Real burn varies with fitness, terrain, intensity, and metabolism, so use the result as a reliable guide rather than an exact figure." },
+];
+---
+
+<CalculatorLayout
+  title="Calories Burned Calculator — Exercise Calorie Calculator (Free)"
+  h1="Calories Burned Calculator"
+  description="Free calories burned calculator. Estimate the calories you burn from running, walking, cycling, swimming, and 15+ activities."
+  intro="Estimate how many calories you burn during exercise — choose an activity, enter your weight and time, and get an instant result."
+  path="/calories-burned-calculator/"
+  faqs={faqs}
+>
+  <ExerciseCalculator activities={GENERAL} defaultIndex={1} />
+
+  <Fragment slot="content">
+    <h2>How the calories burned calculator works</h2>
+    <p>This calculator uses the MET (Metabolic Equivalent of Task) system, the same method used in exercise science. Every activity is assigned a MET value based on its intensity — sitting quietly is 1 MET, brisk walking is about 4.3, and running is 8 or more. The formula combines that intensity with your body weight and how long you exercise to estimate calories burned.</p>
+
+    <h2>Popular activity calculators</h2>
+    <p>Looking for a specific exercise? We have dedicated calculators with paces and intensities for each:</p>
+    <ul>
+      <li><a href="/running-calorie-calculator/">Running calorie calculator</a> — by pace</li>
+      <li><a href="/walking-calorie-calculator/">Walking calorie calculator</a> — by speed</li>
+      <li><a href="/treadmill-calorie-calculator/">Treadmill calorie calculator</a> — walking &amp; running</li>
+    </ul>
+
+    <h2>Burning calories vs. eating calories</h2>
+    <p>Exercise is one side of the energy-balance equation; food is the other. To lose weight you need an overall <a href="/guides/calorie-deficit-guide/">calorie deficit</a>, which you can create by moving more, eating less, or both. Find how many calories you burn at rest and in total each day with the <a href="/tdee-calculator/">TDEE calculator</a>, then use the main <a href="/">calorie calculator</a> to set your daily eating target.</p>
+  </Fragment>
+</CalculatorLayout>

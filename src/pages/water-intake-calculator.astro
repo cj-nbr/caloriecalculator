@@ -1,0 +1,100 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import { inputCls } from "../lib/ui";
+import type { FaqItem } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "How much water should I drink a day?", a: "A common guideline is about 35 ml per kilogram of body weight, plus extra for exercise. For many adults that lands between 2 and 3 litres per day, but needs rise with heat, activity, and body size." },
+  { q: "Does coffee and tea count?", a: "Yes. Despite the myth, moderate caffeinated drinks contribute to your daily fluids. Water is still the best choice because it has no calories, sugar, or other additives." },
+  { q: "What are signs of dehydration?", a: "Dark yellow urine, thirst, headache, fatigue, and dizziness are common signs. A simple check is urine colour — pale straw indicates good hydration." },
+  { q: "Can I drink too much water?", a: "Rarely, but yes. Drinking extreme amounts in a short time can dilute blood sodium (hyponatremia). Spreading intake through the day and drinking to thirst avoids this for almost everyone." },
+];
+---
+
+<CalculatorLayout
+  title="Water Intake Calculator — Daily Hydration Calculator (Free)"
+  h1="Water Intake Calculator"
+  description="Free water intake calculator. Find how much water to drink each day based on your weight and exercise."
+  intro="Find your recommended daily water intake based on your body weight and activity. Stay properly hydrated, every day."
+  path="/water-intake-calculator/"
+  faqs={faqs}
+>
+  <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+      <div class="mb-5 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1" role="tablist" aria-label="Unit system">
+        <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" aria-pressed="true">Metric</button>
+        <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" aria-pressed="false">Imperial</button>
+      </div>
+      <div class="space-y-4">
+        <div class="space-y-1.5"><label for="weight" class="block text-sm font-medium text-ink">Weight <span class="u-wt text-mute">(kg)</span></label><input id="weight" type="number" inputmode="decimal" step="0.1" value="70" class={inputCls} /></div>
+        <div class="space-y-1.5"><label for="exercise" class="block text-sm font-medium text-ink">Daily exercise (minutes)</label><input id="exercise" type="number" inputmode="numeric" min="0" max="300" value="30" class={inputCls} /></div>
+      </div>
+      <button type="submit" class="mt-5 inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Water Intake</button>
+    </form>
+
+    <div class="space-y-5">
+      <div class="card p-6 sm:p-8 text-center">
+        <p class="text-sm text-mute">Recommended daily water</p>
+        <p class="mt-1"><span id="w-main" class="text-display-xl text-ink tabular-nums">2.7</span> <span class="text-lg text-mute u-vol">litres</span></p>
+        <p class="mt-2 text-sm text-body">≈ <span id="w-glasses">11</span> glasses (250 ml each)</p>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="card p-5"><p class="text-xs uppercase tracking-wide text-mute">In cups</p><p id="w-cups" class="mt-1 text-display-sm text-ink tabular-nums">11.4</p></div>
+        <div class="card p-5"><p class="text-xs uppercase tracking-wide text-mute">In fl oz</p><p id="w-oz" class="mt-1 text-display-sm text-ink tabular-nums">91</p></div>
+      </div>
+    </div>
+  </div>
+
+  <Fragment slot="content">
+    <h2>How much water you need</h2>
+    <p>Hydration needs vary with body size, activity, climate, and diet. A practical starting point is roughly 35 ml of water per kilogram of body weight, with additional fluid to replace what you lose during exercise. This calculator combines both to give a personalized daily target.</p>
+    <h2>Why hydration matters</h2>
+    <p>Water regulates body temperature, transports nutrients, cushions joints, and supports nearly every cellular process. Even mild dehydration can reduce energy, focus, and physical performance. Staying hydrated also helps with appetite control, which supports your <a href="/guides/weight-loss-guide/">weight goals</a>.</p>
+    <h2>Tips to drink enough</h2>
+    <ul>
+      <li>Start your day with a glass of water before coffee.</li>
+      <li>Keep a reusable bottle visible at your desk.</li>
+      <li>Drink a glass before each meal — it also aids fullness.</li>
+      <li>Flavour with lemon, cucumber, or mint if plain water feels boring.</li>
+    </ul>
+  </Fragment>
+</CalculatorLayout>
+
+<script>
+  import { waterIntakeLitres } from "../lib/calculations";
+  import { lbToKg, litresToFlOz, litresToCups } from "../lib/units";
+
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+    let unit: "metric" | "imperial" = "metric";
+
+    function render() {
+      let w = parseFloat(($("weight") as HTMLInputElement).value) || 0;
+      if (unit === "imperial") w = lbToKg(w);
+      const ex = parseFloat(($("exercise") as HTMLInputElement).value) || 0;
+      if (w <= 0) return;
+      const litres = waterIntakeLitres(w, ex);
+      if (unit === "imperial") { $("w-main").textContent = litresToFlOz(litres).toFixed(0); }
+      else { $("w-main").textContent = litres.toFixed(1); }
+      document.querySelectorAll(".u-vol").forEach((e) => (e.textContent = unit === "metric" ? "litres" : "fl oz"));
+      $("w-glasses").textContent = String(Math.round((litres * 1000) / 250));
+      $("w-cups").textContent = litresToCups(litres).toFixed(1);
+      $("w-oz").textContent = litresToFlOz(litres).toFixed(0);
+    }
+
+    root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const next = btn.dataset.unit as "metric" | "imperial";
+        if (next === unit) return; unit = next;
+        root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((b) => { const on = b.dataset.unit === unit; b.setAttribute("aria-pressed", String(on)); b.classList.toggle("bg-canvas", on); b.classList.toggle("text-ink", on); b.classList.toggle("shadow-sm", on); b.classList.toggle("text-mute", !on); });
+        document.querySelectorAll(".u-wt").forEach((e) => (e.textContent = unit === "metric" ? "(kg)" : "(lb)"));
+        const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
+        if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
+        render();
+      });
+    });
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    render();
+  }
+</script>

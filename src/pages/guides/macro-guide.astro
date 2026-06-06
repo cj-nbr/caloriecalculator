@@ -1,0 +1,55 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What are macros?", a: "Macros (macronutrients) are protein, carbohydrates, and fat — the three nutrients that supply calories. Protein and carbs have 4 calories per gram; fat has 9." },
+  { q: "What's the best macro ratio?", a: "There's no universally best ratio. A balanced 30% protein, 40% carbs, 30% fat works for most people. The right split is the one that fits your goals and that you can sustain." },
+];
+---
+
+<ContentLayout
+  title="Macro Guide — Understanding Protein, Carbs & Fat"
+  h1="The Complete Macro Guide"
+  description="Understand macronutrients — protein, carbs, and fat — how to set your macro ratios, and how to track them for any goal."
+  path="/guides/macro-guide/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="Calories tell you how much to eat; macros tell you what to eat. Here's how to master them."
+  updated="January 2025"
+  faqs={faqs}
+>
+  <h2>The three macronutrients</h2>
+  <p>Macronutrients are the nutrients your body needs in large amounts, and they're the only things that provide calories:</p>
+  <ul>
+    <li><strong>Protein (4 cal/g):</strong> builds and repairs muscle, keeps you full.</li>
+    <li><strong>Carbohydrates (4 cal/g):</strong> your body's preferred fuel, especially for exercise.</li>
+    <li><strong>Fat (9 cal/g):</strong> essential for hormones, brain health, and absorbing vitamins.</li>
+  </ul>
+
+  <h2>Why track macros, not just calories?</h2>
+  <p>Two diets with identical calories can produce very different results. A high-protein plan preserves muscle and controls hunger far better than a low-protein one at the same calorie count. Tracking macros gives you control over body composition — not just the number on the scale.</p>
+
+  <h2>Setting your macro ratios</h2>
+  <table>
+    <thead><tr><th>Diet style</th><th>Protein</th><th>Carbs</th><th>Fat</th></tr></thead>
+    <tbody>
+      <tr><td>Balanced</td><td>30%</td><td>40%</td><td>30%</td></tr>
+      <tr><td>High protein</td><td>40%</td><td>35%</td><td>25%</td></tr>
+      <tr><td>Low carb</td><td>35%</td><td>25%</td><td>40%</td></tr>
+      <tr><td>Keto</td><td>25%</td><td>5%</td><td>70%</td></tr>
+    </tbody>
+  </table>
+  <p>The <a href="/macro-calculator/">macro calculator</a> turns any calorie target and ratio into exact grams.</p>
+
+  <h2>How to set yours</h2>
+  <ol>
+    <li>Find your daily <a href="/">calorie target</a>.</li>
+    <li>Set <a href="/protein-calculator/">protein</a> first: 1.6–2.2 g/kg.</li>
+    <li>Set fat to at least 0.5 g/kg for hormone health.</li>
+    <li>Fill the remaining calories with carbs.</li>
+  </ol>
+
+  <h2>Do you need to be exact?</h2>
+  <p>No. Getting within 5–10 g of each target is plenty. Consistency over weeks matters far more than precision on any single day. Hit your protein, stay near your calories, and the details will take care of themselves.</p>
+</ContentLayout>

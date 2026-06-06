@@ -1,0 +1,49 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is a calorie deficit?", a: "A calorie deficit means eating fewer calories than your body burns each day. It forces your body to use stored fat for energy, which is how you lose weight." },
+  { q: "How big should my calorie deficit be?", a: "A deficit of 300–500 calories per day is ideal for most people — sustainable and protective of muscle. Larger deficits speed up loss but increase muscle loss and hunger." },
+];
+---
+
+<ContentLayout
+  title="Calorie Deficit Guide — How to Lose Fat with a Deficit"
+  h1="Calorie Deficit: The Complete Guide"
+  description="What a calorie deficit is, how to calculate yours, and how to maintain it for steady, sustainable fat loss."
+  path="/guides/calorie-deficit-guide/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="A calorie deficit is the engine of all fat loss. Here's how to create one that works — and that you can actually stick to."
+  updated="January 2025"
+  faqs={faqs}
+>
+  <h2>What is a calorie deficit?</h2>
+  <p>A calorie deficit occurs when you consume fewer calories than your body uses. Faced with this energy shortfall, your body turns to its stored energy — primarily fat — to make up the difference. Sustain that deficit over time and you lose weight. It's the underlying mechanism behind every successful diet.</p>
+
+  <h2>The 3,500-calorie rule</h2>
+  <p>A pound of body fat stores roughly 3,500 calories (a kilogram, about 7,700). So a daily deficit of 500 calories adds up to about one pound of fat loss per week. This is a useful rule of thumb, though real-world results vary with water, muscle, and metabolic adaptation.</p>
+
+  <h2>How to calculate your deficit</h2>
+  <ol>
+    <li>Find your maintenance calories with the <a href="/tdee-calculator/">TDEE calculator</a>.</li>
+    <li>Subtract 300–500 calories for a moderate, sustainable deficit.</li>
+    <li>That number is your daily intake target.</li>
+  </ol>
+  <p>The <a href="/weight-loss-calculator/">weight loss calculator</a> turns this into an estimated timeline to your goal weight.</p>
+
+  <h2>How to create the deficit</h2>
+  <p>You can build a deficit two ways — eat less or move more — and the best approach combines both:</p>
+  <ul>
+    <li><strong>Nutrition:</strong> prioritize protein and fibre to stay full on fewer calories.</li>
+    <li><strong>Activity:</strong> daily steps (NEAT) burn surprising amounts of energy.</li>
+    <li><strong>Training:</strong> resistance work preserves muscle so the weight you lose is fat.</li>
+  </ul>
+
+  <h2>Avoid an aggressive deficit</h2>
+  <p>It's tempting to slash calories for faster results, but very large deficits cause muscle loss, fatigue, hormonal disruption, and intense hunger that leads to bingeing. A moderate deficit you can sustain for months beats a crash diet you abandon in two weeks.</p>
+
+  <h2>When progress stalls</h2>
+  <p>As you lose weight, your maintenance calories fall, shrinking your deficit. Recalculate every 4–5 kg and adjust. Patience and consistency win.</p>
+</ContentLayout>

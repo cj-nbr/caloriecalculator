@@ -1,0 +1,52 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What does TDEE stand for?", a: "TDEE stands for Total Daily Energy Expenditure — the total number of calories you burn in a day, including rest, activity, exercise, and digestion." },
+  { q: "How do I calculate my TDEE?", a: "Calculate your BMR, then multiply by an activity factor from 1.2 (sedentary) to 1.9 (extra active). Our TDEE calculator does it for you." },
+];
+---
+
+<ContentLayout
+  title="What is TDEE? — Total Daily Energy Expenditure Explained"
+  h1="What is TDEE?"
+  description="A clear explanation of Total Daily Energy Expenditure (TDEE): what it includes, how to calculate it, and how to use it to manage your weight."
+  path="/resources/what-is-tdee/"
+  category="Resources"
+  categoryPath="/resources/"
+  lead="TDEE is the single most useful number for managing your weight. Here's what it is and how to use it."
+  updated="January 2025"
+  faqs={faqs}
+>
+  <h2>Definition</h2>
+  <p>Your Total Daily Energy Expenditure (TDEE) is the total number of calories you burn in a full day. It's your maintenance level — eat this much and your weight stays the same. Eat less and you lose weight; eat more and you gain.</p>
+
+  <h2>The four components of TDEE</h2>
+  <ul>
+    <li><strong>BMR (~60–70%):</strong> calories burned at rest. See <a href="/resources/what-is-bmr/">what is BMR</a>.</li>
+    <li><strong>NEAT (~15–30%):</strong> non-exercise activity — walking, fidgeting, chores, standing.</li>
+    <li><strong>TEF (~10%):</strong> the thermic effect of food, the energy used to digest meals.</li>
+    <li><strong>EAT (~5–15%):</strong> exercise activity — your deliberate workouts.</li>
+  </ul>
+
+  <h2>How TDEE is calculated</h2>
+  <p>TDEE is your <a href="/bmr-calculator/">BMR</a> multiplied by an activity factor:</p>
+  <table>
+    <thead><tr><th>Activity level</th><th>Multiplier</th></tr></thead>
+    <tbody>
+      <tr><td>Sedentary</td><td>1.2</td></tr>
+      <tr><td>Lightly active</td><td>1.375</td></tr>
+      <tr><td>Moderately active</td><td>1.55</td></tr>
+      <tr><td>Very active</td><td>1.725</td></tr>
+      <tr><td>Extra active</td><td>1.9</td></tr>
+    </tbody>
+  </table>
+  <p>The <a href="/tdee-calculator/">TDEE calculator</a> applies this automatically.</p>
+
+  <h2>How to use your TDEE</h2>
+  <p>Once you know your TDEE, weight management becomes straightforward arithmetic. Subtract calories for a <a href="/guides/calorie-deficit-guide/">deficit</a> to lose fat, or add calories for a <a href="/guides/calorie-surplus-guide/">surplus</a> to build muscle. The main <a href="/">calorie calculator</a> combines this with goal-based targets and macros.</p>
+
+  <h2>A note on accuracy</h2>
+  <p>The activity multiplier is the biggest source of variation, since it's self-reported. Start with the estimate, track your weight for 2–3 weeks, and adjust your intake based on what actually happens.</p>
+</ContentLayout>

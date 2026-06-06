@@ -1,0 +1,52 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "How much protein do I need to build muscle?", a: "Research supports 1.6–2.2 g of protein per kg of body weight per day for building muscle. Going higher offers little additional benefit for most people." },
+  { q: "Can I eat too much protein?", a: "For healthy individuals, high-protein diets are safe. There's no strong evidence that high protein harms healthy kidneys. Those with kidney disease should consult a doctor." },
+];
+---
+
+<ContentLayout
+  title="Protein Guide — How Much Protein You Need & Best Sources"
+  h1="The Complete Protein Guide"
+  description="How much protein you need, why it matters, the best high-protein foods, and how to time your intake for muscle and fat loss."
+  path="/guides/protein-guide/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="Protein is the most important macro for body composition. Here's how much you need and where to get it."
+  updated="January 2025"
+  faqs={faqs}
+>
+  <h2>Why protein matters most</h2>
+  <p>Protein builds and repairs muscle, supports immune function, makes enzymes and hormones, and keeps you full longer than carbs or fat. It also has the highest thermic effect — your body burns about 20–30% of protein's calories just digesting it. For anyone trying to lose fat or build muscle, protein is the priority.</p>
+
+  <h2>How much do you need?</h2>
+  <table>
+    <thead><tr><th>Goal</th><th>Protein per kg</th></tr></thead>
+    <tbody>
+      <tr><td>General health (sedentary)</td><td>0.8–1.0 g</td></tr>
+      <tr><td>Active / fat loss</td><td>1.2–1.6 g</td></tr>
+      <tr><td>Building muscle</td><td>1.6–2.2 g</td></tr>
+    </tbody>
+  </table>
+  <p>Use the <a href="/protein-calculator/">protein calculator</a> for a target based on your weight and goal.</p>
+
+  <h2>Best protein sources</h2>
+  <ul>
+    <li><strong>Animal:</strong> chicken breast, turkey, lean beef, fish, eggs, Greek yogurt, cottage cheese, whey protein</li>
+    <li><strong>Plant:</strong> tofu, tempeh, edamame, lentils, chickpeas, black beans, seitan, pea protein</li>
+  </ul>
+  <p>Animal proteins are "complete" (all essential amino acids). Plant eaters can easily get everything by combining a variety of sources across the day.</p>
+
+  <h2>Timing and distribution</h2>
+  <p>Total daily protein matters most, but spreading it across 3–4 meals of 25–40 g each maximizes muscle protein synthesis. A protein-rich breakfast also improves fullness and appetite control for the rest of the day.</p>
+
+  <h2>Practical tips</h2>
+  <ul>
+    <li>Anchor every meal around a protein source.</li>
+    <li>Keep quick options on hand: Greek yogurt, eggs, jerky, protein powder.</li>
+    <li>If you train, include protein within a few hours of your workout.</li>
+  </ul>
+</ContentLayout>

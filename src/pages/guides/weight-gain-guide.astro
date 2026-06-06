@@ -1,0 +1,46 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "How do I gain weight if I'm a hard gainer?", a: "Increase calories gradually, prioritize calorie-dense foods, eat more frequently, and lift weights. If you're not gaining after two weeks, add another 200–300 calories per day." },
+  { q: "How fast should I gain weight?", a: "For lean gains, aim for 0.25–0.5 kg (0.5–1 lb) per week. Faster gains add more fat relative to muscle." },
+];
+---
+
+<ContentLayout
+  title="Weight Gain Guide — How to Gain Weight & Build Muscle"
+  h1="The Complete Weight Gain Guide"
+  description="How to gain weight and build muscle the healthy way: setting a calorie surplus, eating enough protein, and training effectively."
+  path="/guides/weight-gain-guide/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="Gaining weight is harder than it looks for some. Here's how to add quality mass — mostly muscle, not just fat."
+  updated="January 2025"
+  faqs={faqs}
+>
+  <h2>Eat in a calorie surplus</h2>
+  <p>To gain weight you must eat more calories than you burn — a <a href="/guides/calorie-surplus-guide/">calorie surplus</a>. Find your <a href="/tdee-calculator/">TDEE</a> and add 250–500 calories per day. A moderate surplus favours muscle over fat; a huge surplus just makes you gain fat faster.</p>
+
+  <h2>Prioritize protein and training</h2>
+  <p>A surplus alone adds fat. Pair it with resistance training and 1.6–2.2 g of <a href="/protein-calculator/">protein</a> per kg to direct those extra calories toward muscle. Progressive overload — gradually lifting more over time — is the key training driver.</p>
+
+  <h2>Choose calorie-dense foods</h2>
+  <p>If you struggle to eat enough, focus on energy-dense, nutritious foods that don't fill you up too quickly:</p>
+  <ul>
+    <li>Nuts, nut butters, and seeds</li>
+    <li>Olive oil and avocado</li>
+    <li>Whole grains, oats, and rice</li>
+    <li>Full-fat dairy and cheese</li>
+    <li>Smoothies and shakes (easy extra calories)</li>
+  </ul>
+
+  <h2>Eat more frequently</h2>
+  <p>Spreading intake across 4–6 meals and snacks makes a surplus far easier to hit than forcing large meals. Liquid calories like milk and smoothies are especially useful for smaller appetites.</p>
+
+  <h2>Track and adjust</h2>
+  <p>Weigh yourself weekly. If you're not gaining after two weeks, add 200–300 calories per day. If you're gaining too fast (more than ~0.5 kg/week), trim back slightly to keep the gains lean.</p>
+
+  <h2>Be patient</h2>
+  <p>Building real muscle takes months, not weeks. Consistency with your surplus, protein, and training will compound into steady, quality weight gain over time.</p>
+</ContentLayout>

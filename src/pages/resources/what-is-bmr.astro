@@ -1,0 +1,47 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What does BMR stand for?", a: "BMR stands for Basal Metabolic Rate — the number of calories your body burns at complete rest to maintain basic life functions." },
+  { q: "Is BMR the same as RMR?", a: "They're very close. Resting Metabolic Rate (RMR) is measured under slightly less strict conditions and is usually a touch higher, but the terms are often used interchangeably." },
+];
+---
+
+<ContentLayout
+  title="What is BMR? — Basal Metabolic Rate Explained"
+  h1="What is BMR?"
+  description="A clear explanation of Basal Metabolic Rate (BMR): what it is, how it's calculated, what affects it, and why it matters for your calorie needs."
+  path="/resources/what-is-bmr/"
+  category="Resources"
+  categoryPath="/resources/"
+  lead="Basal Metabolic Rate is the foundation of your daily calorie needs. Here's what it means in plain English."
+  updated="January 2025"
+  faqs={faqs}
+>
+  <h2>Definition</h2>
+  <p>Your Basal Metabolic Rate (BMR) is the number of calories your body burns at complete rest just to stay alive. Even if you spent an entire day lying still, your body would still spend this energy keeping your heart beating, your lungs breathing, your brain working, and your cells repairing and regenerating.</p>
+
+  <h2>Why BMR matters</h2>
+  <p>BMR is the largest single component of the calories you burn each day — typically 60–70% of the total. That makes it the foundation for figuring out how much you should eat. Once you know your BMR, you can estimate your full daily needs (your <a href="/resources/what-is-tdee/">TDEE</a>) and set targets for weight loss or gain.</p>
+
+  <h2>How BMR is calculated</h2>
+  <p>The most accurate predictive formula is the Mifflin-St Jeor equation:</p>
+  <ul>
+    <li><strong>Men:</strong> BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age + 5</li>
+    <li><strong>Women:</strong> BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age − 161</li>
+  </ul>
+  <p>The <a href="/bmr-calculator/">BMR calculator</a> does this instantly for you.</p>
+
+  <h2>What affects your BMR</h2>
+  <ul>
+    <li><strong>Muscle mass:</strong> muscle burns more calories at rest than fat, so more <a href="/lean-body-mass-calculator/">lean mass</a> means a higher BMR.</li>
+    <li><strong>Body size:</strong> larger bodies require more energy.</li>
+    <li><strong>Age:</strong> BMR gradually declines with age, partly due to muscle loss.</li>
+    <li><strong>Sex:</strong> men typically have higher BMRs due to greater muscle mass.</li>
+    <li><strong>Genetics and hormones:</strong> thyroid function and genetics cause individual variation.</li>
+  </ul>
+
+  <h2>Can you raise your BMR?</h2>
+  <p>The most reliable lever is building muscle through resistance training. Eating enough protein, staying active, and getting quality sleep all support a healthy metabolism too.</p>
+</ContentLayout>

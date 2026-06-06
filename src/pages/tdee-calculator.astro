@@ -1,0 +1,139 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import { inputCls, segOptCls, selectCls } from "../lib/ui";
+import type { FaqItem } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is TDEE?", a: "Total Daily Energy Expenditure is the total number of calories you burn in a full day, including your resting metabolism (BMR) plus all movement, exercise, and digestion. It's the key number for managing your weight." },
+  { q: "How is TDEE calculated?", a: "TDEE is your BMR multiplied by an activity factor between 1.2 (sedentary) and 1.9 (extra active). This calculator finds your BMR with the Mifflin-St Jeor equation and applies the multiplier you select." },
+  { q: "How do I use my TDEE?", a: "Eat at your TDEE to maintain weight, below it to lose weight, and above it to gain. A 500-calorie daily deficit produces about 1 pound of weight loss per week." },
+  { q: "Why is my TDEE higher than my BMR?", a: "Your BMR only covers resting functions. TDEE adds the energy you spend moving, exercising, and digesting food, so it is always higher — often by 20–90% depending on activity." },
+];
+---
+
+<CalculatorLayout
+  title="TDEE Calculator — Total Daily Energy Expenditure (Free)"
+  h1="TDEE Calculator"
+  description="Free TDEE calculator. Find your Total Daily Energy Expenditure and calorie targets for weight loss, maintenance, and gain."
+  intro="Calculate your Total Daily Energy Expenditure — the calories you burn each day — and see exactly how much to eat for any goal."
+  path="/tdee-calculator/"
+  faqs={faqs}
+>
+  <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+      <div class="mb-5 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1" role="tablist" aria-label="Unit system">
+        <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" aria-pressed="true">Metric</button>
+        <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" aria-pressed="false">Imperial</button>
+      </div>
+      <fieldset class="mb-4">
+        <legend class="mb-1.5 block text-sm font-medium text-ink">Gender</legend>
+        <div class="grid grid-cols-2 gap-2">
+          <label class={segOptCls}><input type="radio" name="sex" value="male" class="sr-only" checked />Male</label>
+          <label class={segOptCls}><input type="radio" name="sex" value="female" class="sr-only" />Female</label>
+        </div>
+      </fieldset>
+      <div class="mb-4 grid grid-cols-2 gap-3">
+        <div class="space-y-1.5"><label for="age" class="block text-sm font-medium text-ink">Age</label><input id="age" type="number" min="15" max="100" value="30" class={inputCls} /></div>
+        <div class="space-y-1.5"><label for="weight" class="block text-sm font-medium text-ink">Weight <span class="weight-unit text-mute">(kg)</span></label><input id="weight" type="number" inputmode="decimal" min="20" step="0.1" value="70" class={inputCls} /></div>
+      </div>
+      <div class="mb-4">
+        <label class="mb-1.5 block text-sm font-medium text-ink">Height <span class="height-unit text-mute">(cm)</span></label>
+        <div id="height-metric"><input id="height-cm" type="number" min="100" max="250" value="175" class={inputCls} /></div>
+        <div id="height-imperial" class="hidden grid-cols-2 gap-3">
+          <div class="relative"><input id="height-ft" type="number" min="3" max="8" value="5" class={inputCls} /><span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">ft</span></div>
+          <div class="relative"><input id="height-in" type="number" min="0" max="11" value="9" class={inputCls} /><span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">in</span></div>
+        </div>
+      </div>
+      <div class="mb-5 space-y-1.5">
+        <label for="activity" class="block text-sm font-medium text-ink">Activity level</label>
+        <div class="relative">
+          <select id="activity" class={selectCls}>
+            <option value="sedentary">Sedentary — little or no exercise</option>
+            <option value="light">Lightly active — 1–3 days/week</option>
+            <option value="moderate" selected>Moderately active — 3–5 days/week</option>
+            <option value="active">Very active — 6–7 days/week</option>
+            <option value="athlete">Extra active — hard exercise + job</option>
+          </select>
+          <svg class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6" /></svg>
+        </div>
+      </div>
+      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate TDEE</button>
+    </form>
+
+    <div class="space-y-5">
+      <div class="card p-6 sm:p-8 text-center">
+        <p class="text-sm text-mute">Your Total Daily Energy Expenditure</p>
+        <p class="mt-1"><span id="tdee-value" class="text-display-xl text-ink tabular-nums">2,556</span> <span class="text-lg text-mute">kcal/day</span></p>
+        <p class="mt-2 text-sm text-body">Eat this much to maintain your current weight.</p>
+      </div>
+      <div class="card overflow-hidden">
+        <div class="border-b border-hairline px-5 py-3"><h3 class="text-sm font-semibold text-ink">Calorie targets by goal</h3></div>
+        <table class="w-full text-sm"><tbody id="goals-table"></tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <Fragment slot="content">
+    <h2>Understanding your TDEE</h2>
+    <p>Your Total Daily Energy Expenditure is the single most important number for managing your weight. It represents every calorie you burn in a day: your <a href="/bmr-calculator/">basal metabolic rate</a>, the energy used to digest food, and all the calories burned through daily movement and exercise.</p>
+    <h2>How activity level changes everything</h2>
+    <p>The activity multiplier has a large impact — the difference between "sedentary" and "extra active" can be 700 calories or more per day for the same person. Be realistic when choosing yours; most people overestimate how active they are.</p>
+    <h2>Turning TDEE into results</h2>
+    <p>Once you know your TDEE, weight management is simple arithmetic. Eat below it for a <a href="/guides/calorie-deficit-guide/">deficit</a> and lose fat; eat above it for a <a href="/guides/calorie-surplus-guide/">surplus</a> and gain muscle. For a complete plan with macros, use the main <a href="/">calorie calculator</a>.</p>
+  </Fragment>
+</CalculatorLayout>
+
+<script>
+  import { bmrMifflinStJeor, tdee, goalCalories, GOALS, type Sex, type ActivityKey, type GoalKey } from "../lib/calculations";
+  import { lbToKg, ftInToCm } from "../lib/units";
+
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+    const fmt = (n: number) => Math.round(n).toLocaleString("en-US");
+    let unit: "metric" | "imperial" = "metric";
+
+    function read() {
+      const sex = (root!.querySelector('input[name="sex"]:checked') as HTMLInputElement).value as Sex;
+      const age = parseFloat(($("age") as HTMLInputElement).value) || 0;
+      const activity = ($("activity") as HTMLSelectElement).value as ActivityKey;
+      let w = parseFloat(($("weight") as HTMLInputElement).value) || 0;
+      let h: number;
+      if (unit === "imperial") { w = lbToKg(w); h = ftInToCm(parseFloat(($("height-ft") as HTMLInputElement).value) || 0, parseFloat(($("height-in") as HTMLInputElement).value) || 0); }
+      else h = parseFloat(($("height-cm") as HTMLInputElement).value) || 0;
+      return { sex, age, activity, w, h };
+    }
+
+    function render() {
+      const { sex, age, activity, w, h } = read();
+      if (w <= 0 || h <= 0 || age <= 0) return;
+      const t = tdee(bmrMifflinStJeor(sex, age, h, w), activity);
+      $("tdee-value").textContent = fmt(t);
+      $("goals-table").innerHTML = (Object.keys(GOALS) as GoalKey[]).map((k) => {
+        const c = goalCalories(t, k, sex);
+        const hl = k === "maintain";
+        return `<tr class="border-b border-hairline last:border-0 ${hl ? "bg-brand/5" : ""}"><td class="px-5 py-2.5 ${hl ? "font-medium text-ink" : "text-body"}">${GOALS[k].label}<span class="block text-xs text-mute">${GOALS[k].rate}</span></td><td class="px-5 py-2.5 text-right font-medium tabular-nums ${hl ? "text-ink" : "text-body"}">${fmt(c)}</td></tr>`;
+      }).join("");
+    }
+
+    root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const next = btn.dataset.unit as "metric" | "imperial";
+        if (next === unit) return;
+        unit = next;
+        root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((b) => { const on = b.dataset.unit === unit; b.setAttribute("aria-pressed", String(on)); b.classList.toggle("bg-canvas", on); b.classList.toggle("text-ink", on); b.classList.toggle("shadow-sm", on); b.classList.toggle("text-mute", !on); });
+        $("height-metric").classList.toggle("hidden", unit === "imperial");
+        $("height-imperial").classList.toggle("hidden", unit === "metric");
+        $("height-imperial").classList.toggle("grid", unit === "imperial");
+        document.querySelectorAll(".weight-unit").forEach((e) => (e.textContent = unit === "metric" ? "(kg)" : "(lb)"));
+        document.querySelectorAll(".height-unit").forEach((e) => (e.textContent = unit === "metric" ? "(cm)" : "(ft / in)"));
+        const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
+        if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
+        render();
+      });
+    });
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    ($("activity") as HTMLSelectElement).addEventListener("change", render);
+    render();
+  }
+</script>

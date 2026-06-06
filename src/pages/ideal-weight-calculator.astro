@@ -1,0 +1,114 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import { inputCls, segOptCls } from "../lib/ui";
+import type { FaqItem } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is ideal body weight?", a: "Ideal body weight (IBW) is a reference weight associated with good health for your height and sex. Several formulas exist — Robinson, Miller, Devine, and Hamwi — and they give slightly different numbers, so a healthy range is more useful than a single figure." },
+  { q: "Which ideal weight formula is best?", a: "No single formula is definitively best. The Devine formula is common in medical dosing, while Robinson and Miller are refinements. We show all four plus a healthy-BMI range so you can see the full picture." },
+  { q: "Is ideal weight the same as a healthy weight?", a: "Not exactly. Ideal weight formulas don't account for muscle mass or body composition. A muscular person may sit above their 'ideal' weight while being very healthy. Use it as a guideline alongside body fat and BMI." },
+  { q: "Does ideal weight differ by age?", a: "These classic formulas depend only on height and sex, not age. Body composition does shift with age, so consider ideal weight a general reference rather than a strict target." },
+];
+---
+
+<CalculatorLayout
+  title="Ideal Weight Calculator — Free Healthy Weight Calculator"
+  h1="Ideal Weight Calculator"
+  description="Free ideal weight calculator using Robinson, Miller, Devine, and Hamwi formulas plus a healthy BMI range."
+  intro="Find your ideal body weight range using four trusted formulas, plus the healthy weight range for your height based on BMI."
+  path="/ideal-weight-calculator/"
+  faqs={faqs}
+>
+  <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+      <div class="mb-5 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1" role="tablist" aria-label="Unit system">
+        <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" aria-pressed="true">Metric</button>
+        <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" aria-pressed="false">Imperial</button>
+      </div>
+      <fieldset class="mb-4">
+        <legend class="mb-1.5 block text-sm font-medium text-ink">Gender</legend>
+        <div class="grid grid-cols-2 gap-2">
+          <label class={segOptCls}><input type="radio" name="sex" value="male" class="sr-only" checked />Male</label>
+          <label class={segOptCls}><input type="radio" name="sex" value="female" class="sr-only" />Female</label>
+        </div>
+      </fieldset>
+      <div>
+        <label class="mb-1.5 block text-sm font-medium text-ink">Height <span class="u-len text-mute">(cm)</span></label>
+        <div id="height-metric"><input id="height-cm" type="number" min="120" max="230" value="175" class={inputCls} /></div>
+        <div id="height-imperial" class="hidden grid-cols-2 gap-3">
+          <div class="relative"><input id="height-ft" type="number" min="3" max="8" value="5" class={inputCls} /><span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">ft</span></div>
+          <div class="relative"><input id="height-in" type="number" min="0" max="11" value="9" class={inputCls} /><span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">in</span></div>
+        </div>
+      </div>
+      <button type="submit" class="mt-5 inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Ideal Weight</button>
+    </form>
+
+    <div class="space-y-5">
+      <div class="card p-6 sm:p-8 text-center">
+        <p class="text-sm text-mute">Healthy weight range (BMI 18.5–24.9)</p>
+        <p class="mt-1"><span id="iw-range" class="text-display-lg text-ink tabular-nums">57–77</span> <span class="text-lg text-mute u-wt">kg</span></p>
+      </div>
+      <div class="card overflow-hidden">
+        <div class="border-b border-hairline px-5 py-3"><h3 class="text-sm font-semibold text-ink">Ideal weight by formula</h3></div>
+        <table class="w-full text-sm"><tbody id="iw-table"></tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <Fragment slot="content">
+    <h2>How ideal weight is calculated</h2>
+    <p>Ideal body weight formulas estimate a healthy weight from your height and sex. They originated in medicine — for example, to calculate drug dosages — and each makes slightly different assumptions, which is why the results vary. Seeing all four side by side gives you a realistic target range rather than a single, falsely precise number.</p>
+    <h2>The healthy BMI range</h2>
+    <p>The range shown at the top is derived from the healthy <a href="/bmi-calculator/">BMI</a> band of 18.5 to 24.9 applied to your height. For most people this is the most practical reference, since it reflects population health data directly.</p>
+    <h2>Beyond the number</h2>
+    <p>Remember that these formulas ignore muscle and body composition. If you lift weights or are athletic, your healthy weight may be higher than the formulas suggest. Combine this with your <a href="/body-fat-calculator/">body fat percentage</a> for the most accurate view of your health.</p>
+  </Fragment>
+</CalculatorLayout>
+
+<script>
+  import { idealWeights, type Sex } from "../lib/calculations";
+  import { ftInToCm } from "../lib/units";
+
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+    let unit: "metric" | "imperial" = "metric";
+
+    function read() {
+      const sex = (root!.querySelector('input[name="sex"]:checked') as HTMLInputElement).value as Sex;
+      let h: number;
+      if (unit === "imperial") h = ftInToCm(parseFloat(($("height-ft") as HTMLInputElement).value) || 0, parseFloat(($("height-in") as HTMLInputElement).value) || 0);
+      else h = parseFloat(($("height-cm") as HTMLInputElement).value) || 0;
+      return { sex, h };
+    }
+
+    function render() {
+      const { sex, h } = read();
+      if (h <= 0) return;
+      const conv = unit === "imperial" ? 2.2046226218 : 1;
+      const u = unit === "imperial" ? " lb" : " kg";
+      const iw = idealWeights(sex, h);
+      const m = h / 100;
+      const low = 18.5 * m * m, high = 24.9 * m * m;
+      $("iw-range").textContent = `${Math.round(low * conv)}–${Math.round(high * conv)}`;
+      const rows: [string, number][] = [["Robinson (1983)", iw.robinson], ["Miller (1983)", iw.miller], ["Devine (1974)", iw.devine], ["Hamwi (1964)", iw.hamwi]];
+      $("iw-table").innerHTML = rows.map(([name, val]) => `<tr class="border-b border-hairline last:border-0"><td class="px-5 py-2.5 text-body">${name}</td><td class="px-5 py-2.5 text-right font-medium text-ink tabular-nums">${(val * conv).toFixed(1)}${u}</td></tr>`).join("");
+    }
+
+    root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const next = btn.dataset.unit as "metric" | "imperial";
+        if (next === unit) return; unit = next;
+        root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((b) => { const on = b.dataset.unit === unit; b.setAttribute("aria-pressed", String(on)); b.classList.toggle("bg-canvas", on); b.classList.toggle("text-ink", on); b.classList.toggle("shadow-sm", on); b.classList.toggle("text-mute", !on); });
+        $("height-metric").classList.toggle("hidden", unit === "imperial");
+        $("height-imperial").classList.toggle("hidden", unit === "metric");
+        $("height-imperial").classList.toggle("grid", unit === "imperial");
+        document.querySelectorAll(".u-len").forEach((e) => (e.textContent = unit === "metric" ? "(cm)" : "(ft / in)"));
+        document.querySelectorAll(".u-wt").forEach((e) => (e.textContent = unit === "metric" ? "kg" : "lb"));
+        render();
+      });
+    });
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    render();
+  }
+</script>

@@ -1,0 +1,59 @@
+---
+import ContentLayout from "../layouts/ContentLayout.astro";
+import { inputCls } from "../lib/ui";
+---
+
+<ContentLayout
+  title="Contact — Calorie Calculator Free"
+  h1="Contact us"
+  description="Get in touch with the Calorie Calculator Free team with questions, feedback, or suggestions."
+  path="/contact/"
+  lead="Questions, feedback, or a calculator you'd love to see? We'd love to hear from you."
+  showCta={false}
+>
+  <p>We read every message. Use the form below or email us directly at
+  <a href="mailto:hello@caloriecalculatorfree.com">hello@caloriecalculatorfree.com</a>.
+  Because our calculators run privately in your browser, we can't see your results —
+  so include any detail you'd like us to know.</p>
+
+  <form id="contact-form" class="not-prose mt-6 space-y-4">
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div class="space-y-1.5">
+        <label for="name" class="block text-sm font-medium text-ink">Name</label>
+        <input id="name" name="name" type="text" required class={inputCls} />
+      </div>
+      <div class="space-y-1.5">
+        <label for="email" class="block text-sm font-medium text-ink">Email</label>
+        <input id="email" name="email" type="email" required class={inputCls} />
+      </div>
+    </div>
+    <div class="space-y-1.5">
+      <label for="subject" class="block text-sm font-medium text-ink">Subject</label>
+      <input id="subject" name="subject" type="text" class={inputCls} />
+    </div>
+    <div class="space-y-1.5">
+      <label for="message" class="block text-sm font-medium text-ink">Message</label>
+      <textarea id="message" name="message" rows="5" required class={inputCls + " h-auto py-2.5"}></textarea>
+    </div>
+    <button type="submit" class="inline-flex h-11 items-center justify-center rounded-full bg-ink px-6 text-sm font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Send message</button>
+  </form>
+
+  <h2>Other ways to reach us</h2>
+  <ul>
+    <li><strong>General & feedback:</strong> <a href="mailto:hello@caloriecalculatorfree.com">hello@caloriecalculatorfree.com</a></li>
+    <li><strong>Privacy questions:</strong> <a href="mailto:privacy@caloriecalculatorfree.com">privacy@caloriecalculatorfree.com</a></li>
+  </ul>
+  <p>We typically respond within two business days.</p>
+</ContentLayout>
+
+<script>
+  // No backend required: compose a mailto from the form fields.
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const get = (id: string) => (document.getElementById(id) as HTMLInputElement)?.value || "";
+    const subject = encodeURIComponent(get("subject") || `Message from ${get("name")}`);
+    const body = encodeURIComponent(`${get("message")}\n\n— ${get("name")} (${get("email")})`);
+    window.location.href = `mailto:hello@caloriecalculatorfree.com?subject=${subject}&body=${body}`;
+  });
+</script>

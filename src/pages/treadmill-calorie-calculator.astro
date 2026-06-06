@@ -1,0 +1,35 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import ExerciseCalculator from "../components/calculators/ExerciseCalculator.astro";
+import { TREADMILL } from "../data/exercises";
+import type { FaqItem } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "How many calories does the treadmill burn?", a: "A 70 kg person burns roughly 150 calories in 30 minutes of brisk treadmill walking, or about 300 calories jogging at 5 mph. Speed, incline, and body weight all increase the burn." },
+  { q: "Does treadmill incline burn more calories?", a: "Yes. Walking or running on an incline raises the intensity (MET value), so you burn noticeably more calories than on a flat setting at the same speed." },
+  { q: "Is the treadmill calorie counter accurate?", a: "Built-in treadmill counters are rough estimates and often overstate calories because they may not account for your exact weight. This calculator lets you enter your weight for a more personalized estimate." },
+  { q: "How long should I use the treadmill to lose weight?", a: "There's no magic number — what matters is your overall weekly calorie balance. 30–45 minutes most days, combined with a sensible calorie deficit, is a sustainable approach for many people." },
+];
+---
+
+<CalculatorLayout
+  title="Treadmill Calorie Calculator — Calories Burned (Free)"
+  h1="Treadmill Calorie Calculator"
+  description="Free treadmill calorie calculator. Estimate calories burned walking or running on a treadmill based on your weight and time."
+  intro="Estimate how many calories you burn on the treadmill, whether you're walking or running. Enter your pace, weight, and time."
+  path="/treadmill-calorie-calculator/"
+  faqs={faqs}
+>
+  <ExerciseCalculator activities={TREADMILL} defaultIndex={1} />
+
+  <Fragment slot="content">
+    <h2>Calories burned on the treadmill</h2>
+    <p>The treadmill is a gym staple for good reason — it lets you control your pace and incline precisely. Your calorie burn depends on whether you walk or run, how fast, and your body weight. This calculator estimates it from MET values for common treadmill speeds, and lets you enter your real weight for a more accurate number than the machine's built-in counter.</p>
+
+    <h2>Why the machine's number can be off</h2>
+    <p>Treadmill calorie displays often assume a generic body weight and don't know your true stats, so they frequently overestimate. Entering your own weight here gives a more personalized estimate. For incline work, choose the incline option, since climbing burns significantly more.</p>
+
+    <h2>Make your treadmill time count</h2>
+    <p>Burning calories on the treadmill supports the <a href="/guides/calorie-deficit-guide/">calorie deficit</a> that leads to weight loss, but pairing it with the right daily intake is what delivers results — set yours with the <a href="/">calorie calculator</a>. Prefer the outdoors? See the <a href="/running-calorie-calculator/">running</a> and <a href="/walking-calorie-calculator/">walking</a> calculators.</p>
+  </Fragment>
+</CalculatorLayout>

@@ -1,0 +1,137 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import { inputCls, segOptCls } from "../lib/ui";
+import type { FaqItem } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is BMR?", a: "Basal Metabolic Rate is the number of calories your body burns at complete rest to maintain vital functions like breathing, circulation, and cell repair. It usually accounts for 60–70% of your total daily calorie burn." },
+  { q: "How is BMR calculated?", a: "This calculator uses the Mifflin-St Jeor equation, which factors in your weight, height, age, and sex. It is considered the most accurate predictive formula for the general population." },
+  { q: "How can I increase my BMR?", a: "Building muscle through resistance training is the most reliable way to raise your BMR, since muscle tissue burns more calories at rest than fat. Staying active, eating enough protein, and getting good sleep also help." },
+  { q: "What is the difference between BMR and TDEE?", a: "BMR is the calories you burn at rest. TDEE (Total Daily Energy Expenditure) is your BMR plus the calories burned through daily activity and exercise. Use the TDEE calculator to find your full daily needs." },
+];
+---
+
+<CalculatorLayout
+  title="BMR Calculator — Basal Metabolic Rate Calculator (Free)"
+  h1="BMR Calculator"
+  description="Free BMR calculator using the Mifflin-St Jeor equation. Find how many calories your body burns at rest."
+  intro="Calculate your Basal Metabolic Rate — the calories your body burns at complete rest — using the trusted Mifflin-St Jeor equation."
+  path="/bmr-calculator/"
+  faqs={faqs}
+>
+  <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+      <div class="mb-5 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1" role="tablist" aria-label="Unit system">
+        <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" aria-pressed="true">Metric</button>
+        <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" aria-pressed="false">Imperial</button>
+      </div>
+      <fieldset class="mb-4">
+        <legend class="mb-1.5 block text-sm font-medium text-ink">Gender</legend>
+        <div class="grid grid-cols-2 gap-2">
+          <label class={segOptCls}><input type="radio" name="sex" value="male" class="sr-only" checked />Male</label>
+          <label class={segOptCls}><input type="radio" name="sex" value="female" class="sr-only" />Female</label>
+        </div>
+      </fieldset>
+      <div class="mb-4 grid grid-cols-2 gap-3">
+        <div class="space-y-1.5">
+          <label for="age" class="block text-sm font-medium text-ink">Age</label>
+          <input id="age" type="number" min="15" max="100" value="30" class={inputCls} />
+        </div>
+        <div class="space-y-1.5">
+          <label for="weight" class="block text-sm font-medium text-ink">Weight <span class="weight-unit text-mute">(kg)</span></label>
+          <input id="weight" type="number" inputmode="decimal" min="20" step="0.1" value="70" class={inputCls} />
+        </div>
+      </div>
+      <div class="mb-5">
+        <label class="mb-1.5 block text-sm font-medium text-ink">Height <span class="height-unit text-mute">(cm)</span></label>
+        <div id="height-metric"><input id="height-cm" type="number" min="100" max="250" value="175" class={inputCls} /></div>
+        <div id="height-imperial" class="hidden grid-cols-2 gap-3">
+          <div class="relative"><input id="height-ft" type="number" min="3" max="8" value="5" class={inputCls} /><span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">ft</span></div>
+          <div class="relative"><input id="height-in" type="number" min="0" max="11" value="9" class={inputCls} /><span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">in</span></div>
+        </div>
+      </div>
+      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate BMR</button>
+    </form>
+
+    <div class="space-y-5">
+      <div class="card p-6 sm:p-8 text-center">
+        <p class="text-sm text-mute">Your Basal Metabolic Rate</p>
+        <p class="mt-1"><span id="bmr-value" class="text-display-xl text-ink tabular-nums">1,649</span> <span class="text-lg text-mute">kcal/day</span></p>
+        <p class="mt-2 text-sm text-body">These are the calories you'd burn resting in bed all day.</p>
+      </div>
+      <div class="card overflow-hidden">
+        <div class="border-b border-hairline px-5 py-3"><h3 class="text-sm font-semibold text-ink">Daily calories by activity level (TDEE)</h3></div>
+        <table class="w-full text-sm">
+          <tbody id="tdee-table"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <Fragment slot="content">
+    <h2>What your BMR means</h2>
+    <p>Your Basal Metabolic Rate is the energy your body needs to keep its core systems running while at complete rest — the heart beating, the lungs breathing, cells repairing, and body temperature steady. It is the largest single component of the calories you burn each day.</p>
+    <h2>From BMR to daily calories</h2>
+    <p>Nobody spends all day at rest. To estimate your real daily needs, your BMR is multiplied by an activity factor to produce your <a href="/tdee-calculator/">Total Daily Energy Expenditure (TDEE)</a>. From there, you can create a <a href="/guides/calorie-deficit-guide/">calorie deficit</a> to lose weight or a surplus to gain it. Use the full <a href="/">calorie calculator</a> to get goal-based targets and macros.</p>
+    <h2>The Mifflin-St Jeor equation</h2>
+    <p>For men: BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age + 5. For women: the same formula ending in − 161. Research has found it to be more accurate for most people than the older Harris-Benedict equation.</p>
+  </Fragment>
+</CalculatorLayout>
+
+<script>
+  import { bmrMifflinStJeor, tdee, ACTIVITY_LEVELS, type Sex, type ActivityKey } from "../lib/calculations";
+  import { lbToKg, ftInToCm } from "../lib/units";
+
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+    const fmt = (n: number) => Math.round(n).toLocaleString("en-US");
+    let unit: "metric" | "imperial" = "metric";
+
+    function read() {
+      const sex = (root!.querySelector('input[name="sex"]:checked') as HTMLInputElement).value as Sex;
+      const age = parseFloat(($("age") as HTMLInputElement).value) || 0;
+      let w = parseFloat(($("weight") as HTMLInputElement).value) || 0;
+      let h: number;
+      if (unit === "imperial") {
+        w = lbToKg(w);
+        h = ftInToCm(parseFloat(($("height-ft") as HTMLInputElement).value) || 0, parseFloat(($("height-in") as HTMLInputElement).value) || 0);
+      } else h = parseFloat(($("height-cm") as HTMLInputElement).value) || 0;
+      return { sex, age, w, h };
+    }
+
+    function render() {
+      const { sex, age, w, h } = read();
+      if (w <= 0 || h <= 0 || age <= 0) return;
+      const bmr = bmrMifflinStJeor(sex, age, h, w);
+      $("bmr-value").textContent = fmt(bmr);
+      $("tdee-table").innerHTML = (Object.keys(ACTIVITY_LEVELS) as ActivityKey[]).map((k) => {
+        const lvl = ACTIVITY_LEVELS[k];
+        return `<tr class="border-b border-hairline last:border-0"><td class="px-5 py-2.5 text-body">${lvl.label}<span class="block text-xs text-mute">${lvl.hint}</span></td><td class="px-5 py-2.5 text-right font-medium text-ink tabular-nums">${fmt(tdee(bmr, k))}</td></tr>`;
+      }).join("");
+    }
+
+    root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const next = btn.dataset.unit as "metric" | "imperial";
+        if (next === unit) return;
+        unit = next;
+        root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((b) => {
+          const on = b.dataset.unit === unit;
+          b.setAttribute("aria-pressed", String(on));
+          b.classList.toggle("bg-canvas", on); b.classList.toggle("text-ink", on); b.classList.toggle("shadow-sm", on); b.classList.toggle("text-mute", !on);
+        });
+        $("height-metric").classList.toggle("hidden", unit === "imperial");
+        $("height-imperial").classList.toggle("hidden", unit === "metric");
+        $("height-imperial").classList.toggle("grid", unit === "imperial");
+        document.querySelectorAll(".weight-unit").forEach((e) => (e.textContent = unit === "metric" ? "(kg)" : "(lb)"));
+        document.querySelectorAll(".height-unit").forEach((e) => (e.textContent = unit === "metric" ? "(cm)" : "(ft / in)"));
+        const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
+        if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
+        render();
+      });
+    });
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    render();
+  }
+</script>

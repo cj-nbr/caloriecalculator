@@ -1,0 +1,449 @@
+---
+/**
+ * CalorieCalculator — the flagship interactive calculator.
+ * Renders a form + results panel. All computation runs client-side in the
+ * <script> below, importing the shared lib so the math has one source of truth.
+ */
+const inputCls =
+  "w-full h-11 rounded-lg border border-hairline bg-canvas px-3.5 text-sm text-ink placeholder:text-mute transition-colors focus:border-brand focus:outline-none";
+const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
+---
+
+<div
+  class="grid gap-6 lg:grid-cols-[minmax(0,420px)_1fr]"
+  id="calc-root"
+  data-calc="calorie"
+>
+  <!-- ── Form ───────────────────────────────────────────────── -->
+  <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+    <!-- Unit system -->
+    <div
+      class="mb-5 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1"
+      role="tablist"
+      aria-label="Unit system"
+    >
+      <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium transition-colors" aria-pressed="true">Metric</button>
+      <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium transition-colors" aria-pressed="false">Imperial</button>
+    </div>
+
+    <!-- Sex -->
+    <fieldset class="mb-4">
+      <legend class="mb-1.5 block text-sm font-medium text-ink">Gender</legend>
+      <div class="grid grid-cols-2 gap-2">
+        <label class="sex-opt flex h-11 cursor-pointer items-center justify-center gap-2 rounded-lg border border-hairline text-sm font-medium text-body transition-colors has-[:checked]:border-brand has-[:checked]:bg-brand/10 has-[:checked]:text-ink">
+          <input type="radio" name="sex" value="male" class="sr-only" checked />
+          Male
+        </label>
+        <label class="sex-opt flex h-11 cursor-pointer items-center justify-center gap-2 rounded-lg border border-hairline text-sm font-medium text-body transition-colors has-[:checked]:border-brand has-[:checked]:bg-brand/10 has-[:checked]:text-ink">
+          <input type="radio" name="sex" value="female" class="sr-only" />
+          Female
+        </label>
+      </div>
+    </fieldset>
+
+    <div class="mb-4 grid grid-cols-2 gap-3">
+      <!-- Age -->
+      <div class="space-y-1.5">
+        <label for="age" class="block text-sm font-medium text-ink">Age</label>
+        <input id="age" name="age" type="number" inputmode="numeric" min="15" max="100" value="30" class={inputCls} />
+      </div>
+      <!-- Weight -->
+      <div class="space-y-1.5">
+        <label for="weight" class="block text-sm font-medium text-ink">
+          Weight <span class="weight-unit text-mute">(kg)</span>
+        </label>
+        <input id="weight" name="weight" type="number" inputmode="decimal" min="20" step="0.1" value="70" class={inputCls} />
+      </div>
+    </div>
+
+    <!-- Height -->
+    <div class="mb-4">
+      <label class="mb-1.5 block text-sm font-medium text-ink">
+        Height <span class="height-unit text-mute">(cm)</span>
+      </label>
+      <div id="height-metric">
+        <input id="height-cm" type="number" inputmode="numeric" min="100" max="250" value="175" class={inputCls} />
+      </div>
+      <div id="height-imperial" class="hidden grid-cols-2 gap-3">
+        <div class="relative">
+          <input id="height-ft" type="number" inputmode="numeric" min="3" max="8" value="5" class={inputCls} />
+          <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">ft</span>
+        </div>
+        <div class="relative">
+          <input id="height-in" type="number" inputmode="numeric" min="0" max="11" value="9" class={inputCls} />
+          <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">in</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity -->
+    <div class="mb-5 space-y-1.5">
+      <label for="activity" class="block text-sm font-medium text-ink">Activity level</label>
+      <div class="relative">
+        <select id="activity" name="activity" class={selectCls}>
+          <option value="sedentary">Sedentary — little or no exercise</option>
+          <option value="light">Lightly active — 1–3 days/week</option>
+          <option value="moderate" selected>Moderately active — 3–5 days/week</option>
+          <option value="active">Very active — 6–7 days/week</option>
+          <option value="athlete">Extra active — hard exercise + job</option>
+        </select>
+        <svg class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6" /></svg>
+      </div>
+    </div>
+
+    <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">
+      Calculate
+    </button>
+  </form>
+
+  <!-- ── Results ────────────────────────────────────────────── -->
+  <div id="calc-results" class="space-y-5">
+    <!-- Headline -->
+    <div class="card relative overflow-hidden p-6 sm:p-8">
+      <div class="bg-grid pointer-events-none absolute inset-0 opacity-40" aria-hidden="true"></div>
+      <div class="relative">
+        <div class="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <p class="text-sm text-mute">Your daily calories to <span id="goal-label" class="text-ink">maintain weight</span></p>
+            <p class="mt-1">
+              <span id="result-calories" class="text-display-lg text-ink tabular-nums">2,000</span>
+              <span class="text-lg text-mute">kcal/day</span>
+            </p>
+          </div>
+          <div class="text-right">
+            <p class="text-xs text-mute">Weekly</p>
+            <p id="result-weekly" class="text-display-sm text-ink tabular-nums">14,000</p>
+          </div>
+        </div>
+
+        <!-- Goal selector -->
+        <div class="mt-5 space-y-1.5">
+          <label for="goal" class="block text-xs font-medium text-mute">Adjust goal</label>
+          <div class="relative">
+            <select id="goal" class="h-11 w-full appearance-none rounded-lg border border-hairline bg-canvas px-3.5 pr-9 text-sm text-ink focus:border-brand focus:outline-none">
+              <option value="maintain" selected>Maintain weight</option>
+              <option value="mildLoss">Mild weight loss — 0.5 lb/week</option>
+              <option value="loss">Weight loss — 1 lb/week</option>
+              <option value="extremeLoss">Extreme loss — 2 lb/week</option>
+              <option value="mildGain">Mild weight gain — 0.5 lb/week</option>
+              <option value="gain">Weight gain — 1 lb/week</option>
+              <option value="extremeGain">Extreme gain — 2 lb/week</option>
+            </select>
+            <svg class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6" /></svg>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="mt-4 flex flex-wrap gap-2">
+          <button type="button" id="copy-btn" class="inline-flex h-9 items-center gap-1.5 rounded-full border border-hairline px-3 text-xs font-medium text-body transition-colors hover:border-ink hover:text-ink">
+            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span id="copy-label">Copy</span>
+          </button>
+          <button type="button" id="print-btn" class="inline-flex h-9 items-center gap-1.5 rounded-full border border-hairline px-3 text-xs font-medium text-body transition-colors hover:border-ink hover:text-ink">
+            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+            Print / PDF
+          </button>
+          <button type="button" id="share-btn" class="inline-flex h-9 items-center gap-1.5 rounded-full border border-hairline px-3 text-xs font-medium text-body transition-colors hover:border-ink hover:text-ink">
+            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
+            <span id="share-label">Share</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BMR + TDEE -->
+    <div class="grid grid-cols-2 gap-4">
+      <div class="card p-5">
+        <p class="text-xs uppercase tracking-wide text-mute">BMR</p>
+        <p id="result-bmr" class="mt-1 text-display-sm text-ink tabular-nums">1,600</p>
+        <p class="mt-1 text-xs text-mute">Basal metabolic rate</p>
+      </div>
+      <div class="card p-5">
+        <p class="text-xs uppercase tracking-wide text-mute">TDEE</p>
+        <p id="result-tdee" class="mt-1 text-display-sm text-ink tabular-nums">2,000</p>
+        <p class="mt-1 text-xs text-mute">Total daily energy</p>
+      </div>
+    </div>
+
+    <!-- Macros -->
+    <div class="card p-5 sm:p-6">
+      <div class="flex items-center justify-between">
+        <h3 class="text-sm font-semibold text-ink">Recommended macros</h3>
+        <span class="text-xs text-mute">30P / 40C / 30F</span>
+      </div>
+      <div class="mt-4 flex flex-col items-center gap-6 sm:flex-row">
+        <!-- Donut -->
+        <svg viewBox="0 0 120 120" class="h-32 w-32 shrink-0 -rotate-90" role="img" aria-label="Macro distribution">
+          <circle cx="60" cy="60" r="52" fill="none" stroke="var(--color-hairline)" stroke-width="14" />
+          <circle id="arc-protein" cx="60" cy="60" r="52" fill="none" stroke="var(--color-protein)" stroke-width="14" stroke-linecap="round" stroke-dasharray="0 327" />
+          <circle id="arc-carbs" cx="60" cy="60" r="52" fill="none" stroke="var(--color-carbs)" stroke-width="14" stroke-linecap="round" stroke-dasharray="0 327" />
+          <circle id="arc-fat" cx="60" cy="60" r="52" fill="none" stroke="var(--color-fat)" stroke-width="14" stroke-linecap="round" stroke-dasharray="0 327" />
+        </svg>
+        <!-- Legend -->
+        <ul class="w-full space-y-3">
+          <li class="flex items-center justify-between gap-3">
+            <span class="flex items-center gap-2 text-sm text-body"><span class="h-3 w-3 rounded-full bg-protein"></span>Protein</span>
+            <span class="text-sm font-medium text-ink"><span id="macro-protein" class="tabular-nums">150</span> g</span>
+          </li>
+          <li class="flex items-center justify-between gap-3">
+            <span class="flex items-center gap-2 text-sm text-body"><span class="h-3 w-3 rounded-full bg-carbs"></span>Carbs</span>
+            <span class="text-sm font-medium text-ink"><span id="macro-carbs" class="tabular-nums">200</span> g</span>
+          </li>
+          <li class="flex items-center justify-between gap-3">
+            <span class="flex items-center gap-2 text-sm text-body"><span class="h-3 w-3 rounded-full bg-fat"></span>Fat</span>
+            <span class="text-sm font-medium text-ink"><span id="macro-fat" class="tabular-nums">67</span> g</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- All goals table -->
+    <div class="card overflow-hidden">
+      <table class="w-full text-sm">
+        <caption class="sr-only">Daily calories for each weight goal</caption>
+        <thead>
+          <tr class="border-b border-hairline text-left text-xs uppercase tracking-wide text-mute">
+            <th scope="col" class="px-4 py-3 font-medium">Goal</th>
+            <th scope="col" class="px-4 py-3 text-right font-medium">Per day</th>
+            <th scope="col" class="hidden px-4 py-3 text-right font-medium sm:table-cell">Per week</th>
+          </tr>
+        </thead>
+        <tbody id="goals-table"></tbody>
+      </table>
+    </div>
+
+    <p class="text-xs leading-relaxed text-mute">
+      Estimates use the Mifflin-St Jeor equation. Individual needs vary —
+      use these as a starting point and adjust based on real-world results.
+    </p>
+  </div>
+</div>
+
+<script>
+  import {
+    bmrMifflinStJeor,
+    tdee,
+    goalCalories,
+    macrosFromCalories,
+    GOALS,
+    type Sex,
+    type ActivityKey,
+    type GoalKey,
+  } from "../../lib/calculations";
+  import { lbToKg, ftInToCm } from "../../lib/units";
+
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+    const fmt = (n: number) => Math.round(n).toLocaleString("en-US");
+
+    let unit: "metric" | "imperial" = "metric";
+
+    const form = $("calc-form") as HTMLFormElement;
+    const goalSelect = $("goal") as HTMLSelectElement;
+
+    function readInputs() {
+      const sex = (form.querySelector('input[name="sex"]:checked') as HTMLInputElement)
+        .value as Sex;
+      const age = parseFloat(($("age") as HTMLInputElement).value) || 0;
+      const activity = ($("activity") as HTMLSelectElement).value as ActivityKey;
+
+      let weightKg = parseFloat(($("weight") as HTMLInputElement).value) || 0;
+      let heightCm: number;
+      if (unit === "imperial") {
+        weightKg = lbToKg(weightKg);
+        const ft = parseFloat(($("height-ft") as HTMLInputElement).value) || 0;
+        const inch = parseFloat(($("height-in") as HTMLInputElement).value) || 0;
+        heightCm = ftInToCm(ft, inch);
+      } else {
+        heightCm = parseFloat(($("height-cm") as HTMLInputElement).value) || 0;
+      }
+      return { sex, age, activity, weightKg, heightCm };
+    }
+
+    function setArc(id: string, fraction: number, offset: number) {
+      const C = 2 * Math.PI * 52; // ≈ 326.7
+      const len = Math.max(0, fraction * C - 2); // small gap between segments
+      const el = $(id) as unknown as SVGCircleElement;
+      el.setAttribute("stroke-dasharray", `${len} ${C - len}`);
+      el.setAttribute("stroke-dashoffset", `${-offset * C}`);
+    }
+
+    function render() {
+      const { sex, age, activity, weightKg, heightCm } = readInputs();
+      if (weightKg <= 0 || heightCm <= 0 || age <= 0) return;
+
+      const bmr = bmrMifflinStJeor(sex, age, heightCm, weightKg);
+      const tdeeVal = tdee(bmr, activity);
+      const goal = goalSelect.value as GoalKey;
+      const cals = goalCalories(tdeeVal, goal, sex);
+
+      $("result-bmr").textContent = fmt(bmr);
+      $("result-tdee").textContent = fmt(tdeeVal);
+      $("result-calories").textContent = fmt(cals);
+      $("result-weekly").textContent = fmt(cals * 7);
+      $("goal-label").textContent = GOALS[goal].label.toLowerCase();
+
+      // Macros
+      const m = macrosFromCalories(cals);
+      $("macro-protein").textContent = String(m.proteinG);
+      $("macro-carbs").textContent = String(m.carbsG);
+      $("macro-fat").textContent = String(m.fatG);
+      const pF = m.proteinKcal / cals;
+      const cF = m.carbsKcal / cals;
+      const fF = m.fatKcal / cals;
+      setArc("arc-protein", pF, 0);
+      setArc("arc-carbs", cF, pF);
+      setArc("arc-fat", fF, pF + cF);
+
+      // Goals table
+      const tbody = $("goals-table");
+      tbody.innerHTML = (Object.keys(GOALS) as GoalKey[])
+        .map((k) => {
+          const c = goalCalories(tdeeVal, k, sex);
+          const active = k === goal;
+          return `<tr class="border-b border-hairline last:border-0 ${active ? "bg-brand/5" : ""}">
+            <td class="px-4 py-2.5 ${active ? "text-ink font-medium" : "text-body"}">${GOALS[k].label}</td>
+            <td class="px-4 py-2.5 text-right tabular-nums ${active ? "text-ink font-medium" : "text-body"}">${fmt(c)}</td>
+            <td class="hidden px-4 py-2.5 text-right tabular-nums text-mute sm:table-cell">${fmt(c * 7)}</td>
+          </tr>`;
+        })
+        .join("");
+
+      saveRecent({ cals: Math.round(cals), goal, sex });
+      syncUrl({ sex, age, activity, goal });
+    }
+
+    // Reflect inputs in the URL so results are shareable.
+    function syncUrl(p: { sex: string; age: number; activity: string; goal: string }) {
+      try {
+        const u = new URL(window.location.href);
+        u.searchParams.set("u", unit);
+        u.searchParams.set("s", p.sex);
+        u.searchParams.set("a", String(p.age));
+        u.searchParams.set("w", ($("weight") as HTMLInputElement).value);
+        if (unit === "imperial") {
+          u.searchParams.set("hf", ($("height-ft") as HTMLInputElement).value);
+          u.searchParams.set("hi", ($("height-in") as HTMLInputElement).value);
+          u.searchParams.delete("h");
+        } else {
+          u.searchParams.set("h", ($("height-cm") as HTMLInputElement).value);
+          u.searchParams.delete("hf");
+          u.searchParams.delete("hi");
+        }
+        u.searchParams.set("act", p.activity);
+        u.searchParams.set("g", p.goal);
+        history.replaceState(null, "", u);
+      } catch {}
+    }
+
+    // Prefill from URL params on first load (shared links).
+    function prefillFromUrl() {
+      try {
+        const q = new URLSearchParams(window.location.search);
+        if (![...q.keys()].length) return;
+        if (q.get("u") === "imperial") {
+          (root!.querySelector('.unit-tab[data-unit="imperial"]') as HTMLButtonElement)?.click();
+        }
+        const setV = (id: string, key: string) => { const v = q.get(key); if (v !== null) (document.getElementById(id) as HTMLInputElement).value = v; };
+        const s = q.get("s");
+        if (s === "male" || s === "female") {
+          (root!.querySelector(`input[name="sex"][value="${s}"]`) as HTMLInputElement).checked = true;
+        }
+        setV("age", "a");
+        setV("weight", "w");
+        setV("height-cm", "h");
+        setV("height-ft", "hf");
+        setV("height-in", "hi");
+        const act = q.get("act"); if (act) ($("activity") as HTMLSelectElement).value = act;
+        const g = q.get("g"); if (g) goalSelect.value = g;
+      } catch {}
+    }
+
+    // Unit toggle
+    root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const next = btn.dataset.unit as "metric" | "imperial";
+        if (next === unit) return;
+        unit = next;
+        root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((b) => {
+          const on = b.dataset.unit === unit;
+          b.setAttribute("aria-pressed", String(on));
+          b.classList.toggle("bg-canvas", on);
+          b.classList.toggle("text-ink", on);
+          b.classList.toggle("shadow-sm", on);
+          b.classList.toggle("text-mute", !on);
+        });
+        // toggle height inputs + unit labels
+        $("height-metric").classList.toggle("hidden", unit === "imperial");
+        $("height-imperial").classList.toggle("hidden", unit === "metric");
+        $("height-imperial").classList.toggle("grid", unit === "imperial");
+        const wU = unit === "metric" ? "(kg)" : "(lb)";
+        const hU = unit === "metric" ? "(cm)" : "(ft / in)";
+        document.querySelectorAll(".weight-unit").forEach((e) => (e.textContent = wU));
+        document.querySelectorAll(".height-unit").forEach((e) => (e.textContent = hU));
+        // convert current weight value
+        const w = $("weight") as HTMLInputElement;
+        const v = parseFloat(w.value) || 0;
+        if (v) w.value = (unit === "imperial" ? v * 2.2046226218 : v / 2.2046226218).toFixed(1);
+        render();
+      });
+    });
+
+    // Recent calculations (localStorage)
+    function saveRecent(entry: { cals: number; goal: string; sex: string }) {
+      try {
+        const key = "ccf-recent";
+        const list = JSON.parse(localStorage.getItem(key) || "[]");
+        list.unshift({ ...entry, t: Date.now() });
+        localStorage.setItem(key, JSON.stringify(list.slice(0, 5)));
+      } catch {}
+    }
+
+    // Copy result
+    $("copy-btn")?.addEventListener("click", async () => {
+      const text = `My daily calorie target (${$("goal-label").textContent}): ${$("result-calories").textContent} kcal/day. BMR ${$("result-bmr").textContent}, TDEE ${$("result-tdee").textContent}. Protein ${$("macro-protein").textContent}g · Carbs ${$("macro-carbs").textContent}g · Fat ${$("macro-fat").textContent}g. — caloriecalculatorfree.com`;
+      try {
+        await navigator.clipboard.writeText(text);
+        const l = $("copy-label");
+        l.textContent = "Copied!";
+        setTimeout(() => (l.textContent = "Copy"), 1500);
+      } catch {}
+    });
+
+    // Print / PDF
+    $("print-btn")?.addEventListener("click", () => window.print());
+
+    // Share — Web Share API with clipboard fallback (URL carries the inputs).
+    $("share-btn")?.addEventListener("click", async () => {
+      const url = window.location.href;
+      const label = $("share-label");
+      const shareData = {
+        title: "My calorie results — Calorie Calculator Free",
+        text: `My daily calorie target: ${$("result-calories").textContent} kcal. Calculate yours:`,
+        url,
+      };
+      try {
+        if (navigator.share) {
+          await navigator.share(shareData);
+        } else {
+          await navigator.clipboard.writeText(url);
+          label.textContent = "Link copied!";
+          setTimeout(() => (label.textContent = "Share"), 1500);
+        }
+      } catch {}
+    });
+
+    // Init: set metric tab active styles
+    root.querySelector<HTMLButtonElement>('.unit-tab[data-unit="metric"]')?.classList.add("bg-canvas", "text-ink", "shadow-sm");
+    root.querySelector<HTMLButtonElement>('.unit-tab[data-unit="imperial"]')?.classList.add("text-mute");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      render();
+    });
+    goalSelect.addEventListener("change", render);
+    prefillFromUrl();
+    render(); // initial
+  }
+</script>

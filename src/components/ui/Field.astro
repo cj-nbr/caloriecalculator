@@ -1,0 +1,18 @@
+---
+/**
+ * Field — labelled input wrapper used across calculators.
+ * Slot in an <input>/<select>; pass label + optional hint/suffix.
+ */
+interface Props {
+  label: string;
+  for?: string;
+  hint?: string;
+}
+const { label, for: htmlFor, hint } = Astro.props;
+---
+
+<div class="space-y-1.5">
+  <label for={htmlFor} class="block text-sm font-medium text-ink">{label}</label>
+  <slot />
+  {hint && <p class="text-xs text-mute">{hint}</p>}
+</div>

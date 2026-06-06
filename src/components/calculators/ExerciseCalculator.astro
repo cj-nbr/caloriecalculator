@@ -1,0 +1,95 @@
+---
+import { inputCls, selectCls } from "../../lib/ui";
+import type { Activity } from "../../data/exercises";
+
+interface Props {
+  activities: Activity[];
+  defaultIndex?: number;
+}
+const { activities, defaultIndex = 0 } = Astro.props;
+---
+
+<div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+  <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+    <div class="mb-5 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1" role="tablist" aria-label="Unit system">
+      <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" aria-pressed="true">Metric</button>
+      <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" aria-pressed="false">Imperial</button>
+    </div>
+    <div class="space-y-4">
+      <div class="space-y-1.5">
+        <label for="activity" class="block text-sm font-medium text-ink">Activity</label>
+        <div class="relative">
+          <select id="activity" class={selectCls}>
+            {activities.map((a, i) => (
+              <option value={a.met} selected={i === defaultIndex}>{a.label}</option>
+            ))}
+          </select>
+          <svg class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6" /></svg>
+        </div>
+      </div>
+      <div class="space-y-1.5">
+        <label for="weight" class="block text-sm font-medium text-ink">Weight <span class="u-wt text-mute">(kg)</span></label>
+        <input id="weight" type="number" inputmode="decimal" step="0.1" value="70" class={inputCls} />
+      </div>
+      <div class="space-y-1.5">
+        <label for="duration" class="block text-sm font-medium text-ink">Duration (minutes)</label>
+        <input id="duration" type="number" inputmode="numeric" min="1" max="600" value="30" class={inputCls} />
+      </div>
+    </div>
+    <button type="submit" class="mt-5 inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Calories Burned</button>
+  </form>
+
+  <div class="space-y-5">
+    <div class="card p-6 sm:p-8 text-center">
+      <p class="text-sm text-mute">Calories burned</p>
+      <p class="mt-1"><span id="cb-value" class="text-display-xl text-ink tabular-nums">149</span> <span class="text-lg text-mute">kcal</span></p>
+      <p class="mt-2 text-sm text-body">≈ <span id="cb-perhour" class="text-ink">298</span> kcal per hour at this pace.</p>
+    </div>
+    <div class="card overflow-hidden">
+      <div class="border-b border-hairline px-5 py-3"><h2 class="text-sm font-semibold text-ink">Calories burned by duration</h2></div>
+      <table class="w-full text-sm"><tbody id="cb-table"></tbody></table>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { caloriesBurned } from "../../lib/calculations";
+  import { lbToKg } from "../../lib/units";
+
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+    const fmt = (n: number) => Math.round(n).toLocaleString("en-US");
+    let unit: "metric" | "imperial" = "metric";
+
+    function render() {
+      const met = parseFloat(($("activity") as HTMLSelectElement).value) || 0;
+      let w = parseFloat(($("weight") as HTMLInputElement).value) || 0;
+      if (unit === "imperial") w = lbToKg(w);
+      const mins = parseFloat(($("duration") as HTMLInputElement).value) || 0;
+      if (met <= 0 || w <= 0 || mins <= 0) return;
+      $("cb-value").textContent = fmt(caloriesBurned(met, w, mins));
+      $("cb-perhour").textContent = fmt(caloriesBurned(met, w, 60));
+      const durations = [15, 30, 45, 60, 90];
+      $("cb-table").innerHTML = durations.map((d) => {
+        const hl = d === Math.round(mins);
+        return `<tr class="border-b border-hairline last:border-0 ${hl ? "bg-brand/5" : ""}"><td class="px-5 py-2.5 ${hl ? "font-medium text-ink" : "text-body"}">${d} minutes</td><td class="px-5 py-2.5 text-right font-medium tabular-nums ${hl ? "text-ink" : "text-body"}">${fmt(caloriesBurned(met, w, d))} kcal</td></tr>`;
+      }).join("");
+    }
+
+    root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const next = btn.dataset.unit as "metric" | "imperial";
+        if (next === unit) return; unit = next;
+        root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((b) => { const on = b.dataset.unit === unit; b.setAttribute("aria-pressed", String(on)); b.classList.toggle("bg-canvas", on); b.classList.toggle("text-ink", on); b.classList.toggle("shadow-sm", on); b.classList.toggle("text-mute", !on); });
+        document.querySelectorAll(".u-wt").forEach((e) => (e.textContent = unit === "metric" ? "(kg)" : "(lb)"));
+        const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
+        if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
+        render();
+      });
+    });
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    ($("activity") as HTMLSelectElement).addEventListener("change", render);
+    render();
+  }
+</script>

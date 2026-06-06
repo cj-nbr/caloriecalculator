@@ -1,0 +1,126 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import { inputCls, segOptCls } from "../lib/ui";
+import type { FaqItem } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "How is body fat percentage calculated?", a: "This tool uses the U.S. Navy circumference method, which estimates body fat from your height and tape measurements of your neck and waist (plus hips for women). It's free, requires only a tape measure, and correlates reasonably well with more expensive methods." },
+  { q: "What is a healthy body fat percentage?", a: "For men, 10–20% is generally considered healthy (with athletes often 6–13%). For women, 18–28% is healthy (athletes often 14–20%). Essential fat is about 3–5% for men and 10–13% for women." },
+  { q: "How do I measure correctly?", a: "Measure your neck just below the larynx, your waist at the navel, and (for women) your hips at the widest point. Keep the tape snug but not compressing the skin, and measure on bare skin for accuracy." },
+  { q: "Is the Navy method accurate?", a: "It's a solid estimate for most people — typically within 3–4% of methods like DEXA. Use it to track change over time rather than as an absolute figure, and always measure under the same conditions." },
+];
+---
+
+<CalculatorLayout
+  title="Body Fat Calculator — Free U.S. Navy Method"
+  h1="Body Fat Calculator"
+  description="Free body fat calculator using the U.S. Navy method. Estimate your body fat percentage from simple tape measurements."
+  intro="Estimate your body fat percentage with the U.S. Navy tape-measure method — no special equipment required."
+  path="/body-fat-calculator/"
+  faqs={faqs}
+>
+  <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+      <div class="mb-5 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1" role="tablist" aria-label="Unit system">
+        <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" aria-pressed="true">Metric</button>
+        <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" aria-pressed="false">Imperial</button>
+      </div>
+      <fieldset class="mb-4">
+        <legend class="mb-1.5 block text-sm font-medium text-ink">Gender</legend>
+        <div class="grid grid-cols-2 gap-2">
+          <label class={segOptCls}><input type="radio" name="sex" value="male" class="sr-only" checked />Male</label>
+          <label class={segOptCls}><input type="radio" name="sex" value="female" class="sr-only" />Female</label>
+        </div>
+      </fieldset>
+      <div class="space-y-4">
+        <div class="space-y-1.5"><label for="height" class="block text-sm font-medium text-ink">Height <span class="u-len text-mute">(cm)</span></label><input id="height" type="number" inputmode="decimal" step="0.1" value="175" class={inputCls} /></div>
+        <div class="space-y-1.5"><label for="neck" class="block text-sm font-medium text-ink">Neck <span class="u-len text-mute">(cm)</span></label><input id="neck" type="number" inputmode="decimal" step="0.1" value="38" class={inputCls} /></div>
+        <div class="space-y-1.5"><label for="waist" class="block text-sm font-medium text-ink">Waist <span class="u-len text-mute">(cm)</span></label><input id="waist" type="number" inputmode="decimal" step="0.1" value="85" class={inputCls} /></div>
+        <div id="hip-row" class="hidden space-y-1.5"><label for="hip" class="block text-sm font-medium text-ink">Hip <span class="u-len text-mute">(cm)</span></label><input id="hip" type="number" inputmode="decimal" step="0.1" value="95" class={inputCls} /></div>
+        <div class="space-y-1.5"><label for="weight" class="block text-sm font-medium text-ink">Weight <span class="u-wt text-mute">(kg)</span> <span class="text-mute">— optional</span></label><input id="weight" type="number" inputmode="decimal" step="0.1" value="70" class={inputCls} /></div>
+      </div>
+      <button type="submit" class="mt-5 inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Body Fat</button>
+    </form>
+
+    <div class="space-y-5">
+      <div class="card p-6 sm:p-8 text-center">
+        <p class="text-sm text-mute">Estimated body fat</p>
+        <p class="mt-1"><span id="bf-value" class="text-display-xl text-ink tabular-nums">18.4</span><span class="text-2xl text-mute">%</span></p>
+        <p class="mt-2 inline-flex items-center gap-2 rounded-full border border-hairline px-3 py-1 text-sm"><span id="bf-dot" class="h-2.5 w-2.5 rounded-full bg-success"></span><span id="bf-cat" class="font-medium text-ink">Fitness</span></p>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="card p-5"><p class="text-xs uppercase tracking-wide text-mute">Fat mass</p><p id="bf-fat" class="mt-1 text-display-sm text-ink tabular-nums">12.9</p><p class="mt-1 text-xs text-mute"><span class="u-wt">kg</span></p></div>
+        <div class="card p-5"><p class="text-xs uppercase tracking-wide text-mute">Lean mass</p><p id="bf-lean" class="mt-1 text-display-sm text-ink tabular-nums">57.1</p><p class="mt-1 text-xs text-mute"><span class="u-wt">kg</span></p></div>
+      </div>
+    </div>
+  </div>
+
+  <Fragment slot="content">
+    <h2>About the U.S. Navy method</h2>
+    <p>The U.S. Navy developed this circumference-based formula as a quick, equipment-free way to estimate body fat. It uses the relationship between your height and key body measurements to approximate the percentage of your weight that is fat versus lean tissue.</p>
+    <h2>Why body fat beats the scale</h2>
+    <p>Your body fat percentage tells you far more about your health and fitness than weight or <a href="/bmi-calculator/">BMI</a> alone. Two people at the same weight can look and feel completely different depending on how much of that weight is muscle. Tracking body fat helps you confirm you're losing fat — not muscle — during a <a href="/guides/weight-loss-guide/">weight-loss phase</a>.</p>
+    <h2>Healthy ranges</h2>
+    <p>Essential fat keeps your body functioning and sits around 3–5% for men and 10–13% for women. Athletic ranges are higher, and "fitness" and "average" ranges higher still. Pair this with your <a href="/lean-body-mass-calculator/">lean body mass</a> for a complete body-composition picture.</p>
+  </Fragment>
+</CalculatorLayout>
+
+<script>
+  import { bodyFatNavy, type Sex } from "../lib/calculations";
+  import { inchesToCm, lbToKg } from "../lib/units";
+
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+    let unit: "metric" | "imperial" = "metric";
+
+    function num(id: string) { return parseFloat(($(id) as HTMLInputElement).value) || 0; }
+
+    function render() {
+      const sex = (root!.querySelector('input[name="sex"]:checked') as HTMLInputElement).value as Sex;
+      let height = num("height"), neck = num("neck"), waist = num("waist"), hip = num("hip"), weight = num("weight");
+      if (unit === "imperial") { height = inchesToCm(height); neck = inchesToCm(neck); waist = inchesToCm(waist); hip = inchesToCm(hip); weight = lbToKg(weight); }
+      if (height <= 0 || neck <= 0 || waist <= 0) return;
+      let bf = bodyFatNavy(sex, height, neck, waist, sex === "female" ? hip : undefined);
+      bf = Math.max(2, Math.min(60, bf));
+      $("bf-value").textContent = bf.toFixed(1);
+
+      // Category (ACE ranges)
+      const male = sex === "male";
+      const cats = male
+        ? [[5, "Essential", "#0070f3"], [13, "Athlete", "#0cce6b"], [17, "Fitness", "#0cce6b"], [24, "Average", "#f5a623"], [100, "Above average", "#ee0000"]]
+        : [[13, "Essential", "#0070f3"], [20, "Athlete", "#0cce6b"], [24, "Fitness", "#0cce6b"], [31, "Average", "#f5a623"], [100, "Above average", "#ee0000"]];
+      const found = (cats as [number, string, string][]).find((c) => bf <= c[0])!;
+      $("bf-cat").textContent = found[1];
+      ($("bf-dot") as HTMLElement).style.background = found[2];
+
+      // Fat / lean mass if weight provided
+      if (weight > 0) {
+        const fatKg = weight * (bf / 100);
+        const leanKg = weight - fatKg;
+        const conv = unit === "imperial" ? 2.2046226218 : 1;
+        $("bf-fat").textContent = (fatKg * conv).toFixed(1);
+        $("bf-lean").textContent = (leanKg * conv).toFixed(1);
+      } else { $("bf-fat").textContent = "—"; $("bf-lean").textContent = "—"; }
+    }
+
+    function toggleHip() {
+      const female = (root!.querySelector('input[name="sex"]:checked') as HTMLInputElement).value === "female";
+      $("hip-row").classList.toggle("hidden", !female);
+    }
+    root.querySelectorAll('input[name="sex"]').forEach((r) => r.addEventListener("change", () => { toggleHip(); render(); }));
+
+    root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const next = btn.dataset.unit as "metric" | "imperial";
+        if (next === unit) return; unit = next;
+        root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((b) => { const on = b.dataset.unit === unit; b.setAttribute("aria-pressed", String(on)); b.classList.toggle("bg-canvas", on); b.classList.toggle("text-ink", on); b.classList.toggle("shadow-sm", on); b.classList.toggle("text-mute", !on); });
+        document.querySelectorAll(".u-len").forEach((e) => (e.textContent = unit === "metric" ? "(cm)" : "(in)"));
+        document.querySelectorAll(".u-wt").forEach((e) => (e.textContent = unit === "metric" ? "kg" : "lb"));
+        render();
+      });
+    });
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    render();
+  }
+</script>

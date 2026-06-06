@@ -1,0 +1,349 @@
+@import "tailwindcss";
+
+/* Geist variable fonts are imported via JS in Layout.astro so Vite's
+   asset pipeline emits the woff2 files into the build output. */
+
+/*
+  Class-based dark mode. The theme script on <html> toggles `.dark`.
+  Dark is the default (see Layout.astro inline script).
+*/
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------------------------------------------ */
+/* Semantic color tokens — flipped between light & dark via CSS vars.  */
+/* ------------------------------------------------------------------ */
+:root {
+  /* Light theme (Vercel light palette) */
+  --bg: #ffffff;
+  --bg-soft: #fafafa;
+  --bg-soft-2: #f5f5f5;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --ink: #171717;
+  --body: #4d4d4d;
+  --mute: #888888;
+  --hairline: #ebebeb;
+  --hairline-strong: #d4d4d4;
+  --selection-bg: #171717;
+  --selection-fg: #f2f2f2;
+  --shadow-color: 0deg 0% 0%;
+  --shadow-strength: 0.04;
+}
+
+.dark {
+  /* Dark theme (Vercel near-black palette) */
+  --bg: #0a0a0a;
+  --bg-soft: #111111;
+  --bg-soft-2: #161616;
+  --surface: #0e0e0e;
+  --surface-elevated: #161616;
+  --ink: #ededed;
+  --body: #a1a1a1;
+  --mute: #7d7d7d;
+  --hairline: #262626;
+  --hairline-strong: #404040;
+  --selection-bg: #ededed;
+  --selection-fg: #0a0a0a;
+  --shadow-color: 0deg 0% 0%;
+  --shadow-strength: 0.5;
+}
+
+/* ------------------------------------------------------------------ */
+/* Theme — maps tokens to Tailwind utilities (bg-canvas, text-ink...)  */
+/* ------------------------------------------------------------------ */
+@theme inline {
+  /* Fonts */
+  --font-sans: "Geist Variable", Inter, system-ui, -apple-system, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Semantic surfaces & text (theme-aware) */
+  --color-canvas: var(--bg);
+  --color-canvas-soft: var(--bg-soft);
+  --color-canvas-soft-2: var(--bg-soft-2);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-ink: var(--ink);
+  --color-body: var(--body);
+  --color-mute: var(--mute);
+  --color-hairline: var(--hairline);
+  --color-hairline-strong: var(--hairline-strong);
+
+  /* Brand accent (static across themes) */
+  --color-brand: #0070f3;
+  --color-brand-hover: #3291ff;
+  --color-brand-deep: #0761d1;
+  --color-brand-soft: #d3e5ff;
+
+  /* Status */
+  --color-success: #0cce6b;
+  --color-warning: #f5a623;
+  --color-error: #ee0000;
+
+  /* Macro / chart palette */
+  --color-protein: #0070f3;
+  --color-carbs: #f5a623;
+  --color-fat: #ff0080;
+  --color-fiber: #7928ca;
+
+  /* Gradient stops (Vercel mesh) */
+  --color-grad-develop-start: #007cf0;
+  --color-grad-develop-end: #00dfd8;
+  --color-grad-preview-start: #7928ca;
+  --color-grad-preview-end: #ff0080;
+  --color-grad-ship-start: #ff4d4d;
+  --color-grad-ship-end: #f9cb28;
+
+  /* Radius scale (from design system) */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+
+  /* Type scale — fluid display sizes */
+  --text-display-xl: clamp(2.5rem, 1.6rem + 4vw, 4.5rem);
+  --text-display-xl--line-height: 1.05;
+  --text-display-xl--letter-spacing: -0.04em;
+  --text-display-xl--font-weight: 600;
+
+  --text-display-lg: clamp(2rem, 1.4rem + 2.6vw, 3rem);
+  --text-display-lg--line-height: 1.1;
+  --text-display-lg--letter-spacing: -0.03em;
+  --text-display-lg--font-weight: 600;
+
+  --text-display-md: clamp(1.5rem, 1.2rem + 1.4vw, 2rem);
+  --text-display-md--line-height: 1.15;
+  --text-display-md--letter-spacing: -0.025em;
+  --text-display-md--font-weight: 600;
+
+  --text-display-sm: 1.25rem;
+  --text-display-sm--line-height: 1.4;
+  --text-display-sm--letter-spacing: -0.02em;
+  --text-display-sm--font-weight: 600;
+
+  /* Easing & timing */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ------------------------------------------------------------------ */
+/* Base styles                                                         */
+/* ------------------------------------------------------------------ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    color-scheme: dark;
+  }
+
+  html:not(.dark) {
+    color-scheme: light;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv01", "cv02", "ss03";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-ink);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Reusable component utilities                                        */
+/* ------------------------------------------------------------------ */
+@layer components {
+  /* Mesh gradient text (Vercel signature) */
+  .text-gradient {
+    background-image: linear-gradient(
+      90deg,
+      var(--color-grad-develop-start),
+      var(--color-grad-develop-end)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-vibrant {
+    background-image: linear-gradient(
+      90deg,
+      var(--color-grad-preview-start),
+      var(--color-grad-preview-end)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Hairline border helper */
+  .border-hairline {
+    border: 1px solid var(--color-hairline);
+  }
+
+  /* Soft elevated card */
+  .card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-lg);
+  }
+
+  /* Subtle grid/dot background for hero */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, var(--color-hairline) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-hairline) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 75%);
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 75%);
+  }
+
+  /* Section container */
+  .container-page {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  /* Long-form article prose (used by Calculator & Content layouts) */
+  .prose-content h2 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+  .prose-content h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .prose-content p {
+    color: var(--color-body);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+  .prose-content ul,
+  .prose-content ol {
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--color-body);
+  }
+  .prose-content ul { list-style: disc; }
+  .prose-content ol { list-style: decimal; }
+  .prose-content li { margin-bottom: 0.4rem; line-height: 1.7; }
+  .prose-content a { color: var(--color-brand); }
+  .prose-content a:hover { text-decoration: underline; }
+  .prose-content strong { color: var(--color-ink); font-weight: 600; }
+  .prose-content blockquote {
+    border-left: 3px solid var(--color-brand);
+    padding-left: 1rem;
+    margin: 1.25rem 0;
+    color: var(--color-ink);
+    font-style: italic;
+  }
+  .prose-content table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  .prose-content th,
+  .prose-content td {
+    border: 1px solid var(--color-hairline);
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+  }
+  .prose-content th {
+    color: var(--color-ink);
+    font-weight: 600;
+    background: var(--color-canvas-soft);
+  }
+  .prose-content td { color: var(--color-body); }
+}
+
+/* Fade/slide-in animation utility */
+@utility animate-rise {
+  animation: rise 0.6s var(--ease-out-soft) both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Print — produce a clean, light report (for "Print / PDF").          */
+/* ------------------------------------------------------------------ */
+@media print {
+  /* Force a light, ink-on-white report regardless of theme */
+  :root, .dark {
+    --bg: #ffffff;
+    --bg-soft: #ffffff;
+    --surface: #ffffff;
+    --surface-elevated: #ffffff;
+    --ink: #000000;
+    --body: #1a1a1a;
+    --mute: #555555;
+    --hairline: #cccccc;
+  }
+  header,
+  footer,
+  nav[aria-label="Primary"],
+  nav[aria-label="Breadcrumb"],
+  form#calc-form,
+  #mobile-menu,
+  .no-print {
+    display: none !important;
+  }
+  .bg-grid { display: none !important; }
+  main { padding: 0 !important; }
+  .card {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+  a { text-decoration: none !important; color: #000 !important; }
+}

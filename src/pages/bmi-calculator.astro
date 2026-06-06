@@ -1,0 +1,157 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import { inputCls } from "../lib/ui";
+import type { FaqItem } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is a healthy BMI?", a: "A BMI between 18.5 and 24.9 is classified as a healthy weight for most adults. Below 18.5 is underweight, 25–29.9 is overweight, and 30 or above is obese." },
+  { q: "Is BMI accurate for everyone?", a: "BMI is a useful screening tool for populations but has limits for individuals. It does not distinguish muscle from fat, so very muscular people may register as overweight despite low body fat. Pair it with a body fat measurement for a fuller picture." },
+  { q: "How is BMI calculated?", a: "BMI equals your weight in kilograms divided by the square of your height in metres (kg/m²). For imperial units, multiply weight in pounds by 703, then divide by height in inches squared." },
+  { q: "Does BMI differ for men and women?", a: "The BMI formula and categories are the same for adult men and women. However, women naturally carry more body fat at the same BMI, so interpret the number alongside other measures." },
+];
+---
+
+<CalculatorLayout
+  title="BMI Calculator — Free Body Mass Index Calculator"
+  h1="BMI Calculator"
+  description="Free BMI calculator. Find your body mass index and weight category instantly using metric or imperial units."
+  intro="Calculate your Body Mass Index (BMI) and see which weight category you fall into. A quick screening tool for healthy weight."
+  path="/bmi-calculator/"
+  faqs={faqs}
+>
+  <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+      <div class="mb-5 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1" role="tablist" aria-label="Unit system">
+        <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" aria-pressed="true">Metric</button>
+        <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" aria-pressed="false">Imperial</button>
+      </div>
+
+      <div class="space-y-4">
+        <div class="space-y-1.5">
+          <label for="weight" class="block text-sm font-medium text-ink">Weight <span class="weight-unit text-mute">(kg)</span></label>
+          <input id="weight" type="number" inputmode="decimal" min="20" step="0.1" value="70" class={inputCls} />
+        </div>
+        <div>
+          <label class="mb-1.5 block text-sm font-medium text-ink">Height <span class="height-unit text-mute">(cm)</span></label>
+          <div id="height-metric">
+            <input id="height-cm" type="number" inputmode="numeric" min="100" max="250" value="175" class={inputCls} />
+          </div>
+          <div id="height-imperial" class="hidden grid-cols-2 gap-3">
+            <div class="relative">
+              <input id="height-ft" type="number" min="3" max="8" value="5" class={inputCls} />
+              <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">ft</span>
+            </div>
+            <div class="relative">
+              <input id="height-in" type="number" min="0" max="11" value="9" class={inputCls} />
+              <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">in</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="mt-5 inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate BMI</button>
+    </form>
+
+    <div class="space-y-5">
+      <div class="card p-6 sm:p-8 text-center">
+        <p class="text-sm text-mute">Your BMI</p>
+        <p id="bmi-value" class="mt-1 text-display-xl text-ink tabular-nums">22.9</p>
+        <p class="mt-2 inline-flex items-center gap-2 rounded-full border border-hairline px-3 py-1 text-sm">
+          <span id="bmi-dot" class="h-2.5 w-2.5 rounded-full bg-success"></span>
+          <span id="bmi-cat" class="font-medium text-ink">Normal weight</span>
+        </p>
+        <!-- Scale -->
+        <div class="mt-6">
+          <div class="relative h-2.5 w-full rounded-full" style="background: linear-gradient(90deg,#f5a623 0%,#0cce6b 25%,#0cce6b 45%,#f5a623 60%,#ee0000 100%);">
+            <div id="bmi-marker" class="absolute top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-canvas bg-ink shadow" style="left:50%"></div>
+          </div>
+          <div class="mt-2 flex justify-between text-[11px] text-mute">
+            <span>15</span><span>18.5</span><span>25</span><span>30</span><span>40</span>
+          </div>
+        </div>
+      </div>
+      <div class="card p-5">
+        <h3 class="text-sm font-semibold text-ink">BMI categories</h3>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li class="flex justify-between"><span class="flex items-center gap-2 text-body"><span class="h-2.5 w-2.5 rounded-full bg-warning"></span>Underweight</span><span class="text-mute">Below 18.5</span></li>
+          <li class="flex justify-between"><span class="flex items-center gap-2 text-body"><span class="h-2.5 w-2.5 rounded-full bg-success"></span>Normal</span><span class="text-mute">18.5 – 24.9</span></li>
+          <li class="flex justify-between"><span class="flex items-center gap-2 text-body"><span class="h-2.5 w-2.5 rounded-full bg-warning"></span>Overweight</span><span class="text-mute">25 – 29.9</span></li>
+          <li class="flex justify-between"><span class="flex items-center gap-2 text-body"><span class="h-2.5 w-2.5 rounded-full bg-error"></span>Obese</span><span class="text-mute">30 and above</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <Fragment slot="content">
+    <h2>What is BMI?</h2>
+    <p>Body Mass Index (BMI) is a simple calculation that uses your height and weight to estimate whether you are at a healthy weight. It is widely used by health professionals as a quick, low-cost screening tool to flag potential weight-related health risks across large populations.</p>
+    <h2>How to interpret your BMI</h2>
+    <p>BMI sorts adults into four broad categories. While a "normal" BMI is associated with lower risk for many chronic conditions, the number is only one piece of the puzzle. Your <a href="/body-fat-calculator/">body fat percentage</a>, waist circumference, fitness level, and family history all matter.</p>
+    <h2>Limitations of BMI</h2>
+    <p>Because BMI cannot tell muscle from fat, athletes and very muscular individuals may have a high BMI while being extremely lean. Conversely, older adults who have lost muscle may have a "normal" BMI while carrying excess fat. For a more complete picture, combine BMI with a <a href="/body-fat-calculator/">body fat calculation</a> and your <a href="/lean-body-mass-calculator/">lean body mass</a>.</p>
+  </Fragment>
+</CalculatorLayout>
+
+<script>
+  import { bmi, bmiCategory } from "../lib/calculations";
+  import { lbToKg, ftInToCm } from "../lib/units";
+
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+    let unit: "metric" | "imperial" = "metric";
+
+    function read() {
+      let w = parseFloat(($("weight") as HTMLInputElement).value) || 0;
+      let h: number;
+      if (unit === "imperial") {
+        w = lbToKg(w);
+        h = ftInToCm(parseFloat(($("height-ft") as HTMLInputElement).value) || 0, parseFloat(($("height-in") as HTMLInputElement).value) || 0);
+      } else {
+        h = parseFloat(($("height-cm") as HTMLInputElement).value) || 0;
+      }
+      return { w, h };
+    }
+
+    function render() {
+      const { w, h } = read();
+      if (w <= 0 || h <= 0) return;
+      const v = bmi(w, h);
+      const cat = bmiCategory(v);
+      $("bmi-value").textContent = v.toFixed(1);
+      $("bmi-cat").textContent = cat === "Normal" ? "Normal weight" : cat;
+      const colors: Record<string, string> = { Underweight: "#f5a623", Normal: "#0cce6b", Overweight: "#f5a623", Obese: "#ee0000" };
+      ($("bmi-dot") as HTMLElement).style.background = colors[cat];
+      // marker position mapped 15..40 -> 0..100%
+      const pct = Math.max(0, Math.min(100, ((v - 15) / (40 - 15)) * 100));
+      ($("bmi-marker") as HTMLElement).style.left = pct + "%";
+    }
+
+    root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const next = btn.dataset.unit as "metric" | "imperial";
+        if (next === unit) return;
+        unit = next;
+        root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((b) => {
+          const on = b.dataset.unit === unit;
+          b.setAttribute("aria-pressed", String(on));
+          b.classList.toggle("bg-canvas", on);
+          b.classList.toggle("text-ink", on);
+          b.classList.toggle("shadow-sm", on);
+          b.classList.toggle("text-mute", !on);
+        });
+        $("height-metric").classList.toggle("hidden", unit === "imperial");
+        $("height-imperial").classList.toggle("hidden", unit === "metric");
+        $("height-imperial").classList.toggle("grid", unit === "imperial");
+        document.querySelectorAll(".weight-unit").forEach((e) => (e.textContent = unit === "metric" ? "(kg)" : "(lb)"));
+        document.querySelectorAll(".height-unit").forEach((e) => (e.textContent = unit === "metric" ? "(cm)" : "(ft / in)"));
+        const wi = $("weight") as HTMLInputElement;
+        const cv = parseFloat(wi.value) || 0;
+        if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
+        render();
+      });
+    });
+
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    render();
+  }
+</script>

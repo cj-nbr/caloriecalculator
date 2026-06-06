@@ -1,0 +1,35 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import ExerciseCalculator from "../components/calculators/ExerciseCalculator.astro";
+import { RUNNING } from "../data/exercises";
+import type { FaqItem } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "How many calories does running burn?", a: "A 70 kg (154 lb) runner burns roughly 300 calories running for 30 minutes at 6 mph (9.7 km/h), and around 360 calories at 7 mph. Faster paces and heavier body weight burn more." },
+  { q: "How many calories does running a mile burn?", a: "A common estimate is about 100 calories per mile for a 70 kg person, though it varies with pace and weight. Running burns slightly more per mile than walking the same distance." },
+  { q: "Does running speed change calories burned?", a: "Yes. Faster running has a higher MET value, so you burn more calories per minute. However, over the same distance the difference is smaller than over the same time." },
+  { q: "Is running or walking better for burning calories?", a: "Running burns more calories per minute, so it's more time-efficient. Walking is gentler on the joints and easier to sustain for longer. Both create the calorie deficit needed for weight loss." },
+];
+---
+
+<CalculatorLayout
+  title="Running Calorie Calculator — Calories Burned Running (Free)"
+  h1="Running Calorie Calculator"
+  description="Free running calorie calculator. Find how many calories you burn running at any pace based on your weight and time."
+  intro="Find out how many calories you burn running. Choose your pace, enter your weight and duration, and get an instant estimate."
+  path="/running-calorie-calculator/"
+  faqs={faqs}
+>
+  <ExerciseCalculator activities={RUNNING} defaultIndex={1} />
+
+  <Fragment slot="content">
+    <h2>Calories burned running</h2>
+    <p>Running is one of the most efficient ways to burn calories. The exact number depends on three things: how fast you run (your pace), how much you weigh, and how long you run. This calculator uses MET values for each running speed to give you an accurate estimate.</p>
+
+    <h2>Running pace and calorie burn</h2>
+    <p>Faster paces carry higher MET values, so you burn more calories per minute. A heavier runner also burns more than a lighter one at the same pace, because moving more body mass requires more energy. Use the table above to compare calories burned across common durations.</p>
+
+    <h2>Running for weight loss</h2>
+    <p>Burning calories through running helps create the <a href="/guides/calorie-deficit-guide/">calorie deficit</a> that drives fat loss — but nutrition matters just as much. Pair your runs with a sensible daily target from the <a href="/">calorie calculator</a>, and try the <a href="/walking-calorie-calculator/">walking</a> or <a href="/treadmill-calorie-calculator/">treadmill</a> calculators for your easy days.</p>
+  </Fragment>
+</CalculatorLayout>

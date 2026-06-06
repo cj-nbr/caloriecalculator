@@ -1,0 +1,109 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import { inputCls, selectCls } from "../lib/ui";
+import type { FaqItem } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What are macros?", a: "Macronutrients — protein, carbohydrates, and fat — are the three nutrients that provide calories. Protein and carbs supply 4 calories per gram; fat supplies 9. Tracking macros gives you control over body composition, not just weight." },
+  { q: "What is the best macro split?", a: "There is no single best split. A balanced 30/40/30 (protein/carbs/fat) works for most people. Higher protein supports muscle retention, while lower-carb or keto splits suit some individuals. Choose what you can sustain." },
+  { q: "How much protein should I eat?", a: "Aim for 1.2–2.0 g of protein per kilogram of body weight per day. The higher end helps preserve muscle during weight loss and supports muscle growth during a surplus." },
+  { q: "Do I need to hit my macros exactly?", a: "Getting within about 5–10 grams of each target is plenty for great results. Consistency over weeks matters far more than precision on any single day." },
+];
+---
+
+<CalculatorLayout
+  title="Macro Calculator — Free Macronutrient Calculator"
+  h1="Macro Calculator"
+  description="Free macro calculator. Split your daily calories into protein, carbs, and fat grams for any diet style."
+  intro="Turn your daily calorie target into precise grams of protein, carbs, and fat. Choose a diet style and see your macros visualized."
+  path="/macro-calculator/"
+  faqs={faqs}
+>
+  <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+      <div class="space-y-4">
+        <div class="space-y-1.5">
+          <label for="calories" class="block text-sm font-medium text-ink">Daily calories</label>
+          <input id="calories" type="number" inputmode="numeric" min="800" step="10" value="2000" class={inputCls} />
+          <p class="text-xs text-mute">Not sure? <a href="/" class="text-brand hover:underline">Find your calorie target</a> first.</p>
+        </div>
+        <div class="space-y-1.5">
+          <label for="split" class="block text-sm font-medium text-ink">Diet style</label>
+          <div class="relative">
+            <select id="split" class={selectCls}>
+              <option value="balanced" selected>Balanced — 30P / 40C / 30F</option>
+              <option value="highprotein">High protein — 40P / 35C / 25F</option>
+              <option value="lowcarb">Low carb — 35P / 25C / 40F</option>
+              <option value="keto">Keto — 25P / 5C / 70F</option>
+              <option value="lowfat">Low fat — 30P / 55C / 15F</option>
+            </select>
+            <svg class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6" /></svg>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="mt-5 inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Macros</button>
+    </form>
+
+    <div class="card p-5 sm:p-6">
+      <h3 class="text-sm font-semibold text-ink">Your daily macros</h3>
+      <div class="mt-4 flex flex-col items-center gap-6 sm:flex-row">
+        <svg viewBox="0 0 120 120" class="h-36 w-36 shrink-0 -rotate-90" role="img" aria-label="Macro distribution">
+          <circle cx="60" cy="60" r="52" fill="none" stroke="var(--color-hairline)" stroke-width="14" />
+          <circle id="arc-protein" cx="60" cy="60" r="52" fill="none" stroke="var(--color-protein)" stroke-width="14" stroke-linecap="round" stroke-dasharray="0 327" />
+          <circle id="arc-carbs" cx="60" cy="60" r="52" fill="none" stroke="var(--color-carbs)" stroke-width="14" stroke-linecap="round" stroke-dasharray="0 327" />
+          <circle id="arc-fat" cx="60" cy="60" r="52" fill="none" stroke="var(--color-fat)" stroke-width="14" stroke-linecap="round" stroke-dasharray="0 327" />
+        </svg>
+        <ul class="w-full space-y-3">
+          <li class="flex items-center justify-between gap-3 border-b border-hairline pb-3"><span class="flex items-center gap-2 text-sm text-body"><span class="h-3 w-3 rounded-full bg-protein"></span>Protein</span><span class="text-sm text-ink"><span id="m-p" class="font-semibold tabular-nums">150</span> g <span id="mp-pct" class="text-mute">· 30%</span></span></li>
+          <li class="flex items-center justify-between gap-3 border-b border-hairline pb-3"><span class="flex items-center gap-2 text-sm text-body"><span class="h-3 w-3 rounded-full bg-carbs"></span>Carbs</span><span class="text-sm text-ink"><span id="m-c" class="font-semibold tabular-nums">200</span> g <span id="mc-pct" class="text-mute">· 40%</span></span></li>
+          <li class="flex items-center justify-between gap-3"><span class="flex items-center gap-2 text-sm text-body"><span class="h-3 w-3 rounded-full bg-fat"></span>Fat</span><span class="text-sm text-ink"><span id="m-f" class="font-semibold tabular-nums">67</span> g <span id="mf-pct" class="text-mute">· 30%</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <Fragment slot="content">
+    <h2>How macro calculation works</h2>
+    <p>Every diet ultimately comes down to calories and macronutrients. This calculator takes your daily calorie target and divides it across protein, carbohydrates, and fat according to the diet style you choose. Because protein and carbs contain 4 calories per gram and fat contains 9, the gram amounts differ even when the percentages look similar.</p>
+    <h2>Choosing a diet style</h2>
+    <p>A <strong>balanced</strong> split suits most goals. <strong>High protein</strong> is excellent when losing fat while preserving muscle. <strong>Low carb</strong> and <strong>keto</strong> shift energy toward fat and can help with appetite control for some people. The best split is the one you can follow consistently.</p>
+    <h2>Hitting your protein target</h2>
+    <p>Protein is the macro to prioritize. It preserves muscle, keeps you full, and has the highest thermic effect. See the <a href="/protein-calculator/">protein calculator</a> for a target based on your body weight, and the <a href="/guides/macro-guide/">macro guide</a> for food sources.</p>
+  </Fragment>
+</CalculatorLayout>
+
+<script>
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+    const splits: Record<string, [number, number, number]> = {
+      balanced: [0.3, 0.4, 0.3], highprotein: [0.4, 0.35, 0.25], lowcarb: [0.35, 0.25, 0.4], keto: [0.25, 0.05, 0.7], lowfat: [0.3, 0.55, 0.15],
+    };
+
+    function setArc(id: string, fraction: number, offset: number) {
+      const C = 2 * Math.PI * 52;
+      const len = Math.max(0, fraction * C - 2);
+      const el = $(id) as unknown as SVGCircleElement;
+      el.setAttribute("stroke-dasharray", `${len} ${C - len}`);
+      el.setAttribute("stroke-dashoffset", `${-offset * C}`);
+    }
+
+    function render() {
+      const cals = parseFloat(($("calories") as HTMLInputElement).value) || 0;
+      if (cals <= 0) return;
+      const [p, c, f] = splits[($("split") as HTMLSelectElement).value];
+      $("m-p").textContent = String(Math.round((cals * p) / 4));
+      $("m-c").textContent = String(Math.round((cals * c) / 4));
+      $("m-f").textContent = String(Math.round((cals * f) / 9));
+      $("mp-pct").textContent = `· ${Math.round(p * 100)}%`;
+      $("mc-pct").textContent = `· ${Math.round(c * 100)}%`;
+      $("mf-pct").textContent = `· ${Math.round(f * 100)}%`;
+      setArc("arc-protein", p, 0);
+      setArc("arc-carbs", c, p);
+      setArc("arc-fat", f, p + c);
+    }
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    ($("split") as HTMLSelectElement).addEventListener("change", render);
+    render();
+  }
+</script>

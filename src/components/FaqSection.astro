@@ -1,0 +1,27 @@
+---
+import type { FaqItem } from "../lib/seo";
+interface Props {
+  items: FaqItem[];
+  title?: string;
+}
+const { items, title = "Frequently asked questions" } = Astro.props;
+---
+
+<div class="mx-auto max-w-3xl">
+  <h2 class="text-display-md text-ink">{title}</h2>
+  <div class="mt-8 divide-y divide-hairline border-t border-hairline">
+    {
+      items.map((item) => (
+        <details class="group py-2">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-3 text-left">
+            <span class="text-base font-medium text-ink">{item.q}</span>
+            <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-hairline text-mute transition-transform group-open:rotate-45">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" /></svg>
+            </span>
+          </summary>
+          <p class="pb-4 pr-10 text-sm leading-relaxed text-body">{item.a}</p>
+        </details>
+      ))
+    }
+  </div>
+</div>

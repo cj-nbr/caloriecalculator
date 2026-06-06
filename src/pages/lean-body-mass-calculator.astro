@@ -1,0 +1,120 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import { inputCls, segOptCls } from "../lib/ui";
+import type { FaqItem } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is lean body mass?", a: "Lean body mass (LBM) is everything in your body that isn't fat — muscle, bone, organs, water, and connective tissue. It's a key reference point for setting protein needs and tracking muscle during weight changes." },
+  { q: "How is lean body mass calculated?", a: "This calculator uses the Boer formula, which estimates LBM from your sex, height, and weight. It's one of the most widely used equations and works well for the general population." },
+  { q: "Why does lean body mass matter?", a: "LBM drives your metabolism — more lean mass means a higher resting calorie burn. Preserving it during weight loss keeps your metabolism strong and your body looking toned rather than 'skinny fat'." },
+  { q: "How can I increase lean body mass?", a: "Resistance training combined with adequate protein (1.6–2.2 g/kg) and a slight calorie surplus is the proven recipe for building lean mass over time." },
+];
+---
+
+<CalculatorLayout
+  title="Lean Body Mass Calculator — Free LBM Calculator"
+  h1="Lean Body Mass Calculator"
+  description="Free lean body mass calculator using the Boer formula. Estimate your fat-free mass from height and weight."
+  intro="Estimate your lean body mass — your fat-free weight — using the Boer formula. A key number for protein targets and muscle tracking."
+  path="/lean-body-mass-calculator/"
+  faqs={faqs}
+>
+  <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+      <div class="mb-5 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1" role="tablist" aria-label="Unit system">
+        <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" aria-pressed="true">Metric</button>
+        <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" aria-pressed="false">Imperial</button>
+      </div>
+      <fieldset class="mb-4">
+        <legend class="mb-1.5 block text-sm font-medium text-ink">Gender</legend>
+        <div class="grid grid-cols-2 gap-2">
+          <label class={segOptCls}><input type="radio" name="sex" value="male" class="sr-only" checked />Male</label>
+          <label class={segOptCls}><input type="radio" name="sex" value="female" class="sr-only" />Female</label>
+        </div>
+      </fieldset>
+      <div class="space-y-4">
+        <div class="space-y-1.5"><label for="weight" class="block text-sm font-medium text-ink">Weight <span class="u-wt text-mute">(kg)</span></label><input id="weight" type="number" inputmode="decimal" step="0.1" value="70" class={inputCls} /></div>
+        <div>
+          <label class="mb-1.5 block text-sm font-medium text-ink">Height <span class="u-len text-mute">(cm)</span></label>
+          <div id="height-metric"><input id="height-cm" type="number" min="100" max="250" value="175" class={inputCls} /></div>
+          <div id="height-imperial" class="hidden grid-cols-2 gap-3">
+            <div class="relative"><input id="height-ft" type="number" min="3" max="8" value="5" class={inputCls} /><span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">ft</span></div>
+            <div class="relative"><input id="height-in" type="number" min="0" max="11" value="9" class={inputCls} /><span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">in</span></div>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="mt-5 inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate LBM</button>
+    </form>
+
+    <div class="space-y-5">
+      <div class="card p-6 sm:p-8 text-center">
+        <p class="text-sm text-mute">Lean body mass</p>
+        <p class="mt-1"><span id="lbm-value" class="text-display-xl text-ink tabular-nums">57.1</span> <span class="text-lg text-mute u-wt">kg</span></p>
+        <p class="mt-2 text-sm text-body"><span id="lbm-pct">82</span>% of your body weight is lean tissue.</p>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="card p-5"><p class="text-xs uppercase tracking-wide text-mute">Lean mass</p><p id="lbm-lean" class="mt-1 text-display-sm text-ink tabular-nums">57.1</p></div>
+        <div class="card p-5"><p class="text-xs uppercase tracking-wide text-mute">Est. fat mass</p><p id="lbm-fat" class="mt-1 text-display-sm text-ink tabular-nums">12.9</p></div>
+      </div>
+    </div>
+  </div>
+
+  <Fragment slot="content">
+    <h2>Understanding lean body mass</h2>
+    <p>Lean body mass is the total weight of everything in your body except stored fat: your muscles, bones, organs, blood, and water. It's the engine of your metabolism, since lean tissue burns considerably more energy at rest than fat does.</p>
+    <h2>Why it's worth tracking</h2>
+    <p>When you lose weight, the goal is to lose fat while keeping lean mass. Tracking LBM alongside your <a href="/body-fat-calculator/">body fat percentage</a> confirms you're doing exactly that. If your lean mass is dropping, you likely need more protein or a smaller deficit.</p>
+    <h2>From LBM to protein needs</h2>
+    <p>Many coaches set protein targets relative to lean body mass rather than total weight, which is especially useful for those with higher body fat. Check the <a href="/protein-calculator/">protein calculator</a> to translate your numbers into a daily gram target.</p>
+  </Fragment>
+</CalculatorLayout>
+
+<script>
+  import { leanBodyMassBoer, type Sex } from "../lib/calculations";
+  import { lbToKg, ftInToCm } from "../lib/units";
+
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+    let unit: "metric" | "imperial" = "metric";
+
+    function read() {
+      const sex = (root!.querySelector('input[name="sex"]:checked') as HTMLInputElement).value as Sex;
+      let w = parseFloat(($("weight") as HTMLInputElement).value) || 0;
+      let h: number;
+      if (unit === "imperial") { w = lbToKg(w); h = ftInToCm(parseFloat(($("height-ft") as HTMLInputElement).value) || 0, parseFloat(($("height-in") as HTMLInputElement).value) || 0); }
+      else h = parseFloat(($("height-cm") as HTMLInputElement).value) || 0;
+      return { sex, w, h };
+    }
+
+    function render() {
+      const { sex, w, h } = read();
+      if (w <= 0 || h <= 0) return;
+      const lbm = Math.max(0, leanBodyMassBoer(sex, h, w));
+      const fat = Math.max(0, w - lbm);
+      const conv = unit === "imperial" ? 2.2046226218 : 1;
+      $("lbm-value").textContent = (lbm * conv).toFixed(1);
+      $("lbm-lean").textContent = (lbm * conv).toFixed(1);
+      $("lbm-fat").textContent = (fat * conv).toFixed(1);
+      $("lbm-pct").textContent = String(Math.round((lbm / w) * 100));
+    }
+
+    root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const next = btn.dataset.unit as "metric" | "imperial";
+        if (next === unit) return; unit = next;
+        root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((b) => { const on = b.dataset.unit === unit; b.setAttribute("aria-pressed", String(on)); b.classList.toggle("bg-canvas", on); b.classList.toggle("text-ink", on); b.classList.toggle("shadow-sm", on); b.classList.toggle("text-mute", !on); });
+        $("height-metric").classList.toggle("hidden", unit === "imperial");
+        $("height-imperial").classList.toggle("hidden", unit === "metric");
+        $("height-imperial").classList.toggle("grid", unit === "imperial");
+        document.querySelectorAll(".u-len").forEach((e) => (e.textContent = unit === "metric" ? "(cm)" : "(ft / in)"));
+        document.querySelectorAll(".u-wt").forEach((e) => (e.textContent = unit === "metric" ? "kg" : "lb"));
+        const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
+        if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
+        render();
+      });
+    });
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    render();
+  }
+</script>

@@ -1,0 +1,126 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import { inputCls, selectCls } from "../lib/ui";
+import type { FaqItem } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "How long will it take to lose weight?", a: "It depends on your calorie deficit. A 500-calorie daily deficit produces about 0.45 kg (1 lb) of loss per week. This calculator estimates your timeline based on the weekly rate you choose and the total weight you want to lose." },
+  { q: "What is a safe rate of weight loss?", a: "Most experts recommend 0.5–1 kg (1–2 lb) per week, or about 0.5–1% of body weight. Faster loss raises the risk of muscle loss and is harder to sustain." },
+  { q: "Why do I need a calorie deficit?", a: "You lose fat when you consistently burn more calories than you eat. The shortfall forces your body to use stored fat for energy. A pound of fat stores roughly 3,500 calories." },
+  { q: "Will my weight loss slow down?", a: "Yes. As you lose weight your calorie needs fall, so the same intake produces a smaller deficit. Recalculate your targets every few weeks and stay patient through plateaus." },
+];
+---
+
+<CalculatorLayout
+  title="Weight Loss Calculator — Free Goal & Timeline Calculator"
+  h1="Weight Loss Calculator"
+  description="Free weight loss calculator. Estimate your timeline and the daily calorie deficit needed to reach your goal weight."
+  intro="See how long it will take to reach your goal weight and the daily calorie deficit required to get there safely."
+  path="/weight-loss-calculator/"
+  faqs={faqs}
+>
+  <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+      <div class="mb-5 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1" role="tablist" aria-label="Unit system">
+        <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" aria-pressed="true">Metric</button>
+        <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" aria-pressed="false">Imperial</button>
+      </div>
+      <div class="space-y-4">
+        <div class="grid grid-cols-2 gap-3">
+          <div class="space-y-1.5"><label for="current" class="block text-sm font-medium text-ink">Current <span class="u-wt text-mute">(kg)</span></label><input id="current" type="number" inputmode="decimal" step="0.1" value="80" class={inputCls} /></div>
+          <div class="space-y-1.5"><label for="goal" class="block text-sm font-medium text-ink">Goal <span class="u-wt text-mute">(kg)</span></label><input id="goal" type="number" inputmode="decimal" step="0.1" value="70" class={inputCls} /></div>
+        </div>
+        <div class="space-y-1.5">
+          <label for="rate" class="block text-sm font-medium text-ink">Weekly rate</label>
+          <div class="relative">
+            <select id="rate" class={selectCls}>
+              <option value="0.25">Gentle — 0.25 kg / 0.5 lb per week</option>
+              <option value="0.5" selected>Standard — 0.5 kg / 1 lb per week</option>
+              <option value="1">Aggressive — 1 kg / 2 lb per week</option>
+            </select>
+            <svg class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6" /></svg>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="mt-5 inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Plan</button>
+    </form>
+
+    <div class="space-y-5">
+      <div class="card p-6 sm:p-8 text-center">
+        <p class="text-sm text-mute">Estimated time to goal</p>
+        <p id="wl-time" class="mt-1 text-display-xl text-ink">20 weeks</p>
+        <p class="mt-2 text-sm text-body">Target date: <span id="wl-date" class="text-ink">—</span></p>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="card p-5"><p class="text-xs uppercase tracking-wide text-mute">To lose</p><p id="wl-total" class="mt-1 text-display-sm text-ink tabular-nums">10 kg</p></div>
+        <div class="card p-5"><p class="text-xs uppercase tracking-wide text-mute">Daily deficit</p><p id="wl-deficit" class="mt-1 text-display-sm text-ink tabular-nums">550 kcal</p></div>
+      </div>
+      <p id="wl-note" class="hidden rounded-lg border border-warning/40 bg-warning/10 px-4 py-3 text-sm text-body"></p>
+    </div>
+  </div>
+
+  <Fragment slot="content">
+    <h2>How the weight-loss timeline works</h2>
+    <p>Fat loss comes down to energy balance. Because a pound of body fat stores roughly 3,500 calories (and a kilogram about 7,700), the size of your daily calorie deficit determines how quickly you lose weight. This calculator converts your chosen weekly rate into the daily deficit you'll need and projects a realistic target date.</p>
+    <h2>Choosing a sustainable pace</h2>
+    <p>Faster isn't always better. Losing 0.5–1% of your body weight per week protects muscle and is far easier to maintain than crash dieting. If your required deficit feels too large, choose a gentler rate — slow, consistent progress wins. Learn more in the <a href="/guides/weight-loss-guide/">weight loss guide</a>.</p>
+    <h2>Putting your plan into action</h2>
+    <p>Find your maintenance calories with the <a href="/tdee-calculator/">TDEE calculator</a>, then subtract your daily deficit to get your target intake. Pair that with a high-protein <a href="/macro-calculator/">macro split</a> to preserve muscle while the fat comes off.</p>
+  </Fragment>
+</CalculatorLayout>
+
+<script>
+  import { weeksToGoal } from "../lib/calculations";
+  import { lbToKg } from "../lib/units";
+
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+    let unit: "metric" | "imperial" = "metric";
+
+    function render() {
+      let cur = parseFloat(($("current") as HTMLInputElement).value) || 0;
+      let goal = parseFloat(($("goal") as HTMLInputElement).value) || 0;
+      let rateKg = parseFloat(($("rate") as HTMLSelectElement).value); // kg/week (metric reading)
+      if (unit === "imperial") { cur = lbToKg(cur); goal = lbToKg(goal); }
+      if (cur <= 0 || goal <= 0) return;
+
+      const note = $("wl-note");
+      if (goal >= cur) {
+        $("wl-time").textContent = "—";
+        $("wl-total").textContent = "0";
+        note.classList.remove("hidden");
+        note.textContent = "Your goal weight is at or above your current weight. Try the weight-gain options on the main calorie calculator, or set a lower goal.";
+        return;
+      }
+      note.classList.add("hidden");
+
+      const dailyDeficit = (rateKg * 7700) / 7; // kcal/day for that weekly kg rate
+      const weeks = weeksToGoal(cur, goal, -dailyDeficit);
+      const conv = unit === "imperial" ? 2.2046226218 : 1;
+      const u = unit === "imperial" ? "lb" : "kg";
+      $("wl-total").textContent = `${((cur - goal) * conv).toFixed(1)} ${u}`;
+      $("wl-deficit").textContent = `${Math.round(dailyDeficit)} kcal`;
+      if (weeks === null) return;
+      const wRounded = Math.ceil(weeks);
+      $("wl-time").textContent = wRounded === 1 ? "1 week" : `${wRounded} weeks`;
+      const d = new Date();
+      d.setDate(d.getDate() + wRounded * 7);
+      $("wl-date").textContent = d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+    }
+
+    root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const next = btn.dataset.unit as "metric" | "imperial";
+        if (next === unit) return; unit = next;
+        root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((b) => { const on = b.dataset.unit === unit; b.setAttribute("aria-pressed", String(on)); b.classList.toggle("bg-canvas", on); b.classList.toggle("text-ink", on); b.classList.toggle("shadow-sm", on); b.classList.toggle("text-mute", !on); });
+        document.querySelectorAll(".u-wt").forEach((e) => (e.textContent = unit === "metric" ? "(kg)" : "(lb)"));
+        ["current", "goal"].forEach((id) => { const i = $(id) as HTMLInputElement; const cv = parseFloat(i.value) || 0; if (cv) i.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1); });
+        render();
+      });
+    });
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    ($("rate") as HTMLSelectElement).addEventListener("change", render);
+    render();
+  }
+</script>

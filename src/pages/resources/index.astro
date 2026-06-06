@@ -1,0 +1,37 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Section from "../../components/ui/Section.astro";
+import { NAV } from "../../data/site";
+import { breadcrumbSchema } from "../../lib/seo";
+
+const resources = NAV.find((n) => n.label === "Resources")!.children!;
+const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Resources", path: "/resources/" }])];
+---
+
+<Layout
+  title="Resources — Calorie Calculator Free"
+  description="Reference resources explaining BMR, TDEE, and the science behind your daily calorie needs."
+  canonical="/resources/"
+  jsonLd={jsonLd}
+>
+  <header class="relative overflow-hidden border-b border-hairline">
+    <div class="bg-grid pointer-events-none absolute inset-0 -z-10 opacity-50" aria-hidden="true"></div>
+    <div class="container-page py-12 sm:py-16">
+      <p class="text-sm font-medium text-brand">Resources</p>
+      <h1 class="mt-2 text-display-lg text-ink">Reference resources</h1>
+      <p class="mt-4 max-w-2xl text-lg text-body">Plain-English explanations of the key concepts behind your calorie needs.</p>
+    </div>
+  </header>
+  <Section>
+    <div class="grid gap-3 sm:grid-cols-2">
+      {
+        resources.map((r) => (
+          <a href={r.href} class="card group flex items-center justify-between gap-3 p-5 transition-all hover:border-hairline-strong hover:bg-canvas-soft">
+            <span class="text-base font-medium text-ink">{r.label}</span>
+            <svg class="h-4 w-4 shrink-0 text-mute transition-transform group-hover:translate-x-0.5 group-hover:text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </a>
+        ))
+      }
+    </div>
+  </Section>
+</Layout>
