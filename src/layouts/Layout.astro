@@ -70,19 +70,38 @@ const ogImage = new URL("/og-default.svg", SITE.url).href;
       ))
     }
 
-    <!-- Google tag (gtag.js) -->
-    <script
-      is:inline
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-Z628KC0J8K"
-    ></script>
-    <script is:inline>
+    <!-- Google tag (gtag.js) — loaded lazily to keep it off the critical path -->
+    <script is:inline data-ga-id="G-Z628KC0J8K">
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
       gtag("config", "G-Z628KC0J8K");
+
+      (function () {
+        var loaded = false;
+        function loadGA() {
+          if (loaded) return;
+          loaded = true;
+          var s = document.createElement("script");
+          s.async = true;
+          s.src = "https://www.googletagmanager.com/gtag/js?id=G-Z628KC0J8K";
+          document.head.appendChild(s);
+        }
+        // Load after the page is interactive, or on first user interaction —
+        // whichever comes first — so analytics never blocks initial render.
+        if (document.readyState === "complete") {
+          ("requestIdleCallback" in window ? requestIdleCallback : setTimeout)(loadGA, 1);
+        } else {
+          window.addEventListener("load", function () {
+            ("requestIdleCallback" in window ? requestIdleCallback : setTimeout)(loadGA, 1);
+          });
+        }
+        ["scroll", "click", "keydown", "touchstart", "pointerdown"].forEach(function (evt) {
+          window.addEventListener(evt, loadGA, { once: true, passive: true });
+        });
+      })();
     </script>
 
     <!-- No-flash theme: apply stored/system preference before first paint. -->
