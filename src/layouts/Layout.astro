@@ -70,6 +70,21 @@ const ogImage = new URL("/og-default.svg", SITE.url).href;
       ))
     }
 
+    <!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Z628KC0J8K"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-Z628KC0J8K");
+    </script>
+
     <!-- No-flash theme: apply stored/system preference before first paint. -->
     <script is:inline>
       (function () {
