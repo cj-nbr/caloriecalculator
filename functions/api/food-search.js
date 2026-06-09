@@ -110,7 +110,7 @@ export async function onRequestGet(context) {
   // Edge cache keyed by the normalized query.
   const cache = caches.default;
   const cacheKey = new Request(
-    `https://cache.local/food-search?q=${encodeURIComponent(query.toLowerCase())}`,
+    `https://cache.local/food-search?v=2&q=${encodeURIComponent(query.toLowerCase())}`,
     request
   );
   const cached = await cache.match(cacheKey);
@@ -134,9 +134,13 @@ export async function onRequestGet(context) {
     }
     const data = await res.json();
     const foods = Array.isArray(data.foods) ? data.foods : [];
+    // Prioritize generic whole-food data (Foundation / SR Legacy) over branded
+    // products so a search like "banana" returns raw banana, not banana chips.
+    const rank = { Foundation: 0, "SR Legacy": 1, "Survey (FNDDS)": 2, Branded: 3 };
     const results = foods
       .map(normalize)
       .filter((f) => f.per100g.calories != null || f.per100g.protein != null)
+      .sort((a, b) => (rank[a.dataType] ?? 5) - (rank[b.dataType] ?? 5))
       .slice(0, 8);
 
     if (results.length === 0) {
