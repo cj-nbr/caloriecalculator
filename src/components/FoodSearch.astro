@@ -11,31 +11,36 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
 
 <div id="food-tool" class="not-prose">
   <!-- Helper note -->
-  <p class="mb-5 rounded-lg border border-hairline bg-canvas-soft px-4 py-3 text-xs leading-relaxed text-mute">
-    Nutrition values are estimates based on trusted food databases. Results may
-    vary by brand, preparation method, and serving size.
-  </p>
+  <div class="mb-5 space-y-2">
+    <p class="text-sm text-body">
+      🍎 <strong class="text-ink">Type a food, choose how much, and we'll show you the calories and nutrition.</strong> Easy!
+    </p>
+    <p class="rounded-lg border border-hairline bg-canvas-soft px-4 py-3 text-xs leading-relaxed text-mute">
+      Nutrition values are estimates based on trusted food databases. Results may
+      vary by brand, preparation method, and serving size.
+    </p>
+  </div>
 
   <form id="food-form" class="card p-5 sm:p-6" novalidate>
     <div class="space-y-4">
       <div class="space-y-1.5">
-        <label for="food-q" class="block text-sm font-medium text-ink">Food</label>
+        <label for="food-q" class="block text-sm font-medium text-ink">1. What food?</label>
         <input
           id="food-q"
           name="q"
           type="search"
           autocomplete="off"
-          placeholder="Search any food, e.g. banana, brown rice, almonds…"
+          placeholder="Type a food, like banana, rice, or pizza"
           class={inputCls}
         />
       </div>
       <div class="grid grid-cols-2 gap-3">
         <div class="space-y-1.5">
-          <label for="food-qty" class="block text-sm font-medium text-ink">Quantity</label>
+          <label for="food-qty" class="block text-sm font-medium text-ink">2. How much?</label>
           <input id="food-qty" type="number" inputmode="decimal" min="0" step="any" value="100" class={inputCls} />
         </div>
         <div class="space-y-1.5">
-          <label for="food-unit" class="block text-sm font-medium text-ink">Unit</label>
+          <label for="food-unit" class="block text-sm font-medium text-ink">Measured in</label>
           <div class="relative">
             <select id="food-unit" class={selectCls}>
               <option value="g" selected>Gram (g)</option>
@@ -55,7 +60,7 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
         </div>
       </div>
       <button type="submit" id="food-submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99] disabled:opacity-60">
-        Search Food Calories
+        Find Calories
       </button>
     </div>
 
@@ -76,7 +81,7 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
   <div id="food-results" class="mt-6" aria-live="polite">
     <!-- Empty state -->
     <div id="food-empty" class="card p-8 text-center text-sm text-mute">
-      Search a food above to see its calories and full nutrition facts.
+      👆 Type a food above and tap “Find Calories” to see how much energy and nutrition it has.
     </div>
 
     <!-- Loading state -->
@@ -112,18 +117,22 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
         <div class="bg-surface p-5 text-center sm:text-left">
           <p class="text-xs uppercase tracking-wide text-mute">Calories</p>
           <p><span id="n-calories" class="text-display-sm text-ink tabular-nums">—</span> <span class="text-sm text-mute">kcal</span></p>
+          <p class="mt-0.5 text-[11px] text-mute">energy for your body</p>
         </div>
         <div class="bg-surface p-5 text-center sm:text-left">
           <p class="text-xs uppercase tracking-wide text-mute">Protein</p>
           <p id="n-protein" class="text-display-sm text-ink tabular-nums">—</p>
+          <p class="mt-0.5 text-[11px] text-mute">builds muscles</p>
         </div>
         <div class="bg-surface p-5 text-center sm:text-left">
           <p class="text-xs uppercase tracking-wide text-mute">Carbs</p>
           <p id="n-carbs" class="text-display-sm text-ink tabular-nums">—</p>
+          <p class="mt-0.5 text-[11px] text-mute">quick energy</p>
         </div>
         <div class="bg-surface p-5 text-center sm:text-left">
           <p class="text-xs uppercase tracking-wide text-mute">Fat</p>
           <p id="n-fat" class="text-display-sm text-ink tabular-nums">—</p>
+          <p class="mt-0.5 text-[11px] text-mute">stores energy</p>
         </div>
       </div>
 
