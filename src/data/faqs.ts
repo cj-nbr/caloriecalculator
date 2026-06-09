@@ -87,3 +87,28 @@ export const HOME_FAQS: FaqItem[] = [
     a: "It's a tool that tells you how many calories to eat to lose weight. The headline number is your daily calorie target; the deficit is how far below maintenance that target sits. Eat around that number each day, and the weekly figure shows your expected rate of fat loss.",
   },
 ];
+
+
+
+/**
+ * Food Calories Search FAQ — common "how many calories / how much protein"
+ * questions. Emitted as FAQPage JSON-LD on /food-calories-search/.
+ */
+export const FOOD_FAQS: FaqItem[] = [
+  { q: "How many calories are in a banana?", a: "A medium banana (about 118 g) has roughly 105 calories, with about 27 g of carbs, 1.3 g of protein, and very little fat. Search 'banana' above and set your quantity for an exact figure." },
+  { q: "How many calories are in 100g of rice?", a: "Cooked white rice has about 130 calories per 100 g; cooked brown rice about 110–120. Uncooked (dry) rice is much higher — around 360 calories per 100 g — because it absorbs water when cooked." },
+  { q: "How many calories are in an apple?", a: "A medium apple (about 182 g) contains roughly 95 calories, mostly from carbohydrates, plus about 4 g of fiber. Smaller apples have proportionally fewer." },
+  { q: "How much protein is in an egg?", a: "One large egg (about 50 g) provides roughly 6 g of protein and about 72 calories. The protein is split between the white and the yolk." },
+  { q: "How many calories are in milk?", a: "Whole milk has about 61 calories per 100 ml (≈150 per cup); 2% milk about 50 per 100 ml; skim milk about 34 per 100 ml. Search 'milk' and pick the type for exact values." },
+  { q: "How many calories are in chicken breast?", a: "Cooked, skinless chicken breast has about 165 calories per 100 g, with roughly 31 g of protein and 3.6 g of fat — one of the highest-protein, lowest-fat foods available." },
+  { q: "How many calories are in 100g of chicken?", a: "Around 165–190 calories per 100 g for cooked chicken breast, depending on preparation. Skin-on or fried chicken is higher in fat and calories." },
+  { q: "How many calories should I eat per day?", a: "Most adults need 1,600–3,000 calories daily depending on age, sex, size, and activity. Use our calorie calculator to get a personalized number, then track foods here to stay on target." },
+  { q: "How do I track calories in food?", a: "Search the food, enter how much you ate, and choose the unit (grams, cups, pieces, etc.). The tool scales the nutrition facts to your exact portion. Add up your foods across the day and compare to your calorie target." },
+  { q: "How accurate is the food calorie data?", a: "Values come from trusted nutrition databases (USDA FoodData Central) and are reliable estimates. Actual values vary by brand, ripeness, cooking method, and portion size, so treat them as close approximations." },
+  { q: "How many calories are in an avocado?", a: "A whole medium avocado (about 200 g) has roughly 320 calories, mostly from healthy fats, plus about 13 g of fiber. Per 100 g it's around 160 calories." },
+  { q: "How much protein is in 100g of paneer or tofu?", a: "Firm tofu has about 8 g of protein per 100 g (~76 calories); paneer has about 18 g of protein per 100 g but is higher in calories (~265) and fat. Search either for exact figures." },
+  { q: "How many calories are in a slice of bread?", a: "A standard slice of white or whole-wheat bread (about 30 g) has roughly 75–80 calories and 2–4 g of protein. Heartier or seeded breads can be higher." },
+  { q: "What foods are highest in protein?", a: "Per calorie, lean meats (chicken breast, turkey), fish, egg whites, Greek yogurt, cottage cheese, tofu, lentils, and protein powder rank highest. Search any of them to compare protein per serving." },
+  { q: "How many calories are in a tablespoon of olive oil?", a: "One tablespoon (about 14 g) of olive oil has roughly 120 calories, all from fat. Oils are the most calorie-dense foods, so small amounts add up quickly." },
+  { q: "How do I convert food portions to grams?", a: "Use the unit selector — choose cups, tablespoons, ounces, pounds, pieces, or servings and the tool converts to grams automatically (volume units assume a water-like density, so liquids are most accurate)." },
+];

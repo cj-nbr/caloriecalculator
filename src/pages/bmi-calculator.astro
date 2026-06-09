@@ -21,6 +21,9 @@ const faqs: FaqItem[] = [
 >
   <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
     <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+    <p role="note" class="mb-4 text-xs leading-relaxed text-mute">
+      Example values are pre-filled. Enter your own details for accurate results.
+    </p>
       <div class="mb-5 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1" role="tablist" aria-label="Unit system">
         <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" aria-pressed="true">Metric</button>
         <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" aria-pressed="false">Imperial</button>

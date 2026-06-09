@@ -65,6 +65,20 @@ export function calculatorSchema(name: string, description: string, path: string
   };
 }
 
+/** SoftwareApplication schema for tool pages. */
+export function softwareApplicationSchema(name: string, description: string, path: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name,
+    description,
+    url: new URL(path, SITE.url).href,
+    applicationCategory: "HealthApplication",
+    operatingSystem: "Any",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  };
+}
+
 /** Article schema for long-form guide / resource pages. */
 export function articleSchema(opts: {
   headline: string;

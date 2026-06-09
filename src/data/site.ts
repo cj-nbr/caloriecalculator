@@ -93,10 +93,10 @@ export const FOOTER: { title: string; links: NavLink[] }[] = [
   {
     title: "Tools",
     links: [
+      { label: "Food Calories Search", href: "/food-calories-search/" },
       { label: "Calories Burned Calculator", href: "/calories-burned-calculator/" },
       { label: "Running Calorie Calculator", href: "/running-calorie-calculator/" },
       { label: "Walking Calorie Calculator", href: "/walking-calorie-calculator/" },
-      { label: "Water Intake Calculator", href: "/water-intake-calculator/" },
       { label: "Disclaimer", href: "/disclaimer/" },
     ],
   },
