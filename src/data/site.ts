@@ -95,8 +95,8 @@ export const FOOTER: { title: string; links: NavLink[] }[] = [
     links: [
       { label: "Food Calories Search", href: "/food-calories-search/" },
       { label: "Calories Burned Calculator", href: "/calories-burned-calculator/" },
-      { label: "Running Calorie Calculator", href: "/running-calorie-calculator/" },
-      { label: "Walking Calorie Calculator", href: "/walking-calorie-calculator/" },
+      { label: "Age Calculator", href: "/age-calculator/" },
+      { label: "Mortgage Calculator", href: "/mortgage-calculator/" },
       { label: "Disclaimer", href: "/disclaimer/" },
     ],
   },
