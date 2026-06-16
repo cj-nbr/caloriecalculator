@@ -27,7 +27,10 @@ const {
 } = Astro.props;
 
 const canonicalPath = canonical ?? Astro.url.pathname;
-const canonicalUrl = new URL(canonicalPath, SITE.url).href;
+const canonicalUrl = new URL(canonicalPath, SITE.url);
+canonicalUrl.hostname = SITE.domain;
+canonicalUrl.protocol = "https:";
+const canonicalUrlString = canonicalUrl.href;
 const fullTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
 const ogImage = new URL("/og-default.svg", SITE.url).href;
 ---
@@ -44,7 +47,7 @@ const ogImage = new URL("/og-default.svg", SITE.url).href;
 
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalUrl} />
+    <link rel="canonical" href={canonicalUrlString} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <meta name="theme-color" content={SITE.themeColor} />
 
@@ -53,7 +56,7 @@ const ogImage = new URL("/og-default.svg", SITE.url).href;
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrlString} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:locale" content={SITE.locale} />
 
