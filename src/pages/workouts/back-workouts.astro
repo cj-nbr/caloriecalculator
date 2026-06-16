@@ -4,6 +4,10 @@ import ContentLayout from "../../layouts/ContentLayout.astro";
 const faqs = [
   { q: "What is the best back workout for beginners?", a: "Start with assisted pull-ups, lat pulldowns, seated rows, and dumbbell rows. These teach pulling strength while keeping the movement controlled." },
   { q: "How often should I train back?", a: "Train back 1–3 times per week depending on volume, recovery, and your overall training split." },
+  { q: 'Can beginners do this workout?', a: 'Yes. Start with lighter resistance, master the movement pattern, and add volume gradually.' },
+  { q: 'How many sets should I do?', a: 'A good starting point is 2–4 working sets per exercise, depending on experience and recovery.' },
+  { q: 'How long should I rest between sets?', a: 'Rest 60–120 seconds for most hypertrophy work. Use longer rests for heavier strength sets.' },
+  { q: 'What should I do if I feel pain?', a: 'Stop the exercise, reduce the load, check your form, and seek professional advice if pain persists.' },
 ];
 ---
 
@@ -12,6 +16,9 @@ const faqs = [
   h1="Back Workouts"
   description="Free back workout guide with effective pulling exercises, sample routines, and tips for building a stronger, healthier back."
   path="/workouts/back-workouts/"
+  category="Workouts"
+  categoryPath="/workouts/"
+  updated="June 2026"
   lead="Build a stronger back with rows, pulldowns, pull-ups, and smart form."
   faqs={faqs}
 >

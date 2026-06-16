@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Allow: /workouts/
+Allow: /workouts/leg-curl-machine/
 
 Sitemap: https://caloriecalculatorfree.com/sitemap.xml

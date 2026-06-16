@@ -4,24 +4,32 @@ import ContentLayout from "../../layouts/ContentLayout.astro";
 const categories = [
   { title: "Best Leg Workout for Beginners", href: "#beginners", description: "A simple lower-body routine for building strength, confidence, and clean form." },
   { title: "Leg Curl Machine", href: "/workouts/leg-curl-machine/", description: "Complete guide to leg curl machine setup, muscles worked, benefits, alternatives, mistakes, and hamstring training." },
-  { title: "Leg Curl Machine Muscles Worked", href: "#muscles-worked", description: "The main muscles trained by leg curls and how they support stronger legs." },
-  { title: "Leg Curl Alternatives", href: "#alternatives", description: "Equipment-free and gym-based movements that target the hamstrings." },
-  { title: "Seated vs Lying Leg Curl", href: "#seated-vs-lying", description: "Key differences between the two common leg curl machine styles." },
-  { title: "Hamstring Workout Guide", href: "#hamstrings", description: "Exercises and tips for stronger hamstrings, knees, and hip hinge power." },
-  { title: "Leg Day Mistakes", href: "#mistakes", description: "Common errors that slow progress or increase injury risk on leg day." },
+  { title: "Leg Curl Machine Muscles Worked", href: "/workouts/leg-curl-machine/muscles-worked/", description: "The main muscles trained by leg curls and how they support stronger legs." },
+  { title: "Leg Curl Alternatives", href: "/workouts/leg-curl-machine/alternatives/", description: "Equipment-free and gym-based movements that target the hamstrings." },
+  { title: "Seated vs Lying Leg Curl", href: "/workouts/leg-curl-machine/seated-vs-lying-leg-curl/", description: "Key differences between the two common leg curl machine styles." },
+  { title: "Hamstring Workout Guide", href: "/workouts/leg-curl-machine/for-hamstrings/", description: "Exercises and tips for stronger hamstrings, knees, and hip hinge power." },
+  { title: "Leg Day Mistakes", href: "/workouts/leg-curl-machine/common-mistakes/", description: "Common errors that slow progress or increase injury risk on leg day." },
 ];
+
 const faqs = [
-  { q: "What is a good leg workout for beginners?", a: "Start with bodyweight squats, reverse lunges, glute bridges, and wall sits. Do 2–3 sets of 8–15 reps and add resistance only when your form is consistent." },
+  { q: "What is a good leg workout for beginners?", a: "Start with bodyweight squats, reverse lunges, glute bridges, wall sits, and calf raises. Do 2–3 sets of 8–15 reps and add resistance only when your form is consistent." },
   { q: "How often should I train legs?", a: "Most people do well with 2 leg sessions per week, leaving at least one rest day between hard lower-body workouts." },
+  { q: "What muscles should a leg workout include?", a: "A balanced leg workout should train quads, hamstrings, glutes, calves, and hips. Squats and lunges emphasize quads and glutes, while Romanian deadlifts and leg curls emphasize hamstrings." },
+  { q: "Can I do leg workouts at home?", a: "Yes. Bodyweight squats, reverse lunges, glute bridges, calf raises, split squats, and wall sits can build leg strength without machines." },
+  { q: "How many reps should I do for leg day?", a: "A useful starting range is 8–15 reps for most exercises. Use lighter weights for form work and heavier loads only when you can control the full range of motion." },
+  { q: "Why are my legs sore after leg day?", a: "Soreness can happen when you train new movements, increase volume, or add eccentric work. Warm up, progress gradually, and allow recovery between hard sessions." },
 ];
 ---
 
 <ContentLayout
-  title="Leg Workouts — Build Strength, Muscle, and Mobility"
+  title="Leg Workouts — Beginner Leg Day Routines, Exercises, and Hamstring Guide"
   h1="Leg Workouts"
-  description="Free leg workout guide with beginner-friendly exercises, sample routines, and tips for building stronger quads, hamstrings, glutes, and calves."
+  description="Free leg workout guide with beginner routines, gym and home exercises, hamstring training, leg curl machine tips, and common leg day mistakes to avoid."
   path="/workouts/leg-workouts/"
-  lead="Train your legs with simple, effective routines for home or the gym."
+  category="Workouts"
+  categoryPath="/workouts/"
+  lead="Build stronger legs with beginner-friendly routines for home or the gym, plus practical guidance for hamstrings, leg curls, and safe progression."
+  updated="June 2026"
   faqs={faqs}
 >
   <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -37,6 +45,15 @@ const faqs = [
 
   <h2 id="beginners">Best Leg Workout for Beginners</h2>
   <p>Leg training builds strength for daily movement, supports better posture, improves athletic performance, and helps balance your physique. Strong legs also make cardio, walking, running, and calorie-burning workouts easier.</p>
+  <p>A good beginner leg workout should train all major lower-body muscles without overwhelming your joints. Start with bodyweight movements, learn the pattern, then add dumbbells, machines, or resistance bands as your confidence improves.</p>
+
+  <h2>Muscles trained in a complete leg workout</h2>
+  <ul>
+    <li><strong>Quadriceps:</strong> front of the thighs, used heavily in squats, lunges, step-ups, and leg presses.</li>
+    <li><strong>Hamstrings:</strong> back of the thighs, trained with Romanian deadlifts, leg curls, hip hinges, and sliding curls.</li>
+    <li><strong>Glutes:</strong> powerful hip muscles trained with squats, bridges, lunges, hip thrusts, and deadlift variations.</li>
+    <li><strong>Calves:</strong> lower-leg muscles trained with calf raises, jumps, stairs, and loaded carries.</li>
+  </ul>
 
   <h2>Best leg exercises</h2>
   <ul>
@@ -45,17 +62,31 @@ const faqs = [
     <li><strong>Romanian deadlifts:</strong> target hamstrings and glutes with a hip-hinge pattern.</li>
     <li><strong>Glute bridges:</strong> simple, joint-friendly glute activation.</li>
     <li><strong>Calf raises:</strong> build calves and ankle strength.</li>
+    <li><strong>Leg curls:</strong> isolate the hamstrings and improve knee-flexion strength.</li>
   </ul>
 
-  <h2>Simple leg workout routine</h2>
-  <p>Do 2–3 rounds of this routine 2 times per week:</p>
+  <h2>Simple beginner leg workout routine</h2>
+  <p>Do 2–3 rounds of this routine 2 times per week. Rest 60–90 seconds between sets and stop if you feel sharp pain.</p>
   <ul>
-    <li>Bodyweight or goblet squats: 10–15 reps</li>
+    <li>Bodyweight squats: 10–15 reps</li>
     <li>Reverse lunges: 8–12 reps per leg</li>
-    <li>Romanian deadlifts: 8–12 reps</li>
     <li>Glute bridges: 12–20 reps</li>
+    <li>Wall sits: 20–45 seconds</li>
     <li>Calf raises: 15–25 reps</li>
   </ul>
+
+  <h2>Simple gym leg workout routine</h2>
+  <p>Use this routine when you have access to machines, dumbbells, or barbells. Keep the first few sessions light so you can learn the movement patterns.</p>
+  <ul>
+    <li>Goblet squat or leg press: 3 sets of 8–12 reps</li>
+    <li>Romanian deadlift: 3 sets of 8–12 reps</li>
+    <li>Walking lunge: 2–3 sets of 10 reps per leg</li>
+    <li>Leg curl machine: 2–4 sets of 10–15 reps</li>
+    <li>Seated or standing calf raise: 3 sets of 12–20 reps</li>
+  </ul>
+
+  <h2>How to progress leg workouts</h2>
+  <p>Progress one variable at a time. Add a few reps before adding weight, improve your range of motion before increasing load, and keep your technique consistent. If your form breaks down, reduce the weight or take a longer rest.</p>
 
   <h2>Leg training tips</h2>
   <ul>
