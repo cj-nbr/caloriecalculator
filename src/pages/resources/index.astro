@@ -1,10 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Section from "../../components/ui/Section.astro";
-import { NAV } from "../../data/site";
 import { breadcrumbSchema } from "../../lib/seo";
 
-const resources = NAV.find((n) => n.label === "Resources")!.children!;
+const resources = [
+  { label: "What is BMR?", href: "/resources/what-is-bmr/" },
+  { label: "What is TDEE?", href: "/resources/what-is-tdee/" },
+];
 const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Resources", path: "/resources/" }])];
 ---
 

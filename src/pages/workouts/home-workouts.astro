@@ -1,0 +1,43 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+
+const faqs = [
+  { q: "Can I get fit with home workouts?", a: "Yes. Bodyweight training, bands, dumbbells, and simple cardio can build strength, endurance, and consistency when programmed well." },
+  { q: "How often should I do home workouts?", a: "Most people do well with 3–5 short sessions per week, mixing full-body strength with light cardio or mobility work." },
+];
+---
+
+<ContentLayout
+  title="Home Workouts — Train Anywhere Without Equipment"
+  h1="Home Workouts"
+  description="Free home workout guide with bodyweight routines, no-equipment exercises, and simple plans for staying active at home."
+  path="/workouts/home-workouts/"
+  lead="Train at home with simple routines that need little or no equipment."
+  faqs={faqs}
+>
+  <h2>Why train at home?</h2>
+  <p>Home workouts remove common barriers like travel time, gym cost, and complicated equipment. A short, consistent routine can still build strength, burn calories, and improve energy.</p>
+
+  <h2>Best home workout exercises</h2>
+  <ul>
+    <li><strong>Squats:</strong> legs, glutes, and core.</li>
+    <li><strong>Push-ups:</strong> chest, shoulders, triceps, and core.</li>
+    <li><strong>Glute bridges:</strong> posterior chain and hip strength.</li>
+    <li><strong>Planks:</strong> core stability and posture support.</li>
+    <li><strong>Mountain climbers:</strong> cardio, core, and coordination.</li>
+  </ul>
+
+  <h2>Simple full-body home routine</h2>
+  <p>Do 2–4 rounds of this circuit:</p>
+  <ul>
+    <li>Squats: 12–20 reps</li>
+    <li>Push-ups: 5–15 reps</li>
+    <li>Reverse lunges: 8–12 reps per leg</li>
+    <li>Plank: 20–45 seconds</li>
+    <li>Mountain climbers: 20–40 seconds</li>
+    <li>Rest: 60–90 seconds</li>
+  </ul>
+
+  <h2>Make it harder</h2>
+  <p>Add reps, slow the tempo, shorten rest periods, or use dumbbells, resistance bands, or a backpack. Progress gradually so your joints and muscles adapt safely.</p>
+</ContentLayout>

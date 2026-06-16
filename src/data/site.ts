@@ -51,10 +51,13 @@ export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
     ],
   },
   {
-    label: "Resources",
+    label: "Workouts",
     children: [
-      { label: "What is BMR?", href: "/resources/what-is-bmr/" },
-      { label: "What is TDEE?", href: "/resources/what-is-tdee/" },
+      { label: "Leg Workouts", href: "/workouts/leg-workouts/" },
+      { label: "Chest Workouts", href: "/workouts/chest-workouts/" },
+      { label: "Back Workouts", href: "/workouts/back-workouts/" },
+      { label: "Shoulder Workouts", href: "/workouts/shoulder-workouts/" },
+      { label: "Home Workouts", href: "/workouts/home-workouts/" },
     ],
   },
   { label: "About", href: "/about/" },

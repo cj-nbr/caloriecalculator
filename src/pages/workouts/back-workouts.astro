@@ -1,0 +1,42 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+
+const faqs = [
+  { q: "What is the best back workout for beginners?", a: "Start with assisted pull-ups, lat pulldowns, seated rows, and dumbbell rows. These teach pulling strength while keeping the movement controlled." },
+  { q: "How often should I train back?", a: "Train back 1–3 times per week depending on volume, recovery, and your overall training split." },
+];
+---
+
+<ContentLayout
+  title="Back Workouts — Build Width, Thickness, and Posture"
+  h1="Back Workouts"
+  description="Free back workout guide with effective pulling exercises, sample routines, and tips for building a stronger, healthier back."
+  path="/workouts/back-workouts/"
+  lead="Build a stronger back with rows, pulldowns, pull-ups, and smart form."
+  faqs={faqs}
+>
+  <h2>Why train back?</h2>
+  <p>Back training improves posture, pulling strength, shoulder stability, and upper-body balance. A strong back also helps counteract long hours spent sitting or looking down at screens.</p>
+
+  <h2>Best back exercises</h2>
+  <ul>
+    <li><strong>Lat pulldowns:</strong> build width and teach vertical pulling mechanics.</li>
+    <li><strong>Seated rows:</strong> build thickness through the middle back.</li>
+    <li><strong>Dumbbell rows:</strong> improve single-arm strength and core stability.</li>
+    <li><strong>Assisted pull-ups:</strong> a great progression toward full pull-ups.</li>
+    <li><strong>Face pulls:</strong> support shoulder health and upper-back strength.</li>
+  </ul>
+
+  <h2>Simple back workout routine</h2>
+  <p>Do 2–4 sets of each exercise:</p>
+  <ul>
+    <li>Lat pulldown: 8–12 reps</li>
+    <li>Seated row: 8–12 reps</li>
+    <li>Dumbbell row: 8–12 reps per side</li>
+    <li>Assisted pull-up: 6–10 reps</li>
+    <li>Face pull: 12–20 reps</li>
+  </ul>
+
+  <h2>Form tips</h2>
+  <p>Move from your elbows, not your wrists. Keep your chest tall, pull your shoulder blades back and down, and control the weight on the way back. Avoid jerking or using momentum.</p>
+</ContentLayout>

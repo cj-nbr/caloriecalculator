@@ -1,0 +1,42 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+
+const faqs = [
+  { q: "What is a good leg workout for beginners?", a: "Start with bodyweight squats, reverse lunges, glute bridges, and wall sits. Do 2–3 sets of 8–15 reps and add resistance only when your form is consistent." },
+  { q: "How often should I train legs?", a: "Most people do well with 2 leg sessions per week, leaving at least one rest day between hard lower-body workouts." },
+];
+---
+
+<ContentLayout
+  title="Leg Workouts — Build Strength, Muscle, and Mobility"
+  h1="Leg Workouts"
+  description="Free leg workout guide with beginner-friendly exercises, sample routines, and tips for building stronger quads, hamstrings, glutes, and calves."
+  path="/workouts/leg-workouts/"
+  lead="Train your legs with simple, effective routines for home or the gym."
+  faqs={faqs}
+>
+  <h2>Why train legs?</h2>
+  <p>Leg training builds strength for daily movement, supports better posture, improves athletic performance, and helps balance your physique. Strong legs also make cardio, walking, running, and calorie-burning workouts easier.</p>
+
+  <h2>Best leg exercises</h2>
+  <ul>
+    <li><strong>Squats:</strong> great for quads, glutes, and overall lower-body strength.</li>
+    <li><strong>Lunges:</strong> improve single-leg strength, balance, and hip stability.</li>
+    <li><strong>Romanian deadlifts:</strong> target hamstrings and glutes with a hip-hinge pattern.</li>
+    <li><strong>Glute bridges:</strong> simple, joint-friendly glute activation.</li>
+    <li><strong>Calf raises:</strong> build calves and ankle strength.</li>
+  </ul>
+
+  <h2>Simple leg workout routine</h2>
+  <p>Do 2–3 rounds of this routine 2 times per week:</p>
+  <ul>
+    <li>Bodyweight or goblet squats: 10–15 reps</li>
+    <li>Reverse lunges: 8–12 reps per leg</li>
+    <li>Romanian deadlifts: 8–12 reps</li>
+    <li>Glute bridges: 12–20 reps</li>
+    <li>Calf raises: 15–25 reps</li>
+  </ul>
+
+  <h2>Progress safely</h2>
+  <p>Start with bodyweight or light resistance. Add reps first, then add weight. Keep your knees tracking over your toes, your core braced, and your back neutral. Stop if you feel sharp pain.</p>
+</ContentLayout>
