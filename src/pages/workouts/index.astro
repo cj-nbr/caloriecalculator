@@ -15,21 +15,42 @@ const faqs = [
   { q: "What workout pages are available?", a: "This site includes leg, chest, back, shoulder, home workout, and leg curl machine guides." },
   { q: "Are these workout guides suitable for beginners?", a: "Yes. The guides include beginner-friendly options, form tips, and safer progression advice." },
   { q: "Do I need a gym for these workouts?", a: "No. Home workout and bodyweight options are included, while gym guides explain machines and equipment when needed." },
+  { q: "Which workout guide should I start with?", a: "Start with the guide that matches your goal: legs, chest, back, shoulders, home training, or leg curl machines." },
 ];
 ---
 
 <ContentLayout
-  title="Workouts — Free Exercise Guides and Workout Routines"
+  title="Workouts — Free Exercise Guides, Workout Routines, and Fitness Plans"
   h1="Workouts"
-  description="Free workout guides for legs, chest, back, shoulders, home training, and leg curl machines with routines, form tips, FAQs, and safe progression advice."
+  description="Free workout guides for legs, chest, back, shoulders, home training, and leg curl machines with routines, form tips, FAQs, internal links, and safe progression advice."
   path="/workouts/"
   lead="Explore free workout guides designed to help you train smarter, move better, and build strength safely."
   faqs={faqs}
 >
   <TopicCategoryGrid title="Choose a workout guide" categories={categories} />
 
+  <section class="card border-brand/20 p-5 sm:p-6">
+    <h2 class="text-display-sm text-ink">Quick workout planning facts</h2>
+    <ul class="mt-3 grid gap-3 text-body md:grid-cols-3">
+      <li class="rounded-xl bg-canvas-soft p-4"><span class="block text-sm font-semibold text-brand">Fact</span><span class="mt-1 block">Balanced training usually includes pushing, pulling, legs, core, and mobility.</span></li>
+      <li class="rounded-xl bg-canvas-soft p-4"><span class="block text-sm font-semibold text-brand">Fact</span><span class="mt-1 block">Beginners often progress faster by improving form before adding weight.</span></li>
+      <li class="rounded-xl bg-canvas-soft p-4"><span class="block text-sm font-semibold text-brand">Fact</span><span class="mt-1 block">Consistent recovery matters as much as the workout itself.</span></li>
+    </ul>
+  </section>
+
   <h2>How to use these workout guides</h2>
   <p>Start with the guide that matches your goal and equipment. If you are new to training, begin with lower volume, lighter resistance, and controlled reps. If you already train, use the guides to add variety, improve form, or fill gaps in your program.</p>
+  <p>For balanced training, combine lower-body, upper-body, and home workout pages. For example, pair <a href="/workouts/leg-workouts/" class="text-brand underline">leg workouts</a> with <a href="/workouts/chest-workouts/" class="text-brand underline">chest workouts</a>, <a href="/workouts/back-workouts/" class="text-brand underline">back workouts</a>, and <a href="/workouts/shoulder-workouts/" class="text-brand underline">shoulder workouts</a>.</p>
+
+  <h2>Workout guide categories</h2>
+  <ul>
+    <li><strong>Leg workouts:</strong> routines for quads, hamstrings, glutes, calves, and leg curl machines.</li>
+    <li><strong>Chest workouts:</strong> push-ups, presses, flyes, dips, and upper-body pushing strength.</li>
+    <li><strong>Back workouts:</strong> rows, pulldowns, pull-ups, posture, and pulling strength.</li>
+    <li><strong>Shoulder workouts:</strong> presses, raises, rear delt work, face pulls, and shoulder stability.</li>
+    <li><strong>Home workouts:</strong> bodyweight routines, no-equipment exercises, and simple progression.</li>
+    <li><strong>Leg curl machine:</strong> setup, muscles worked, benefits, alternatives, common mistakes, and hamstring training.</li>
+  </ul>
 
   <h2>Training safely</h2>
   <p>Warm up before hard sets, progress gradually, and avoid pushing through sharp pain. Use these guides for education only and consult a qualified professional for injuries or medical conditions.</p>

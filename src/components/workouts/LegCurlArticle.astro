@@ -6,6 +6,21 @@ interface Props {
 }
 
 const { topic } = Astro.props;
+
+const quickFacts = [
+  "Leg curls primarily train the hamstrings through knee flexion.",
+  "A controlled lowering phase usually increases hamstring tension more than rushing the rep.",
+  "For balanced hamstring development, pair leg curls with hip-hinge exercises like Romanian deadlifts.",
+];
+
+const relatedLinks = [
+  { label: "Leg Curl Machine for Hamstrings", href: "/workouts/leg-curl-machine/for-hamstrings/" },
+  { label: "Leg Curl Machine Muscles Worked", href: "/workouts/leg-curl-machine/muscles-worked/" },
+  { label: "How to Use a Leg Curl Machine", href: "/workouts/leg-curl-machine/how-to-use-a-leg-curl-machine/" },
+  { label: "Common Leg Curl Mistakes", href: "/workouts/leg-curl-machine/common-mistakes/" },
+  { label: "Seated vs Lying Leg Curl", href: "/workouts/leg-curl-machine/seated-vs-lying-leg-curl/" },
+  { label: "Leg Curl Machine Alternatives", href: "/workouts/leg-curl-machine/alternatives/" },
+];
 ---
 
 <div class="space-y-8">
@@ -14,6 +29,33 @@ const { topic } = Astro.props;
   </figure>
 
   <p class="text-lg leading-relaxed text-body">{topic.summary}</p>
+
+  <section class="card border-brand/20 p-5 sm:p-6">
+    <h2 class="text-display-sm text-ink">Quick facts about {topic.title}</h2>
+    <ul class="mt-3 grid gap-3 text-body md:grid-cols-3">
+      {quickFacts.map((fact) => (
+        <li class="rounded-xl bg-canvas-soft p-4">
+          <span class="block text-sm font-semibold text-brand">Fact</span>
+          <span class="mt-1 block">{fact}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="text-display-sm text-ink">Complete guide for people searching {topic.title}</h2>
+    <p class="leading-relaxed text-body">
+      People usually search for {topic.title} when they want to know the right setup, the muscles worked, the benefits, common mistakes, and how to add the movement to a leg day routine. The most important rule is simple: choose a weight you can control, keep your hips stable, and focus on feeling the hamstrings work through the full rep.
+    </p>
+    <p class="leading-relaxed text-body">
+      For most lifters, leg curls work best as an accessory exercise after squats, leg press, lunges, Romanian deadlifts, or other compound lower-body movements. Start with 2–4 sets of 8–15 reps, rest 60–120 seconds, and progress gradually by adding reps before adding weight.
+    </p>
+    <ul class="mt-4 space-y-2">
+      <li class="flex gap-2 text-body"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span><span>Use a pad position that feels stable and does not press into the Achilles or knee.</span></li>
+      <li class="flex gap-2 text-body"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span><span>Curl smoothly, pause briefly, and lower the weight for 2–3 seconds.</span></li>
+      <li class="flex gap-2 text-body"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span><span>Stop the set if you feel sharp knee, hip, or hamstring pain.</span></li>
+    </ul>
+  </section>
 
   {
     topic.sections.map((section) => (
@@ -33,6 +75,19 @@ const { topic } = Astro.props;
       </section>
     ))
   }
+
+  <section class="card p-5 sm:p-6">
+    <h2 class="text-display-sm text-ink">Related leg curl machine guides</h2>
+    <p class="leading-relaxed text-body">Keep learning with these related guides from the leg workout section.</p>
+    <div class="mt-4 grid gap-3 sm:grid-cols-2">
+      {relatedLinks.map((link) => (
+        <a href={link.href} class="rounded-xl border border-hairline p-4 transition-colors hover:border-brand hover:bg-canvas-soft">
+          <span class="block font-semibold text-ink">{link.label}</span>
+          <span class="mt-1 block text-sm text-body">Read guide</span>
+        </a>
+      ))}
+    </div>
+  </section>
 
   <section class="card p-5 sm:p-6">
     <h2 class="text-display-sm text-ink">Safe training note</h2>

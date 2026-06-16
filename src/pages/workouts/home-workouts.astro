@@ -4,17 +4,17 @@ import ContentLayout from "../../layouts/ContentLayout.astro";
 const faqs = [
   { q: "Can I get fit with home workouts?", a: "Yes. Bodyweight training, bands, dumbbells, and simple cardio can build strength, endurance, and consistency when programmed well." },
   { q: "How often should I do home workouts?", a: "Most people do well with 3–5 short sessions per week, mixing full-body strength with light cardio or mobility work." },
-  { q: 'Can beginners do this workout?', a: 'Yes. Start with lighter resistance, master the movement pattern, and add volume gradually.' },
-  { q: 'How many sets should I do?', a: 'A good starting point is 2–4 working sets per exercise, depending on experience and recovery.' },
-  { q: 'How long should I rest between sets?', a: 'Rest 60–120 seconds for most hypertrophy work. Use longer rests for heavier strength sets.' },
-  { q: 'What should I do if I feel pain?', a: 'Stop the exercise, reduce the load, check your form, and seek professional advice if pain persists.' },
+  { q: "Do I need equipment for home workouts?", a: "No. You can start with bodyweight exercises, then add bands, dumbbells, a backpack, or sliders as you progress." },
+  { q: "How long should a home workout be?", a: "A focused 20–45 minute workout is enough for most people when exercises are chosen well and effort is consistent." },
+  { q: "How can I make home workouts harder?", a: "Add reps, slow the tempo, shorten rest periods, use one-leg or one-arm variations, or add bands and dumbbells." },
+  { q: "What should I do if I feel pain?", a: "Stop the exercise, reduce the range of motion or load, and seek professional advice if pain persists." },
 ];
 ---
 
 <ContentLayout
-  title="Home Workouts — Train Anywhere Without Equipment"
+  title="Home Workouts — No-Equipment Routines, Bodyweight Exercises, and Beginner Plans"
   h1="Home Workouts"
-  description="Free home workout guide with bodyweight routines, no-equipment exercises, and simple plans for staying active at home."
+  description="Free home workout guide with bodyweight routines, no-equipment exercises, simple full-body plans, progression tips, FAQs, and safe training advice."
   path="/workouts/home-workouts/"
   category="Workouts"
   categoryPath="/workouts/"
@@ -22,8 +22,18 @@ const faqs = [
   lead="Train at home with simple routines that need little or no equipment."
   faqs={faqs}
 >
+  <section class="card border-brand/20 p-5 sm:p-6">
+    <h2 class="text-display-sm text-ink">Quick home workout facts</h2>
+    <ul class="mt-3 grid gap-3 text-body md:grid-cols-3">
+      <li class="rounded-xl bg-canvas-soft p-4"><span class="block text-sm font-semibold text-brand">Fact</span><span class="mt-1 block">Bodyweight training can build strength when reps, tempo, and rest are progressed.</span></li>
+      <li class="rounded-xl bg-canvas-soft p-4"><span class="block text-sm font-semibold text-brand">Fact</span><span class="mt-1 block">A 20–45 minute full-body session is enough for many home workouts.</span></li>
+      <li class="rounded-xl bg-canvas-soft p-4"><span class="block text-sm font-semibold text-brand">Fact</span><span class="mt-1 block">Simple tools like bands, sliders, or a backpack can make home workouts harder.</span></li>
+    </ul>
+  </section>
+
   <h2>Why train at home?</h2>
   <p>Home workouts remove common barriers like travel time, gym cost, and complicated equipment. A short, consistent routine can still build strength, burn calories, and improve energy.</p>
+  <p>People search for home workouts because they want a routine that fits a busy schedule, needs no gym, or can be done in a small space. The best home workout is the one you can repeat consistently and progress safely.</p>
 
   <h2>Best home workout exercises</h2>
   <ul>
@@ -32,19 +42,35 @@ const faqs = [
     <li><strong>Glute bridges:</strong> posterior chain and hip strength.</li>
     <li><strong>Planks:</strong> core stability and posture support.</li>
     <li><strong>Mountain climbers:</strong> cardio, core, and coordination.</li>
+    <li><strong>Reverse lunges:</strong> single-leg strength and balance.</li>
+    <li><strong>Band rows or towel rows:</strong> pulling strength when you have minimal equipment.</li>
   </ul>
 
   <h2>Simple full-body home routine</h2>
-  <p>Do 2–4 rounds of this circuit:</p>
+  <p>Do 2–4 rounds of this circuit. Rest 60–90 seconds between rounds and choose a push-up variation you can perform with clean form.</p>
   <ul>
     <li>Squats: 12–20 reps</li>
     <li>Push-ups: 5–15 reps</li>
     <li>Reverse lunges: 8–12 reps per leg</li>
+    <li>Glute bridges: 12–20 reps</li>
     <li>Plank: 20–45 seconds</li>
     <li>Mountain climbers: 20–40 seconds</li>
-    <li>Rest: 60–90 seconds</li>
   </ul>
 
-  <h2>Make it harder</h2>
+  <h2>Home workout for beginners</h2>
+  <p>Beginners should focus on form, consistency, and manageable effort. Start with 2–3 rounds, rest as needed, and stop each set before your form breaks down. You can make exercises easier with incline push-ups, box squats, or shorter plank holds.</p>
+
+  <h2>How to make home workouts harder</h2>
   <p>Add reps, slow the tempo, shorten rest periods, or use dumbbells, resistance bands, or a backpack. Progress gradually so your joints and muscles adapt safely.</p>
+  <ul>
+    <li><strong>For legs:</strong> try split squats, single-leg glute bridges, or slow-tempo squats.</li>
+    <li><strong>For chest:</strong> try decline push-ups, slower lowering, or a backpack-loaded push-up.</li>
+    <li><strong>For core:</strong> try side planks, dead bugs, or longer plank holds.</li>
+  </ul>
+
+  <h2>Related workout guides</h2>
+  <p>Use home workouts as a base, then add more specific training when you are ready. Continue with <a href="/workouts/leg-workouts/" class="text-brand underline">leg workouts</a>, <a href="/workouts/chest-workouts/" class="text-brand underline">chest workouts</a>, <a href="/workouts/back-workouts/" class="text-brand underline">back workouts</a>, and <a href="/workouts/shoulder-workouts/" class="text-brand underline">shoulder workouts</a>. If you want hamstring isolation, read the <a href="/workouts/leg-curl-machine/for-hamstrings/" class="text-brand underline">leg curl machine for hamstrings</a> guide.</p>
+
+  <h2>Progress safely</h2>
+  <p>Warm up before harder sessions, progress gradually, and avoid pushing through sharp pain. Use these guides for education only and consult a qualified professional for injuries or medical conditions.</p>
 </ContentLayout>

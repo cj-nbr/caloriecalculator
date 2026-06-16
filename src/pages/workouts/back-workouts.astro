@@ -4,26 +4,36 @@ import ContentLayout from "../../layouts/ContentLayout.astro";
 const faqs = [
   { q: "What is the best back workout for beginners?", a: "Start with assisted pull-ups, lat pulldowns, seated rows, and dumbbell rows. These teach pulling strength while keeping the movement controlled." },
   { q: "How often should I train back?", a: "Train back 1–3 times per week depending on volume, recovery, and your overall training split." },
-  { q: 'Can beginners do this workout?', a: 'Yes. Start with lighter resistance, master the movement pattern, and add volume gradually.' },
-  { q: 'How many sets should I do?', a: 'A good starting point is 2–4 working sets per exercise, depending on experience and recovery.' },
-  { q: 'How long should I rest between sets?', a: 'Rest 60–120 seconds for most hypertrophy work. Use longer rests for heavier strength sets.' },
-  { q: 'What should I do if I feel pain?', a: 'Stop the exercise, reduce the load, check your form, and seek professional advice if pain persists.' },
+  { q: "Can beginners do back workouts at home?", a: "Yes. Resistance band rows, inverted rows, dumbbell rows, and floor pull-aparts can build pulling strength without a full gym." },
+  { q: "How many sets should I do for back?", a: "A good starting point is 8–16 total sets per week, depending on experience and recovery." },
+  { q: "How long should I rest between back sets?", a: "Rest 60–120 seconds for most hypertrophy work. Use longer rests for heavier rows or pull-ups." },
+  { q: "What should I do if my lower back feels tired during rows?", a: "Brace your core, reduce the weight, use chest support when possible, and keep the movement controlled." },
 ];
 ---
 
 <ContentLayout
-  title="Back Workouts — Build Width, Thickness, and Posture"
+  title="Back Workouts — Best Exercises, Beginner Routines, Rows, Pull-Ups, and Posture"
   h1="Back Workouts"
-  description="Free back workout guide with effective pulling exercises, sample routines, and tips for building a stronger, healthier back."
+  description="Free back workout guide with rows, pulldowns, pull-ups, assisted pull-ups, face pulls, beginner routines, posture tips, FAQs, and safe progression."
   path="/workouts/back-workouts/"
   category="Workouts"
   categoryPath="/workouts/"
   updated="June 2026"
-  lead="Build a stronger back with rows, pulldowns, pull-ups, and smart form."
+  lead="Build a stronger back with rows, pulldowns, pull-ups, face pulls, and smart form."
   faqs={faqs}
 >
+  <section class="card border-brand/20 p-5 sm:p-6">
+    <h2 class="text-display-sm text-ink">Quick back workout facts</h2>
+    <ul class="mt-3 grid gap-3 text-body md:grid-cols-3">
+      <li class="rounded-xl bg-canvas-soft p-4"><span class="block text-sm font-semibold text-brand">Fact</span><span class="mt-1 block">Vertical pulls like pulldowns and pull-ups emphasize lat width.</span></li>
+      <li class="rounded-xl bg-canvas-soft p-4"><span class="block text-sm font-semibold text-brand">Fact</span><span class="mt-1 block">Horizontal rows like seated rows and dumbbell rows emphasize middle-back thickness.</span></li>
+      <li class="rounded-xl bg-canvas-soft p-4"><span class="block text-sm font-semibold text-brand">Fact</span><span class="mt-1 block">Face pulls can support rear-delt and upper-back balance.</span></li>
+    </ul>
+  </section>
+
   <h2>Why train back?</h2>
   <p>Back training improves posture, pulling strength, shoulder stability, and upper-body balance. A strong back also helps counteract long hours spent sitting or looking down at screens.</p>
+  <p>People search for back workouts because they want better posture, a wider back, stronger pull-ups, or relief from weak pulling patterns. The most effective back plan includes both vertical pulls and horizontal rows.</p>
 
   <h2>Best back exercises</h2>
   <ul>
@@ -32,18 +42,40 @@ const faqs = [
     <li><strong>Dumbbell rows:</strong> improve single-arm strength and core stability.</li>
     <li><strong>Assisted pull-ups:</strong> a great progression toward full pull-ups.</li>
     <li><strong>Face pulls:</strong> support shoulder health and upper-back strength.</li>
+    <li><strong>Resistance band rows:</strong> useful for home workouts and warm-ups.</li>
   </ul>
 
-  <h2>Simple back workout routine</h2>
-  <p>Do 2–4 sets of each exercise:</p>
+  <h2>Beginner back workout routine</h2>
+  <p>Do this routine 1–2 times per week. Rest 60–120 seconds between sets and focus on moving from your elbows rather than yanking with your hands.</p>
   <ul>
-    <li>Lat pulldown: 8–12 reps</li>
-    <li>Seated row: 8–12 reps</li>
-    <li>Dumbbell row: 8–12 reps per side</li>
-    <li>Assisted pull-up: 6–10 reps</li>
-    <li>Face pull: 12–20 reps</li>
+    <li>Lat pulldown: 3 sets of 8–12 reps</li>
+    <li>Seated row: 3 sets of 8–12 reps</li>
+    <li>Dumbbell row: 2–3 sets of 8–12 reps per side</li>
+    <li>Assisted pull-up: 2–3 sets of 6–10 reps</li>
+    <li>Face pull: 2–3 sets of 12–20 reps</li>
   </ul>
 
-  <h2>Form tips</h2>
-  <p>Move from your elbows, not your wrists. Keep your chest tall, pull your shoulder blades back and down, and control the weight on the way back. Avoid jerking or using momentum.</p>
+  <h2>Vertical pulls vs horizontal rows</h2>
+  <p>Vertical pulls like pulldowns and pull-ups emphasize lat width and overhead pulling strength. Horizontal rows like seated rows and dumbbell rows emphasize middle-back thickness, scapular control, and posture. A balanced back workout usually includes both.</p>
+
+  <h2>Form tips for safer back training</h2>
+  <p>Move from your elbows, not your wrists. Keep your chest tall, pull your shoulder blades back and down, and control the weight on the way back. Avoid jerking or using momentum. If your lower back gets tired, use chest-supported rows or reduce the load.</p>
+
+  <h2>How to progress back workouts</h2>
+  <p>Start with a weight that lets you feel your back muscles work. Add reps before adding weight, then add load only when your form stays consistent. For pull-ups, use assistance until you can perform clean reps without swinging.</p>
+
+  <h2>Common back workout mistakes</h2>
+  <ul>
+    <li>Pulling with the arms instead of driving the elbows back.</li>
+    <li>Using momentum on pulldowns or rows.</li>
+    <li>Skipping face pulls or rear-delt work.</li>
+    <li>Training back without balancing chest and shoulder work.</li>
+    <li>Going too heavy before learning scapular control.</li>
+  </ul>
+
+  <h2>Related workout guides</h2>
+  <p>Pair back training with <a href="/workouts/chest-workouts/" class="text-brand underline">chest workouts</a>, <a href="/workouts/shoulder-workouts/" class="text-brand underline">shoulder workouts</a>, and <a href="/workouts/home-workouts/" class="text-brand underline">home workouts</a>. For a complete full-body plan, also read <a href="/workouts/leg-workouts/" class="text-brand underline">leg workouts</a> and the <a href="/workouts/leg-curl-machine/" class="text-brand underline">leg curl machine</a> guide.</p>
+
+  <h2>Progress safely</h2>
+  <p>Start with controlled reps and a comfortable range of motion. Stop if you feel sharp pain in the shoulder, elbow, or lower back. Use these guides for education only and consult a qualified professional for injuries or medical conditions.</p>
 </ContentLayout>
