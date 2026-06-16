@@ -1,0 +1,49 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import TopicCategoryGrid from "../../components/workouts/TopicCategoryGrid.astro";
+import { LEG_CURL_PILLAR, LEG_CURL_TOPICS } from "../../data/leg-curl-topics";
+
+const categories = LEG_CURL_TOPICS.map((topic) => ({
+  title: topic.title,
+  href: topic.path,
+  description: topic.description,
+}));
+
+const faqs = [
+  { q: "What is a leg curl machine?", a: "A leg curl machine trains the hamstrings by adding resistance to knee flexion, which means you bend your knees and bring your heels toward your glutes." },
+  { q: "What muscles does a leg curl machine work?", a: "It primarily works the hamstrings. The calves, glutes, and core also help stabilize the movement." },
+  { q: "Is a seated or lying leg curl better?", a: "Both are useful. Seated leg curls often create a strong hamstring stretch, while lying leg curls are stable and beginner-friendly." },
+];
+---
+
+<ContentLayout
+  title="Leg Curl Machine — Complete Guide"
+  h1={LEG_CURL_PILLAR.title}
+  description={LEG_CURL_PILLAR.description}
+  path={LEG_CURL_PILLAR.path}
+  lead="Everything you need to know about leg curl machines, from setup and muscles worked to alternatives, mistakes, and the best ways to train hamstrings."
+  faqs={faqs}
+>
+  <TopicCategoryGrid title="Choose a leg curl machine topic" categories={categories} />
+
+  <h2>What is a leg curl machine?</h2>
+  <p>A leg curl machine is a strength-training machine that targets the hamstrings through knee flexion. You place your legs against a padded lever or roller, then curl your heels toward your glutes against resistance.</p>
+
+  <h2>Why leg curl machines are useful</h2>
+  <p>Leg curls isolate a movement pattern that many lower-body workouts miss. Squats, lunges, presses, and deadlifts are valuable, but leg curls directly train the hamstrings as knee flexors. That makes them useful for balanced leg development, athletic performance, and controlled accessory work.</p>
+
+  <h2>How to use a leg curl machine</h2>
+  <ul>
+    <li><strong>Set the pad:</strong> place it just above the ankles for lying or standing machines.</li>
+    <li><strong>Align your body:</strong> keep your knees near the machine pivot and your hips stable.</li>
+    <li><strong>Curl smoothly:</strong> bring your heels toward your glutes without swinging.</li>
+    <li><strong>Lower slowly:</strong> control the return instead of letting the weight drop.</li>
+    <li><strong>Start light:</strong> learn the movement before adding load.</li>
+  </ul>
+
+  <h2>Leg curl machine types</h2>
+  <p>Gyms may have lying, seated, standing, single-leg, or combination leg curl machines. The best choice is the one that fits your body, feels stable, and lets you train through a comfortable range of motion.</p>
+
+  <h2>Safety first</h2>
+  <p>Leg curls should feel challenging but controlled. Avoid sharp pain, reduce the weight if your hips lift, and keep the movement smooth. If you have a knee, hip, or hamstring injury, get guidance from a qualified professional.</p>
+</ContentLayout>

@@ -1,0 +1,18 @@
+---
+import ContentLayout from "../../../layouts/ContentLayout.astro";
+import LegCurlArticle from "../../../components/workouts/LegCurlArticle.astro";
+import { LEG_CURL_TOPICS } from "../../../data/leg-curl-topics";
+
+const topic = LEG_CURL_TOPICS.find((item) => item.slug === "how-to-use-a-leg-curl-machine")!;
+---
+
+<ContentLayout
+  title={`${topic.title} — Calorie Calculator Free`}
+  h1={topic.title}
+  description={topic.description}
+  path={topic.path}
+  lead={topic.summary}
+  faqs={topic.faqs}
+>
+  <LegCurlArticle topic={topic} />
+</ContentLayout>

@@ -1,0 +1,28 @@
+---
+interface Category {
+  title: string;
+  href: string;
+  description: string;
+}
+
+interface Props {
+  title?: string;
+  categories: Category[];
+}
+
+const { title = "Explore this workout guide", categories } = Astro.props;
+---
+
+<section class="space-y-5">
+  {title && <h2 class="text-display-sm text-ink">{title}</h2>}
+  <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      categories.map((category) => (
+        <a href={category.href} class="card group p-5 transition-all hover:border-hairline-strong hover:bg-canvas-soft">
+          <h3 class="text-base font-semibold text-ink group-hover:text-brand">{category.title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-body">{category.description}</p>
+        </a>
+      ))
+    }
+  </div>
+</section>

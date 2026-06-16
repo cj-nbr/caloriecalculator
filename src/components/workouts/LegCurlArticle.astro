@@ -1,0 +1,43 @@
+---
+import type { LegCurlTopic } from "../../data/leg-curl-topics";
+
+interface Props {
+  topic: LegCurlTopic;
+}
+
+const { topic } = Astro.props;
+---
+
+<div class="space-y-8">
+  <figure class="overflow-hidden rounded-2xl border border-hairline">
+    <img src={topic.image} alt={topic.imageAlt} class="h-[280px] w-full object-cover sm:h-[420px]" loading="lazy" />
+  </figure>
+
+  <p class="text-lg leading-relaxed text-body">{topic.summary}</p>
+
+  {
+    topic.sections.map((section) => (
+      <section>
+        <h2 class="text-display-sm text-ink">{section.heading}</h2>
+        {section.body && <p class="leading-relaxed text-body">{section.body}</p>}
+        {section.bullets && (
+          <ul class="space-y-2">
+            {section.bullets.map((bullet) => (
+              <li class="flex gap-2 text-body">
+                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
+                <span>{bullet}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+    ))
+  }
+
+  <section class="card p-5 sm:p-6">
+    <h2 class="text-display-sm text-ink">Safe training note</h2>
+    <p class="leading-relaxed text-body">
+      Use these guides for education only. Start light, warm up, stop if you feel sharp pain, and consult a qualified professional for injuries or medical conditions.
+    </p>
+  </section>
+</div>
