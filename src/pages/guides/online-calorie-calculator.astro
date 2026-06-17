@@ -1,0 +1,49 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is an online calorie calculator?", a: "An online calorie calculator is a web-based tool that calculates your daily calorie needs based on your age, sex, height, weight, and activity level. No app download is required." },
+  { q: "Is an online calorie calculator accurate?", a: "Online calorie calculators using the Mifflin-St Jeor equation are the most accurate accessible formulas, typically within 10–15% of your true needs. Use your result as a starting point and adjust based on real-world results." },
+  { q: "Can I use an online calorie calculator on my phone?", a: "Yes. Our online calorie calculator works instantly in any browser on phones, tablets, and desktops. It's optimized for mobile with fast loading and easy input." },
+  { q: "Do I need to sign up for an online calorie calculator?", a: "No. Our online calorie calculator is completely free with no sign-up required. Calculations run in your browser and your data never leaves your device." },
+];
+---
+
+<ContentLayout
+  title="Online Calorie Calculator — Free Daily Calorie Needs in Your Browser"
+  h1="Online Calorie Calculator"
+  description="Free online calorie calculator. Find your daily calorie needs for weight loss, maintenance, or gain instantly in your browser — no app or sign-up required."
+  path="/guides/online-calorie-calculator/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="Calculate your daily calorie needs instantly in your browser. No app download, no sign-up, no waiting."
+  updated="June 2026"
+  faqs={faqs}
+>
+  <p>An <strong>online calorie calculator</strong> is the fastest way to find your daily calorie needs. It runs in any web browser, works on phones and computers alike, and gives you personalized numbers instantly — all free and without creating an account.</p>
+
+  <h2>Why use an online calorie calculator instead of an app?</h2>
+  <p>Online calculators have advantages over apps: no download required, no storage space taken, and no need to create an account. They also update automatically — no app store visits needed. Our calculator works offline-ready and saves your recent inputs on your device.</p>
+
+  <h2>How the online calorie calculator works</h2>
+  <p>The calculator uses your age, sex, height, weight, and activity level to compute your BMR (Basal Metabolic Rate) with the Mifflin-St Jeor equation. It then multiplies by an activity factor to get your TDEE (Total Daily Energy Expenditure) — your maintenance calories. Finally, it adjusts for your goal: deficit for weight loss, surplus for gain.</p>
+
+  <h2>Benefits of our online calorie calculator</h2>
+  <ul>
+    <li><strong>No signup or download</strong> — use it immediately in your browser.</li>
+    <li><strong>Mobile optimized</strong> — works on any device with a fast, app-like experience.</li>
+    <li><strong>Complete results</strong> — shows calories, macros, and weekly weight targets.</li>
+    <li><strong>Privacy first</strong> — calculations run in your browser, data never leaves your device.</li>
+    <li><strong>Free forever</strong> — no paywalls, no limits, no hidden costs.</li>
+  </ul>
+
+  <h2>How accurate is an online calorie calculator?</h2>
+  <p>An online calorie calculator using Mifflin-St Jeor is the most accurate accessible formula, with research showing it's typically within 10–15% of measured values. No calculator can predict individual metabolism perfectly, so track your results for 2–3 weeks and adjust as needed.</p>
+
+  <h2>Why search for 'online calorie calculator'?</h2>
+  <p>People search for online calorie calculators when they want immediate, private answers to "how many calories should I eat?" The online format provides convenience, no-commitment access, and instant results that help you make informed food choices.</p>
+
+  <h2>How to use an online calorie calculator for weight loss</h2>
+  <p>Enter your stats, choose a weight-loss goal, and the online calculator gives you a daily calorie target below your maintenance. Eat at or near this target consistently. For more guidance, read our <a href="/guides/weight-loss-guide/">weight loss guide</a>.</p>
+</ContentLayout>

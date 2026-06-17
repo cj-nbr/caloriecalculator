@@ -42,6 +42,8 @@ export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
     label: "Guides",
     children: [
       { label: "How Many Calories Should I Eat?", href: "/guides/how-many-calories-should-i-eat/" },
+      { label: "Maintenance Calorie Calculator", href: "/guides/maintenance-calorie-calculator/" },
+      { label: "Online Calorie Calculator", href: "/guides/online-calorie-calculator/" },
       { label: "Weight Loss Guide", href: "/guides/weight-loss-guide/" },
       { label: "Weight Gain Guide", href: "/guides/weight-gain-guide/" },
       { label: "Calorie Deficit Guide", href: "/guides/calorie-deficit-guide/" },
@@ -81,6 +83,9 @@ export const FOOTER: { title: string; links: NavLink[] }[] = [
   {
     title: "Resources",
     links: [
+      { label: "How Many Calories Should I Eat?", href: "/guides/how-many-calories-should-i-eat/" },
+      { label: "Maintenance Calorie Calculator", href: "/guides/maintenance-calorie-calculator/" },
+      { label: "Online Calorie Calculator", href: "/guides/online-calorie-calculator/" },
       { label: "Weight Loss Guide", href: "/guides/weight-loss-guide/" },
       { label: "Protein Guide", href: "/guides/protein-guide/" },
       { label: "Macro Guide", href: "/guides/macro-guide/" },

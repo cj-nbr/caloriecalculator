@@ -7,6 +7,14 @@ import type { FaqItem } from "../lib/seo";
  */
 export const HOME_FAQS: FaqItem[] = [
   {
+    q: "What is a maintenance calorie calculator?",
+    a: "A maintenance calorie calculator finds how many calories you can eat each day without gaining or losing weight. It calculates your TDEE using your age, sex, height, weight, and activity level.",
+  },
+  {
+    q: "What is an online calorie calculator?",
+    a: "An online calorie calculator is a web-based tool that calculates your daily calorie needs in seconds. No app download or account is required — just enter your details and get your personalized target.",
+  },
+  {
     q: "What is a calorie deficit calculator?",
     a: "A calorie deficit calculator works out how many calories you need to eat to lose weight. It first estimates your maintenance calories (your TDEE) and then subtracts a deficit, giving you a daily target that's lower than the calories you burn so your body uses stored fat for energy.",
   },

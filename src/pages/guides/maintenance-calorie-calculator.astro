@@ -1,0 +1,47 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is a maintenance calorie calculator?", a: "A maintenance calorie calculator finds how many calories you can eat each day without gaining or losing weight. It calculates your TDEE (Total Daily Energy Expenditure) using your age, sex, height, weight, and activity level." },
+  { q: "How do I calculate my maintenance calories?", a: "Your maintenance calories equal your TDEE. Use our TDEE calculator or calorie calculator, enter your stats, and the 'maintain weight' result is your maintenance calorie target." },
+  { q: "What is a good daily calorie maintenance for weight loss?", a: "A good starting point is a 300–500 calorie deficit from your maintenance level. This produces about 0.5–1 lb of fat loss per week while sparing muscle." },
+  { q: "How often should I recalculate my maintenance calories?", a: "Recalculate every 4–5 kg (about 10 lb) of weight change, or whenever your activity level changes significantly. Your maintenance calories shift as your weight changes." },
+];
+---
+
+<ContentLayout
+  title="Maintenance Calorie Calculator — Find Your Daily Calorie Needs"
+  h1="Maintenance Calorie Calculator"
+  description="Find exactly how many calories you need daily to maintain your current weight. Our free maintenance calorie calculator uses your stats and activity level for accurate results."
+  path="/guides/maintenance-calorie-calculator/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="Your maintenance calories are the amount you can eat to keep your weight stable. Here's how to calculate them."
+  updated="June 2026"
+  faqs={faqs}
+>
+  <p>A <strong>maintenance calorie calculator</strong> tells you how many calories you can consume each day without losing or gaining weight. This number is also called your TDEE (Total Daily Energy Expenditure) — the total calories your body burns in 24 hours of typical activity.</p>
+
+  <h2>Why maintenance calories matter</h2>
+  <p>Maintenance calories are the foundation for any nutrition plan. If you want to lose weight, you eat slightly below this number. If you want to gain muscle, you eat slightly above it. Without knowing your maintenance, you're guessing at best.</p>
+
+  <h2>How the maintenance calorie calculator works</h2>
+  <p>The calculator uses the Mifflin-St Jeor equation to find your BMR (Basal Metabolic Rate) — the calories your body burns just to stay alive. Then it multiplies by your activity level to arrive at your TDEE, which is your maintenance calorie target.</p>
+
+  <h2>Step-by-step maintenance calorie calculation</h2>
+  <ul>
+    <li><strong>Step 1:</strong> Enter your age, sex, height, and weight.</li>
+    <li><strong>Step 2:</strong> Choose your activity level (sedentary to extra active).</li>
+    <li><strong>Step 3:</strong> The calculator shows your TDEE — this is your maintenance.</li>
+  </ul>
+
+  <h2>Maintenance calorie example</h2>
+  <p>A 30-year-old man, 180 cm and 80 kg, who exercises 3–4 times per week has a BMR of roughly 1,820 calories. With a moderately active factor of 1.55, his maintenance calories are approximately 2,810 kcal/day.</p>
+
+  <h2>Using maintenance calories for weight loss</h2>
+  <p>To lose weight, subtract 250–500 calories from your maintenance level. A 500-calorie deficit typically yields about 1 pound of weight loss per week. The <a href="/">calorie calculator</a> automatically sets deficits based on your chosen pace.</p>
+
+  <h2>Using maintenance calories for weight gain</h2>
+  <p>To build muscle, add 250–500 calories to your maintenance. This surplus provides energy for muscle growth. Use the <a href="/weight-loss-calculator/">weight loss calculator</a> or the main calorie calculator with a gain goal to find your target.</p>
+</ContentLayout>
