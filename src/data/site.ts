@@ -73,6 +73,19 @@ export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
       { label: "Home Workouts", href: "/workouts/home-workouts/", desc: "No-equipment routines" },
     ],
   },
+  {
+    label: "Resources",
+    children: [
+      { label: "What is BMR?", href: "/resources/what-is-bmr/" },
+      { label: "What is TDEE?", href: "/resources/what-is-tdee/" },
+      { label: "Mifflin-St Jeor Equation", href: "/resources/mifflin-st-jeor-equation/" },
+      { label: "Calories Burned in a Day", href: "/resources/calories-burned-in-a-day/" },
+      { label: "BMI Calculator Guide", href: "/resources/bmi-calculator/" },
+      { label: "Body Fat Percentage", href: "/resources/body-fat-percentage/" },
+      { label: "Macro Calculator Guide", href: "/resources/macro-calculator/" },
+      { label: "Weight Loss Calculator Guide", href: "/resources/weight-loss-calculator/" },
+    ],
+  },
   { label: "About", href: "/about/" },
 ];
 
@@ -97,7 +110,6 @@ export const FOOTER: { title: string; links: NavLink[] }[] = [
       { label: "Mifflin-St Jeor Equation", href: "/resources/mifflin-st-jeor-equation/" },
       { label: "Calories Burned in a Day", href: "/resources/calories-burned-in-a-day/" },
       { label: "TDEE Calculator Guide", href: "/resources/tdee-calculator/" },
-      { label: "BMR Calculator Guide", href: "/resources/bmr-calculator/" },
       { label: "What is TDEE?", href: "/resources/what-is-tdee/" },
     ],
   },
