@@ -1,0 +1,83 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is a calorie calculator for weight loss?", a: "A calorie calculator for weight loss estimates your daily calorie target below maintenance to achieve fat loss. It uses your BMR, TDEE, and chosen deficit." },
+  { q: "How many calories to lose weight?", a: "Aim for a 300–500 calorie deficit below your maintenance. This yields ~0.5–1 lb of weight loss per week. Our calculator sets this automatically." },
+  { q: "How accurate is a weight loss calorie calculator?", a: "Weight loss calorie calculators based on Mifflin-St Jeor are 85–90% accurate. Track your weight for 2–3 weeks to fine-tune your intake." },
+  { q: "Should I eat 1,500 calories to lose weight?", a: "Only if your <a href=\"/guides/maintenance-calorie-calculator/\">maintenance calories</a> are around 1,800–2,000. Use a calculator to find your personal number rather than arbitrary limits." },
+];
+---
+
+<ContentLayout
+  title="Weight Loss Calorie Calculator — Daily Deficit to Burn Fat"
+  h1="Weight Loss Calorie Calculator"
+  description="Find your weight loss calorie target. Calculate daily calorie deficit for fat loss with our free weight loss calorie calculator. Includes safe deficits and adjustment tips."
+  path="/guides/weight-loss-calorie-calculator/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="A weight loss calorie calculator gives you the exact daily target to lose fat safely and sustainably."
+  updated="June 2026"
+  faqs={faqs}
+>
+  <p>A <strong>weight loss calorie calculator</strong> determines how many calories you should eat each day to lose fat. It starts with your <a href="/guides/maintenance-calorie-calculator/">maintenance calories</a> and subtracts a deficit for weight loss.</p>
+
+  <h2>How a weight loss calorie calculator works</h2>
+  <p>The calculator follows these steps:</p>
+  <ol>
+    <li>Calculate your BMR (Mifflin-St Jeor equation)</li>
+    <li>Apply activity factor to get TDEE/maintenance</li>
+    <li>Select weight loss goal (mild, moderate, aggressive)</li>
+    <li>Subtract appropriate deficit (250–1,000 calories)</li>
+    <li>Apply safety minimums (1,500 men, 1,200 women)</li>
+  </ol>
+  <p>Try our <a href="/">calorie calculator</a> for automatic weight loss targets.</p>
+
+  <h2>Weight loss calorie targets by deficit</h2>
+  <table>
+    <thead><tr><th>Deficit</th><th>Weekly Loss</th><th>Target for 2,500 maintenance</th></tr></thead>
+    <tbody>
+      <tr><td>Mild (250 kcal)</td><td>~0.5 lb (0.25 kg)</td><td>2,250 calories/day</td></tr>
+      <tr><td>Moderate (500 kcal)</td><td>~1 lb (0.5 kg)</td><td>2,000 calories/day</td></tr>
+      <tr><td>Large (750 kcal)</td><td>~1.5 lb (0.7 kg)</td><td>1,750 calories/day</td></tr>
+      <tr><td>Extreme (1,000 kcal)</td><td>~2 lb (1 kg)</td><td>1,500 calories/day (minimum)</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Safe weight loss calorie ranges</h2>
+  <p>For sustainable fat loss:</p>
+  <ul>
+    <li><strong>Women:</strong> Minimum 1,200 calories/day (medical supervision below)</li>
+    <li><strong>Men:</strong> Minimum 1,500 calories/day</li>
+    <li><strong>Moderate deficit:</strong> 300–500 calories below maintenance</li>
+    <li><strong>Goal rate:</strong> 0.5–2 lb per week is considered safe</li>
+  </ul>
+
+  <h2>Adjusting a weight loss calorie calculator</h2>
+  <p>If weight loss stalls after 2–3 weeks:</p>
+  <ol>
+    <li>Verify tracking accuracy (weigh food, log everything)</li>
+    <li>Recalculate maintenance if you've lost 4–5 kg</li>
+    <li>Adjust intake by 100–200 calories if needed</li>
+    <li>Check activity level hasn't changed</li>
+  </ol>
+
+  <h2>Why weight loss calorie calculators sometimes fail</h2>
+  <ul>
+    <li>Overestimating activity level inflates maintenance</li>
+    <li>Under-reporting calorie intake</li>
+    <li>Metabolic adaptation during weight loss</li>
+    <li>Changes in non-exercise activity (NEAT)</li>
+    <li>Medical conditions affecting metabolism</li>
+  </ul>
+
+  <h2>Combining calorie targets with macros for weight loss</h2>
+  <p>Optimize your weight loss with protein:</p>
+  <ul>
+    <li><strong>Protein:</strong> 1.6–2.2 g per kg of body weight</li>
+    <li><strong>Fat:</strong> 20–30% of total calories</li>
+    <li><strong>Carbs:</strong> Remainder of calories</li>
+  </ul>
+  <p>Use our <a href="/protein-calculator/">protein calculator</a> and <a href="/macro-calculator/">macro calculator</a> alongside your calorie target.</p>
+</ContentLayout>

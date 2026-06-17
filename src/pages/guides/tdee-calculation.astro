@@ -1,0 +1,91 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is the best method to calculate TDEE?", a: "The best TDEE method uses Mifflin-St Jeor BMR multiplied by an accurate activity factor. Our TDEE calculator handles this automatically." },
+  { q: "How accurate is TDEE calculation?", a: "TDEE formulas are 85–90% accurate for most people. Track your weight for 2–3 weeks and adjust your intake by 100–200 calories if needed." },
+  { q: "Can I calculate TDEE without a calculator?", a: "Yes. Calculate BMR using Mifflin-St Jeor, then multiply by 1.2 (sedentary) to 1.9 (athlete). Most people are moderately active (1.55)." },
+  { q: "Why is my TDEE calculation wrong?", a: "Common errors: overestimating activity, incorrect weight entry, or not accounting for metabolic adaptation after weight change. Track and adjust." },
+];
+---
+
+<ContentLayout
+  title="TDEE Calculation Methods — Best Way to Find Maintenance Calories"
+  h1="TDEE Calculation Methods"
+  description="Learn the best TDEE calculation methods. Find your Total Daily Energy Expenditure accurately using Mifflin-St Jeor and activity multipliers."
+  path="/guides/tdee-calculation/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="TDEE is your maintenance calorie number. Calculate it accurately with the right method."
+  updated="June 2026"
+  faqs={faqs}
+>
+  <p><strong>TDEE calculation</strong> (Total Daily Energy Expenditure) gives you your <a href="/guides/maintenance-calorie-calculator/">maintenance calories</a> — the number you can eat to keep your weight stable. Here are the best methods.</p>
+
+  <h2>The Mifflin-St Jeor TDEE method (recommended)</h2>
+  <p>This is the most accurate formula for calculating TDEE. The process:</p>
+  <ol>
+    <li>Calculate BMR using Mifflin-St Jeor</li>
+    <li>Multiply BMR by activity factor</li>
+    <li>Adjust for individual variation after 2–3 weeks</li>
+  </ol>
+  <p>Use our <a href="/tdee-calculator/">TDEE calculator</a> for automatic calculation.</p>
+
+  <h2>TDEE calculation methods compared</h2>
+  <table>
+    <thead><tr><th>Method</th><th>Accuracy</th><th>Best for</th></tr></thead>
+    <tbody>
+      <tr><td>Mifflin-St Jeor</td><td>85–90%</td><td>General population</td></tr>
+      <tr><td>Harris-Benedict</td><td>70–80%</td><td>Historical reference</td></tr>
+      <tr><td>Katch-McArdle</td><td>80–85%</td><td>Known body fat percentage</td></tr>
+      <tr><td>Direct measurement</td><td>95%+</td><td>Research settings only</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Activity factors for TDEE calculation</h2>
+  <table>
+    <thead><tr><th>Level</th><th>Factor</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td>Sedentary</td><td>1.2</td><td>Desk job, minimal exercise</td></tr>
+      <tr><td>Lightly Active</td><td>1.375</td><td>1–3 days/week exercise</td></tr>
+      <tr><td>Moderately Active</td><td>1.55</td><td>3–5 days/week exercise</td></tr>
+      <tr><td>Very Active</td><td>1.725</td><td>6–7 days/week intense exercise</td></tr>
+      <tr><td>Extra Active</td><td>1.9</td><td>Athlete + physical job</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Manual TDEE calculation example</h2>
+  <p>A 30-year-old woman, 165 cm, 65 kg, moderately active:</p>
+  <pre>BMR = 10 × 65 + 6.25 × 165 - 5 × 30 - 161 = 1,400
+TDEE = 1,400 × 1.55 = 2,170 calories/day</pre>
+  <p>This is her <a href="/guides/maintenance-calorie-calculator/">maintenance calorie calculator</a> number.</p>
+
+  <h2>Measuring TDEE without equations</h2>
+  <p>If you want to verify your TDEE without formulas:</p>
+  <ol>
+    <li>Eat the same number of calories daily for 2 weeks</li>
+    <li>Weigh yourself daily, average the results</li>
+    <li>If weight stays stable, you've found your TDEE</li>
+    <li>If gaining/losing, adjust by 100–200 calories daily</li>
+  </ol>
+
+  <h2>When TDEE calculation breaks down</h2>
+  <p>Certain situations require adjustment:</p>
+  <ul>
+    <li><strong>Weight change:</strong> Recalculate every 4–5 kg</li>
+    <li><strong>Age:</strong> Metabolism slows ~2% per decade</li>
+    <li><strong>Medical conditions:</strong> Thyroid, diabetes affect metabolism</li>
+    <li><strong>Medications:</strong> Some suppress appetite or alter metabolism</li>
+  </ul>
+
+  <h2>Improving TDEE calculation accuracy</h2>
+  <p>For better results:</p>
+  <ul>
+    <li>Use accurate measurements for weight and height</li>
+    <li>Choose conservative activity level if unsure</li>
+    <li>Track weight for 2–3 weeks before adjusting</li>
+    <li>Account for non-exercise activity (NEAT)</li>
+  </ul>
+  <p>Combine with our <a href="/calories-burned-calculator/">calories burned calculator</a> for complete tracking.</p>
+</ContentLayout>

@@ -1,0 +1,83 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is the Harris-Benedict equation?", a: "The Harris-Benedict equation (1919) was the first formula to estimate BMR from height, weight, age, and sex. It has been largely superseded by Mifflin-St Jeor for better accuracy." },
+  { q: "Is Mifflin-St Jeor better than Harris-Benedict?", a: "Research shows Mifflin-St Jeor is 85–90% accurate versus 70–80% for Harris-Benedict. We use Mifflin-St Jeor in our calorie calculator." },
+  { q: "What are the BMR equations?", a: "Mifflin-St Jeor: Men BMR=10×weight+6.25×height-5×age+5; Women BMR=10×weight+6.25×height-5×age-161. Harris-Benedict is older and less accurate." },
+  { q: "Why was Harris-Benedict replaced?", a: "Harris-Benedict overestimates metabolic rate in modern populations. Mifflin-St Jeor was developed using more recent data and shows better correlation with measured values." },
+];
+---
+
+<ContentLayout
+  title="BMR Equations Compared — Mifflin-St Jeor vs Harris-Benedict (2026)"
+  h1="BMR Equations Compared"
+  description="Compare BMR equations: Mifflin-St Jeor vs Harris-Benedict. Learn which calorie calculator formula is most accurate and why."
+  path="/guides/bmr-equations/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="Two formulas have dominated calorie calculation: Harris-Benedict (1919) and Mifflin-St Jeor (1990). Here's which one to trust."
+  updated="June 2026"
+  faqs={faqs}
+>
+  <p>When you use a <a href="/guides/maintenance-calorie-calculator/">maintenance calorie calculator</a> or any <a href="/guides/online-calorie-calculator/">online calorie calculator</a>, the underlying math matters. Two equations have dominated for decades. Here's how they compare.</p>
+
+  <h2>The Mifflin-St Jeor equation (current standard)</h2>
+  <p>Published in 1990, this formula was developed using modern metabolic data:</p>
+  <table>
+    <thead><tr><th>Equation</th><th>Formula</th></tr></thead>
+    <tbody>
+      <tr><td>Men</td><td>BMR = 10 × weight(kg) + 6.25 × height(cm) - 5 × age + 5</td></tr>
+      <tr><td>Women</td><td>BMR = 10 × weight(kg) + 6.25 × height(cm) - 5 × age - 161</td></tr>
+    </tbody>
+  </table>
+  <p><a href="/bmr-calculator/">Our BMR calculator</a> uses this equation exclusively.</p>
+
+  <h2>The Harris-Benedict equation (historical)</h2>
+  <p>Published in 1919, this was the original formula for estimating metabolic rate:</p>
+  <table>
+    <thead><tr><th>Equation</th><th>Formula</th></tr></thead>
+    <tbody>
+      <tr><td>Men</td><td>BMR = 88.362 + 13.397 × weight(kg) + 4.796 × height(cm) - 5.677 × age</td></tr>
+      <tr><td>Women</td><td>BMR = 447.593 + 9.247 × weight(kg) + 3.098 × height(cm) - 4.330 × age</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Accuracy comparison study results</h2>
+  <table>
+    <thead><tr><th>Equation</th><th>Accuracy vs measured</th><th>Typical error</th></tr></thead>
+    <tbody>
+      <tr><td>Mifflin-St Jeor</td><td>~85–90%</td><td>±10–15%</td></tr>
+      <tr><td>Harris-Benedict</td><td>~70–80%</td><td>±15–25%</td></tr>
+      <tr><td>Revised Harris-Benedict (1984)</td><td>~75–85%</td><td>±12–20%</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Why Mifflin-St Jeor wins</h2>
+  <p>Research across multiple studies (1990–2020) consistently shows Mifflin-St Jeor outperforms Harris-Benedict:</p>
+  <ul>
+    <li>Uses more recent, diverse population data</li>
+    <li>Better accuracy for both average and overweight individuals</li>
+    <li>Lower standard error of estimation</li>
+    <li>More consistent across age ranges</li>
+  </ul>
+
+  <h2>When Harris-Benedict might be better</h2>
+  <p>In rare cases, Harris-Benedict may be more accurate for:</p>
+  <ul>
+    <li>Very elderly individuals (limited Mifflin-St Jeor data)</li>
+    <li>Certain medical populations (specific metabolic conditions)</li>
+    <li>Historical comparisons (some research uses it as baseline)</li>
+  </ul>
+
+  <h2>How equations affect your calorie results</h2>
+  <p>With similar inputs, the equations often differ by 200–500 calories. This difference matters for weight goals. For example:</p>
+  <ul>
+    <li>30-year-old woman, 65 kg, 165 cm: Mifflin-St Jeor ~1,400; Harris-Benedict ~1,500</li>
+    <li>40-year-old man, 80 kg, 180 cm: Mifflin-St Jeor ~1,820; Harris-Benedict ~2,000</li>
+  </ul>
+
+  <h2>Best practice: Use Mifflin-St Jeor</h2>
+  <p>The scientific consensus favors Mifflin-St Jeor for everyday use. Our <a href="/">calorie calculator</a> uses it, ensuring your <a href="/guides/maintenance-calorie-calculator/">maintenance calories</a> and weight goals are based on the most accurate formula available.</p>
+</ContentLayout>

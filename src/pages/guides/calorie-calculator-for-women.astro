@@ -1,0 +1,86 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "How many calories should a woman eat to lose weight?", a: "Most women need a 300–500 calorie deficit from their maintenance level. Use our calculator to find your exact number rather than following generic advice." },
+  { q: "What is the best calorie calculator for women?", a: "The best uses Mifflin-St Jeor with accurate inputs. Our <a href=\"/\">calorie calculator</a> is designed for both men and women with proper safety floors." },
+  { q: "Why do women need fewer calories?", a: "On average, women have lower muscle mass, smaller organs, and lower body weight than men. This translates to ~200–400 fewer maintenance calories." },
+  { q: "Is 1,200 calories enough for women?", a: "For some women, 1,200 may be appropriate. For others, it's too low. Your <a href=\"/guides/maintenance-calorie-calculator/\">maintenance calorie calculator</a> result determines your personal floor." },
+];
+---
+
+<ContentLayout
+  title="Calorie Calculator for Women — Daily Calorie Needs Guide"
+  h1="Calorie Calculator for Women"
+  description="Calorie calculator for women. Find daily calorie needs for weight loss, maintenance, or gain. Includes safe deficits, macro recommendations, and special considerations."
+  path="/guides/calorie-calculator-for-women/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="Women have unique calorie needs based on physiology, hormones, and activity level."
+  updated="June 2026"
+  faqs={faqs}
+>
+  <p>A <strong>calorie calculator for women</strong> accounts for physiological differences that affect metabolism. Use our calculator for personalized targets.</p>
+
+  <h2>Women's calorie needs explained</h2>
+  <p>On average, women need fewer calories because:</p>
+  <ul>
+    <li>Lower muscle mass (muscle burns more calories at rest)</li>
+    <li>Smaller body size and organ mass</li>
+    <li>Different hormonal profile affecting metabolism</li>
+    <li>Lower average body weight</li>
+  </ul>
+
+  <h2>Daily calorie calculator for women: typical ranges</h2>
+  <table>
+    <thead><tr><th>Activity Level</th><th>Moderate (5'5", 65kg)</th><th>Tall/Heavy (5'7", 75kg)</th></tr></thead>
+    <tbody>
+      <tr><td>Sedentary</td><td>~1,800–2,000</td><td>~2,000–2,200</td></tr>
+      <tr><td>Lightly Active</td><td>~2,000–2,200</td><td>~2,200–2,500</td></tr>
+      <tr><td>Moderately Active</td><td>~2,200–2,500</td><td>~2,500–2,800</td></tr>
+      <tr><td>Very Active</td><td>~2,500–2,800</td><td>~2,800–3,100</td></tr>
+  </table>
+  <p>Use our <a href="/tdee-calculator/">TDEE calculator</a> for your exact number.</p>
+
+  <h2>Safe calorie deficit for women</h2>
+  <p>To lose weight safely:</p>
+  <ul>
+    <li><strong>Mild deficit:</strong> 200–250 calories below maintenance</li>
+    <li><strong>Moderate deficit:</strong> 300–500 calories below maintenance</li>
+    <li><strong>Minimum:</strong> Never below 1,200 calories without medical supervision</li>
+  </ul>
+  <p>Read <a href="/guides/weight-loss-guide/">weight loss guide</a> for complete strategies.</p>
+
+  <h2>Menstrual cycle and calorie needs</h2>
+  <p>Hormonal fluctuations affect hunger and metabolism:</p>
+  <ul>
+    <li><strong>Luteal phase (post-ovulation):</strong> Higher appetite, increased calories burned</li>
+    <li><strong>Menstrual bleeding:</strong> Slight metabolic slowdown</li>
+    <li><strong>Adjust:</strong> Some women feel better with 100–200 extra calories during luteal phase</li>
+  </ul>
+
+  <h2>Postpartum and breastfeeding calorie needs</h2>
+  <p><strong>Breastfeeding:</strong> Adds 300–500 calories to maintenance needs</p>
+  <p><strong>Postpartum (non-breastfeeding):</strong> Needs gradually return to baseline over 6–12 months</p>
+
+  <h2>Perimenopause and menopause changes</h2>
+  <p>Metabolism slows ~2–5% per decade after 25, accelerating near menopause:</p>
+  <ul>
+    <li>Decreased estrogen affects body composition</li>
+    <li>Muscle loss increases (strength training becomes critical)</li>
+    <li>Maintenance calories drop 200–400 from pre-menopause</li>
+  </ul>
+  <p>Read <a href="/guides/maintenance-calorie-calculator/">maintenance calorie calculator</a> guide to recalculate.</p>
+
+  <h2>Macro recommendations for women</h2>
+  <table>
+    <thead><tr><th>Macro</th><th>Recommended Range</th></tr></thead>
+    <tbody>
+      <tr><td>Protein</td><td>1.6–2.2 g per kg body weight</td></tr>
+      <tr><td>Fat</td><td>20–30% of total calories</td></tr>
+      <tr><td>Carbs</td><td>40–50% (remainder of calories)</td></tr>
+    </tbody>
+  </table>
+  <p>Use our <a href="/macro-calculator/">macro calculator</a> for automatic macro splitting.</p>
+</ContentLayout>
