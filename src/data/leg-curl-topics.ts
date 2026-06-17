@@ -21,7 +21,7 @@ export interface LegCurlTopic {
 export const LEG_CURL_PILLAR = {
   title: "Leg Curl Machine",
   path: "/workouts/leg-curl-machine/",
-  description: "Complete leg curl machine guide covering muscles worked, benefits, alternatives, seated vs lying machines, common mistakes, and the best ways to train hamstrings.",
+  description: "Complete leg curl machine guide covering prone leg curl, seated and lying setups, leg extension machine differences, lying leg raises, muscles worked, benefits, alternatives, mistakes, and the best ways to train hamstrings.",
 };
 
 export const LEG_CURL_TOPICS: LegCurlTopic[] = [
@@ -39,6 +39,7 @@ export const LEG_CURL_TOPICS: LegCurlTopic[] = [
       { heading: "How to program it", body: "Use 2–4 sets of 8–15 reps. Beginners can start with 2 sets and add weight only when they can control the lowering phase without rocking or lifting their hips." },
     ],
     faqs: [
+      { q: "What is a leg curl machine?", a: "A leg curl machine is a strength-training machine that targets the hamstrings by adding resistance to knee flexion, which means you bend your knees and bring your heels toward your glutes." },
       { q: "Is the leg curl machine good for hamstrings?", a: "Yes. It directly trains knee flexion, which is one of the main functions of the hamstrings." },
       { q: "Should I go heavy on leg curls?", a: "Start moderate. Controlled form and a full range of motion are more important than heavy weight." },
       { q: "How often can I train leg curls?", a: "Most people can train hamstrings 2–3 times per week if volume and recovery are managed." },
@@ -108,6 +109,7 @@ export const LEG_CURL_TOPICS: LegCurlTopic[] = [
       { heading: "How to choose", body: "Choose the alternative that lets you bend the knee against resistance with control. For beginners, Swiss ball curls and dumbbell curls are usually easier than Nordic curl negatives." },
     ],
     faqs: [
+      { q: "What to do instead of leg curl machine?", a: "Do Swiss ball curls, dumbbell curls, cable curls, sliding leg curls, glute-ham raises, or Romanian deadlifts. Choose the option that lets you bend the knee against resistance with control." },
       { q: "What can I do instead of a leg curl machine?", a: "Swiss ball curls, dumbbell curls, cable curls, and sliding leg curls are good alternatives." },
       { q: "Is Romanian deadlift the same as leg curl?", a: "No. Romanian deadlifts train hip extension and hamstrings through a different pattern, while leg curls train knee flexion." },
       { q: "Can I do leg curls at home?", a: "Yes, with a Swiss ball, sliders, a dumbbell, or a cable setup." },
@@ -131,6 +133,8 @@ export const LEG_CURL_TOPICS: LegCurlTopic[] = [
       { heading: "Which is better?", body: "Neither is automatically better. Use the version your gym has, the one that feels comfortable, and the one you can perform with control." },
     ],
     faqs: [
+      { q: "How to adjust seated leg curl machine?", a: "Set the seat so your knees line up with the machine pivot, adjust the thigh pad to hold your legs securely, and place the ankle pad just above the ankles. Sit tall, grip the handles, and start light." },
+      { q: "How to use seated leg curl machine?", a: "Sit with your back and hips against the pad, place the ankle pad just above the ankles, curl your heels down and back under control, pause briefly, then return slowly without letting the weight stack slam." },
       { q: "Is seated or lying leg curl better?", a: "Both are effective. Seated may give a stronger stretch, while lying is often easier to learn." },
       { q: "Can I use both in one workout?", a: "Yes, but keep total hamstring volume reasonable. Most people only need one leg curl variation per session." },
       { q: "Why do my hips lift on lying leg curls?", a: "The weight may be too heavy, the pad may be too low, or you may be curling too aggressively." },
@@ -246,6 +250,7 @@ export const LEG_CURL_TOPICS: LegCurlTopic[] = [
       { heading: "Safety checklist", bullets: ["Warm up first.", "Start light.", "Avoid pain.", "Keep hips still.", "Use full but comfortable range of motion."] },
     ],
     faqs: [
+      { q: "How to set up leg curl machine?", a: "Choose the correct machine type, adjust the pad just above the ankles, align your knees near the pivot, sit or lie stable, and select a weight you can control for the full range." },
       { q: "Where should the leg curl pad go?", a: "For lying or standing machines, place it just above the ankles." },
       { q: "How heavy should I go?", a: "Use a weight that lets you complete reps smoothly without swinging." },
       { q: "How many reps should I do?", a: "A good starting range is 2–4 sets of 8–15 reps." },
@@ -270,6 +275,7 @@ export const LEG_CURL_TOPICS: LegCurlTopic[] = [
       { heading: "What to look for", bullets: ["Adjustable pads", "Smooth resistance", "Comfortable range of motion", "Stable frame", "Clear weight increments"] },
     ],
     faqs: [
+      { q: "Which leg curl machine is best?", a: "The best leg curl machine is the one that fits your body, has adjustable pads, feels stable, and lets you control the full range of motion. Seated machines may provide a stronger stretch, while lying machines are often easier for beginners." },
       { q: "Which leg curl machine is best for beginners?", a: "A lying leg curl machine is often easiest to learn." },
       { q: "Is seated leg curl better for muscle growth?", a: "It can be excellent because it may create a strong hamstring stretch, but consistency matters most." },
       { q: "What is the best home leg curl option?", a: "For home use, consider a Swiss ball, sliders, dumbbells, or a cable setup if space allows." },

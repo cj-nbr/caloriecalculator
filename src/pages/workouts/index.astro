@@ -4,25 +4,28 @@ import TopicCategoryGrid from "../../components/workouts/TopicCategoryGrid.astro
 
 const categories = [
   { title: "Leg Workouts", href: "/workouts/leg-workouts/", description: "Beginner routines, gym exercises, hamstring guidance, and leg day mistakes." },
+  { title: "Lying Leg Raises", href: "/workouts/lying-leg-raises/", description: "Core exercise guide for lower abs, hip flexors, and pelvic control." },
   { title: "Chest Workouts", href: "/workouts/chest-workouts/", description: "Push-up, press, flye, and chest training guidance." },
   { title: "Back Workouts", href: "/workouts/back-workouts/", description: "Rows, pulldowns, pull-ups, posture, and pulling strength." },
   { title: "Shoulder Workouts", href: "/workouts/shoulder-workouts/", description: "Presses, raises, face pulls, and shoulder stability work." },
   { title: "Home Workouts", href: "/workouts/home-workouts/", description: "No-equipment routines for strength, cardio, and mobility." },
   { title: "Leg Curl Machine", href: "/workouts/leg-curl-machine/", description: "Complete leg curl machine guide with setup, muscles worked, benefits, alternatives, and mistakes." },
+  { title: "Leg Extension Machine", href: "/workouts/leg-curl-machine/leg-extension-machine/", description: "Quad machine setup, muscles worked, and how it differs from leg curls." },
+  { title: "Leg Curl Extension Machine", href: "/workouts/leg-curl-machine/leg-curl-extension-machine/", description: "Combo hamstring and quad machine guidance." },
 ];
 
 const faqs = [
-  { q: "What workout pages are available?", a: "This site includes leg, chest, back, shoulder, home workout, and leg curl machine guides." },
+  { q: "What workout pages are available?", a: "This site includes leg, chest, back, shoulder, home workout, leg curl machine, leg extension machine, leg curl extension machine, prone leg curl, lying hamstring curl, and lying leg raises guides." },
   { q: "Are these workout guides suitable for beginners?", a: "Yes. The guides include beginner-friendly options, form tips, and safer progression advice." },
   { q: "Do I need a gym for these workouts?", a: "No. Home workout and bodyweight options are included, while gym guides explain machines and equipment when needed." },
-  { q: "Which workout guide should I start with?", a: "Start with the guide that matches your goal: legs, chest, back, shoulders, home training, or leg curl machines." },
+  { q: "Which workout guide should I start with?", a: "Start with the guide that matches your goal: legs, chest, back, shoulders, home training, leg curl machines, leg extension machines, or lying leg raises." },
 ];
 ---
 
 <ContentLayout
-  title="Workouts — Free Exercise Guides, Workout Routines, and Fitness Plans"
+  title="Workouts — Free Exercise Guides, Workout Routines, Leg Curl Machine, Leg Extension Machine, and Lying Leg Raises"
   h1="Workouts"
-  description="Free workout guides for legs, chest, back, shoulders, home training, and leg curl machines with routines, form tips, FAQs, internal links, and safe progression advice."
+  description="Free workout guides for legs, chest, back, shoulders, home training, leg curl machines, leg extension machines, prone leg curls, lying hamstring curls, and lying leg raises with routines, form tips, FAQs, internal links, and safe progression advice."
   path="/workouts/"
   lead="Explore free workout guides designed to help you train smarter, move better, and build strength safely."
   faqs={faqs}

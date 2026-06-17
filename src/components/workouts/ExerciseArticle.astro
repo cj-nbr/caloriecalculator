@@ -1,0 +1,78 @@
+---
+import type { WorkoutTopic } from "../../data/workout-topics";
+
+interface Props {
+  topic: WorkoutTopic;
+}
+
+const { topic } = Astro.props;
+---
+
+<div class="space-y-8">
+  <figure class="overflow-hidden rounded-2xl border border-hairline">
+    <img src={topic.image} alt={topic.imageAlt} class="h-[280px] w-full object-cover sm:h-[420px]" loading="lazy" />
+  </figure>
+
+  <p class="text-lg leading-relaxed text-body">{topic.summary}</p>
+
+  <section class="card border-brand/20 p-5 sm:p-6">
+    <h2 class="text-display-sm text-ink">Quick facts about {topic.title}</h2>
+    <ul class="mt-3 grid gap-3 text-body md:grid-cols-3">
+      {topic.quickFacts.map((fact) => (
+        <li class="rounded-xl bg-canvas-soft p-4">
+          <span class="block text-sm font-semibold text-brand">Fact</span>
+          <span class="mt-1 block">{fact}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="text-display-sm text-ink">Complete guide for people searching {topic.title}</h2>
+    <p class="leading-relaxed text-body">
+      People usually search for {topic.title} when they want clear setup steps, the muscles worked, common mistakes, and a simple way to add the exercise to a workout. The easiest way to use this guide is to read the setup section first, choose a light starting load, and only add difficulty after the movement feels controlled.
+    </p>
+    <p class="leading-relaxed text-body">
+      Good exercise pages should answer the exact question you typed into search. This guide explains what the movement is, how to adjust the equipment, which muscles are working, how to program sets and reps, and what to do if the exercise feels uncomfortable.
+    </p>
+  </section>
+
+  {
+    topic.sections.map((section) => (
+      <section>
+        <h2 class="text-display-sm text-ink">{section.heading}</h2>
+        {section.body && <p class="leading-relaxed text-body">{section.body}</p>}
+        {section.bullets && (
+          <ul class="space-y-2">
+            {section.bullets.map((bullet) => (
+              <li class="flex gap-2 text-body">
+                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"></span>
+                <span>{bullet}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+    ))
+  }
+
+  <section class="card p-5 sm:p-6">
+    <h2 class="text-display-sm text-ink">Related workout guides</h2>
+    <p class="leading-relaxed text-body">Use these related guides to connect the exercise with the rest of your leg day, hamstring work, or core routine.</p>
+    <div class="mt-4 grid gap-3 sm:grid-cols-2">
+      {topic.relatedLinks.map((link) => (
+        <a href={link.href} class="rounded-xl border border-hairline p-4 transition-colors hover:border-brand hover:bg-canvas-soft">
+          <span class="block font-semibold text-ink">{link.label}</span>
+          <span class="mt-1 block text-sm text-body">Read guide</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="card p-5 sm:p-6">
+    <h2 class="text-display-sm text-ink">Safe training note</h2>
+    <p class="leading-relaxed text-body">
+      Use these guides for education only. Start light, warm up, stop if you feel sharp pain, and consult a qualified professional for injuries or medical conditions.
+    </p>
+  </section>
+</div>

@@ -2,6 +2,7 @@
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import TopicCategoryGrid from "../../components/workouts/TopicCategoryGrid.astro";
 import { LEG_CURL_PILLAR, LEG_CURL_TOPICS } from "../../data/leg-curl-topics";
+import { RELATED_EXERCISE_TOPICS } from "../../data/workout-topics";
 
 const categories = LEG_CURL_TOPICS.map((topic) => ({
   title: topic.title,
@@ -11,7 +12,9 @@ const categories = LEG_CURL_TOPICS.map((topic) => ({
 
 const faqs = [
   { q: "What is a leg curl machine?", a: "A leg curl machine is a strength-training machine that targets the hamstrings by adding resistance to knee flexion, which means you bend your knees and bring your heels toward your glutes." },
+  { q: "What is leg curl machine?", a: "A leg curl machine is a gym machine for training the hamstrings. It lets you curl your heels toward your glutes against controlled resistance." },
   { q: "What muscles does a leg curl machine work?", a: "It primarily works the hamstrings. The calves, glutes, and core also help stabilize the movement." },
+  { q: "How to set up leg curl machine?", a: "Adjust the pad just above the ankles, align your knees near the machine pivot, keep your hips stable, and start with a light weight you can control." },
   { q: "Is a seated or lying leg curl better?", a: "Both are useful. Seated leg curls often create a strong hamstring stretch, while lying leg curls are stable and beginner-friendly." },
   { q: "How should beginners use a leg curl machine?", a: "Begin with light weight, adjust the pad just above the ankles, keep hips still, curl smoothly, and lower the weight slowly." },
   { q: "Can leg curls help hamstring growth?", a: "Yes. Leg curls directly train knee flexion, one of the main jobs of the hamstrings, and can support muscle growth when programmed consistently." },
@@ -22,17 +25,23 @@ const faqs = [
 ---
 
 <ContentLayout
-  title="Leg Curl Machine — Complete Guide, Muscles Worked, Benefits, and Mistakes"
+  title="Leg Curl Machine — Prone Leg Curl, Leg Extension Machine, Lying Leg Raises, and Complete Hamstring Guide"
   h1={LEG_CURL_PILLAR.title}
-  description={LEG_CURL_PILLAR.description}
+  description="Complete leg curl machine guide covering prone leg curl, seated and lying setups, leg extension machine differences, lying leg raises, muscles worked, benefits, alternatives, mistakes, and the best ways to train hamstrings."
   path={LEG_CURL_PILLAR.path}
   category="Leg Workouts"
   categoryPath="/workouts/leg-workouts/"
-  lead="Everything you need to know about leg curl machines, from setup and muscles worked to alternatives, mistakes, and the best ways to train hamstrings."
+  lead="Everything you need to know about leg curl machines, from setup and muscles worked to prone leg curls, leg extension machine differences, lying leg raises, alternatives, mistakes, and the best ways to train hamstrings."
   updated="June 2026"
   faqs={faqs}
 >
   <TopicCategoryGrid title="Choose a leg curl machine topic" categories={categories} />
+
+  <TopicCategoryGrid title="More leg and hamstring machine guides" categories={RELATED_EXERCISE_TOPICS.map((topic) => ({
+    title: topic.title,
+    href: topic.path,
+    description: topic.description,
+  }))} />
 
   <h2>What is a leg curl machine?</h2>
   <p>A leg curl machine is a strength-training machine that targets the hamstrings through knee flexion. You place your legs against a padded lever or roller, then curl your heels toward your glutes against resistance.</p>
@@ -57,7 +66,8 @@ const faqs = [
   <p>For a full step-by-step explanation, read the <a href="/workouts/leg-curl-machine/how-to-use-a-leg-curl-machine/" class="text-brand underline">how to use a leg curl machine</a> guide.</p>
 
   <h2>Leg curl machine types</h2>
-  <p>Gyms may have lying, seated, standing, single-leg, or combination leg curl machines. The best choice is the one that fits your body, feels stable, and lets you train through a comfortable range of motion.</p>
+  <p>Gyms may have lying, seated, standing, single-leg, prone, or combination leg curl machines. The best choice is the one that fits your body, feels stable, and lets you train through a comfortable range of motion.</p>
+  <p>A leg curl machine is not the same as a leg extension machine. Leg curls train hamstrings through knee flexion, while leg extensions train quadriceps through knee extension. If your gym has a <a href="/workouts/leg-curl-machine/leg-curl-extension-machine/" class="text-brand underline">leg curl extension machine</a>, it may combine both movements in one frame.</p>
   <ul>
     <li><strong>Lying leg curl:</strong> stable and beginner-friendly.</li>
     <li><strong>Seated leg curl:</strong> often creates a strong hamstring stretch.</li>

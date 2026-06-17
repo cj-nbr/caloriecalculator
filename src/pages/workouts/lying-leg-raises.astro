@@ -1,0 +1,21 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import ExerciseArticle from "../../components/workouts/ExerciseArticle.astro";
+import { RELATED_EXERCISE_TOPICS } from "../../data/workout-topics";
+
+const topic = RELATED_EXERCISE_TOPICS.find((item) => item.slug === "lying-leg-raises")!;
+---
+
+<ContentLayout
+  title={`${topic.title} — How to Do, Muscles Worked, Mistakes, and FAQ`}
+  h1={topic.title}
+  description={topic.description}
+  path={topic.path}
+  category="Workouts"
+  categoryPath="/workouts/"
+  updated="June 2026"
+  lead={topic.summary}
+  faqs={topic.faqs}
+>
+  <ExerciseArticle topic={topic} />
+</ContentLayout>

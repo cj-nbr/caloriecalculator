@@ -1,0 +1,21 @@
+---
+import ContentLayout from "../../../layouts/ContentLayout.astro";
+import ExerciseArticle from "../../../components/workouts/ExerciseArticle.astro";
+import { RELATED_EXERCISE_TOPICS } from "../../../data/workout-topics";
+
+const topic = RELATED_EXERCISE_TOPICS.find((item) => item.slug === "leg-extension-machine")!;
+---
+
+<ContentLayout
+  title={`${topic.title} — How to Use, Muscles Worked, Setup, and FAQ`}
+  h1={topic.title}
+  description={topic.description}
+  path={topic.path}
+  category="Leg Workouts"
+  categoryPath="/workouts/leg-workouts/"
+  updated="June 2026"
+  lead={topic.summary}
+  faqs={topic.faqs}
+>
+  <ExerciseArticle topic={topic} />
+</ContentLayout>
