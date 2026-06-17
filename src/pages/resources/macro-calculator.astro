@@ -1,0 +1,83 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is a macro calculator?", a: "A macro calculator splits your daily calories into protein, carbs, and fat grams. Use it alongside our <a href='/'>calorie calculator</a> for nutrition planning." },
+  { q: "How to calculate macros for weight loss?", a: "Calculate total calories first, then split: protein 25–30%, fat 20–30%, carbs remainder. Our <a href='/macro-calculator/'>macro calculator</a> automates this." },
+  { q: "What are macros for muscle gain?", a: "For muscle gain: protein 1.6–2.2 g/kg, fat 20–30%, carbs filling remaining calories. See our <a href='/protein-calculator/'>protein calculator</a> for exact protein targets." },
+  { q: "What is a good macro split?", a: "Most people: 30% protein, 30% fat, 40% carbs. Flexible dieting: any split totaling your calorie target. Athletes may adjust for sport-specific needs." },
+];
+---
+
+<ContentLayout
+  title="Macro Calculator — Macronutrient Split for Weight Goals"
+  h1="Macro Calculator"
+  description="Free macro calculator. Split calories into protein, carbs, and fat. Get gram targets for weight loss, maintenance, or muscle gain."
+  path="/resources/macro-calculator/"
+  category="Resources"
+  categoryPath="/resources/"
+  lead="Your macro calculator gives gram targets for protein, carbs, and fat based on your calorie goal."
+  updated="June 2026"
+  faqs={faqs}
+>
+  <p>A <strong>macro calculator</strong> translates calories into grams of protein, carbohydrates, and fat. This makes meal planning concrete and actionable.</p>
+
+  <h2>Macro calculator basics</h2>
+  <p>Calorie sources:</p>
+  <ul>
+    <li>Protein: 4 calories per gram</li>
+    <li>Carbohydrates: 4 calories per gram</li>
+    <li>Fat: 9 calories per gram</li>
+  </ul>
+  <p>Our <a href="/macro-calculator/">macro calculator</a> handles all conversions automatically.</p>
+
+  <h2>Standard macro splits</h2>
+  <table>
+    <thead><tr><th>Split name</th><th>Protein</th><th>Fat</th><th>Carbs</th></tr></thead>
+    <tbody>
+      <tr><td>Balanced</td><td>30%</td><td>30%</td><td>40%</td></tr>
+      <tr><td>Moderate carb</td><td>30%</td><td>25%</td><td>45%</td></tr>
+      <tr><td>Higher protein</td><td>35%</td><td>25%</td><td>40%</td></tr>
+      <tr><td>Lower fat</td><td>30%</td><td>20%</td><td>50%</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Macro calculator for weight loss</h2>
+  <p>Higher protein preserves muscle:</p>
+  <table>
+    <thead><tr><th>Calories</th><th>Protein</th><th>Fat</th><th>Carbs</th></tr></thead>
+    <tbody>
+      <tr><td>1,600</td><td>120g (30%)</td><td>53g (27%)</td><td>140g (43%)</td></tr>
+      <tr><td>2,000</td><td>150g (30%)</td><td>67g (27%)</td><td>175g (43%)</td></tr>
+      <tr><td>2,400</td><td>180g (30%)</td><td>80g (27%)</td><td>210g (43%)</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Macro calculator for muscle gain</h2>
+  <p>Surplus with moderate protein:</p>
+  <table>
+    <thead><tr><th>Calories</th><th>Protein</th><th>Fat</th><th>Carbs</th></tr></thead>
+    <tbody>
+      <tr><td>2,500</td><td>150g (24%)</td><td>83g (27%)</td><td>288g (49%)</td></tr>
+      <tr><td>3,000</td><td>175g (23%)</td><td>97g (26%)</td><td>344g (48%)</td></tr>
+    </tbody>
+  </table>
+  <p>Ensure adequate protein with our <a href="/protein-calculator/">protein calculator</a>.</p>
+
+  <h2>How the macro calculator works</h2>
+  <ol>
+    <li>Get your calorie target from <a href="/guides/maintenance-calorie-calculator/">maintenance calorie calculator</a></li>
+    <li>Choose protein grams based on body weight (1.6–2.2 g/kg)</li>
+    <li>Set fat at 20–30% of calories</li>
+    <li>Remaining calories become carbs</li>
+  </ol>
+
+  <h2>Adjusting macros based on results</h2>
+  <p>If weight loss stalls:</p>
+  <ul>
+    <li>Increase protein slightly for satiety</li>
+    <li>Reduce fat or carbs by 10–15%</li>
+    <li>Reassess calorie target with <a href="/tdee-calculator/">TDEE calculator</a></li>
+  </ul>
+</ContentLayout>

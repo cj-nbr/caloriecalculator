@@ -1,0 +1,87 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "How much protein do I need daily?", a: "Most adults: 0.8 g/kg for sedentary, 1.2–1.6 g/kg for active, 1.6–2.2 g/kg for weight loss or muscle gain. Use our <a href='/protein-calculator/'>protein calculator</a>." },
+  { q: "What is the protein calculator for weight loss?", a: "A protein calculator sets targets to preserve muscle during fat loss. Aim for 1.6–2.2 g/kg. Pair with our <a href='/'>calorie calculator</a>." },
+  { q: "How to calculate protein for muscle gain?", a: "For muscle building: 1.6–2.2 g/kg body weight daily. Spread across 3–4 meals with 25–40 g per meal for optimal synthesis." },
+  { q: "Is 100g protein enough?", a: "For a 70 kg person: 100g = ~1.4 g/kg, adequate for sedentary but below optimal for active or muscle building. Use our calculator for your exact target." },
+];
+---
+
+<ContentLayout
+  title="Protein Calculator — Daily Protein Needs by Goal"
+  h1="Protein Calculator"
+  description="Free protein calculator. Find daily protein needs for weight loss, muscle gain, or maintenance. Get gram targets based on body weight and activity level."
+  path="/resources/protein-calculator/"
+  category="Resources"
+  categoryPath="/resources/"
+  lead="Your protein calculator gives daily gram targets based on activity, goals, and body weight."
+  updated="June 2026"
+  faqs={faqs}
+>
+  <p>A <strong>protein calculator</strong> determines how much protein you need daily based on body weight, activity level, and goals. This is crucial for preserving muscle during weight loss and maximizing growth during muscle gain.</p>
+
+  <h2>Protein needs by activity and goal</h2>
+  <table>
+    <thead><tr><th>Goal</th><th>Protein intake</th><th>g per kg</th></tr></thead>
+    <tbody>
+      <tr><td>Sedentary adult</td><td>RDA minimum</td><td>0.8 g</td></tr>
+      <tr><td>General health</td><td>Maintenance</td><td>1.0–1.2 g</td></tr>
+      <tr><td>Weight loss</td><td>Preserve muscle</td><td>1.6–2.2 g</td></tr>
+      <tr><td>Muscle gain</td><td>Maximize synthesis</td><td>1.6–2.2 g</td></tr>
+      <tr><td>Athlete</td><td>Performance/recovery</td><td>1.4–2.0 g</td></tr>
+      <tr><td>Elderly</td><td>Prevent sarcopenia</td><td>1.2–1.6 g</td></tr>
+    </tbody>
+  </table>
+  <p>Try our <a href="/protein-calculator/">protein calculator</a> for your exact target.</p>
+
+  <h2>Protein calculator examples</h2>
+  <table>
+    <thead><tr><th>Weight</th><th>Weight loss</th><th>Muscle gain</th><th>Minimum</th></tr></thead>
+    <tbody>
+      <tr><td>60 kg (132 lb)</td><td>95–130g</td><td>95–130g</td><td>48g</td></tr>
+      <tr><td>75 kg (165 lb)</td><td>120–165g</td><td>120–165g</td><td>60g</td></tr>
+      <tr><td>90 kg (198 lb)</td><td>145–195g</td><td>145–195g</td><td>72g</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Protein timing for maximum effect</h2>
+  <p>Spread intake across meals:</p>
+  <ul>
+    <li><strong>Optimal per meal:</strong> 25–40 g for muscle synthesis</li>
+    <li><strong>Frequency:</strong> 3–4 meals for steady amino acid levels</li>
+    <li><strong>Post-workout:</strong> 25–30 g within 2 hours</td></li>
+  </ul>
+
+  <h2>Protein sources guide</h2>
+  <table>
+    <thead><tr><th>Food</th><th>Protein per 100g</th><th>Quality</th></tr></thead>
+    <tbody>
+      <tr><td>Chicken breast</td><td>31 g</td><td>Complete</td></tr>
+      <tr><td>Greek yogurt</td><td>10 g</td><td>Complete</td></tr>
+      <tr><td>Eggs</td><td>13 g each</td><td>Complete</td></tr>
+      <tr><td>Lean beef</td><td>26 g</td><td>Complete</td></tr>
+      <tr><td>White fish</td><td>20–25 g</td><td>Complete</td></tr>
+      <tr><td>Lentils</td><td>9 g</td><td>Plant, incomplete</td></tr>
+      <tr><td>Quinoa</td><td>14 g</td><td>Plant, complete</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Protein with calorie goals</h2>
+  <p>Combine with your <a href="/guides/maintenance-calorie-calculator/">maintenance calorie calculator</a>:</p>
+  <ul>
+    <li>Protein uses 4 kcal/g—reduce from other macros</li>
+    <li>Adequate protein prevents muscle loss during deficit</li>
+    <li>Use our <a href="/macro-calculator/">macro calculator</a> for complete split</li>
+  </ul>
+
+  <h2>Signs you're not getting enough protein</h2>
+  <ul>
+    <li>Persistent hunger between meals</li>
+    <li>Slow recovery from workouts</li>
+    <li>Hair thinning or nail issues</li>
+    <li>Frequent illness (immune function)</li>
+  </ul>
+</ContentLayout>

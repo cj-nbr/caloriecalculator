@@ -1,0 +1,75 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is ideal body weight?", a: "Ideal body weight is an estimated healthy weight range for height. Our <a href='/ideal-weight-calculator/'>ideal weight calculator</a> uses Robinson, Miller, Devine, and Hamwi formulas." },
+  { q: "How to calculate ideal body weight?", a: "Common methods: Devine formula (45.5 kg + 2.2 kg per inch over 5'), Robinson (46.5 + 2.1), or BMI 18.5–24.9 range. Use our calculator for all formulas." },
+  { q: "What is healthy weight for my height?", a: "Use BMI 18.5–24.9 as a guide. For 5'6\": 51–68 kg (112–150 lbs). See our <a href='/bmi-calculator/'>BMI calculator</a> for your exact range." },
+];
+---
+
+<ContentLayout
+  title="Ideal Body Weight Calculator — Healthy Weight by Height and Formula"
+  h1="Ideal Body Weight Calculator"
+  description="Find your ideal body weight using Devine, Robinson, Miller, and Hamwi formulas. Calculate healthy weight range for height and body composition."
+  path="/resources/ideal-body-weight/"
+  category="Resources"
+  categoryPath="/resources/"
+  lead="Ideal body weight formulas estimate healthy weight ranges for different heights."
+  updated="June 2026"
+  faqs={faqs}
+>
+  <p>The <strong>ideal body weight calculator</strong> estimates healthy weight ranges using formulas developed for medical use. These provide baselines, not targets.</p>
+
+  <h2>Ideal weight formulas compared</h2>
+  <table>
+    <thead><tr><th>Formula</th><th>Men</th><th>Women</th><th>Origin</th></tr></thead>
+    <tbody>
+      <tr><td>Devine</td><td>50.0 + 2.3/inch over 5'</td><td>45.5 + 2.3/inch over 5'</td><td>1974, medicinal</td></tr>
+      <tr><td>Robinson</td><td>52.0 + 1.9/inch over 5'</td><td>49.0 + 1.7/inch over 5'</td><td>1983</td></tr>
+      <tr><td>Miller</td><td>56.2 + 1.41/inch over 5'</td><td>53.1 + 1.36/inch over 5'</td><td>1983</td></tr>
+      <tr><td>Hamwi</td><td>48.0 + 2.7/inch over 5'</td><td>45.5 + 2.2/inch over 5'</td><td>1964</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Ideal weight ranges for common heights</h2>
+  <table>
+    <thead><tr><th>Height</th><th>Devine range (kg)</th><th>BMI 18.5–24.9 range (kg)</th></tr></thead>
+    <tbody>
+      <tr><td>5'0" (152 cm)</td><td>45.5–57.0</td><td>40.5–55.0</td></tr>
+      <tr><td>5'4" (163 cm)</td><td>50.0–62.0</td><td>46.5–62.5</td></tr>
+      <tr><td>5'8" (173 cm)</td><td>54.4–67.5</td><td>52.5–69.5</td></tr>
+      <tr><td>6'0" (183 cm)</td><td>58.8–73.0</td><td>59.0–78.5</td></tr>
+    </tbody>
+  </table>
+  <p>Our <a href="/ideal-weight-calculator/">ideal weight calculator</a> shows all formulas side-by-side.</p>
+
+  <h2>BMI healthy weight ranges</h2>
+  <p>BMI categories:</p>
+  <table>
+    <thead><tr><th>Category</th><th>BMI Range</th><th>Health risk</th></tr></thead>
+    <tbody>
+      <tr><td>Underweight</td><td>&lt; 18.5</td><td>May indicate health issues</td></tr>
+      <tr><td>Normal</td><td>18.5–24.9</td><td>Lowest risk range</td></tr>
+      <tr><td>Overweight</td><td>25–29.9</td><td>Moderate risk increase</td></tr>
+      <tr><td>Obese</td><td>&gt; 30</td><td>Significant health risk</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Using ideal weight for calorie calculations</h2>
+  <p>Ideal weight helps estimate <a href="/guides/maintenance-calorie-calculator/">maintenance calories</a> when current weight is not representative:</p>
+  <ul>
+    <li>Use ideal weight if underweight and gaining</li>
+    <li>Use current weight for accurate maintenance</li>
+    <li>BMI calculator gives additional context</li>
+  </ul>
+
+  <h2>Lean body mass considerations</h2>
+  <p>Muscle weighs more than fat. Two people at the same weight can have different appearances:</p>
+  <ul>
+    <li>High muscle: healthy at higher BMI (25–27)</li>
+    <li>Low muscle: may be unhealthy at lower BMI (18.5–22)</li>
+    <li>Use <a href="/body-fat-calculator/">body fat calculator</a> with weight formulas</li>
+  </ul>
+</ContentLayout>

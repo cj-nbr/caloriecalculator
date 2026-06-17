@@ -1,0 +1,88 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is the protein to calorie ratio?", a: "Protein provides 4 calories per gram. For a 150g protein target: 150 × 4 = 600 calories from protein. See our <a href='/protein-calculator/'>protein calculator</a>." },
+  { q: "How much protein per calorie?", a: "For 2,000 calories, protein calories at 25% = 500 calories = 125g protein. Our <a href='/macro-calculator/'>macro calculator</a> handles this automatically." },
+  { q: "What is the ideal protein percentage?", a: "Most adults: 20–30% of calories from protein. Higher (30–35%) for weight loss or muscle building. Use our calculators for exact numbers." },
+  { q: "How to convert protein to calories?", a: "Multiply protein grams by 4. Example: 100g protein × 4 = 400 calories. Easy conversion for <a href='/guides/maintenance-calorie-calculator/'>maintenance planning</a>." },
+];
+---
+
+<ContentLayout
+  title="Protein to Calories Calculator — Gram to Calorie Conversion"
+  h1="Protein to Calories Calculator"
+  description="Convert protein grams to calories. Learn protein calorie ratio (4 kcal/g) and how to calculate for your needs."
+  path="/resources/protein-to-calories/"
+  category="Resources"
+  categoryPath="/resources/"
+  lead="Protein conversion is simple: 1 gram = 4 calories."
+  updated="June 2026"
+  faqs={faqs}
+>
+  <p>A <strong>protein to calories calculator</strong> converts grams of protein into calories. This is essential for using the <a href="/protein-calculator/">protein calculator</a> with your <a href="/guides/maintenance-calorie-calculator/">calorie targets</a>.</p>
+
+  <h2>Protein calorie conversion formula</h2>
+  <p><code>Calories from protein = grams × 4</code></p>
+  <p>Example conversions:</p>
+  <table>
+    <thead><tr><th>Protein (g)</th><th>Calories</th></tr></thead>
+    <tbody>
+      <tr><td>50 g</td><td>200 calories</td></tr>
+      <tr><td>100 g</td><td>400 calories</td></tr>
+      <tr><td>150 g</td><td>600 calories</td></tr>
+      <tr><td>200 g</td><td>800 calories</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Protein percentages in diet</h2>
+  <table>
+    <thead><tr><th>Calories</th><th>Protein %</th><th>Protein grams</th></tr></thead>
+    <tbody>
+      <tr><td>1,600</td><td>30%</td><td>120 g</td></tr>
+      <tr><td>2,000</td><td>30%</td><td>150 g</td></tr>
+      <tr><td>2,400</td><td>30%</td><td>180 g</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Protein ratios for different goals</h2>
+  <table>
+    <thead><tr><th>Goal</th><th>Protein per kg</th><th>Calorie %</th></tr></thead>
+    <tbody>
+      <tr><td>Maintenance</td><td>1.2–1.6 g/kg</td><td>20–25%</td></tr>
+      <tr><td>Weight loss</td><td>1.6–2.2 g/kg</td><td>25–35%</td></tr>
+      <tr><td>Muscle gain</td><td>1.6–2.2 g/kg</td><td>20–30%</td></tr>
+      <tr><td>Elderly</td><td>1.2–1.6 g/kg</td><td>20–25%</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Using protein calories with macro calculator</h2>
+  <p>Our <a href="/macro-calculator/">macro calculator</a> balances protein with carbs and fat:</p>
+  <ol>
+    <li>Set protein grams based on body weight</li>
+    <li>Convert to calories (× 4)</li>
+    <li>Allocate remaining calories to fat and carbs</li>
+  </ol>
+
+  <h2>High-protein, low-calorie foods</h2>
+  <table>
+    <thead><tr><th>Food</th><th>Calories per 100g</th><th>Protein per 100g</th></tr></thead>
+    <tbody>
+      <tr><td>Chicken breast</td><td>165</td><td>31 g</td></tr>
+      <tr><td>Greek yogurt (plain)</td><td>59</td><td>10 g</td></tr>
+      <tr><td>Egg whites</td><td>52</td><td>11 g</td></tr>
+      <tr><td>Turkey breast</td><td>135</td><td>29 g</td></tr>
+      <tr><td>Cottage cheese</td><td>98</td><td>11 g</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Combining protein with your calorie calculator</h2>
+  <p>The relationship:</p>
+  <ul>
+    <li>Protein uses 4 kcal/g—reduce from other macros</li>
+    <li>Adequate protein protects muscle during deficit</li>
+    <li>Protein supports thermogenesis (20–30% of its calories)</li>
+  </ul>
+  <p>Use our <a href="/guides/weight-loss-calorie-calculator/">weight loss calculator</a> with <a href="/protein-calculator/">protein calculator</a> together.</p>
+</ContentLayout>

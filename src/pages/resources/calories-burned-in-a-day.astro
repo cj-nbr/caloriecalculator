@@ -1,0 +1,79 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "How many calories do I burn in a day?", a: "Your daily burn equals TDEE: BMR plus activity. Use our <a href='/tdee-calculator/'>TDEE calculator</a> or <a href='/'>calorie calculator</a> to find your number." },
+  { q: "How to calculate calories burned in a day?", a: "Multiply BMR by activity factor 1.2–1.9. Most accurate: metabolic testing. Everyday: our calculator with Mifflin-St Jeor equation." },
+  { q: "Does muscle increase calories burned?", a: "Yes. Each kg of muscle adds ~15–25 calories/day. Strength training builds muscle and raises your <a href='/guides/maintenance-calorie-calculator/'>maintenance calories</a>." },
+  { q: "Do you burn calories while sleeping?", a: "Yes. BMR continues 24/7. You burn ~70% of daily calories while sleeping/resting. Use our <a href='/bmr-calculator/'>BMR calculator</a> to find this number." },
+];
+---
+
+<ContentLayout
+  title="Calories Burned in a Day — How to Calculate Your Metabolic Rate"
+  h1="Calories Burned in a Day"
+  description="How many calories do you burn daily? Learn to calculate your metabolic rate, TDEE, and total daily energy expenditure. Includes BMR, activity, and non-exercise calories."
+  path="/resources/calories-burned-in-a-day/"
+  category="Resources"
+  categoryPath="/resources/"
+  lead="Your body burns calories 24/7. Add up your metabolism and activity to find total daily burn."
+  updated="June 2026"
+  faqs={faqs}
+>
+  <p><strong>Calories burned in a day</strong> equals your Total Daily Energy Expenditure (TDEE). This is the foundation for weight management.</p>
+
+  <h2>Components of daily calorie burn</h2>
+  <table>
+    <thead><tr><th>Component</th><th>Percentage</th><th>Details</th></tr></thead>
+    <tbody>
+      <tr><td>BMR</td><td>60–70%</td><td>Basal metabolic rate at rest</td></tr>
+      <tr><td>TEF</td><td>~10%</td><td>Thermic effect of food</td></tr>
+      <tr><td>Exercise activity</td><td>10–20%</td><td>Gym, sports, structured movement</td></tr>
+      <tr><td>Non-exercise activity</td><td>15–20%</td><td>Fidgeting, walking, daily tasks</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Calories burned while sleeping</h2>
+  <p>You burn ~70% of daily calories while sleeping. Your brain, heart, lungs, and organs never stop. A 70 kg person might burn 1,200–1,500 calories overnight depending on BMR.</p>
+  <p>Use our <a href="/bmr-calculator/">BMR calculator</a> to get your exact resting burn rate.</p>
+
+  <h2>Factoring activity into daily burn</h2>
+  <p>Activity multipliers:</p>
+  <table>
+    <thead><tr><th>Level</th><th>Multiplier</th><th>Burn example (70kg)</th></tr></thead>
+    <tbody>
+      <tr><td>Sedentary</td><td>1.2</td><td>~1,700–2,200 calories</td></tr>
+      <tr><td>Lightly active</td><td>1.375</td><td>~1,900–2,400 calories</td></tr>
+      <tr><td>Moderately active</td><td>1.55</td><td>~2,100–2,700 calories</td></tr>
+      <tr><td>Very active</td><td>1.725</td><td>~2,400–2,900 calories</td></tr>
+      <tr><td>Extra active</td><td>1.9</td><td>~2,600–3,200 calories</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Boosting your daily calorie burn</h2>
+  <ul>
+    <li><strong>Build muscle:</strong> Each kg adds 15–25 calories to BMR</li>
+    <li><strong>Increase NEAT:</strong> Walk more, fidget, stand while working</li>
+    <li><strong>Exercise:</strong> Adds 200–800 calories depending on type/intensity</li>
+    <li><strong>Consistency:</strong> Habitual activity creates lasting increases</li>
+  </ul>
+
+  <h2>How to measure your actual calorie burn</h2>
+  <p>Options:</p>
+  <ol>
+    <li><a href="/tdee-calculator/">TDEE calculator</a> (most accessible)</li>
+    <li>Luxury fitness trackers (inaccurate for most)</li>
+    <li>Indirect calorimetry (gold standard, expensive)</li>
+    <li>Track weight changes over 2–3 weeks to calibrate</li>
+  </ol>
+
+  <h2>Daily calorie burn decreases with age</h2>
+  <p>Metabolism slows ~2–5% per decade after 25. Reasons:</p>
+  <ul>
+    <li>Muscle loss without resistance training</li>
+    <li>Hormonal changes</li>
+    <li>Reduced organ mass</li>
+  </ul>
+  <p>Recalculate your <a href="/guides/maintenance-calorie-calculator/">maintenance calories</a> every few years.</p>
+</ContentLayout>

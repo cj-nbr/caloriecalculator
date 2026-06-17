@@ -1,0 +1,91 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is a calorie deficit?", a: "A calorie deficit is eating fewer calories than you burn. ~3,500 calories deficit = ~1 lb of weight loss. Use our <a href='/'>calorie calculator</a> to set your target." },
+  { q: "How big should my calorie deficit be?", a: "Most people: 300–500 calories daily for sustainable ~0.5–1 lb/week loss. Larger deficits risk muscle loss and metabolic slowdown." },
+  { q: "Is a 1,000 calorie deficit safe?", a: "For some, yes. For others, too aggressive. Check if your <a href='/guides/maintenance-calorie-calculator/'>maintenance calories</a> allow this without dropping below 1,500 calories daily." },
+  { q: "How to maintain a calorie deficit?", a: "Track intake, eat protein/fiber, stay hydrated, fill up on vegetables. Our <a href='/food-calories-search/'>food calories search</a> helps find filling low-calorie foods." },
+];
+---
+
+<ContentLayout
+  title="Calorie Deficit Guide — How Large Should Your Deficit Be?"
+  h1="Calorie Deficit Guide"
+  description="Learn about calorie deficits for weight loss. Find the right deficit size, maintain it sustainably, and avoid common mistakes with our guides."
+  path="/resources/calorie-deficit-guide/"
+  category="Resources"
+  categoryPath="/resources/"
+  lead="A calorie deficit is the foundation of weight loss. Learn how to create one sustainably."
+  updated="June 2026"
+  faqs={faqs}
+>
+  <p>A <strong>calorie deficit</strong> means eating fewer calories than your body expends. This forces your body to use stored energy, resulting in weight loss.</p>
+
+  <h2>Calorie deficit amounts and results</h2>
+  <table>
+    <thead><tr><th>Deficit</th><th>Weekly loss</th><th>Sustainability</th></tr></thead>
+    <tbody>
+      <tr><td>250 calories</td><td>~0.5 lb (0.25 kg)</td><td>Easy to maintain</td></tr>
+      <tr><td>500 calories</td><td>~1 lb (0.5 kg)</td><td>Moderate challenge</td></tr>
+      <tr><td>750 calories</td><td>~1.5 lb (0.7 kg)</td><td>Requires discipline</td></tr>
+      <tr><td>1,000 calories</td><td>~2 lb (1 kg)</td><td>Hard to sustain long-term</td></tr>
+  </table>
+
+  <h2>How to calculate your calorie deficit</h2>
+  <ol>
+    <li>Find <a href="/guides/maintenance-calorie-calculator/">maintenance calories</a> with our calculator</li>
+    <li>Subtract your desired deficit (250–500 recommended)</li>
+    <li>This result is your daily eating target</li>
+    <li>Use the <a href="/">calorie calculator</a> for automatic targets</li>
+  </ol>
+
+  <h2>Calorie deficit mistakes to avoid</h2>
+  <table>
+    <thead><tr><th>Mistake</th><th>Fix</th></tr></thead>
+    <tbody>
+      <tr><td>Eating too little</td><td>Never below 1,200 calories</td></tr>
+      <tr><td>Ignoring protein</td><td>1.6–2.2 g/kg to preserve muscle</td></tr>
+      <tr><td>Not tracking accurately</td><td>Use food scale and nutrition data</td></tr>
+      <tr><td>Inconsistent logging</td><td>Track everything, including bites and sauces</td></tr>
+      <tr><td>Over-exercising</td><td>Prioritize nutrition over excessive cardio</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Signs your deficit is too large</h2>
+  <ul>
+    <li>Constant fatigue or weakness</li>
+    <li>Irritability or mood swings</li>
+    <li>Sleep disruption</li>
+    <li>Loss of menstrual cycle (women)</li>
+    <li>Plateau after initial loss</li>
+  </ul>
+
+  <h2>Maintaining your calorie deficit</h2>
+  <p>Strategies that work:</p>
+  <ul>
+    <li><strong>Protein first:</strong> 1.6–2.2 g/kg preserves muscle and satisfies</li>
+    <li><strong>Fiber-rich foods:</strong> Vegetables, legumes add volume with few calories</li>
+    <li><strong>Meal planning:</strong> Prep prevents impulsive food choices</li>
+    <li><strong>Flexible dieting:</strong> Include foods you enjoy within targets</li>
+    <li><strong>Track with <a href='/food-calories-search/'>food calories search</a></strong> for accuracy</li>
+  </ul>
+
+  <h2>Calorie deficit and metabolism</h2>
+  <p>Large deficits signal "famine" to your body:</p>
+  <ul>
+    <li>Slows metabolic rate 5–10%</li>
+    <li>Increases hunger hormones</li>
+    <li>Reduces non-exercise activity</li>
+  </ul>
+  <p>Moderate deficits minimize these adaptations.</p>
+
+  <h2>When to adjust your calorie deficit</h2>
+  <p>After 2–3 weeks:</p>
+  <ul>
+    <li><strong>If losing >2 lb/week:</strong> Increase calories slightly</li>
+    <li><strong>If losing &lt;0.5 lb/week:</strong> Decrease by 100–200 calories</li>
+    <li><strong>If weight stalled 1+ weeks:</strong> Recalculate maintenance with <a href='/tdee-calculator/'>TDEE calculator</a></li>
+  </ul>
+</ContentLayout>

@@ -1,0 +1,98 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is a calorie surplus?", a: "A calorie surplus is eating more calories than you burn. This provides energy for muscle growth and weight gain. ~3,500 surplus = ~1 lb gained." },
+  { q: "How much calorie surplus for muscle gain?", a: "Lean bulk: 250–500 calories above maintenance. This minimizes fat gain while maximizing muscle. Use our <a href='/guides/maintenance-calorie-calculator/'>maintenance calculator</a> first." },
+  { q: "What is the clean bulk vs dirty bulk?", a: "Clean bulk: 250–500 calorie surplus with nutrient-dense foods. Dirty bulk: larger surplus with less attention to food quality. Clean bulk is recommended for most people." },
+  { q: "How fast should I gain weight?", a: "For muscle: 0.25–0.5 lb/week. Faster gain often includes excess fat. Use our <a href='/weight-loss-calculator/'>weight loss calculator</a> reverse logic for timeframes." },
+];
+---
+
+<ContentLayout
+  title="Calorie Surplus Guide — Lean Bulk vs Dirty Bulk"
+  h1="Calorie Surplus Guide"
+  description="Learn about calorie surplus for muscle gain. Find optimal surplus size, clean vs dirty bulk, and maximize lean mass while minimizing fat."
+  path="/resources/calorie-surplus-guide/"
+  category="Resources"
+  categoryPath="/resources/"
+  lead="A calorie surplus fuels muscle growth. Learn how to bulk effectively."
+  updated="June 2026"
+  faqs={faqs}
+>
+  <p>A <strong>calorie surplus</strong> means eating more calories than you burn. This extra energy fuels muscle protein synthesis and supports weight gain.</p>
+
+  <h2>Calorie surplus sizes and expected outcomes</h2>
+  <table>
+    <thead><tr><th>Surplus</th><th>Weekly gain</th><th>Composition</th></tr></thead>
+    <tbody>
+      <tr><td>250 calories</td><td>0.5 lb/week</td><td>Mostly muscle</td></tr>
+      <tr><td>500 calories</td><td>1 lb/week</td><td>Mixed muscle/fat</td></tr>
+      <tr><td>1,000 calories</td><td>2 lb/week</td><td>Significant fat gain</td></tr>
+    </tbody>
+  </table>
+  <p>Our <a href="/guides/maintenance-calorie-calculator/">maintenance calorie calculator</a> finds your baseline.</p>
+
+  <h2>How to calculate your calorie surplus</h2>
+  <ol>
+    <li>Find your <a href="/tdee-calculator/">TDEE</a> (maintenance calories)</li>
+    <li>Add 250–500 calories for a lean bulk</li>
+    <li>This is your daily eating target</li>
+    <li>Use the <a href="/">calorie calculator</a> with gain goal for automation</li>
+  </ol>
+
+  <h2>Clean bulk vs dirty bulk comparison</h2>
+  <table>
+    <thead><tr><th>Aspect</th><th>Clean bulk</th><th>Dirty bulk</th></tr></thead>
+    <tbody>
+      <tr><td>Surplus size</td><td>250–500 calories</td><td>500–1,000+ calories</td></tr>
+      <tr><td>Food quality</td><td>Nutrient-dense whole foods</td><td>Processed/high-calorie foods</td></tr>
+      <tr><td>Weekly gain</td><td>0.25–0.5 lb</td><td>1–2 lb</td></tr>
+      <tr><td>Body fat gain</td><td>Minimal</td><td>Significant</td></tr>
+      <tr><td>Recommended for</td><td>Most people, especially beginners</td><td>Hardgainers under expert supervision</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Macronutrients for muscle gain</h2>
+  <table>
+    <thead><tr><th>Macro</th><th>Recommended intake</th></tr></thead>
+    <tbody>
+      <tr><td>Protein</td><td>1.6–2.2 g/kg body weight</td></tr>
+      <tr><td>Fat</td><td>20–30% of total calories</td></tr>
+      <tr><td>Carbs</td><td>45–55% (fills remaining calories)</td></tr>
+    </tbody>
+  </table>
+  <p>Use our <a href="/protein-calculator/">protein calculator</a> and <a href="/macro-calculator/">macro calculator</a>.</p>
+
+  <h2>Calorie surplus foods for muscle</h2>
+  <table>
+    <thead><tr><th>Food</th><th>Calories per serving</th><th>Protein</th></tr></thead>
+    <tbody>
+      <tr><td>Oats (1 cup dry)</td><td>300</td><td>10 g</td></tr>
+      <tr><td>Brown rice (1 cup cooked)</td><td>220</td><td>5 g</td></tr>
+      <tr><td>Salmon (4 oz)</td><td>220</td><td>22 g</td></tr>
+      <tr><td>Banana (1 medium)</td><td>105</td><td>1 g</td></tr>
+      <tr><td>Nuts (1 oz)</td><td>170</td><td>6 g</td></tr>
+      <tr><td>Greek yogurt (1 cup)</td><td>130</td><td>23 g</td></tr>
+    </tbody>
+  </table>
+  <p>Search exact values with our <a href="/food-calories-search/">food calories search</a>.</p>
+
+  <h2>Adjusting your calorie surplus</h2>
+  <p>After 3–4 weeks:</p>
+  <ul>
+    <li><strong>Not gaining:</strong> Increase by 100–200 calories</li>
+    <li><strong>Gaining too fast (&gt;1 lb/week):</strong> Reduce surplus</li>
+    <li><strong>Excessive fat gain:</strong> Lower surplus or increase activity</li>
+  </ul>
+  <p>Recalculate maintenance with <a href="/tdee-calculator/">TDEE calculator</a> if weight changed significantly.</p>
+
+  <h2>Signs you're in a good calorie surplus</h2>
+  <ul>
+    <li>Steady weight gain (0.25–0.5 lb/week)</li>
+    <li>Improved workout performance</li>
+    <li>Adequate energy for daily activities</li>
+    <li>Better sleep quality</li>
+  </ul>
+</ContentLayout>

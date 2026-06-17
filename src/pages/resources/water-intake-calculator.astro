@@ -1,0 +1,91 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is body water percentage?", a: "Body water percentage is water as a proportion of body weight. Men: ~50–65%. Women: ~45–60% (less due to higher body fat)." },
+  { q: "How much water should I drink daily?", a: "Baseline: 30–35 ml per kg of body weight. More if active, hot climate, or pregnant. Our <a href='/water-intake-calculator/'>water calculator</a> personalizes this." },
+  { q: "Does water intake affect weight loss?", a: "Yes. Adequate water supports metabolism, reduces hunger, and aids workout performance. Dehydration slows <a href='/guides/maintenance-calorie-calculator/'>metabolism</a>." },
+  { q: "How to calculate water needs?", a: "Start with 35 ml/kg. Add ~350 ml per hour of exercise. Use our <a href='/water-intake-calculator/'>water intake calculator</a> for exact numbers." },
+];
+---
+
+<ContentLayout
+  title="Water Intake Calculator — Daily Hydration Needs"
+  h1="Water Intake Calculator"
+  description="Free water intake calculator. Find daily hydration needs based on weight, climate, and activity. Includes benefits for weight loss and performance."
+  path="/resources/water-intake-calculator/"
+  category="Resources"
+  categoryPath="/resources/"
+  lead="Proper hydration is essential for metabolism, performance, and recovery."
+  updated="June 2026"
+  faqs={faqs}
+>
+  <p>A <strong>water intake calculator</strong> personalizes your daily hydration target based on weight, activity, and environment. Adequate water supports every calorie-related process.</p>
+
+  <h2>Daily water needs formula</h2>
+  <p>Baseline calculation:</p>
+  <p><code>Water (ml) = weight(kg) × 35 + exercise_minutes × 12</code></p>
+  <p>Example: 70 kg person, 30 min exercise = (70 × 35) + (30 × 12) = 2,670 ml ≈ 2.7 L</p>
+  <p>Our <a href="/water-intake-calculator/">water calculator</a> automates this.</p>
+
+  <h2>Water needs correction factors</h2>
+  <table>
+    <thead><tr><th>Factor</th><th>Adjustment</th></tr></thead>
+    <tbody>
+      <tr><td>Hot climate (+10°F)</td><td>+500–750 ml</td></tr>
+      <tr><td>Pregnancy</td><td>+300–500 ml</td></tr>
+      <tr><td>Breastfeeding</td><td>+500–700 ml</td></tr>
+      <tr><td>High altitude (&gt;8,000 ft)</td><td>+300–500 ml</td></tr>
+      <tr><td>High protein diet</arg><td>+250–500 ml</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Water and metabolism connection</h2>
+  <ul>
+    <li>Mild dehydration (2%) drops metabolism ~10–15%</li>
+    <li>Even 1% dehydration reduces workout performance</li>
+    <li>Water before meals may reduce calorie intake</li>
+    <li>Supports kidney function for waste removal</li>
+  </ul>
+
+  <h2>Water intake and weight loss</h2>
+  <p>Hydration benefits:</p>
+  <ul>
+    <li><strong>Satiety:</strong> Water expands stomach, reducing hunger</li>
+    <li><strong>Thermogenesis:</strong> 250–500 ml boosts metabolism 10–30%</li>
+    <li><strong>Performance:</strong> Better workouts burn more calories</li>
+    <li><strong>Recovery:</strong> Prevents overeating after exercise</li>
+  </ul>
+
+  <h2>Timing water intake</h2>
+  <table>
+    <thead><tr><th>Time</th><th>Amount</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td>Morning</td><td>500 ml</td><td>Rehydrate after sleep</td></tr>
+      <tr><td>Pre-meal</td><td>250–300 ml</td><td>Reduce calorie intake</td></tr>
+      <tr><td>During workout</td><td>200–300 ml/hour</td><td>Maintain performance</td></tr>
+      <tr><td>Post-workout</td><td>400–600 ml</td><td>Replenish losses</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Water calculator integration with diet</h2>
+  <p>Your <a href="/guides/maintenance-calorie-calculator/">maintenance calories</a> don't account for water needs. Proper hydration:</p>
+  <ul>
+    <li>Ensures metabolic processes run efficiently</li>
+    <li>Reduces perceived effort during exercise</li>
+    <li>Supports recovery from training</li>
+    <li>Helps regulate appetite naturally</li>
+  </ul>
+
+  <h2>Signs of adequate vs inadequate hydration</h2>
+  <table>
+    <thead><tr><th>Adequate</th><th>Inadequate</th></tr></thead>
+    <tbody>
+      <tr><td>Light yellow urine</td><td>Dark yellow/deep colored</td></tr>
+      <tr><td>Rare headaches</td><td>Frequent headaches</td></tr>
+      <tr><td>Good energy levels</td><td>Fatigue or weakness</td></tr>
+      <tr><td>Minimal thirst</td><td>Regular thirst sensation</td></tr>
+    </tbody>
+  </table>
+</ContentLayout>

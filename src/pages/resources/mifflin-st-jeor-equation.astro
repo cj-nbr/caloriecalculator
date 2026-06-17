@@ -1,0 +1,59 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is the Mifflin-St Jeor equation?", a: "Mifflin-St Jeor (1990) is the most accurate equation for predicting BMR: Men=10×weight+6.25×height-5×age+5; Women=same minus 161. Used in our <a href='/'>calorie calculator</a>." },
+  { q: "How accurate is Mifflin-St Jeor?", a: "Research shows 85–90% accuracy versus measured metabolic rate, better than Harris-Benedict. Individual variation of 10–15% is normal." },
+  { q: "What does BMR measure?", a: "BMR measures calories burned at complete rest for basic bodily functions: breathing, circulation, cell repair, brain function." },
+  { q: "How to measure BMR accurately?", a: "Best methods: indirect calorimetry in lab, BMR calculator using Mifflin-St Jeor for everyday use, or track weight changes to calibrate." },
+];
+---
+
+<ContentLayout
+  title="Mifflin-St Jeor Equation — BMR Formula Explained (2026)"
+  h1="Mifflin-St Jeor Equation"
+  description="Mifflin-St Jeor equation for BMR. Learn the formula, accuracy, and how it powers our online calorie calculator. Better than Harris-Benedict."
+  path="/resources/mifflin-st-jeor-equation/"
+  category="Resources"
+  categoryPath="/resources/"
+  lead="The Mifflin-St Jeor equation is the gold standard for calculating basal metabolic rate and daily calorie needs."
+  updated="June 2026"
+  faqs={faqs}
+>
+  <p>The <strong>Mifflin-St Jeor equation</strong> (1990) revolutionized calorie calculation. Unlike the older Harris-Benedict formula, it uses modern metabolic data and shows 85–90% accuracy for most people.</p>
+
+  <h2>Mifflin-St Jeor equation formulas</h2>
+  <table>
+    <thead><tr><th>Metric</th><th>Formula</th></tr></thead>
+    <tbody>
+      <tr><td>Weight units</td><td>Kilograms (kg)</td></tr>
+      <tr><td>Height units</td><td>Centimeters (cm)</td></tr>
+      <tr><td>Age units</td><td>Years</td></tr>
+    </tbody>
+  </table>
+
+  <h3>For men:</h3>
+  <p><code>BMR = 10 × weight(kg) + 6.25 × height(cm) - 5 × age + 5</code></p>
+
+  <h3>For women:</h3>
+  <p><code>BMR = 10 × weight(kg) + 6.25 × height(cm) - 5 × age - 161</code></p>
+
+  <h2>How Mifflin-St Jeor compares to Harris-Benedict</h2>
+  <p>Developed in 1990 using modern metabolic data, Mifflin-St Jeor outperforms the 1919 Harris-Benedict equation. See our <a href="/guides/bmr-equations/">BMR equations comparison</a> for details.</p>
+
+  <h2>Mifflin-St Jeor example calculation</h2>
+  <p>For a 35-year-old woman, 165 cm, 70 kg:</p>
+  <pre>BMR = 10 × 70 + 6.25 × 165 - 5 × 35 - 161
+BMR = 700 + 1,031.25 - 175 - 161 = 1,495 calories/day</pre>
+  <p>With moderate activity (1.55): 1,495 × 1.55 = 2,317 maintenance calories.</p>
+
+  <h2>Why Mifflin-St Jeor is the standard</h2>
+  <p>Research validates its accuracy:</p>
+  <ul>
+    <li>85–90% accurate vs measured metabolic rate</li>
+    <li>Lower standard error than Harris-Benedict</li>
+    <li>Works across diverse populations</li>
+    <li>Used by <a href="/bmr-calculator/">our BMR calculator</a> and all <a href="/guides/">our guides</a></li>
+  </ul>
+</ContentLayout>

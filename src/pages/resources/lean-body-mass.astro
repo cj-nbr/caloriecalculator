@@ -1,0 +1,83 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is Lean Body Mass?", a: "Lean Body Mass (LBM) is your weight minus fat mass. Includes muscle, bone, organs, and water. Higher LBM = higher metabolism." },
+  { q: "How to calculate Lean Body Mass?", a: "Two methods: Boer formula for max muscle prediction, or actual via body fat: LBM = weight × (1 - body fat%). Use our <a href='/lean-body-mass-calculator/'>LBM calculator</a>." },
+  { q: "What is my Lean Body Mass?", a: "Most adults: 70–85% of body weight. Men tend higher due to muscle and organ size. Measure with our <a href='/lean-body-mass-calculator/'>Lean Body Mass calculator</a>." },
+  { q: "Why does Lean Body Mass matter?", a: "Higher LBM increases BMR, improves body composition, and supports strength/performance. Track during weight loss to preserve muscle." },
+];
+---
+
+<ContentLayout
+  title="Lean Body Mass Calculator — LBM Formula and Significance"
+  h1="Lean Body Mass Calculator"
+  description="Free Lean Body Mass calculator. Calculate LBM using Boer formula or body fat percentage. Understand its impact on metabolism and performance."
+  path="/resources/lean-body-mass/"
+  category="Resources"
+  categoryPath="/resources/"
+  lead="Lean Body Mass (LBM) includes muscle, bone, organs, and water—not just muscle."
+  updated="June 2026"
+  faqs={faqs}
+>
+  <p>A <strong>Lean Body Mass calculator</strong> estimates fat-free mass in your body. This impacts metabolism and is crucial during weight loss or muscle building.</p>
+
+  <h2>Lean Body Mass formulas</h2>
+  <p>Boer formula (predicts maximum potential):</p>
+  <table>
+    <thead><tr><th>Sex</th><th>Formula</th></tr></thead>
+    <tbody>
+      <tr><td>Men</td><td>LBM = 0.407 × weight + 0.267 × height - 19.2</td></tr>
+      <tr><td>Women</td><td>LBM = 0.252 × weight + 0.473 × height - 48.3</td></tr>
+    </tbody>
+  </table>
+  <p>Both weight and height in kg/cm. Our <a href="/lean-body-mass-calculator/">LBM calculator</a> uses this.</p>
+
+  <h2>Fat-based Lean Body Mass calculation</h2>
+  <p>If you know your body fat:</p>
+  <p><code>LBM = weight × (1 - body fat percentage)</code></p>
+  <p>Example: 80 kg person, 15% body fat = 80 × 0.85 = 68 kg LBM</p>
+  <p>Use our <a href="/body-fat-calculator/">body fat calculator</a> to find this value.</p>
+
+  <h2>Lean Body Mass ranges by demographics</h2>
+  <table>
+    <thead><tr><th>Group</th><th>Typical LBM % of weight</th></tr></thead>
+    <tbody>
+      <tr><td>Men, average</td><td>78–85%</td></tr>
+      <tr><td>Women, average</td><td>70–77%</td></tr>
+      <tr><td>Men, athletic</td><td>80–88%</td></tr>
+      <tr><td>Women, athletic</td><td>72–80%</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Why Lean Body Mass matters for calories</h2>
+  <ul>
+    <li><strong>Metabolism:</strong> Each kg of LBM adds 15–25 calories to <a href="/guides/maintenance-calorie-calculator/">maintenance</a></li>
+    <li><strong>Strength:</strong> Higher LBM = more functional power</li>
+    <li><strong>Health:</strong> Better glucose control, bone density</li>
+    <li><strong>Aging:</strong> Preserving LBM prevents sarcopenia</li>
+  </ul>
+
+  <h2>Lean Body Mass and BMR connection</h2>
+  <p>Estimated BMR contribution of LBM:</p>
+  <table>
+    <thead><tr><th>LBM (kg)</th><th>Estimated BMR boost</th></tr></thead>
+    <tbody>
+      <tr><td>50 kg</td><td>~750 calories/day</td></tr>
+      <tr><td>60 kg</td><td>~900 calories/day</td></tr>
+      <tr><td>70 kg</td><td>~1,050 calories/day</td></tr>
+      <tr><td>80 kg</td><td>~1,200 calories/day</td></tr>
+    </tbody>
+  </table>
+  <p>Use our <a href="/bmr-calculator/">BMR calculator</a> for your total.</p>
+
+  <h2>Maximizing Lean Body Mass</h2>
+  <p>Strategies to increase LBM:</p>
+  <ul>
+    <li><strong>Resistance training:</strong> Progressive overload builds muscle</li>
+    <li><strong>Adequate protein:</strong> 1.6–2.2 g/kg daily using <a href="/protein-calculator/">protein calculator</a></li>
+    <li><strong>Surplus calories:</strong> Small surplus for muscle gain with <a href="/tdee-calculator/">TDEE calculator</a></li>
+    <li><strong>Sleep/recovery:</strong> 7–9 hours supports muscle synthesis</li>
+  </ul>
+</ContentLayout>

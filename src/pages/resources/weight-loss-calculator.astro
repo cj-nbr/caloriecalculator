@@ -1,0 +1,85 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is a weight loss calculator?", a: "A weight loss calculator estimates how long to reach a goal weight given your calorie target and weekly loss rate. Use with our <a href='/'>calorie calculator</a>." },
+  { q: "How does a weight loss calculator work?", a: "It multiplies your weekly loss × 3,500 and divides by weeks. Or uses your <a href='/guides/maintenance-calorie-calculator/'>maintenance calories</a> and deficit to find timeline." },
+  { q: "Is 1 pound of weight loss per week realistic?", a: "Yes, for most people. This requires a 500-calorie daily deficit. Our <a href='/weight-loss-calculator/'>weight loss calculator</a> shows the timeline." },
+  { q: "What is the fastest safe weight loss?", a: "0.5–2 lb/week is considered safe. Faster may be possible but requires medical supervision. Use <a href='/guides/weight-loss-calorie-calculator/'>weight loss calorie calculator</a>." },
+];
+---
+
+<ContentLayout
+  title="Weight Loss Calculator — Time to Goal Weight"
+  h1="Weight Loss Calculator"
+  description="Free weight loss calculator. Estimate time to reach goal weight. Calculate safe weight loss pace and daily calorie deficit needed."
+  path="/resources/weight-loss-calculator/"
+  category="Resources"
+  categoryPath="/resources/"
+  lead="Calculate how long weight loss will take based on your deficit and goal."
+  updated="June 2026"
+  faqs={faqs}
+>
+  <p>A <strong>weight loss calculator</strong> tells you how long reaching your goal will take. It combines your calorie deficit with target weight difference.</p>
+
+  <h2>Weight loss rate formula</h2>
+  <p><code>Weeks to goal = (weight to lose in lbs × 3,500) ÷ weekly deficit</code></p>
+  <p>Example: Lose 20 lbs at 1 lb/week = 20 weeks</p>
+
+  <h2>Weight loss timeline calculator</h2>
+  <table>
+    <thead><tr><th>Weight to lose</th><th>At 0.5 lb/week</th><th>At 1 lb/week</th><th>At 2 lb/week</th></tr></thead>
+    <tbody>
+      <tr><td>10 lbs</td><td>20 weeks</td><td>10 weeks</td><td>5 weeks</td></tr>
+      <tr><td>20 lbs</td><td>40 weeks</td><td>20 weeks</td><td>10 weeks</td></tr>
+      <tr><td>30 lbs</td><td>60 weeks</td><td>30 weeks</td><td>15 weeks</td></tr>
+      <tr><td>50 lbs</td><td>100 weeks</td><td>50 weeks</td><td>25 weeks</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Setting realistic weight loss expectations</h2>
+  <p>Research shows sustainable rates:</p>
+  <ul>
+    <li><strong>0.5 lb/week:</strong> Slow but steady, easy to maintain</li>
+    <li><strong>1 lb/week:</strong> Standard recommendation for most people</li>
+    <li><strong>1–2 lb/week:</strong> Upper end of safe range</li>
+    <li><strong>&gt;2 lb/week:</strong> Often includes water/muscle, not sustainable</li>
+  </ul>
+
+  <h2>Adjusting weight loss timeline</h2>
+  <p>If results don't match:</p>
+  <ul>
+    <li><strong>Losing too fast:</strong> Increase calories 200–300</li>
+    <li><strong>Losing too slow:</strong> Decrease calories 100–200</li>
+    <li><strong>Plateau for weeks:</strong> Recalculate <a href="/tdee-calculator/">TDEE</a>, adjust intake</li>
+  </ul>
+
+  <h2>Weight loss calculator and metabolism</h2>
+  <p>As you lose weight, your <a href="/guides/maintenance-calorie-calculator/">maintenance calories</a> drop:</p>
+  <ul>
+    <li>Each kg lost reduces TDEE ~10–20 calories</li>
+    <li>A 20 kg loss may reduce maintenance ~200–400 calories</li>
+    <li>Adjust targets periodically</li>
+  </ul>
+
+  <h2>Maximizing weight loss success</h2>
+  <p>Strategies that work:</p>
+  <ul>
+    <li><strong>Consistent deficit:</strong> Track daily with <a href="/food-calories-search/">food search</a></li>
+    <li><strong>Adequate protein:</strong> Using <a href="/protein-calculator/">protein calculator</a></li>
+    <li><strong>Resistance training:</strong> Preserve lean mass</li>
+    <li><strong>Sleep:</strong> 7–9 hours supports hormones</li>
+    <li><strong>Hydration:</strong> Water boosts metabolism slightly</li>
+  </ul>
+
+  <h2>Weight loss milestones calculator</h2>
+  <p>Breaking down large goals:</p>
+  <ul>
+    <li>First 5%: Largest metabolic health improvements</li>
+    <li>10%: Noticeable visual changes</li>
+    <li>15%: Significant transformation</li>
+    <li>20%+: Requires maintenance planning</li>
+  </ul>
+  <p>Use <a href="/weight-loss-calculator/">our weight loss calculator</a> for updated timelines.</p>
+</ContentLayout>

@@ -1,0 +1,75 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is BMI?", a: "BMI (Body Mass Index) is weight (kg) divided by height (m) squared. It categorizes weight status. Our <a href='/bmi-calculator/'>BMI calculator</a> computes it instantly." },
+  { q: "How to calculate BMI?", a: "BMI = weight(kg) ÷ height(m)². Example: 70 kg, 175 cm: 70 ÷ (1.75 × 1.75) = 22.9. Use our calculator for automatic conversion." },
+  { q: "What BMI is healthy?", a: "Normal BMI: 18.5–24.9. Overweight: 25–29.9. Obese: 30+. These are population averages—athletes may be healthy outside this range." },
+  { q: "Is BMI accurate for muscle?", a: "No. BMI cannot distinguish muscle from fat. Athletes with high muscle may have BMI 25–27 and be lean. Use <a href='/body-fat-calculator/'>body fat calculator</a> for better assessment." },
+];
+---
+
+<ContentLayout
+  title="BMI Calculator — Body Mass Index Formula and Healthy Ranges"
+  h1="BMI Calculator"
+  description="Free BMI calculator. Calculate Body Mass Index with our tool. Understand healthy BMI ranges, limitations, and uses."
+  path="/resources/bmi-calculator/"
+  category="Resources"
+  categoryPath="/resources/"
+  lead="BMI (Body Mass Index) provides a quick weight status screening. Calculate yours instantly."
+  updated="June 2026"
+  faqs={faqs}
+>
+  <p>Your <strong>BMI calculator</strong> result places weight on a standardized scale. BMI = weight (kg) ÷ height (m)². <a href="/bmi-calculator/">Our calculator</a> does this automatically.</p>
+
+  <h2>BMI formula</h2>
+  <p><code>BMI = weight(kg) ÷ height(m)²</code></p>
+  <p>Example: 80 kg person, 180 cm tall:</p>
+  <pre>180 cm = 1.8 m
+BMI = 80 ÷ (1.8 × 1.8) = 80 ÷ 3.24 = 24.7 (normal range)</pre>
+
+  <h2>BMI categories and health risks</h2>
+  <table>
+    <thead><tr><th>BMI Range</th><th>Category</th><th>Health risk</th></tr></thead>
+    <tbody>
+      <tr><td>&lt; 18.5</td><td>Underweight</td><td>Increased risk of nutrient deficiency, osteoporosis</td></tr>
+      <tr><td>18.5–24.9</td><td>Normal weight</td><td>Lowest risk for chronic disease</td></tr>
+      <tr><td>25–29.9</td><td>Overweight</td><td>Moderate increase in diabetes, heart disease</td></tr>
+      <tr><td>30–34.9</td><td>Obese class I</td><td>High risk of metabolic issues</td></tr>
+      <tr><td>35–39.9</td><td>Obese class II</td><td>Very high health risks</td></tr>
+      <tr><td>&gt; 40</td><td>Obese class III</td><td>Extreme health risks</td></tr>
+    </tbody>
+  </table>
+
+  <h2>BMI limitations</h2>
+  <p>BMI cannot:</p>
+  <ul>
+    <li>Distinguish muscle from fat</li>
+    <li>Account for fat distribution</li>
+    <li>Reflect fitness or metabolic health</li>
+    <li>Apply accurately to athletes or elderly</li>
+  </ul>
+  <p>For better assessment, use our <a href="/body-fat-calculator/">body fat calculator</a> or <a href="/lean-body-mass-calculator/">lean body mass calculator</a>.</p>
+
+  <h2>BMI and basal metabolic rate</h2>
+  <p>BMI correlates with metabolic health but doesn't equal <a href="/bmr-calculator/">BMR</a>. Muscle increases metabolism even if BMI is high. Use <a href="/tdee-calculator/">TDEE calculator</a> for calorie targets.</p>
+
+  <h2>BMI calculators vs manual calculation</h2>
+  <p>Our <a href="/bmi-calculator/">BMI calculator</a> offers advantages:</p>
+  <ul>
+    <li>Automatic unit conversion (cm/lbs to metric)</li>
+    <li>Instant category classification</li>
+    <li>Links to related calculators</li>
+    <li>No mental math required</li>
+  </ul>
+
+  <h2>When to use BMI</h2>
+  <p>BMI is a screening tool, not a diagnostic. Best for:</p>
+  <ul>
+    <li>Initial weight assessment</li>
+    <li>Population health studies</li>
+    <li>Tracking trends over time</li>
+    <li>Insurance/health requirements</li>
+  </ul>
+</ContentLayout>

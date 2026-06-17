@@ -4,3 +4,11 @@ Allow: /workouts/
 Allow: /workouts/leg-curl-machine/
 
 Sitemap: https://caloriecalculatorfree.com/sitemap.xml
+
+# Google-specific
+User-agent: Googlebot
+Allow: /
+
+# Bing-specific
+User-agent: Bingbot
+Allow: /

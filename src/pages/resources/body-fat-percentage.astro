@@ -1,0 +1,81 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is body fat percentage?", a: "Body fat percentage is the proportion of your weight that is fat tissue. Essential minimums: ~3% men, ~12% women. Athletes: 6–13% men, 14–20% women." },
+  { q: "How to calculate body fat percentage?", a: "Methods include: U.S. Navy circumference method (our <a href='/body-fat-calculator/'>calculator</a> uses this), DEXA scan (gold standard), calipers, smart scales (often inaccurate)." },
+  { q: "What is a healthy body fat percentage?", a: "Essential: 3–5% men, 12–15% women. Athletes: 6–13% men, 14–20% women. Fitness: 14–17% men, 21–24% women. Average: 18–24% men, 25–31% women." },
+  { q: "Can you calculate body fat without calipers?", a: "Yes. The U.S. Navy method uses height, neck, waist, and hip measurements. It's accurate within ~3–5% for most people. Use our <a href='/body-fat-calculator/'>body fat calculator</a>." },
+];
+---
+
+<ContentLayout
+  title="Body Fat Percentage Calculator — U.S. Navy Method"
+  h1="Body Fat Percentage Calculator"
+  description="Free body fat calculator using the U.S. Navy circumference method. Find body fat percentage for men and women with just a tape measure."
+  path="/resources/body-fat-percentage/"
+  category="Resources"
+  categoryPath="/resources/"
+  lead="Your body fat percentage reveals composition beyond what the scale says."
+  updated="June 2026"
+  faqs={faqs}
+>
+  <p>A <strong>body fat percentage calculator</strong> estimates fat mass versus lean mass. Our <a href="/body-fat-calculator/">calculator</a> uses the U.S. Navy circumference method—a validated field test requiring only a tape measure.</p>
+
+  <h2>Body fat percentage categories</h2>
+  <table>
+    <thead><tr><th>Category</th><th>Men</th><th>Women</th></tr></thead>
+    <tbody>
+      <tr><td>Essential fat</td><td>3–5%</td><td>12–15%</td></tr>
+      <tr><td>Athlete</td><td>6–13%</td><td>14–20%</td></tr>
+      <tr><td>Fitness</td><td>14–17%</td><td>21–24%</td></tr>
+      <tr><td>Average/acceptable</td><td>18–24%</td><td>25–31%</td></tr>
+      <tr><td>Obese</td><td>&gt; 25%</td><td>&gt; 32%</td></tr>
+    </tbody>
+  </table>
+
+  <h2>How the U.S. Navy body fat calculator works</h2>
+  <p>Formula requires measurements in cm:</p>
+  <table>
+    <thead><tr><th>Sex</th><th>Formula</th></tr></thead>
+    <tbody>
+      <tr><td>Men</td><td>495 ÷ (1.0324 - 0.19077×log(waist-neck) + 0.15456×log(height)) - 450</td></tr>
+      <tr><td>Women</td><td>495 ÷ (1.29579 - 0.35004×log(waist+hip-neck) + 0.221×log(height)) - 450</td></tr>
+    </tbody>
+  </table>
+  <p>Our <a href="/body-fat-calculator/">body fat calculator</a> handles all math instantly.</p>
+
+  <h2>Calculating body fat from body composition</h2>
+  <p>Alternative formula:</p>
+  <p><code>Body fat % = (fat mass ÷ total weight) × 100</code></p>
+  <p>If you know lean mass, use our <a href="/lean-body-mass-calculator/">lean body mass calculator</a> to find the difference.</p>
+
+  <h2>Body fat methods ranked by accuracy</h2>
+  <table>
+    <thead><tr><th>Method</th><th>Accuracy</th><th>Cost</th><th>Convenience</th></tr></thead>
+    <tbody>
+      <tr><td>DEXA/DEXA scan</td><td>Gold standard</td><td>$50–150</td><td>Clinic visit required</td></tr>
+      <tr><td>U.S. Navy method</td><td>~±3–5%</td><td>Free</td><td>Easy at home</td></tr>
+      <tr><td>Calipers (3-site)</td><td>~±3–7%</td><td>$20–100</td><td>Requires training</td></tr>
+      <tr><td>Smart scales</td><td>~±5–10%</td><td>$50–200</td><td>Convenient but variable</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Why body fat matters for calories</h2>
+  <p>Body fat affects <a href="/guides/maintenance-calorie-calculator/">maintenance calories</a>:</p>
+  <ul>
+    <li>Lower body fat = higher metabolic rate (less weight, more muscle)</li>
+    <li>Higher body fat = lower BMR (but not proportionally as much as expected)</li>
+    <li>Use <a href="/tdee-calculator/">TDEE calculator</a> with current weight</li>
+  </ul>
+
+  <h2>Tracking body fat changes</h2>
+  <p>Measure every 2–4 weeks under consistent conditions:</p>
+  <ul>
+    <li>Same time of day (morning best)</li>
+    <li>Similar hydration status</li>
+    <li>Same tape measure tension</li>
+    <li>Record measurements precisely</li>
+  </ul>
+</ContentLayout>
