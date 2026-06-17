@@ -24,6 +24,7 @@ const CORE = {
   "306": "potassium",
   "601": "cholesterol",
   "606": "saturatedFat",
+  "605": "transFat",
 };
 
 const VITAMINS = {
@@ -35,6 +36,9 @@ const VITAMINS = {
   "415": "Vitamin B6",
   "418": "Vitamin B12",
   "417": "Folate",
+  "406": "Vitamin B1 (Thiamin)",
+  "405": "Vitamin B2 (Riboflavin)",
+  "404": "Vitamin B3 (Niacin)",
 };
 
 const MINERALS = {
@@ -43,6 +47,9 @@ const MINERALS = {
   "304": "Magnesium",
   "305": "Phosphorus",
   "309": "Zinc",
+  "312": "Copper",
+  "313": "Manganese",
+  "317": "Selenium",
 };
 
 function pickNutrients(foodNutrients = []) {
@@ -72,18 +79,19 @@ function normalize(food) {
     servingSize: food.servingSize || null,
     servingSizeUnit: food.servingSizeUnit || null,
     // USDA stores these per 100 g.
-    per100g: {
-      calories: core.calories ?? null,
-      protein: core.protein ?? null,
-      carbs: core.carbs ?? null,
-      fat: core.fat ?? null,
-      fiber: core.fiber ?? null,
-      sugar: core.sugar ?? null,
-      sodium: core.sodium ?? null,
-      potassium: core.potassium ?? null,
-      cholesterol: core.cholesterol ?? null,
-      saturatedFat: core.saturatedFat ?? null,
-    },
+per100g: {
+       calories: core.calories ?? null,
+       protein: core.protein ?? null,
+       carbs: core.carbs ?? null,
+       fat: core.fat ?? null,
+       fiber: core.fiber ?? null,
+       sugar: core.sugar ?? null,
+       sodium: core.sodium ?? null,
+       potassium: core.potassium ?? null,
+       cholesterol: core.cholesterol ?? null,
+       saturatedFat: core.saturatedFat ?? null,
+       transFat: core.transFat ?? null,
+     },
     vitamins,
     minerals,
   };

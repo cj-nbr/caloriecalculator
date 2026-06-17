@@ -5,6 +5,7 @@
  * All logic is client-side vanilla TS; no third-party libraries.
  */
 import { inputCls, selectCls } from "../lib/ui";
+import { FOOD_SUGGESTIONS } from "../data/food-suggestions";
 
 const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk"];
 ---
@@ -23,7 +24,7 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
 
   <form id="food-form" class="card p-5 sm:p-6" novalidate>
     <div class="space-y-4">
-      <div class="space-y-1.5">
+      <div class="space-y-1.5 relative">
         <label for="food-q" class="block text-sm font-medium text-ink">1. What food?</label>
         <input
           id="food-q"
@@ -33,6 +34,8 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
           placeholder="Type a food, like banana, rice, or pizza"
           class={inputCls}
         />
+        <!-- Suggestions dropdown -->
+        <div id="food-suggestions" class="absolute top-full left-0 right-0 mt-1 z-10 hidden max-h-64 overflow-y-auto rounded-lg border border-hairline bg-surface shadow-lg"></div>
       </div>
       <div class="grid grid-cols-2 gap-3">
         <div class="space-y-1.5">
@@ -81,7 +84,7 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
   <div id="food-results" class="mt-6" aria-live="polite">
     <!-- Empty state -->
     <div id="food-empty" class="card p-8 text-center text-sm text-mute">
-      👆 Type a food above and tap “Find Calories” to see how much energy and nutrition it has.
+      👆 Type a food above and tap "Find Calories" to see how much energy and nutrition it has.
     </div>
 
     <!-- Loading state -->
@@ -144,7 +147,7 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
         </table>
 
         <div id="food-vm" class="mt-5 hidden">
-          <h3 class="text-sm font-semibold text-ink">Vitamins &amp; minerals</h3>
+          <h3 class="text-sm font-semibold text-ink">Vitamins & minerals</h3>
           <div id="food-vm-list" class="mt-2 flex flex-wrap gap-2"></div>
         </div>
       </div>
@@ -152,7 +155,7 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
   </div>
 </div>
 
-<script>
+<script define:vars={{suggestions: FOOD_SUGGESTIONS}}>
   type Nutrients = Record<string, number | null>;
   interface FoodResult {
     description: string;
@@ -164,6 +167,9 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
     vitamins: Record<string, { value: number; unit: string }>;
     minerals: Record<string, { value: number; unit: string }>;
   }
+
+  // Food suggestions array for autocomplete (passed from Astro)
+  const ALL_FOODS: string[] = suggestions;
 
   const root = document.getElementById("food-tool");
   if (root) {
@@ -189,7 +195,7 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
       if (unit === "serving" || unit === "piece") {
         const ss = food.servingSize && /g|gram|ml/i.test(food.servingSizeUnit || "")
           ? food.servingSize
-          : 100; // sensible fallback when no serving size is known
+          : 100;
         return qty * ss;
       }
       return qty * (UNIT_G[unit] ?? 1);
@@ -225,7 +231,7 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
       ($("n-fat")).textContent = fmt(sc(p.fat)) + " g";
 
       const qtyTxt = `${qtyEl.value} ${unitEl.options[unitEl.selectedIndex].text}`;
-      $("food-portion").innerHTML = `Nutrition for <strong class="text-ink">${qtyTxt}</strong> (≈ ${fmt(grams, 0)} g)`;
+      $("food-portion").innerHTML = `Nutrition for <strong class="text-ink">${qtyTxt}</strong> (&asymp; ${fmt(grams, 0)} g)`;
 
       $("food-nutrients").innerHTML =
         row("Calories", sc(p.calories), "kcal") +
@@ -233,6 +239,7 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
         row("Carbohydrates", sc(p.carbs), "g") +
         row("Total fat", sc(p.fat), "g") +
         row("Saturated fat", sc(p.saturatedFat), "g") +
+        row("Trans fat", sc(p.transFat), "g") +
         row("Fiber", sc(p.fiber), "g") +
         row("Sugar", sc(p.sugar), "g") +
         row("Sodium", sc(p.sodium), "mg") +
@@ -252,11 +259,31 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
       }
     }
 
+    function renderSuggestions(matches: string[]) {
+      const suggestionsEl = $("food-suggestions");
+      if (matches.length === 0) {
+        suggestionsEl.innerHTML = "";
+        suggestionsEl.classList.add("hidden");
+        return;
+      }
+      suggestionsEl.innerHTML = matches
+        .map((s) => `<button type="button" class="food-suggest-item w-full px-3.5 py-2 text-left text-sm text-body hover:bg-canvas-soft hover:text-ink transition-colors" data-term="${s}">${s}</button>`)
+        .join("");
+      suggestionsEl.classList.remove("hidden");
+    }
+
+    function hideSuggestions() {
+      const suggestionsEl = $("food-suggestions");
+      suggestionsEl.innerHTML = "";
+      suggestionsEl.classList.add("hidden");
+    }
+
     async function searchFood(term: string) {
       qEl.value = term;
       hide("food-empty"); hide("food-card"); hide("food-error");
       show("food-loading");
       submit.disabled = true;
+      hideSuggestions();
       try {
         const res = await fetch(`/api/food-search?q=${encodeURIComponent(term)}`, {
           headers: { Accept: "application/json" },
@@ -270,7 +297,6 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
           return;
         }
         results = data.results;
-        // Build match switcher
         switchSel.innerHTML = results
           .map((r: FoodResult, i: number) => `<option value="${i}">${r.description}${r.brandName ? " — " + r.brandName : ""}</option>`)
           .join("");
@@ -288,17 +314,47 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
       }
     }
 
+    // Event listeners
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const term = qEl.value.trim();
       if (term) searchFood(term);
     });
-    // Re-scale instantly when quantity/unit/match changes (no new API call)
+
+    qEl.addEventListener("input", () => {
+      const term = qEl.value.trim().toLowerCase();
+      if (term.length < 1) {
+        hideSuggestions();
+        return;
+      }
+      const matches = ALL_FOODS.filter((f: string) => f.toLowerCase().includes(term)).slice(0, 8);
+      renderSuggestions(matches);
+    });
+
+    qEl.addEventListener("blur", () => {
+      setTimeout(hideSuggestions, 200);
+    });
+
+    // Re-scale instantly when quantity/unit/match changes
     qtyEl.addEventListener("input", () => { if (results.length) render(); });
     unitEl.addEventListener("change", () => { if (results.length) render(); });
     switchSel.addEventListener("change", render);
+
+    // Example chips
     root.querySelectorAll<HTMLButtonElement>(".food-example").forEach((b) => {
       b.addEventListener("click", () => searchFood(b.dataset.q || ""));
+    });
+
+    // Suggestion clicks
+    document.addEventListener("click", (e) => {
+      const target = e.target as HTMLElement;
+      if (target.classList.contains("food-suggest-item")) {
+        const term = target.dataset.term;
+        if (term) {
+          hideSuggestions();
+          searchFood(term);
+        }
+      }
     });
   }
 </script>
