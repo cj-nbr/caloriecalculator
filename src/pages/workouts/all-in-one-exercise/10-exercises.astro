@@ -1,0 +1,159 @@
+---
+import ContentLayout from "../../../layouts/ContentLayout.astro";
+
+const path = "/workouts/all-in-one-exercise/10-exercises/";
+const faqs = [
+  { q: "What are the 10 best exercises to do at home?", a: "Squats, push-ups, burpees, mountain climbers, planks, lunges, glute bridges, jumping jacks, bear crawls, and dead bugs cover all movement patterns." },
+  { q: "Do I need equipment for these 10 home exercises?", a: "No equipment required. All exercises use your body weight and can be done in minimal space." },
+  { q: "How often should I do the 10 home exercises?", a: "3-4 times per week as a full routine, or pick 3-4 exercises daily for maintenance." },
+  { q: "What is the best order for these 10 exercises?", a: "Start with large muscle groups (squats, push-ups), move to core (plank, dead bug), end with cardio (jumping jacks, burpees)." },
+  { q: "Can these exercises help me lose weight?", a: "Yes, when combined with proper nutrition. These exercises burn 150-200 calories in 20 minutes for a 150-pound person." },
+];
+---
+
+<ContentLayout
+  title="10 Best Exercises At Home: Complete Bodyweight Routine"
+  h1="10 Best Exercises At Home"
+  description="Master these 10 essential bodyweight exercises for complete home training. No equipment required. Build strength, burn calories, and improve fitness."
+  path={path}
+  category="Workouts"
+  categoryPath="/workouts/"
+  faqs={faqs}
+>
+
+  <h2>The Ultimate Home Exercise List</h2>
+  <p>These 10 exercises cover all major movement patterns using zero equipment. Whether you are training in a living room, bedroom, or office, these movements deliver complete-body conditioning in minimal time.</p>
+
+  <div class="not-prose">
+    <div class="card my-6 bg-brand/5 p-5">
+      <strong class="text-ink">Equipment Needed:</strong>
+      <p class="mt-2 text-sm text-body">None. A yoga mat helps for comfort but is not required.</p>
+    </div>
+  </div>
+
+  <h2>The 10 Exercises (With Details)</h2>
+
+  <h3>1. Squats</h3>
+  <p><strong>Muscles:</strong> Quads, glutes, hamstrings, core, calves</p>
+  <p><strong>Reps:</strong> 15-20</p>
+  <p><strong>Modifiers:</strong> Chair squats, pulse squats, jump squats</p>
+
+  <h3>2. Push-Ups</h3>
+  <p><strong>Muscles:</strong> Chest, shoulders, triceps, core</p>
+  <p><strong>Reps:</strong> 8-15 (knee or standard)</p>
+  <p><strong>Modifiers:</strong> Incline, decline, diamond push-ups</p>
+
+  <h3>3. Burpees</h3>
+  <p><strong>Muscles:</strong> Full body, emphasis on legs and shoulders</p>
+  <p><strong>Reps:</strong> 5-10</p>
+  <p><strong>Modifiers:</strong> Step-back burpees, no push-up burpees</p>
+
+  <h3>4. Mountain Climbers</h3>
+  <p><strong>Muscles:</strong> Core, shoulders, hip flexors, cardio</p>
+  <p><strong>Time:</strong> 30-45 seconds</p>
+  <p><strong>Modifiers:</strong> Slow climbers, elevated feet</p>
+
+  <h3>5. Plank</h3>
+  <p><strong>Muscles:</strong> Core, shoulders, glutes, lower back</p>
+  <p><strong>Time:</strong> 30-60 seconds</p>
+  <p><strong>Modifiers:</strong> Knee plank, side plank</p>
+
+  <h3>6. Lunges</h3>
+  <p><strong>Muscles:</strong> Quads, glutes, hamstrings, balance</p>
+  <p><strong>Reps:</strong> 10 each leg</p>
+  <p><strong>Modifiers:</strong> Static, walking, reverse lunges</p>
+
+  <h3>7. Glute Bridges</h3>
+  <p><strong>Muscles:</strong> Glutes, hamstrings, core</p>
+  <p><strong>Reps:</strong> 15-20</p>
+  <p><strong>Modifiers:</strong> Single-leg, weighted, banded</p>
+
+  <h3>8. Jumping Jacks</h3>
+  <p><strong>Muscles:</strong> Shoulders, legs, cardio system</p>
+  <p><strong>Time:</strong> 30-60 seconds</p>
+  <p><strong>Modifiers:</strong> Step jacks, squashed jacks</p>
+
+  <h3>9. Bear Crawls</h3>
+  <p><strong>Muscles:</strong> Shoulders, core, legs, coordination</p>
+  <p><strong>Time:</strong> 30-45 seconds each direction</p>
+  <p><strong>Modifiers:</strong> Stationary bear hold, elevated knees</p>
+
+  <h3>10. Dead Bugs</h3>
+  <p><strong>Muscles:</strong> Core, hip flexors, shoulders</p>
+  <p><strong>Reps:</strong> 8 each side</p>
+  <p><strong>Modifiers:</strong> Dead bug hold, weighted variations</p>
+
+  <h2>Complete 10-Exercise Circuit</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Exercise</th>
+        <th>Work</th>
+        <th>Rest</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Squats</td>
+        <td>45 seconds</td>
+        <td>15 seconds</td>
+      </tr>
+      <tr>
+        <td>Push-ups</td>
+        <td>45 seconds</td>
+        <td>15 seconds</td>
+      </tr>
+      <tr>
+        <td>Burpees</td>
+        <td>30 seconds</td>
+        <td>15 seconds</td>
+      </tr>
+      <tr>
+        <td>Mountain climbers</td>
+        <td>45 seconds</td>
+        <td>15 seconds</td>
+      </tr>
+      <tr>
+        <td>Plank</td>
+        <td>45 seconds</td>
+        <td>15 seconds</td>
+      </tr>
+      <tr>
+        <td>Lunges</td>
+        <td>45 seconds</td>
+        <td>15 seconds</td>
+      </tr>
+      <tr>
+        <td>Glute bridges</td>
+        <td>45 seconds</td>
+        <td>15 seconds</td>
+      </tr>
+      <tr>
+        <td>Jumping jacks</td>
+        <td>30 seconds</td>
+        <td>15 seconds</td>
+      </tr>
+      <tr>
+        <td>Bear crawls</td>
+        <td>45 seconds</td>
+        <td>15 seconds</td>
+      </tr>
+      <tr>
+        <td>Dead bugs</td>
+        <td>30 seconds</td>
+        <td>Cool down</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Progression Strategies</h2>
+  <ol>
+    <li>Increase work time by 5-10 seconds per exercise</li>
+    <li>Reduce rest periods by 5 seconds</li>
+    <li>Add rounds (start with 1, work to 3)</li>
+    <li>Increase difficulty of each exercise variation</li>
+  </ol>
+
+  <h2>Nutrition Connection</h2>
+  <p>Support your training with proper fuel. Use our <a href="/">calorie calculator</a> to maintain energy balance and our <a href="/protein-calculator/">protein calculator</a> to optimize recovery.</p>
+</ContentLayout>
