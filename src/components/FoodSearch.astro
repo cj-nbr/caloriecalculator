@@ -156,40 +156,26 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
 </div>
 
 <script define:vars={{suggestions: FOOD_SUGGESTIONS}}>
-  type Nutrients = Record<string, number | null>;
-  interface FoodResult {
-    description: string;
-    brandName: string | null;
-    dataType: string | null;
-    servingSize: number | null;
-    servingSizeUnit: string | null;
-    per100g: Nutrients;
-    vitamins: Record<string, { value: number; unit: string }>;
-    minerals: Record<string, { value: number; unit: string }>;
-  }
-
-  // Food suggestions array for autocomplete (passed from Astro)
-  const ALL_FOODS: string[] = suggestions;
+  const ALL_FOODS = suggestions;
 
   const root = document.getElementById("food-tool");
   if (root) {
-    const $ = (id: string) => document.getElementById(id)!;
-    const form = $("food-form") as HTMLFormElement;
-    const qEl = $("food-q") as HTMLInputElement;
-    const qtyEl = $("food-qty") as HTMLInputElement;
-    const unitEl = $("food-unit") as HTMLSelectElement;
-    const submit = $("food-submit") as HTMLButtonElement;
-    const switchSel = $("food-switch") as HTMLSelectElement;
+    const $ = (id) => document.getElementById(id);
+    const form = $("food-form");
+    const qEl = $("food-q");
+    const qtyEl = $("food-qty");
+    const unitEl = $("food-unit");
+    const submit = $("food-submit");
+    const switchSel = $("food-switch");
 
-    let results: FoodResult[] = [];
+    let results = [];
 
-    // Approximate grams per unit (volumes assume a water-like density).
-    const UNIT_G: Record<string, number> = {
+    const UNIT_G = {
       g: 1, kg: 1000, ml: 1, l: 1000, oz: 28.3495, lb: 453.592,
       cup: 240, tbsp: 15, tsp: 5,
     };
 
-    function gramsFor(food: FoodResult): number {
+    function gramsFor(food) {
       const qty = parseFloat(qtyEl.value) || 0;
       const unit = unitEl.value;
       if (unit === "serving" || unit === "piece") {
@@ -198,18 +184,18 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
           : 100;
         return qty * ss;
       }
-      return qty * (UNIT_G[unit] ?? 1);
+      return qty * (UNIT_G[unit] || 1);
     }
 
-    const show = (id: string) => $(id).classList.remove("hidden");
-    const hide = (id: string) => $(id).classList.add("hidden");
+    const show = (id) => $(id).classList.remove("hidden");
+    const hide = (id) => $(id).classList.add("hidden");
 
-    function fmt(v: number | null, dp = 1): string {
+    function fmt(v, dp = 1) {
       if (v == null) return "—";
       return (Math.round(v * 10 ** dp) / 10 ** dp).toLocaleString("en-US");
     }
 
-    function row(label: string, value: number | null, unit: string): string {
+    function row(label, value, unit) {
       return `<tr class="border-b border-hairline last:border-0"><td class="py-2 text-body">${label}</td><td class="py-2 text-right font-medium text-ink tabular-nums">${fmt(value)} ${unit}</td></tr>`;
     }
 
@@ -218,17 +204,16 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
       if (!food) return;
       const grams = gramsFor(food);
       const factor = grams / 100;
-      const sc = (v: number | null) => (v == null ? null : v * factor);
+      const sc = (v) => (v == null ? null : v * factor);
       const p = food.per100g;
 
       $("food-name").textContent = food.description;
-      const metaBits = [food.brandName, food.dataType].filter(Boolean);
-      $("food-meta").textContent = metaBits.join(" · ");
+      $("food-meta").textContent = [food.brandName, food.dataType].filter(Boolean).join(" · ");
 
-      ($("n-calories")).textContent = fmt(sc(p.calories), 0);
-      ($("n-protein")).textContent = fmt(sc(p.protein)) + " g";
-      ($("n-carbs")).textContent = fmt(sc(p.carbs)) + " g";
-      ($("n-fat")).textContent = fmt(sc(p.fat)) + " g";
+      $("n-calories").textContent = fmt(sc(p.calories), 0);
+      $("n-protein").textContent = fmt(sc(p.protein)) + " g";
+      $("n-carbs").textContent = fmt(sc(p.carbs)) + " g";
+      $("n-fat").textContent = fmt(sc(p.fat)) + " g";
 
       const qtyTxt = `${qtyEl.value} ${unitEl.options[unitEl.selectedIndex].text}`;
       $("food-portion").innerHTML = `Nutrition for <strong class="text-ink">${qtyTxt}</strong> (&asymp; ${fmt(grams, 0)} g)`;
@@ -246,7 +231,6 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
         row("Potassium", sc(p.potassium), "mg") +
         row("Cholesterol", sc(p.cholesterol), "mg");
 
-      // Vitamins & minerals
       const vm = { ...food.vitamins, ...food.minerals };
       const keys = Object.keys(vm);
       if (keys.length) {
@@ -259,7 +243,7 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
       }
     }
 
-    function renderSuggestions(matches: string[]) {
+    function renderSuggestions(matches) {
       const suggestionsEl = $("food-suggestions");
       if (matches.length === 0) {
         suggestionsEl.innerHTML = "";
@@ -278,7 +262,7 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
       suggestionsEl.classList.add("hidden");
     }
 
-    async function searchFood(term: string) {
+    async function searchFood(term) {
       qEl.value = term;
       hide("food-empty"); hide("food-card"); hide("food-error");
       show("food-loading");
@@ -291,14 +275,13 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
         const data = await res.json();
         hide("food-loading");
         if (!res.ok || !data.results || data.results.length === 0) {
-          const err = $("food-error");
-          err.textContent = data.error || "No results found. Try a different food.";
+          $("food-error").textContent = data.error || "No results found. Try a different food.";
           show("food-error");
           return;
         }
         results = data.results;
         switchSel.innerHTML = results
-          .map((r: FoodResult, i: number) => `<option value="${i}">${r.description}${r.brandName ? " — " + r.brandName : ""}</option>`)
+          .map((r, i) => `<option value="${i}">${r.description}${r.brandName ? " — " + r.brandName : ""}</option>`)
           .join("");
         switchSel.value = "0";
         $("food-switch-wrap").classList.toggle("hidden", results.length < 2);
@@ -306,8 +289,7 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
         render();
       } catch {
         hide("food-loading");
-        const err = $("food-error");
-        err.textContent = "Network error — please check your connection and try again.";
+        $("food-error").textContent = "Network error — please check your connection and try again.";
         show("food-error");
       } finally {
         submit.disabled = false;
@@ -327,7 +309,7 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
         hideSuggestions();
         return;
       }
-      const matches = ALL_FOODS.filter((f: string) => f.toLowerCase().includes(term)).slice(0, 8);
+      const matches = ALL_FOODS.filter((f) => f.toLowerCase().includes(term)).slice(0, 8);
       renderSuggestions(matches);
     });
 
@@ -335,19 +317,16 @@ const examples = ["Banana", "100g rice", "Apple", "Egg", "Chicken breast", "Milk
       setTimeout(hideSuggestions, 200);
     });
 
-    // Re-scale instantly when quantity/unit/match changes
     qtyEl.addEventListener("input", () => { if (results.length) render(); });
     unitEl.addEventListener("change", () => { if (results.length) render(); });
     switchSel.addEventListener("change", render);
 
-    // Example chips
-    root.querySelectorAll<HTMLButtonElement>(".food-example").forEach((b) => {
+    root.querySelectorAll(".food-example").forEach((b) => {
       b.addEventListener("click", () => searchFood(b.dataset.q || ""));
     });
 
-    // Suggestion clicks
     document.addEventListener("click", (e) => {
-      const target = e.target as HTMLElement;
+      const target = e.target;
       if (target.classList.contains("food-suggest-item")) {
         const term = target.dataset.term;
         if (term) {

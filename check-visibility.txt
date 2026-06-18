@@ -1,0 +1,9 @@
+{
+  "innerHTML": "<button type=\"button\" class=\"food-suggest-item w-full px-3.5 py-2 text-left text-sm text-body hover:bg-canvas-soft hover:text-ink transition-colors\" data-term=\"Chicken breast\">Chicken breast</button><button type=\"button\" class=\"food-suggest-item w-full px-3.5 py-2 text-left text-sm text-body hover:b",
+  "hiddenClass": false,
+  "display": "block",
+  "visibility": "visible",
+  "position": "absolute",
+  "parentPosition": "relative",
+  "zIndex": "10"
+}

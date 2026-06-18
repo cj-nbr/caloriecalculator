@@ -1,0 +1,335 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - navigation "Primary" [ref=e4]:
+      - link "CalorieCalculatorFree" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e7]
+        - generic [ref=e10]: CalorieCalculatorFree
+      - list [ref=e11]:
+        - listitem [ref=e12]:
+          - link "Calculators" [ref=e13] [cursor=pointer]:
+            - /url: /resources/
+            - text: Calculators
+            - img [ref=e14]
+        - listitem [ref=e16]:
+          - link "Guides" [ref=e17] [cursor=pointer]:
+            - /url: /resources/
+            - text: Guides
+            - img [ref=e18]
+        - listitem [ref=e20]:
+          - link "Workouts" [ref=e21] [cursor=pointer]:
+            - /url: /resources/
+            - text: Workouts
+            - img [ref=e22]
+        - listitem [ref=e24]:
+          - link "Resources" [ref=e25] [cursor=pointer]:
+            - /url: /resources/
+            - text: Resources
+            - img [ref=e26]
+        - listitem [ref=e28]:
+          - link "About" [ref=e29] [cursor=pointer]:
+            - /url: /about/
+      - generic [ref=e30]:
+        - button "Toggle color theme" [ref=e31]:
+          - img [ref=e32]
+        - link "Calculate Calories" [ref=e35] [cursor=pointer]:
+          - /url: /#calculator
+  - main [ref=e36]:
+    - navigation "Breadcrumb" [ref=e37]:
+      - list [ref=e38]:
+        - listitem [ref=e39]:
+          - link "Home" [ref=e40] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e41]:
+          - generic [ref=e42]: /
+          - generic [ref=e43]: Food Calories Search
+    - generic [ref=e45]:
+      - heading "Food Calories Search" [level=1] [ref=e46]
+      - paragraph [ref=e47]: Search nutrition facts, calories, protein, carbs, fats, vitamins, and minerals for thousands of foods — fruits, vegetables, drinks, grains, meats, snacks, and meals.
+    - generic [ref=e50]:
+      - generic [ref=e51]:
+        - paragraph [ref=e52]:
+          - text: 🍎
+          - strong [ref=e53]: Type a food, choose how much, and we'll show you the calories and nutrition.
+          - text: Easy!
+        - paragraph [ref=e54]: Nutrition values are estimates based on trusted food databases. Results may vary by brand, preparation method, and serving size.
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - generic [ref=e58]: 1. What food?
+            - searchbox "1. What food?" [ref=e59]
+          - generic [ref=e60]:
+            - generic [ref=e61]:
+              - generic [ref=e62]: 2. How much?
+              - spinbutton "2. How much?" [ref=e63]: "100"
+            - generic [ref=e64]:
+              - generic [ref=e65]: Measured in
+              - generic [ref=e66]:
+                - combobox "Measured in" [ref=e67]:
+                  - option "Gram (g)" [selected]
+                  - option "Kilogram (kg)"
+                  - option "Milliliter (ml)"
+                  - option "Liter (L)"
+                  - option "Ounce (oz)"
+                  - option "Pound (lb)"
+                  - option "Cup"
+                  - option "Tablespoon"
+                  - option "Teaspoon"
+                  - option "Piece"
+                  - option "Serving"
+                - img
+          - button "Find Calories" [ref=e68]
+        - generic [ref=e69]:
+          - generic [ref=e70]: "Try:"
+          - button "Banana" [ref=e71]
+          - button "100g rice" [ref=e72]
+          - button "Apple" [ref=e73]
+          - button "Egg" [ref=e74]
+          - button "Chicken breast" [ref=e75]
+          - button "Milk" [ref=e76]
+      - generic [ref=e78]: 👆 Type a food above and tap "Find Calories" to see how much energy and nutrition it has.
+    - generic [ref=e81]:
+      - heading "Complete nutrition database" [level=2] [ref=e82]
+      - paragraph [ref=e83]: Our food search taps into the USDA FoodData Central database with over 300,000 foods. As you type, suggestions appear instantly from common foods like fruits, vegetables, meats, grains, and snacks. The autocomplete makes it easy to find what you're looking for — no need to spell perfectly or know exact names.
+      - heading "Macronutrient breakdown" [level=2] [ref=e84]
+      - paragraph [ref=e85]:
+        - text: Every search returns calories, protein, carbohydrates, fat, saturated fat, trans fat (when available), fiber, sugar, sodium, potassium, and cholesterol. This helps you track macros for muscle building, fat loss, or maintenance — whichever your goal. Pair this with your
+        - link "daily calorie target" [ref=e86] [cursor=pointer]:
+          - /url: /
+        - text: to stay on plan.
+      - heading "Vitamins & minerals tracked" [level=2] [ref=e87]
+      - paragraph [ref=e88]: Vitamins C and A, vitamin D, vitamin K, B6 and B12, folate, thiamin, riboflavin, niacin, calcium, iron, magnesium, phosphorus, zinc, copper, manganese, and selenium appear when available. These micronutrients matter for energy, immune function, bone health, and recovery from training.
+      - heading "What are calories?" [level=2] [ref=e89]
+      - paragraph [ref=e90]:
+        - text: A calorie is a unit of energy. When we talk about food, "calories" measure how much energy a food provides to your body. Your body uses that energy for everything from breathing and thinking to walking and exercising. Eat about as many calories as you burn and your weight stays stable; eat more or fewer and you gain or lose weight over time. To find how many calories
+        - emphasis [ref=e91]: you
+        - text: need each day, use our
+        - link "calorie calculator" [ref=e92] [cursor=pointer]:
+          - /url: /
+        - text: .
+      - heading "Understanding protein, carbs, and fats" [level=2] [ref=e93]
+      - paragraph [ref=e94]: "Calories come from three macronutrients, each with a different energy density:"
+      - list [ref=e95]:
+        - listitem [ref=e96]:
+          - strong [ref=e97]: "Protein (4 calories per gram):"
+          - text: builds and repairs muscle and keeps you full. Found in meat, fish, eggs, dairy, beans, and tofu.
+        - listitem [ref=e98]:
+          - strong [ref=e99]: "Carbohydrates (4 calories per gram):"
+          - text: your body's main fuel. Found in grains, fruit, vegetables, and sugar.
+        - listitem [ref=e100]:
+          - strong [ref=e101]: "Fat (9 calories per gram):"
+          - text: the most calorie-dense macro; essential for hormones and absorbing vitamins. Found in oils, nuts, dairy, and meat.
+      - paragraph [ref=e102]:
+        - text: This is why a tablespoon of oil has more calories than a whole apple — fat packs more than double the energy per gram. Use the
+        - link "macro calculator" [ref=e103] [cursor=pointer]:
+          - /url: /macro-calculator/
+        - text: to split your daily calories into grams of each.
+      - heading "How calorie tracking works" [level=2] [ref=e104]
+      - paragraph [ref=e105]:
+        - text: "Tracking is simple: look up each food you eat, enter how much you had, and add up the calories across the day. Compare that total to your target — your maintenance level (your"
+        - link "TDEE" [ref=e106] [cursor=pointer]:
+          - /url: /tdee-calculator/
+        - text: ) to stay the same, below it for a
+        - link "calorie deficit" [ref=e107] [cursor=pointer]:
+          - /url: /guides/calorie-deficit-guide/
+        - text: to lose weight, or above it to gain. Tracking even loosely for a week or two reveals where your calories actually come from, which is often surprising.
+      - heading "Food portion conversions" [level=2] [ref=e108]
+      - paragraph [ref=e109]: "Nutrition data is usually listed per 100 grams, but you rarely eat exactly 100 g. This tool converts common units for you. As a rough guide:"
+      - list [ref=e110]:
+        - listitem [ref=e111]: 1 ounce (oz) ≈ 28 g
+        - listitem [ref=e112]: 1 pound (lb) ≈ 454 g
+        - listitem [ref=e113]: 1 cup ≈ 240 g (for water-like liquids)
+        - listitem [ref=e114]: 1 tablespoon ≈ 15 g · 1 teaspoon ≈ 5 g
+      - paragraph [ref=e115]: Volume-to-weight conversions (cups, spoons, ml) assume a density close to water, so they're most accurate for liquids and approximate for solids. For the most precise tracking, weigh foods in grams.
+      - heading "Weight gain and weight loss basics" [level=2] [ref=e116]
+      - paragraph [ref=e117]:
+        - text: Both come down to energy balance. A pound of body fat stores about 3,500 calories, so a daily deficit of ~500 calories produces roughly one pound of fat loss per week — and a similar surplus supports lean weight gain when paired with training. Knowing the calories in your food is half the equation; knowing your target is the other half. Find your number with the
+        - link "calorie calculator" [ref=e118] [cursor=pointer]:
+          - /url: /
+        - text: or check your maintenance level with the
+        - link "TDEE calculator" [ref=e119] [cursor=pointer]:
+          - /url: /tdee-calculator/
+        - text: ", then use this food search to stay on track."
+    - generic [ref=e122]:
+      - heading "Frequently asked questions" [level=2] [ref=e123]
+      - generic [ref=e124]:
+        - group [ref=e125]:
+          - generic "How many calories are in a banana?" [ref=e126] [cursor=pointer]:
+            - generic [ref=e127]: How many calories are in a banana?
+            - img [ref=e129]
+        - group [ref=e131]:
+          - generic "How many calories are in 100g of rice?" [ref=e132] [cursor=pointer]:
+            - generic [ref=e133]: How many calories are in 100g of rice?
+            - img [ref=e135]
+        - group [ref=e137]:
+          - generic "How many calories are in an apple?" [ref=e138] [cursor=pointer]:
+            - generic [ref=e139]: How many calories are in an apple?
+            - img [ref=e141]
+        - group [ref=e143]:
+          - generic "How much protein is in an egg?" [ref=e144] [cursor=pointer]:
+            - generic [ref=e145]: How much protein is in an egg?
+            - img [ref=e147]
+        - group [ref=e149]:
+          - generic "How many calories are in milk?" [ref=e150] [cursor=pointer]:
+            - generic [ref=e151]: How many calories are in milk?
+            - img [ref=e153]
+        - group [ref=e155]:
+          - generic "How many calories are in chicken breast?" [ref=e156] [cursor=pointer]:
+            - generic [ref=e157]: How many calories are in chicken breast?
+            - img [ref=e159]
+        - group [ref=e161]:
+          - generic "How many calories are in 100g of chicken?" [ref=e162] [cursor=pointer]:
+            - generic [ref=e163]: How many calories are in 100g of chicken?
+            - img [ref=e165]
+        - group [ref=e167]:
+          - generic "How many calories should I eat per day?" [ref=e168] [cursor=pointer]:
+            - generic [ref=e169]: How many calories should I eat per day?
+            - img [ref=e171]
+        - group [ref=e173]:
+          - generic "How do I track calories in food?" [ref=e174] [cursor=pointer]:
+            - generic [ref=e175]: How do I track calories in food?
+            - img [ref=e177]
+        - group [ref=e179]:
+          - generic "How accurate is the food calorie data?" [ref=e180] [cursor=pointer]:
+            - generic [ref=e181]: How accurate is the food calorie data?
+            - img [ref=e183]
+        - group [ref=e185]:
+          - generic "How many calories are in an avocado?" [ref=e186] [cursor=pointer]:
+            - generic [ref=e187]: How many calories are in an avocado?
+            - img [ref=e189]
+        - group [ref=e191]:
+          - generic "How much protein is in 100g of paneer or tofu?" [ref=e192] [cursor=pointer]:
+            - generic [ref=e193]: How much protein is in 100g of paneer or tofu?
+            - img [ref=e195]
+        - group [ref=e197]:
+          - generic "How many calories are in a slice of bread?" [ref=e198] [cursor=pointer]:
+            - generic [ref=e199]: How many calories are in a slice of bread?
+            - img [ref=e201]
+        - group [ref=e203]:
+          - generic "What foods are highest in protein?" [ref=e204] [cursor=pointer]:
+            - generic [ref=e205]: What foods are highest in protein?
+            - img [ref=e207]
+        - group [ref=e209]:
+          - generic "How many calories are in a tablespoon of olive oil?" [ref=e210] [cursor=pointer]:
+            - generic [ref=e211]: How many calories are in a tablespoon of olive oil?
+            - img [ref=e213]
+        - group [ref=e215]:
+          - generic "How do I convert food portions to grams?" [ref=e216] [cursor=pointer]:
+            - generic [ref=e217]: How do I convert food portions to grams?
+            - img [ref=e219]
+    - generic [ref=e222]:
+      - heading "Related tools" [level=2] [ref=e223]
+      - generic [ref=e224]:
+        - link "Calorie Calculator Your daily calorie target" [ref=e225] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e226]:
+            - generic [ref=e227]: Calorie Calculator
+            - generic [ref=e228]: Your daily calorie target
+          - img [ref=e229]
+        - link "TDEE Calculator Maintenance calories" [ref=e231] [cursor=pointer]:
+          - /url: /tdee-calculator/
+          - generic [ref=e232]:
+            - generic [ref=e233]: TDEE Calculator
+            - generic [ref=e234]: Maintenance calories
+          - img [ref=e235]
+        - link "Calorie Deficit Guide How to lose weight" [ref=e237] [cursor=pointer]:
+          - /url: /guides/calorie-deficit-guide/
+          - generic [ref=e238]:
+            - generic [ref=e239]: Calorie Deficit Guide
+            - generic [ref=e240]: How to lose weight
+          - img [ref=e241]
+        - link "Macro Calculator Protein, carbs & fat" [ref=e243] [cursor=pointer]:
+          - /url: /macro-calculator/
+          - generic [ref=e244]:
+            - generic [ref=e245]: Macro Calculator
+            - generic [ref=e246]: Protein, carbs & fat
+          - img [ref=e247]
+  - contentinfo [ref=e249]:
+    - generic [ref=e250]:
+      - generic [ref=e251]:
+        - generic [ref=e252]:
+          - link "CalorieCalculatorFree" [ref=e253] [cursor=pointer]:
+            - /url: /
+            - img [ref=e255]
+            - generic [ref=e258]: CalorieCalculatorFree
+          - paragraph [ref=e259]: Free, science-based calorie and nutrition calculators to help you reach your weight goals with confidence.
+        - generic [ref=e260]:
+          - heading "Calculators" [level=2] [ref=e261]
+          - list [ref=e262]:
+            - listitem [ref=e263]:
+              - link "Calorie Calculator" [ref=e264] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e265]:
+              - link "BMI Calculator" [ref=e266] [cursor=pointer]:
+                - /url: /bmi-calculator/
+            - listitem [ref=e267]:
+              - link "BMR Calculator" [ref=e268] [cursor=pointer]:
+                - /url: /bmr-calculator/
+            - listitem [ref=e269]:
+              - link "TDEE Calculator" [ref=e270] [cursor=pointer]:
+                - /url: /tdee-calculator/
+            - listitem [ref=e271]:
+              - link "Macro Calculator" [ref=e272] [cursor=pointer]:
+                - /url: /macro-calculator/
+        - generic [ref=e273]:
+          - heading "Resources" [level=2] [ref=e274]
+          - list [ref=e275]:
+            - listitem [ref=e276]:
+              - link "How Many Calories Should I Eat?" [ref=e277] [cursor=pointer]:
+                - /url: /guides/how-many-calories-should-i-eat/
+            - listitem [ref=e278]:
+              - link "Maintenance Calorie Calculator" [ref=e279] [cursor=pointer]:
+                - /url: /guides/maintenance-calorie-calculator/
+            - listitem [ref=e280]:
+              - link "Online Calorie Calculator" [ref=e281] [cursor=pointer]:
+                - /url: /guides/online-calorie-calculator/
+            - listitem [ref=e282]:
+              - link "Mifflin-St Jeor Equation" [ref=e283] [cursor=pointer]:
+                - /url: /resources/mifflin-st-jeor-equation/
+            - listitem [ref=e284]:
+              - link "Calories Burned in a Day" [ref=e285] [cursor=pointer]:
+                - /url: /resources/calories-burned-in-a-day/
+            - listitem [ref=e286]:
+              - link "TDEE Calculator Guide" [ref=e287] [cursor=pointer]:
+                - /url: /resources/tdee-calculator/
+            - listitem [ref=e288]:
+              - link "What is TDEE?" [ref=e289] [cursor=pointer]:
+                - /url: /resources/what-is-tdee/
+        - generic [ref=e290]:
+          - heading "Company" [level=2] [ref=e291]
+          - list [ref=e292]:
+            - listitem [ref=e293]:
+              - link "About" [ref=e294] [cursor=pointer]:
+                - /url: /about/
+            - listitem [ref=e295]:
+              - link "Contact" [ref=e296] [cursor=pointer]:
+                - /url: /contact/
+            - listitem [ref=e297]:
+              - link "Privacy Policy" [ref=e298] [cursor=pointer]:
+                - /url: /privacy-policy/
+            - listitem [ref=e299]:
+              - link "Terms" [ref=e300] [cursor=pointer]:
+                - /url: /terms/
+        - generic [ref=e301]:
+          - heading "Tools" [level=2] [ref=e302]
+          - list [ref=e303]:
+            - listitem [ref=e304]:
+              - link "Food Calories Search" [ref=e305] [cursor=pointer]:
+                - /url: /food-calories-search/
+            - listitem [ref=e306]:
+              - link "Calories Burned Calculator" [ref=e307] [cursor=pointer]:
+                - /url: /calories-burned-calculator/
+            - listitem [ref=e308]:
+              - link "Age Calculator" [ref=e309] [cursor=pointer]:
+                - /url: /age-calculator/
+            - listitem [ref=e310]:
+              - link "Mortgage Calculator" [ref=e311] [cursor=pointer]:
+                - /url: /mortgage-calculator/
+            - listitem [ref=e312]:
+              - link "Disclaimer" [ref=e313] [cursor=pointer]:
+                - /url: /disclaimer/
+      - generic [ref=e314]:
+        - paragraph [ref=e315]: © 2026 Calorie Calculator Free. All rights reserved.
+        - paragraph [ref=e316]: For educational purposes only. Not medical advice — consult a healthcare professional before making health decisions.

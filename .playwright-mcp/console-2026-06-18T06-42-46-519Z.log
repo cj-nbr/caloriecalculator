@@ -1,0 +1,3 @@
+[    2288ms] Unexpected identifier 'Nutrients'
+[    2691ms] TypeError: Failed to execute 'requestIdleCallback' on 'Window': The provided value is not of type 'IdleRequestOptions'.
+    at https://3526b53f.caloriecalculator-yvl.pages.dev/food-calories-search/:25:81
