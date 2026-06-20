@@ -1,0 +1,92 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+
+const path = "/low-calorie/drinks/";
+const description = "Low calorie drinks under 100 calories. Zero and minimal-calorie beverages including coffee, tea, seltzers, and alcoholic options.";
+const faqs = [
+  { q: "What drinks have no calories?", a: "Water, sparkling water, black coffee, plain tea, and zero-calorie diet sodas have 0-5 calories. These are perfect for hydration without impacting weight." },
+  { q: "What are low calorie Starbucks drinks?", a: "Best options: Americano (15 cal), Hot Coffee with skim milk (90 cal), Cold Brew (5 cal), Shaken Espresso (10 cal). Avoid Frappuccinos (300-500 cal)." },
+  { q: "What are low calorie Dunkin drinks?", a: "Black coffee (5 cal), Americano (5 cal), Hot/Iced Coffee with skim milk (15-25 cal). Avoid Coolatta and frozen drinks which have high sugar content." },
+  { q: "What are low calorie hard seltzers?", a: "White Claw, Truly, and High Noon have 100 calories per can. This saves 100-200 calories compared to regular beer or cocktails." },
+  { q: "What are low calorie tequila drinks?", a: "Mix 1.5 oz tequila (100 cal) with soda water and lime (0 cal) for a tequila soda (100 cal). Avoid margaritas with sour mix which add 200+ calories." },
+  { q: "Do flavored coffee drinks ever count as low calorie?", a: "Skip the syrup and milk alternatives. Order black coffee or Americano and add your own zero-calorie sweetener if needed. Large lattes with whole milk have 300+ calories." },
+  { q: "Are low calorie drinks good for weight loss?", a: "Yes. Replacing 200-calorie sodas with zero-calorie drinks saves 1400 calories weekly. This alone can lead to 0.4 lb weight loss per week." },
+];
+---
+
+<ContentLayout
+  title="Low Calorie Drinks — Under 100 Calorie Coffee, Seltzers, Alcohol"
+  h1="Low Calorie Drinks"
+  description={description}
+  path={path}
+  category="Guides"
+  categoryPath="/low-calorie/"
+  lead="Zero and low-calorie drinks to satisfy thirst while supporting your weight loss goals."
+  faqs={faqs}
+>
+  <h2>Zero Calorie Drinks (0-5 cal)</h2>
+  <ul>
+    <li>Plain water - unlimited</li>
+    <li>Sparkling water (LaCroix, Bubly) - 0 cal</li>
+    <li>Black coffee - 5 cal per 8oz</li>
+    <li>Plain tea - 0-5 cal per 8oz</li>
+    <li>Herbal tea - 0 cal</li>
+    <li>Diet sodas - 0-5 cal</li>
+  </ul>
+
+  <h2>Low Calorie Coffee Shop Drinks Under 100 Calories</h2>
+
+  <h3>Starbucks Low Calorie Options</h3>
+  <table>
+    <thead>
+      <tr><th>Drink</th><th>Calories</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Americano</td><td>15 cal</td></tr>
+      <tr><td>Cold Brew (small)</td><td>5 cal</td></tr>
+      <tr><td>Hot Coffee + Skim Milk</td><td>90 cal</td></tr>
+      <tr><td>Shaken Espresso</td><td>10 cal</td></tr>
+      <tr><td>Avoid: Frappuccino</td><td>300-500 cal</td></tr>
+      <tr><td>Avoid: Mocha</td><td>350+ cal</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Dunkin Low Calorie Options</h3>
+  <table>
+    <thead>
+      <tr><th>Drink</th><th>Calories</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Black Coffee</td><td>5 cal</td></tr>
+      <tr><td>Americano</td><td>5 cal</td></tr>
+      <tr><td>Hot Coffee + Skim Milk</td><td>15-25 cal</td></tr>
+      <tr><td>Cool Latte + Skim Milk</td><td>120 cal</td></tr>
+      <tr><td>Avoid: Coolatta</td><td>300+ cal</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Low Calorie Alcohol Options</h2>
+  <ul>
+    <li><strong>Hard Seltzers (1 can):</strong> White Claw, Truly, High Noon - 100 cal</li>
+    <li><strong>Wine (5oz):</strong> 120-130 cal - choose dry wines for slightly lower</li>
+    <li><strong>Light Beer (12oz):</strong> 100-110 cal (Miller Lite, Bud Light)</li>
+    <li><strong>Tequila Soda:</strong> 1.5 oz tequila + soda + lime - 100 cal</li>
+    <li><strong>Vodka Soda:</strong> 1.5 oz vodka + soda - 100 cal</li>
+    <li><strong>Avoid:</strong> Margaritas (200-400 cal), Long Island (300+ cal)</li>
+  </ul>
+
+  <h2>Drink Swaps For Weight Loss</h2>
+  <p>Replace one 200-calorie drink daily with water or zero-calorie alternative and save 1,000 calories weekly. This equals 0.3 lb fat loss per month without changing food intake.</p>
+
+  <h2>Tools to Calculate Your Intake</h2>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/calorie-deficit-calculator/">Calorie Deficit Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Find your daily calorie target.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/tdee-calculator-for-weight-loss/">TDEE Calculator for Weight Loss</a></h3>
+      <p class="mt-1 text-sm text-body">Calculate maintenance calories.</p>
+    </div>
+  </div>
+</ContentLayout>

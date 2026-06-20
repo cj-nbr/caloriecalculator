@@ -1,0 +1,77 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+
+const path = "/calorie-basics/what-is-a-calorie/";
+const description = "What is a calorie? Learn about calorie definition, energy in food, how calories work in your body, and why they matter for weight management.";
+const faqs = [
+  { q: "What is a calorie?", a: "A calorie is a unit of energy. In nutrition, it measures the energy your body gets from food and drinks. Your body uses this energy for everything you do." },
+  { q: "How many calories do you need daily?", a: "Most adults need 1,600-2,800 calories daily depending on sex, age, weight, and activity level. Your personal calorie needs are calculated using TDEE." },
+  { q: "Where are calories found in food?", a: "Calories come from macronutrients: protein (4 cal/g), carbohydrates (4 cal/g), fat (9 cal/g), and alcohol (7 cal/g). Our food search shows calories in thousands of foods." },
+  { q: "Do all calories equal the same?", a: "While all calories provide energy, the source matters for hormones, satiety, and nutrition. Focus on nutrient-dense foods for sustainable results." },
+  { q: "How do you measure calories in food?", a: "Use our <a href='/food-calories-search/'>food calories search</a> to look up nutrition facts. Track portions and add them up to match your daily target." },
+  { q: "What happens when you eat too many calories?", a: "Extra calories are stored as fat. Over time, this leads to weight gain. Reduce intake by 500 calories daily to lose about 1 pound per week." },
+  { q: "Why do calories matter for weight loss?", a: "Weight loss requires burning more calories than you eat. Use our <a href='/calorie-deficit-calculator/'>calorie deficit calculator</a> to find your target." },
+  { q: "Can you survive without calories?", a: "No. Your body needs calories for energy. Without food, your body burns stored glycogen, then fat and muscle. Starvation is dangerous and unsustainable." },
+];
+---
+
+<ContentLayout
+  title="What is a Calorie? Energy, Food, and Weight Management Explained"
+  h1="What is a Calorie?"
+  description={description}
+  path={path}
+  category="Guides"
+  categoryPath="/guides/"
+  lead="Understand calories: the energy units that power your body and determine weight changes."
+  faqs={faqs}
+>
+  <h2>The Definition of a Calorie</h2>
+  <p>A calorie (cal) is a unit that measures energy. Specifically, it is the amount of energy needed to raise the temperature of 1 gram of water by 1 degree Celsius. In nutrition, we use kilocalories (kcal), where 1 kilocalorie equals 1,000 calories.</p>
+  
+  <h2>Where Calories Come From</h2>
+  <p>Calories in food come from four sources:</p>
+  <ul>
+    <li><strong>Protein</strong> — 4 calories per gram</li>
+    <li><strong>Carbohydrates</strong> — 4 calories per gram</li>
+    <li><strong>Fat</strong> — 9 calories per gram</li>
+    <li><strong>Alcohol</strong> — 7 calories per gram</li>
+  </ul>
+
+  <h2>How Your Body Uses Calories</h2>
+  <p>When you eat, your body breaks down food into glucose, amino acids, fatty acids, and ketones. These fuels power everything from brain function to muscle contractions. Extra calories are stored as glycogen (short-term) or fat (long-term).</p>
+
+  <h2>Calorie Needs by Person</h2>
+  <p>Everyone has different needs. Factors include:</p>
+  <ul>
+    <li><strong>Basal Metabolic Rate (BMR)</strong> — Calories burned at rest (60-75% of total)</li>
+    <li><strong>Activity level</strong> — Exercise and daily movement (15-30% of total)</li>
+    <li><strong>Digestion</strong> — Energy to process food (10% of total)</li>
+  </ul>
+  <p>Use our <a href="/bmr-calculator/">BMR calculator</a> and <a href="/tdee-calculator/">TDEE calculator</a> to find your exact needs.</p>
+
+  <h2>Calories for Weight Management</h2>
+  <p>Weight change depends on calorie balance:</p>
+  <ul>
+    <li><strong>Calorie surplus</strong> — Eat more, gain weight</li>
+    <li><strong>Calorie deficit</strong> — Eat less, lose weight</li>
+    <li><strong>Energy balance</strong> — Eat maintenance, stay the same</li>
+  </ul>
+
+  <h2>Recommended Tools</h2>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/calorie-deficit-calculator/">Calorie Deficit Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Find your daily calorie target for weight loss.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/tdee-calculator/">TDEE Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Calculate your maintenance calorie level.</p>
+    </div>
+  </div>
+
+  <h2>External References</h2>
+  <ul>
+    <li><a href="https://www.ncbi.nlm.nih.gov/books/NBK19957/" target="_blank" rel="noopener">NIH - Caloric Balance</a></li>
+    <li><a href="https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/expert-answers/calories/faq-20058499" target="_blank" rel="noopener">Mayo Clinic - Calories Explained</a></li>
+  </ul>
+</ContentLayout>

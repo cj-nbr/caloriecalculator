@@ -1,0 +1,85 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+
+const path = "/low-calorie/starbucks/";
+const description = "Low calorie Starbucks drinks under 100 calories. Complete nutrition guide with calories, carb counts, and ordering tips.";
+const faqs = [
+  { q: "What are low calorie Starbucks drinks?", a: "Best options: Americano (15 cal), Hot Brewed Coffee with skim (5-10 cal), Cold Brew (5 cal), Shaken Espresso (10 cal). Avoid Frappuccinos which have 300-500 calories." },
+  { q: "What is the lowest calorie drink at Starbucks?", a: "Black Americano at 15 calories is the lowest. Add sugar-free syrup (0 cal) for flavor. Hot or iced coffee with plain water is also under 5 calories." },
+  { q: "Are Starbucks drinks high in calories?", a: "Many popular drinks are high. Grande Mocha is 350 cal, Pumpkin Spice Latte is 310 cal, and most Frappuccinos exceed 400 cal. Always check nutrition facts." },
+  { q: "What is in a Starbucks Skinny Vanilla Latte?", a: "It uses non-fat milk and sugar-free vanilla syrup. Grande size has about 120 calories vs 250+ in regular latte. Still higher than black coffee." },
+  { q: "How many calories in Starbucks Sweet Cream Cold Brew?", a: "Grande Sweet Cream Cold Brew has 230 calories. Regular Cold Brew without cream has only 5 calories. Customize to save 225 calories." },
+];
+---
+
+<ContentLayout
+  title="Low Calorie Starbucks Drinks — Under 100 Calorie Menu Guide"
+  h1="Low Calorie Starbucks Drinks"
+  description={description}
+  path={path}
+  category="Low Calorie"
+  categoryPath="/low-calorie/"
+  lead="Best low-calorie Starbucks drinks for your weight loss goals."
+  faqs={faqs}
+>
+  <h2>Lowest Calorie Starbucks Drinks (Under 50 Calories)</h2>
+  <table>
+    <thead>
+      <tr><th>Drink</th><th>Size</th><th>Calories</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Americano (Black)</td><td>Grande</td><td>15</td></tr>
+      <tr><td>Hot Brewed Coffee</td><td>Any</td><td>5-10</td></tr>
+      <tr><td>Cold Brew (Plain)</td><td>Grande</td><td>5</td></tr>
+      <tr><td>Shaken Espresso</td><td>Grande</td><td>10</td></tr>
+      <tr><td>Brewed Coffee + Sugar Free Syrup</td><td>Grande</td><td>10-20</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Low Calorie Drinks 50-150 Calories</h2>
+  <table>
+    <thead>
+      <tr><th>Drink</th><th>Size</th><th>Calories</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Skinny Latte</td><td>Grande</td><td>100-120</td></tr>
+      <tr><td>Cappuccino (skim milk)</td><td>Grande</td><td>80-100</td></tr>
+      <tr><td>Flat White (skim)</td><td>Grande</td><td>110</td></tr>
+      <tr><td>Steamed Milk (skim)</td><td>Short</td><td>60</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Drinks to Avoid (High Calorie)</h2>
+  <table>
+    <thead>
+      <tr><th>Drink</th><th>Size</th><th>Calories</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Mocha Cookie Crumble Frappuccino</td><td>Grande</td><td>480</td></tr>
+      <tr><td>Pumpkin Spice Latte</td><td>Grande</td><td>310</td></tr>
+      <tr><td>Caramel Brulee Latte</td><td>Grande</td><td>350</td></tr>
+      <tr><td>Sweet Cream Cold Brew</td><td>Grande</td><td>230</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Ordering Tips for Low Calorie Starbucks</h2>
+  <ul>
+    <li>Choose Americano or plain coffee as base</li>
+    <li>Add sugar-free syrups for flavor (0 calories)</li>
+    <li>Pick non-fat milk instead of whole or 2%</li>
+    <li>Ask for half the syrup pumps</li>
+    <li>Avoid whip, chocolate, caramel drizzle toppings</li>
+  </ul>
+
+  <h2>Tools to Calculate Your Starbucks Visit</h2>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/food-calories-search/">Food Calories Search</a></h3>
+      <p class="mt-1 text-sm text-body">Look up any Starbucks nutrition facts.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/calorie-deficit-calculator/">Calorie Deficit Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Fit drinks into your daily target.</p>
+    </div>
+  </div>
+</ContentLayout>

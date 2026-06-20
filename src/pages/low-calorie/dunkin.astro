@@ -1,0 +1,72 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+
+const path = "/low-calorie/dunkin/";
+const description = "Low calorie Dunkin drinks under 100 calories. Complete guide to the best low-calorie coffee and beverage options.";
+const faqs = [
+  { q: "What are low calorie Dunkin drinks?", a: "Best options: Black coffee (5 cal), Americano (5 cal), Hot Coffee with skim milk (25 cal). Most Coolatta and frozen drinks exceed 300 calories." },
+  { q: "What is the lowest calorie drink at Dunkin?", a: "Black coffee at 5 calories. Add sugar-free syrup or cream if desired. Hot or iced coffee with plain water or unsweetened almond milk stays under 25 calories." },
+  { q: "Are Dunkin Donuts drinks high in calories?", a: "Yes, many are. Large frozen drinks have 400-600 calories. Even regular lattes range from 150-300 calories. Check nutrition facts before ordering." },
+  { q: "What is in a Dunkin Cool Latte?", a: "Cool Latte uses cold brew concentrate with milk. Grande with whole milk has 190 calories. With skim milk it drops to 120 calories. Still higher than black coffee." },
+];
+---
+
+<ContentLayout
+  title="Low Calorie Dunkin Drinks — Under 100 Calorie Coffee Guide"
+  h1="Low Calorie Dunkin Drinks"
+  description={description}
+  path={path}
+  category="Low Calorie"
+  categoryPath="/low-calorie/"
+  lead="Best low-calorie Dunkin beverages for your weight loss goals."
+  faqs={faqs}
+>
+  <h2>Lowest Calorie Dunkin Drinks (Under 50 Calories)</h2>
+  <table>
+    <thead>
+      <tr><th>Drink</th><th>Size</th><th>Calories</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Black Coffee</td><td>Any</td><td>5</td></tr>
+      <tr><td>Americano</td><td>Any</td><td>5</td></tr>
+      <tr><td>Hot Coffee + Skim Milk</td><td>Small</td><td>25</td></tr>
+      <tr><td>Iced Coffee + Skim Milk</td><td>Small</td><td>35</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Low Calorie Drinks 50-150 Calories</h2>
+  <table>
+    <thead>
+      <tr><th>Drink</th><th>Size</th><th>Calories</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Cool Latte (skim)</td><td>Small</td><td>120</td></tr>
+      <tr><td>Latte (skim)</td><td>Small</td><td>100-130</td></tr>
+      <tr><td>Cappuccino (skim)</td><td>Small</td><td>80-100</td></tr>
+    </tbody>
+  </table>
+
+  <h2>High Calorie Drinks to Avoid</h2>
+  <table>
+    <thead>
+      <tr><th>Drink</th><th>Size</th><th>Calories</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Frozen Hot Chocolate</td><td>Medium</td><td>450</td></tr>
+      <tr><td>Coolatta (various flavors)</td><td>Medium</td><td>300-350</td></tr>
+      <tr><td>Latte with whole milk</td><td>Large</td><td>250+</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Tools for Your Dunkin Visit</h2>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/food-calories-search/">Food Calories Search</a></h3>
+      <p class="mt-1 text-sm text-body">Look up any drink's nutrition.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/calorie-deficit-calculator/">Calorie Deficit Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Find your daily target.</p>
+    </div>
+  </div>
+</ContentLayout>

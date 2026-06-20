@@ -1,0 +1,101 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+
+const path = "/low-calorie/";
+const description = "Low calorie foods, drinks, and sweet treats. Complete guide to satisfying low-calorie options including Starbucks, Dunkin, zero-calorie noodles, and more.";
+const faqs = [
+  { q: "What counts as low calorie foods?", a: "Low calorie foods are under 100 calories per serving. These include vegetables, fruits, lean proteins, and broth-based soups. Our food search tool has thousands of options." },
+  { q: "How many low calorie foods can I eat daily?", a: "You can eat unlimited non-starchy vegetables (10-50 cal/cup). For other foods, track portions to stay within your calorie target." },
+  { q: "Are low calorie drinks filling?", a: "Zero and low calorie drinks provide satisfaction without calories. Best options: water, sparkling water, black coffee, and tea. Use these instead of high-calorie sodas and juices." },
+  { q: "What are the best low calorie sweet treats?", a: "Try berries with whipped cream, frozen grapes, sugar-free jello, or protein cookies. Our <a href='/calorie-deficit-calculator/'>calorie deficit calculator</a> helps fit treats into your plan." },
+  { q: "Do zero calorie noodles exist?", a: "Yes. Shirataki noodles are made from konjac root and have under 5 calories per serving. They absorb flavors well and work in stir-fries and soups." },
+  { q: "What Starbucks drinks are low calorie?", a: "Low calorie Starbucks options: Americano (15 cal), Skinny Latte (100 cal), Cold Brew (5 cal), Shaken Espresso (5-10 cal). Avoid Frappuccinos which have 200+ calories." },
+  { q: "What are low calorie Dunkin drinks?", a: "Low calorie Dunkin drinks: Black coffee (5 cal), Americano (5 cal), Hot/Iced Americano with skim milk (25 cal). Avoid Coolatta and frozen drinks which are high in sugar." },
+  { q: "What are low calorie seltzers?", a: "Top low calorie seltzers: LaCroix (0 cal), Bubly (0 cal), White Claw (100 cal/can), Truly (100 cal). Perfect for alcohol swaps that save 150-200 calories." },
+  { q: "What are low calorie tequila drinks?", a: "Mix tequila (100 cal/oz) with soda (0 cal) and lime. Avoid margaritas (200-400 cal) and pre-made mixes. Tequila soda or Paloma with diet grapefruit soda works well." },
+];
+---
+
+<ContentLayout
+  title="Low Calorie Foods & Drinks — Complete Guide to Low-Calorie Options"
+  h1="Low Calorie Foods & Drinks"
+  description={description}
+  path={path}
+  category="Guides"
+  categoryPath="/guides/"
+  lead="Discover satisfying low-calorie foods, drinks, sweet treats, and recipes to fill up while staying within your calorie target."
+  faqs={faqs}
+>
+  <h2>What Are Low Calorie Foods?</h2>
+  <p>Low calorie foods provide under 100 calories per serving. These nutrient-dense options help you feel full while staying within your daily calorie budget. The best low-calorie foods are high in water and fiber.</p>
+
+  <h2>Highest Volume Low Calorie Foods (Under 50 Calories per Cup)</h2>
+  <ul>
+    <li><strong>Non-starchy vegetables</strong> — Spinach (7 cal), lettuce (5 cal), cucumbers (16 cal), celery (14 cal), bell peppers (30 cal), broccoli (25 cal)</li>
+    <li><strong>Fruits</strong> — Strawberries (50 cal/cup), raspberries (80 cal/cup), watermelon (46 cal/cup), grapefruit (50 cal)</li>
+    <li><strong>Broth-based soups</strong> — 50-100 calories for large servings</li>
+  </ul>
+
+  <h2>Low Calorie Drinks</h2>
+  <p>Drinks don't have to add calories to your day:</p>
+  <ul>
+    <li><strong>Zero calorie:</strong> Water, sparkling water, diet soda, black coffee, plain tea, herbal tea</li>
+    <li><strong>Low calorie (under 20 cal):</strong> Skin milk in coffee (10 cal), sparkling water with flavoring (5 cal), Americano coffee (15 cal)</li>
+  </ul>
+
+  <h2>Low Calorie Sweet Treats</h2>
+  <p>Satisfy your sweet tooth without blowing your calorie budget:</p>
+  <ul>
+    <li>Frozen grapes (60 cal/cup) — Natural popsicle</li>
+    <li>Berries with light whipped cream (100 cal) — Volume + flavor</li>
+    <li>Sugar-free jello (10 cal) — Zero guilt dessert</li>
+    <li>Protein cookies (150-200 cal) — Hits macros too</li>
+    <li>Hot cocoa with sugar-free mix (30 cal) — Warm comfort drink</li>
+  </ul>
+
+  <h2>Zero Calorie Noodles and Alternatives</h2>
+  <p>Shirataki noodles made from konjac root have under 5 calories per serving. They absorb flavors well in stir-fries and soups. Other options include spiralized zucchini (25 cal/cup) and spaghetti squash (40 cal/cup).</p>
+
+  <h2>Brand-Specific Low Calorie Options</h2>
+  <h3>Starbucks Low Calorie Drinks</h3>
+  <ul>
+    <li><strong>Best (under 100 cal):</strong> Americano (15), Hot/Iced Coffee with skim milk (90), Cold Brew (5)</li>
+    <li><strong>Avoid (over 200 cal):</strong> Frappuccinos, Mocha, flavored lattes with whole milk and syrup</li>
+  </ul>
+
+  <h3>Dunkin Low Calorie Drinks</h3>
+  <ul>
+    <li><strong>Best (under 100 cal):</strong> Black coffee (5), Americano (5), Cool Latte with skim milk (120)</li>
+    <li><strong>Avoid:</strong> Coolatta, frozen drinks, donut smoothies</li>
+  </ul>
+
+  <h3>Low Calorie Hard Seltzers</h3>
+  <ul>
+    <li><strong>Zero sugar options (100 cal/can):</strong> White Claw, Truly, High Noon, Vibe</li>
+    <li><strong>Regular beers:</strong> 150-200 cal - swap for 50-100 calorie savings</li>
+  </ul>
+
+  <h2>Tools to Track Your Intake</h2>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/food-calories-search/">Food Calories Search</a></h3>
+      <p class="mt-1 text-sm text-body">Look up nutrition facts for any food or drink.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/calorie-deficit-calculator/">Calorie Deficit Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Find your daily calorie target.</p>
+    </div>
+  </div>
+
+  <h2>Continue Reading</h2>
+  <ul>
+    <li><a href="/guides/calorie-deficit-guide/">Calorie Deficit Guide</a> — How to create your target deficit</li>
+    <li><a href="/tdee-calculator-for-weight-loss/">TDEE Calculator for Weight Loss</a> — Find your maintenance calories</li>
+  </ul>
+
+  <h2>References</h2>
+  <ul>
+    <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5915305/" target="_blank" rel="noopener">NIH - Low Energy-Dense Foods for Weight Loss</a></li>
+    <li><a href="https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/in-depth/calories/art-20044055" target="_blank" rel="noopener">Mayo Clinic - Counting Calories</a></li>
+  </ul>
+</ContentLayout>

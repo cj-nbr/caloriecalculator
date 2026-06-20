@@ -1,0 +1,85 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+
+const path = "/low-calorie/foods/";
+const description = "Low calorie foods list with nutrition facts. High-volume, filling foods under 100 calories per serving to help with weight loss.";
+const faqs = [
+  { q: "What are the best low calorie foods for weight loss?", a: "Vegetables (5-50 cal/cup), fruits (40-100 cal/cup), and lean proteins (100-150 cal/serving) are ideal. They're high volume, nutrient-dense, and fit easily into any calorie plan." },
+  { q: "How many low calorie foods can I eat daily?", a: "Non-starchy vegetables are unlimited. For other foods, track portions. You can fill half your plate with low-calorie vegetables and still lose weight." },
+  { q: "Are low calorie foods filling?", a: "Yes. Foods high in water and fiber like cabbage, spinach, and berries provide volume for few calories. Protein also increases satiety." },
+  { q: "What is the lowest calorie food?", a: "Celery and lettuce have under 10 calories per cup. Air-popped popcorn (30 cal/cup) and broth-based soups (50-100 cal/bowl) offer satisfying volume." },
+  { q: "Can I eat only low calorie foods and lose weight?", a: "Yes, but you still need adequate protein. Focus on vegetable volume with protein portions. Our <a href='/protein-calculator/'>protein calculator</a> sets targets." },
+];
+---
+
+<ContentLayout
+  title="Low Calorie Foods List — Under 100 Calorie High-Volume Foods"
+  h1="Low Calorie Foods List"
+  description={description}
+  path={path}
+  category="Guides"
+  categoryPath="/low-calorie/"
+  lead="Filling, nutrient-dense foods under 100 calories. Perfect for weight loss while staying satisfied."
+  faqs={faqs}
+>
+  <h2>Best Low Calorie Foods by Category</h2>
+
+  <h3>Vegetables (Unlimited - under 50 cal per cup)</h3>
+  <table>
+    <thead>
+      <tr><th>Food</th><th>Calories per Cup</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Cucumber</td><td>16</td></tr>
+      <tr><td>Celery</td><td>14</td></tr>
+      <tr><td>Lettuce (Romaine)</td><td>8</td></tr>
+      <tr><td>Spinach</td><td>7</td></tr>
+      <tr><td>Broccoli</td><td>25</td></tr>
+      <tr><td>Cauliflower</td><td>25</td></tr>
+      <tr><td>Bell Pepper</td><td>30</td></tr>
+      <tr><td>Zucchini</td><td>20</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Fruits (40-100 cal per cup)</h3>
+  <table>
+    <thead>
+      <tr><th>Food</th><th>Calories per Cup</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Strawberries</td><td>50</td></tr>
+      <tr><td>Raspberries</td><td>80</td></tr>
+      <tr><td>Watermelon</td><td>46</td></tr>
+      <tr><td>Grapefruit</td><td>50</td></tr>
+      <tr><td>Apples (sliced)</td><td>50</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Proteins (100-150 cal per serving)</h3>
+  <table>
+    <thead>
+      <tr><th>Food</th><th>Calories per Serving</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Chicken breast (3 oz)</td><td>120</td></tr>
+      <tr><td>Greek yogurt non-fat (1/2 cup)</td><td>80</td></tr>
+      <tr><td>Egg whites (1/2 cup)</td><td>60</td></tr>
+      <tr><td>Cottage cheese 1% (1/2 cup)</td><td>100</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Low Calorie Foods Strategy</h2>
+  <p>Build your meals with 50% vegetables, 25% lean protein, and 25% your chosen carbs. This creates volume while managing calories. Use our <a href='/calorie-deficit-calculator/'>calorie deficit calculator</a> to set targets.</p>
+
+  <h2>Related Tools</h2>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/food-calories-search/">Food Calories Search</a></h3>
+      <p class="mt-1 text-sm text-body">Look up any food's calories.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/calorie-deficit-calculator/">Calorie Deficit Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Find your daily target.</p>
+    </div>
+  </div>
+</ContentLayout>

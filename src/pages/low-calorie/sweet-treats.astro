@@ -1,0 +1,88 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+
+const path = "/low-calorie/sweet-treats/";
+const description = "Low calorie sweet treats under 100 calories. Guilt-free desserts, snacks, and desserts for weight loss.";
+const faqs = [
+  { q: "What are low calorie sweet treats?", a: "Fruits, frozen treats, sugar-free candies, and protein desserts under 100 calories. These satisfy cravings without derailing your weight loss." },
+  { q: "How can I satisfy sweet cravings on a diet?", a: "Eat fruits with texture contrast like frozen grapes, berries with whipped cream, or apple slices with cinnamon. Our food search shows calorie counts." },
+  { q: "What candies are low calorie or zero calorie?", a: "Sugar-free hard candies (10 cal each), gummies (15 cal each), and gum are options. Still track portions - they can add up." },
+  { q: "Are protein chips low calorie?", a: "Many are under 100 calories per serving. Look for baked varieties. Use our <a href='/macro-calculator/'>macro calculator</a> to fit them into your daily protein target." },
+  { q: "What desserts are under 200 calories?", a: "Sugar-free pudding (80 cal), protein cookies (150-200 cal), frozen yogurt (100-150 cal), and fruit crumbles with light ice cream (180 cal)." },
+  { q: "Can I eat low calorie sweet treats every day?", a: "Yes, if they fit within your daily calorie target. Include them in your plan rather than restricting, which leads to bingeing." },
+];
+---
+
+<ContentLayout
+  title="Low Calorie Sweet Treats — Under 100 Calorie Guilt-Free Desserts"
+  h1="Low Calorie Sweet Treats"
+  description={description}
+  path={path}
+  category="Guides"
+  categoryPath="/low-calorie/"
+  lead="Sweet, satisfying treats under 100 calories. No deprivation needed for weight loss."
+  faqs={faqs}
+>
+  <h2>Low Calorie Sweet Treats by Type</h2>
+
+  <h3>Fruits (50-100 cal)</h3>
+  <table>
+    <thead>
+      <tr><th>Treat</th><th>Calories</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Frozen grapes</td><td>60 cal/cup</td></tr>
+      <tr><td>Mixed berries with whipped cream</td><td>100 cal/cup</td></tr>
+      <tr><td>Baked apple with cinnamon</td><td>70 cal</td></tr>
+      <tr><td>Grapefruit with sweetener</td><td>50 cal</td></tr>
+      <tr><td>Banana ice cream (blended)</td><td>100 cal</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Sugar-Free Desserts</h3>
+  <table>
+    <thead>
+      <tr><th>Item</th><th>Calories</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Sugar-free Jell-O</td><td>10 cal/cup</td></tr>
+      <tr><td>Sugar-free pudding (made with skim milk)</td><td>80 cal/cup</td></tr>
+      <li><strong>Chocolate</strong> — 1 square (50 cal)</li>
+      <li><strong>Hard candy</strong> — 10-15 cal each</li>
+      <li><strong>Gum</strong> — 0-5 cal</li>
+    </tbody>
+  </table>
+
+  <h3>Protein-Based Treats (100-200 cal)</h3>
+  <table>
+    <thead>
+      <tr><th>Item</th><th>Calories</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Protein cookie</td><td>150 cal</td></tr>
+      <tr><td>Greek yogurt with berries</td><td>120 cal</td></tr>
+      <tr><td>Protein mug cake</td><td>180 cal</td></tr>
+      <tr><td>Protein smoothie (light)</td><td>150 cal</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Homemade Swaps</h3>
+  <p>Use our <a href='/food-calories-search/'>food calories search</a> to check your creations:</p>
+  <ul>
+    <li>Chocolate avocado mousse (avocado + cocoa + sweetener) - 150 cal</li>
+    <li>Protein pancakes with sugar-free syrup - 200 cal</li>
+    <li>Chia seed pudding with almond milk - 120 cal</li>
+  </ul>
+
+  <h2>Tools for Sweet Treat Planning</h2>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/calorie-deficit-calculator/">Calorie Deficit Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Fit treats into your daily plan.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/macro-calculator/">Macro Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Include protein in desserts.</p>
+    </div>
+  </div>
+</ContentLayout>

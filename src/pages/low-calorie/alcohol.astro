@@ -1,0 +1,111 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+
+const path = "/low-calorie/alcohol/";
+const description = "Zero and low calorie alcohol options. Best low-calorie beers, wines, cocktails, and seltzers for weight loss.";
+const faqs = [
+  { q: "What alcohol has zero calories?", a: "Pure spirits like vodka, tequila, gin, and whiskey have calories only from alcohol (~100 cal/oz). Mix with zero-calorie soda/water. Avoid sugary mixers." },
+  { q: "What are low calorie alcoholic drinks?", a: "Vodka soda (100 cal), tequila soda (100 cal), light beer (100 cal), dry wine (120 cal). Compare to 300+ calorie cocktails." },
+  { q: "What hard seltzers are low calorie?", a: "White Claw, Truly, High Noon, and Vibe all have 100 calories per can. This saves 100-200 calories vs regular beer or cocktails." },
+  { q: "What wine is lowest in calories?", a: "Dry wines: Pinot Grigio, Sauvignon Blanc, Pinot Noir. About 120 calories per 5oz serving. Avoid sweet dessert wines which are higher." },
+  { q: "Are low calorie alcoholic drinks better for weight loss?", a: "They help. Replacing two 250-calorie cocktails with 100-cal seltzers saves 300 calories weekly. Remember alcohol slows fat burning." },
+];
+---
+
+<ContentLayout
+  title="Low Calorie Alcohol — Zero Calorie Drinks & Cocktails Guide"
+  h1="Low Calorie Alcohol"
+  description={description}
+  path={path}
+  category="Low Calorie"
+  categoryPath="/low-calorie/"
+  lead="Better-for-you alcoholic options that won't derail your weight loss."
+  faqs={faqs}
+>
+  <h2>Lowest Calorie Alcohol by Type</h2>
+
+  <h3>Spirits (Per 1.5 oz shot)</h3>
+  <table>
+    <thead>
+      <tr><th>Alcohol</th><th>Calories</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Vodka (plain)</td><td>100</td></tr>
+      <tr><td>Tequila (plain)</td><td>100</td></tr>
+      <tr><td>Gin (plain)</td><td>100</td></tr>
+      <tr><td>Whiskey (plain)</td><td>100</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Low Calorie Cocktails</h3>
+  <table>
+    <thead>
+      <tr><th>Drink</th><th>Calories</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Vodka soda + lime</td><td>100</td></tr>
+      <tr><td>Tequila soda + lime</td><td>100</td></tr>
+      <tr><td>Whiskey soda + lemon</td><td>100</td></tr>
+      <tr><td>Margarita (with fresh lime, no mix)</td><td>150</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Hard Seltzers (Per Can)</h3>
+  <table>
+    <thead>
+      <tr><th>Brand</th><th>Calories</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>White Claw</td><td>100</td></tr>
+      <tr><td>Truly</td><td>100</td></tr>
+      <tr><td>High Noon</td><td>100</td></tr>
+      <tr><td>Vibe</td><td>100</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Wine (Per 5oz Glass)</h3>
+  <table>
+    <thead>
+      <tr><th>Type</th><th>Calories</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Champagne/Sparkling</td><td>90-120</td></tr>
+      <tr><td>Dry White (Pinot Grigio, Sauvignon Blanc)</td><td>120</td></tr>
+      <tr><td>Dry Red (Pinot Noir)</td><td>120</td></tr>
+      <tr><td>Sweet Wine/Dessert</td><td>150-200</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Beer (Per 12oz)</h3>
+  <table>
+    <thead>
+      <tr><th>Type</th><th>Calories</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Light Beer (Miller Lite, Bud Light)</td><td>100</td></tr>
+      <tr><td>Michelob Ultra</td><td>95</td></tr>
+      <tr><td>Regular Beer (Bud, Coors)</td><td>150</td></tr>
+      <tr><td>IPA/Strong Ale</td><td>200-250</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Alcohol Tips for Weight Loss</h2>
+  <ul>
+    <li>Drink water between alcoholic drinks</li>
+    <li>Pre-drink on protein to slow alcohol absorption</li>
+    <li>Choose lower-sugar options</li>
+    <li>Account for alcohol in your daily calorie target</li>
+  </ul>
+
+  <h2>Tools for Alcohol Tracking</h2>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/calorie-deficit-calculator/">Calorie Deficit Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Include alcohol in your daily plan.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/food-calories-search/">Food Calories Search</a></h3>
+      <p class="mt-1 text-sm text-body">Look up drink nutrition.</p>
+    </div>
+  </div>
+</ContentLayout>
