@@ -8,6 +8,12 @@ const faqs: FaqItem[] = [
   { q: "What is a safe rate of weight loss?", a: "Most experts recommend 0.5–1 kg (1–2 lb) per week, or about 0.5–1% of body weight. Faster loss raises the risk of muscle loss and is harder to sustain." },
   { q: "Why do I need a calorie deficit?", a: "You lose fat when you consistently burn more calories than you eat. The shortfall forces your body to use stored fat for energy. A pound of fat stores roughly 3,500 calories." },
   { q: "Will my weight loss slow down?", a: "Yes. As you lose weight your calorie needs fall, so the same intake produces a smaller deficit. Recalculate your targets every few weeks and stay patient through plateaus." },
+  { q: "What is the best calorie deficit for fat loss?", a: "A 250-500 calorie daily deficit works best for sustainable fat loss without muscle loss. Larger deficits often lead to hunger and metabolic slowdown." },
+  { q: "How do I know if I'm in a calorie deficit?", a: "Track your food intake and compare it to your TDEE. If you're losing 0.5-1 lb per week, you're in the right range. Use our calorie tracker or app." },
+  { q: "Should I eat back calories burned exercising?", a: "For weight loss, eat back about half of exercise calories to maintain energy and prevent overeating. Our calculator already accounts for activity level." },
+  { q: "Can I speed up my weight loss timeline?", a: "You can increase deficit through diet or exercise, but combined deficits over 1000 calories are hard to maintain. Better to increase activity slightly and stick to the plan." },
+  { q: "Why am I not losing weight at the expected rate?", a: "Common causes: underestimating food intake, overestimating activity, water retention, metabolic adaptation. Track everything precisely for 1-2 weeks." },
+  { q: "How many calories should I eat to lose weight?", a: "Subtract your desired deficit (usually 500) from your TDEE. If your TDEE is 2200, aim for 1700 calories daily for 1 lb/week loss." },
 ];
 ---
 
@@ -69,6 +75,26 @@ const faqs: FaqItem[] = [
     <p>Faster isn't always better. Losing 0.5–1% of your body weight per week protects muscle and is far easier to maintain than crash dieting. If your required deficit feels too large, choose a gentler rate — slow, consistent progress wins. Learn more in the <a href="/guides/weight-loss-guide/">weight loss guide</a>.</p>
     <h2>Putting your plan into action</h2>
     <p>Find your maintenance calories with the <a href="/tdee-calculator/">TDEE calculator</a>, then subtract your daily deficit to get your target intake. Pair that with a high-protein <a href="/macro-calculator/">macro split</a> to preserve muscle while the fat comes off.</p>
+
+    <h2>Recommended Tools for Your Weight Loss Journey</h2>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/tdee-calculator/">TDEE Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Calculate your exact daily calorie burn to set proper deficit targets.</p>
+      </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/macro-calculator/">Macro Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Get protein, carb, and fat targets to preserve muscle while losing fat.</p>
+      </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/protein-calculator/">Protein Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Ensure adequate protein to maintain muscle mass during weight loss.</p>
+      </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/workouts/home-workouts/">Home Workouts</a></h3>
+        <p class="mt-1 text-sm text-body">Burn extra calories with equipment-free exercise routines.</p>
+      </div>
+    </div>
   </Fragment>
 </CalculatorLayout>
 

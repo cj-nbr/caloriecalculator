@@ -1,0 +1,189 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import { inputCls, segOptCls, selectCls } from "../lib/ui";
+import type { FaqItem } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is a calorie deficit?", a: "A calorie deficit is when you eat fewer calories than your body burns. This forces your body to use stored fat for energy, leading to weight loss." },
+  { q: "How much calorie deficit for weight loss?", a: "A 250-500 calorie daily deficit is ideal for sustainable weight loss, producing 0.5-1 lb of fat loss per week without muscle loss." },
+  { q: "How do I calculate my calorie deficit?", a: "Find your TDEE with our calculator, then subtract 250-500 calories. This is your daily target for fat loss." },
+  { q: "What is the maximum calorie deficit?", a: "Men should not go below 1500 calories daily, women not below 1200. A deficit over 1000 calories is hard to sustain and may cause muscle loss." },
+  { q: "Can I have too large a calorie deficit?", a: "Yes. Deficits over 1000 calories often lead to extreme hunger, muscle loss, and metabolic slowdown. Stick to 500 or less for sustainable results." },
+  { q: "How do I know if I'm in a calorie deficit?", a: "Weigh yourself weekly and track your food intake. Losing 0.5-1 lb per week means your deficit is working correctly." },
+  { q: "Does exercise count toward my calorie deficit?", a: "Yes. Exercise burns calories, contributing to your deficit. You can eat more on workout days while maintaining the same weekly deficit." },
+  { q: "Should I eat back calories I burn exercising?", a: "For weight loss, eat back roughly half of exercise calories to maintain energy while preserving deficit. Our calculator accounts for your activity level already." },
+  { q: "Why am I not losing weight in a calorie deficit?", a: "Common causes: underestimating food intake, overestimating activity, water retention, or needing to recalculate TDEE as weight drops." },
+  { q: "How often should I adjust my calorie deficit?", a: "Recalculate every 4-6 weeks or when weight drops 5-10 lbs. Your TDEE decreases as you lose weight, requiring smaller deficits." },
+];
+---
+
+<CalculatorLayout
+  title="Calorie Deficit Calculator — Find Your Weight Loss Target"
+  h1="Calorie Deficit Calculator"
+  description="Free calorie deficit calculator. Find how many calories to eat daily for fat loss. Calculate your deficit for sustainable weight loss."
+  intro="Calculate your exact calorie deficit for weight loss. Enter your details to find maintenance calories and a safe deficit."
+  path="/calorie-deficit-calculator/"
+  faqs={faqs}
+>
+  <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+    <p role="note" class="mb-4 text-xs leading-relaxed text-mute">
+      Example values are pre-filled. Enter your own details for accurate results.
+    </p>
+      <div class="mb-5 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1" role="tablist" aria-label="Unit system">
+        <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" aria-pressed="true">Metric</button>
+        <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" aria-pressed="false">Imperial</button>
+      </div>
+      <fieldset class="mb-4">
+        <legend class="mb-1.5 block text-sm font-medium text-ink">Gender</legend>
+        <div class="grid grid-cols-2 gap-2">
+          <label class={segOptCls}><input type="radio" name="sex" value="male" class="sr-only" checked />Male</label>
+          <label class={segOptCls}><input type="radio" name="sex" value="female" class="sr-only" />Female</label>
+        </div>
+      </fieldset>
+      <div class="mb-4 grid grid-cols-2 gap-3">
+        <div class="space-y-1.5"><label for="age" class="block text-sm font-medium text-ink">Age</label><input id="age" type="number" min="15" max="100" value="30" class={inputCls} /></div>
+        <div class="space-y-1.5"><label for="weight" class="block text-sm font-medium text-ink">Weight <span class="weight-unit text-mute">(kg)</span></label><input id="weight" type="number" inputmode="decimal" min="20" step="0.1" value="70" class={inputCls} /></div>
+      </div>
+      <div class="mb-4">
+        <label class="mb-1.5 block text-sm font-medium text-ink">Height <span class="height-unit text-mute">(cm)</span></label>
+        <div id="height-metric"><input id="height-cm" type="number" min="100" max="250" value="175" class={inputCls} /></div>
+        <div id="height-imperial" class="hidden grid-cols-2 gap-3">
+          <div class="relative"><input id="height-ft" type="number" min="3" max="8" value="5" class={inputCls} /><span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">ft</span></div>
+          <div class="relative"><input id="height-in" type="number" min="0" max="11" value="9" class={inputCls} /><span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">in</span></div>
+        </div>
+      </div>
+      <div class="mb-5 space-y-1.5">
+        <label for="activity" class="block text-sm font-medium text-ink">Activity level</label>
+        <div class="relative">
+          <select id="activity" class={selectCls}>
+            <option value="sedentary">Sedentary — little or no exercise</option>
+            <option value="light">Lightly active — 1–3 days/week</option>
+            <option value="moderate" selected>Moderately active — 3–5 days/week</option>
+            <option value="active">Very active — 6–7 days/week</option>
+            <option value="athlete">Extra active — hard exercise + job</option>
+          </select>
+          <svg class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6" /></svg>
+        </div>
+      </div>
+      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Deficit</button>
+    </form>
+
+    <div class="space-y-5">
+      <div class="card p-6 sm:p-8 text-center">
+        <p class="text-sm text-mute">Your TDEE (maintenance)</p>
+        <p class="mt-1"><span id="tdee-value" class="text-display-xl text-ink tabular-nums">2,556</span> <span class="text-lg text-mute">kcal/day</span></p>
+      </div>
+      <div class="card overflow-hidden">
+        <div class="border-b border-hairline px-5 py-3"><h2 class="text-sm font-semibold text-ink">Your calorie deficit targets</h2></div>
+        <table class="w-full text-sm">
+          <tbody id="deficit-table">
+            <tr class="border-b border-hairline last:border-0 bg-brand/5">
+              <td class="px-5 py-2.5 font-medium text-ink">Gentle deficit<span class="block text-xs text-mute">~0.25 kg / 0.5 lb weekly</span></td>
+              <td id="deficit-250" class="px-5 py-2.5 text-right font-medium tabular-nums text-ink">2,300 kcal</td>
+            </tr>
+            <tr class="border-b border-hairline last:border-0">
+              <td class="px-5 py-2.5 text-body">Standard deficit<span class="block text-xs text-mute">~0.5 kg / 1 lb weekly</span></td>
+              <td id="deficit-500" class="px-5 py-2.5 text-right font-medium tabular-nums text-body">2,050 kcal</td>
+            </tr>
+            <tr>
+              <td class="px-5 py-2.5 text-body">Aggressive deficit<span class="block text-xs text-mute">~1 kg / 2 lb weekly</span></td>
+              <td id="deficit-750" class="px-5 py-2.5 text-right font-medium tabular-nums text-body">1,800 kcal</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <Fragment slot="content">
+    <h2>What is a calorie deficit for weight loss?</h2>
+    <p>A calorie deficit occurs when you eat fewer calories than your body burns. Your body responds by tapping into fat stores for energy, resulting in weight loss. This is the fundamental principle behind all fat loss — regardless of diet type or food choices.</p>
+    
+    <h2>Finding your perfect calorie deficit</h2>
+    <p>The calculator above finds your TDEE (Total Daily Energy Expenditure) — the calories you burn daily including exercise and activity. From there, subtracting 250-500 calories creates a sustainable deficit. Larger deficits accelerate loss but risk muscle loss and extreme hunger.</p>
+
+    <h2>Calorie deficit calculator vs manual calculation</h2>
+    <p>Manual TDEE calculation requires the Mifflin-St Jeor equation plus activity multipliers. Our calculator handles this instantly. Simply enter your stats, get your maintenance number, and the tool shows three deficit options.</p>
+
+    <h2>Tools to Pair With Your Calorie Deficit Plan</h2>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/tdee-calculator/">TDEE Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Calculate your exact daily calorie burn to set proper deficit targets.</p>
+      </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/macro-calculator/">Macro Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Get protein, carb, and fat targets to preserve muscle while losing fat.</p>
+      </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/protein-calculator/">Protein Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Ensure adequate protein to maintain muscle mass during weight loss.</p>
+      </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/workouts/home-workouts/">Home Workouts</a></h3>
+        <p class="mt-1 text-sm text-body">Burn extra calories and preserve muscle with bodyweight exercise.</p>
+      </div>
+    </div>
+
+    <h2>Continue Learning</h2>
+    <ul>
+      <li><a href="/guides/calorie-deficit-guide/">Calorie Deficit Guide</a> — Complete step-by-step guide</li>
+      <li><a href="/weight-loss-calculator/">Weight Loss Calculator</a> — Timeline and goal planning</li>
+      <li><a href="/tdee-calculator/">TDEE Calculator</a> — Alternative route to same result</li>
+    </ul>
+  </Fragment>
+</CalculatorLayout>
+
+<script>
+  import { bmrMifflinStJeor, tdee, type Sex, type ActivityKey } from "../lib/calculations";
+  import { lbToKg, ftInToCm } from "../lib/units";
+
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+    const fmt = (n: number) => Math.round(n).toLocaleString("en-US");
+    let unit: "metric" | "imperial" = "metric";
+
+    function read() {
+      const sex = (root!.querySelector('input[name="sex"]:checked') as HTMLInputElement).value as Sex;
+      const age = parseFloat(($("age") as HTMLInputElement).value) || 0;
+      const activity = ($("activity") as HTMLSelectElement).value as ActivityKey;
+      let w = parseFloat(($("weight") as HTMLInputElement).value) || 0;
+      let h: number;
+      if (unit === "imperial") { w = lbToKg(w); h = ftInToCm(parseFloat(($("height-ft") as HTMLInputElement).value) || 0, parseFloat(($("height-in") as HTMLInputElement).value) || 0); }
+      else h = parseFloat(($("height-cm") as HTMLInputElement).value) || 0;
+      return { sex, age, activity, w, h };
+    }
+
+    function render() {
+      const { sex, age, activity, w, h } = read();
+      if (w <= 0 || h <= 0 || age <= 0) return;
+      const t = tdee(bmrMifflinStJeor(sex, age, h, w), activity);
+      $("tdee-value").textContent = fmt(t);
+      $("deficit-250").textContent = fmt(t - 250);
+      $("deficit-500").textContent = fmt(t - 500);
+      $("deficit-750").textContent = fmt(t - 750);
+    }
+
+    root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const next = btn.dataset.unit as "metric" | "imperial";
+        if (next === unit) return;
+        unit = next;
+        root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((b) => { const on = b.dataset.unit === unit; b.setAttribute("aria-pressed", String(on)); b.classList.toggle("bg-canvas", on); b.classList.toggle("text-ink", on); b.classList.toggle("shadow-sm", on); b.classList.toggle("text-mute", !on); });
+        $("height-metric").classList.toggle("hidden", unit === "imperial");
+        $("height-imperial").classList.toggle("hidden", unit === "metric");
+        $("height-imperial").classList.toggle("grid", unit === "imperial");
+        document.querySelectorAll(".weight-unit").forEach((e) => (e.textContent = unit === "metric" ? "(kg)" : "(lb)"));
+        document.querySelectorAll(".height-unit").forEach((e) => (e.textContent = unit === "metric" ? "(cm)" : "(ft / in)"));
+        const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
+        if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
+        render();
+      });
+    });
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    ($("activity") as HTMLSelectElement).addEventListener("change", render);
+    render();
+  }
+</script>
