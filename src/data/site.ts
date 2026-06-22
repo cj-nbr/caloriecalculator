@@ -36,6 +36,17 @@ export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
       { label: "Water Intake", href: "/water-intake-calculator/", desc: "Daily hydration" },
       { label: "Weight Loss", href: "/weight-loss-calculator/", desc: "Plan & timeline" },
       { label: "Calories Burned", href: "/calories-burned-calculator/", desc: "Exercise calorie burn" },
+      { label: "Pace Calculator", href: "/pace-calculator/", desc: "Running, walking, cycling pace" },
+      { label: "Pregnancy Calculator", href: "/pregnancy-calculator/", desc: "Due date & conception" },
+      { label: "Due Date Calculator", href: "/due-date-calculator/", desc: "Estimated delivery date" },
+    ],
+  },
+  {
+    label: "Pregnancy",
+    children: [
+      { label: "Pregnancy Calculator", href: "/pregnancy-calculator/", desc: "Due date & conception" },
+      { label: "Due Date Calculator", href: "/due-date-calculator/", desc: "Estimated delivery date" },
+      { label: "Conception Calculator", href: "/pregnancy-conception-calculator/", desc: "Fertility window" },
     ],
   },
   {
@@ -95,10 +106,13 @@ export const FOOTER: { title: string; links: NavLink[] }[] = [
     title: "Calculators",
     links: [
       { label: "Calorie Calculator", href: "/" },
-      { label: "BMI Calculator", href: "/bmi-calculator/" },
-      { label: "BMR Calculator", href: "/bmr-calculator/" },
       { label: "TDEE Calculator", href: "/tdee-calculator/" },
+      { label: "BMR Calculator", href: "/bmr-calculator/" },
+      { label: "BMI Calculator", href: "/bmi-calculator/" },
       { label: "Macro Calculator", href: "/macro-calculator/" },
+      { label: "Body Fat Calculator", href: "/body-fat-calculator/" },
+      { label: "Calorie Deficit Calculator", href: "/calorie-deficit-calculator/" },
+      { label: "Pace Calculator", href: "/pace-calculator/" },
     ],
   },
   {
