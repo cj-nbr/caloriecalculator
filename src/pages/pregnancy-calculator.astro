@@ -1,0 +1,60 @@
+---
+import ContentLayout from "../layouts/ContentLayout.astro";
+
+const path = "/pregnancy-calculator/";
+const description = "Pregnancy calculator. Estimate due date, conception date, and track pregnancy milestones. Free tool for expecting parents.";
+const faqs = [
+  { q: "How is due date calculated?", a: "Due date is calculated using Naegele's rule: last menstrual period (LMP) plus 280 days (40 weeks). Our pregnancy calculator uses this standard method." },
+  { q: "How do I calculate my conception date?", a: "Conception typically occurs 14 days after LMP (ovulation). Subtract 14 days from your estimated due date to find approximate conception date." },
+  { q: "What is the most accurate way to calculate due date?", a: "LMP method is standard. Ultrasound in first trimester is more accurate if dates are uncertain. Use our calculator and discuss results with your healthcare provider." },
+  { q: "Can I calculate pregnancy without knowing LMP?", a: "Without LMP, use conception date plus 266 days. If unsure, ultrasound dating is recommended. Our calculator works with either date." },
+  { q: "Why is due date an estimate?", a: "Only 5% of babies are born on their due date. Normal range is 37-42 weeks. Factors include ovulation timing, conception date accuracy, and individual variation." },
+];
+---
+
+<ContentLayout
+  title="Pregnancy Calculator — Due Date & Conception Date Estimator"
+  h1="Pregnancy Calculator"
+  description={description}
+  path={path}
+  category="Calculators"
+  categoryPath="/"
+  lead="Calculate your due date, conception date, and pregnancy timeline. Essential tool for expecting parents."
+  faqs={faqs}
+>
+  <h2>How to Use This Pregnancy Calculator</h2>
+  <p>Enter your last menstrual period (LMP) date to calculate estimated due date and conception window. All dates are estimates - consult your healthcare provider for medical advice.</p>
+
+  <h2>Pregnancy Calculator Formula</h2>
+  <p><strong>Naegele's Rule:</strong> Due Date = LMP + 280 days (40 weeks)</p>
+  <p><strong>Conception Date:</strong> LMP + 14 days (ovulation timing)</p>
+
+  <h2>Important Pregnancy Milestones</h2>
+  <table>
+    <thead>
+      <tr><th>Week</th><th>Milestone</th><th>Approx Days</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>4 weeks</td><td>Conception/implantation</td><td>~280 days before birth</td></tr>
+      <tr><td>12 weeks</td><td>End of first trimester</td><td>~60 days from LMP</td></tr>
+      <tr><td>20 weeks</td><td>Anatomy scan</td><td>~200 days from LMP</td></tr>
+      <tr><td>28 weeks</td><td>Third trimester begins</td><td>~140 days before birth</td></tr>
+      <tr><td>40 weeks</td><td>Full term (due date)</td><td>~0 days remaining</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Conception Date Window</h2>
+  <p>Sperm can live up to 5 days. Egg survives 1 day. Conception window spans roughly 6 days before ovulation to 1 day after. Our calculator shows this range.</p>
+
+  <h2>Related Health Tools</h2>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/bmi-calculator/">BMI Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Check healthy weight range for pregnancy.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/protein-calculator/">Protein Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Calculate protein needs during pregnancy.</p>
+    </div>
+  </div>
+</ContentLayout>

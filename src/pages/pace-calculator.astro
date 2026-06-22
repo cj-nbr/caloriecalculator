@@ -1,0 +1,56 @@
+---
+import ContentLayout from "../layouts/ContentLayout.astro";
+
+const path = "/pace-calculator/";
+const description = "Pace calculator for running, walking, and cycling. Calculate minutes per mile or kilometer. Free pace and speed calculator.";
+const faqs = [
+  { q: "How do I calculate running pace?", a: "Pace = Time / Distance. Run 5km in 25 minutes = 5 min/km pace. Use our calculator for any distance." },
+  { q: "What is a good running pace?", a: "For beginners: 8-10 min/km. Intermediate: 6-8 min/km. Advanced: 4-6 min/km. Walking pace: 12-16 min/km." },
+  { q: "How do I convert pace to speed?", a: "Speed (km/h) = 60 / pace (min/km). 5 min/km pace = 12 km/h. Speed (mph) = 60 / pace (min/mile)." },
+  { q: "How to calculate pace for a marathon?", a: "Marathon pace = total time / 26.2 miles. Marathon in 4 hours = 9.15 min/mile pace. Our calculator handles this." },
+];
+---
+
+<ContentLayout
+  title="Pace Calculator — Running, Walking & Cycling Pace (Min/Mile)"
+  h1="Pace Calculator"
+  description={description}
+  path={path}
+  category="Calculators"
+  categoryPath="/"
+  lead="Calculate your pace in minutes per mile or kilometer for running, walking, and cycling."
+  faqs={faqs}
+>
+  <h2>How Pace Calculation Works</h2>
+  <p>Pace is time per unit distance. This calculator converts between distance, time, and pace automatically.</p>
+
+  <h2>Formula</h2>
+  <p><strong>Pace = Time / Distance</strong></p>
+  <p>Input distance and time to find min/km or min/mile.</p>
+
+  <h2>Common Pace Reference</h2>
+  <table>
+    <thead>
+      <tr><th>Activity</th><th>Pace (min/mile)</th><th>Pace (min/km)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Walking (brisk)</td><td>15-20</td><td>9-12</td></tr>
+      <tr><td>Running (beginner)</td><td>10-12</td><td>6-7</td></tr>
+      <tr><td>Running (intermediate)</td><td>8-9</td><td>5-5.5</td></tr>
+      <tr><td>Running (advanced)</td><td>5-7</td><td>3-4</td></tr>
+      <tr><td>Cycling (leisure)</td><td>N/A</td><td>20-30 km/h</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Related Calculators</h2>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/walking-calorie-calculator/">Walking Calorie Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Combines pace and calories burned.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/running-calorie-calculator/">Running Calorie Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Track calories burned running.</p>
+    </div>
+  </div>
+</ContentLayout>

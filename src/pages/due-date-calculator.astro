@@ -1,0 +1,60 @@
+---
+import ContentLayout from "../layouts/ContentLayout.astro";
+
+const path = "/due-date-calculator/";
+const description = "Due date calculator. Find your estimated delivery date based on last menstrual period (LMP) or conception date. Free pregnancy tool.";
+const faqs = [
+  { q: "How accurate is a due date calculator?", a: "Due date calculators using LMP are accurate within 7-14 days. Only 5% of babies are born on their exact due date. First-trimester ultrasound is more precise." },
+  { q: "What is Naegele's rule for due date?", a: "Naegele's rule: LMP date plus 280 days (40 weeks). This assumes 28-day cycles and conception on day 14. Our calculator applies this automatically." },
+  { q: "How do I calculate due date without LMP?", a: "If LMP unknown, use IVF transfer date plus 266 days, or ultrasound measurements. Our calculator requires LMP or conception date for best accuracy." },
+  { q: "Can I calculate due date from ovulation?", a: "Yes. Ovulation date plus 266 days equals estimated due date. Since ovulation is typically day 14 after LMP, this aligns with Naegele's rule." },
+];
+---
+
+<ContentLayout
+  title="Due Date Calculator — Estimated Delivery Date from LMP"
+  h1="Due Date Calculator"
+  description={description}
+  path={path}
+  category="Calculators"
+  categoryPath="/"
+  lead="Calculate your estimated due date and pregnancy timeline."
+  faqs={faqs}
+>
+  <h2>How Due Date Calculation Works</h2>
+  <p>Standard pregnancy is 40 weeks (280 days) from last menstrual period. Enter your LMP date below.</p>
+
+  <h2>Pregnancy Timeline from LMP</h2>
+  <table>
+    <thead>
+      <tr><th>Time Period</th><th>Date</th><th>Details</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Conception window</td><td>LMP + 10-16 days</td><td>Sperm survival + ovulation timing</td></tr>
+      <tr><td>End of first trimester</td><td>LMP + 90 days (12 weeks)</td><td>Important milestone</td></tr>
+      <tr><td>End of second trimester</td><td>LMP + 188 days (27 weeks)</td><td>6 months mark</td></tr>
+      <tr><td>Estimated due date</td><td>LMP + 280 days (40 weeks)</td><td>Full term pregnancy</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Why Due Dates Change</h2>
+  <p>Only 5% of babies are born on their due date. Reasons for changes:</p>
+  <ul>
+    <li>Conception timing variation</li>
+    <li>Irregular menstrual cycles</li>
+    <li>First-trimester ultrasound adjustments</li>
+    <li>Individual pregnancy length variation</li>
+  </ul>
+
+  <h2>Related Calculators</h2>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/pregnancy-calculator/">Pregnancy Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Complete pregnancy tracking tool.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/bmi-calculator/">BMI Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Pre-pregnancy weight assessment.</p>
+    </div>
+  </div>
+</ContentLayout>

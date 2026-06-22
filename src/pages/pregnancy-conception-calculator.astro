@@ -1,0 +1,58 @@
+---
+import ContentLayout from "../layouts/ContentLayout.astro";
+
+const path = "/pregnancy-conception-calculator/";
+const description = "Pregnancy conception calculator. Estimate conception date and fertility window based on LMP. Free tool for tracking ovulation and pregnancy timing.";
+const faqs = [
+  { q: "How do I calculate conception date?", a: "Conception typically occurs 14 days after LMP (ovulation timing). Subtract 14 days from due date to get approximate conception date." },
+  { q: "What is conception window?", a: "Sperm survives up to 5 days, egg survives 1 day. Conception window spans about 6 days before ovulation to 1 day after. This affects timing accuracy." },
+  { q: "How accurate is conception calculator?", a: "Conception date estimate is within 1-2 days if cycles are regular. Irregular cycles or uncertain LMP dates reduce accuracy." },
+  { q: "When did I conceive based on due date?", a: "Subtract 266 days (38 weeks) from due date. This assumes full-term pregnancy and typical ovulation timing." },
+];
+---
+
+<ContentLayout
+  title="Pregnancy Conception Calculator — Fertility & Ovulation Timing"
+  h1="Pregnancy Conception Calculator"
+  description={description}
+  path={path}
+  category="Calculators"
+  categoryPath="/"
+  lead="Calculate your approximate conception date and fertility window."
+  faqs={faqs}
+>
+  <h2>Understanding Conception Timing</h2>
+  <p>Conception occurs when sperm meets egg. Sperm lives up to 5 days, egg lives 1 day. This creates a 6-day fertile window.</p>
+
+  <h2>Calculating Conception Date</h2>
+  <ul>
+    <li>LMP + 14 days = Approximate ovulation date</li>
+    <li>Ovulation date = Most likely conception time</li>
+    <li>Due date - 266 days = Conception date</li>
+  </ul>
+
+  <h2>Fertile Window and Conception Dates</h2>
+  <p>If your cycle is regular:</p>
+  <table>
+    <thead>
+      <tr><th>Cycle Day</th><th>Probability</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>-5 to -3 days before ovulation</td><td>Moderate</td><td>Sperm survival window</td></tr>
+      <tr><td>-1 to +1 days (ovulation)</td><td>Highest</td><td>Sperm meets egg</td></tr>
+      <tr><td>+2 to +3 days</td><td>Low</td><td>Beyond egg viability</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Related Tools</h2>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/pregnancy-calculator/">Pregnancy Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Due date and full timeline.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/due-date-calculator/">Due Date Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Calculate delivery date.</p>
+    </div>
+  </div>
+</ContentLayout>
