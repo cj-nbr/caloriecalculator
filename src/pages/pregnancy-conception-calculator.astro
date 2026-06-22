@@ -1,58 +1,123 @@
 ---
-import ContentLayout from "../layouts/ContentLayout.astro";
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import { inputCls } from "../lib/ui";
+import type { FaqItem } from "../lib/seo";
 
-const path = "/pregnancy-conception-calculator/";
-const description = "Pregnancy conception calculator. Estimate conception date and fertility window based on LMP. Free tool for tracking ovulation and pregnancy timing.";
-const faqs = [
-  { q: "How do I calculate conception date?", a: "Conception typically occurs 14 days after LMP (ovulation timing). Subtract 14 days from due date to get approximate conception date." },
-  { q: "What is conception window?", a: "Sperm survives up to 5 days, egg survives 1 day. Conception window spans about 6 days before ovulation to 1 day after. This affects timing accuracy." },
-  { q: "How accurate is conception calculator?", a: "Conception date estimate is within 1-2 days if cycles are regular. Irregular cycles or uncertain LMP dates reduce accuracy." },
+const faqs: FaqItem[] = [
+  { q: "How do I calculate conception date?", a: "Conception typically occurs 14 days after LMP (ovulation). Subtract 14 days from due date to get approximate conception date." },
+  { q: "What is conception window?", a: "Sperm survives up to 5 days, egg survives 1 day. Conception window spans about 6 days before ovulation to 1 day after ovulation." },
+  { q: "How accurate is conception calculator?", a: "Conception date estimate is within 1-2 days if cycles are regular. Irregular cycles reduce accuracy." },
   { q: "When did I conceive based on due date?", a: "Subtract 266 days (38 weeks) from due date. This assumes full-term pregnancy and typical ovulation timing." },
+  { q: "What is the fertility window?", a: "The 6-day period ending on the day of ovulation. Highest chance of conception is 1-2 days before ovulation." },
 ];
 ---
 
-<ContentLayout
+<CalculatorLayout
   title="Pregnancy Conception Calculator — Fertility & Ovulation Timing"
   h1="Pregnancy Conception Calculator"
-  description={description}
-  path={path}
-  category="Calculators"
-  categoryPath="/"
-  lead="Calculate your approximate conception date and fertility window."
+  description="Calculate your approximate conception date and fertility window based on LMP or due date."
+  intro="Find your conception date and fertile window for pregnancy planning."
+  path="/pregnancy-conception-calculator/"
   faqs={faqs}
 >
-  <h2>Understanding Conception Timing</h2>
-  <p>Conception occurs when sperm meets egg. Sperm lives up to 5 days, egg lives 1 day. This creates a 6-day fertile window.</p>
+  <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+    <p role="note" class="mb-4 text-xs leading-relaxed text-mute">
+      Use LMP or due date to calculate conception timing.
+    </p>
+      <div class="mb-4 space-y-1.5">
+        <label for="lmp" class="block text-sm font-medium text-ink">Last Menstrual Period (LMP)</label>
+        <input id="lmp" type="date" class={inputCls} />
+      </div>
+      <div class="mb-5 space-y-1.5">
+        <label for="cycle" class="block text-sm font-medium text-ink">Cycle Length (days)</label>
+        <input id="cycle" type="number" min="20" max="45" value="28" class={inputCls} />
+        <p class="text-xs text-mute mt-1">Average is 28 days. Count from first day of LMP to day before next period starts.</p>
+      </div>
+      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Conception</button>
+    </form>
 
-  <h2>Calculating Conception Date</h2>
-  <ul>
-    <li>LMP + 14 days = Approximate ovulation date</li>
-    <li>Ovulation date = Most likely conception time</li>
-    <li>Due date - 266 days = Conception date</li>
-  </ul>
-
-  <h2>Fertile Window and Conception Dates</h2>
-  <p>If your cycle is regular:</p>
-  <table>
-    <thead>
-      <tr><th>Cycle Day</th><th>Probability</th><th>Notes</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>-5 to -3 days before ovulation</td><td>Moderate</td><td>Sperm survival window</td></tr>
-      <tr><td>-1 to +1 days (ovulation)</td><td>Highest</td><td>Sperm meets egg</td></tr>
-      <tr><td>+2 to +3 days</td><td>Low</td><td>Beyond egg viability</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Related Tools</h2>
-  <div class="grid gap-4 sm:grid-cols-2">
-    <div class="card p-4">
-      <h3 class="text-lg font-semibold text-ink"><a href="/pregnancy-calculator/">Pregnancy Calculator</a></h3>
-      <p class="mt-1 text-sm text-body">Due date and full timeline.</p>
-    </div>
-    <div class="card p-4">
-      <h3 class="text-lg font-semibold text-ink"><a href="/due-date-calculator/">Due Date Calculator</a></h3>
-      <p class="mt-1 text-sm text-body">Calculate delivery date.</p>
+    <div class="space-y-5">
+      <div class="card p-6 sm:p-8 text-center">
+        <p class="text-sm text-mute">Most Likely Conception Date</p>
+        <p id="conception" class="mt-1 text-display-xl text-ink tabular-nums">—</p>
+      </div>
+      <div class="card overflow-hidden">
+        <div class="border-b border-hairline px-5 py-3"><h2 class="text-sm font-semibold text-ink">Fertile Window</h2></div>
+        <table class="w-full text-sm">
+          <tbody id="fertile"></tbody>
+        </table>
+      </div>
+      <div class="card p-5">
+        <p class="text-sm text-mute">Estimated Due Date</p>
+        <p id="due-date" class="mt-1 text-display-md text-ink tabular-nums">—</p>
+      </div>
     </div>
   </div>
-</ContentLayout>
+
+  <Fragment slot="content">
+    <h2>Conception Timing Explained</h2>
+    <p>Conception occurs when sperm meets egg. Sperm can survive up to 5 days in the female reproductive tract, while the egg survives about 1 day after ovulation. This creates a 6-day fertile window.</p>
+
+    <h2>Factors That Affect Conception Timing</h2>
+    <ul>
+      <li>Cycle length variations affect ovulation day</li>
+      <li>Sperm survival (up to 5 days)</li>
+      <li>Egg viability (about 24 hours)</li>
+      <li>Ovulation timing (typically cycle day 14 in 28-day cycles)</li>
+    </ul>
+
+    <h2>Related Tools</h2>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/pregnancy-calculator/">Pregnancy Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Full pregnancy timeline.</p>
+      </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/due-date-calculator/">Due Date Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Calculate delivery date.</p>
+      </div>
+    </div>
+  </Fragment>
+</CalculatorLayout>
+
+<script>
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+    const fmt = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+    const addDays = (date: Date, days: number) => { const d = new Date(date); d.setDate(d.getDate() + days); return d; };
+
+    function render() {
+      const lmpVal = ($("lmp") as HTMLInputElement).value;
+      const cycleLen = parseInt(($("cycle") as HTMLInputElement).value) || 28;
+      if (!lmpVal) return;
+      const lmp = new Date(lmpVal);
+      const ovulationDay = cycleLen - 14;
+      const ovulationDate = addDays(lmp, ovulationDay);
+      const conceptionDate = ovulationDate;
+      const dueDate = addDays(lmp, 280);
+
+      const fertileStart = addDays(lmp, ovulationDay - 5);
+      const fertileEnd = addDays(lmp, ovulationDay + 1);
+
+      $("conception").textContent = fmt(conceptionDate);
+      $("due-date").textContent = fmt(dueDate);
+
+      const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      const fertileEntries = [
+        { label: "Fertile window start", d: fertileStart },
+        { label: "Ovulation (most fertile)", d: ovulationDate },
+        { label: "Fertile window end", d: fertileEnd },
+      ];
+      $("fertile").innerHTML = fertileEntries.map(f => {
+        const dayName = days[f.d.getDay()];
+        return `<tr class="border-b border-hairline last:border-0"><td class="px-5 py-2.5 text-body">${f.label}</td><td class="px-5 py-2.5 text-right text-ink">${fmt(f.d)} <span class="text-xs text-mute">(${dayName})</span></td></tr>`;
+      }).join("");
+    }
+
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    ["lmp", "cycle"].forEach((id) => { ($(id) as HTMLInputElement).addEventListener("input", render); });
+    render();
+  }
+</script>

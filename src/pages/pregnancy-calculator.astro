@@ -1,60 +1,131 @@
 ---
-import ContentLayout from "../layouts/ContentLayout.astro";
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import { inputCls } from "../lib/ui";
+import type { FaqItem } from "../lib/seo";
 
-const path = "/pregnancy-calculator/";
-const description = "Pregnancy calculator. Estimate due date, conception date, and track pregnancy milestones. Free tool for expecting parents.";
-const faqs = [
-  { q: "How is due date calculated?", a: "Due date is calculated using Naegele's rule: last menstrual period (LMP) plus 280 days (40 weeks). Our pregnancy calculator uses this standard method." },
-  { q: "How do I calculate my conception date?", a: "Conception typically occurs 14 days after LMP (ovulation). Subtract 14 days from your estimated due date to find approximate conception date." },
-  { q: "What is the most accurate way to calculate due date?", a: "LMP method is standard. Ultrasound in first trimester is more accurate if dates are uncertain. Use our calculator and discuss results with your healthcare provider." },
-  { q: "Can I calculate pregnancy without knowing LMP?", a: "Without LMP, use conception date plus 266 days. If unsure, ultrasound dating is recommended. Our calculator works with either date." },
-  { q: "Why is due date an estimate?", a: "Only 5% of babies are born on their due date. Normal range is 37-42 weeks. Factors include ovulation timing, conception date accuracy, and individual variation." },
+const faqs: FaqItem[] = [
+  { q: "How is due date calculated?", a: "Due date uses Naegele's rule: last menstrual period (LMP) plus 280 days (40 weeks). Our pregnancy calculator applies this standard method." },
+  { q: "How do I calculate conception date?", a: "Conception typically occurs 14 days after LMP (ovulation). Subtract 14 days from estimated due date for approximate conception date." },
+  { q: "What is the most accurate way to calculate due date?", a: "LMP method is standard. First-trimester ultrasound is more accurate if dates are uncertain. Use our calculator and consult your healthcare provider." },
+  { q: "Can I calculate pregnancy without knowing LMP?", a: "Without LMP, use conception date plus 266 days, or IVF transfer date. Our calculator works with either date." },
+  { q: "Why is due date an estimate?", a: "Only 5% of babies are born on their due date. Normal range is 37-42 weeks. Factors include ovulation timing and individual variation." },
+  { q: "How accurate is a pregnancy calculator?", a: "LMP-based calculators are accurate within 7-14 days. First-trimester ultrasound dating is more precise when available." },
 ];
 ---
 
-<ContentLayout
+<CalculatorLayout
   title="Pregnancy Calculator — Due Date & Conception Date Estimator"
   h1="Pregnancy Calculator"
-  description={description}
-  path={path}
-  category="Calculators"
-  categoryPath="/"
-  lead="Calculate your due date, conception date, and pregnancy timeline. Essential tool for expecting parents."
+  description="Calculate your due date, conception date, and pregnancy timeline. Free tool for expecting parents."
+  intro="Find your estimated due date and conception window based on your last menstrual period."
+  path="/pregnancy-calculator/"
   faqs={faqs}
 >
-  <h2>How to Use This Pregnancy Calculator</h2>
-  <p>Enter your last menstrual period (LMP) date to calculate estimated due date and conception window. All dates are estimates - consult your healthcare provider for medical advice.</p>
+  <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+    <p role="note" class="mb-4 text-xs leading-relaxed text-mute">
+      Enter your last menstrual period (LMP) date.
+    </p>
+      <div class="mb-4 space-y-1.5">
+        <label for="lmp" class="block text-sm font-medium text-ink">Last Menstrual Period (LMP)</label>
+        <input id="lmp" type="date" class={inputCls} />
+      </div>
+      <div class="mb-5 space-y-1.5">
+        <label for="cycle" class="block text-sm font-medium text-ink">Cycle Length (days)</label>
+        <input id="cycle" type="number" min="20" max="45" value="28" class={inputCls} />
+        <p class="text-xs text-mute mt-1">Average is 28 days. Use your typical cycle length.</p>
+      </div>
+      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Pregnancy Dates</button>
+    </form>
 
-  <h2>Pregnancy Calculator Formula</h2>
-  <p><strong>Naegele's Rule:</strong> Due Date = LMP + 280 days (40 weeks)</p>
-  <p><strong>Conception Date:</strong> LMP + 14 days (ovulation timing)</p>
-
-  <h2>Important Pregnancy Milestones</h2>
-  <table>
-    <thead>
-      <tr><th>Week</th><th>Milestone</th><th>Approx Days</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>4 weeks</td><td>Conception/implantation</td><td>~280 days before birth</td></tr>
-      <tr><td>12 weeks</td><td>End of first trimester</td><td>~60 days from LMP</td></tr>
-      <tr><td>20 weeks</td><td>Anatomy scan</td><td>~200 days from LMP</td></tr>
-      <tr><td>28 weeks</td><td>Third trimester begins</td><td>~140 days before birth</td></tr>
-      <tr><td>40 weeks</td><td>Full term (due date)</td><td>~0 days remaining</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Conception Date Window</h2>
-  <p>Sperm can live up to 5 days. Egg survives 1 day. Conception window spans roughly 6 days before ovulation to 1 day after. Our calculator shows this range.</p>
-
-  <h2>Related Health Tools</h2>
-  <div class="grid gap-4 sm:grid-cols-2">
-    <div class="card p-4">
-      <h3 class="text-lg font-semibold text-ink"><a href="/bmi-calculator/">BMI Calculator</a></h3>
-      <p class="mt-1 text-sm text-body">Check healthy weight range for pregnancy.</p>
-    </div>
-    <div class="card p-4">
-      <h3 class="text-lg font-semibold text-ink"><a href="/protein-calculator/">Protein Calculator</a></h3>
-      <p class="mt-1 text-sm text-body">Calculate protein needs during pregnancy.</p>
+    <div class="space-y-5">
+      <div class="card p-6 sm:p-8 text-center">
+        <p class="text-sm text-mute">Estimated Due Date</p>
+        <p id="due-date" class="mt-1 text-display-xl text-ink tabular-nums">—</p>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="card p-5"><p class="text-xs uppercase tracking-wide text-mute">Conception Window</p><p id="conception" class="mt-1 text-display-sm text-ink tabular-nums">—</p></div>
+        <div class="card p-5"><p class="text-xs uppercase tracking-wide text-mute">Current Week</p><p id="week-num" class="mt-1 text-display-sm text-ink tabular-nums">—</p></div>
+      </div>
+      <div class="card overflow-hidden">
+        <div class="border-b border-hairline px-5 py-3"><h2 class="text-sm font-semibold text-ink">Pregnancy Milestones</h2></div>
+        <table class="w-full text-sm">
+          <tbody id="milestones"></tbody>
+        </table>
+      </div>
     </div>
   </div>
-</ContentLayout>
+
+  <Fragment slot="content">
+    <h2>How Pregnancy Calculation Works</h2>
+    <p>This calculator uses Naegele's rule: LMP plus 280 days. It accounts for your cycle length to estimate ovulation and conception dates more accurately.</p>
+
+    <h2>Pregnancy Timeline</h2>
+    <p>Pregnancy is divided into three trimesters of about 13-14 weeks each. Use this calculator to track your progress.</p>
+
+    <h2>Related Tools</h2>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/due-date-calculator/">Due Date Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Simplified due date calculation.</p>
+      </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/pregnancy-conception-calculator/">Conception Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Detailed fertility window analysis.</p>
+      </div>
+    </div>
+  </Fragment>
+</CalculatorLayout>
+
+<script>
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+    const fmt = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+
+    function addDays(date: Date, days: number): Date {
+      const d = new Date(date);
+      d.setDate(d.getDate() + days);
+      return d;
+    }
+
+    function diffDays(a: Date, b: Date): number {
+      return Math.round((b.getTime() - a.getTime()) / (1000 * 60 * 60 * 24));
+    }
+
+    function render() {
+      const lmpVal = ($("lmp") as HTMLInputElement).value;
+      const cycleLen = parseInt(($("cycle") as HTMLInputElement).value) || 28;
+      if (!lmpVal) return;
+
+      const lmp = new Date(lmpVal);
+      const dueDate = addDays(lmp, 280);
+      const ovulationDay = cycleLen - 14;
+      const conceptionDate = addDays(lmp, ovulationDay);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const daysSinceLMP = diffDays(lmp, today);
+      const currentWeek = Math.max(1, Math.floor(daysSinceLMP / 7));
+
+      $("due-date").textContent = fmt(dueDate);
+      $("conception").textContent = fmt(conceptionDate);
+      $("week-num").textContent = `Week ${currentWeek}`;
+
+      const milestones = [
+        { wk: "Week 4", evt: "Implantation", d: addDays(lmp, 14) },
+        { wk: "Week 12", evt: "End of first trimester", d: addDays(lmp, 84) },
+        { wk: "Week 20", evt: "Anatomy scan", d: addDays(lmp, 140) },
+        { wk: "Week 28", evt: "Third trimester begins", d: addDays(lmp, 196) },
+        { wk: "Week 40", evt: "Estimated due date", d: dueDate },
+      ];
+      $("milestones").innerHTML = milestones.map(m => {
+        const past = m.d < today ? " <span class='text-success'>✓</span>" : "";
+        return `<tr class="border-b border-hairline last:border-0"><td class="px-5 py-2.5 text-body">${m.wt}</td><td class="px-5 py-2.5 text-body">${m.evt}${past}</td><td class="px-5 py-2.5 text-right text-ink">${fmt(m.d)}</td></tr>`;
+      }).join("");
+    }
+
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    ["lmp", "cycle"].forEach((id) => { ($(id) as HTMLInputElement).addEventListener("input", render); });
+    render();
+  }
+</script>

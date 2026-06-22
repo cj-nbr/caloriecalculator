@@ -1,56 +1,139 @@
 ---
-import ContentLayout from "../layouts/ContentLayout.astro";
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import { inputCls, selectCls } from "../lib/ui";
+import type { FaqItem } from "../lib/seo";
 
-const path = "/pace-calculator/";
-const description = "Pace calculator for running, walking, and cycling. Calculate minutes per mile or kilometer. Free pace and speed calculator.";
-const faqs = [
-  { q: "How do I calculate running pace?", a: "Pace = Time / Distance. Run 5km in 25 minutes = 5 min/km pace. Use our calculator for any distance." },
-  { q: "What is a good running pace?", a: "For beginners: 8-10 min/km. Intermediate: 6-8 min/km. Advanced: 4-6 min/km. Walking pace: 12-16 min/km." },
-  { q: "How do I convert pace to speed?", a: "Speed (km/h) = 60 / pace (min/km). 5 min/km pace = 12 km/h. Speed (mph) = 60 / pace (min/mile)." },
-  { q: "How to calculate pace for a marathon?", a: "Marathon pace = total time / 26.2 miles. Marathon in 4 hours = 9.15 min/mile pace. Our calculator handles this." },
+const faqs: FaqItem[] = [
+  { q: "How do I calculate running pace?", a: "Pace = Time / Distance. Run 5km in 25 minutes = 5 min/km pace. Enter distance and time in our calculator." },
+  { q: "What is a good running pace?", a: "For beginners: 8-10 min/km. Intermediate: 6-8 min/km. Advanced: 4-6 min/km. Walking: 12-16 min/km." },
+  { q: "How do I convert pace to speed?", a: "Speed (km/h) = 60 / pace (min/km). A 5 min/km pace = 12 km/h." },
+  { q: "How to calculate marathon pace?", a: "Marathon pace = total time / 26.2 miles. A 4-hour marathon = 9.15 min/mile pace." },
+  { q: "What is the difference between pace and speed?", a: "Pace is minutes per kilometer/mile (slower = better in running). Speed is kilometers/miles per hour (faster = better)." },
+  { q: "How do I improve my running pace?", a: "Consistent training, interval workouts, strength training, and proper pacing strategy. Aim for 5-10% pace improvement every 4-6 weeks." },
 ];
 ---
 
-<ContentLayout
+<CalculatorLayout
   title="Pace Calculator — Running, Walking & Cycling Pace (Min/Mile)"
   h1="Pace Calculator"
-  description={description}
-  path={path}
-  category="Calculators"
-  categoryPath="/"
-  lead="Calculate your pace in minutes per mile or kilometer for running, walking, and cycling."
+  description="Calculate your pace in minutes per mile or kilometer for running, walking, and cycling. Find speed from distance and time."
+  intro="Calculate your pace in min/mile or min/km. Enter distance and time to find your average pace and speed."
+  path="/pace-calculator/"
   faqs={faqs}
 >
-  <h2>How Pace Calculation Works</h2>
-  <p>Pace is time per unit distance. This calculator converts between distance, time, and pace automatically.</p>
+  <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+    <p role="note" class="mb-4 text-xs leading-relaxed text-mute">
+      Example values are pre-filled for a 5km run.
+    </p>
+      <div class="mb-5 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1" role="tablist" aria-label="Unit system">
+        <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" aria-pressed="true">Metric (km)</button>
+        <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" aria-pressed="false">Imperial (mi)</button>
+      </div>
+      <div class="mb-4 space-y-1.5">
+        <label for="distance" class="block text-sm font-medium text-ink">Distance <span class="dist-unit text-mute">(km)</span></label>
+        <input id="distance" type="number" inputmode="decimal" min="0.1" step="0.1" value="5" class={inputCls} />
+      </div>
+      <div class="mb-4 grid grid-cols-2 gap-3">
+        <div class="space-y-1.5"><label for="hours" class="block text-sm font-medium text-ink">Hours</label><input id="hours" type="number" min="0" step="1" value="0" class={inputCls} /></div>
+        <div class="space-y-1.5"><label for="minutes" class="block text-sm font-medium text-ink">Minutes</label><input id="minutes" type="number" min="0" step="1" value="25" class={inputCls} /></div>
+      </div>
+      <div class="mb-5 space-y-1.5">
+        <label for="seconds" class="block text-sm font-medium text-ink">Seconds</label>
+        <input id="seconds" type="number" min="0" max="59" step="1" value="0" class={inputCls} />
+      </div>
+      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Pace</button>
+    </form>
 
-  <h2>Formula</h2>
-  <p><strong>Pace = Time / Distance</strong></p>
-  <p>Input distance and time to find min/km or min/mile.</p>
-
-  <h2>Common Pace Reference</h2>
-  <table>
-    <thead>
-      <tr><th>Activity</th><th>Pace (min/mile)</th><th>Pace (min/km)</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Walking (brisk)</td><td>15-20</td><td>9-12</td></tr>
-      <tr><td>Running (beginner)</td><td>10-12</td><td>6-7</td></tr>
-      <tr><td>Running (intermediate)</td><td>8-9</td><td>5-5.5</td></tr>
-      <tr><td>Running (advanced)</td><td>5-7</td><td>3-4</td></tr>
-      <tr><td>Cycling (leisure)</td><td>N/A</td><td>20-30 km/h</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Related Calculators</h2>
-  <div class="grid gap-4 sm:grid-cols-2">
-    <div class="card p-4">
-      <h3 class="text-lg font-semibold text-ink"><a href="/walking-calorie-calculator/">Walking Calorie Calculator</a></h3>
-      <p class="mt-1 text-sm text-body">Combines pace and calories burned.</p>
-    </div>
-    <div class="card p-4">
-      <h3 class="text-lg font-semibold text-ink"><a href="/running-calorie-calculator/">Running Calorie Calculator</a></h3>
-      <p class="mt-1 text-sm text-body">Track calories burned running.</p>
+    <div class="space-y-5">
+      <div class="card p-6 sm:p-8 text-center">
+        <p class="text-sm text-mute">Your Average Pace</p>
+        <p class="mt-1"><span id="pace-value" class="text-display-xl text-ink tabular-nums">5:00</span> <span class="text-lg text-mute">min/km</span></p>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="card p-5"><p class="text-xs uppercase tracking-wide text-mute">Speed</p><p id="speed-kmh" class="mt-1 text-display-sm text-ink tabular-nums">12.0 km/h</p></div>
+        <div class="card p-5"><p class="text-xs uppercase tracking-wide text-mute">Pace (min/mile)</p><p id="pace-mile" class="mt-1 text-display-sm text-ink tabular-nums">8:02</p></div>
+      </div>
     </div>
   </div>
-</ContentLayout>
+
+  <Fragment slot="content">
+    <h2>How Pace Calculation Works</h2>
+    <p>Pace is the time it takes to cover a unit of distance. For runners and walkers, pace is more intuitive than speed because it directly relates to effort and performance goals.</p>
+
+    <h2>Common Pace Reference Chart</h2>
+    <table>
+      <thead><tr><th>Activity</th><th>Pace (min/mile)</th><th>Speed (mph)</th></tr></thead>
+      <tbody>
+        <tr><td>Walking (brisk)</td><td>15-20</td><td>3-4</td></tr>
+        <tr><td>Running (beginner)</td><td>10-12</td><td>5-6</td></tr>
+        <tr><td>Running (intermediate)</td><td>8-9</td><td>6.7-7.5</td></tr>
+        <tr><td>Running (advanced)</td><td>5-7</td><td>8.6-12</td></tr>
+        <tr><td>Elite marathon</td><td>4:30-5:00</td><td>12-13.3</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Related Calculators</h2>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/walking-calorie-calculator/">Walking Calorie Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Combine pace with calories burned.</p>
+      </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/running-calorie-calculator/">Running Calorie Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Track calories burned by pace and distance.</p>
+      </div>
+    </div>
+  </Fragment>
+</CalculatorLayout>
+
+<script>
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+    let unit: "metric" | "imperial" = "metric";
+
+    function fmtPace(min: number): string {
+      const m = Math.floor(min);
+      const s = Math.round((min - m) * 60);
+      return `${m}:${s.toString().padStart(2, "0")}`;
+    }
+
+    function render() {
+      const distKm = parseFloat(($("distance") as HTMLInputElement).value) || 0;
+      const hrs = parseFloat(($("hours") as HTMLInputElement).value) || 0;
+      const mins = parseFloat(($("minutes") as HTMLInputElement).value) || 0;
+      const secs = parseFloat(($("seconds") as HTMLInputElement).value) || 0;
+      const totalHours = hrs + mins / 60 + secs / 3600;
+      if (distKm <= 0 || totalHours <= 0) return;
+
+      const paceMinPerKm = totalHours * 60 / distKm;
+      const speedKmh = distKm / totalHours;
+      const paceMinPerMile = paceMinPerKm * 1.60934;
+      const speedMph = speedKmh / 1.60934;
+
+      $("pace-value").textContent = fmtPace(paceMinPerKm);
+      $("speed-kmh").textContent = `${speedKmh.toFixed(1)} km/h`;
+      $("pace-mile").textContent = fmtPace(paceMinPerMile);
+    }
+
+    root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const next = btn.dataset.unit as "metric" | "imperial";
+        if (next === unit) return;
+        unit = next;
+        root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((b) => { const on = b.dataset.unit === unit; b.setAttribute("aria-pressed", String(on)); b.classList.toggle("bg-canvas", on); b.classList.toggle("text-ink", on); b.classList.toggle("shadow-sm", on); b.classList.toggle("text-mute", !on); });
+        const distInput = $("distance") as HTMLInputElement;
+        const d = parseFloat(distInput.value) || 0;
+        if (d > 0) {
+          distInput.value = (unit === "imperial" ? d / 1.60934 : d * 1.60934).toFixed(2);
+        }
+        document.querySelectorAll(".dist-unit").forEach((e) => (e.textContent = unit === "metric" ? "(km)" : "(mi)"));
+        render();
+      });
+    });
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    ["distance", "hours", "minutes", "seconds"].forEach((id) => { ($(id) as HTMLInputElement).addEventListener("input", render); });
+    render();
+  }
+</script>
