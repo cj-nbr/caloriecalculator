@@ -8,14 +8,22 @@ const faqs: FaqItem[] = [
   { q: "What is the best macro split?", a: "There is no single best split. A balanced 30/40/30 (protein/carbs/fat) works for most people. Higher protein supports muscle retention, while lower-carb or keto splits suit some individuals. Choose what you can sustain." },
   { q: "How much protein should I eat?", a: "Aim for 1.2–2.0 g of protein per kilogram of body weight per day. The higher end helps preserve muscle during weight loss and supports muscle growth during a surplus." },
   { q: "Do I need to hit my macros exactly?", a: "Getting within about 5–10 grams of each target is plenty for great results. Consistency over weeks matters far more than precision on any single day." },
+  { q: "How many calories in 1 gram of protein?", a: "Protein provides exactly 4 calories per gram. This is a universal scientific measurement. One gram of protein = 4 kcal." },
+  { q: "How many calories in 1 gram of carbs?", a: "Carbohydrates provide exactly 4 calories per gram. Like protein, carbs are 4 kcal/g regardless of source." },
+  { q: "How many calories in 1 gram of fat?", a: "Fat provides 9 calories per gram — more than double protein or carbs. One gram of fat = 9 kcal." },
+  { q: "How to convert protein to calories?", a: "Multiply protein grams by 4. Example: 150g protein × 4 = 600 calories. Reverse: divide calories by 4 to get grams." },
+  { q: "Protein calorie calculator?", a: "Our macro calculator shows calories from protein automatically. Enter your daily calories and select a split — protein grams are calculated instantly." },
+  { q: "What is calories to protein ratio?", a: "The ratio is always 4:1. Every gram of protein equals 4 calories. 100g protein = 400 calories. Fat is 9:1. Carbs are 4:1." },
+  { q: "Calories per gram of macronutrients chart?", a: "Protein: 4 kcal/g, Carbs: 4 kcal/g, Fat: 9 kcal/g. This is why high-fat foods are more calorie-dense and why protein feels filling at fewer calories." },
+  { q: "How to calculate calories from macros?", a: "Protein calories = grams × 4. Carb calories = grams × 4. Fat calories = grams × 9. Add them together for total calories." },
 ];
 ---
 
 <CalculatorLayout
-  title="Macro Calculator — Free Macronutrient Calculator"
+  title="Macro Calculator — Convert Calories to Protein, Carbs, Fat Grams"
   h1="Macro Calculator"
-  description="Free macro calculator. Split your daily calories into protein, carbs, and fat grams for any diet style."
-  intro="Turn your daily calorie target into precise grams of protein, carbs, and fat. Choose a diet style and see your macros visualized."
+  description="Free macro calculator. Convert daily calories to grams of protein, carbohydrates, and fat. Protein = 4 kcal/g, carbs = 4, fat = 9."
+  intro="Turn your daily calorie target into precise grams of protein, carbs, and fat. See exactly how many calories come from each macronutrient."
   path="/macro-calculator/"
   faqs={faqs}
 >
@@ -57,21 +65,111 @@ const faqs: FaqItem[] = [
           <circle id="arc-fat" cx="60" cy="60" r="52" fill="none" stroke="var(--color-fat)" stroke-width="14" stroke-linecap="round" stroke-dasharray="0 327" />
         </svg>
         <ul class="w-full space-y-3">
-          <li class="flex items-center justify-between gap-3 border-b border-hairline pb-3"><span class="flex items-center gap-2 text-sm text-body"><span class="h-3 w-3 rounded-full bg-protein"></span>Protein</span><span class="text-sm text-ink"><span id="m-p" class="font-semibold tabular-nums">150</span> g <span id="mp-pct" class="text-mute">· 30%</span></span></li>
-          <li class="flex items-center justify-between gap-3 border-b border-hairline pb-3"><span class="flex items-center gap-2 text-sm text-body"><span class="h-3 w-3 rounded-full bg-carbs"></span>Carbs</span><span class="text-sm text-ink"><span id="m-c" class="font-semibold tabular-nums">200</span> g <span id="mc-pct" class="text-mute">· 40%</span></span></li>
-          <li class="flex items-center justify-between gap-3"><span class="flex items-center gap-2 text-sm text-body"><span class="h-3 w-3 rounded-full bg-fat"></span>Fat</span><span class="text-sm text-ink"><span id="m-f" class="font-semibold tabular-nums">67</span> g <span id="mf-pct" class="text-mute">· 30%</span></span></li>
+          <li class="flex items-center justify-between gap-3 border-b border-hairline pb-3"><span class="flex items-center gap-2 text-sm text-body"><span class="h-3 w-3 rounded-full bg-protein"></span>Protein</span><span class="text-sm text-ink"><span id="m-p" class="font-semibold tabular-nums">150</span> g <span id="mp-pct" class="text-mute">· 30%</span><br /><span id="mp-cal" class="text-xs text-mute">600 kcal</span></span></li>
+          <li class="flex items-center justify-between gap-3 border-b border-hairline pb-3"><span class="flex items-center gap-2 text-sm text-body"><span class="h-3 w-3 rounded-full bg-carbs"></span>Carbs</span><span class="text-sm text-ink"><span id="m-c" class="font-semibold tabular-nums">200</span> g <span id="mc-pct" class="text-mute">· 40%</span><br /><span id="mc-cal" class="text-xs text-mute">800 kcal</span></span></li>
+          <li class="flex items-center justify-between gap-3"><span class="flex items-center gap-2 text-sm text-body"><span class="h-3 w-3 rounded-full bg-fat"></span>Fat</span><span class="text-sm text-ink"><span id="m-f" class="font-semibold tabular-nums">67</span> g <span id="mf-pct" class="text-mute">· 30%</span><br /><span id="mf-cal" class="text-xs text-mute">600 kcal</span></span></li>
         </ul>
       </div>
     </div>
   </div>
 
   <Fragment slot="content">
-    <h2>How macro calculation works</h2>
-    <p>Every diet ultimately comes down to calories and macronutrients. This calculator takes your daily calorie target and divides it across protein, carbohydrates, and fat according to the diet style you choose. Because protein and carbs contain 4 calories per gram and fat contains 9, the gram amounts differ even when the percentages look similar.</p>
-    <h2>Choosing a diet style</h2>
-    <p>A <strong>balanced</strong> split suits most goals. <strong>High protein</strong> is excellent when losing fat while preserving muscle. <strong>Low carb</strong> and <strong>keto</strong> shift energy toward fat and can help with appetite control for some people. The best split is the one you can follow consistently.</p>
-    <h2>Hitting your protein target</h2>
-    <p>Protein is the macro to prioritize. It preserves muscle, keeps you full, and has the highest thermic effect. See the <a href="/protein-calculator/">protein calculator</a> for a target based on your body weight, and the <a href="/guides/macro-guide/">macro guide</a> for food sources.</p>
+    <h2>Quick Answer: Calories Per Gram of Macros</h2>
+    <p class="text-display-sm font-semibold text-ink"><strong>Protein: 4 kcal/g &nbsp;&nbsp;|&nbsp;&nbsp; Carbs: 4 kcal/g &nbsp;&nbsp;|&nbsp;&nbsp; Fat: 9 kcal/g</strong></p>
+    <p>This is the universal formula used by nutrition scientists, dietitians, and calculators worldwide. Understanding these conversions lets you calculate calories from macros instantly.</p>
+
+    <h2>How to Calculate Calories From Macros</h2>
+    <p>The formula is simple for each macronutrient:</p>
+    <div class="not-prose grid gap-3 sm:grid-cols-3">
+      <div class="card p-4 text-center">
+        <p class="text-xs uppercase text-mute">Protein calories</p>
+        <p class="mt-1 font-semibold text-ink">Grams × 4</p>
+        <p class="mt-1 text-xs text-body">Example: 150g × 4 = 600 kcal</p>
+      </div>
+      <div class="card p-4 text-center">
+        <p class="text-xs uppercase text-mute">Carbs calories</p>
+        <p class="mt-1 font-semibold text-ink">Grams × 4</p>
+        <p class="mt-1 text-xs text-body">Example: 200g × 4 = 800 kcal</p>
+      </div>
+      <div class="card p-4 text-center">
+        <p class="text-xs uppercase text-mute">Fat calories</p>
+        <p class="mt-1 font-semibold text-ink">Grams × 9</p>
+        <p class="mt-1 text-xs text-body">Example: 67g × 9 = 600 kcal</p>
+      </div>
+    </div>
+
+    <h2>Why The Numbers Matter</h2>
+    <p>Protein and carbs have the same calorie density (4 kcal/g), but very different effects on your body:</p>
+    <table>
+      <thead><tr><th>Macro</th><th>Calories/gram</th><th>Thermic effect</th><th>Satiety</th><th>Muscle impact</th></tr></thead>
+      <tbody>
+        <tr><td>Protein</td><td class="text-brand font-semibold">4 kcal</td><td>Highest (20-30%)</td><td>Highest</td><td>Essential for muscle</td></tr>
+        <tr><td>Carbs</td><td class="text-brand font-semibold">4 kcal</td><td>Low (5-10%)</td><td>Moderate</td><td>Glycogen storage</td></tr>
+        <tr><td>Fat</td><td class="text-brand font-semibold">9 kcal</td><td>Low (0-3%)</td><td>Moderate</td><td>Hormone production</td></tr>
+      </tbody>
+    </table>
+    <p>This is why you can eat more protein and carbs by weight than fat while consuming fewer calories.</p>
+
+    <h2>Macronutrient Calorie Chart</h2>
+    <p>Common amounts and their calorie values:</p>
+    <table>
+      <thead><tr><th>Protein (g)</th><th>Calories</th><th>Carbs (g)</th><th>Calories</th><th>Fat (g)</th><th>Calories</th></tr></thead>
+      <tbody>
+        <tr><td>25g</td><td>100 kcal</td><td>25g</td><td>100 kcal</td><td>10g</td><td>90 kcal</td></tr>
+        <tr><td>50g</td><td>200 kcal</td><td>50g</td><td>200 kcal</td><td>20g</td><td>180 kcal</td></tr>
+        <tr><td>100g</td><td>400 kcal</td><td>100g</td><td>400 kcal</td><td>30g</td><td>270 kcal</td></tr>
+        <tr><td>150g</td><td>600 kcal</td><td>150g</td><td>600 kcal</td><td>50g</td><td>450 kcal</td></tr>
+        <tr><td>200g</td><td>800 kcal</td><td>200g</td><td>800 kcal</td><td>70g</td><td>630 kcal</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Choosing Your Macro Split</h2>
+    <p>Different splits serve different goals:</p>
+    <ul>
+      <li><strong>Balanced (30P/40C/30F):</strong> Works for most people maintaining or making small changes</li>
+      <li><strong>High Protein (40P/35C/25F):</strong> Ideal for fat loss — preserves muscle while keeping you full</li>
+      <li><strong>Low Carb (35P/25C/40F):</strong> For those who prefer lower-carb diets or want steadier energy</li>
+      <li><strong>Keto (25P/5C/70F):</strong> Very low carb, high fat for ketosis adaptation</li>
+      <li><strong>Low Fat (30P/55C/15F):</strong> Higher carb intake, less fat — good for endurance athletes</li>
+    </ul>
+
+    <h2>Protein Priority Strategy</h2>
+    <p>Regardless of your split, always prioritize protein:</p>
+    <ol>
+      <li>Set your protein target using our <a href="/protein-calculator/">protein calculator</a></li>
+      <li>Calculate protein calories: grams × 4</li>
+      <li>Subtract from total calories to find remaining calories for carbs and fat</li>
+      <li>Split remaining calories based on your preferred diet style</li>
+    </ol>
+
+    <h2>Calories From Protein Percentage</h2>
+    <p>On a typical 2000-calorie plan:</p>
+    <table>
+      <thead><tr><th>Protein %</th><th>Grams</th><th>Calories from protein</th><th>Remaining for C/F</th></tr></thead>
+      <tbody>
+        <tr><td>15%</td><td>75g</td><td>300 kcal</td><td>1700 kcal</td></tr>
+        <tr><td>25%</td><td>125g</td><td>500 kcal</td><td>1500 kcal</td></tr>
+        <tr><td>30%</td><td>150g</td><td>600 kcal</td><td>1400 kcal</td></tr>
+        <tr><td>35%</td><td>175g</td><td>700 kcal</td><td>1300 kcal</td></tr>
+        <tr><td>40%</td><td>200g</td><td>800 kcal</td><td>1200 kcal</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Real-World Examples</h2>
+    <p>2000-calorie day with 30% protein:</p>
+    <ul>
+      <li>Breakfast: 3 eggs (18g = 72 kcal) + 200g Greek yogurt (20g = 80 kcal) = 172 kcal, 38g</li>
+      <li>Lunch: 150g chicken (30g = 120 kcal) + 100g quinoa = 420 kcal total</li>
+      <li>Dinner: 150g salmon (35g = 140 kcal) + vegetables = 400 kcal total</li>
+      <li>Snacks: Protein shake (25g = 100 kcal) = 225 kcal remaining</li>
+    </ul>
+
+    <h2>Continue Reading</h2>
+    <ul>
+      <li><a href="/protein-calculator/">Protein Calculator</a> — Find your exact protein target</li>
+      <li><a href="/guides/protein-guide/">Protein Guide</a> — Complete protein reference</li>
+      <li><a href="/guides/macro-guide/">Macro Guide</a> — Everything about macro splits</li>
+    </ul>
   </Fragment>
 </CalculatorLayout>
 
@@ -101,12 +199,16 @@ const faqs: FaqItem[] = [
       $("mp-pct").textContent = `· ${Math.round(p * 100)}%`;
       $("mc-pct").textContent = `· ${Math.round(c * 100)}%`;
       $("mf-pct").textContent = `· ${Math.round(f * 100)}%`;
+      $("mp-cal").textContent = `${Math.round((cals * p))} kcal`;
+      $("mc-cal").textContent = `${Math.round((cals * c))} kcal`;
+      $("mf-cal").textContent = `${Math.round((cals * f))} kcal`;
       setArc("arc-protein", p, 0);
       setArc("arc-carbs", c, p);
       setArc("arc-fat", f, p + c);
     }
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
     ($("split") as HTMLSelectElement).addEventListener("change", render);
+    ($("calories") as HTMLInputElement).addEventListener("input", render);
     render();
   }
 </script>

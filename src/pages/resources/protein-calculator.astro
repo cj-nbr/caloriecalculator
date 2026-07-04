@@ -7,81 +7,131 @@ const faqs: FaqItem[] = [
   { q: "What is the protein calculator for weight loss?", a: "A protein calculator sets targets to preserve muscle during fat loss. Aim for 1.6–2.2 g/kg. Pair with our <a href='/'>calorie calculator</a>." },
   { q: "How to calculate protein for muscle gain?", a: "For muscle building: 1.6–2.2 g/kg body weight daily. Spread across 3–4 meals with 25–40 g per meal for optimal synthesis." },
   { q: "Is 100g protein enough?", a: "For a 70 kg person: 100g = ~1.4 g/kg, adequate for sedentary but below optimal for active or muscle building. Use our calculator for your exact target." },
+  { q: "How many calories in 1 gram of protein?", a: "One gram of protein provides exactly 4 calories. This is a universal scientific measurement. Multiply protein grams by 4 for calories." },
+  { q: "How to convert protein grams to calories?", a: "Multiply protein grams by 4. 150g protein × 4 = 600 calories. Reverse: calories ÷ 4 = protein grams. Use our <a href='/protein-calculator/'>protein calculator</a>." },
+  { q: "Protein calorie conversion chart?", a: "25g = 100 kcal, 50g = 200 kcal, 100g = 400 kcal, 150g = 600 kcal, 200g = 800 kcal. Multiply protein grams by 4 for calories." },
+  { q: "What is protein to calories ratio?", a: "The ratio is always 1:4. One gram of protein equals 4 calories. Fat is 1:9, carbs are 1:4. This is universal across all protein sources." },
+  { q: "Calories from protein percentage?", a: "Formula: (Protein grams × 4) ÷ Total calories × 100. On 2000 kcal with 150g protein (600 kcal), protein is 30%." },
+  { q: "Protein calorie calculator?", a: "Our <a href='/protein-calculator/'>protein calculator</a> shows your target grams and calories. See <a href='/guides/protein-calories/'>protein calories guide</a> for details." },
+  { q: "Calories per gram of protein?", a: "Always 4 kcal/g. This is the Atwater measurement for all proteins: animal, plant, dairy, and supplements." },
+  { q: "How to calculate calories from protein?", a: "Multiply your protein intake by 4. If you eat 120g protein daily, that's 480 calories from protein alone." },
+  { q: "Protein calories vs fat calories?", a: "Protein: 4 kcal/g, Fat: 9 kcal/g. One gram of fat has 2.25× the calories of protein. This makes protein more filling per calorie." },
+  { q: "Protein percentage in my diet?", a: "On a 2000-calorie diet, 30% protein = 64g protein = 256 calories. Use our <a href='/macro-calculator/'>macro calculator</a> to find your ideal percentage." },
 ];
 ---
 
 <ContentLayout
-  title="Protein Calculator — Daily Protein Needs by Goal"
-  h1="Protein Calculator"
-  description="Free protein calculator. Find daily protein needs for weight loss, muscle gain, or maintenance. Get gram targets based on body weight and activity level."
+  title="Protein Calculator Guide — Daily Protein Needs, Calories & Sources"
+  h1="Protein Calculator Guide"
+  description="Complete guide to protein calories and intake. Protein = 4 kcal/g. Find daily protein needs by goal, convert to calories, discover best sources."
   path="/resources/protein-calculator/"
   category="Resources"
   categoryPath="/resources/"
-  lead="Your protein calculator gives daily gram targets based on activity, goals, and body weight."
-  updated="June 2026"
+  lead="Your protein calculator gives daily gram targets. Protein provides 4 calories per gram — here's how to use that knowledge."
+  updated="July 2026"
   faqs={faqs}
 >
-  <p>A <strong>protein calculator</strong> determines how much protein you need daily based on body weight, activity level, and goals. This is crucial for preserving muscle during weight loss and maximizing growth during muscle gain.</p>
+  <div class="not-prose mb-8 grid gap-4 rounded-xl border border-hairline bg-canvas-soft p-5 sm:p-6">
+    <h2 class="text-display-sm text-ink">Protein Calories Quick Reference</h2>
+    <p class="text-2xl font-semibold text-ink">1 gram protein = <span class="text-brand">4 calories</span></p>
+    <p class="text-sm text-body">Multiply your target grams by 4 to get calories. See <a href="/guides/protein-calories/" class="text-brand">protein calories guide</a> for full chart.</p>
+  </div>
 
-  <h2>Protein needs by activity and goal</h2>
+  <p>A <strong>protein calculator</strong> determines your daily protein needs based on body weight, activity level, and goals. Because protein equals 4 calories per gram, this calculator also tells you your protein calorie intake.</p>
+
+  <h2>Protein Needs by Activity and Goal</h2>
   <table>
-    <thead><tr><th>Goal</th><th>Protein intake</th><th>g per kg</th></tr></thead>
+    <thead><tr><th>Goal</th><th>Protein intake</th><th>g per kg</th><th>Calories per 100g</th></tr></thead>
     <tbody>
-      <tr><td>Sedentary adult</td><td>RDA minimum</td><td>0.8 g</td></tr>
-      <tr><td>General health</td><td>Maintenance</td><td>1.0–1.2 g</td></tr>
-      <tr><td>Weight loss</td><td>Preserve muscle</td><td>1.6–2.2 g</td></tr>
-      <tr><td>Muscle gain</td><td>Maximize synthesis</td><td>1.6–2.2 g</td></tr>
-      <tr><td>Athlete</td><td>Performance/recovery</td><td>1.4–2.0 g</td></tr>
-      <tr><td>Elderly</td><td>Prevent sarcopenia</td><td>1.2–1.6 g</td></tr>
+      <tr><td>Sedentary adult</td><td>RDA minimum</td><td>0.8 g</td><td>40 kcal</td></tr>
+      <tr><td>General health</td><td>Maintenance</td><td>1.0–1.2 g</td><td>40 kcal</td></tr>
+      <tr><td>Weight loss</td><td>Preserve muscle</td><td>1.6–2.2 g</td><td>40 kcal</td></tr>
+      <tr><td>Muscle gain</td><td>Maximize synthesis</td><td>1.6–2.2 g</td><td>40 kcal</td></tr>
+      <tr><td>Athlete</td><td>Performance/recovery</td><td>1.4–2.0 g</td><td>40 kcal</td></tr>
+      <tr><td>Elderly</td><td>Prevent sarcopenia</td><td>1.2–1.6 g</td><td>40 kcal</td></tr>
     </tbody>
   </table>
   <p>Try our <a href="/protein-calculator/">protein calculator</a> for your exact target.</p>
 
-  <h2>Protein calculator examples</h2>
+  <h2>Protein Calculator Examples</h2>
   <table>
-    <thead><tr><th>Weight</th><th>Weight loss</th><th>Muscle gain</th><th>Minimum</th></tr></thead>
+    <thead><tr><th>Weight</th><th>Weight loss</th><th>Muscle gain</th><th>Minimum</th><th>Protein calories</th></tr></thead>
     <tbody>
-      <tr><td>60 kg (132 lb)</td><td>95–130g</td><td>95–130g</td><td>48g</td></tr>
-      <tr><td>75 kg (165 lb)</td><td>120–165g</td><td>120–165g</td><td>60g</td></tr>
-      <tr><td>90 kg (198 lb)</td><td>145–195g</td><td>145–195g</td><td>72g</td></tr>
+      <tr><td>60 kg (132 lb)</td><td>95–130g</td><td>95–130g</td><td>48g</td><td>380–520 kcal</td></tr>
+      <tr><td>75 kg (165 lb)</td><td>120–165g</td><td>120–165g</td><td>60g</td><td>480–660 kcal</td></tr>
+      <tr><td>90 kg (198 lb)</td><td>145–195g</td><td>145–195g</td><td>72g</td><td>580–780 kcal</td></tr>
     </tbody>
   </table>
 
-  <h2>Protein timing for maximum effect</h2>
+  <h2>How to Calculate Protein Calories</h2>
+  <p>The protein to calories formula is simple:</p>
+  <div class="not-prose grid gap-3 sm:grid-cols-2">
+    <div class="card p-4 text-center">
+      <p class="text-xs uppercase text-mute">Protein grams → Calories</p>
+      <p class="mt-1 font-semibold text-ink text-xl">Grams × 4 = Calories</p>
+      <p class="mt-1 text-xs text-body">Example: 150g × 4 = 600 kcal</p>
+    </div>
+    <div class="card p-4 text-center">
+      <p class="text-xs uppercase text-mute">Calories → Protein grams</p>
+      <p class="mt-1 font-semibold text-ink text-xl">Calories ÷ 4 = Grams</p>
+      <p class="mt-1 text-xs text-body">Example: 600 ÷ 4 = 150g</p>
+    </div>
+  </div>
+
+  <h2>Protein Sources Guide (High Protein, Low Calories)</h2>
+  <table>
+    <thead><tr><th>Food</th><th>Protein per 100g</th><th>Calories</th><th>Protein calories</th><th>Quality</th></tr></thead>
+    <tbody>
+      <tr><td>Chicken breast (cooked)</td><td>31 g</td><td>165 kcal</td><td>124 kcal</td><td>Complete</td></tr>
+      <tr><td>Eggs</td><td>13 g each</td><td>72 kcal (50g)</td><td>52 kcal</td><td>Complete</td></tr>
+      <tr><td>Greek yogurt (plain)</td><td>10 g</td><td>59 kcal</td><td>40 kcal</td><td>Complete</td></tr>
+      <tr><td>Protein powder</td><td>80 g</td><td>350 kcal</td><td>320 kcal</td><td>Complete</td></tr>
+      <tr><td>Lean beef (90% lean)</td><td>22 g</td><td>150 kcal</td><td>88 kcal</td><td>Complete</td></tr>
+      <tr><td>Cottage cheese (1% fat)</td><td>12 g</td><td>82 kcal</td><td>48 kcal</td><td>Complete</td></tr>
+      <tr><td>Egg whites</td><td>11 g</td><td>52 kcal</td><td>44 kcal</td><td>Complete</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Protein Calorie Percentage in Your Diet</h2>
+  <p>Protein calories should be 25–35% of total intake:</p>
+  <table>
+    <thead><tr><th>Total calories</th><th>Protein %</th><th>Protein grams</th><th>Protein calories</th></tr></thead>
+    <tbody>
+      <tr><td>1500 kcal</td><td>30%</td><td>113g</td><td>450 kcal</td></tr>
+      <tr><td>2000 kcal</td><td>30%</td><td>150g</td><td>600 kcal</td></tr>
+      <tr><td>2500 kcal</td><td>30%</td><td>188g</td><td>750 kcal</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Protein Timing for Maximum Effect</h2>
   <p>Spread intake across meals:</p>
   <ul>
-    <li><strong>Optimal per meal:</strong> 25–40 g for muscle synthesis</li>
+    <li><strong>Optimal per meal:</strong> 25–40 g (~100–160 kcal from protein)</li>
     <li><strong>Frequency:</strong> 3–4 meals for steady amino acid levels</li>
-    <li><strong>Post-workout:</strong> 25–30 g within 2 hours</td></li>
+    <li><strong>Post-workout:</strong> 25–30 g (100–120 kcal) within 2 hours</li>
   </ul>
 
-  <h2>Protein sources guide</h2>
-  <table>
-    <thead><tr><th>Food</th><th>Protein per 100g</th><th>Quality</th></tr></thead>
-    <tbody>
-      <tr><td>Chicken breast</td><td>31 g</td><td>Complete</td></tr>
-      <tr><td>Greek yogurt</td><td>10 g</td><td>Complete</td></tr>
-      <tr><td>Eggs</td><td>13 g each</td><td>Complete</td></tr>
-      <tr><td>Lean beef</td><td>26 g</td><td>Complete</td></tr>
-      <tr><td>White fish</td><td>20–25 g</td><td>Complete</td></tr>
-      <tr><td>Lentils</td><td>9 g</td><td>Plant, incomplete</td></tr>
-      <tr><td>Quinoa</td><td>14 g</td><td>Plant, complete</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Protein with calorie goals</h2>
-  <p>Combine with your <a href="/guides/maintenance-calorie-calculator/">maintenance calorie calculator</a>:</p>
+  <h2>Protein With Calorie Goals</h2>
+  <p>Combine protein targets with your calorie plan:</p>
   <ul>
-    <li>Protein uses 4 kcal/g—reduce from other macros</li>
-    <li>Adequate protein prevents muscle loss during deficit</li>
+    <li>Protein uses 4 kcal/g — factor this into your daily total</li>
     <li>Use our <a href="/macro-calculator/">macro calculator</a> for complete split</li>
+    <li>Higher protein (30%+) supports <a href="/weight-loss-calculator/">weight loss</a></li>
   </ul>
 
-  <h2>Signs you're not getting enough protein</h2>
+  <h2>Signs You're Not Getting Enough Protein</h2>
   <ul>
     <li>Persistent hunger between meals</li>
     <li>Slow recovery from workouts</li>
     <li>Hair thinning or nail issues</li>
     <li>Frequent illness (immune function)</li>
+  </ul>
+
+  <h2>Continue Learning</h2>
+  <ul>
+    <li><a href="/protein-calculator/">Protein Calculator</a> — Find your exact target</li>
+    <li><a href="/guides/protein-calories/">Protein Calories Guide</a> — Complete conversion reference</li>
+    <li><a href="/macro-calculator/">Macro Calculator</a> — All macros with calories</li>
+    <li><a href="/guides/protein-guide/">Protein Guide</a> — Everything about protein</li>
   </ul>
 </ContentLayout>

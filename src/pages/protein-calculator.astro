@@ -4,18 +4,28 @@ import { inputCls, selectCls } from "../lib/ui";
 import type { FaqItem } from "../lib/seo";
 
 const faqs: FaqItem[] = [
-  { q: "How much protein do I need per day?", a: "Active adults generally need 1.2–2.0 g of protein per kilogram of body weight daily. Sedentary people need less (around 0.8 g/kg), while athletes building muscle benefit from the higher end (up to 2.2 g/kg)." },
+  { q: "How much protein do I need per day?", a: "Active adults generally need 1.2–2.0 g of protein per kilogram of body weight daily. Sedentary people need the RDA of 0.8 g/kg. Athletes and those in a calorie deficit should aim for 1.6–2.2 g/kg to preserve and build muscle." },
   { q: "Is too much protein dangerous?", a: "For healthy people, high-protein diets are safe. Intakes up to about 2 g/kg show no harm in research. People with existing kidney disease should consult a doctor before increasing protein significantly." },
   { q: "When should I eat protein?", a: "Spreading protein across 3–4 meals of 25–40 g each maximizes muscle protein synthesis. Including protein at every meal also improves fullness and helps control overall calorie intake." },
-  { q: "What are good protein sources?", a: "Chicken, fish, lean beef, eggs, Greek yogurt, cottage cheese, tofu, tempeh, lentils, beans, and protein powder are all excellent. Animal sources are 'complete', while combining plant sources covers all amino acids." },
+  { q: "What are good protein sources?", a: "Chicken, fish, lean beef, eggs, Greek yogurt, cottage cheese, tofu, tempeh, lentils, beans, and protein powder are excellent. Animal sources are 'complete', while combining plant sources covers all amino acids." },
+  { q: "How many calories in 1 gram of protein?", a: "Protein contains exactly 4 calories per gram. This is a universal value used by nutrition scientists. One gram of protein provides 4 kcal of energy." },
+  { q: "How many calories from protein per day?", a: "Multiply your protein grams by 4. For example, 150g of protein = 600 calories. Use our calculator to find your target and convert to calories automatically." },
+  { q: "Protein to calories ratio?", a: "The ratio is 1 gram of protein to 4 calories. This means 25g protein = 100 calories, 50g = 200 calories. Fat is 9 calories per gram, carbs are 4 calories per gram." },
+  { q: "Calories per gram of macronutrients?", a: "Protein: 4 kcal/g, Carbs: 4 kcal/g, Fat: 9 kcal/g. Alcohol is 7 kcal/g (not a macronutrient). This is how we calculate total calories from macros." },
+  { q: "How to convert protein grams to calories?", a: "Multiply protein grams by 4. For 120g protein, that's 480 calories. Reverse: divide calories by 4 to get grams. 200 calories ÷ 4 = 50g protein." },
+  { q: "What is the protein calorie calculator?", a: "Our protein calorie calculator shows how many calories your protein intake provides, helping you fit it into your daily calorie target from protein, carbs, and fat." },
+  { q: "Calories from protein percentage?", a: "On a 2000-calorie diet, if 150g protein (600 cal), protein is 30%. Use our macro calculator to set protein percentage based on your goal." },
+  { q: "Protein calorie chart?", a: "10g = 40 cal, 20g = 80 cal, 25g = 100 cal, 50g = 200 cal, 100g = 400 cal, 150g = 600 cal, 200g = 800 cal. Every gram of protein = 4 calories." },
+  { q: "Does protein have more calories than carbs?", a: "No. Both protein and carbohydrates contain exactly 4 calories per gram. Fat is more calorie-dense at 9 calories per gram." },
+  { q: "Why does protein have 4 calories per gram?", a: "When protein is metabolized, the carbon bonds release energy measured at 4 kcal/g through controlled scientific testing called bomb calorimetry." },
 ];
 ---
 
 <CalculatorLayout
-  title="Protein Calculator — Daily Protein Intake Calculator (Free)"
+  title="Protein Calculator — Daily Protein Intake, Calories & Macros"
   h1="Protein Calculator"
-  description="Free protein calculator. Find your optimal daily protein intake in grams based on body weight and activity level."
-  intro="Find how much protein you need each day to build muscle, lose fat, and stay healthy — based on your body weight and activity."
+  description="Free protein calculator. Find daily protein grams, calories (4 kcal/g), and macro distribution. Convert protein to calories and optimize intake."
+  intro="Find your optimal daily protein intake in grams based on body weight and activity level. See exactly how many calories come from protein."
   path="/protein-calculator/"
   faqs={faqs}
 >
@@ -35,7 +45,9 @@ const faqs: FaqItem[] = [
           <div class="relative">
             <select id="activity" class={selectCls}>
               <option value="sedentary">Sedentary — maintain health</option>
-              <option value="moderate" selected>Active — general fitness</option>
+              <option value="light">Light activity — general fitness</option>
+              <option value="moderate" selected>Moderate — weight loss / muscle</option>
+              <option value="active">Active — athlete</option>
               <option value="athlete">Athlete — build / preserve muscle</option>
             </select>
             <svg class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6" /></svg>
@@ -49,22 +61,125 @@ const faqs: FaqItem[] = [
       <div class="card p-6 sm:p-8 text-center">
         <p class="text-sm text-mute">Recommended daily protein</p>
         <p class="mt-1"><span id="p-range" class="text-display-xl text-ink tabular-nums">84–112</span> <span class="text-lg text-mute">g</span></p>
-        <p class="mt-2 text-sm text-body">Aim for the higher end when building muscle or losing fat.</p>
+        <p class="mt-2 text-sm text-body">That's <span id="p-calories" class="font-medium text-brand">~352–448</span> calories from protein.</p>
       </div>
       <div class="grid grid-cols-2 gap-4">
         <div class="card p-5"><p class="text-xs uppercase tracking-wide text-mute">Per meal (4 meals)</p><p id="p-meal" class="mt-1 text-display-sm text-ink tabular-nums">~28 g</p></div>
-        <div class="card p-5"><p class="text-xs uppercase tracking-wide text-mute">From protein</p><p id="p-cal" class="mt-1 text-display-sm text-ink tabular-nums">392 kcal</p></div>
+        <div class="card p-5"><p class="text-xs uppercase tracking-wide text-mute">Calories per gram</p><p class="mt-1 text-display-sm text-ink tabular-nums">4 kcal</p></div>
+      </div>
+      <div class="card overflow-hidden">
+        <table class="w-full text-sm">
+          <caption class="sr-only">Protein calorie conversion table</caption>
+          <thead>
+            <tr class="border-b border-hairline text-left text-xs uppercase tracking-wide text-mute">
+              <th scope="col" class="px-4 py-3 font-medium">Grams</th>
+              <th scope="col" class="px-4 py-3 text-right font-medium">Calories</th>
+            </tr>
+          </thead>
+          <tbody id="protein-table">
+            <tr class="border-b border-hairline"><td class="px-4 py-2.5 text-body">25g</td><td class="px-4 py-2.5 text-right tabular-nums">100 kcal</td></tr>
+            <tr class="border-b border-hairline"><td class="px-4 py-2.5 text-body">50g</td><td class="px-4 py-2.5 text-right tabular-nums">200 kcal</td></tr>
+            <tr class="border-b border-hairline"><td class="px-4 py-2.5 text-body">100g</td><td class="px-4 py-2.5 text-right tabular-nums">400 kcal</td></tr>
+            <tr class="border-b border-hairline"><td class="px-4 py-2.5 text-body">150g</td><td class="px-4 py-2.5 text-right tabular-nums">600 kcal</td></tr>
+            <tr><td class="px-4 py-2.5 text-body">200g</td><td class="px-4 py-2.5 text-right tabular-nums">800 kcal</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
 
   <Fragment slot="content">
-    <h2>Why protein matters most</h2>
-    <p>Of the three macronutrients, protein deserves the most attention. It builds and repairs muscle, keeps you feeling full, has the highest thermic effect (your body burns more calories digesting it), and is the macro most strongly tied to body composition. Hitting your protein target is the single highest-leverage nutrition habit.</p>
-    <h2>How much you really need</h2>
-    <p>The old RDA of 0.8 g/kg prevents deficiency but is far below the optimum for active people. Research on muscle retention and growth supports 1.2–2.2 g/kg depending on your goals and training. During a <a href="/guides/weight-loss-guide/">calorie deficit</a>, higher protein is especially protective of muscle.</p>
-    <h2>Putting it into practice</h2>
-    <p>Spread your intake across the day — roughly 25–40 g per meal across 3–4 meals. Combine this target with your <a href="/macro-calculator/">macro split</a> and overall <a href="/">calorie target</a> for a complete nutrition plan.</p>
+    <h2>Quick Answer: How Many Calories in 1 Gram of Protein?</h2>
+    <p class="text-display-sm font-semibold text-ink"><strong>One gram of protein equals exactly 4 calories.</strong></p>
+    <p>This is a scientific fact established through controlled testing. Whether you eat chicken, fish, eggs, or protein powder, protein always provides 4 kcal per gram. This is why converting protein to calories is simple: multiply grams by 4.</p>
+
+    <h2>Protein Calorie Conversion Made Simple</h2>
+    <p>The protein to calories formula is straightforward:</p>
+    <div class="not-prose grid gap-3 sm:grid-cols-3">
+      <div class="card p-4 text-center">
+        <p class="text-xs uppercase text-mute">Formula</p>
+        <p class="mt-1 font-semibold text-ink">Protein (g) × 4 = Calories</p>
+      </div>
+      <div class="card p-4 text-center">
+        <p class="text-xs uppercase text-mute">Reverse</p>
+        <p class="mt-1 font-semibold text-ink">Calories ÷ 4 = Protein (g)</p>
+      </div>
+      <div class="card p-4 text-center">
+        <p class="text-xs uppercase text-mute">Example</p>
+        <p class="mt-1 font-semibold text-ink">150g × 4 = 600 kcal</p>
+      </div>
+    </div>
+
+    <h2>Calories in Protein vs Carbs vs Fat</h2>
+    <table>
+      <thead><tr><th>Macronutrient</th><th>Calories per gram</th><th>Percentage of total</th></tr></thead>
+      <tbody>
+        <tr><td>Protein</td><td class="text-brand font-semibold">4 kcal</td><td>Highest thermic effect (20-30%)</td></tr>
+        <tr><td>Carbohydrates</td><td class="text-brand font-semibold">4 kcal</td><td>Primary energy source</td></tr>
+        <tr><td>Fat</td><td class="text-brand font-semibold">9 kcal</td><td>Most calorie-dense macro</td></tr>
+        <tr><td>Alcohol</td><td class="text-warning">7 kcal</td><td>Not a macronutrient</td></tr>
+      </tbody>
+    </table>
+
+    <h2>How Much Protein Do You Really Need?</h2>
+    <p>Protein needs vary by body weight, activity level, and goals:</p>
+    <table>
+      <thead><tr><th>Category</th><th>Protein intake</th><th>Grams per kg</th><th>Calories from 150g</th></tr></thead>
+      <tbody>
+        <tr><td>Sedentary adult</td><td>RDA minimum</td><td>0.8 g</td><td>60 kcal/kg</td></tr>
+        <tr><td>General health</td><td>Maintenance</td><td>1.0–1.2 g</td><td>80–96 kcal/kg</td></tr>
+        <tr><td>Active / weight loss</td><td>Muscle preservation</td><td>1.6–2.2 g</td><td>128–176 kcal/kg</td></tr>
+        <tr><td>Muscle building</td><td>Maximize synthesis</td><td>1.6–2.2 g</td><td>128–176 kcal/kg</td></tr>
+        <tr><td>Athlete</td><td>Performance/recovery</td><td>1.4–2.0 g</td><td>112–160 kcal/kg</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Why 4 Calories Per Gram Matters</h2>
+    <p>Understanding protein calories helps you:</p>
+    <ul>
+      <li><strong>Track accurately:</strong> Know exactly how many calories your protein intake provides</li>
+      <li><strong>Plan meals:</strong> Build meals that hit both protein and calorie targets</li>
+      <li><strong>Compare macros:</strong> See how protein stacks up against carbs and fat</li>
+      <li><strong>Adjust ratios:</strong> Set protein percentages in your macro split</li>
+    </ul>
+
+    <h2>Protein Calorie Chart (Quick Reference)</h2>
+    <p>Common protein amounts and their calorie equivalents:</p>
+    <table>
+      <thead><tr><th>Protein (g)</th><th>Calories</th><th>Examples</th></tr></thead>
+      <tbody>
+        <tr><td>25g</td><td>100 kcal</td><td>1 scoop whey, 4 oz chicken</td></tr>
+        <tr><td>50g</td><td>200 kcal</td><td>1 cup Greek yogurt + 2 eggs</td></tr>
+        <tr><td>100g</td><td>400 kcal</td><td>6 oz salmon, 1 cup cottage cheese</td></tr>
+        <tr><td>150g</td><td>600 kcal</td><td>Athlete daily target</td></tr>
+        <tr><td>200g</td><td>800 kcal</td><td>High-protein 2000-calorie plan</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Protein Percentage in Your Diet</h2>
+    <p>For a 2000-calorie diet:</p>
+    <ul>
+      <li><strong>15% protein:</strong> 300g protein = 1200 kcal (low for most goals)</li>
+      <li><strong>25% protein:</strong> 125g protein = 500 kcal (balanced)</li>
+      <li><strong>30% protein:</strong> 150g protein = 600 kcal (muscle-friendly)</li>
+      <li><strong>35% protein:</strong> 179g protein = 715 kcal (high-protein)</li>
+    </ul>
+    <p>Use our <a href="/macro-calculator/">macro calculator</a> to set your ideal protein percentage.</p>
+
+    <h2>Putting It Into Practice</h2>
+    <p>Spread your protein across meals:</p>
+    <ul>
+      <li><strong>Optimal per meal:</strong> 25–40 g (100–160 kcal) for muscle synthesis</li>
+      <li><strong>Frequency:</strong> 3–4 meals for steady amino acid levels</li>
+      <li><strong>Combine with:</strong> Your <a href="/">daily calorie target</a> and <a href="/macro-calculator/">macro split</a></li>
+    </ul>
+
+    <h2>Continue Learning</h2>
+    <ul>
+      <li><a href="/macro-calculator/">Macro Calculator</a> — Convert calories to all macros</li>
+      <li><a href="/guides/protein-guide/">Protein Guide</a> — Complete protein reference</li>
+      <li><a href="/guides/macro-guide/">Macro Guide</a> — Protein, carbs, fat explained</li>
+    </ul>
   </Fragment>
 </CalculatorLayout>
 
@@ -84,15 +199,23 @@ const faqs: FaqItem[] = [
       const activity = ($("activity") as HTMLSelectElement).value as ActivityKey;
       const { min, max } = proteinTargetG(w, activity);
       $("p-range").textContent = `${min}–${max}`;
-      $("p-meal").textContent = `~${Math.round(((min + max) / 2) / 4)} g`;
-      $("p-cal").textContent = `${Math.round(((min + max) / 2) * 4)} kcal`;
+      const avg = (min + max) / 2;
+      $("p-meal").textContent = `~${Math.round(avg / 4)} g`;
+      $("p-calories").textContent = `~${Math.round(min * 4)}–${Math.round(max * 4)} kcal`;
     }
 
     root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((btn) => {
       btn.addEventListener("click", () => {
         const next = btn.dataset.unit as "metric" | "imperial";
         if (next === unit) return; unit = next;
-        root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((b) => { const on = b.dataset.unit === unit; b.setAttribute("aria-pressed", String(on)); b.classList.toggle("bg-canvas", on); b.classList.toggle("text-ink", on); b.classList.toggle("shadow-sm", on); b.classList.toggle("text-mute", !on); });
+        root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((b) => { 
+          const on = b.dataset.unit === unit; 
+          b.setAttribute("aria-pressed", String(on)); 
+          b.classList.toggle("bg-canvas", on); 
+          b.classList.toggle("text-ink", on); 
+          b.classList.toggle("shadow-sm", on); 
+          b.classList.toggle("text-mute", !on); 
+        });
         document.querySelectorAll(".u-wt").forEach((e) => (e.textContent = unit === "metric" ? "(kg)" : "(lb)"));
         const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
         if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);

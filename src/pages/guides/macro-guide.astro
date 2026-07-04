@@ -3,53 +3,188 @@ import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
 
 const faqs: FaqItem[] = [
-  { q: "What are macros?", a: "Macros (macronutrients) are protein, carbohydrates, and fat — the three nutrients that supply calories. Protein and carbs have 4 calories per gram; fat has 9." },
-  { q: "What's the best macro ratio?", a: "There's no universally best ratio. A balanced 30% protein, 40% carbs, 30% fat works for most people. The right split is the one that fits your goals and that you can sustain." },
+  { q: "How many calories in 1 gram of protein?", a: "Protein provides exactly 4 calories per gram. This is a scientific universal measurement established through bomb calorimetry." },
+  { q: "How many calories in 1 gram of carbs?", a: "Carbohydrates provide exactly 4 calories per gram, identical to protein but with different metabolic effects." },
+  { q: "How many calories in 1 gram of fat?", a: "Fat provides 9 calories per gram — more than double protein or carbs." },
+  { q: "How to calculate calories from macros?", a: "Protein: grams × 4. Carbs: grams × 4. Fat: grams × 9. Add all three for total calories." },
+  { q: "Protein to calories conversion?", a: "Multiply protein grams by 4. 150g protein = 600 calories. Every gram of protein equals 4 kcal." },
+  { q: "Calories per gram chart?", a: "Protein: 4 kcal/g, Carbs: 4 kcal/g, Fat: 9 kcal/g. This determines how many calories you get per gram of each macro." },
+  { q: "How to convert protein grams to calories?", a: "Use the formula: protein grams × 4 = calories. For 100g protein, you get 400 calories. Use our <a href='/protein-calculator/'>protein calculator</a>." },
+  { q: "Protein calorie percentage?", a: "Protein calories ÷ total calories × 100. On 2000 calories with 150g protein (600 kcal), protein is 30%." },
+  { q: "Macronutrient calorie density comparison?", a: "Protein and carbs: 4 kcal/g each. Fat: 9 kcal/g. Fat is over twice as calorie-dense as protein or carbs." },
+  { q: "Does protein have more calories than carbs?", a: "No. Both protein and carbohydrates have exactly 4 calories per gram. Fat is the most calorie-dense macro at 9 kcal/g." },
+  { q: "Why 4 calories per gram for protein?", a: "When protein metabolizes, carbon-hydrogen bonds release energy measured at 4 kcal/g through controlled bomb calorimetry testing." },
+  { q: "Calories in protein rich foods?", a: "Chicken breast: 165 kcal/100g (31g protein). Eggs: 130 kcal/50g (6g protein). Greek yogurt: 59 kcal/100g (10g protein)." },
+  { q: "Protein calorie calculator?", a: "Our <a href='/protein-calculator/'>protein calculator</a> shows your target grams and calories. Our <a href='/macro-calculator/'>macro calculator</a> converts all macros." },
+  { q: "Calories from macros formula?", a: "Protein (g) × 4 + Carbs (g) × 4 + Fat (g) × 9 = Total calories. Example: 150P + 200C + 67F = 600 + 800 + 603 = 2003 kcal." },
+  { q: "How to calculate protein calories?", a: "Multiply your protein intake by 4. If you eat 120g protein daily, that's 480 calories from protein alone." },
+  { q: "Calories per gram of macronutrients chart?", a: "Protein: 4 kcal/g, Carbs: 4 kcal/g, Fat: 9 kcal/g. This universal chart helps calculate calories from any macro intake." },
+  { q: "Convert calories to protein grams?", a: "Divide calories by 4. For 500 calories from protein, you need 125g protein. Remember: calories ÷ 4 = protein grams." },
+  { q: "Why does protein equal 4 calories?", a: "The Atwater system established 4 kcal/g through scientific testing. This measurement holds for all protein sources including animals and plants." },
 ];
 ---
 
 <ContentLayout
-  title="Macro Guide — Understanding Protein, Carbs & Fat"
-  h1="The Complete Macro Guide"
-  description="Understand macronutrients — protein, carbs, and fat — how to set your macro ratios, and how to track them for any goal."
+  title="Calories Per Gram of Macros — Protein, Carbs, Fat Calorie Chart"
+  h1="Calories Per Gram of Macros"
+  description="Complete guide to macronutrient calories: protein 4 kcal/g, carbs 4 kcal/g, fat 9 kcal/g. Convert protein to calories, calculate macros, and master nutrition math."
   path="/guides/macro-guide/"
   category="Guides"
   categoryPath="/guides/"
-  lead="Calories tell you how much to eat; macros tell you what to eat. Here's how to master them."
-  updated="January 2025"
+  lead="Master the calorie math of protein, carbs, and fat. Every gram counts differently toward your daily total."
+  updated="July 2026"
   faqs={faqs}
 >
-  <h2>The three macronutrients</h2>
-  <p>Macronutrients are the nutrients your body needs in large amounts, and they're the only things that provide calories:</p>
-  <ul>
-    <li><strong>Protein (4 cal/g):</strong> builds and repairs muscle, keeps you full.</li>
-    <li><strong>Carbohydrates (4 cal/g):</strong> your body's preferred fuel, especially for exercise.</li>
-    <li><strong>Fat (9 cal/g):</strong> essential for hormones, brain health, and absorbing vitamins.</li>
-  </ul>
+  <div class="not-prose mb-8 grid gap-4 rounded-xl border border-hairline bg-canvas-soft p-5 sm:p-6">
+    <h2 class="text-display-sm text-ink">The Big Three Numbers</h2>
+    <ul class="space-y-2 text-sm">
+      <li class="flex items-start gap-2"><svg class="mt-0.5 h-4 w-4 shrink-0 text-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg><span><strong>Protein:</strong> 4 calories per gram</span></li>
+      <li class="flex items-start gap-2"><svg class="mt-0.5 h-4 w-4 shrink-0 text-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg><span><strong>Carbohydrates:</strong> 4 calories per gram</span></li>
+      <li class="flex items-start gap-2"><svg class="mt-0.5 h-4 w-4 shrink-0 text-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg><span><strong>Fat:</strong> 9 calories per gram</span></li>
+    </ul>
+  </div>
 
-  <h2>Why track macros, not just calories?</h2>
-  <p>Two diets with identical calories can produce very different results. A high-protein plan preserves muscle and controls hunger far better than a low-protein one at the same calorie count. Tracking macros gives you control over body composition — not just the number on the scale.</p>
+  <h2 id="calories-per-gram">Calories Per Gram: The Universal Truth</h2>
+  <p class="text-lg font-semibold text-ink"><strong>Protein = 4 kcal/g | Carbs = 4 kcal/g | Fat = 9 kcal/g</strong></p>
+  <p>This is not an approximation — it's the Atwater system, established through controlled scientific bomb calorimetry testing. When these macronutrients burn, each releases a predictable amount of energy.</p>
 
-  <h2>Setting your macro ratios</h2>
+  <h3 id="quick-facts">Quick Facts Everyone Should Know</h3>
   <table>
-    <thead><tr><th>Diet style</th><th>Protein</th><th>Carbs</th><th>Fat</th></tr></thead>
+    <thead><tr><th>Macro</th><th>Calories/gram</th><th>Formula</th><th>Example (100g)</th></tr></thead>
     <tbody>
-      <tr><td>Balanced</td><td>30%</td><td>40%</td><td>30%</td></tr>
-      <tr><td>High protein</td><td>40%</td><td>35%</td><td>25%</td></tr>
-      <tr><td>Low carb</td><td>35%</td><td>25%</td><td>40%</td></tr>
-      <tr><td>Keto</td><td>25%</td><td>5%</td><td>70%</td></tr>
+      <tr><td class="font-medium text-ink">Protein</td><td class="text-brand font-semibold">4 kcal</td><td>Grams × 4</td><td>400 kcal</td></tr>
+      <tr><td class="font-medium text-ink">Carbs</td><td class="text-brand font-semibold">4 kcal</td><td>Grams × 4</td><td>400 kcal</td></tr>
+      <tr><td class="font-medium text-ink">Fat</td><td class="text-brand font-semibold">9 kcal</td><td>Grams × 9</td><td>900 kcal</td></tr>
     </tbody>
   </table>
-  <p>The <a href="/macro-calculator/">macro calculator</a> turns any calorie target and ratio into exact grams.</p>
 
-  <h2>How to set yours</h2>
+  <h2 id="calorie-chart">The Complete Macro Calorie Chart</h2>
+  <p>Quick conversion table for common macro amounts:</p>
+  <table>
+    <thead><tr><th>Grams</th><th>Protein (kcal)</th><th>Carbs (kcal)</th><th>Fat (kcal)</th><th>Total (all protein)</th></tr></thead>
+    <tbody>
+      <tr><td>10g</td><td>40 kcal</td><td>40 kcal</td><td>90 kcal</td><td>40 kcal</td></tr>
+      <tr><td>25g</td><td>100 kcal</td><td>100 kcal</td><td>225 kcal</td><td>100 kcal</td></tr>
+      <tr><td>50g</td><td>200 kcal</td><td>200 kcal</td><td>450 kcal</td><td>200 kcal</td></tr>
+      <tr><td>75g</td><td>300 kcal</td><td>300 kcal</td><td>675 kcal</td><td>300 kcal</td></tr>
+      <tr><td>100g</td><td>400 kcal</td><td>400 kcal</td><td>900 kcal</td><td>400 kcal</td></tr>
+      <tr><td>150g</td><td>600 kcal</td><td>600 kcal</td><td>1350 kcal</td><td>600 kcal</td></tr>
+      <tr><td>200g</td><td>800 kcal</td><td>800 kcal</td><td>1800 kcal</td><td>800 kcal</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="calculating-calories">How to Calculate Calories From Macros</h2>
+  <p>The formula is simple multiplication:</p>
+
+  <div class="not-prose grid gap-4 sm:grid-cols-3">
+    <div class="card p-4 text-center">
+      <p class="text-xs uppercase text-mute">Protein calories</p>
+      <p class="mt-1 font-semibold text-ink">Grams × 4</p>
+      <p class="mt-2 text-xs text-body">Example: 150g × 4 = 600 kcal</p>
+    </div>
+    <div class="card p-4 text-center">
+      <p class="text-xs uppercase text-mute">Carbs calories</p>
+      <p class="mt-1 font-semibold text-ink">Grams × 4</p>
+      <p class="mt-2 text-xs text-body">Example: 200g × 4 = 800 kcal</p>
+    </div>
+    <div class="card p-4 text-center">
+      <p class="text-xs uppercase text-mute">Fat calories</p>
+      <p class="mt-1 font-semibold text-ink">Grams × 9</p>
+      <p class="mt-2 text-xs text-body">Example: 67g × 9 = 603 kcal</p>
+    </div>
+  </div>
+
+  <h3 id="complete-formula">Complete Macro to Calories Formula</h3>
+  <p><strong>Total calories = (Protein g × 4) + (Carbs g × 4) + (Fat g × 9)</strong></p>
+  <p><strong>Example:</strong> 150g protein + 200g carbs + 67g fat = (150×4) + (200×4) + (67×9) = 600 + 800 + 603 = 2003 total calories</p>
+
+  <h2 id="grams-to-calories">Grams to Calories Conversion</h2>
+  <p>Knowing these formulas helps you track accurately:</p>
+
+  <h3>Forward Conversion (Grams → Calories)</h3>
+  <table>
+    <thead><tr><th>Protein (g)</th><th>Calories</th><th>Reverse (Calories ÷ 4)</th><th>Grams</th></tr></thead>
+    <tbody>
+      <tr><td>25</td><td>100 kcal</td><td>100 kcal ÷ 4</td><td>25g</td></tr>
+      <tr><td>50</td><td>200 kcal</td><td>200 kcal ÷ 4</td><td>50g</td></tr>
+      <tr><td>100</td><td>400 kcal</td><td>400 kcal ÷ 4</td><td>100g</td></tr>
+      <tr><td>150</td><td>600 kcal</td><td>600 kcal ÷ 4</td><td>150g</td></tr>
+      <tr><td>200</td><td>800 kcal</td><td>800 kcal ÷ 4</td><td>200g</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="protein-calories-deep-dive">Protein Calories: The Science Behind 4 kcal/g</h2>
+  <p>Why exactly 4 calories per gram?</p>
+  <p>In the late 1800s, Wilbur Olin Atwater developed the system still used today. He burned foods in a sealed chamber, measuring heat released. Protein averaged 4 kcal/g due to its nitrogen content and carbon-hydrogen bonds.</p>
+
+  <h3>Does Cooking Change Protein Calories?</h3>
+  <p>No. Cooking changes weight through water loss but not calories. 100g raw chicken (23g protein) vs 100g cooked chicken (31g protein) both metabolize to the same 4 kcal/g.</p>
+
+  <h2 id="protein-carb-fat-comparison">Protein vs Carbs vs Fat: Calorie Density Comparison</h2>
+  <p>While protein and carbs share the same calorie density, their metabolic effects differ significantly:</p>
+
+  <table>
+    <thead><tr><th>Metric</th><th>Protein</th><th>Carbs</th><th>Fat</th></tr></thead>
+    <tbody>
+      <tr><td class="font-medium">Calories per gram</td><td class="text-brand">4 kcal</td><td class="text-brand">4 kcal</td><td class="text-brand">9 kcal</td></tr>
+      <tr><td class="font-medium">Thermic effect</td><td class="text-success">20–30%</td><td>5–10%</td><td>0–3%</td></tr>
+      <tr><td class="font-medium">Satiety score</td><td class="text-success">Highest</td><td>Moderate</td><td>Moderate</td></tr>
+      <tr><td class="font-medium">Muscle preservation</td><td class="text-success">Essential</td><td>Not significant</td><td>Not significant</td></tr>
+      <tr><td class="font-medium">Energy storage</td><td>Amino acids</td><td>Glycogen (limited)</td><td>Adipose tissue</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="practical-applications">Practical Applications</h2>
+  <p>Putting macro calorie knowledge to work:</p>
+
+  <h3>Tracking Your Intake</h3>
+  <p>If you eat: 150g protein, 200g carbs, 67g fat</p>
   <ol>
-    <li>Find your daily <a href="/">calorie target</a>.</li>
-    <li>Set <a href="/protein-calculator/">protein</a> first: 1.6–2.2 g/kg.</li>
-    <li>Set fat to at least 0.5 g/kg for hormone health.</li>
-    <li>Fill the remaining calories with carbs.</li>
+    <li>Protein calories: 150 × 4 = 600 kcal</li>
+    <li>Carb calories: 200 × 4 = 800 kcal</li>
+    <li>Fat calories: 67 × 9 = 603 kcal</li>
+    <li>Total: 2003 kcal</li>
+    <li>Protein percentage: (600 ÷ 2003) × 100 = 30%</li>
   </ol>
 
-  <h2>Do you need to be exact?</h2>
-  <p>No. Getting within 5–10 g of each target is plenty. Consistency over weeks matters far more than precision on any single day. Hit your protein, stay near your calories, and the details will take care of themselves.</p>
+  <h3>Adjusting Your Macro Split</h3>
+  <p>To increase protein to 35% on 2000 calories:</p>
+  <ul>
+    <li>35% of 2000 = 700 protein calories</li>
+    <li>700 ÷ 4 = 175g protein</li>
+    <li>Remaining 1300 calories split between carbs and fat</li>
+  </ul>
+
+  <h2 id="real-world-examples">Real-World Food Examples</h2>
+  <p>See macro calories in action with common foods:</p>
+
+  <table>
+    <thead><tr><th>Food</th><th>Serving</th><th>Protein</th><th>Carbs</th><th>Fat</th><th>Total</th></tr></thead>
+    <tbody>
+      <tr><td>Chicken breast</td><td>4 oz (113g)</td><td>31g (124 kcal)</td><td>0g (0 kcal)</td><td>3g (27 kcal)</td><td>151 kcal</td></tr>
+      <tr><td>Banana</td><td>1 medium (118g)</td><td>1g (4 kcal)</td><td>27g (108 kcal)</td><td>0g (0 kcal)</td><td>112 kcal</td></tr>
+      <tr><td>Almonds</td><td>1 oz (28g)</td><td>6g (24 kcal)</td><td>6g (24 kcal)</td><td>14g (126 kcal)</td><td>174 kcal</td></tr>
+      <tr><td>Greek yogurt</td><td>1 cup (245g)</td><td>20g (80 kcal)</td><td>9g (36 kcal)</td><td>0g (0 kcal)</td><td>116 kcal</td></tr>
+      <tr><td>Olive oil</td><td>1 tbsp (14g)</td><td>0g (0 kcal)</td><td>0g (0 kcal)</td><td>14g (126 kcal)</td><td>126 kcal</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="tools">Tools to Make It Easier</h2>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/protein-calculator/">Protein Calculator</a></h3>
+      <p class="mt-1 text-sm">Find your daily protein target in grams and calories.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/macro-calculator/">Macro Calculator</a></h3>
+      <p class="mt-1 text-sm">Convert total calories to protein, carbs, and fat grams.</p>
+    </div>
+  </div>
+
+  <h2 id="continue-learning">Continue Learning</h2>
+  <ul>
+    <li><a href="/protein-calculator/">Protein Calculator</a> — Your daily protein target</li>
+    <li><a href="/macro-calculator/">Macro Calculator</a> — All macros with calories</li>
+    <li><a href="/guides/protein-guide/">Protein Guide</a> — Complete protein reference</li>
+  </ul>
 </ContentLayout>
