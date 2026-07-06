@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Section from "../components/ui/Section.astro";
 import FaqSection from "../components/FaqSection.astro";
 import Button from "../components/ui/Button.astro";
+import AdsterraAd from "../components/AdsterraAd.astro";
 import { inputCls } from "../lib/ui";
 import type { FaqItem } from "../lib/seo";
 import {
@@ -87,9 +88,12 @@ const jsonLd = [
         <p id="age-error" role="alert" class="hidden rounded-lg border border-error/40 bg-error/10 px-4 py-3 text-sm text-body"></p>
       </div>
     </div>
-  </Section>
+</Section>
 
-  <div class="border-t border-hairline">
+   <!-- Ad placement - below calculator results -->
+   <AdsterraAd />
+
+   <div class="border-t border-hairline">
     <div class="container-page py-12 sm:py-16">
       <div class="prose-content mx-auto max-w-3xl">
         <h2>How the age calculator works</h2>

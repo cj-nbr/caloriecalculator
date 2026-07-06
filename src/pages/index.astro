@@ -4,6 +4,7 @@ import Section from "../components/ui/Section.astro";
 import Button from "../components/ui/Button.astro";
 import CalorieCalculator from "../components/calculators/CalorieCalculator.astro";
 import FaqSection from "../components/FaqSection.astro";
+import AdsterraAd from "../components/AdsterraAd.astro";
 import { SITE, NAV } from "../data/site";
 import { HOME_FAQS } from "../data/faqs";
 import {
@@ -116,19 +117,22 @@ const jsonLd = [
     </div>
   </div>
 
-  <!-- ── Calculator ───────────────────────────────────── -->
-  <Section id="calculator" class="scroll-mt-20">
-    <div class="mb-8 text-center">
-      <h2 class="text-display-md text-ink">Calculate your daily calories</h2>
-      <p class="mx-auto mt-3 max-w-xl text-body">
-        Enter your details below. Everything updates instantly and stays private
-        on your device.
-      </p>
-    </div>
-    <CalorieCalculator />
-  </Section>
+<!-- ── Calculator ───────────────────────────────────── -->
+   <Section id="calculator" class="scroll-mt-20">
+     <div class="mb-8 text-center">
+       <h2 class="text-display-md text-ink">Calculate your daily calories</h2>
+       <p class="mx-auto mt-3 max-w-xl text-body">
+         Enter your details below. Everything updates instantly and stays private
+         on your device.
+       </p>
+     </div>
+     <CalorieCalculator />
+   </Section>
 
-  <!-- Tools: Food Calories Search (placed above the features section) -->
+   <!-- Ad placement - below calculator -->
+   <AdsterraAd />
+
+   <!-- Tools: Food Calories Search (placed above the features section) -->
   <Section class="border-t border-hairline">
     <div class="mb-10 text-center">
       <h2 class="text-display-md text-ink">Tools</h2>

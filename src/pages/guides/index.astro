@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Section from "../../components/ui/Section.astro";
+import AdsterraAd from "../../components/AdsterraAd.astro";
 import { NAV } from "../../data/site";
 import { breadcrumbSchema } from "../../lib/seo";
 
@@ -34,4 +35,7 @@ const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Guides",
       }
     </div>
   </Section>
+
+  <!-- Ad placement - below content -->
+  <AdsterraAd />
 </Layout>

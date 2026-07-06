@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/ui/Section.astro";
 import FaqSection from "../components/FaqSection.astro";
+import AdsterraAd from "../components/AdsterraAd.astro";
 import { inputCls } from "../lib/ui";
 import type { FaqItem } from "../lib/seo";
 import {
@@ -115,9 +116,12 @@ const jsonLd = [
         <p class="text-xs leading-relaxed text-mute">Estimates only. Actual payments depend on your lender, loan type, PMI, and local taxes. Not financial advice.</p>
       </div>
     </div>
-  </Section>
+</Section>
 
-  <div class="border-t border-hairline">
+   <!-- Ad placement - below calculator results -->
+   <AdsterraAd />
+
+   <div class="border-t border-hairline">
     <div class="container-page py-12 sm:py-16">
       <div class="prose-content mx-auto max-w-3xl">
         <h2>How mortgage payments work</h2>
