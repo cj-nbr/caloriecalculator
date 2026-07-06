@@ -2,6 +2,7 @@
 import Layout from "./Layout.astro";
 import Section from "../components/ui/Section.astro";
 import FaqSection from "../components/FaqSection.astro";
+import AdsterraAd from "../components/AdsterraAd.astro";
 import { NAV } from "../data/site";
 import type { FaqItem } from "../lib/seo";
 import { breadcrumbSchema, calculatorSchema, faqSchema } from "../lib/seo";
@@ -60,12 +61,15 @@ const related = NAV[0].children!.filter((c) => c.href !== path).slice(0, 6);
     </div>
   </header>
 
-  <!-- Calculator -->
-  <Section class="!py-12 sm:!py-16">
-    <slot />
-  </Section>
+<!-- Calculator -->
+   <Section class="!py-12 sm:!py-16">
+     <slot />
+   </Section>
 
-  <!-- Long-form content -->
+   <!-- Ad placement - below calculator results -->
+   <AdsterraAd />
+
+   <!-- Long-form content -->
   <div class="border-t border-hairline">
     <div class="container-page py-12 sm:py-16">
       <div class="prose-content mx-auto max-w-3xl">

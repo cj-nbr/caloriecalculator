@@ -3,6 +3,7 @@ import Layout from "./Layout.astro";
 import Section from "../components/ui/Section.astro";
 import FaqSection from "../components/FaqSection.astro";
 import Button from "../components/ui/Button.astro";
+import AdsterraAd from "../components/AdsterraAd.astro";
 import type { FaqItem } from "../lib/seo";
 import { breadcrumbSchema, faqSchema, articleSchema } from "../lib/seo";
 
@@ -78,6 +79,9 @@ const jsonLd = [
       <slot />
     </article>
   </div>
+
+  <!-- Ad placement - below article content -->
+  <AdsterraAd />
 
   {
     faqs.length > 0 && (
