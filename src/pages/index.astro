@@ -16,6 +16,19 @@ import {
 
 const calculators = NAV[0].children!;
 
+const extraCalculators = [
+  { label: "Healthy Weight Calculator", href: "/healthy-weight-calculator/", desc: "BMI-based healthy weight range" },
+  { label: "Weight Gain Calculator", href: "/weight-gain-calculator/", desc: "Calorie surplus and timeline" },
+  { label: "Maintenance Calories Calculator", href: "/maintenance-calories-calculator/", desc: "Daily calories to stay at your current weight" },
+  { label: "Meal Calorie Calculator", href: "/meal-calorie-calculator/", desc: "Split daily calories across meals" },
+  { label: "Recipe Calorie Calculator", href: "/recipe-calorie-calculator/", desc: "Total and per-serving recipe calories" },
+  { label: "Intermittent Fasting Calculator", href: "/intermittent-fasting-calculator/", desc: "Fasting and eating window planner" },
+  { label: "Cycling Calories Calculator", href: "/cycling-calories-calculator/", desc: "Calories burned cycling by pace" },
+  { label: "Swimming Calories Calculator", href: "/swimming-calories-calculator/", desc: "Calories burned swimming by intensity" },
+];
+
+const allCalculators = [...calculators, ...extraCalculators];
+
 const trust = [
   { label: "Science-based formulas", icon: "M9 12l2 2 4-4" },
   { label: "Instant calculations", icon: "M13 2L3 14h9l-1 8 10-12h-9z" },
@@ -193,14 +206,14 @@ const jsonLd = [
   <!-- ── All calculators ──────────────────────────────── -->
   <Section class="border-t border-hairline">
     <div class="mb-10 text-center">
-      <h2 class="text-display-md text-ink">Explore all {calculators.length} calculators</h2>
+      <h2 class="text-display-md text-ink">Explore all {allCalculators.length} calculators</h2>
       <p class="mx-auto mt-3 max-w-xl text-body">
         A complete toolkit for calories, body composition, and nutrition.
       </p>
     </div>
     <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {
-        calculators.map((c) => (
+        allCalculators.map((c) => (
           <a
             href={c.href}
             class="card group flex items-center justify-between gap-3 p-4 transition-all hover:border-hairline-strong hover:bg-canvas-soft"
@@ -213,74 +226,6 @@ const jsonLd = [
           </a>
         ))
       }
-    </div>
-  </Section>
-
-  <!-- ── More calculators ─────────────────────────────── -->
-  <Section class="border-t border-hairline">
-    <div class="mb-10 text-center">
-      <h2 class="text-display-md text-ink">You may also like</h2>
-      <p class="mx-auto mt-3 max-w-xl text-body">
-        More tools to support your nutrition, training, and health goals.
-      </p>
-    </div>
-    <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      <a href="/healthy-weight-calculator/" class="card group flex items-center justify-between gap-3 p-4 transition-all hover:border-hairline-strong hover:bg-canvas-soft">
-        <div>
-          <span class="block text-sm font-medium text-ink">Healthy Weight Calculator</span>
-          <span class="block text-xs text-mute">BMI-based healthy weight range</span>
-        </div>
-        <svg class="h-4 w-4 shrink-0 text-mute transition-transform group-hover:translate-x-0.5 group-hover:text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-      </a>
-      <a href="/weight-gain-calculator/" class="card group flex items-center justify-between gap-3 p-4 transition-all hover:border-hairline-strong hover:bg-canvas-soft">
-        <div>
-          <span class="block text-sm font-medium text-ink">Weight Gain Calculator</span>
-          <span class="block text-xs text-mute">Calorie surplus and timeline</span>
-        </div>
-        <svg class="h-4 w-4 shrink-0 text-mute transition-transform group-hover:translate-x-0.5 group-hover:text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-      </a>
-      <a href="/maintenance-calories-calculator/" class="card group flex items-center justify-between gap-3 p-4 transition-all hover:border-hairline-strong hover:bg-canvas-soft">
-        <div>
-          <span class="block text-sm font-medium text-ink">Maintenance Calories Calculator</span>
-          <span class="block text-xs text-mute">Daily calories to stay at your current weight</span>
-        </div>
-        <svg class="h-4 w-4 shrink-0 text-mute transition-transform group-hover:translate-x-0.5 group-hover:text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-      </a>
-      <a href="/meal-calorie-calculator/" class="card group flex items-center justify-between gap-3 p-4 transition-all hover:border-hairline-strong hover:bg-canvas-soft">
-        <div>
-          <span class="block text-sm font-medium text-ink">Meal Calorie Calculator</span>
-          <span class="block text-xs text-mute">Split daily calories across meals</span>
-        </div>
-        <svg class="h-4 w-4 shrink-0 text-mute transition-transform group-hover:translate-x-0.5 group-hover:text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-      </a>
-      <a href="/recipe-calorie-calculator/" class="card group flex items-center justify-between gap-3 p-4 transition-all hover:border-hairline-strong hover:bg-canvas-soft">
-        <div>
-          <span class="block text-sm font-medium text-ink">Recipe Calorie Calculator</span>
-          <span class="block text-xs text-mute">Total and per-serving recipe calories</span>
-        </div>
-        <svg class="h-4 w-4 shrink-0 text-mute transition-transform group-hover:translate-x-0.5 group-hover:text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-      </a>
-      <a href="/intermittent-fasting-calculator/" class="card group flex items-center justify-between gap-3 p-4 transition-all hover:border-hairline-strong hover:bg-canvas-soft">
-        <div>
-          <span class="block text-sm font-medium text-ink">Intermittent Fasting Calculator</span>
-          <span class="block text-xs text-mute">Fasting and eating window planner</span>
-        </div>
-        <svg class="h-4 w-4 shrink-0 text-mute transition-transform group-hover:translate-x-0.5 group-hover:text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-      </a>
-      <a href="/cycling-calories-calculator/" class="card group flex items-center justify-between gap-3 p-4 transition-all hover:border-hairline-strong hover:bg-canvas-soft">
-        <div>
-          <span class="block text-sm font-medium text-ink">Cycling Calories Calculator</span>
-          <span class="block text-xs text-mute">Calories burned cycling by pace</span>
-        </div>
-        <svg class="h-4 w-4 shrink-0 text-mute transition-transform group-hover:translate-x-0.5 group-hover:text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-      </a>
-      <a href="/swimming-calories-calculator/" class="card group flex items-center justify-between gap-3 p-4 transition-all hover:border-hairline-strong hover:bg-canvas-soft">
-        <div>
-          <span class="block text-sm font-medium text-ink">Swimming Calories Calculator</span>
-          <span class="block text-xs text-mute">Calories burned swimming by intensity</span>
-        </div>
-        <svg class="h-4 w-4 shrink-0 text-mute transition-transform group-hover:translate-x-0.5 group-hover:text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-      </a>
     </div>
   </Section>
 
