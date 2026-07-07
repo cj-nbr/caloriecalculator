@@ -34,7 +34,7 @@ const faqs: FaqItem[] = [
       </div>
       <div id="ingredients" class="mb-4 space-y-2"></div>
       <button type="button" id="add-ingredient" class="mb-5 inline-flex h-10 items-center justify-center rounded-full border border-hairline px-4 text-sm font-medium text-body transition-colors hover:text-ink">Add ingredient</button>
-      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Recipe Calories</button>
+      <button type="button" id="calculate-btn" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Recipe Calories</button>
     </form>
 
     <div class="space-y-5">
@@ -99,7 +99,9 @@ const faqs: FaqItem[] = [
       row.className = "grid grid-cols-[1fr_120px_auto] gap-2 items-center";
       row.innerHTML = `<input class="ing-name w-full h-10 rounded-lg border border-hairline bg-canvas px-3 text-sm text-ink placeholder:text-mute focus:border-brand focus:outline-none" value="${name}" placeholder="Ingredient" /><input class="ing-cal w-full h-10 rounded-lg border border-hairline bg-canvas px-3 text-sm text-ink placeholder:text-mute focus:border-brand focus:outline-none" inputmode="numeric" value="${calories}" placeholder="Calories" /><button type="button" class="remove-row inline-flex h-10 w-10 items-center justify-center rounded-full border border-hairline text-body hover:text-ink">×</button>`;
       $("ingredients").appendChild(row);
-      row.querySelector(".remove-row")?.addEventListener("click", () => row.remove());
+      row.querySelector(".remove-row")?.addEventListener("click", () => { row.remove(); render(); });
+      row.querySelector(".ing-name")?.addEventListener("input", render);
+      row.querySelector(".ing-cal")?.addEventListener("input", render);
     }
 
     function readIngredients(): Ingredient[] {
@@ -123,6 +125,7 @@ const faqs: FaqItem[] = [
     }
 
     $("add-ingredient")?.addEventListener("click", () => addRow());
+    $("calculate-btn")?.addEventListener("click", render);
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
     ($("servings") as HTMLInputElement).addEventListener("input", render);
     addRow("Chicken breast", "165");
