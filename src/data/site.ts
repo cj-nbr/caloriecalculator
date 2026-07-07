@@ -38,8 +38,6 @@ export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
       { label: "Weight Loss", href: "/weight-loss-calculator/", desc: "Plan & timeline" },
       { label: "Calories Burned", href: "/calories-burned-calculator/", desc: "Exercise calorie burn" },
       { label: "Pace Calculator", href: "/pace-calculator/", desc: "Running, walking, cycling pace" },
-      { label: "Pregnancy Calculator", href: "/pregnancy-calculator/", desc: "Due date & conception" },
-      { label: "Due Date Calculator", href: "/due-date-calculator/", desc: "Estimated delivery date" },
     ],
   },
   {
@@ -102,8 +100,7 @@ export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
       { label: "Calories Burned in a Day", href: "/resources/calories-burned-in-a-day/" },
       { label: "BMI Calculator Guide", href: "/resources/bmi-calculator/" },
       { label: "Body Fat Percentage", href: "/resources/body-fat-percentage/" },
-{ label: "Macro Calculator Guide", href: "/resources/macro-calculator/" },
-       { label: "Protein Calories Guide", href: "/guides/protein-calories/" },
+      { label: "Macro Calculator Guide", href: "/resources/macro-calculator/" },
        { label: "Weight Loss Calculator Guide", href: "/resources/weight-loss-calculator/" },
     ],
   },
