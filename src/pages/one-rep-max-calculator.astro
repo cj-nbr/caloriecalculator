@@ -1,0 +1,132 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import { inputCls } from "../lib/ui";
+import type { FaqItem } from "../lib/seo";
+import { breadcrumbSchema, calculatorSchema, faqSchema } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is one rep max?", a: "One rep max (1RM) is the maximum amount of weight you can lift for one complete repetition with proper form. It is a key strength benchmark used in powerlifting, weightlifting, and strength training." },
+  { q: "How is one rep max calculated?", a: "This calculator uses the Epley formula: 1RM = weight × (1 + reps / 30). It estimates your true 1RM from a submaximal set, so you do not need to lift to failure." },
+  { q: "How accurate is the Epley formula?", a: "The Epley formula is reasonably accurate for most people when using 2–10 reps. For very high reps or beginners, the estimate becomes less reliable." },
+  { q: "How can I increase my one rep max safely?", a: "Progress gradually with structured programming, prioritize form, include accessory work, and avoid maxing out too frequently. Most programs increase 1RM over weeks and months, not days." },
+  { q: "What is a good one rep max for beginners?", a: "Beginner standards vary by lift and body weight. Focus on building a solid technique base first, then use percentage-based programming to increase your 1RM over time." },
+  { q: "Should I test my true one rep max?", a: "Testing a true 1RM carries injury risk. Estimating from submaximal reps is safer for most people. If you do test, use a spotter and only after a thorough warm-up." },
+  { q: "How often should I calculate my one rep max?", a: "Reassess every 4–8 weeks. Frequent testing can interfere with recovery. Use the calculator to track estimated progress instead of constantly maxing out." },
+  { q: "Can one rep max be used for all exercises?", a: "The Epley formula is commonly used for barbell lifts like squat, bench press, and deadlift. For bodyweight or machine exercises, the estimate is less standardized." },
+];
+
+const path = "/one-rep-max-calculator/";
+const h1 = "One Rep Max Calculator";
+const description =
+  "Free one rep max calculator. Estimate your 1RM for squat, bench press, deadlift, and other lifts using the Epley formula.";
+
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: h1, path },
+];
+
+const jsonLd = [
+  breadcrumbSchema(crumbs),
+  calculatorSchema(h1, description, path),
+  faqSchema(faqs),
+];
+---
+
+<CalculatorLayout
+  title="One Rep Max Calculator — Free 1RM Calculator (Epley Formula)"
+  h1={h1}
+  description={description}
+  intro="Estimate your one-rep max from the weight and reps you can complete safely. No need to lift to failure."
+  path={path}
+  faqs={faqs}
+>
+  <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+      <p role="note" class="mb-4 text-xs leading-relaxed text-mute">
+        Enter the weight you lifted and how many reps you completed. The calculator estimates your 1RM.
+      </p>
+      <div class="mb-4 grid grid-cols-2 gap-3">
+        <div class="space-y-1.5">
+          <label for="weight" class="block text-sm font-medium text-ink">Weight lifted</label>
+          <input id="weight" type="number" inputmode="decimal" min="0" step="0.5" value="100" class={inputCls} />
+        </div>
+        <div class="space-y-1.5">
+          <label for="reps" class="block text-sm font-medium text-ink">Reps completed</label>
+          <input id="reps" type="number" inputmode="numeric" min="1" max="20" value="5" class={inputCls} />
+        </div>
+      </div>
+      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate 1RM</button>
+    </form>
+
+    <div class="space-y-5">
+      <div class="card p-6 sm:p-8 text-center">
+        <p class="text-sm text-mute">Estimated one rep max</p>
+        <p class="mt-1"><span id="orm-value" class="text-display-xl text-ink tabular-nums">116.7</span> <span class="text-lg text-mute">kg</span></p>
+        <p id="orm-note" class="mt-2 text-sm text-body"></p>
+      </div>
+      <div class="card overflow-hidden">
+        <div class="border-b border-hairline px-5 py-3"><h2 class="text-sm font-semibold text-ink">Weight for common rep ranges</h2></div>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-hairline text-left text-xs uppercase tracking-wide text-mute">
+              <th class="px-5 py-3 font-medium">Reps</th>
+              <th class="px-5 py-3 text-right font-medium">Weight</th>
+              <th class="px-5 py-3 text-right font-medium">% of 1RM</th>
+            </tr>
+          </thead>
+          <tbody id="orm-table"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <Fragment slot="content">
+    <h2>What your one rep max means</h2>
+    <p>Your one rep max is the heaviest weight you can lift for a single full repetition with correct technique. It is widely used in strength training to set loads for different rep schemes, track progress, and program training intensity.</p>
+
+    <h2>The Epley formula</h2>
+    <p>This calculator estimates 1RM without forcing you to lift to failure. The Epley formula is simple and practical for submaximal testing.</p>
+
+    <h2>How to use this result</h2>
+    <p>Once you know your estimated 1RM, you can calculate training percentages. For example, 80% of your 1RM is a common working-set intensity for muscle growth and strength. If your estimated 1RM is 120 kg, then 80% is 96 kg.</p>
+
+    <h2>Strength standards</h2>
+    <p>One rep max standards vary by lift, body weight, sex, and training experience. Use this tool as a personal benchmark rather than comparing directly to others. Consistent progress over time matters more than hitting a specific number.</p>
+
+    <h2>Safety notes</h2>
+    <p>Do not test your true 1RM too often. Estimating from a controlled submaximal set is safer for most lifters. If you do attempt a heavier single, use a spotter, warm up well, and only attempt it when your technique feels solid.</p>
+  </Fragment>
+</CalculatorLayout>
+
+<script>
+  import { oneRepMaxEpley } from "../lib/calculations";
+
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+    const fmt = (n: number) => Math.round(n * 10) / 10;
+
+    function render() {
+      const weight = parseFloat(($("weight") as HTMLInputElement).value) || 0;
+      const reps = parseInt(($("reps") as HTMLInputElement).value || "0", 10);
+      if (weight <= 0 || reps <= 0) return;
+
+      const orm = oneRepMaxEpley(weight, reps);
+      $("orm-value").textContent = fmt(orm).toLocaleString("en-US");
+
+      const tableRanges = [1, 2, 3, 5, 8, 10, 12, 15];
+      $("orm-table").innerHTML = tableRanges
+        .map(
+          (r) => {
+            const w = orm * (1 - (r - 1) / 30);
+            const pct = Math.round((w / orm) * 100);
+            return `<tr class="border-b border-hairline last:border-0"><td class="px-5 py-2.5 text-body">${r}</td><td class="px-5 py-2.5 text-right font-medium text-ink tabular-nums">${fmt(Math.max(0, w)).toLocaleString("en-US")}</td><td class="px-5 py-2.5 text-right text-mute tabular-nums">${pct}%</td></tr>`;
+          }
+        )
+        .join("");
+    }
+
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    render();
+  }
+</script>

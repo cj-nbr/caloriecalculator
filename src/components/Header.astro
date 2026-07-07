@@ -30,30 +30,30 @@ import Button from "./ui/Button.astro";
       {
         NAV.map((item) =>
           item.children ? (
-<li class="group relative">
-               <a
-                 href={item.href || "/resources/"}
-                 class="flex items-center gap-1 rounded-full px-3 py-2 text-sm text-body transition-colors hover:text-ink"
-               >
-                 {item.label}
-                 <svg class="h-3.5 w-3.5 transition-transform group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6" /></svg>
-               </a>
-               <div class="invisible absolute left-0 top-full pt-2 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                 <div class="w-72 rounded-xl border border-hairline bg-surface-elevated p-2 shadow-xl shadow-black/20">
-                   {item.children.map((child) => (
-                     <a
-                       href={child.href}
-                       class="block rounded-lg px-3 py-2 transition-colors hover:bg-canvas-soft"
-                     >
-                       <span class="block text-sm font-medium text-ink">{child.label}</span>
-                       {child.desc && (
-                         <span class="block text-xs text-mute">{child.desc}</span>
-                       )}
-                     </a>
-                   ))}
-                 </div>
-               </div>
-             </li>
+              <li class="group relative">
+                <a
+                  href={item.href ?? "#"}
+                  class="flex items-center gap-1 rounded-full px-3 py-2 text-sm text-body transition-colors hover:text-ink"
+                >
+                  {item.label}
+                  <svg class="h-3.5 w-3.5 transition-transform group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6" /></svg>
+                </a>
+                <div class="invisible absolute left-0 top-full pt-2 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                  <div class="w-72 rounded-xl border border-hairline bg-surface-elevated p-2 shadow-xl shadow-black/20">
+                    {item.children.map((child) => (
+                      <a
+                        href={child.href}
+                        class="block rounded-lg px-3 py-2 transition-colors hover:bg-canvas-soft"
+                      >
+                        <span class="block text-sm font-medium text-ink">{child.label}</span>
+                        {child.desc && (
+                          <span class="block text-xs text-mute">{child.desc}</span>
+                        )}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </li>
           ) : (
             <li>
               <a

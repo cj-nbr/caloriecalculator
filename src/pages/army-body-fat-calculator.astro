@@ -1,0 +1,198 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import { inputCls, segOptCls } from "../lib/ui";
+import type { FaqItem } from "../lib/seo";
+import { breadcrumbSchema, calculatorSchema, faqSchema } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is the Army body fat calculator?", a: "The U.S. Army body fat calculator estimates body fat percentage using circumference measurements. It is one of the simpler tape-based methods and does not require specialized equipment." },
+  { q: "How accurate is the Army body fat method?", a: "It is a reasonable screening tool, but tape-based methods can be less accurate than DEXA scans or hydrostatic weighing. Measurements depend on consistent technique and the person's body shape." },
+  { q: "What measurements are needed?", a: "Men need height, age, neck, and waist. Women need height, age, neck, waist, and hip measurements. Use the same spot each time for tracking progress." },
+  { q: "What are the Army body fat standards?", a: "Standards vary by age and sex. The Army sets maximum body fat percentages for enlistment and continued service. Use this calculator as a personal health guide rather than an official screening tool." },
+  { q: "Can I use this calculator for fitness tracking?", a: "Yes. Track the same measurements once per week under similar conditions. Changes over time are more useful than any single number." },
+  { q: "Does hydration affect body fat measurements?", a: "Hydration does not affect circumference-based estimates as much as it affects bioelectrical impedance, but consistent testing conditions still give more reliable trend data." },
+  { q: "How do I measure neck and waist correctly?", a: "Measure the neck at the midpoint, waist at the narrowest point or navel, and hips at the widest point for women. Keep the tape snug but not compressed." },
+  { q: "Is this the same as BMI?", a: "No. BMI estimates weight relative to height. The Army body fat method estimates body fat percentage from circumference ratios, which can be more useful for athletic or muscular individuals." },
+];
+
+const path = "/army-body-fat-calculator/";
+const h1 = "Army Body Fat Calculator";
+const description =
+  "Free Army body fat calculator. Estimate your body fat percentage using the U.S. Army circumference method.";
+
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: h1, path },
+];
+
+const jsonLd = [
+  breadcrumbSchema(crumbs),
+  calculatorSchema(h1, description, path),
+  faqSchema(faqs),
+];
+---
+
+<CalculatorLayout
+  title="Army Body Fat Calculator — Free U.S. Army Body Fat Percentage Calculator"
+  h1={h1}
+  description={description}
+  intro="Estimate your body fat percentage using the U.S. Army tape-based method. Supports male and female formulas."
+  path={path}
+  faqs={faqs}
+>
+  <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+      <p role="note" class="mb-4 text-xs leading-relaxed text-mute">
+        Enter your measurements in centimeters for the best result.
+      </p>
+      <div class="mb-4 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1" role="tablist" aria-label="Unit system">
+        <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" aria-pressed="true">Metric</button>
+        <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" aria-pressed="false">Imperial</button>
+      </div>
+      <fieldset class="mb-4">
+        <legend class="mb-1.5 block text-sm font-medium text-ink">Gender</legend>
+        <div class="grid grid-cols-2 gap-2">
+          <label class={segOptCls}><input type="radio" name="sex" value="male" class="sr-only" checked />Male</label>
+          <label class={segOptCls}><input type="radio" name="sex" value="female" class="sr-only" />Female</label>
+        </div>
+      </fieldset>
+      <div class="mb-4 grid grid-cols-2 gap-3">
+        <div class="space-y-1.5">
+          <label for="age" class="block text-sm font-medium text-ink">Age</label>
+          <input id="age" type="number" inputmode="numeric" min="15" max="80" value="30" class={inputCls} />
+        </div>
+        <div class="space-y-1.5">
+          <label for="height" class="block text-sm font-medium text-ink">Height <span class="height-unit text-mute">(cm)</span></label>
+          <input id="height" type="number" inputmode="decimal" min="100" max="250" value="175" class={inputCls} />
+        </div>
+      </div>
+      <div class="mb-4 grid grid-cols-2 gap-3">
+        <div class="space-y-1.5">
+          <label for="neck" class="block text-sm font-medium text-ink">Neck <span class="neck-unit text-mute">(cm)</span></label>
+          <input id="neck" type="number" inputmode="decimal" min="20" max="60" value="38" class={inputCls} />
+        </div>
+        <div class="space-y-1.5">
+          <label for="waist" class="block text-sm font-medium text-ink">Waist <span class="waist-unit text-mute">(cm)</span></label>
+          <input id="waist" type="number" inputmode="decimal" min="50" max="150" value="84" class={inputCls} />
+        </div>
+      </div>
+      <div class="mb-5 grid grid-cols-2 gap-3" id="hip-field">
+        <div class="space-y-1.5">
+          <label for="hip" class="block text-sm font-medium text-ink">Hip <span class="hip-unit text-mute">(cm)</span></label>
+          <input id="hip" type="number" inputmode="decimal" min="50" max="150" value="95" class={inputCls} />
+        </div>
+      </div>
+      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Body Fat</button>
+    </form>
+
+    <div class="space-y-5">
+      <div class="card p-6 sm:p-8 text-center">
+        <p class="text-sm text-mute">Estimated body fat percentage</p>
+        <p class="mt-1"><span id="bf-value" class="text-display-xl text-ink tabular-nums">—</span> <span class="text-lg text-mute">%</span></p>
+        <p id="bf-note" class="mt-2 text-sm text-body"></p>
+      </div>
+      <div class="card overflow-hidden">
+        <div class="border-b border-hairline px-5 py-3"><h2 class="text-sm font-semibold text-ink">Body fat categories</h2></div>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-hairline text-left text-xs uppercase tracking-wide text-mute">
+              <th class="px-5 py-3 font-medium">Category</th>
+              <th class="px-5 py-3 text-right font-medium">Men</th>
+              <th class="px-5 py-3 text-right font-medium">Women</th>
+            </tr>
+          </thead>
+          <tbody id="bf-table"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <Fragment slot="content">
+    <h2>What the Army body fat method is</h2>
+    <p>The U.S. Army tape test is a circumference-based screening tool. It estimates body fat percentage from height, neck, waist, and hip measurements. It is convenient because it needs only a measuring tape.</p>
+
+    <h2>How the formulas work</h2>
+    <p>Male and female formulas differ because fat distribution patterns differ by sex. This calculator applies the standard U.S. Army equations for each gender.</p>
+
+    <h2>Using the result</h2>
+    <p>Use this number as a general health reference. Combine it with strength, energy, clothing fit, and performance changes for a fuller picture of your fitness progress.</p>
+
+    <h2>Limitations</h2>
+    <p>Tape-based estimates can be affected by measurement placement, tightness, and body shape. They are useful for tracking trends, but not as precise as lab-grade methods like DEXA or hydrostatic weighing.</p>
+  </Fragment>
+</CalculatorLayout>
+
+<script>
+  import { armyBodyFat } from "../lib/calculations";
+
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+    const fmt = (n: number) => Math.round(n * 10) / 10;
+    let unit: "metric" | "imperial" = "metric";
+
+    function readCm(value: number, unitType: "metric" | "imperial"): number {
+      return unitType === "metric" ? value : value * 2.54;
+    }
+
+    function render() {
+      const sex = (root!.querySelector('input[name="sex"]:checked') as HTMLInputElement).value as "male" | "female";
+      const age = parseInt(($("age") as HTMLInputElement).value || "0", 10);
+      const height = parseFloat(($("height") as HTMLInputElement).value) || 0;
+      const neck = parseFloat(($("neck") as HTMLInputElement).value) || 0;
+      const waist = parseFloat(($("waist") as HTMLInputElement).value) || 0;
+      const hip = parseFloat(($("hip") as HTMLInputElement).value) || 0;
+
+      if (age <= 0 || height <= 0 || neck <= 0 || waist <= 0) return;
+
+      const heightCm = readCm(height, unit);
+      const neckCm = readCm(neck, unit);
+      const waistCm = readCm(waist, unit);
+      const hipCm = sex === "female" ? readCm(hip, unit) : undefined;
+
+      const bf = armyBodyFat(sex, age, heightCm, waistCm, neckCm, hipCm);
+      $("bf-value").textContent = fmt(Math.max(0, bf)).toLocaleString("en-US");
+      $("bf-note").textContent = bf < 0 ? "Check your measurements." : "";
+
+      const categories = [
+        { name: "Essential", male: "2–5%", female: "10–13%" },
+        { name: "Athletic", male: "6–13%", female: "14–20%" },
+        { name: "Fitness", male: "14–17%", female: "21–24%" },
+        { name: "Average", male: "18–24%", female: "25–31%" },
+        { name: "Obese", male: "25%+", female: "32%+" },
+      ];
+
+      $("bf-table").innerHTML = categories
+        .map((c) => `<tr class="border-b border-hairline last:border-0"><td class="px-5 py-2.5 text-body">${c.name}</td><td class="px-5 py-2.5 text-right text-mute tabular-nums">${c.male}</td><td class="px-5 py-2.5 text-right text-mute tabular-nums">${c.female}</td></tr>`)
+        .join("");
+    }
+
+    root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const next = btn.dataset.unit as "metric" | "imperial";
+        if (next === unit) return;
+        unit = next;
+        root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((b) => {
+          const on = b.dataset.unit === unit;
+          b.setAttribute("aria-pressed", String(on));
+          b.classList.toggle("bg-canvas", on);
+          b.classList.toggle("text-ink", on);
+          b.classList.toggle("shadow-sm", on);
+          b.classList.toggle("text-mute", !on);
+        });
+        ["height", "neck", "waist", "hip"].forEach((id) => {
+          const el = $(id) as HTMLInputElement;
+          const cv = parseFloat(el.value) || 0;
+          if (cv) el.value = (unit === "imperial" ? cv / 2.54 : cv * 2.54).toFixed(1);
+        });
+        document.querySelectorAll(".height-unit, .neck-unit, .waist-unit, .hip-unit").forEach((e) => {
+          (e as HTMLElement).textContent = unit === "metric" ? "(cm)" : "(in)";
+        });
+        render();
+      });
+    });
+
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    render();
+  }
+</script>

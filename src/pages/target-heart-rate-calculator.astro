@@ -1,0 +1,133 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import { inputCls, segOptCls } from "../lib/ui";
+import type { FaqItem } from "../lib/seo";
+import { breadcrumbSchema, calculatorSchema, faqSchema } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is target heart rate?", a: "Target heart rate is the ideal range for cardiovascular exercise, usually expressed as a percentage of your maximum heart rate. It helps you train at the right intensity for your goals." },
+  { q: "How is target heart rate calculated?", a: "This calculator uses the Karvonen method, which factors in your resting heart rate and desired intensity. It gives a more personalized range than simple max-heart-rate formulas." },
+  { q: "What is a good heart rate for fat loss?", a: "Moderate intensity, around 60–70% of your max heart rate, is commonly associated with fat-burning zones. However, total calorie burn and consistency matter more than staying strictly in one zone." },
+  { q: "What heart rate is best for cardio fitness?", a: "Higher intensities, around 70–85% of your max heart rate, improve cardiovascular fitness and aerobic capacity. Combine lower and higher intensities for balanced training." },
+  { q: "How do I measure resting heart rate?", a: "Check your pulse first thing in the morning before getting out of bed. Count beats for 60 seconds, or use a fitness tracker. A typical resting heart rate for adults is 60–100 bpm." },
+  { q: "Is the 220 minus age formula accurate?", a: "It is a rough estimate. Individual max heart rates vary. The Karvonen method used here adds personalization by including your resting heart rate, which usually gives a more useful training range." },
+  { q: "Can I exercise above my target heart rate?", a: "Short high-intensity bursts above the target zone can be safe for healthy adults, but sustained very high heart rates should be avoided without medical clearance, especially if you have heart concerns." },
+  { q: "Does fitness level affect heart rate zones?", a: "Yes. fitter adults often have lower resting heart rates, which shifts their heart rate zones. Recheck your resting heart rate periodically as your fitness changes." },
+];
+
+const path = "/target-heart-rate-calculator/";
+const h1 = "Target Heart Rate Calculator";
+const description =
+  "Free target heart rate calculator. Find your ideal heart rate zones for fat loss, cardio, and performance using the Karvonen method.";
+
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: h1, path },
+];
+
+const jsonLd = [
+  breadcrumbSchema(crumbs),
+  calculatorSchema(h1, description, path),
+  faqSchema(faqs),
+];
+---
+
+<CalculatorLayout
+  title="Target Heart Rate Calculator — Free Heart Rate Zone Calculator"
+  h1={h1}
+  description={description}
+  intro="Calculate your personalized target heart rate zones for walking, running, cycling, and cardio workouts."
+  path={path}
+  faqs={faqs}
+>
+  <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+      <p role="note" class="mb-4 text-xs leading-relaxed text-mute">
+        Enter your age and resting heart rate to find your training zones.
+      </p>
+      <div class="mb-4 grid grid-cols-2 gap-3">
+        <div class="space-y-1.5">
+          <label for="age" class="block text-sm font-medium text-ink">Age</label>
+          <input id="age" type="number" inputmode="numeric" min="10" max="100" value="30" class={inputCls} />
+        </div>
+        <div class="space-y-1.5">
+          <label for="resting" class="block text-sm font-medium text-ink">Resting heart rate (bpm)</label>
+          <input id="resting" type="number" inputmode="numeric" min="30" max="120" value="65" class={inputCls} />
+        </div>
+      </div>
+      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Zones</button>
+    </form>
+
+    <div class="space-y-5">
+      <div class="card p-6 sm:p-8 text-center">
+        <p class="text-sm text-mute">Maximum heart rate</p>
+        <p class="mt-1"><span id="max-hr" class="text-display-xl text-ink tabular-nums">190</span> <span class="text-lg text-mute">bpm</span></p>
+        <p class="mt-2 text-sm text-body">220 minus your age is a common estimation.</p>
+      </div>
+      <div class="card overflow-hidden">
+        <div class="border-b border-hairline px-5 py-3"><h2 class="text-sm font-semibold text-ink">Heart rate zones</h2></div>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-hairline text-left text-xs uppercase tracking-wide text-mute">
+              <th class="px-5 py-3 font-medium">Zone</th>
+              <th class="px-5 py-3 text-right font-medium">Range</th>
+              <th class="px-5 py-3 text-right font-medium">Use</th>
+            </tr>
+          </thead>
+          <tbody id="hr-table"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <Fragment slot="content">
+    <h2>What target heart rate means</h2>
+    <p>Target heart rate zones help you train at the right intensity for your goal. This calculator uses the Karvonen method, which uses your age and resting heart rate to create personalized zones.</p>
+
+    <h2>How to use your heart rate zones</h2>
+    <p>Warm up in Zone 1 or 2. Use Zone 2 for longer easy cardio. Use Zone 3 for tempo work. Use Zone 4 for threshold training. Use Zone 5 only for short intervals.</p>
+
+    <h2>Measuring heart rate</h2>
+    <p>You can use a fitness tracker, heart rate monitor, or manual pulse check. For manual checks, count beats for 60 seconds at the wrist or neck.</p>
+
+    <h2>Safety and medical notes</h2>
+    <p>Heart rate zones are estimates. If you have a heart condition, high blood pressure, or symptoms like chest pain or dizziness, consult a doctor before starting a new exercise program.</p>
+  </Fragment>
+</CalculatorLayout>
+
+<script>
+  import { targetHeartRateKarvonen, maxHeartRate } from "../lib/calculations";
+
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+
+    function render() {
+      const age = parseInt(($("age") as HTMLInputElement).value || "0", 10);
+      const resting = parseInt(($("resting") as HTMLInputElement).value || "0", 10);
+      if (age <= 0 || resting <= 0) return;
+
+      const max = maxHeartRate(age);
+      $("max-hr").textContent = String(max);
+
+      const zones = [
+        { name: "Zone 1", low: 0.5, high: 0.6, use: "Warm-up, recovery" },
+        { name: "Zone 2", low: 0.6, high: 0.7, use: "Easy cardio, fat-burn" },
+        { name: "Zone 3", low: 0.7, high: 0.8, use: "Tempo, endurance" },
+        { name: "Zone 4", low: 0.8, high: 0.9, use: "Threshold, speed" },
+        { name: "Zone 5", low: 0.9, high: 1.0, use: "Intervals, peak effort" },
+      ];
+
+      $("hr-table").innerHTML = zones
+        .map((z) => {
+          const low = Math.round(resting + (max - resting) * z.low);
+          const high = Math.round(resting + (max - resting) * z.high);
+          return `<tr class="border-b border-hairline last:border-0"><td class="px-5 py-2.5 text-body">${z.name}</td><td class="px-5 py-2.5 text-right font-medium text-ink tabular-nums">${low}–${high}</td><td class="px-5 py-2.5 text-right text-mute">${z.use}</td></tr>`;
+        })
+        .join("");
+    }
+
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    render();
+  }
+</script>

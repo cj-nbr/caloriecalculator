@@ -221,3 +221,60 @@ export function round(n: number, dp = 0): number {
 export function caloriesBurned(met: number, weightKg: number, minutes: number): number {
   return (met * 3.5 * weightKg) / 200 * minutes;
 }
+
+/**
+ * One Rep Max (1RM) — Epley formula.
+ * 1RM = weight × (1 + reps / 30)
+ * @param weightKg  lifted weight in kg
+ * @param reps      reps completed at that weight
+ */
+export function oneRepMaxEpley(weightKg: number, reps: number): number {
+  if (reps <= 0 || weightKg <= 0) return 0;
+  if (reps === 1) return weightKg;
+  return weightKg * (1 + reps / 30);
+}
+
+/**
+ * Target Heart Rate — Karvonen method.
+ * @param restingBpm  resting heart rate
+ * @param maxBpm      maximum heart rate
+ * @param intensity   fraction 0–1
+ */
+export function targetHeartRateKarvonen(restingBpm: number, maxBpm: number, intensity: number): number {
+  if (intensity <= 0) return restingBpm;
+  return Math.round(restingBpm + (maxBpm - restingBpm) * Math.min(intensity, 1));
+}
+
+/**
+ * Maximum heart rate estimation — simple age-based formula.
+ */
+export function maxHeartRate(age: number): number {
+  return 220 - age;
+}
+
+/**
+ * U.S. Army body fat percentage — circumference method.
+ * Male: requires age, height, neck, waist.
+ * Female: requires age, height, neck, waist, hip.
+ * All measurements in cm.
+ */
+export function armyBodyFat(
+  sex: Sex,
+  age: number,
+  heightCm: number,
+  waistCm: number,
+  neckCm: number,
+  hipCm?: number
+): number {
+  if (sex === "male") {
+    // % body fat = (86.010 × log10(waist - neck) - 70.041 × log10(height) + 36.76
+    const logWaistNeck = Math.log10(waistCm - neckCm);
+    const logHeight = Math.log10(heightCm);
+    return Math.max(0, 86.01 * logWaistNeck - 70.041 * logHeight + 36.76);
+  }
+  const hip = hipCm ?? 0;
+  // % body fat = (163.205 × log10(waist + hip - neck) - 97.684 × log10(height) - 78.387
+  const logWaistHipNeck = Math.log10(waistCm + hip - neckCm);
+  const logHeight = Math.log10(heightCm);
+  return Math.max(0, 163.205 * logWaistHipNeck - 97.684 * logHeight - 78.387);
+}

@@ -39,6 +39,9 @@ export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
       { label: "Pace Calculator", href: "/pace-calculator/", desc: "Running, walking, cycling pace" },
       { label: "Pregnancy Calculator", href: "/pregnancy-calculator/", desc: "Due date & conception" },
       { label: "Due Date Calculator", href: "/due-date-calculator/", desc: "Estimated delivery date" },
+      { label: "One Rep Max Calculator", href: "/one-rep-max-calculator/", desc: "Estimate your 1RM" },
+      { label: "Target Heart Rate Calculator", href: "/target-heart-rate-calculator/", desc: "Training heart rate zones" },
+      { label: "Army Body Fat Calculator", href: "/army-body-fat-calculator/", desc: "U.S. Army tape test" },
     ],
   },
   {
