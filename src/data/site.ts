@@ -23,6 +23,7 @@ export interface NavLink {
 export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
   {
     label: "Calculators",
+    href: "/",
     children: [
       { label: "Calorie Calculator", href: "/", desc: "Daily calories for your goal" },
       { label: "TDEE Calculator", href: "/tdee-calculator/", desc: "Total daily energy expenditure" },
@@ -39,13 +40,11 @@ export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
       { label: "Pace Calculator", href: "/pace-calculator/", desc: "Running, walking, cycling pace" },
       { label: "Pregnancy Calculator", href: "/pregnancy-calculator/", desc: "Due date & conception" },
       { label: "Due Date Calculator", href: "/due-date-calculator/", desc: "Estimated delivery date" },
-      { label: "One Rep Max Calculator", href: "/one-rep-max-calculator/", desc: "Estimate your 1RM" },
-      { label: "Target Heart Rate Calculator", href: "/target-heart-rate-calculator/", desc: "Training heart rate zones" },
-      { label: "Army Body Fat Calculator", href: "/army-body-fat-calculator/", desc: "U.S. Army tape test" },
     ],
   },
   {
     label: "Pregnancy",
+    href: "/pregnancy-calculator/",
     children: [
       { label: "Pregnancy Calculator", href: "/pregnancy-calculator/", desc: "Due date & conception" },
       { label: "Due Date Calculator", href: "/due-date-calculator/", desc: "Estimated delivery date" },
@@ -54,6 +53,7 @@ export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
   },
   {
     label: "Guides",
+    href: "/guides/",
     children: [
       { label: "How Many Calories Should I Eat?", href: "/guides/how-many-calories-should-i-eat/" },
       { label: "Maintenance Calorie Calculator", href: "/guides/maintenance-calorie-calculator/" },
@@ -77,6 +77,7 @@ export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
   },
   {
     label: "Workouts",
+    href: "/workouts/",
     children: [
       { label: "Leg Workouts", href: "/workouts/leg-workouts/", desc: "Leg day routines and hamstring work" },
       { label: "Lying Leg Raises", href: "/workouts/lying-leg-raises/", desc: "Lower abs and core control" },
@@ -86,10 +87,14 @@ export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
       { label: "Back Workouts", href: "/workouts/back-workouts/", desc: "Rows, pulldowns, pull-ups, and posture" },
       { label: "Shoulder Workouts", href: "/workouts/shoulder-workouts/", desc: "Presses, raises, and shoulder stability" },
       { label: "Home Workouts", href: "/workouts/home-workouts/", desc: "No-equipment routines" },
+      { label: "One Rep Max Calculator", href: "/one-rep-max-calculator/", desc: "Estimate your 1RM" },
+      { label: "Target Heart Rate Calculator", href: "/target-heart-rate-calculator/", desc: "Training heart rate zones" },
+      { label: "Army Body Fat Calculator", href: "/army-body-fat-calculator/", desc: "U.S. Army tape test" },
     ],
   },
   {
     label: "Resources",
+    href: "/resources/",
     children: [
       { label: "What is BMR?", href: "/resources/what-is-bmr/" },
       { label: "What is TDEE?", href: "/resources/what-is-tdee/" },
