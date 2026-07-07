@@ -99,7 +99,7 @@ const faqs: FaqItem[] = [
     let unit: "metric" | "imperial" = "metric";
 
     function render() {
-      const heightCm = unit === "metric" ? parseFloat(($("height-cm") as HTMLInputElement).value) || 0 : lbToKg(parseFloat(($("height-cm") as HTMLInputElement).value) || 0);
+      const heightCm = unit === "metric" ? parseFloat(($("height-cm") as HTMLInputElement).value) || 0 : (parseFloat(($("height-cm") as HTMLInputElement).value) || 0) * 2.54;
       const weightKg = unit === "metric" ? parseFloat(($("weight") as HTMLInputElement).value) || 0 : lbToKg(parseFloat(($("weight") as HTMLInputElement).value) || 0);
       if (heightCm <= 0) return;
 

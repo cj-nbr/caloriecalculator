@@ -1,6 +1,7 @@
 ---
 import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls } from "../lib/ui";
+import Button from "../components/ui/Button.astro";
 import { recipeCalories, type Ingredient } from "../lib/calculations";
 import type { FaqItem } from "../lib/seo";
 
@@ -60,6 +61,15 @@ const faqs: FaqItem[] = [
       <li>Pair recipes with the <a href="/macro-calculator/">macro calculator</a> for protein, carbs, and fat balance.</li>
     </ul>
 
+    <div class="card relative overflow-hidden p-6 sm:p-8">
+      <div class="pointer-events-none absolute right-0 top-0 -z-0 h-64 w-64 rounded-full opacity-20 blur-[100px]" style="background: radial-gradient(circle, #007cf0, transparent 70%);" aria-hidden="true"></div>
+      <div class="relative">
+        <h2 class="text-display-sm text-ink">Don't know the calories in an ingredient?</h2>
+        <p class="mt-2 max-w-xl text-body">Use our <a class="text-brand underline" href="/food-calories-search/">food calories search</a> to look up nutrition facts, calories, protein, carbs, and fats for thousands of foods. Find the exact calories for each ingredient, then plug them into this recipe calculator.</p>
+        <div class="mt-4"><Button href="/food-calories-search/" size="md">Search Food Calories</Button></div>
+      </div>
+    </div>
+
     <h2>Related guides</h2>
     <div class="grid gap-4 sm:grid-cols-2">
       <div class="card p-4">
@@ -84,7 +94,7 @@ const faqs: FaqItem[] = [
       const row = document.createElement("div");
       row.className = "grid grid-cols-[1fr_120px_auto] gap-2 items-center";
       row.innerHTML = `<input class="ing-name w-full h-10 rounded-lg border border-hairline bg-canvas px-3 text-sm text-ink placeholder:text-mute focus:border-brand focus:outline-none" value="${name}" placeholder="Ingredient" /><input class="ing-cal w-full h-10 rounded-lg border border-hairline bg-canvas px-3 text-sm text-ink placeholder:text-mute focus:border-brand focus:outline-none" inputmode="numeric" value="${calories}" placeholder="Calories" /><button type="button" class="remove-row inline-flex h-10 w-10 items-center justify-center rounded-full border border-hairline text-body hover:text-ink">×</button>`;
-      $("#ingredients").appendChild(row);
+      $("ingredients").appendChild(row);
       row.querySelector(".remove-row")?.addEventListener("click", () => row.remove());
     }
 
@@ -108,7 +118,7 @@ const faqs: FaqItem[] = [
       $("recipe-table").innerHTML = ingredients.map((i) => `<tr class="border-b border-hairline last:border-0"><td class="px-5 py-2.5 text-body">${i.name}</td><td class="px-5 py-2.5 text-right text-mute tabular-nums">${i.calories.toLocaleString("en-US")}</td></tr>`).join("");
     }
 
-    $("#add-ingredient")?.addEventListener("click", () => addRow());
+    $("add-ingredient")?.addEventListener("click", () => addRow());
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
     ($("servings") as HTMLInputElement).addEventListener("input", render);
     addRow(); addRow(); addRow();
