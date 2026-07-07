@@ -26,6 +26,7 @@ const faqs: FaqItem[] = [
 >
   <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
     <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+      <p role="note" class="mb-4 text-xs leading-relaxed text-mute">Example values are pre-filled. Enter your own details for accurate results.</p>
       <div class="mb-4 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1" role="tablist" aria-label="Unit system">
         <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" aria-pressed="true">Metric</button>
         <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" aria-pressed="false">Imperial</button>
@@ -65,6 +66,9 @@ const faqs: FaqItem[] = [
   </div>
 
   <Fragment slot="content">
+    <h2>How to use the Healthy Weight Calculator</h2>
+    <p>Enter your height and current weight, then press <strong>Calculate Healthy Weight</strong>. The result shows your BMI-based healthy weight range, not a single target number. If your current weight falls outside that range, use the weight loss or weight gain calculators to plan a safe transition.</p>
+
     <h2>What healthy weight means</h2>
     <p>Healthy weight is a range, not a single target. It is based on body mass index (BMI), which compares your weight to your height. Sticking inside the 18.5–24.9 BMI range reduces health risk for most adults while still allowing normal body composition variation.</p>
 

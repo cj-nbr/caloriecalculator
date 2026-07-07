@@ -27,6 +27,7 @@ const faqs: FaqItem[] = [
 >
   <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
     <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+      <p role="note" class="mb-4 text-xs leading-relaxed text-mute">Example values are pre-filled. Enter your own details for accurate results.</p>
       <div class="mb-4 space-y-1.5">
         <label for="servings" class="block text-sm font-medium text-ink">Servings</label>
         <input id="servings" type="number" inputmode="numeric" min="1" max="50" value="4" class={inputCls} />
@@ -50,6 +51,9 @@ const faqs: FaqItem[] = [
   </div>
 
   <Fragment slot="content">
+    <h2>How to use the Recipe Calorie Calculator</h2>
+    <p>Set your number of servings, then add ingredients with their calorie amounts. If you don't know the calories, use our <a href="/food-calories-search/">food calories search</a> to look them up first. The calculator sums total calories and divides by servings.</p>
+
     <h2>How to count recipe calories</h2>
     <p>The easiest way to estimate homemade recipe calories is to add up the calories for each ingredient and divide by servings. Use the <a href="/food-calories-search/">food calories search</a> to look up ingredient calories, then plug them into this calculator.</p>
 
@@ -121,7 +125,9 @@ const faqs: FaqItem[] = [
     $("add-ingredient")?.addEventListener("click", () => addRow());
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
     ($("servings") as HTMLInputElement).addEventListener("input", render);
-    addRow(); addRow(); addRow();
+    addRow("Chicken breast", "165");
+    addRow("Rice (cooked)", "130");
+    addRow("Broccoli", "55");
     render();
   }
 </script>

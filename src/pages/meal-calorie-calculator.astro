@@ -25,6 +25,7 @@ const faqs: FaqItem[] = [
 >
   <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
     <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+      <p role="note" class="mb-4 text-xs leading-relaxed text-mute">Example values are pre-filled. Enter your own details for accurate results.</p>
       <div class="mb-4 grid grid-cols-2 gap-3">
         <div class="space-y-1.5">
           <label for="calories" class="block text-sm font-medium text-ink">Daily calories</label>
@@ -58,6 +59,9 @@ const faqs: FaqItem[] = [
   </div>
 
   <Fragment slot="content">
+    <h2>How to use the Meal Calorie Calculator</h2>
+    <p>Enter your total daily calorie target and the number of meals or snacks you plan to eat. The calculator splits your calories evenly across each meal. Adjust the split if you prefer larger breakfasts or smaller dinners.</p>
+
     <h2>How to split calories across meals</h2>
     <p>Meal calorie planning makes daily targets practical. Once you know your maintenance calories or calorie deficit, divide it across the day in a way that matches your schedule and hunger. Use the <a href="/">calorie calculator</a> to find your daily target, then this Meal Calorie Calculator to split it.</p>
 
