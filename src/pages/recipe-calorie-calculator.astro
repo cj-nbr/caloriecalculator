@@ -2,7 +2,6 @@
 import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls } from "../lib/ui";
 import Button from "../components/ui/Button.astro";
-import { recipeCalories, type Ingredient } from "../lib/calculations";
 import type { FaqItem } from "../lib/seo";
 
 const faqs: FaqItem[] = [
@@ -92,7 +91,7 @@ const faqs: FaqItem[] = [
   const root = document.getElementById("calc-root");
   if (root) {
     const $ = (id: string) => document.getElementById(id)!;
-    let ingredients: Ingredient[] = [];
+    let ingredients: { name: string; calories: number }[] = [];
 
     function addRow(name = "", calories = "") {
       const row = document.createElement("div");
@@ -104,9 +103,9 @@ const faqs: FaqItem[] = [
       row.querySelector(".ing-cal")?.addEventListener("input", render);
     }
 
-    function readIngredients(): Ingredient[] {
+    function readIngredients() {
       const rows = document.querySelectorAll("#ingredients > div");
-      const out: Ingredient[] = [];
+      const out: { name: string; calories: number }[] = [];
       rows.forEach((row) => {
         const name = (row.querySelector(".ing-name") as HTMLInputElement).value.trim() || "Ingredient";
         const cal = parseFloat((row.querySelector(".ing-cal") as HTMLInputElement).value) || 0;
@@ -118,9 +117,10 @@ const faqs: FaqItem[] = [
     function render() {
       const servings = parseFloat(($("servings") as HTMLInputElement).value) || 1;
       ingredients = readIngredients();
-      const result = recipeCalories(ingredients, servings);
-      $("recipe-total").textContent = result.total.toLocaleString("en-US");
-      $("recipe-per").textContent = result.perServing.toLocaleString("en-US");
+      const total = ingredients.reduce((s, i) => s + i.calories, 0);
+      const perServing = servings > 0 ? Math.round(total / servings) : total;
+      $("recipe-total").textContent = total.toLocaleString("en-US");
+      $("recipe-per").textContent = perServing.toLocaleString("en-US");
       $("recipe-table").innerHTML = ingredients.map((i) => `<tr class="border-b border-hairline last:border-0"><td class="px-5 py-2.5 text-body">${i.name}</td><td class="px-5 py-2.5 text-right text-mute tabular-nums">${i.calories.toLocaleString("en-US")}</td></tr>`).join("");
     }
 
