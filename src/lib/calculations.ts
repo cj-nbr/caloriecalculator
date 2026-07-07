@@ -222,6 +222,47 @@ export function caloriesBurned(met: number, weightKg: number, minutes: number): 
   return (met * 3.5 * weightKg) / 200 * minutes;
 }
 
+export function healthyWeightRange(heightCm: number, minBmi = 18.5, maxBmi = 24.9) {
+  const m = heightCm / 100;
+  return { minKg: minBmi * m * m, maxKg: maxBmi * m * m };
+}
+
+export function mealCalories(totalCalories: number, meals: number) {
+  if (meals <= 0) return 0;
+  return Math.round(totalCalories / meals);
+}
+
+export interface Ingredient {
+  name: string;
+  calories: number;
+}
+
+export interface RecipeResult {
+  total: number;
+  perServing: number;
+}
+
+export function recipeCalories(ingredients: Ingredient[], servings: number): RecipeResult {
+  const total = ingredients.reduce((s, i) => s + i.calories, 0);
+  return { total, perServing: servings > 0 ? Math.round(total / servings) : total };
+}
+
+export interface FastingPlan {
+  name: string;
+  fastHours: number;
+  eatHours: number;
+  description: string;
+}
+
+export const FASTING_PLANS: FastingPlan[] = [
+  { name: "12:12", fastHours: 12, eatHours: 12, description: "12-hour fast, 12-hour eating window" },
+  { name: "14:10", fastHours: 14, eatHours: 10, description: "14-hour fast, 10-hour eating window" },
+  { name: "16:8", fastHours: 16, eatHours: 8, description: "16-hour fast, 8-hour eating window (Leangains)" },
+  { name: "18:6", fastHours: 18, eatHours: 6, description: "18-hour fast, 6-hour eating window" },
+  { name: "20:4", fastHours: 20, eatHours: 4, description: "20-hour fast, 4-hour eating window (Warrior Diet)" },
+  { name: "OMAD", fastHours: 23, eatHours: 1, description: "One Meal A Day, 23-hour fast" },
+];
+
 /**
  * One Rep Max (1RM) — Epley formula.
  * 1RM = weight × (1 + reps / 30)

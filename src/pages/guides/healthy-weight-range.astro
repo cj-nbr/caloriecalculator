@@ -1,0 +1,60 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is a healthy weight range?", a: "A healthy weight range is the weight span where BMI falls between 18.5 and 24.9 for most adults. Use the <a href='/healthy-weight-calculator/'>healthy weight calculator</a> to estimate your own range based on height." },
+  { q: "How is healthy weight calculated?", a: "It is calculated by solving the BMI formula for weight using the standard 18.5–24.9 healthy BMI zone. Height is the main input, because BMI compares weight to height squared." },
+  { q: "What BMI is considered healthy?", a: "A BMI of 18.5 to 24.9 is considered healthy. Below 18.5 is underweight, 25–29.9 is overweight, and 30 or above is obese." },
+  { q: "Can I be healthy outside my BMI range?", a: "Yes. BMI is a population screening tool, not a diagnosis. Athletes and muscular people may weigh more yet still be healthy. Pair BMI with strength, energy, and blood work." },
+  { q: "Does muscle mass affect healthy weight?", a: "Muscle is denser than fat, so muscular people can have higher body weight and still be healthy. Body composition and waist size add useful context beyond BMI alone." },
+  { q: "What is the best way to reach a healthy weight?", a: "For weight loss, use the <a href='/calorie-deficit-calculator/'>calorie deficit calculator</a> to set a safe pace. For weight gain, use the <a href='/weight-gain-calculator/'>weight gain calculator</a>. For stable eating patterns, try the <a href='/meal-calorie-calculator/'>meal calorie calculator</a>." },
+  { q: "How often should I check my healthy weight?", a: "Check every few weeks or when habits change. Pair the number with strength, energy, sleep, and how your clothes fit for a fuller picture." },
+  { q: "Does frame size change healthy weight?", a: "Some guidelines use small, medium, and large frames, but BMI-based ranges remain the standard starting point. Consult a professional for personalized framing advice." },
+];
+---
+
+<ContentLayout
+  title="Healthy Weight Range: What It Means and How to Achieve It"
+  h1="Healthy Weight Range: What It Means and How to Achieve It"
+  description="Learn what a healthy weight range is, how to calculate it, and practical steps to reach or maintain your ideal weight zone."
+  path="/guides/healthy-weight-range/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="A healthy weight range is based on your height and BMI — here is how to use it smartly."
+  updated="July 2026"
+  faqs={faqs}
+>
+  <h2 id="what-is-healthy-weight">What healthy weight really means</h2>
+  <p>Healthy weight is not a single number on a scale. It is a range tied to your height and overall health risk. For most adults, a BMI between 18.5 and 24.9 is considered the healthy zone. This range comes from large population studies linking lower disease risk to moderate weight relative to height.</p>
+
+  <h2 id="bmi-and-range">How BMI defines your healthy weight range</h2>
+  <p>BMI is weight in kilograms divided by height in meters squared. Because BMI is a ratio, two people of the same height can have different healthy weights based on body composition. <a href="/healthy-weight-calculator/">Use the healthy weight calculator</a> to see your exact min and max weights from your height.</p>
+
+  <h3>The BMI categories</h3>
+  <ul>
+    <li><strong>Underweight:</strong> below 18.5</li>
+    <li><strong>Normal / healthy:</strong> 18.5 – 24.9</li>
+    <li><strong>Overweight:</strong> 25 – 29.9</li>
+    <li><strong>Obese:</strong> 30 or above</li>
+  </ul>
+
+  <h2 id="why-range-not-single">Why healthy weight is a range, not one number</h2>
+  <p>A range accounts for body composition variation. A muscular person may weigh more than a lighter-built person of the same height and still be healthier. Use the healthy weight range as a general guide, and combine it with <a href="/body-fat-calculator/">body fat percentage</a>, strength, energy, and waist size for a fuller picture.</p>
+
+  <h2 id="how-to-reach">How to reach your healthy weight</h2>
+  <ul>
+    <li><strong>If you want to lose fat:</strong> use the <a href="/calorie-deficit-calculator/">calorie deficit calculator</a> for a safe daily target, then use the <a href="/macro-calculator/">macro calculator</a> to balance protein, carbs, and fat.</li>
+    <li><strong>If you want to gain weight:</strong> use the <a href="/weight-gain-calculator/">weight gain calculator</a> to set a small, sustainable surplus.</li>
+    <li><strong>If you want to maintain:</strong> use the <a href="/maintenance-calories-calculator/">maintenance calories calculator</a> to find your steady-state target.</li>
+    <li><strong>If you want meal structure:</strong> use the <a href="/meal-calorie-calculator/">meal calorie calculator</a> to divide your daily target across breakfast, lunch, dinner, and snacks.</li>
+  </ul>
+
+  <h2 id="quick-tips">Quick tips for staying inside your healthy weight range</h2>
+  <ul>
+    <li>Check your weight and energy every few weeks rather than obsessing over daily fluctuations.</li>
+    <li>Prioritize protein and whole foods over processed items.</li>
+    <li>Keep movement consistent — walking, cycling, and strength training all support weight stability.</li>
+    <li>Use the <a href="/walking-calorie-calculator/">walking calorie calculator</a>, <a href="/cycling-calories-calculator/">cycling calories calculator</a>, or <a href="/swimming-calories-calculator/">swimming calories calculator</a> to estimate exercise burn and plan your week.</li>
+  </ul>
+</ContentLayout>

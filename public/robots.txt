@@ -2,6 +2,14 @@ User-agent: *
 Allow: /
 Allow: /workouts/
 Allow: /workouts/leg-curl-machine/
+Allow: /healthy-weight-calculator/
+Allow: /weight-gain-calculator/
+Allow: /maintenance-calories-calculator/
+Allow: /meal-calorie-calculator/
+Allow: /recipe-calorie-calculator/
+Allow: /intermittent-fasting-calculator/
+Allow: /cycling-calories-calculator/
+Allow: /swimming-calories-calculator/
 
 Sitemap: https://caloriecalculatorfree.com/sitemap.xml
 

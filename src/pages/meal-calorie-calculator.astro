@@ -1,0 +1,106 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import { inputCls, selectCls, segOptCls } from "../lib/ui";
+import type { FaqItem } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "How many calories should each meal be?", a: "Divide your total daily calories by the number of meals. For example, 2000 calories over 3 meals is about 667 calories per meal." },
+  { q: "Is it better to eat 3 meals or 5-6 small meals?", a: "Research shows total daily intake matters more than meal frequency for weight loss or gain. Choose the pattern that fits your lifestyle and hunger best." },
+  { q: "How do I calculate my meal calories?", a: "Take your daily calorie target and divide it by the number of meals or snacks you plan to eat. You can use the calorie calculator or TDEE calculator to find your daily target first." },
+  { q: "What is the best meal calorie split for weight loss?", a: "Equal or slightly protein-heavy splits work well. Protein keeps you fuller longer, so front-loading protein at breakfast and lunch often helps control hunger." },
+  { q: "Should I eat the same calories at every meal?", a: "Not necessarily. Many people eat larger meals earlier and smaller meals later. Adjust portions based on activity, hunger, and schedule." },
+  { q: "How many calories for breakfast, lunch, and dinner?", a: "Typical splits are roughly 25% / 35% / 25% with a 15% snack buffer, but your personal split depends on goals and schedule." },
+  { q: "Does eating more frequently boost metabolism?", a: "Eating more often does not significantly increase metabolism. What matters most is total calories and food quality across the day." },
+  { q: "Can I skip meals to save calories?", a: "Skipping meals can lead to overeating later. If you prefer intermittent fasting, use the intermittent fasting calculator to plan a structured eating window." },
+];
+---
+
+<CalculatorLayout
+  title="Meal Calorie Calculator — Calories Per Meal Calculator (Free)"
+  h1="Meal Calorie Calculator"
+  description="Free meal calorie calculator. Split your daily calorie target across meals and snacks to keep your nutrition balanced."
+  intro="Divide your total daily calories across meals and snacks. Get an instant per-meal calorie budget."
+  path="/meal-calorie-calculator/"
+  faqs={faqs}
+>
+  <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+      <div class="mb-4 grid grid-cols-2 gap-3">
+        <div class="space-y-1.5">
+          <label for="calories" class="block text-sm font-medium text-ink">Daily calories</label>
+          <input id="calories" type="number" inputmode="numeric" min="500" max="15000" value="2000" class={inputCls} />
+        </div>
+        <div class="space-y-1.5">
+          <label for="meals" class="block text-sm font-medium text-ink">Meals / snacks</label>
+          <select id="meals" class={selectCls}>
+            <option value="2">2 meals</option>
+            <option value="3" selected>3 meals</option>
+            <option value="4">4 meals</option>
+            <option value="5">5 meals</option>
+            <option value="6">6 meals</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Per-Meal Calories</button>
+    </form>
+
+    <div class="space-y-5">
+      <div class="card p-6 sm:p-8 text-center">
+        <p class="text-sm text-mute">Calories per meal</p>
+        <p class="mt-1"><span id="meal-value" class="text-display-xl text-ink tabular-nums">667</span> <span class="text-lg text-mute">kcal</span></p>
+        <p id="meal-note" class="mt-2 text-sm text-body"></p>
+      </div>
+      <div class="card overflow-hidden">
+        <div class="border-b border-hairline px-5 py-3"><h2 class="text-sm font-semibold text-ink">Calories by meal</h2></div>
+        <table class="w-full text-sm"><tbody id="meal-table"></tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <Fragment slot="content">
+    <h2>How to split calories across meals</h2>
+    <p>Meal calorie planning makes daily targets practical. Once you know your maintenance calories or calorie deficit, divide it across the day in a way that matches your schedule and hunger. Use the <a href="/">calorie calculator</a> to find your daily target, then this Meal Calorie Calculator to split it.</p>
+
+    <h2>Common meal splits</h2>
+    <ul>
+      <li><strong>3 meals:</strong> roughly equal portions, e.g., 25% / 35% / 25% plus a small snack buffer.</li>
+      <li><strong>5-6 smaller meals:</strong> smaller portions every 3 hours, useful for steady energy and appetite control.</li>
+      <li><strong>Intermittent fasting:</strong> 1-2 larger meals within a compressed eating window. Use the <a href="/intermittent-fasting-calculator/">intermittent fasting calculator</a> to plan your window.</li>
+    </ul>
+
+    <h2>Tips for meal calorie success</h2>
+    <ul>
+      <li>Prep meals ahead to avoid guesswork.</li>
+      <li>Use the <a href="/macro-calculator/">macro calculator</a> to set protein, carbs, and fat for each meal.</li>
+      <li>Pair meal planning with the <a href="/recipe-calorie-calculator/">recipe calorie calculator</a> to estimate homemade meals.</li>
+    </ul>
+  </Fragment>
+</CalculatorLayout>
+
+<script>
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+    const fmt = (n: number) => Math.round(n).toLocaleString("en-US");
+
+    function render() {
+      const calories = parseFloat(($("calories") as HTMLInputElement).value) || 0;
+      const meals = parseInt(($("meals") as HTMLSelectElement).value || "3", 10);
+      if (calories <= 0 || meals <= 0) return;
+
+      const perMeal = Math.round(calories / meals);
+      $("meal-value").textContent = fmt(perMeal);
+      $("meal-note").textContent = `Across ${meals} meals/snacks per day.`;
+
+      const rows = Array.from({ length: meals }, (_, i) => {
+        const label = i === 0 ? "Meal 1" : i === meals - 1 && meals > 1 ? `Meal ${meals}` : `Meal ${i + 1}`;
+        return `<tr class="border-b border-hairline last:border-0"><td class="px-5 py-2.5 text-body">${label}</td><td class="px-5 py-2.5 text-right font-medium text-ink tabular-nums">${fmt(perMeal)} kcal</td></tr>`;
+      });
+      $("meal-table").innerHTML = rows.join("");
+    }
+
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    ($("meals") as HTMLSelectElement).addEventListener("change", render);
+    render();
+  }
+</script>

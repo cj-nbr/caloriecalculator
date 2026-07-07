@@ -1,0 +1,44 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import ExerciseCalculator from "../components/calculators/ExerciseCalculator.astro";
+import { CYCLING } from "../data/exercises";
+import type { FaqItem } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "How many calories does cycling burn?", a: "Cycling burns roughly 4–15.8 kcal per minute depending on intensity. A 70 kg person biking at a moderate 12 mph burns about 360 calories per hour." },
+  { q: "How many calories does cycling 10 km burn?", a: "A 70 kg rider burns roughly 150–250 calories cycling 10 km at moderate pace, depending on wind, terrain, and speed." },
+  { q: "Is cycling good for weight loss?", a: "Yes. Cycling is low-impact, easy on the joints, and can burn 400–800+ calories per hour. Consistent weekly sessions combined with a sensible diet produce solid fat loss." },
+  { q: "How many calories does mountain biking burn?", a: "Mountain biking typically burns 500–900 calories per hour due to varied terrain, climbs, and technical effort — often more than flat-road cycling." },
+  { q: "How often should I cycle to lose weight?", a: "3–5 cycling sessions per week lasting 30–60 minutes each is a sustainable starting point, combined with a modest calorie deficit." },
+  { q: "Is cycling better than running for calories?", a: "Running usually burns more calories per minute, but cycling is gentler on the joints and easier to sustain for longer durations. Both are excellent for calorie burn." },
+  { q: "How do I cycle for maximum calorie burn?", a: "Ride at a higher intensity, add hills or resistance, try interval bursts, and extend your ride duration. Standing climbs and sprint intervals raise the burn." },
+  { q: "What is the best cycling intensity for fat loss?", a: "A mix of steady endurance rides and short high-intensity intervals works well. Include longer moderate rides plus occasional hill or sprint sessions." },
+];
+---
+
+<CalculatorLayout
+  title="Cycling Calories Calculator — Calories Burned Cycling (Free)"
+  h1="Cycling Calories Calculator"
+  description="Free cycling calories calculator. Estimate how many calories you burn cycling at different speeds and intensities."
+  intro="See how many calories you burn cycling. Pick your pace, enter your weight and duration, and get an instant estimate."
+  path="/cycling-calories-calculator/"
+  faqs={faqs}
+>
+  <ExerciseCalculator activities={CYCLING} defaultIndex={1} />
+
+  <Fragment slot="content">
+    <h2>Calories burned cycling</h2>
+    <p>Cycling is one of the most accessible ways to burn calories without stressing your joints. The calories you burn depend on your cycling speed, resistance, and body weight. This calculator uses MET values for common cycling paces to estimate your burn.</p>
+
+    <h2>How to burn more calories cycling</h2>
+    <ul>
+      <li>Increase resistance or tackle hills to boost intensity.</li>
+      <li>Try interval bursts — short hard efforts followed by easier pedaling.</li>
+      <li>Cycle longer or more frequently; consistency adds up.</li>
+      <li>Stand while climbing to engage more muscle mass.</li>
+    </ul>
+
+    <h2>Cycling and weight loss</h2>
+    <p>Cycling supports calorie burn and leg strength while being easy on the knees. Pair it with a daily target from the <a href="/">calorie calculator</a>. For other exercise estimates, try the <a href="/running-calorie-calculator/">running calorie calculator</a> or <a href="/treadmill-calorie-calculator/">treadmill</a> calculator.</p>
+  </Fragment>
+</CalculatorLayout>

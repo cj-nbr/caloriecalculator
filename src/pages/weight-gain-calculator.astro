@@ -1,0 +1,182 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import { inputCls, segOptCls } from "../lib/ui";
+import { bmrMifflinStJeor, tdee, goalCalories, macrosFromCalories, ACTIVITY_LEVELS, type Sex, type ActivityKey, type GoalKey } from "../lib/calculations";
+import type { FaqItem } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "How many calories should I eat to gain weight?", a: "Aim for a 250–500 calorie surplus above your maintenance calories. This calculator estimates your daily target based on your chosen weekly gain rate." },
+  { q: "How much weight can I gain per week?", a: "A healthy pace is about 0.25–0.5 kg (0.5–1 lb) per week for most people. Faster gain usually adds excess fat unless you are new to resistance training." },
+  { q: "What is the best macro split for bulking?", a: "A common starting point is 20–30% protein, 40–60% carbs, and 20–30% fat. High carbs support training performance, while protein preserves muscle." },
+  { q: "How do I calculate my weight gain timeline?", a: "Use your desired weekly gain rate to estimate the daily surplus, then this calculator shows how long it will take to reach your goal weight." },
+  { q: "Is it possible to gain muscle without gaining fat?", a: "It is possible, especially for beginners, but some fat gain usually accompanies muscle growth. Keep the surplus small, train with resistance, and eat enough protein." },
+  { q: "What foods are best for healthy weight gain?", a: "Focus on calorie-dense whole foods: nuts, seeds, avocados, olive oil, oats, dairy, red meat, and complex carbs. Use the <a href='/macro-calculator/'>macro calculator</a> to balance protein and carbs." },
+  { q: "How long does it take to gain 10 pounds?", a: "At a 500-calorie daily surplus, gaining 4.5 kg (10 lb) takes roughly 10–12 weeks for most people. Genetics, training, and starting body composition all affect the timeline." },
+  { q: "Should I use a weight gain calculator?", a: "Yes. A weight gain calculator removes guesswork by matching your surplus, activity, and goal weight. Use it to set a daily calorie target and track progress week to week." },
+];
+---
+
+<CalculatorLayout
+  title="Weight Gain Calculator — Calorie Surplus & Timeline Calculator (Free)"
+  h1="Weight Gain Calculator"
+  description="Free weight gain calculator. Plan your calorie surplus, daily target, and timeline for healthy weight gain."
+  intro="Calculate how many calories you need to gain weight, your recommended macro split, and how long it will take to reach your goal."
+  path="/weight-gain-calculator/"
+  faqs={faqs}
+>
+  <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+      <p role="note" class="mb-4 text-xs leading-relaxed text-mute">Example values are pre-filled. Enter your own details for accurate results.</p>
+      <div class="mb-4 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1" role="tablist" aria-label="Unit system">
+        <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" aria-pressed="true">Metric</button>
+        <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" aria-pressed="false">Imperial</button>
+      </div>
+      <fieldset class="mb-4">
+        <legend class="mb-1.5 block text-sm font-medium text-ink">Gender</legend>
+        <div class="grid grid-cols-2 gap-2">
+          <label class={segOptCls}><input type="radio" name="sex" value="male" class="sr-only" checked />Male</label>
+          <label class={segOptCls}><input type="radio" name="sex" value="female" class="sr-only" />Female</label>
+        </div>
+      </fieldset>
+      <div class="mb-4 grid grid-cols-2 gap-3">
+        <div class="space-y-1.5">
+          <label for="age" class="block text-sm font-medium text-ink">Age</label>
+          <input id="age" type="number" min="15" max="100" value="30" class={inputCls} />
+        </div>
+        <div class="space-y-1.5">
+          <label for="weight" class="block text-sm font-medium text-ink">Weight <span class="weight-unit text-mute">(kg)</span></label>
+          <input id="weight" type="number" inputmode="decimal" min="20" step="0.1" value="70" class={inputCls} />
+        </div>
+      </div>
+      <div class="mb-4 grid grid-cols-2 gap-3">
+        <div class="space-y-1.5">
+          <label for="height" class="block text-sm font-medium text-ink">Height <span class="height-unit text-mute">(cm)</span></label>
+          <input id="height" type="number" inputmode="decimal" min="100" max="250" value="175" class={inputCls} />
+        </div>
+        <div class="space-y-1.5">
+          <label for="activity" class="block text-sm font-medium text-ink">Activity</label>
+          <select id="activity" class={inputCls}>
+            {(Object.keys(ACTIVITY_LEVELS) as ActivityKey[]).map((k) => (
+              <option value={k} selected={k === "moderate"}>{ACTIVITY_LEVELS[k].label}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+      <div class="mb-4 space-y-1.5">
+        <label for="rate" class="block text-sm font-medium text-ink">Weekly gain target</label>
+        <select id="rate" class={inputCls}>
+          <option value="250">0.25 kg / 0.5 lb per week</option>
+          <option value="500" selected>0.5 kg / 1 lb per week</option>
+          <option value="750">0.75 kg / 1.5 lb per week</option>
+          <option value="1000">1 kg / 2 lb per week</option>
+        </select>
+      </div>
+      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Weight Gain Plan</button>
+    </form>
+
+    <div class="space-y-5">
+      <div class="card p-6 sm:p-8 text-center">
+        <p class="text-sm text-mute">Target calories for weight gain</p>
+        <p class="mt-1"><span id="gain-value" class="text-display-xl text-ink tabular-nums">2,806</span> <span class="text-lg text-mute">kcal/day</span></p>
+        <p id="gain-note" class="mt-2 text-sm text-body"></p>
+      </div>
+      <div class="card overflow-hidden">
+        <div class="border-b border-hairline px-5 py-3"><h2 class="text-sm font-semibold text-ink">Recommended macros</h2></div>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-hairline text-left text-xs uppercase tracking-wide text-mute">
+              <th class="px-5 py-3 font-medium">Nutrient</th>
+              <th class="px-5 py-3 text-right font-medium">Grams</th>
+              <th class="px-5 py-3 text-right font-medium">Calories</th>
+            </tr>
+          </thead>
+          <tbody id="macro-table"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <Fragment slot="content">
+    <h2>How to gain weight safely</h2>
+    <p>Healthy weight gain is slower and more sustainable than most people expect. Add a modest calorie surplus, prioritize protein, and pair nutrition with resistance training to build muscle rather than just fat.</p>
+
+    <h2>Calorie surplus explained</h2>
+    <p>One kilogram of body mass stores roughly 7700 calories. A 500-calorie daily surplus averages about 0.5 kg per week of gain. Smaller surpluses are cleaner and easier to sustain long-term.</p>
+
+    <h2>Best foods for weight gain</h2>
+    <ul>
+      <li>Nuts, seeds, and nut butters for calorie-dense snacks.</li>
+      <li>Oats, rice, potatoes, and pasta for carb fueling.</li>
+      <li>Red meat, fish, eggs, and dairy for protein and calories.</li>
+      <li>Avocados, olive oil, and full-fat dairy for easy extra calories.</li>
+    </ul>
+
+    <h2>Pairing gain with training</h2>
+    <p>Resistance training turns surplus calories into muscle growth. Combine this plan with the <a href="/one-rep-max-calculator/">one rep max calculator</a> to program progressive overload, and the <a href="/protein-calculator/">protein calculator</a> to hit daily protein targets.</p>
+  </Fragment>
+</CalculatorLayout>
+
+<script>
+  import { bmrMifflinStJeor, tdee, macrosFromCalories, type Sex, type ActivityKey } from "../lib/calculations";
+  import { lbToKg } from "../lib/units";
+
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+    const fmt = (n: number) => Math.round(n).toLocaleString("en-US");
+    let unit: "metric" | "imperial" = "metric";
+
+    function read() {
+      const sex = (root.querySelector('input[name="sex"]:checked') as HTMLInputElement).value as Sex;
+      const age = parseFloat(($("age") as HTMLInputElement).value) || 0;
+      let w = parseFloat(($("weight") as HTMLInputElement).value) || 0;
+      const h = unit === "imperial" ? lbToKg(parseFloat(($("height") as HTMLInputElement).value) || 0) : parseFloat(($("height") as HTMLInputElement).value) || 0;
+      if (unit === "imperial") w = lbToKg(w);
+      const activity = ($("activity") as HTMLSelectElement).value as ActivityKey;
+      const rate = parseInt(($("rate") as HTMLSelectElement).value || "500", 10);
+      return { sex, age, w, h, activity, rate };
+    }
+
+    function render() {
+      const { sex, age, w, h, activity, rate } = read();
+      if (w <= 0 || h <= 0 || age <= 0) return;
+      const bmr = bmrMifflinStJeor(sex, age, h, w);
+      const maint = tdee(bmr, activity);
+      const target = goalCalories(maint, "mildGain", sex); // start with mild gain as baseline for rate
+      // Map rate to nearest standard surplus: 250->+250, 500->+500, 750->+750, 1000->+1000
+      // goalCalories only has mildGain(+250), gain(+500), extremeGain(+1000). We'll interpolate manually for 750.
+      const surpluses: Record<number, { key: GoalKey; extra: number }> = { 250: { key: "mildGain", extra: 250 }, 500: { key: "gain", extra: 500 }, 750: { key: "gain", extra: 750 }, 1000: { key: "extremeGain", extra: 1000 } };
+      const chosen = surpluses[rate] || surpluses[500];
+      const finalTarget = Math.round(maint + chosen.extra);
+      $("gain-value").textContent = fmt(finalTarget);
+      $("gain-note").textContent = `${chosen.extra} kcal above maintenance of ${fmt(Math.round(maint))}.`;
+
+      const macros = macrosFromCalories(finalTarget);
+      $("macro-table").innerHTML = [
+        { name: "Protein", g: macros.proteinG, kcal: macros.proteinKcal },
+        { name: "Carbs", g: macros.carbsG, kcal: macros.carbsKcal },
+        { name: "Fat", g: macros.fatG, kcal: macros.fatKcal },
+      ].map((m) => `<tr class="border-b border-hairline last:border-0"><td class="px-5 py-2.5 text-body">${m.name}</td><td class="px-5 py-2.5 text-right font-medium text-ink tabular-nums">${fmt(m.g)} g</td><td class="px-5 py-2.5 text-right text-mute tabular-nums">${fmt(m.kcal)}</td></tr>`).join("");
+    }
+
+    root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const next = btn.dataset.unit as "metric" | "imperial";
+        if (next === unit) return;
+        unit = next;
+        root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((b) => {
+          const on = b.dataset.unit === unit;
+          b.setAttribute("aria-pressed", String(on));
+          b.classList.toggle("bg-canvas", on); b.classList.toggle("text-ink", on); b.classList.toggle("shadow-sm", on); b.classList.toggle("text-mute", !on);
+        });
+        document.querySelectorAll(".weight-unit").forEach((e) => (e.textContent = unit === "metric" ? "(kg)" : "(lb)"));
+        const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
+        if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
+        render();
+      });
+    });
+
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    render();
+  }
+</script>

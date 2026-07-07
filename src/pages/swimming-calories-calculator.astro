@@ -1,0 +1,44 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import ExerciseCalculator from "../components/calculators/ExerciseCalculator.astro";
+import { SWIMMING } from "../data/exercises";
+import type { FaqItem } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "How many calories does swimming burn?", a: "A 70 kg person burns roughly 420 calories swimming moderate laps for 30 minutes. Vigorous swimming or butterfly can push that higher." },
+  { q: "How many calories does swimming 30 minutes burn?", a: "For a 70 kg person, 30 minutes of moderate swimming burns about 420 calories, while vigorous swimming can burn 500+ calories." },
+  { q: "Is swimming good for weight loss?", a: "Yes. Swimming is full-body, low-impact, and burns serious calories. It improves cardio, preserves joints, and can be sustained for longer sessions." },
+  { q: "Does swimming burn more calories than running?", a: "Running usually burns more per minute, but swimming burns comparable calories for longer durations and is much gentler on the joints." },
+  { q: "How many calories does freestyle swimming burn?", a: "Freestyle at a vigorous pace burns roughly 10–13 kcal per minute for a 70 kg person, depending on intensity and technique." },
+  { q: "Can swimming help me lose belly fat?", a: "Swimming burns calories and strengthens the core, but spot reduction is a myth. Consistent calorie burn and good nutrition reduce belly fat overall." },
+  { q: "How often should I swim to lose weight?", a: "3–5 swimming sessions per week lasting 30–60 minutes supports steady calorie burn and improves fitness. Pair it with a sensible calorie target." },
+  { q: "What swimming style burns the most calories?", a: "Butterfly and vigorous freestyle burn the most, followed by breaststroke and backstroke. Intensity and technique affect the exact numbers." },
+];
+---
+
+<CalculatorLayout
+  title="Swimming Calories Calculator — Calories Burned Swimming (Free)"
+  h1="Swimming Calories Calculator"
+  description="Free swimming calories calculator. Estimate how many calories you burn swimming laps or doing water workouts."
+  intro="Calculate calories burned swimming based on your weight, duration, and swimming intensity."
+  path="/swimming-calories-calculator/"
+  faqs={faqs}
+>
+  <ExerciseCalculator activities={SWIMMING} defaultIndex={1} />
+
+  <Fragment slot="content">
+    <h2>Calories burned swimming</h2>
+    <p>Swimming is a full-body, low-impact workout that can burn a lot of calories without stressing your joints. The exact burn depends on the stroke, intensity, and body weight. This calculator estimates it using standard MET values.</p>
+
+    <h2>How to burn more calories swimming</h2>
+    <ul>
+      <li>Increase pace or interval effort during sets.</li>
+      <li>Mix strokes to target different muscles.</li>
+      <li>Add sprints or flip-turns to raise intensity.</li>
+      <li>Extend swim duration gradually for endurance and calorie burn.</li>
+    </ul>
+
+    <h2>Swimming and weight loss</h2>
+    <p>Swimming builds cardio fitness and full-body strength while burning calories. Pair it with a daily calorie target from the <a href="/">calorie calculator</a>. Want another exercise? Try the <a href="/cycling-calories-calculator/">cycling calories calculator</a> or <a href="/walking-calorie-calculator/">walking calorie calculator</a>.</p>
+  </Fragment>
+</CalculatorLayout>

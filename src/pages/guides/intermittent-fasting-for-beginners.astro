@@ -1,0 +1,48 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is intermittent fasting for beginners?", a: "Intermittent fasting for beginners usually starts with 12:12 or 14:10 before moving to 16:8. It cycles between eating and fasting windows and supports calorie control without strict meal counting." },
+  { q: "How does the 16:8 method work?", a: "Fast for 16 hours and eat within an 8-hour window. A common schedule is 12 pm to 8 pm, skipping breakfast or dinner depending on preference." },
+  { q: "Can I drink coffee while fasting?", a: "Black coffee, plain tea, and water are generally allowed. Adding sugar, milk, or cream breaks the fast because it introduces calories and insulin response." },
+  { q: "Is intermittent fasting safe?", a: "For most healthy adults, yes. People with diabetes, eating disorders, pregnancy, or medication needs should consult a doctor before starting." },
+  { q: "How much weight can I lose with intermittent fasting?", a: "Results vary. Beginners often lose 0.5–1 lb per week when fasting is paired with a modest calorie deficit and good nutrition during eating windows." },
+  { q: "What should I eat during my eating window?", a: "Prioritize protein, fiber, and whole foods. Use the <a href='/protein-calculator/'>protein calculator</a> and <a href='/macro-calculator/'>macro calculator</a> to avoid nutrient deficits while fasting." },
+  { q: "Does intermittent fasting slow metabolism?", a: "Short-term fasting does not meaningfully slow metabolism. Very low-calorie dieting over long periods can, but typical intermittent fasting with adequate nutrition is generally safe." },
+  { q: "Can I exercise while fasting?", a: "Light exercise is usually fine, but intense sessions may feel harder without fuel. Use the <a href='/target-heart-rate-calculator/'>target heart rate calculator</a> to keep effort manageable if you train fasted." },
+];
+---
+
+<ContentLayout
+  title="Intermittent Fasting for Beginners — How to Start and Stay Consistent"
+  h1="Intermittent Fasting for Beginners"
+  description="A beginner-friendly guide to intermittent fasting: popular plans, safety tips, what to eat, and how to combine it with calorie and macro targets."
+  path="/guides/intermittent-fasting-for-beginners/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="Intermittent fasting is less about starving and more about timing. Here is how to start with a plan that fits your life."
+  updated="July 2026"
+  faqs={faqs}
+>
+  <h2 id="what-is-if">What intermittent fasting really is</h2>
+  <p>Intermittent fasting schedules eating and fasting periods rather than counting every calorie. It reduces eating windows, which can simplify nutrition and create a natural calorie deficit for many people.</p>
+
+  <h2 id="popular-plans">Popular fasting plans</h2>
+  <ul>
+    <li><strong>12:12:</strong> fast 12 hours, eat 12 hours — an easy starting point.</li>
+    <li><strong>16:8:</strong> the most common plan; ideal for steady fat loss.</li>
+    <li><strong>18:6:</strong> useful for tighter windows and fewer meals.</li>
+    <li><strong>OMAD:</strong> one meal a day; advanced and not for everyone.</li>
+  </ul>
+  <p>Use the <a href="/intermittent-fasting-calculator/">intermittent fasting calculator</a> to compare plans and visualize your fasting and eating times.</p>
+
+  <h2 id="safety">Safety and who should avoid fasting</h2>
+  <p>Pregnant people, those with diabetes, eating disorders, or on certain medications should avoid fasting without medical guidance. Begin with shorter fasts and stop if you feel dizzy, faint, or unusually fatigued.</p>
+
+  <h2 id="nutrition">Nutrition during eating windows</h2>
+  <p>A shorter eating window does not excuse poor food choices. Prioritize protein using the <a href="/protein-calculator/">protein calculator</a>, balance carbs for energy, and keep fats moderate. Use the <a href="/meal-calorie-calculator/">meal calorie calculator</a> to split your target across one or two meals if you do OMAD.</p>
+
+  <h2 id="exercise">Exercising while fasting</h2>
+  <p>Light cardio and resistance training are usually fine. For intense sessions, eat a small meal beforehand or schedule training near the end of your eating window. The <a href="/walking-calorie-calculator/">walking</a>, <a href="/cycling-calories-calculator/">cycling</a>, and <a href="/swimming-calories-calculator/">swimming</a> calorie calculators help you estimate burn around your fast.</p>
+</ContentLayout>

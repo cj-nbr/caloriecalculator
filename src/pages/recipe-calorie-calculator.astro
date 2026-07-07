@@ -1,0 +1,105 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import { inputCls } from "../lib/ui";
+import { recipeCalories, type Ingredient } from "../lib/calculations";
+import type { FaqItem } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "How do I calculate calories in a recipe?", a: "Add up the calories for each ingredient, then divide by the number of servings. Use the food calories search to find per-ingredient calories, then plug them into this calculator." },
+  { q: "How many calories per serving?", a: "Total recipe calories divided by the number of servings gives calories per serving. For example, 1200 calories total across 4 servings = 300 calories per serving." },
+  { q: "Does cooking change calorie content?", a: "Cooking can slightly change water content and concentration, but calorie changes are usually small. Weigh raw ingredients for more consistent tracking, or use standard nutrition data." },
+  { q: "Should I weigh ingredients raw or cooked for calories?", a: "Weighing raw gives more consistent values. If you weigh cooked food, use cooked-state nutrition data or standard reference tables." },
+  { q: "How do I estimate calories for homemade meals?", a: "Break the meal into ingredients, find calories for each portion, and sum them. This calculator automates the math once you enter ingredient calories." },
+  { q: "What is the best way to track recipe calories?", a: "Use a calorie calculator with ingredient-level inputs, log portions in a nutrition app, and keep a standard recipe card for frequent meals." },
+  { q: "Can I reduce calories in my favorite recipes?", a: "Yes. Reduce oil, use lower-calorie swaps, increase vegetables, and control portion sizes. Use the <a href='/macro-calculator/'>macro calculator</a> to check the balance." },
+  { q: "How many calories in a homemade meal?", a: "Homemade meals vary widely. A 500-calorie meal might be a salad with grilled chicken; a heavier pasta dish can exceed 800 calories. Calculate each recipe with this tool." },
+];
+---
+
+<CalculatorLayout
+  title="Recipe Calorie Calculator — Calories Per Serving Calculator (Free)"
+  h1="Recipe Calorie Calculator"
+  description="Free recipe calorie calculator. Add ingredients and servings to estimate total recipe calories and calories per serving."
+  intro="Estimate the calorie count for any homemade recipe. Enter your ingredients and portions to get an instant breakdown."
+  path="/recipe-calorie-calculator/"
+  faqs={faqs}
+>
+  <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+      <div class="mb-4 space-y-1.5">
+        <label for="servings" class="block text-sm font-medium text-ink">Servings</label>
+        <input id="servings" type="number" inputmode="numeric" min="1" max="50" value="4" class={inputCls} />
+      </div>
+      <div id="ingredients" class="mb-4 space-y-2"></div>
+      <button type="button" id="add-ingredient" class="mb-5 inline-flex h-10 items-center justify-center rounded-full border border-hairline px-4 text-sm font-medium text-body transition-colors hover:text-ink">Add ingredient</button>
+      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Recipe Calories</button>
+    </form>
+
+    <div class="space-y-5">
+      <div class="card p-6 sm:p-8 text-center">
+        <p class="text-sm text-mute">Total recipe calories</p>
+        <p class="mt-1"><span id="recipe-total" class="text-display-xl text-ink tabular-nums">0</span> <span class="text-lg text-mute">kcal</span></p>
+        <p class="mt-2 text-sm text-body"><span id="recipe-per" class="text-ink">0</span> <span class="text-mute">kcal per serving</span></p>
+      </div>
+      <div class="card overflow-hidden">
+        <div class="border-b border-hairline px-5 py-3"><h2 class="text-sm font-semibold text-ink">Ingredient breakdown</h2></div>
+        <table class="w-full text-sm"><thead><tr class="border-b border-hairline text-left text-xs uppercase tracking-wide text-mute"><th class="px-5 py-3 font-medium">Ingredient</th><th class="px-5 py-3 text-right font-medium">Calories</th></tr></thead><tbody id="recipe-table"></tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <Fragment slot="content">
+    <h2>How to count recipe calories</h2>
+    <p>The easiest way to estimate homemade recipe calories is to add up the calories for each ingredient and divide by servings. Use the <a href="/food-calories-search/">food calories search</a> to look up ingredient calories, then plug them into this calculator.</p>
+
+    <h2>Tips for calorie-aware cooking</h2>
+    <ul>
+      <li>Use a kitchen scale for ingredient portions.</li>
+      <li>Log sauces and cooking oils — they add hidden calories.</li>
+      <li>Batch cook and divide into portions using the serving count.</li>
+      <li>Pair recipes with the <a href="/macro-calculator/">macro calculator</a> for protein, carbs, and fat balance.</li>
+    </ul>
+  </Fragment>
+</CalculatorLayout>
+
+<script>
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+    let ingredients: Ingredient[] = [];
+
+    function addRow(name = "", calories = "") {
+      const row = document.createElement("div");
+      row.className = "grid grid-cols-[1fr_120px_auto] gap-2 items-center";
+      row.innerHTML = `<input class="ing-name w-full h-10 rounded-lg border border-hairline bg-canvas px-3 text-sm text-ink placeholder:text-mute focus:border-brand focus:outline-none" value="${name}" placeholder="Ingredient" /><input class="ing-cal w-full h-10 rounded-lg border border-hairline bg-canvas px-3 text-sm text-ink placeholder:text-mute focus:border-brand focus:outline-none" inputmode="numeric" value="${calories}" placeholder="Calories" /><button type="button" class="remove-row inline-flex h-10 w-10 items-center justify-center rounded-full border border-hairline text-body hover:text-ink">×</button>`;
+      $("#ingredients").appendChild(row);
+      row.querySelector(".remove-row")?.addEventListener("click", () => row.remove());
+    }
+
+    function readIngredients(): Ingredient[] {
+      const rows = document.querySelectorAll("#ingredients > div");
+      const out: Ingredient[] = [];
+      rows.forEach((row) => {
+        const name = (row.querySelector(".ing-name") as HTMLInputElement).value.trim() || "Ingredient";
+        const cal = parseFloat((row.querySelector(".ing-cal") as HTMLInputElement).value) || 0;
+        if (cal > 0) out.push({ name, calories: cal });
+      });
+      return out;
+    }
+
+    function render() {
+      const servings = parseFloat(($("servings") as HTMLInputElement).value) || 1;
+      ingredients = readIngredients();
+      const result = recipeCalories(ingredients, servings);
+      $("recipe-total").textContent = result.total.toLocaleString("en-US");
+      $("recipe-per").textContent = result.perServing.toLocaleString("en-US");
+      $("recipe-table").innerHTML = ingredients.map((i) => `<tr class="border-b border-hairline last:border-0"><td class="px-5 py-2.5 text-body">${i.name}</td><td class="px-5 py-2.5 text-right text-mute tabular-nums">${i.calories.toLocaleString("en-US")}</td></tr>`).join("");
+    }
+
+    $("#add-ingredient")?.addEventListener("click", () => addRow());
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    ($("servings") as HTMLInputElement).addEventListener("input", render);
+    addRow(); addRow(); addRow();
+    render();
+  }
+</script>

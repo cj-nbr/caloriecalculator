@@ -1,0 +1,50 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What are the best exercises to burn calories?", a: "Running, cycling, swimming, and jump rope are among the highest calorie-burners. Use the <a href='/running-calorie-calculator/'>running calorie calculator</a>, <a href='/cycling-calories-calculator/'>cycling calories calculator</a>, or <a href='/swimming-calories-calculator/'>swimming calories calculator</a> to estimate your burn." },
+  { q: "Does cardio or weights burn more calories?", a: "Cardio usually burns more calories during the activity, but weights build muscle, which raises calories burned at rest. A mix is ideal for long-term calorie burn and body composition." },
+  { q: "How many calories does walking burn?", a: "A 70 kg person burns roughly 150–300 calories walking briskly for 30 minutes. Use the <a href='/walking-calorie-calculator/'>walking calorie calculator</a> for a personalized estimate." },
+  { q: "Is HIIT better for calorie burn than steady cardio?", a: "HIIT can burn comparable or slightly more calories in less time and may raise post-exercise metabolism. Steady cardio is easier to sustain and often clearer to track." },
+  { q: "How many calories does cycling burn?", a: "A 70 kg cyclist burns roughly 360–630 calories per hour depending on pace, from casual riding to vigorous racing. Check the <a href='/cycling-calories-calculator/'>cycling calories calculator</a>." },
+  { q: "How many calories does swimming burn?", a: "A 70 kg swimmer burns roughly 420–700 calories per hour depending on intensity. Use the <a href='/swimming-calories-calculator/'>swimming calories calculator</a> for an exact estimate." },
+  { q: "Should I do cardio every day?", a: "Not necessarily. 3–5 cardio sessions per week with rest or light movement on other days supports recovery and long-term consistency." },
+  { q: "How do I choose the best calorie-burning workout?", a: "Pick activities you enjoy, can access easily, and can sustain week after week. Consistency beats intensity when it comes to total calorie burn over time." },
+];
+---
+
+<ContentLayout
+  title="Best Exercises to Burn Calories — Top Workouts for Fat Loss"
+  h1="Best Exercises to Burn Calories"
+  description="Compare the most effective exercises for burning calories: running, cycling, swimming, walking, and high-intensity options."
+  path="/guides/best-exercises-to-burn-calories/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="The best calorie-burning exercise is the one you do consistently. Here is how running, cycling, swimming, and walking compare — and how to pick."
+  updated="July 2026"
+  faqs={faqs}
+>
+  <h2 id="cardio-vs-weights">Cardio vs strength training for calorie burn</h2>
+  <p>Cardio tends to burn more calories during the session, while strength training builds muscle that raises metabolism at rest. For long-term fat loss, combine both: cardio for immediate burn, and weights for sustained metabolic benefit.</p>
+
+  <h2 id="top-exercises">Top calorie-burning exercises</h2>
+  <ul>
+    <li><strong>Running:</strong> high burn, minimal equipment. Use the <a href="/running-calorie-calculator/">running calorie calculator</a> to plan your pace and calories.</li>
+    <li><strong>Cycling:</strong> joint-friendly and scalable from casual to racing intensity. Use the <a href="/cycling-calories-calculator/">cycling calories calculator</a>.</li>
+    <li><strong>Swimming:</strong> full-body, low-impact, and calorie-dense sessions. Use the <a href="/swimming-calories-calculator/">swimming calories calculator</a>.</li>
+    <li><strong>Walking:</strong> accessible and sustainable. Use the <a href="/walking-calorie-calculator/">walking calorie calculator</a>.</li>
+    <li><strong>Treadmill:</strong> controlled environment for interval or steady-state work. Use the <a href="/treadmill-calorie-calculator/">treadmill calorie calculator</a>.</li>
+  </ul>
+
+  <h2 id="how-to-pick">How to pick the best workout for you</h2>
+  <ul>
+    <li>Choose activities you enjoy enough to repeat weekly.</li>
+    <li>Match intensity to your current fitness and joint health.</li>
+    <li>Use a calorie calculator for each activity to compare burn in your own numbers.</li>
+    <li>Pair the activity with a calorie target from the <a href="/">calorie calculator</a> and a macro plan from the <a href="/macro-calculator/">macro calculator</a>.</li>
+  </ul>
+
+  <h2 id="consistency-wins">Consistency wins</h2>
+  <p>A moderate workout you repeat 5 times per week beats an extreme session you do once and quit. Build a routine around walking, cycling, or swimming, then add intensity gradually. For structured plans, explore the <a href="/workouts/">workout guides</a>.</p>
+</ContentLayout>

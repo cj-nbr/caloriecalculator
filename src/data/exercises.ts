@@ -53,3 +53,16 @@ export const GENERAL: Activity[] = [
   { label: "Soccer", met: 7.0 },
   { label: "Tennis", met: 7.3 },
 ];
+
+export const CYCLING: Activity[] = [
+  { label: "Cycling, leisure (16 km/h · 10 mph)", met: 4.0 },
+  { label: "Cycling, moderate (19.3 km/h · 12 mph)", met: 6.0 },
+  { label: "Cycling, vigorous (22.5 km/h · 14 mph)", met: 8.0 },
+  { label: "Cycling, racing (32 km/h · 20 mph)", met: 15.8 },
+];
+
+export const SWIMMING: Activity[] = [
+  { label: "Swimming, moderate", met: 7.0 },
+  { label: "Swimming, vigorous laps", met: 10.0 },
+  { label: "Swimming, butterfly / intense", met: 13.0 },
+];

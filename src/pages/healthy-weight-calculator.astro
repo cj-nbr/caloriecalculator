@@ -1,0 +1,136 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import { inputCls, segOptCls } from "../lib/ui";
+import { healthyWeightRange } from "../lib/calculations";
+import type { FaqItem } from "../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is a healthy weight?", a: "A healthy weight is a weight range where your body mass index (BMI) falls between 18.5 and 24.9, which is associated with lower risk of weight-related health problems for most adults." },
+  { q: "How is healthy weight calculated?", a: "Healthy weight is calculated by solving the BMI formula for weight using the standard BMI range of 18.5–24.9. It depends entirely on your height." },
+  { q: "What is the healthy BMI range?", a: "The standard healthy BMI range is 18.5 to 24.9. Below 18.5 is underweight, 25–29.9 is overweight, and 30 or above is obese." },
+  { q: "Is there a single ideal weight for my height?", a: "No. Healthy weight is a range, not a single number. BMI sets a broad healthy zone, but body composition, muscle mass, and frame size also matter." },
+  { q: "Does muscle mass affect healthy weight?", a: "Yes. Muscle is denser than fat, so muscular people can have higher body weight with low body fat. Use body composition along with BMI, not BMI alone." },
+  { q: "What if my weight is outside the healthy range?", a: "If you are outside the healthy range, focus on sustainable habits. Use the <a href='/weight-loss-calculator/'>weight loss calculator</a> for an overweight goal or the <a href='/weight-gain-calculator/'>weight gain calculator</a> if you need to gain." },
+  { q: "How often should I check my healthy weight?", a: "Check every few weeks or when your habits change. Sudden shifts can mean water, muscle, or fat changes. Pair the number with energy, strength, and sleep quality." },
+  { q: "Does frame size matter for healthy weight?", a: "Some guidelines suggest small, medium, and large frames, but BMI-based ranges remain the standard. Use the range as a starting point and consult a professional for personalized guidance." },
+];
+---
+
+<CalculatorLayout
+  title="Healthy Weight Calculator — What Is a Healthy Weight for Your Height (Free)"
+  h1="Healthy Weight Calculator"
+  description="Free healthy weight calculator. Find your healthy weight range based on height and the standard BMI-based healthy zone."
+  intro="Enter your height to see your healthy weight range. Add your current weight to see where you fall."
+  path="/healthy-weight-calculator/"
+  faqs={faqs}
+>
+  <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <form id="calc-form" class="card p-5 sm:p-6" novalidate>
+      <div class="mb-4 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1" role="tablist" aria-label="Unit system">
+        <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" aria-pressed="true">Metric</button>
+        <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" aria-pressed="false">Imperial</button>
+      </div>
+      <div class="mb-4 grid grid-cols-2 gap-3">
+        <div class="space-y-1.5">
+          <label for="height-cm" class="block text-sm font-medium text-ink">Height <span class="height-unit text-mute">(cm)</span></label>
+          <input id="height-cm" type="number" inputmode="decimal" min="100" max="250" value="170" class={inputCls} />
+        </div>
+        <div class="space-y-1.5">
+          <label for="weight" class="block text-sm font-medium text-ink">Current weight <span class="weight-unit text-mute">(kg)</span></label>
+          <input id="weight" type="number" inputmode="decimal" min="20" step="0.1" value="70" class={inputCls} />
+        </div>
+      </div>
+      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Healthy Weight</button>
+    </form>
+
+    <div class="space-y-5">
+      <div class="card p-6 sm:p-8 text-center">
+        <p class="text-sm text-mute">Healthy weight range</p>
+        <p class="mt-1"><span id="hw-min" class="text-display-xl text-ink tabular-nums">53.8</span> – <span id="hw-max" class="text-display-xl text-ink tabular-nums">72.4</span> <span class="text-lg text-mute">kg</span></p>
+        <p id="hw-bmi" class="mt-2 text-sm text-body"></p>
+      </div>
+      <div class="card overflow-hidden">
+        <div class="border-b border-hairline px-5 py-3"><h2 class="text-sm font-semibold text-ink">BMI categories</h2></div>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-hairline text-left text-xs uppercase tracking-wide text-mute">
+              <th class="px-5 py-3 font-medium">Category</th>
+              <th class="px-5 py-3 text-right font-medium">BMI</th>
+            </tr>
+          </thead>
+          <tbody id="bmi-table"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <Fragment slot="content">
+    <h2>What healthy weight means</h2>
+    <p>Healthy weight is a range, not a single target. It is based on body mass index (BMI), which compares your weight to your height. Sticking inside the 18.5–24.9 BMI range reduces health risk for most adults while still allowing normal body composition variation.</p>
+
+    <h2>Why use a range instead of one number</h2>
+    <p>Two people of the same height can have very different builds. A muscular athlete may weigh more than a less muscular person of the same height but still be healthier. Use this calculator as a general guide, and pair it with strength, energy, and how your clothes fit.</p>
+
+    <h2>Moving toward your healthy weight</h2>
+    <p>If you want to lose fat, use the <a href="/weight-loss-calculator/">weight loss calculator</a> to plan a safe pace. If you want to gain weight, use the <a href="/weight-gain-calculator/">weight gain calculator</a> instead. For a daily calorie baseline, start with the <a href="/">calorie calculator</a>.</p>
+  </Fragment>
+</CalculatorLayout>
+
+<script>
+  import { bmi, bmiCategory } from "../lib/calculations";
+  import { lbToKg } from "../lib/units";
+
+  const root = document.getElementById("calc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+    const fmt = (n: number) => Math.round(n * 10) / 10;
+    let unit: "metric" | "imperial" = "metric";
+
+    function render() {
+      const heightCm = unit === "metric" ? parseFloat(($("height-cm") as HTMLInputElement).value) || 0 : lbToKg(parseFloat(($("height-cm") as HTMLInputElement).value) || 0);
+      const weightKg = unit === "metric" ? parseFloat(($("weight") as HTMLInputElement).value) || 0 : lbToKg(parseFloat(($("weight") as HTMLInputElement).value) || 0);
+      if (heightCm <= 0) return;
+
+      const range = healthyWeightRange(heightCm);
+      $("hw-min").textContent = fmt(range.minKg).toLocaleString("en-US");
+      $("hw-max").textContent = fmt(range.maxKg).toLocaleString("en-US");
+
+      if (weightKg > 0) {
+        const b = bmi(weightKg, heightCm);
+        $("hw-bmi").textContent = `Your current BMI is ${fmt(b)} (${bmiCategory(b)}).`;
+      } else {
+        $("hw-bmi").textContent = "";
+      }
+
+      const categories = [
+        { name: "Underweight", bmi: "Below 18.5" },
+        { name: "Normal", bmi: "18.5 – 24.9" },
+        { name: "Overweight", bmi: "25 – 29.9" },
+        { name: "Obese", bmi: "30 or above" },
+      ];
+      $("bmi-table").innerHTML = categories.map((c) => `<tr class="border-b border-hairline last:border-0"><td class="px-5 py-2.5 text-body">${c.name}</td><td class="px-5 py-2.5 text-right tabular-nums text-mute">${c.bmi}</td></tr>`).join("");
+    }
+
+    root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const next = btn.dataset.unit as "metric" | "imperial";
+        if (next === unit) return;
+        unit = next;
+        root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((b) => {
+          const on = b.dataset.unit === unit;
+          b.setAttribute("aria-pressed", String(on));
+          b.classList.toggle("bg-canvas", on); b.classList.toggle("text-ink", on); b.classList.toggle("shadow-sm", on); b.classList.toggle("text-mute", !on);
+        });
+        document.querySelectorAll(".weight-unit").forEach((e) => {
+          (e as HTMLElement).textContent = unit === "metric" ? "(kg)" : "(lb)";
+        });
+        const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
+        if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
+        render();
+      });
+    });
+
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    render();
+  }
+</script>

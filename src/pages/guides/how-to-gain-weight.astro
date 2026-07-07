@@ -1,0 +1,59 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "How do I gain weight in a healthy way?", a: "Eat a modest calorie surplus of 250–500 calories above maintenance, prioritize protein, and combine nutrition with resistance training. Use the <a href='/weight-gain-calculator/'>weight gain calculator</a> to set your daily target." },
+  { q: "What is the best food for gaining weight?", a: "Calorie-dense whole foods work best: nuts, seeds, avocados, olive oil, oats, dairy, red meat, and complex carbs. Use the <a href='/meal-calorie-calculator/'>meal calorie calculator</a> to spread calories across the day." },
+  { q: "How many calories should I eat to gain weight?", a: "Most people need 250–500 calories above maintenance. For a 0.5 kg/week gain, aim for roughly 300–500 extra calories every day." },
+  { q: "How long does it take to gain 10 pounds?", a: "At a 500-calorie daily surplus, gaining 4.5 kg (10 lb) takes about 10–12 weeks for most people. Genetics, training experience, and starting weight all affect the exact timeline." },
+  { q: "Can I gain muscle without gaining fat?", a: "Beginners can often recomp — gain muscle while staying lean. Advanced lifters usually gain some fat alongside muscle. Keep the surplus small, train hard, and hit protein targets." },
+  { q: "Should I count macros while bulking?", a: "Macros help preserve muscle during a bulk. Use the <a href='/macro-calculator/'>macro calculator</a> to set a protein-first split and avoid excess fat gain." },
+  { q: "Is weight gain hard for some people?", a: "Yes. Fast metabolisms, high activity levels, and small appetites make gaining harder. Liquid calories (smoothies, shakes) and frequent meals can help increase intake without feeling stuffed." },
+  { q: "How do I calculate my weight gain timeline?", a: "Take your desired weekly gain rate and use the <a href='/weight-gain-calculator/'>weight gain calculator</a> to see your daily surplus and estimated weeks to goal weight." },
+];
+---
+
+<ContentLayout
+  title="How to Gain Weight the Healthy Way — Bulking Without Excess Fat"
+  h1="How to Gain Weight the Healthy Way"
+  description="A practical guide to healthy weight gain: calorie surplus, macro splits, best foods, strength training, and how to avoid excess fat."
+  path="/guides/how-to-gain-weight/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="Healthy weight gain is slower and more controllable than most people think. Here is how to add size sustainably."
+  updated="July 2026"
+  faqs={faqs}
+>
+  <h2 id="why-healthy-gain-matters">Why healthy weight gain matters</h2>
+  <p>Gaining weight quickly by eating junk food often adds fat rather than muscle. Healthy gain means adding mostly lean mass while keeping fat gain minimal. It requires a modest calorie surplus, protein-first nutrition, and progressive resistance training.</p>
+
+  <h2 id="surplus-and-rate">Set the right calorie surplus</h2>
+  <p>Use the <a href="/weight-gain-calculator/">weight gain calculator</a> to find your daily target. Start with a 250–500 calorie surplus above maintenance. Faster gain usually means more fat, which means a longer cutting phase later if you want to get lean again.</p>
+
+  <h2 id="best-foods">Best foods for healthy bulking</h2>
+  <ul>
+    <li>Protein sources: chicken, turkey, fish, eggs, Greek yogurt, whey protein.</li>
+    <li>Carb sources: oats, rice, pasta, potatoes, bread.</li>
+    <li>Calorie boosters: peanut butter, olive oil, avocado, trail mix, full-fat dairy.</li>
+    <li>Use the <a href="/macro-calculator/">macro calculator</a> to set grams per meal.</li>
+  </ul>
+
+  <h2 id="meal-planning">Meal planning for weight gain</h2>
+  <p>Use the <a href="/meal-calorie-calculator/">meal calorie calculator</a> to split your daily surplus across breakfast, lunch, dinner, and snacks. Eating every 3–4 hours keeps protein synthesis steady and makes the surplus easier to swallow.</p>
+
+  <h2 id="training">Training turns surplus into muscle</h2>
+  <p>Use the <a href="/one-rep-max-calculator/">one rep max calculator</a> to set working weights, and keep sets in the 6–12 rep range for hypertrophy. Compound lifts—squat, bench, deadlift, overhead press—should form the core of your program.</p>
+
+  <h2 id="sample-day">Sample high-calorie day</h2>
+  <ul>
+    <li>Breakfast: oats + peanut butter + protein shake</li>
+    <li>Snack: Greek yogurt + granola + honey</li>
+    <li>Lunch: rice + chicken + olive oil + vegetables</li>
+    <li>Snack: trail mix + fruit</li>
+    <li>Dinner: pasta + meat sauce + parmesan</li>
+  </ul>
+
+  <h2 id="summary">Summary</h2>
+  <p>Healthy weight gain is about consistency, not perfection. Pick a 250–500 calorie surplus, hit your protein target, and train with progressive overload. Use the <a href="/maintenance-calories-calculator/">maintenance calories calculator</a> to check your baseline whenever your weight changes.</p>
+</ContentLayout>
