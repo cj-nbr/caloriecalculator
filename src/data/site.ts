@@ -41,7 +41,7 @@ export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
     ],
   },
   {
-    label: "Pregnancy",
+    label: "Health",
     href: "/pregnancy-calculator/",
     children: [
       { label: "Pregnancy Calculator", href: "/pregnancy-calculator/", desc: "Due date & conception" },
