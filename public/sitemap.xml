@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://caloriecalculatorfree.com/</loc>
@@ -348,30 +348,30 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-<url>
-<loc>https://caloriecalculatorfree.com/guides/protein-guide/</loc>
-<lastmod>2026-07-04</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.75</priority>
-</url>
-<url>
-<loc>https://caloriecalculatorfree.com/guides/protein-calories/</loc>
-<lastmod>2026-07-04</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
-<loc>https://caloriecalculatorfree.com/guides/protein-calorie-calculator/</loc>
-<lastmod>2026-07-04</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.75</priority>
-</url>
-<url>
-<loc>https://caloriecalculatorfree.com/guides/macro-guide/</loc>
-<lastmod>2026-07-04</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.75</priority>
-</url>
+  <url>
+    <loc>https://caloriecalculatorfree.com/guides/protein-guide/</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://caloriecalculatorfree.com/guides/protein-calories/</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://caloriecalculatorfree.com/guides/protein-calorie-calculator/</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://caloriecalculatorfree.com/guides/macro-guide/</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
   <url>
     <loc>https://caloriecalculatorfree.com/resources/</loc>
     <lastmod>2026-06-16</lastmod>
@@ -731,5 +731,107 @@
     <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url xmlns="">
+    <loc>https://caloriecalculatorfree.com/alcohol-calories-calculator/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url xmlns="">
+    <loc>https://caloriecalculatorfree.com/guides/whats-my-tdee/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url xmlns="">
+    <loc>https://caloriecalculatorfree.com/guides/calculate-bmr/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url xmlns="">
+    <loc>https://caloriecalculatorfree.com/guides/metabolism-calculator/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url xmlns="">
+    <loc>https://caloriecalculatorfree.com/resources/maintenance-calorie-calculator/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url xmlns="">
+    <loc>https://caloriecalculatorfree.com/resources/mifflin-st-jeor-women/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url xmlns="">
+    <loc>https://caloriecalculatorfree.com/resources/harris-benedict-equation/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url xmlns="">
+    <loc>https://caloriecalculatorfree.com/guides/harris-benedict-calculator/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url xmlns="">
+    <loc>https://caloriecalculatorfree.com/guides/harris-benedict-revised/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url xmlns="">
+    <loc>https://caloriecalculatorfree.com/guides/bike-calorie-calculator/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url xmlns="">
+    <loc>https://caloriecalculatorfree.com/guides/calories-burned-swimming/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url xmlns="">
+    <loc>https://caloriecalculatorfree.com/guides/protein-to-kcal/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url xmlns="">
+    <loc>https://caloriecalculatorfree.com/guides/alcohol-calorie-counter/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url xmlns="">
+    <loc>https://caloriecalculatorfree.com/guides/epley-formula/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url xmlns="">
+    <loc>https://caloriecalculatorfree.com/guides/estimate-delivery-date/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url xmlns="">
+    <loc>https://caloriecalculatorfree.com/guides/mifflin-st-jeor-stress-factors/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url xmlns="">
+    <loc>https://caloriecalculatorfree.com/resources/army-tape-test/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
 </urlset>

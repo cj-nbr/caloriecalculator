@@ -10,6 +10,13 @@ Allow: /recipe-calorie-calculator/
 Allow: /intermittent-fasting-calculator/
 Allow: /cycling-calories-calculator/
 Allow: /swimming-calories-calculator/
+Allow: /alcohol-calories-calculator/
+Allow: /army-body-fat-calculator/
+Allow: /one-rep-max-calculator/
+Allow: /target-heart-rate-calculator/
+Allow: /pace-calculator/
+Allow: /guides/
+Allow: /resources/
 
 Sitemap: https://caloriecalculatorfree.com/sitemap.xml
 
