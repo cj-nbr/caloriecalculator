@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
 
 const faqs: FaqItem[] = [
@@ -33,6 +34,8 @@ const faqs: FaqItem[] = [
 >
   <div class="not-prose mb-8 grid gap-4 rounded-xl border border-hairline bg-canvas-soft p-5 sm:p-6">
     <h2 class="text-display-sm text-ink">Instant Formula</h2>
+
+  <ArticleImage src="/assets/images/articles/protein-structure.svg" alt="Illustration of amino acid structures forming protein molecules for calorie calculation." />
     <p class="text-2xl font-semibold text-ink">Protein (g) × 4 = Calories</p>
     <p class="text-sm text-body">Every gram of protein = 4 calories. <a href="/protein-calculator/" class="text-brand">Use our protein calculator</a> for automatic conversion.</p>
   </div>

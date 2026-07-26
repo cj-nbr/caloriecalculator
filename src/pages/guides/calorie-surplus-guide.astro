@@ -1,6 +1,7 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "What is a calorie surplus?", a: "A calorie surplus means eating more calories than your body burns. Combined with resistance training, the extra energy supports muscle growth and weight gain." },
@@ -21,6 +22,8 @@ const faqs: FaqItem[] = [
 >
   <h2>What is a calorie surplus?</h2>
   <p>A calorie surplus is the opposite of a deficit: you eat more energy than your body burns. That extra energy gives your body the raw materials it needs to repair and build new muscle tissue after training. Without a surplus (or at least maintenance), building significant muscle is very difficult.</p>
+
+  <ArticleImage src="/assets/images/articles/calorie-surplus.svg" alt="Illustration of a calorie surplus showing extra energy for muscle growth." />
 
   <h2>How big should it be?</h2>
   <p>More is not better here. A moderate surplus of 250–500 calories per day above your <a href="/tdee-calculator/">TDEE</a> supports muscle growth while keeping fat gain in check. Your body can only build muscle so fast — extra calories beyond that simply become body fat.</p>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" role="img" aria-hidden="true">
+  <rect width="400" height="220" rx="16" fill="transparent"/>
+  <g transform="translate(110 110)">
+    <circle r="60" fill="#0070f3"/>
+    <circle r="60" fill="#0070f3" opacity="0.15"/>
+    <text x="0" y="6" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#ffffff" text-anchor="middle">Lean mass</text>
+  </g>
+  <g transform="translate(290 110)">
+    <circle r="60" fill="#ff0080" opacity="0.85"/>
+    <text x="0" y="6" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#ffffff" text-anchor="middle">Body fat</text>
+  </g>
+  <text x="200" y="200" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#6b6b6b" text-anchor="middle">Two parts of total body weight</text>
+</svg>

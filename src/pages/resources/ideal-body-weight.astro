@@ -1,6 +1,7 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "What is ideal body weight?", a: "Ideal body weight is an estimated healthy weight range for height. Our <a href='/ideal-weight-calculator/'>ideal weight calculator</a> uses Robinson, Miller, Devine, and Hamwi formulas." },
@@ -21,6 +22,8 @@ const faqs: FaqItem[] = [
   faqs={faqs}
 >
   <p>The <strong>ideal body weight calculator</strong> estimates healthy weight ranges using formulas developed for medical use. These provide baselines, not targets.</p>
+
+  <ArticleImage src="/assets/images/articles/ideal-weight-chart.svg" alt="Illustration of ideal body weight formulas and healthy weight ranges by height." />
 
   <h2>Ideal weight formulas compared</h2>
   <table>

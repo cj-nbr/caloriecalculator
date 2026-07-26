@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" role="img" aria-hidden="true">
+  <rect width="400" height="220" rx="16" fill="transparent"/>
+  <g transform="translate(200 110)">
+    <circle cx="0" cy="0" r="50" fill="none" stroke="#ebebeb" stroke-width="8"/>
+    <path d="M-50 0 A50 50 0 0 1 50 0" fill="none" stroke="#0070f3" stroke-width="8" stroke-linecap="round"/>
+    <path d="M-50 0 A50 50 0 0 1 0 -50" fill="none" stroke="#0cce6b" stroke-width="8" stroke-linecap="round"/>
+    <text x="0" y="6" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#171717" text-anchor="middle">Pace</text>
+    <text x="0" y="68" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#6b6b6b" text-anchor="middle">Minutes per kilometer or mile</text>
+  </g>
+</svg>

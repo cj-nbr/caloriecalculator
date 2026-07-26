@@ -3,6 +3,9 @@ import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls } from "../lib/ui";
 import type { FaqItem } from "../lib/seo";
 import { breadcrumbSchema, calculatorSchema, faqSchema } from "../lib/seo";
+import MedicalNote from "../components/ui/MedicalNote.astro";
+import ArticleImage from "../components/ui/ArticleImage.astro";
+import Sources from "../components/ui/Sources.astro";
 
 const faqs: FaqItem[] = [
   { q: "What is one rep max?", a: "One rep max (1RM) is the maximum amount of weight you can lift for one complete repetition with proper form. It is a key strength benchmark used in powerlifting, weightlifting, and strength training." },
@@ -13,6 +16,8 @@ const faqs: FaqItem[] = [
   { q: "Should I test my true one rep max?", a: "Testing a true 1RM carries injury risk. Estimating from submaximal reps is safer for most people. If you do test, use a spotter and only after a thorough warm-up." },
   { q: "How often should I calculate my one rep max?", a: "Reassess every 4–8 weeks. Frequent testing can interfere with recovery. Use the calculator to track estimated progress instead of constantly maxing out." },
   { q: "Can one rep max be used for all exercises?", a: "The Epley formula is commonly used for barbell lifts like squat, bench press, and deadlift. For bodyweight or machine exercises, the estimate is less standardized." },
+  { q: "What are other 1RM formulas?", a: "Common alternatives include Brzycki (1RM = weight × 36 / (37 - reps)), Lombardi (1RM = weight × reps^0.10), and Mayhew (more complex, uses body weight). Our calculator uses the Epley formula because it is simple and widely accepted." },
+  { q: "How do I use 1RM for programming?", a: "Pick rep zones based on goal: 1–3 reps for strength, 8–12 for hypertrophy, 12–15 for endurance. Set working weight as a percentage of 1RM. The <a href='/macro-calculator/'>macro calculator</a> can help you fuel those sessions." },
 ];
 
 const path = "/one-rep-max-calculator/";
@@ -41,6 +46,7 @@ const jsonLd = [
   faqs={faqs}
 >
   <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <MedicalNote />
     <form id="calc-form" class="card p-5 sm:p-6" novalidate>
       <p role="note" class="mb-4 text-xs leading-relaxed text-mute">
         Enter the weight you lifted and how many reps you completed. The calculator estimates your 1RM.
@@ -81,20 +87,67 @@ const jsonLd = [
   </div>
 
   <Fragment slot="content">
-    <h2>What your one rep max means</h2>
-    <p>Your one rep max is the heaviest weight you can lift for a single full repetition with correct technique. It is widely used in strength training to set loads for different rep schemes, track progress, and program training intensity.</p>
+    <ArticleImage src="/assets/images/articles/barbell-1rm.svg" alt="Illustration of a barbell loaded with weight plates representing strength training and one rep max." />
 
-    <h2>The Epley formula</h2>
-    <p>This calculator estimates 1RM without forcing you to lift to failure. The Epley formula is simple and practical for submaximal testing.</p>
+    <h2>What is one rep max</h2>
+    <p>One rep max — usually written as 1RM — is the most weight you can lift for a single complete repetition with correct form. It is the gold-standard measure of maximal strength and is used in powerlifting, bodybuilding, and general strength programming.</p>
 
-    <h2>How to use this result</h2>
-    <p>Once you know your estimated 1RM, you can calculate training percentages. For example, 80% of your 1RM is a common working-set intensity for muscle growth and strength. If your estimated 1RM is 120 kg, then 80% is 96 kg.</p>
+    <h2>The Epley formula explained in detail</h2>
+    <p>The Epley formula was published in 1985 by Matt Epley and quickly became the standard for estimating 1RM from lighter sets. It is:</p>
+    <p><code>1RM = weight × (1 + reps / 30)</code></p>
+    <p>If you lift 100 kg for 5 reps, the formula gives 100 × (1 + 5/30) = 116.7 kg. The formula assumes a roughly linear relationship between load and reps, which works well for compound barbell lifts. It is less reliable above 10–12 reps, where fatigue and endurance begin to blur the 1RM estimate.</p>
 
-    <h2>Strength standards</h2>
-    <p>One rep max standards vary by lift, body weight, sex, and training experience. Use this tool as a personal benchmark rather than comparing directly to others. Consistent progress over time matters more than hitting a specific number.</p>
+    <h2>How to test 1RM safely</h2>
+    <p>True 1RM testing is risky if you are unprepared. A safer approach is to use submaximal testing: pick a weight you can lift for 2–6 reps with good form, then apply the Epley formula. If you do test a true 1RM, follow these rules:</p>
+    <ul>
+      <li>Warm up thoroughly with light sets of the target lift.</li>
+      <li>Use a spotter or safety bars / pins.</li>
+      <li>Choose a weight you can handle for 1–2 reps only.</li>
+      <li>Stop if your technique breaks down.</li>
+      <li>Limit true 1RM attempts to once every 4–8 weeks.</li>
+    </ul>
 
-    <h2>Safety notes</h2>
-    <p>Do not test your true 1RM too often. Estimating from a controlled submaximal set is safer for most lifters. If you do attempt a heavier single, use a spotter, warm up well, and only attempt it when your technique feels solid.</p>
+    <h2>One rep max standards by level and bodyweight</h2>
+    <p>1RM standards give context but vary by lift, sex, age, and training history. Use them as rough guides rather than rigid targets:</p>
+    <table>
+      <thead><tr><th>Level</th><th>Relative 1RM (bodyweight ×)</th><th>Typical use</th></tr></thead>
+      <tbody>
+        <tr><td>Beginner</td><td>0.75–1.0×</td><td>Learning technique</td></tr>
+        <tr><td>Intermediate</td><td>1.0–1.5×</td><td>Consistent training 1–3 years</td></tr>
+        <tr><td>Advanced</td><td>1.5–2.0×+</td><td>Competitive or long-term training</td></tr>
+      </tbody>
+    </table>
+
+    <h2>How to use 1RM for programming</h2>
+    <p>Once you know your estimated 1RM, you can set precise training loads:</p>
+    <ul>
+      <li><strong>Strength:</strong> 80–90% of 1RM for 3–5 reps</li>
+      <li><strong>Hypertrophy:</strong> 65–75% of 1RM for 8–12 reps</li>
+      <li><strong>Endurance:</strong> 50–65% of 1RM for 12–15+ reps</li>
+    </ul>
+    <p>Pair this with the <a href="/macro-calculator/">macro calculator</a> to fuel your sessions and the <a href="/protein-calculator/">protein calculator</a> to support recovery.</p>
+
+    <h2>Other 1RM formulas</h2>
+    <p>Several formulas exist, each with trade-offs:</p>
+    <table>
+      <thead><tr><th>Formula</th><th>Equation</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Epley</td><td>w × (1 + r/30)</td><td>Simple; best for 2–10 reps</td></tr>
+        <tr><td>Brzycki</td><td>w × 36 / (37 - r)</td><td>Slightly conservative; popular in strength coaching</td></tr>
+        <tr><td>Lombardi</td><td>w × r^0.10</td><td>Aggressive; better for power athletes</td></tr>
+        <tr><td>Mayhew</td><td>(100 × w) / (52.2 + 41.9 × e^(-0.055 × r))</td><td>Complex; includes body-weight scaling</td></tr>
+      </tbody>
+    </table>
+    <p>For most lifters, the difference between formulas is small. Use Epley for simplicity, or Brzycki if your coach prefers a more conservative estimate.</p>
+
+    <h2>Using 1RM without lifting to failure</h2>
+    <p>Submaximal testing preserves energy and reduces injury risk. Pick a weight you can move cleanly for 3–6 reps, apply the formula, and use that as your working estimate. Reassess every 4–8 weeks as your strength changes.</p>
+
+    <Sources sources={[
+      { label: "Epley B. Poundage percentage tables. Elite Performance Systems. 1985.", href: "https://www.elitefts.com/education/poundage-percentage-tables/" },
+      { label: "Brzycki PR. Strength testing: predictions. Journal of Health, Physical Education, and Recreation. 1993.", href: "https://www.researchgate.net/publication/319732465" },
+      { label: "Mayhew J et al. A generalized equation for predicting 1RM. Journal of Strength and Conditioning Research. 1992.", href: "https://pubmed.ncbi.nlm.nih.gov/16287344/" },
+    ]} />
   </Fragment>
 </CalculatorLayout>
 
@@ -127,6 +180,5 @@ const jsonLd = [
     }
 
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-    render();
   }
 </script>

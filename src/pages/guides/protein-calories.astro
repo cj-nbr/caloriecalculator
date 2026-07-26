@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
 
 const faqs: FaqItem[] = [
@@ -43,6 +44,8 @@ const faqs: FaqItem[] = [
 >
   <div class="not-prose mb-8 grid gap-4 rounded-xl border border-hairline bg-canvas-soft p-5 sm:p-6">
     <h2 class="text-display-sm text-ink">Instant Answer</h2>
+
+  <ArticleImage src="/assets/images/articles/protein-structure.svg" alt="Illustration of protein molecules showing 4 calories per gram energy content." />
     <p class="text-2xl font-semibold text-ink">1 gram of protein = <span class="text-brand">4 calories</span></p>
     <p class="text-sm text-body">This is the universal scientific measurement. Multiply protein grams by 4 to get calories.</p>
   </div>
@@ -149,6 +152,30 @@ const faqs: FaqItem[] = [
     <li><strong>Sources:</strong> 4 oz chicken (124 kcal), 2 eggs (48 kcal), protein shake (96 kcal), Greek yogurt (80 kcal)</li>
   </ul>
 
+  <h2 id="meal-planning">Protein Calories in Meal Planning</h2>
+  <p>Build a full day of eating around protein calories:</p>
+  <table>
+    <thead><tr><th>Meal</th><th>Food</th><th>Protein (g)</th><th>Protein calories</th><th>Total calories</th></tr></thead>
+    <tbody>
+      <tr><td>Breakfast</td><td>3 eggs + 1 slice whole-grain toast</td><td>18g</td><td>72 kcal</td><td>280 kcal</td></tr>
+      <tr><td>Snack</td><td>Greek yogurt (1 cup) + almonds (1 oz)</td><td>16g</td><td>64 kcal</td><td>220 kcal</td></tr>
+      <tr><td>Lunch</td><td>6 oz chicken breast + quinoa (1 cup)</td><td>54g</td><td>216 kcal</td><td>520 kcal</td></tr>
+      <tr><td>Dinner</td><td>6 oz salmon + broccoli + sweet potato</td><td>40g</td><td>160 kcal</td><td>480 kcal</td></tr>
+      <tr><td>Total</td><td>—</td><td>128g</td><td>512 kcal</td><td>1,500 kcal</td></tr>
+    </tbody>
+  </table>
+  <p>This meal plan provides 512 calories from protein on a 1,500-calorie day, making protein 34% of total calories. Adjust portions using the <a href="/meal-calorie-calculator/">meal calorie calculator</a> or <a href="/recipe-calorie-calculator/">recipe calorie calculator</a>.</p>
+
+  <h2 id="high-protein-examples">High-Protein Day Examples</h2>
+  <p>For muscle gain or aggressive fat loss, protein can reach 1.8–2.2 g/kg. Here is a 2,500-calorie day at 35% protein (219g protein = 875 calories):</p>
+  <ul>
+    <li><strong>Breakfast:</strong> 4 egg whites + 2 whole eggs + 1 cup oats = 40g protein = 160 kcal</li>
+    <li><strong>Lunch:</strong> 8 oz chicken + 2 cups rice = 70g protein = 280 kcal</li>
+    <li><strong>Snack:</strong> Protein shake (2 scoops) + banana = 50g protein = 200 kcal</li>
+    <li><strong>Dinner:</strong> 8 oz steak + sweet potato + greens = 59g protein = 236 kcal</li>
+  </ul>
+  <p>Use the <a href="/protein-calculator/">protein calculator</a> to find your exact target, then the <a href="/macro-calculator/">macro calculator</a> to split remaining calories into carbs and fat.</p>
+
   <h2 id="frequently-asked">Frequently Asked Questions</h2>
   <details class="mb-2 rounded-lg border border-hairline">
     <summary class="cursor-pointer px-4 py-3 font-medium text-ink">Does cooking change protein calories?</summary>
@@ -162,11 +189,20 @@ const faqs: FaqItem[] = [
     <summary class="cursor-pointer px-4 py-3 font-medium text-ink">What happens to excess protein calories?</summary>
     <p class="px-4 pb-3 text-sm text-body">Unused protein converts to glucose (gluconeogenesis) or fat if total calories exceed needs.</p>
   </details>
+  <details class="mb-2 rounded-lg border border-hairline">
+    <summary class="cursor-pointer px-4 py-3 font-medium text-ink">Does protein timing affect muscle growth?</summary>
+    <p class="px-4 pb-3 text-sm text-body">Yes. Spreading 25–40g protein across 3–4 meals maximizes muscle protein synthesis more than eating all protein in one meal.</p>
+  </details>
+  <details class="mb-2 rounded-lg border border-hairline">
+    <summary class="cursor-pointer px-4 py-3 font-medium text-ink">Can I eat too much protein for weight loss?</summary>
+    <p class="px-4 pb-3 text-sm text-body">Excess protein beyond your needs still contributes calories. On a 1,500-calorie plan, 200g protein (800 kcal) leaves little room for carbs and fat.</p>
+  </details>
 
   <h2 id="continue-learning">Continue Learning</h2>
   <ul>
     <li><a href="/protein-calculator/">Protein Calculator</a> — Your exact target</li>
     <li><a href="/macro-calculator/">Macro Calculator</a> — All macros with calories</li>
     <li><a href="/guides/protein-guide/">Protein Guide</a> — Complete reference</li>
+    <li><a href="/guides/protein-calorie-calculator/">Protein Calorie Calculator</a> — Convert grams to calories</li>
   </ul>
 </ContentLayout>

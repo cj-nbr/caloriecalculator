@@ -319,3 +319,16 @@ export function armyBodyFat(
   const logHeight = Math.log10(heightCm);
   return Math.max(0, 163.205 * logWaistHipNeck - 97.684 * logHeight - 78.387);
 }
+
+/**
+ * Alcohol calories from volume, ABV, and drink type.
+ * Alcohol provides 7 kcal/g. Ethanol density ≈ 0.789 g/mL.
+ * @param volumeMl      liquid volume in millilitres
+ * @param abvPercent    alcohol by volume as a percentage (e.g. 5 for 5%)
+ * @returns calories from alcohol
+ */
+export function alcoholCalories(volumeMl: number, abvPercent: number): number {
+  const ethanolMl = volumeMl * (abvPercent / 100);
+  const ethanolG = ethanolMl * 0.789;
+  return Math.round(ethanolG * 7);
+}

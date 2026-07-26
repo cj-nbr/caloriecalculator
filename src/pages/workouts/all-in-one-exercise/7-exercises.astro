@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../../layouts/ContentLayout.astro";
+import ArticleImage from "../../../components/ui/ArticleImage.astro";
 
 const path = "/workouts/all-in-one-exercise/7-exercises/";
 const faqs = [
@@ -20,6 +21,8 @@ const faqs = [
   categoryPath="/workouts/"
   faqs={faqs}
 >
+
+  <ArticleImage src="/assets/images/articles/seven-exercises.svg" alt="Illustration of 7 key exercises covering all major muscle groups." />
 
   <h2>Why Daily 7 Exercises?</h2>
   <p>Consistency trumps intensity for long-term fitness. These seven exercises hit every major movement pattern using only your body weight, making them sustainable for life. Each takes seconds to perform but collectively build strength, mobility, and cardiovascular health.</p>

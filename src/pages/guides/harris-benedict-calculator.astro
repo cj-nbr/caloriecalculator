@@ -1,0 +1,106 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
+import type { FaqItem } from "../../lib/seo";
+import Sources from "../../components/ui/Sources.astro";
+
+const faqs: FaqItem[] = [
+  { q: "How do I use the Harris-Benedict calculator?", a: "Enter your weight, height, age, and sex into the Harris-Benedict formula, then multiply by an activity factor to get TDEE. The original metric formula is available in our <a href='/resources/harris-benedict-equation/'>Harris-Benedict Equation guide</a>." },
+  { q: "Is the Harris-Benedict calculator accurate?", a: "The Harris-Benedict calculator is 70–80% accurate versus measured metabolic rate, with typical error of ±15–25%. Mifflin-St Jeor is more accurate for modern populations." },
+  { q: "Should I use Harris-Benedict or Mifflin-St Jeor?", a: "Use Mifflin-St Jeor for everyday planning. It is more accurate and simpler. Use Harris-Benedict only for historical comparisons, clinical contexts, or if your provider requests it." },
+  { q: "What is the difference between Harris-Benedict and Mifflin-St Jeor?", a: "Harris-Benedict (1919) uses older constants and often overestimates BMR by 200–500 calories. Mifflin-St Jeor (1990) uses modern data and is 85–90% accurate. See the <a href='/guides/bmr-equations/'>BMR equations comparison</a> for details." },
+  { q: "Can I use the Harris-Benedict calculator for TDEE?", a: "Yes. Calculate your BMR with Harris-Benedict, then multiply by an activity factor (1.2 to 1.9) to get TDEE. For a more accurate result, use the <a href='/tdee-calculator/'>TDEE calculator</a> with Mifflin-St Jeor." },
+];
+---
+
+<ContentLayout
+  title="Harris-Benedict Calculator — Calculate BMR with Harris-Benedict"
+  h1="Harris-Benedict Calculator"
+  description="Use the Harris-Benedict calculator to estimate your BMR. Learn the step-by-step formula, compare it with Mifflin-St Jeor, and find out when to use each."
+  path="/guides/harris-benedict-calculator/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="The Harris-Benedict calculator estimates your resting calorie needs using the 1919 formula. Here is how to use it and why you might prefer Mifflin-St Jeor."
+  updated="July 2026"
+  faqs={faqs}
+>
+  <p>The <strong>Harris-Benedict calculator</strong> applies the historic 1919 formula to estimate your basal metabolic rate (BMR) — the calories your body burns at complete rest. While we recommend the modern <a href="/bmr-calculator/">Mifflin-St Jeor calculator</a> for everyday use, understanding the Harris-Benedict method is valuable for interpreting older research, clinical contexts, and the history of calorie science.</p>
+
+  <ArticleImage src="/assets/images/articles/resting-flame.svg" alt="Illustration of the Harris-Benedict formula in a historical context." />
+
+  <h2>How to use the Harris-Benedict calculator</h2>
+  <p>The Harris-Benedict calculator uses four inputs: weight, height, age, and sex. The steps are:</p>
+  <ol>
+    <li><strong>Enter your weight</strong> in kilograms (or pounds, if using the original imperial formula).</li>
+    <li><strong>Enter your height</strong> in centimeters (or inches).</li>
+    <li><strong>Enter your age</strong> in years.</li>
+    <li><strong>Select your sex</strong> — men and women use different constants.</li>
+    <li><strong>Apply an activity multiplier</strong> to convert BMR into TDEE.</li>
+  </ol>
+
+  <h2>The Harris-Benedict formula (metric)</h2>
+  <p>For men:</p>
+  <p><code>BMR = 88.362 + 13.397 × weight(kg) + 4.796 × height(cm) − 5.677 × age</code></p>
+  <p>For women:</p>
+  <p><code>BMR = 447.593 + 9.247 × weight(kg) + 3.098 × height(cm) − 4.330 × age</code></p>
+
+  <h2>Step-by-step calculation example</h2>
+  <p>A 30-year-old man, 180 cm, 80 kg:</p>
+  <pre>Step 1: BMR = 88.362 + 13.397 × 80 + 4.796 × 180 - 5.677 × 30
+BMR = 88.362 + 1,071.76 + 863.28 - 170.31 = 1,853.1 calories/day</pre>
+  <p>With moderate activity (1.55): 1,853.1 × 1.55 = 2,872 calories/day maintenance.</p>
+
+  <h2>Comparison with Mifflin-St Jeor</h2>
+  <p>Using the same inputs with Mifflin-St Jeor:</p>
+  <pre>BMR = 10 × 80 + 6.25 × 180 - 5 × 30 + 5
+BMR = 800 + 1,125 - 150 + 5 = 1,780 calories/day</pre>
+  <p>Mifflin-St Jeor predicts a BMR of 1,780 versus Harris-Benedict's 1,853 — a difference of 73 calories. That may not sound like much, but multiplied by 30 days it is 2,190 calories, or more than half a pound of fat.</p>
+
+  <h2>When to use each formula</h2>
+  <table>
+    <thead><tr><th>Scenario</th><th>Recommended formula</th></tr></thead>
+    <tbody>
+      <tr><td>Everyday calorie planning</td><td>Mifflin-St Jeor</td></tr>
+      <tr><td>Historical research comparison</td><td>Harris-Benedict</td></tr>
+      <tr><td>Clinical or hospital protocol</td><td>Check with your care team</td></tr>
+      <tr><td>Very elderly patients</td><td>Revised Harris-Benedict or clinician judgment</td></tr>
+      <tr><td>Online calculator / quick estimate</td><td>Mifflin-St Jeor</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Practical guidance</h2>
+  <p>If you are using Harris-Benedict because you want to double-check an older result, follow these tips:</p>
+  <ul>
+    <li>Track your weight for 2–3 weeks at your calculated intake.</li>
+    <li>If you are gaining weight, your true maintenance is probably lower than Harris-Benedict predicts. Subtract 100–200 calories.</li>
+    <li>If you are losing weight faster than expected, your maintenance may be closer to the Mifflin-St Jeor estimate. Consider switching to the <a href="/tdee-calculator/">TDEE calculator</a>.</li>
+    <li>Do not run large deficits based on Harris-Benedict alone. The overestimation can lead to aggressive, unsustainable deficits.</li>
+  </ul>
+
+  <h2>Activity multipliers with Harris-Benedict</h2>
+  <p>Once you have your Harris-Benedict BMR, apply the same activity multipliers used with Mifflin-St Jeor:</p>
+  <table>
+    <thead><tr><th>Level</th><th>Multiplier</th></tr></thead>
+    <tbody>
+      <tr><td>Sedentary</td><td>1.2</td></tr>
+      <tr><td>Lightly active</td><td>1.375</td></tr>
+      <tr><td>Moderately active</td><td>1.55</td></tr>
+      <tr><td>Very active</td><td>1.725</td></tr>
+      <tr><td>Extra active</td><td>1.9</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Links to related tools</h2>
+  <ul>
+    <li><a href="/bmr-calculator/">BMR calculator</a> — uses Mifflin-St Jeor, the modern standard</li>
+    <li><a href="/tdee-calculator/">TDEE calculator</a> — calculates maintenance calories accurately</li>
+    <li><a href="/resources/harris-benedict-equation/">Harris-Benedict Equation</a> — full historical context and formulas</li>
+    <li><a href="/guides/bmr-equations/">BMR equations comparison</a> — all major formulas side by side</li>
+  </ul>
+
+  <Sources sources={[
+    { label: "A biometric study of basal metabolism — Harris & Benedict (1919)", href: "https://pubmed.ncbi.nlm.nih.gov/1987/" },
+    { label: "The Harris-Benedict equation reevaluated — Roza & Shizgal (1984)", href: "https://pubmed.ncbi.nlm.nih.gov/6741852/" },
+    { label: "A new predictive equation for resting energy expenditure — Mifflin & St Jeor (1990)", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
+  ]} />
+</ContentLayout>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" role="img" aria-hidden="true">
+  <rect width="400" height="220" rx="16" fill="transparent"/>
+  <g transform="translate(200 110)">
+    <line x1="-60" y1="30" x2="60" y2="30" stroke="#171717" stroke-width="3" stroke-linecap="round"/>
+    <line x1="0" y1="30" x2="0" y2="-40" stroke="#171717" stroke-width="3"/>
+    <line x1="-40" y1="30" x2="0" y2="0" stroke="#171717" stroke-width="2" stroke-linecap="round"/>
+    <line x1="40" y1="30" x2="0" y2="0" stroke="#171717" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="0" cy="0" r="16" fill="#f5a623"/>
+    <text x="0" y="4" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">=</text>
+    <circle cx="-40" cy="30" r="8" fill="#0070f3" opacity="0.4"/>
+    <circle cx="40" cy="30" r="8" fill="#0cce6b" opacity="0.4"/>
+    <text x="0" y="60" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#6b6b6b" text-anchor="middle">Calories in vs calories out</text>
+  </g>
+</svg>

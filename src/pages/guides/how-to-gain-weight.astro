@@ -1,6 +1,7 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "How do I gain weight in a healthy way?", a: "Eat a modest calorie surplus of 250–500 calories above maintenance, prioritize protein, and combine nutrition with resistance training. Use the <a href='/weight-gain-calculator/'>weight gain calculator</a> to set your daily target." },
@@ -27,6 +28,8 @@ const faqs: FaqItem[] = [
 >
   <h2 id="why-healthy-gain-matters">Why healthy weight gain matters</h2>
   <p>Gaining weight quickly by eating junk food often adds fat rather than muscle. Healthy gain means adding mostly lean mass while keeping fat gain minimal. It requires a modest calorie surplus, protein-first nutrition, and progressive resistance training.</p>
+
+  <ArticleImage src="/assets/images/articles/weight-timeline.svg" alt="Illustration of a weight gain progress line from a start point toward a higher goal weight." />
 
   <h2 id="surplus-and-rate">Set the right calorie surplus</h2>
   <p>Use the <a href="/weight-gain-calculator/">weight gain calculator</a> to find your daily target. Start with a 250–500 calorie surplus above maintenance. Faster gain usually means more fat, which means a longer cutting phase later if you want to get lean again.</p>

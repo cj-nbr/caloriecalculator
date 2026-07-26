@@ -3,6 +3,7 @@ import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import ExerciseCalculator from "../components/calculators/ExerciseCalculator.astro";
 import { TREADMILL } from "../data/exercises";
 import type { FaqItem } from "../lib/seo";
+import ArticleImage from "../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "How many calories does the treadmill burn?", a: "A 70 kg person burns roughly 150 calories in 30 minutes of brisk treadmill walking, or about 300 calories jogging at 5 mph. Speed, incline, and body weight all increase the burn." },
@@ -23,6 +24,8 @@ const faqs: FaqItem[] = [
   <ExerciseCalculator activities={TREADMILL} defaultIndex={1} />
 
   <Fragment slot="content">
+    <ArticleImage src="/assets/images/articles/activity-intensity.svg" alt="Illustration of exercise intensity levels showing how treadmill speed and incline affect calorie burn." />
+
     <h2>Calories burned on the treadmill</h2>
     <p>The treadmill is a gym staple for good reason — it lets you control your pace and incline precisely. Your calorie burn depends on whether you walk or run, how fast, and your body weight. This calculator estimates it from MET values for common treadmill speeds, and lets you enter your real weight for a more accurate number than the machine's built-in counter.</p>
 

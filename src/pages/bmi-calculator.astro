@@ -2,6 +2,9 @@
 import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls } from "../lib/ui";
 import type { FaqItem } from "../lib/seo";
+import Sources from "../components/ui/Sources.astro";
+import MedicalNote from "../components/ui/MedicalNote.astro";
+import ArticleImage from "../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "What is a healthy BMI?", a: "A BMI between 18.5 and 24.9 is classified as a healthy weight for most adults. Below 18.5 is underweight, 25–29.9 is overweight, and 30 or above is obese." },
@@ -84,14 +87,23 @@ const faqs: FaqItem[] = [
     </div>
   </div>
 
-  <Fragment slot="content">
+   <Fragment slot="content">
+    <MedicalNote />
+
     <h2>What is BMI?</h2>
-    <p>Body Mass Index (BMI) is a simple calculation that uses your height and weight to estimate whether you are at a healthy weight. It is widely used by health professionals as a quick, low-cost screening tool to flag potential weight-related health risks across large populations.</p>
-    <h2>How to interpret your BMI</h2>
-    <p>BMI sorts adults into four broad categories. While a "normal" BMI is associated with lower risk for many chronic conditions, the number is only one piece of the puzzle. Your <a href="/body-fat-calculator/">body fat percentage</a>, waist circumference, fitness level, and family history all matter.</p>
-    <h2>Limitations of BMI</h2>
-    <p>Because BMI cannot tell muscle from fat, athletes and very muscular individuals may have a high BMI while being extremely lean. Conversely, older adults who have lost muscle may have a "normal" BMI while carrying excess fat. For a more complete picture, combine BMI with a <a href="/body-fat-calculator/">body fat calculation</a> and your <a href="/lean-body-mass-calculator/">lean body mass</a>.</p>
-  </Fragment>
+     <p>Body Mass Index (BMI) is a simple calculation that uses your height and weight to estimate whether you are at a healthy weight. It is widely used by health professionals as a quick, low-cost screening tool to flag potential weight-related health risks across large populations.</p>
+     <h2>How to interpret your BMI</h2>
+     <p>BMI sorts adults into four broad categories. While a "normal" BMI is associated with lower risk for many chronic conditions, the number is only one piece of the puzzle. Your <a href="/body-fat-calculator/">body fat percentage</a>, waist circumference, fitness level, and family history all matter.</p>
+     <h2>Limitations of BMI</h2>
+     <p>Because BMI cannot tell muscle from fat, athletes and very muscular individuals may have a high BMI while being extremely lean. Conversely, older adults who have lost muscle may have a "normal" BMI while carrying excess fat. For a more complete picture, combine BMI with a <a href="/body-fat-calculator/">body fat calculation</a> and your <a href="/lean-body-mass-calculator/">lean body mass</a>.</p>
+
+     <ArticleImage src="/assets/images/articles/bmi-scale.svg" alt="BMI category scale showing underweight, normal, overweight, and obese ranges with dividing lines at 18.5, 25, and 30." />
+
+     <Sources sources={[
+       { label: "BMI — Centers for Disease Control and Prevention (CDC)", href: "https://www.cdc.gov/healthyweight/assessing/bmi/index.html" },
+       { label: "Body mass index — World Health Organization (WHO)", href: "https://www.who.int/europe/news-room/fact-sheets/item/a-healthy-lifestyle---bmi-and-waist-circumference" },
+     ]} />
+   </Fragment>
 </CalculatorLayout>
 
 <script>
@@ -150,11 +162,9 @@ const faqs: FaqItem[] = [
         const wi = $("weight") as HTMLInputElement;
         const cv = parseFloat(wi.value) || 0;
         if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
-        render();
       });
     });
 
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-    render();
   }
 </script>

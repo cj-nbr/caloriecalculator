@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Section from "../../components/ui/Section.astro";
 import AdsterraAd from "../../components/AdsterraAd.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 import { breadcrumbSchema } from "../../lib/seo";
 
 const resources = [
@@ -31,7 +32,7 @@ const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Resource
   canonical="/resources/"
   jsonLd={jsonLd}
 >
-  <header class="relative overflow-hidden border-b border-hairline">
+   <header class="relative overflow-hidden border-b border-hairline">
     <div class="bg-grid pointer-events-none absolute inset-0 -z-10 opacity-50" aria-hidden="true"></div>
     <div class="container-page py-12 sm:py-16">
       <p class="text-sm font-medium text-brand">Resources</p>
@@ -40,7 +41,12 @@ const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Resource
     </div>
   </header>
   <Section>
-    <div class="grid gap-3 sm:grid-cols-2">
+    <ArticleImage src="/assets/images/articles/energy-level.svg" alt="Illustration of energy expenditure and metabolism for understanding calorie science." />
+
+    <div class="prose-content mx-auto max-w-3xl">
+      <p>These references explain the science behind the calculators on this site — what each measurement means, how it is estimated, and where the numbers come from. Use them alongside the tools to understand your results, then apply them with the relevant calculator. Each topic is written for everyday readers, not specialists.</p>
+    </div>
+    <div class="mt-8 grid gap-3 sm:grid-cols-2">
       {
         resources.map((r) => (
           <a href={r.href} class="card group flex items-center justify-between gap-3 p-5 transition-all hover:border-hairline-strong hover:bg-canvas-soft">

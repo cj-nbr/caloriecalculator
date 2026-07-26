@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
 
 const faqs: FaqItem[] = [
@@ -24,6 +25,8 @@ const faqs: FaqItem[] = [
   <p>A <strong>calorie deficit</strong> means eating fewer calories than your body expends. This forces your body to use stored energy, resulting in weight loss.</p>
 
   <h2>Calorie deficit amounts and results</h2>
+
+  <ArticleImage src="/assets/images/articles/weight-scale.svg" alt="Illustration of a balance scale showing calorie deficit for weight loss." />
   <table>
     <thead><tr><th>Deficit</th><th>Weekly loss</th><th>Sustainability</th></tr></thead>
     <tbody>

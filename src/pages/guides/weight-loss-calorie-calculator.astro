@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
 
 const faqs: FaqItem[] = [
@@ -24,6 +25,8 @@ const faqs: FaqItem[] = [
   <p>A <strong>weight loss calorie calculator</strong> determines how many calories you should eat each day to lose fat. It starts with your <a href="/guides/maintenance-calorie-calculator/">maintenance calories</a> and subtracts a deficit for weight loss.</p>
 
   <h2>How a weight loss calorie calculator works</h2>
+
+  <ArticleImage src="/assets/images/articles/weight-scale.svg" alt="Illustration of a weight loss progress line from a start point to a goal weight." />
   <p>The calculator follows these steps:</p>
   <ol>
     <li>Calculate your BMR (Mifflin-St Jeor equation)</li>

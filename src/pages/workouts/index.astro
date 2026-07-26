@@ -1,6 +1,7 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import TopicCategoryGrid from "../../components/workouts/TopicCategoryGrid.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 
 const categories = [
   { title: "Leg Workouts", href: "/workouts/leg-workouts/", description: "Beginner routines, gym exercises, hamstring guidance, and leg day mistakes." },
@@ -31,6 +32,8 @@ const faqs = [
   lead="Explore free workout guides designed to help you train smarter, move better, and build strength safely."
   faqs={faqs}
 >
+  <ArticleImage src="/assets/images/articles/workout-routine.svg" alt="Illustration of a weekly workout routine split covering all major muscle groups." />
+
   <TopicCategoryGrid title="Choose a workout guide" categories={categories} />
 
   <section class="card border-brand/20 p-5 sm:p-6">

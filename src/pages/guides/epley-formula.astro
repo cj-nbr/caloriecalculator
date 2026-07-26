@@ -1,0 +1,70 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
+import Sources from "../../components/ui/Sources.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is the Epley formula?", a: "The Epley formula estimates your one-rep max: 1RM = weight x (1 + reps / 30). It is simple and reasonably accurate for 2-10 reps." },
+  { q: "How accurate is the Epley formula?", a: "It is most accurate for 2-10 reps on compound lifts. Above 10 reps, endurance fatigue reduces accuracy." },
+  { q: "Who created the Epley formula?", a: "Matt Epley published it in the mid-1980s. It became popular because it offered a quick way to estimate 1RM without lifting to failure." },
+  { q: "When should I use the Epley formula?", a: "Use it during submaximal testing, programming percentages, and tracking estimated strength trends on barbell lifts." },
+  { q: "What is a good one rep max for beginners?", a: "Standards vary by lift, sex, and body weight. Beginners should focus on technique first, then use estimated 1RM to set loads." },
+  { q: "How does Epley compare to other 1RM formulas?", a: "Brzycki is slightly more conservative, Lombardi is more aggressive, and Mayhew scales with body weight. For most lifters the differences are small." },
+];
+
+---
+
+<ContentLayout
+  title="Epley Formula — One Rep Max Calculation Explained"
+  h1="Epley Formula"
+  description="Learn how the Epley formula estimates one rep max, how to use it, and how it compares to other 1RM equations."
+  path="/guides/epley-formula/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="The Epley formula is a simple way to estimate your one-rep max from a lighter set."
+  updated="July 2026"
+  faqs={faqs}
+>
+  <p>The <strong>Epley formula</strong> estimates your one-rep max from a submaximal weight and rep count: 1RM = weight x (1 + reps / 30). It is widely used because it is simple and works well for compound lifts.</p>
+
+  <ArticleImage src="/assets/images/articles/barbell-1rm.svg" alt="Illustration of a barbell loaded with weight plates representing strength training and one rep max." />
+
+  <h2>The Epley equation</h2>
+  <p><code>1RM = weight x (1 + reps / 30)</code></p>
+  <p>Example: if you lift 100 kg for 5 reps, your estimated 1RM is 100 x (1 + 5 / 30) = 116.7 kg. The formula assumes a roughly linear relationship between load and reps for compound lifts.</p>
+
+  <h2>When the Epley formula is most accurate</h2>
+  <ul>
+    <li><strong>Compound lifts:</strong> Squat, bench press, deadlift, and overhead press respond well to the formula.</li>
+    <li><strong>2-10 reps:</strong> The sweet spot is roughly 2-6 reps; up to 10 is still reasonable.</li>
+    <li><strong>Trained lifters:</strong> Experienced athletes with consistent technique get more reliable estimates.</li>
+  </ul>
+
+  <h2>When it may overestimate or underestimate</h2>
+  <ul>
+    <li><strong>High-rep sets:</strong> Above 12 reps, fatigue and endurance blur the linearity assumption.</li>
+    <li><strong>Beginners:</strong> Neuromuscular inexperience means technique and efficiency vary widely.</li>
+    <li><strong>Isolation movements:</strong> Bicep curls or triceps extensions do not follow the same load-rep pattern.</li>
+  </ul>
+
+  <h2>Comparison with other 1RM formulas</h2>
+  <table>
+    <thead><tr><th>Formula</th><th>Equation</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Epley</td><td>w x (1 + r/30)</td><td>Simple; best for 2-10 reps</td></tr>
+      <tr><td>Brzycki</td><td>w x 36 / (37 - r)</td><td>More conservative; popular with coaches</td></tr>
+      <tr><td>Lombardi</td><td>w x r^0.10</td><td>Aggressive; power athletes</td></tr>
+      <tr><td>Mayhew</td><td>(100 x w) / (52.2 + 41.9 x e^(-0.055 x r))</td><td>Complex; body-weight scaled</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Practical training use</h2>
+  <p>Once you have an estimated 1RM, you can set loads by percentage: strength at 80-90% for 3-5 reps, hypertrophy at 65-75% for 8-12 reps, and endurance at 50-65% for 12-15+ reps. Pair this with the <a href="/macro-calculator/">macro calculator</a> and <a href="/protein-calculator/">protein calculator</a> to support recovery.</p>
+
+  <Sources sources={[
+    { label: "Epley B. Poundage percentage tables. Elite Performance Systems. 1985.", href: "https://www.elitefts.com/education/poundage-percentage-tables/" },
+    { label: "Brzycki PR. Strength testing: predictions. Journal of Health, Physical Education, and Recreation. 1993.", href: "https://www.researchgate.net/publication/319732465" },
+    { label: "Mayhew J et al. A generalized equation for predicting 1RM. Journal of Strength and Conditioning Research. 1992.", href: "https://pubmed.ncbi.nlm.nih.gov/16287344/" },
+  ]} />
+</ContentLayout>

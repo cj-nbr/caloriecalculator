@@ -1,0 +1,71 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
+import type { FaqItem } from "../../lib/seo";
+import Sources from "../../components/ui/Sources.astro";
+
+const faqs: FaqItem[] = [
+  { q: "How do I find my TDEE?", a: "Calculate your BMR using the Mifflin-St Jeor equation, then multiply by an activity factor between 1.2 (sedentary) and 1.9 (extra active). Our TDEE calculator does this instantly." },
+  { q: "What is a good TDEE for weight loss?", a: "A good TDEE-based deficit is 300–500 calories below your maintenance. This produces sustainable fat loss of about 0.5–1 lb per week." },
+  { q: "Is my TDEE the same as my maintenance calories?", a: "Yes. TDEE (Total Daily Energy Expenditure) is your maintenance calorie level. Eat this amount and your weight stays the same." },
+  { q: "Can TDEE change over time?", a: "Yes. TDEE drops as you lose weight, gain muscle, or age. Recalculate every 4–6 weeks or after a 5 kg (10 lb) change." },
+  { q: "Why does my TDEE seem high?", a: "If your TDEE seems higher than expected, you may have overestimated your activity level or entered a higher weight than you realized. Try the lower activity multiplier and track your weight for 2–3 weeks to verify." },
+];
+---
+
+<ContentLayout
+  title="What's My TDEE? — Find Your Daily Calorie Needs"
+  h1="What's My TDEE?"
+  description="Find your TDEE and daily calorie needs. Learn what TDEE means, how to calculate it, and how to use it for weight loss, maintenance, or gain."
+  path="/guides/whats-my-tdee/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="Your TDEE tells you exactly how many calories to eat. Here is how to find it and use it for any goal."
+  updated="July 2026"
+  faqs={faqs}
+>
+  <p>If you are asking <strong>"what's my TDEE?"</strong>, you are already asking the right question. TDEE — or Total Daily Energy Expenditure — is the total number of calories your body burns in a full day. It is the single most important number for weight management because it is your <a href="/guides/maintenance-calorie-calculator/">maintenance calorie</a> baseline. Once you know it, you can eat the right amount to lose, gain, or hold your weight steady.</p>
+
+  <ArticleImage src="/assets/images/articles/energy-level.svg" alt="Illustration of daily energy expenditure showing how activity and rest combine to determine total calories burned." />
+
+  <h2>TDEE in plain language</h2>
+  <p>Think of your body as a car. Your BMR is the fuel the engine uses just to sit in park — keeping the radio on, the computer running, the heart beating. NEAT is the fuel used for short trips around town — walking, cleaning, fidgeting. EAT is the fuel used for long highway drives — intense workouts or sports. TEF is the energy lost as heat while burning fuel. TDEE is the total fuel used for all of it in a day.</p>
+  <p>Most people confuse BMR with TDEE. BMR is only the "park" fuel. TDEE adds all the trips. If your BMR is 1,500 calories and you are lightly active, your TDEE is roughly 1,500 × 1.375 = 2,063 calories. That 2,063 is the number you are looking for.</p>
+
+  <h2>Step-by-step to find your TDEE</h2>
+  <ol>
+    <li><strong>Find your BMR.</strong> Use the Mifflin-St Jeor equation: Men = 10 × weight(kg) + 6.25 × height(cm) − 5 × age + 5; Women = 10 × weight(kg) + 6.25 × height(cm) − 5 × age − 161. The <a href="/bmr-calculator/">BMR calculator</a> does this for you instantly.</li>
+    <li><strong>Choose your activity level honestly.</strong> Be realistic. Most people overestimate. If you have a desk job and work out twice a week, you are likely "lightly active," not "moderately active."</li>
+    <li><strong>Multiply BMR by your activity factor.</strong> The standard multipliers are: 1.2 (sedentary), 1.375 (light), 1.55 (moderate), 1.725 (active), 1.9 (athlete).</li>
+    <li><strong>Verify with real-world data.</strong> Follow your calculated TDEE for 2–3 weeks while tracking your weight daily. If your weight stays stable, you nailed it. If you are gaining, lower intake by 100–200 calories. If losing, raise it by 100–200.</li>
+  </ol>
+
+  <h2>Example TDEE calculations</h2>
+  <table>
+    <thead><tr><th>Profile</th><th>BMR</th><th>Activity</th><th>TDEE</th></tr></thead>
+    <tbody>
+      <tr><td>Woman, 25, 165cm, 65kg</td><td>~1,400</td><td>Moderate</td><td>~2,170</td></tr>
+      <tr><td>Man, 30, 180cm, 80kg</td><td>~1,820</td><td>Moderate</td><td>~2,821</td></tr>
+      <tr><td>Woman, 40, 170cm, 75kg</td><td>~1,475</td><td>Light</td><td>~2,028</td></tr>
+      <tr><td>Man, 20, 175cm, 70kg</td><td>~1,690</td><td>Active</td><td>~2,915</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Using your TDEE for weight loss</h2>
+  <p>To lose weight, eat 300–500 calories below your TDEE. That moderate deficit is sustainable and muscle-sparing. For a customized plan, use the <a href="/weight-loss-calculator/">weight loss calculator</a>. Read the <a href="/guides/calorie-deficit-guide/">calorie deficit guide</a> for strategies to stay consistent and avoid common dieting mistakes.</p>
+
+  <h2>Using your TDEE for muscle gain</h2>
+  <p>To build muscle, eat 250–500 calories above your TDEE. Pair this with resistance training and the <a href="/macro-calculator/">macro calculator</a> to ensure you get enough protein (1.6–2.2 g per kg of body weight). See the <a href="/guides/calorie-surplus-guide/">calorie surplus guide</a> for a lean-bulk approach that minimizes fat gain.</p>
+
+  <h2>Using your TDEE for maintenance</h2>
+  <p>Eat at your TDEE to hold your current weight. Maintenance is not passive: you still need to monitor intake, especially as your body composition changes. Recalculate every 4–6 weeks. For deeper guidance, read <a href="/guides/maintenance-calories/">maintenance calories explained</a> and the <a href="/guides/maintenance-calorie-calculator/">maintenance calorie calculator guide</a>.</p>
+
+  <h2>Get your exact TDEE number</h2>
+  <p>The fastest way to answer <em>"what's my TDEE?"</em> is to use the <a href="/tdee-calculator/">TDEE calculator</a>. It applies the Mifflin-St Jeor equation, asks for your activity level, and gives you calorie targets for loss, maintenance, and gain in seconds. If you only want your resting number first, try the <a href="/bmr-calculator/">BMR calculator</a>.</p>
+
+  <Sources sources={[
+    { label: "Dietary Reference Intakes for Energy — National Academies", href: "https://www.nap.edu/read/10490/chapter/1" },
+    { label: "Energy expenditure — PubMed / NIH review", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
+    { label: "Mifflin-St Jeor equation — original study", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
+  ]} />
+</ContentLayout>

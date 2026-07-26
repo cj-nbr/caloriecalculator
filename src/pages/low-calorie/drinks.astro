@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 
 const path = "/low-calorie/drinks/";
 const description = "Low calorie drinks under 100 calories. Zero and minimal-calorie beverages including coffee, tea, seltzers, and alcoholic options.";
@@ -25,6 +26,8 @@ const faqs = [
   faqs={faqs}
 >
   <h2>Zero Calorie Drinks (0-5 cal)</h2>
+
+  <ArticleImage src="/assets/images/articles/hydration-glass.svg" alt="Illustration of healthy low-calorie drinks and hydration options." />
   <ul>
     <li>Plain water - unlimited</li>
     <li>Sparkling water (LaCroix, Bubly) - 0 cal</li>

@@ -1,6 +1,8 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
+import Sources from "../../components/ui/Sources.astro";
 
 const faqs: FaqItem[] = [
   { q: "What is body fat percentage?", a: "Body fat percentage is the proportion of your weight that is fat tissue. Essential minimums: ~3% men, ~12% women. Athletes: 6–13% men, 14–20% women." },
@@ -22,6 +24,8 @@ const faqs: FaqItem[] = [
   faqs={faqs}
 >
   <p>A <strong>body fat percentage calculator</strong> estimates fat mass versus lean mass. Our <a href="/body-fat-calculator/">calculator</a> uses the U.S. Navy circumference method—a validated field test requiring only a tape measure.</p>
+
+  <ArticleImage src="/assets/images/articles/body-composition.svg" alt="Illustration of body composition showing lean mass and body fat percentages." />
 
   <h2>Body fat percentage categories</h2>
   <table>
@@ -78,4 +82,9 @@ const faqs: FaqItem[] = [
     <li>Same tape measure tension</li>
     <li>Record measurements precisely</li>
   </ul>
+
+  <Sources sources={[
+    { label: "Body composition — American Council on Exercise (ACE) categories", href: "https://www.acefitness.org/resources/pros/expert-articles/5025/body-composition-what-role-does-it-play-in-fitness/" },
+    { label: "Body fat via anthropometry — NIH / PMC", href: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5639749/" },
+  ]} />
 </ContentLayout>

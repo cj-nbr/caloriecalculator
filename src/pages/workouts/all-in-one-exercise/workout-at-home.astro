@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../../layouts/ContentLayout.astro";
+import ArticleImage from "../../../components/ui/ArticleImage.astro";
 
 const path = "/workouts/all-in-one-exercise/workout-at-home/";
 const faqs = [
@@ -20,6 +21,8 @@ const faqs = [
   categoryPath="/workouts/"
   faqs={faqs}
 >
+
+  <ArticleImage src="/assets/images/articles/no-equipment.svg" alt="Illustration of no-equipment bodyweight exercises for home workouts." />
 
   <h2>Welcome to Equipment-Free Training</h2>
   <p>Equipment-free training removes all excuses. No expensive gear, no crowded gyms, no waiting for machines. Your body provides all the resistance needed for effective fitness when you apply smart principles.</p>

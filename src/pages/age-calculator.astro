@@ -12,6 +12,7 @@ import {
   softwareApplicationSchema,
   faqSchema,
 } from "../lib/seo";
+import ArticleImage from "../components/ui/ArticleImage.astro";
 
 const path = "/age-calculator/";
 const h1 = "Age Calculator";
@@ -26,6 +27,8 @@ const faqs: FaqItem[] = [
   { q: "Does the age calculator account for leap years?", a: "Yes. Because it uses real calendar dates, leap years (including February 29) are handled automatically." },
   { q: "Can I calculate age between two dates?", a: "Yes. Change the second date from today to any date to find the age or time difference between any two dates." },
   { q: "Is the age calculator free?", a: "Yes, completely free with no sign-up. All calculations run privately in your browser." },
+  { q: "How does age affect my metabolism?", a: "Metabolism tends to decline with age because of muscle loss and hormonal shifts. Use the <a href='/bmr-calculator/'>BMR calculator</a> to see how your basal metabolism changes over time." },
+  { q: "What is my age in dog years?", a: "A rough rule of thumb is one dog year ≈ 7 human years, but it varies by breed and size. Large dogs tend to age faster than small breeds." },
 ];
 
 const jsonLd = [
@@ -93,20 +96,48 @@ const jsonLd = [
    <!-- Ad placement - below calculator results -->
    <AdsterraAd />
 
-   <div class="border-t border-hairline">
-    <div class="container-page py-12 sm:py-16">
-      <div class="prose-content mx-auto max-w-3xl">
-        <h2>How the age calculator works</h2>
-        <p>This tool calculates the exact time between your date of birth and a target date (today by default). It counts full years first, then the remaining full months, then the leftover days — the same way age is counted in everyday life. Because it uses real calendar dates, it automatically accounts for months of different lengths and for leap years.</p>
-        <h2>Age in years, months, and days</h2>
-        <p>Most people give their age in whole years, but the precise figure includes the months and days since your last birthday. The headline result shows all three, while the table below breaks your age down into total months, weeks, days, hours, and minutes — useful for milestones and fun facts.</p>
-        <h2>Counting down to your next birthday</h2>
-        <p>The calculator also shows how many days remain until your next birthday, based on today's date, so you can plan ahead.</p>
-        <h2>Using it for any two dates</h2>
-        <p>You're not limited to "today" — change the second date to any date to measure the time between two dates, such as an anniversary or a future milestone.</p>
+    <div class="border-t border-hairline">
+     <div class="container-page py-12 sm:py-16">
+     <div class="prose-content mx-auto max-w-3xl">
+       <ArticleImage src="/assets/images/articles/birthday-cake.svg" alt="Illustration of a birthday cake with candle representing age calculation and birthdays." />
+
+       <h2>How age calculators work</h2>
+         <p>This tool calculates the exact time between your date of birth and a target date (today by default). It counts full years first, then the remaining full months, then the leftover days — the same way age is counted in everyday life. Because it uses real calendar dates, it automatically accounts for months of different lengths and for leap years.</p>
+         <h2>Age in years, months, and days</h2>
+         <p>Most people give their age in whole years, but the precise figure includes the months and days since your last birthday. The headline result shows all three, while the table below breaks your age down into total months, weeks, days, hours, and minutes — useful for milestones and fun facts.</p>
+         <h2>Counting down to your next birthday</h2>
+         <p>The calculator also shows how many days remain until your next birthday, based on today's date, so you can plan ahead.</p>
+         <h2>Using it for any two dates</h2>
+         <p>You're not limited to "today" — change the second date to any date to measure the time between two dates, such as an anniversary or a future milestone.</p>
+
+         <h2>Age in different units</h2>
+         <p>Ever wondered how old you are in hours or minutes? The table under the calculator breaks your age down into months, weeks, days, hours, and minutes. It can be fun for birthdays, anniversaries, or just satisfying curiosity.</p>
+
+          <h2>Age and metabolism</h2>
+          <p>As you age, your metabolism tends to slow, partly because muscle mass declines and partly because activity levels can drop. If you are curious how your age affects daily calorie needs, try the <a href="/bmr-calculator/">BMR calculator</a>. It uses age along with height, weight, and sex to estimate your resting metabolism.</p>
+
+          <h2>Common age-related questions</h2>
+          <ul>
+            <li><strong>Does metabolism slow with age?</strong> Yes, largely due to muscle loss and lower activity. Resistance training helps maintain metabolic rate.</li>
+            <li><strong>At what age does metabolism peak?</strong> Metabolism is usually highest in late teens to early twenties, then gradually declines.</li>
+            <li><strong>Can I boost my metabolism at any age?</strong> Building muscle through strength training increases resting calorie burn at any age.</li>
+            <li><strong>How does muscle loss affect metabolism?</strong> Each kilogram of muscle lost reduces resting calorie burn by roughly 15–25 kcal/day.</li>
+          </ul>
+
+          <h2>Related calculators</h2>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="card p-4">
+              <h3 class="text-lg font-semibold text-ink"><a href="/bmr-calculator/">BMR Calculator</a></h3>
+              <p class="mt-1 text-sm text-body">Estimate your resting metabolism based on age, sex, height, and weight.</p>
+            </div>
+            <div class="card p-4">
+              <h3 class="text-lg font-semibold text-ink"><a href="/tdee-calculator/">TDEE Calculator</a></h3>
+              <p class="mt-1 text-sm text-body">Find your total daily energy expenditure including activity.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
   <Section class="border-t border-hairline">
     <FaqSection items={faqs} />

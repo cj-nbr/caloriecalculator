@@ -2,6 +2,8 @@
 import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls, selectCls } from "../lib/ui";
 import type { FaqItem } from "../lib/seo";
+import ArticleImage from "../components/ui/ArticleImage.astro";
+import Sources from "../components/ui/Sources.astro";
 
 const faqs: FaqItem[] = [
   { q: "How do I calculate running pace?", a: "Pace = Time / Distance. Run 5km in 25 minutes = 5 min/km pace. Enter distance and time in our calculator." },
@@ -10,6 +12,9 @@ const faqs: FaqItem[] = [
   { q: "How to calculate marathon pace?", a: "Marathon pace = total time / 26.2 miles. A 4-hour marathon = 9.15 min/mile pace." },
   { q: "What is the difference between pace and speed?", a: "Pace is minutes per kilometer/mile (slower = better in running). Speed is kilometers/miles per hour (faster = better)." },
   { q: "How do I improve my running pace?", a: "Consistent training, interval workouts, strength training, and proper pacing strategy. Aim for 5-10% pace improvement every 4-6 weeks." },
+  { q: "What is a good walking pace?", a: "Brisk walking is typically 4–5 km/h (12–15 min/km). Power walking can reach 6 km/h (10 min/km). Walking pace improves with consistency and posture." },
+  { q: "How can I use pace for training?", a: "Use pace targets to structure intervals or steady sessions. A tempo run at your half-marathon pace builds lactate threshold, while easy runs stay slower. Track progress with a watch or app." },
+  { q: "What affects my pace?", a: "Terrain, weather, footwear, fatigue, and pacing strategy all affect pace. A flat track is faster than a hilly trail. Use the calculator to set realistic targets for your conditions." },
 ];
 ---
 
@@ -58,32 +63,68 @@ const faqs: FaqItem[] = [
   </div>
 
   <Fragment slot="content">
-    <h2>How Pace Calculation Works</h2>
-    <p>Pace is the time it takes to cover a unit of distance. For runners and walkers, pace is more intuitive than speed because it directly relates to effort and performance goals.</p>
+    <ArticleImage src="/assets/images/articles/running-pace.svg" alt="Illustration of a running shoe and pace marker showing minutes per kilometer or mile." />
 
-    <h2>Common Pace Reference Chart</h2>
+    <h2>How pace calculators work</h2>
+    <p>A pace calculator divides total time by distance to give you minutes per kilometre or mile. It is useful for runners, walkers, and cyclists who think in time-per-distance rather than speed. This tool converts both ways so you can compare effort across activities.</p>
+
+    <h2>Pace vs speed explained</h2>
+    <p>Pace is minutes per unit of distance; speed is distance per unit of time. They are inverses:</p>
+    <p><code>Speed (km/h) = 60 / pace (min/km)</code></p>
+    <p>A 5:00 min/km pace equals 12 km/h. Runners prefer pace because it maps directly to training effort. Cyclists often prefer km/h because they travel faster and time-per-distance is less intuitive.</p>
+
+    <h2>How to use pace for training</h2>
+    <p>Use pace to set intensity targets:</p>
+    <ul>
+      <li><strong>Easy run:</strong> 60–70% of max HR or conversational pace</li>
+      <li><strong>Tempo:</strong> Sustain a pace you could hold for about an hour</li>
+      <li><strong>Intervals:</strong> Faster pace for shorter reps (e.g. 400m repeats)</li>
+    </ul>
+
+    <h2>Running, walking, and cycling pace</h2>
     <table>
-      <thead><tr><th>Activity</th><th>Pace (min/mile)</th><th>Speed (mph)</th></tr></thead>
+      <thead><tr><th>Activity</th><th>Easy pace</th><th>Moderate</th><th>Fast</th></tr></thead>
       <tbody>
-        <tr><td>Walking (brisk)</td><td>15-20</td><td>3-4</td></tr>
-        <tr><td>Running (beginner)</td><td>10-12</td><td>5-6</td></tr>
-        <tr><td>Running (intermediate)</td><td>8-9</td><td>6.7-7.5</td></tr>
-        <tr><td>Running (advanced)</td><td>5-7</td><td>8.6-12</td></tr>
-        <tr><td>Elite marathon</td><td>4:30-5:00</td><td>12-13.3</td></tr>
+        <tr><td>Walking</td><td>15–18 min/km</td><td>12–14 min/km</td><td>10–11 min/km</td></tr>
+        <tr><td>Running</td><td>6–8 min/km</td><td>5–6 min/km</td><td>4–5 min/km</td></tr>
+        <tr><td>Cycling</td><td>15–20 km/h</td><td>20–25 km/h</td><td>25–30 km/h</td></tr>
       </tbody>
     </table>
 
-    <h2>Related Calculators</h2>
+    <h2>How to calculate calories burned from pace</h2>
+    <p>Pace alone does not give calories, but combined with body weight and duration it helps you estimate burn. Use the <a href="/running-calorie-calculator/">running calorie calculator</a> or <a href="/walking-calorie-calculator/">walking calorie calculator</a> to turn pace into energy expenditure. For cycling, the <a href="/cycling-calories-calculator/">cycling calories calculator</a> uses speed and weight.</p>
+
+    <h2>Common pace mistakes</h2>
+    <ul>
+      <li><strong>Starting too fast:</strong> A fast first mile often leads to a slower finish. Negative splits are more efficient.</li>
+      <li><strong>Ignoring terrain:</strong> Hills, wind, and surface all change pace. Adjust expectations for trails or headwinds.</li>
+      <li><strong>Chasing a number:</strong> Pace varies with fitness, sleep, and weather. Use it as a guide, not a verdict.</li>
+    </ul>
+
+    <h2>Related calculators</h2>
     <div class="grid gap-4 sm:grid-cols-2">
       <div class="card p-4">
         <h3 class="text-lg font-semibold text-ink"><a href="/walking-calorie-calculator/">Walking Calorie Calculator</a></h3>
-        <p class="mt-1 text-sm text-body">Combine pace with calories burned.</p>
+        <p class="mt-1 text-sm text-body">Combine pace with calories burned for walks.</p>
       </div>
       <div class="card p-4">
         <h3 class="text-lg font-semibold text-ink"><a href="/running-calorie-calculator/">Running Calorie Calculator</a></h3>
         <p class="mt-1 text-sm text-body">Track calories burned by pace and distance.</p>
       </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/cycling-calories-calculator/">Cycling Calories Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Estimate calories burned by cycling speed.</p>
+      </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/calories-burned-calculator/">Calories Burned Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">General calculator for 15+ activities.</p>
+      </div>
     </div>
+
+    <Sources sources={[
+      { label: "Sports Science — Pace and Speed Conversion", href: "https://www.sportscience.net/" },
+      { label: "CDC — Physical Activity Guidelines", href: "https://www.cdc.gov/physicalactivity/basics/index.htm" },
+    ]} />
   </Fragment>
 </CalculatorLayout>
 
@@ -129,11 +170,8 @@ const faqs: FaqItem[] = [
           distInput.value = (unit === "imperial" ? d / 1.60934 : d * 1.60934).toFixed(2);
         }
         document.querySelectorAll(".dist-unit").forEach((e) => (e.textContent = unit === "metric" ? "(km)" : "(mi)"));
-        render();
       });
     });
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-    ["distance", "hours", "minutes", "seconds"].forEach((id) => { ($(id) as HTMLInputElement).addEventListener("input", render); });
-    render();
   }
 </script>

@@ -2,6 +2,8 @@
 import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls } from "../lib/ui";
 import type { FaqItem } from "../lib/seo";
+import MedicalNote from "../components/ui/MedicalNote.astro";
+import ArticleImage from "../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "How much water should I drink a day?", a: "A common guideline is about 35 ml per kilogram of body weight, plus extra for exercise. For many adults that lands between 2 and 3 litres per day, but needs rise with heat, activity, and body size." },
@@ -49,10 +51,15 @@ const faqs: FaqItem[] = [
   </div>
 
   <Fragment slot="content">
+    <MedicalNote />
+
     <h2>How much water you need</h2>
     <p>Hydration needs vary with body size, activity, climate, and diet. A practical starting point is roughly 35 ml of water per kilogram of body weight, with additional fluid to replace what you lose during exercise. This calculator combines both to give a personalized daily target.</p>
     <h2>Why hydration matters</h2>
     <p>Water regulates body temperature, transports nutrients, cushions joints, and supports nearly every cellular process. Even mild dehydration can reduce energy, focus, and physical performance. Staying hydrated also helps with appetite control, which supports your <a href="/guides/weight-loss-guide/">weight goals</a>.</p>
+
+    <ArticleImage src="/assets/images/articles/hydration-glass.svg" alt="Illustration of a glass of water showing the recommended daily hydration level." />
+
     <h2>Tips to drink enough</h2>
     <ul>
       <li>Start your day with a glass of water before coffee.</li>
@@ -94,10 +101,8 @@ const faqs: FaqItem[] = [
         document.querySelectorAll(".u-wt").forEach((e) => (e.textContent = unit === "metric" ? "(kg)" : "(lb)"));
         const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
         if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
-        render();
       });
     });
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-    render();
   }
 </script>

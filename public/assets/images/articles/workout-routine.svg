@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" role="img" aria-hidden="true">
+  <rect width="400" height="220" rx="16" fill="transparent"/>
+  <g transform="translate(200 110)">
+    <rect x="-70" y="-40" width="140" height="80" rx="8" fill="#ffffff" stroke="#ebebeb" stroke-width="2"/>
+    <circle cx="-25" cy="-10" r="12" fill="#0070f3" opacity="0.2"/>
+    <circle cx="0" cy="-10" r="14" fill="#0070f3" opacity="0.3"/>
+    <circle cx="25" cy="-10" r="12" fill="#0070f3" opacity="0.2"/>
+    <path d="M-35 -10 L35 -10" stroke="#0070f3" stroke-width="2" stroke-linecap="round"/>
+    <text x="0" y="50" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#6b6b6b" text-anchor="middle">Weekly workout routine split</text>
+  </g>
+</svg>

@@ -2,6 +2,8 @@
 import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls } from "../lib/ui";
 import type { FaqItem } from "../lib/seo";
+import MedicalNote from "../components/ui/MedicalNote.astro";
+import ArticleImage from "../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "How do I calculate conception date?", a: "Conception typically occurs 14 days after LMP (ovulation). Subtract 14 days from due date to get approximate conception date." },
@@ -56,6 +58,10 @@ const faqs: FaqItem[] = [
   </div>
 
   <Fragment slot="content">
+    <MedicalNote strong />
+
+    <ArticleImage src="/assets/images/articles/conception-window.svg" alt="Illustration of a fertile window showing the timing of conception and ovulation." />
+
     <h2>Conception Timing Explained</h2>
     <p>Conception occurs when sperm meets egg. Sperm can survive up to 5 days in the female reproductive tract, while the egg survives about 1 day after ovulation. This creates a 6-day fertile window.</p>
 
@@ -117,7 +123,5 @@ const faqs: FaqItem[] = [
     }
 
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-    ["lmp", "cycle"].forEach((id) => { ($(id) as HTMLInputElement).addEventListener("input", render); });
-    render();
   }
 </script>

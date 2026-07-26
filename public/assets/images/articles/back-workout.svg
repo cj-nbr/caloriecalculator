@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" role="img" aria-hidden="true">
+  <rect width="400" height="220" rx="16" fill="transparent"/>
+  <g transform="translate(200 110)">
+    <path d="M-20 -30 L-40 10 L-20 30 L0 10 L20 30 L40 10 L20 -30 Z" fill="none" stroke="#0070f3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="-40" cy="10" r="5" fill="#0070f3"/>
+    <circle cx="40" cy="10" r="5" fill="#0070f3"/>
+    <text x="0" y="60" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#6b6b6b" text-anchor="middle">Back and bicep exercises</text>
+  </g>
+</svg>

@@ -3,6 +3,9 @@ import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls, segOptCls } from "../lib/ui";
 import type { FaqItem } from "../lib/seo";
 import { breadcrumbSchema, calculatorSchema, faqSchema } from "../lib/seo";
+import MedicalNote from "../components/ui/MedicalNote.astro";
+import ArticleImage from "../components/ui/ArticleImage.astro";
+import Sources from "../components/ui/Sources.astro";
 
 const faqs: FaqItem[] = [
   { q: "What is target heart rate?", a: "Target heart rate is the ideal range for cardiovascular exercise, usually expressed as a percentage of your maximum heart rate. It helps you train at the right intensity for your goals." },
@@ -13,6 +16,10 @@ const faqs: FaqItem[] = [
   { q: "Is the 220 minus age formula accurate?", a: "It is a rough estimate. Individual max heart rates vary. The Karvonen method used here adds personalization by including your resting heart rate, which usually gives a more useful training range." },
   { q: "Can I exercise above my target heart rate?", a: "Short high-intensity bursts above the target zone can be safe for healthy adults, but sustained very high heart rates should be avoided without medical clearance, especially if you have heart concerns." },
   { q: "Does fitness level affect heart rate zones?", a: "Yes. fitter adults often have lower resting heart rates, which shifts their heart rate zones. Recheck your resting heart rate periodically as your fitness changes." },
+  { q: "What is the Karvonen method?", a: "The Karvonen method calculates target heart rate by adding your resting heart rate to a percentage of the difference between your max and resting heart rate. It adjusts for fitness because lower resting heart rates widen the range." },
+  { q: "What heart rate zone is best for weight loss?", a: "Zone 2 (60–70% of max) is called the fat-burning zone because it uses a higher proportion of fat for fuel. However, higher intensity sessions burn more total calories, so mixing both works best for weight loss." },
+  { q: "How can I measure heart rate accurately?", a: "Use a chest strap for the best accuracy, or a wrist-based fitness tracker that uses optical heart rate sensors. Manual checks at the wrist or neck work too: count beats for 60 seconds." },
+  { q: "What are target heart rate zones by age?", a: "Max heart rate declines roughly 1 bpm per year. A 20-year-old may top out near 200 bpm, while a 60-year-old may max out near 160 bpm. The Karvonen calculator above gives personalised zones based on your exact numbers." },
 ];
 
 const path = "/target-heart-rate-calculator/";
@@ -41,6 +48,7 @@ const jsonLd = [
   faqs={faqs}
 >
   <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <MedicalNote />
     <form id="calc-form" class="card p-5 sm:p-6" novalidate>
       <p role="note" class="mb-4 text-xs leading-relaxed text-mute">
         Enter your age and resting heart rate to find your training zones.
@@ -81,18 +89,74 @@ const jsonLd = [
   </div>
 
   <Fragment slot="content">
+    <ArticleImage src="/assets/images/articles/heart-pulse.svg" alt="Illustration of a heart with pulse line showing heart rate training zones." />
+
     <h2>What target heart rate means</h2>
-    <p>Target heart rate zones help you train at the right intensity for your goal. This calculator uses the Karvonen method, which uses your age and resting heart rate to create personalized zones.</p>
+    <p>Target heart rate zones help you train at the right intensity for your goal. This calculator uses the Karvonen method, which uses your age and resting heart rate to create personalized zones. The method is more accurate than simple formulas because it accounts for how fit you already are — reflected in your resting rate.</p>
 
-    <h2>How to use your heart rate zones</h2>
-    <p>Warm up in Zone 1 or 2. Use Zone 2 for longer easy cardio. Use Zone 3 for tempo work. Use Zone 4 for threshold training. Use Zone 5 only for short intervals.</p>
+    <h2>The Karvonen method explained</h2>
+    <p>The Karvonen formula is:</p>
+    <p><code>Target HR = resting HR + (max HR - resting HR) × intensity %</code></p>
+    <p>Where max HR = 220 - age. A 30-year-old with a resting rate of 65 bpm has a max of 190 and a range of 125 bpm. At 60% intensity, the target is 65 + (190-65) × 0.60 ≈ 140 bpm.</p>
 
-    <h2>Measuring heart rate</h2>
-    <p>You can use a fitness tracker, heart rate monitor, or manual pulse check. For manual checks, count beats for 60 seconds at the wrist or neck.</p>
+    <h2>Heart rate zones explained</h2>
+    <p>Most training plans split effort into five zones:</p>
+    <table>
+      <thead><tr><th>Zone</th><th>Intensity</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr><td>Zone 1</td><td>50–60%</td><td>Warm-up, cool down, recovery</td></tr>
+        <tr><td>Zone 2</td><td>60–70%</td><td>Easy cardio, fat-burn, base building</td></tr>
+        <tr><td>Zone 3</td><td>70–80%</td><td>Tempo, threshold, aerobic endurance</td></tr>
+        <tr><td>Zone 4</td><td>80–90%</td><td>Threshold, speed, race pace</td></tr>
+        <tr><td>Zone 5</td><td>90–100%</td><td>Short intervals, peak effort</td></tr>
+      </tbody>
+    </table>
 
-    <h2>Safety and medical notes</h2>
-    <p>Heart rate zones are estimates. If you have a heart condition, high blood pressure, or symptoms like chest pain or dizziness, consult a doctor before starting a new exercise program.</p>
+    <h2>Heart rate for fat loss vs cardio</h2>
+    <p>Lower intensities (Zone 2) use a higher proportion of fat as fuel, which is why it is called the fat-burning zone. But higher intensities burn more total calories in the same time and preserve more muscle. For weight loss, combine Zone 2 base sessions with occasional Zone 3–4 work.</p>
+
+    <h2>How to measure heart rate accurately</h2>
+    <p>Chest-strap monitors are the most accurate because they read electrical signals from the heart. Wrist optical sensors work well for steady-state exercise but can lag during rapid heart-rate changes. Manual checks are always reliable if you count for a full 60 seconds.</p>
+
+    <h2>Target heart rate by age chart</h2>
+    <p>Here is a quick reference for max heart rate using 220 minus age:</p>
+    <table>
+      <thead><tr><th>Age</th><th>Estimated max HR</th><th>Zone 2 (60–70%)</th></tr></thead>
+      <tbody>
+        <tr><td>20</td><td>200 bpm</td><td>120–140 bpm</td></tr>
+        <tr><td>30</td><td>190 bpm</td><td>114–133 bpm</td></tr>
+        <tr><td>40</td><td>180 bpm</td><td>108–126 bpm</td></tr>
+        <tr><td>50</td><td>170 bpm</td><td>102–119 bpm</td></tr>
+        <tr><td>60</td><td>160 bpm</td><td>96–112 bpm</td></tr>
+      </tbody>
+    </table>
+    <p>These are estimates; the Karvonen calculator above uses your personal resting heart rate for more precise zones.</p>
+
+    <h2>Related calculators</h2>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/calories-burned-calculator/">Calories Burned Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Estimate calories burned for 15+ activities.</p>
+      </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/walking-calorie-calculator/">Walking Calorie Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Track calories burned while walking.</p>
+      </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/running-calorie-calculator/">Running Calorie Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Count calories burned by pace and distance.</p>
+      </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/tdee-calculator/">TDEE Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Total daily energy expenditure for your activity level.</p>
+      </div>
+    </div>
   </Fragment>
+  <Sources sources={[
+    { label: "Karvonen MJ et al. The effects of training heart rate: a longitudinal study. Duodecim. 1957.", href: "https://pubmed.ncbi.nlm.nih.gov/13445104/" },
+    { label: "CDC — Physical Activity for a Healthy Weight", href: "https://www.cdc.gov/healthyweight/physical_activity/index.html" },
+    { label: "American Heart Association — Target Heart Rates", href: "https://www.heart.org/en/healthy-living/fitness/fitness-basics/target-heart-rates" },
+  ]} />
 </CalculatorLayout>
 
 <script>
@@ -128,6 +192,5 @@ const jsonLd = [
     }
 
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-    render();
   }
 </script>

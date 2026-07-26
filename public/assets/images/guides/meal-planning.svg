@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" role="img" aria-hidden="true">
+  <rect width="400" height="240" rx="16" fill="#fafafa"/>
+  <g transform="translate(200 120)">
+    <ellipse cx="0" cy="64" rx="120" ry="22" fill="#ebebeb"/>
+    <circle cx="-58" cy="20" r="34" fill="#0cce6b"/>
+    <rect x="-6" y="-30" width="64" height="64" rx="14" fill="#f5a623"/>
+    <circle cx="74" cy="-6" r="22" fill="#0070f3"/>
+    <rect x="58" y="22" width="40" height="36" rx="10" fill="#ff0080" opacity="0.85"/>
+  </g>
+  <text x="200" y="218" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#171717" text-anchor="middle">Balanced meal portions</text>
+</svg>

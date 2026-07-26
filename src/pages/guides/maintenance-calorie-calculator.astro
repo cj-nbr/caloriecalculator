@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
 
 const faqs: FaqItem[] = [
@@ -28,6 +29,8 @@ const faqs: FaqItem[] = [
   <p>A <strong>maintenance calorie calculator</strong> tells you precisely how many calories you can eat each day without losing or gaining weight. This number — also called your TDEE (Total Daily Energy Expenditure) — is the cornerstone of any nutrition plan, whether your goal is fat loss, muscle gain, or weight maintenance.</p>
 
   <h2>Why maintenance calories are the foundation of nutrition</h2>
+
+  <ArticleImage src="/assets/images/articles/balance-scale.svg" alt="Illustration of a balanced scale representing calories in versus calories out for maintenance." />
   <p>Every effective diet starts with knowing your maintenance calories. This is your baseline: eat at this level and your weight stays stable. Eat below it and you lose weight; eat above it and you gain. Without this number, you're guessing — and guesses lead to frustration and stalled progress.</p>
 
   <h3>The science behind maintenance calorie calculation</h3>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" role="img" aria-hidden="true">
+  <rect width="400" height="220" rx="16" fill="transparent"/>
+  <g transform="translate(200 110)">
+    <rect x="-60" y="-40" width="120" height="80" rx="8" fill="#ffffff" stroke="#ebebeb" stroke-width="2"/>
+    <rect x="-40" y="-25" width="30" height="20" rx="4" fill="#0070f3" opacity="0.2"/>
+    <rect x="10" y="-25" width="30" height="20" rx="4" fill="#0070f3" opacity="0.3"/>
+    <text x="0" y="20" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#171717" text-anchor="middle">Seated vs Lying</text>
+    <text x="0" y="38" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#6b6b6b" text-anchor="middle">Compare leg curl positions</text>
+  </g>
+</svg>

@@ -1,0 +1,219 @@
+---
+import CalculatorLayout from "../layouts/CalculatorLayout.astro";
+import { inputCls, selectCls } from "../lib/ui";
+import type { FaqItem } from "../lib/seo";
+import MedicalNote from "../components/ui/MedicalNote.astro";
+import ArticleImage from "../components/ui/ArticleImage.astro";
+import Sources from "../components/ui/Sources.astro";
+
+const faqs: FaqItem[] = [
+  { q: "How many calories are in a standard beer?", a: "A standard 12 oz (355 ml) beer at 5% ABV contains roughly 100–150 alcohol calories." },
+];
+
+const path = "/alcohol-calories-calculator/";
+const h1 = "Alcohol Calories Calculator";
+const description =
+  "Free alcohol calories calculator. Count calories in beer, wine, spirits, and mixed drinks using ABV and volume.";
+const intro =
+  "Estimate calories from alcohol in your favorite drinks. Enter the type, strength, and size to see the total.";
+
+const drinkTypes = [
+  { key: "beer", name: "Beer", abv: 5, volumeMl: 355 },
+  { key: "wine", name: "Wine", abv: 12, volumeMl: 148 },
+  { key: "spirits", name: "Spirits", abv: 40, volumeMl: 44 },
+  { key: "mixed", name: "Mixed drink", abv: 10, volumeMl: 240 },
+];
+---
+
+<CalculatorLayout
+  title={h1 + " — Calories in Beer, Wine & Spirits"}
+  h1={h1}
+  description={description}
+  intro={intro}
+  path={path}
+  faqs={faqs}
+>
+  <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="alc-root">
+    <MedicalNote />
+    <form id="alc-form" class="card p-5 sm:p-6" novalidate>
+      <p role="note" class="mb-4 text-xs leading-relaxed text-mute">
+        Select a drink type, then adjust ABV and volume for your serving.
+      </p>
+      <div class="mb-4 space-y-1.5">
+        <label for="drink-type" class="block text-sm font-medium text-ink">Drink type</label>
+        <div class="relative">
+          <select id="drink-type" class={selectCls}>
+            {drinkTypes.map((d) => <option value={d.key}>{d.name}</option>)}
+          </select>
+          <svg class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6" /></svg>
+        </div>
+      </div>
+      <div class="mb-4 grid grid-cols-2 gap-3">
+        <div class="space-y-1.5">
+          <label for="abv" class="block text-sm font-medium text-ink">ABV (%)</label>
+          <input id="abv" type="number" inputmode="decimal" min="0" max="100" step="0.1" value="5" class={inputCls} />
+        </div>
+        <div class="space-y-1.5">
+          <label for="volume" class="block text-sm font-medium text-ink">Volume (ml)</label>
+          <input id="volume" type="number" inputmode="numeric" min="0" step="1" value="355" class={inputCls} />
+        </div>
+      </div>
+      <div class="mb-5 space-y-1.5">
+        <label for="quantity" class="block text-sm font-medium text-ink">Quantity</label>
+        <input id="quantity" type="number" inputmode="numeric" min="1" step="1" value="1" class={inputCls} />
+      </div>
+      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Alcohol Calories</button>
+    </form>
+
+    <div class="space-y-5">
+      <div class="card p-6 sm:p-8 text-center">
+        <p class="text-sm text-mute">Total alcohol calories</p>
+        <p class="mt-1"><span id="alc-total" class="text-display-xl text-ink tabular-nums">0</span> <span class="text-lg text-mute">kcal</span></p>
+        <p class="mt-2 text-sm text-body"><span id="alc-per-drink" class="text-ink">0</span> <span class="text-mute">kcal per drink</span> · <span id="units-display" class="text-mute">1 drink</span></p>
+      </div>
+      <div class="card overflow-hidden">
+        <div class="border-b border-hairline px-5 py-3"><h2 class="text-sm font-semibold text-ink">Common drink calories</h2></div>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-hairline text-left text-xs uppercase tracking-wide text-mute">
+              <th class="px-5 py-3 font-medium">Drink</th>
+              <th class="px-5 py-3 text-right font-medium">ABV</th>
+              <th class="px-5 py-3 text-right font-medium">Volume</th>
+              <th class="px-5 py-3 text-right font-medium">Calories</th>
+            </tr>
+          </thead>
+          <tbody id="alc-table"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <Fragment slot="content">
+    <MedicalNote />
+
+    <ArticleImage src="/assets/images/articles/alcohol-calories.svg" alt="Illustration of various alcoholic beverages with calorie counter overlay." />
+
+    <h2>How alcohol calories work</h2>
+    <p>Ethanol provides 7 calories per gram — more than carbohydrate or protein (4 kcal/g), but less than fat (9 kcal/g). Because the liver metabolises alcohol first, the body pauses fat burning while it clears ethanol from the bloodstream. That makes alcohol both a direct calorie source and an indirect blocker of your fat-loss goals.</p>
+
+    <h2>Alcohol vs food calories</h2>
+    <p>Food is measured by the Atwater system: 4 kcal/g for carbs and protein, 9 kcal/g for fat, and 7 kcal/g for alcohol. Alcohol is not a macronutrient, but it still contributes energy. If you drink two 12 oz craft beers (about 14% ABV), you can easily consume over 400 calories before your meal arrives.</p>
+
+    <h2>Common drink calorie counts</h2>
+    <p>Here are typical ranges for popular drinks. Exact numbers depend on brand, pour size, and ABV.</p>
+    <table>
+      <thead><tr><th>Drink</th><th>Serving</th><th>ABV</th><th>Calories</th></tr></thead>
+      <tbody>
+        <tr><td>Light beer</td><td>12 oz</td><td>~4%</td><td>~90–120 kcal</td></tr>
+        <tr><td>Regular beer</td><td>12 oz</td><td>~5%</td><td>~140–160 kcal</td></tr>
+        <tr><td>Craft IPA</td><td>12 oz</td><td>~7%</td><td>~200–250 kcal</td></tr>
+        <tr><td>Red wine</td><td>5 oz</td><td>~12%</td><td>~100–125 kcal</td></tr>
+        <tr><td>White wine</td><td>5 oz</td><td>~11%</td><td>~90–110 kcal</td></tr>
+        <tr><td>Dessert wine</td><td>3.5 oz</td><td>~18%</td><td>~140–160 kcal</td></tr>
+        <tr><td>Vodka shot</td><td>1.5 oz</td><td>40%</td><td>~100 kcal</td></tr>
+        <tr><td>Whiskey shot</td><td>1.5 oz</td><td>40%</td><td>~100 kcal</td></tr>
+        <tr><td>Margarita</td><td>12 oz</td><td>~12%</td><td>~300–400 kcal</td></tr>
+        <tr><td>Piña colada</td><td>12 oz</td><td>~15%</td><td>~300–500 kcal</td></tr>
+      </tbody>
+    </table>
+
+    <h2>How to account for alcohol calories in your diet</h2>
+    <p>Because alcohol delivers 7 kcal/g and temporarily halts fat metabolism, the smartest approach is to plan ahead. Decide how many drinks you want, then reduce carbs or fats elsewhere in your day to stay within your calorie target. Use the <a href="/macro-calculator/">macro calculator</a> to adjust your daily split after accounting for alcohol calories.</p>
+
+    <h2>Tips for drinking while dieting</h2>
+    <ul>
+      <li>Choose lower-ABV drinks or smaller pours to cut calories without cutting fun.</li>
+      <li>Avoid sugary mixers; soda water or diet soda adds almost no calories.</li>
+      <li>Log alcohol just like food — it all counts toward your daily total.</li>
+      <li>Drink water between alcoholic drinks to slow intake and stay hydrated.</li>
+      <li>Pair a drink with a high-protein meal to blunt appetite spikes.</li>
+    </ul>
+
+    <p class="mt-6"><strong>Get drunk not fat calculator</strong> is a popular search term for people who want to enjoy alcohol without the calorie penalty. The short answer: you cannot escape the calories, but you can minimize them by choosing lower-ABV options, smaller servings, and low-calorie mixers.</p>
+
+    <Sources sources={[
+      { label: "NIH — Alcohol Alert: Alcohol Metabolism", href: "https://www.niaaa.nih.gov/publications/alcohol-alerts/alcohol-metabolism" },
+      { label: "Atwater system — Energy values of food components", href: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3664764/" },
+    ]} />
+  </Fragment>
+</CalculatorLayout>
+
+<script is:inline>
+  const root = document.getElementById("alc-root");
+  if (root) {
+    const $ = (id: string) => document.getElementById(id)!;
+
+    function fmtCal(n: number) {
+      return n.toLocaleString("en-US");
+    }
+
+    function alcoholCalories(volumeMl: number, abvPercent: number): number {
+      const ethanolMl = volumeMl * (abvPercent / 100)
+      const ethanolG = ethanolMl * 0.789
+      return Math.round(ethanolG * 7)
+    }
+
+    interface Preset {
+      abv: number;
+      volume: number;
+      label: string;
+    }
+    const presets: Record<string, Preset> = {
+      beer: { abv: 5, volume: 355, label: "beers" },
+      wine: { abv: 12, volume: 148, label: "glasses" },
+      spirits: { abv: 40, volume: 44, label: "shots" },
+      mixed: { abv: 10, volume: 240, label: "drinks" },
+    };
+
+    function render() {
+      const drinkKey = ($("drink-type") as HTMLSelectElement).value
+      const abvEl = $("abv") as HTMLInputElement
+      const volEl = $("volume") as HTMLInputElement
+      const qtyEl = $("quantity") as HTMLInputElement
+      const abvVal = parseFloat(abvEl.value) || 0
+      const volVal = parseFloat(volEl.value) || 0
+      const qtyVal = parseInt(qtyEl.value || "1", 10)
+
+      const perDrink = alcoholCalories(volVal, abvVal)
+      const total = perDrink * Math.max(1, qtyVal)
+
+      $("alc-total").textContent = fmtCal(total)
+      $("alc-per-drink").textContent = fmtCal(perDrink)
+
+      const preset: Preset = presets[drinkKey] || presets.beer
+      ($("units-display") as HTMLInputElement).value = qtyVal === 1 ? preset.label.replace(/s$/, "") : preset.label
+
+      const rows = [
+        { name: "Light beer (12 oz)", abv: 4.2, volumeMl: 355 },
+        { name: "Regular beer (12 oz)", abv: 5, volumeMl: 355 },
+        { name: "Craft IPA (12 oz)", abv: 7, volumeMl: 355 },
+        { name: "Red wine (5 oz)", abv: 12, volumeMl: 148 },
+        { name: "White wine (5 oz)", abv: 11, volumeMl: 148 },
+        { name: "Dessert wine (3.5 oz)", abv: 18, volumeMl: 104 },
+        { name: "Vodka shot (1.5 oz)", abv: 40, volumeMl: 44 },
+        { name: "Whiskey shot (1.5 oz)", abv: 40, volumeMl: 44 },
+        { name: "Margarita (12 oz)", abv: 12, volumeMl: 355 },
+        { name: "Piña colada (12 oz)", abv: 15, volumeMl: 355 },
+      ]
+
+      $("alc-table").innerHTML = rows
+        .map(
+          (r) => {
+            const cal = alcoholCalories(r.volumeMl, r.abv)
+            return `<tr class="border-b border-hairline last:border-0"><td class="px-5 py-2.5 text-body">${r.name}</td><td class="px-5 py-2.5 text-right tabular-nums">${r.abv}%</td><td class="px-5 py-2.5 text-right tabular-nums">${r.volumeMl} ml</td><td class="px-5 py-2.5 text-right font-medium text-ink tabular-nums">${fmtCal(cal)} kcal</td></tr>`
+          }
+        )
+        .join("")
+    }
+
+    ;($("alc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render() });
+    ;($("drink-type") as HTMLSelectElement).addEventListener("change", () => {
+      const drinkKey = ($("drink-type") as HTMLSelectElement).value
+      const preset = presets[drinkKey] || presets.beer
+      ($("abv") as HTMLInputElement).value = String(preset.abv)
+      ($("volume") as HTMLInputElement).value = String(preset.volume)
+      render()
+    })
+    render()
+  }
+</script>

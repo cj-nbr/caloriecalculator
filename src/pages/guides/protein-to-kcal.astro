@@ -1,0 +1,153 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "How do I convert protein to kcal?", a: "Multiply protein grams by 4. 40g protein = 160 kcal, 160g protein = 640 kcal, 175g protein = 700 kcal. The formula is always the same: grams × 4 = calories." },
+  { q: "How many kcal in 40g of protein?", a: "40g of protein contains exactly 160 kcal. This is calculated as 40 × 4 = 160. Use the <a href='/protein-calculator/'>protein calculator</a> for automatic conversion." },
+  { q: "How many kcal in 160g of protein?", a: "160g of protein contains 640 kcal. On a 2,500-calorie diet, that is 25.6% of total calories from protein. Use the <a href='/macro-calculator/'>macro calculator</a> to set your split." },
+  { q: "How many kcal in 175g of protein?", a: "175g of protein contains 700 kcal. On a 2,000-calorie diet, that is 35% protein — a common high-protein target for muscle preservation during fat loss." },
+  { q: "Why does protein equal 4 kcal per gram?", a: "The Atwater system, established through bomb calorimetry, determined that protein consistently releases 4 kcal per gram when metabolized. This holds for all protein sources: meat, dairy, plants, and supplements." },
+];
+
+---
+
+<ContentLayout
+  title="Protein to kcal — Convert Protein Grams to Calories"
+  h1="Protein to kcal"
+  description="Convert protein grams to calories instantly. Protein = 4 kcal/g. Learn the formula, see conversion tables for 40g, 160g, 175g, and use protein calories for meal planning."
+  path="/guides/protein-to-kcal/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="Converting protein to kcal is simple: multiply grams by 4. Here are the formulas, tables, and real-world examples to master protein calorie math."
+  updated="July 2026"
+  faqs={faqs}
+>
+  <ArticleImage src="/assets/images/articles/protein-structure.svg" alt="Illustration of protein molecules showing energy content and calorie conversion." />
+
+  <h2 id="formula">Quick Conversion Formulas</h2>
+  <p>Protein to kcal uses a fixed multiplier. The math never changes:</p>
+  <div class="not-prose grid gap-3 sm:grid-cols-3">
+    <div class="card p-4 text-center">
+      <p class="text-xs uppercase text-mute">Forward</p>
+      <p class="mt-1 font-semibold text-ink text-xl">Grams × 4 = kcal</p>
+      <p class="mt-1 text-xs text-body">Example: 40g × 4 = 160 kcal</p>
+    </div>
+    <div class="card p-4 text-center">
+      <p class="text-xs uppercase text-mute">Reverse</p>
+      <p class="mt-1 font-semibold text-ink text-xl">kcal ÷ 4 = Grams</p>
+      <p class="mt-1 text-xs text-body">Example: 640 ÷ 4 = 160g</p>
+    </div>
+    <div class="card p-4 text-center">
+      <p class="text-xs uppercase text-mute">Percentage</p>
+      <p class="mt-1 font-semibold text-ink text-xl">(Grams × 4) ÷ Total kcal × 100</p>
+      <p class="mt-1 text-xs text-body">Example: 175g on 2000 kcal = 35%</p>
+    </div>
+  </div>
+
+  <h2 id="real-examples">Real Examples: 40g, 160g, 175g Protein to Calories</h2>
+  <p>These are common protein targets. Here is exactly how many kcal each provides:</p>
+  <table>
+    <thead><tr><th>Protein (g)</th><th>Calories (kcal)</th><th>Context</th></tr></thead>
+    <tbody>
+      <tr><td>40g</td><td>160 kcal</td><td>One large protein-focused meal</td></tr>
+      <tr><td>80g</td><td>320 kcal</td><td>Half of a 160g daily target</td></tr>
+      <tr><td>100g</td><td>400 kcal</td><td>20% of a 2000-calorie diet</td></tr>
+      <tr><td>125g</td><td>500 kcal</td><td>25% of a 2000-calorie diet</td></tr>
+      <tr><td>150g</td><td>600 kcal</td><td>30% of a 2000-calorie diet</td></tr>
+      <tr><td>160g</td><td>640 kcal</td><td>Active adult daily target</td></tr>
+      <tr><td>175g</td><td>700 kcal</td><td>35% of a 2000-calorie diet</td></tr>
+      <tr><td>200g</td><td>800 kcal</td><td>Athlete or aggressive muscle-building target</td></tr>
+    </tbody>
+  </table>
+  <p class="text-sm text-mute">Use the <a href="/protein-calculator/">protein calculator</a> to find your personalized daily target in grams and kcal.</p>
+
+  <h2 id="conversion-table">Protein to kcal Conversion Table</h2>
+  <p>Quick reference for every 25g increment:</p>
+  <table>
+    <thead><tr><th>Protein (g)</th><th>kcal</th><th>Protein % of 1500 kcal</th><th>Protein % of 2000 kcal</th><th>Protein % of 2500 kcal</th></tr></thead>
+    <tbody>
+      <tr><td>25g</td><td>100 kcal</td><td>6.7%</td><td>5.0%</td><td>4.0%</td></tr>
+      <tr><td>50g</td><td>200 kcal</td><td>13.3%</td><td>10.0%</td><td>8.0%</td></tr>
+      <tr><td>75g</td><td>300 kcal</td><td>20.0%</td><td>15.0%</td><td>12.0%</td></tr>
+      <tr><td>100g</td><td>400 kcal</td><td>26.7%</td><td>20.0%</td><td>16.0%</td></tr>
+      <tr><td>125g</td><td>500 kcal</td><td>33.3%</td><td>25.0%</td><td>20.0%</td></tr>
+      <tr><td>150g</td><td>600 kcal</td><td>40.0%</td><td>30.0%</td><td>24.0%</td></tr>
+      <tr><td>175g</td><td>700 kcal</td><td>46.7%</td><td>35.0%</td><td>28.0%</td></tr>
+      <tr><td>200g</td><td>800 kcal</td><td>53.3%</td><td>40.0%</td><td>32.0%</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="meal-planning">How to Use Protein to kcal for Meal Planning</h2>
+  <p>Knowing your protein target in kcal makes meal planning easier. Here is how to apply it:</p>
+  <ol>
+    <li><strong>Find your daily protein grams</strong> using the <a href="/protein-calculator/">protein calculator</a>.</li>
+    <li><strong>Convert to kcal</strong> by multiplying by 4. Example: 160g = 640 kcal.</li>
+    <li><strong>Divide by meals.</strong> If you eat 4 meals, 640 ÷ 4 = 160 kcal from protein per meal.</li>
+    <li><strong>Choose foods</strong> that deliver that kcal efficiently. 160 kcal from protein = ~40g chicken, 3 eggs + Greek yogurt, or a protein shake.</li>
+    <li><strong>Fill remaining calories</strong> with carbs and fat using the <a href="/macro-calculator/">macro calculator</a>.</li>
+  </ol>
+  <p>For recipe-level planning, use the <a href="/recipe-calorie-calculator/">recipe calorie calculator</a> to see exactly how many protein calories each serving provides.</p>
+
+  <h2 id="40g-example">Example: 40g Protein = 160 kcal in Real Foods</h2>
+  <p>How to get 40g protein (160 kcal) from common foods:</p>
+  <table>
+    <thead><tr><th>Food combination</th><th>Protein (g)</th><th>Protein kcal</th><th>Total kcal</th></tr></thead>
+    <tbody>
+      <tr><td>5 oz chicken breast</td><td>40g</td><td>160 kcal</td><td>206 kcal</td></tr>
+      <tr><td>3 large eggs + 1 cup Greek yogurt</td><td>39g</td><td>156 kcal</td><td>230 kcal</td></tr>
+      <tr><td>1 scoop whey + 1 cup egg whites</td><td>40g</td><td>160 kcal</td><td>210 kcal</td></tr>
+      <tr><td>6 oz tuna + 1 slice whole-grain bread</td><td>40g</td><td>160 kcal</td><td>220 kcal</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="160g-example">Example: 160g Protein = 640 kcal in a Day</h2>
+  <p>For an active person targeting 160g protein daily:</p>
+  <ul>
+    <li><strong>Breakfast:</strong> 3 eggs + protein shake = 50g = 200 kcal</li>
+    <li><strong>Lunch:</strong> 6 oz chicken + quinoa = 50g = 200 kcal</li>
+    <li><strong>Snack:</strong> Greek yogurt + almonds = 30g = 120 kcal</li>
+    <li><strong>Dinner:</strong> 6 oz salmon + sweet potato = 30g = 120 kcal</li>
+  </ul>
+  <p>Total: 160g protein = 640 kcal from protein. The remaining 1,360 kcal on a 2,000-calorie plan come from carbs and fat. Use the <a href="/macro-calculator/">macro calculator</a> to split those calories.</p>
+
+  <h2 id="175g-example">Example: 175g Protein = 700 kcal for High-Protein Dieting</h2>
+  <p>On a 2,000-calorie cutting plan, 175g protein (700 kcal) gives 35% protein — ideal for muscle preservation during fat loss. Here is how to distribute it:</p>
+  <ul>
+    <li><strong>Meal 1:</strong> 4 egg whites + 2 whole eggs + 1 cup oats = 40g = 160 kcal</li>
+    <li><strong>Meal 2:</strong> 8 oz chicken breast + 2 cups rice = 70g = 280 kcal</li>
+    <li><strong>Meal 3:</strong> Protein shake (2 scoops) + banana = 30g = 120 kcal</li>
+    <li><strong>Meal 4:</strong> 6 oz tilapia + broccoli + sweet potato = 35g = 140 kcal</li>
+  </ul>
+  <p>Total: 175g protein = 700 kcal. Remaining 1,300 kcal split between carbs and fat. Use the <a href="/macro-calculator/">macro calculator</a> to find your exact split.</p>
+
+  <h2 id="why-it-matters">Why Protein kcal Matters More Than Just Grams</h2>
+  <p>Grams tell you how much protein you eat. kcal tells you how much of your daily energy budget that protein occupies. On a 1,500-calorie cutting plan, 150g protein (600 kcal) takes up 40% of your calories. On a 3,000-calorie bulk, the same 150g is only 20%.</p>
+  <p>Understanding protein kcal helps you:</p>
+  <ul>
+    <li><strong>Avoid macro imbalances:</strong> 200g protein on a 1,500-calorie plan leaves little room for carbs and fat.</li>
+    <li><strong>Set realistic targets:</strong> The <a href="/protein-calculator/">protein calculator</a> and <a href="/macro-calculator/">macro calculator</a> show grams and kcal together.</li>
+    <li><strong>Compare foods:</strong> Two foods may have the same grams of protein but very different total calories.</li>
+  </ul>
+
+  <h2 id="related-tools">Related Tools</h2>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/protein-calculator/">Protein Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Find your daily protein target in grams and kcal based on weight and goals.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/macro-calculator/">Macro Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Convert total calories to protein, carbs, and fat grams with kcal values.</p>
+    </div>
+  </div>
+
+  <h2 id="continue-learning">Continue Learning</h2>
+  <ul>
+    <li><a href="/guides/protein-calories/">Protein Calories Guide</a> — Complete protein calorie reference</li>
+    <li><a href="/guides/protein-guide/">Protein Guide</a> — Daily needs, sources, and timing</li>
+    <li><a href="/guides/macro-guide/">Macro Guide</a> — Protein, carbs, and fat explained</li>
+    <li><a href="/protein-calculator/">Protein Calculator</a> — Your exact daily target</li>
+  </ul>
+</ContentLayout>

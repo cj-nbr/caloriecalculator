@@ -1,0 +1,31 @@
+---
+/**
+ * MedicalNote — prominent, non-intrusive "not medical advice" callout.
+ * Used on health, pregnancy, and body-composition pages to satisfy
+ * Google AdSense / Search quality expectations for sensitive topics.
+ * Renders a styled card with an icon and link to the full disclaimer.
+ */
+interface Props {
+  class?: string;
+  strong?: boolean;
+}
+
+const { class: className = "", strong = false } = Astro.props;
+---
+
+<aside
+  class={`not-prose rounded-xl border border-hairline-strong bg-canvas-soft p-4 sm:p-5 ${className}`}
+  role="note"
+  aria-label="Medical disclaimer"
+>
+  <div class="flex items-start gap-3">
+    <svg class="mt-0.5 h-5 w-5 shrink-0 text-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" /><path d="M12 8v5M12 16h.01" />
+    </svg>
+    <p class="text-sm leading-relaxed text-body">
+      {strong ? <strong class="text-ink">Not medical advice. </strong> : null}
+      This tool provides estimates for general information only. It is not a substitute for professional medical, nutritional, or fitness advice. Always consult a qualified healthcare provider — especially if you are pregnant, breastfeeding, under 18, elderly, or have a medical condition. Read our
+      <a href="/disclaimer/" class="text-brand underline underline-offset-2"> full disclaimer</a>.
+    </p>
+  </div>
+</aside>

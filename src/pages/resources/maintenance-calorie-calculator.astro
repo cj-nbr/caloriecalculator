@@ -1,0 +1,111 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
+import type { FaqItem } from "../../lib/seo";
+import Sources from "../../components/ui/Sources.astro";
+
+const faqs: FaqItem[] = [
+  { q: "How do I find my maintenance calories?", a: "Calculate your TDEE using the Mifflin-St Jeor equation and an accurate activity multiplier. Our maintenance calorie calculator or TDEE calculator will give you this number instantly." },
+  { q: "Is TDEE the same as maintenance calories?", a: "Yes. TDEE (Total Daily Energy Expenditure) is the amount of calories you burn in a day. Eating that exact amount keeps your weight stable, which is the definition of maintenance." },
+  { q: "What is the best maintenance calorie calculator?", a: "The best maintenance calorie calculator uses the Mifflin-St Jeor equation, which is 85–90% accurate for the general population. Our TDEE calculator applies this formula automatically." },
+  { q: "Why are my maintenance calories higher than I expected?", a: "If you are smaller or less active than average, your maintenance may be lower. Taller, heavier, or more muscular people have higher maintenance calories. Use the <a href='/tdee-calculator/'>TDEE calculator</a> to get a personalized number." },
+  { q: "How often should I recalculate my maintenance calories?", a: "Recalculate every 4–6 weeks, or whenever your weight changes by more than 5% or your activity level shifts. Your maintenance calories are not fixed." },
+];
+---
+
+<ContentLayout
+  title="Maintenance Calorie Calculator — Find Your Maintenance Calories"
+  h1="Maintenance Calorie Calculator"
+  description="Find your maintenance calories with our free calculator. Learn how to calculate maintenance calories, adjust them over time, and use them for weight loss or gain."
+  path="/resources/maintenance-calorie-calculator/"
+  category="Resources"
+  categoryPath="/resources/"
+  lead="Maintenance calories are the exact amount you can eat to keep your weight stable. Find yours and learn how to adjust them for your goals."
+  updated="July 2026"
+  faqs={faqs}
+>
+  <p>A <strong>maintenance calorie calculator</strong> tells you precisely how many calories you need each day to keep your current weight. This number — also called your TDEE (Total Daily Energy Expenditure) — is the foundation of every nutrition plan. Without it, you are guessing at how much to eat, and guesses lead to frustration, stalled progress, and unnecessary weight gain or loss.</p>
+
+  <ArticleImage src="/assets/images/articles/balance-scale.svg" alt="Illustration of a balanced scale representing calories in versus calories out for maintenance." />
+
+  <h2>What are maintenance calories?</h2>
+  <p>Maintenance calories are the total number of calories your body burns in a normal day — not at complete rest, but when you combine your resting metabolism with daily movement, exercise, and digestion. In other words, maintenance calories equal your TDEE. When you eat this amount, your weight stays exactly where it is.</p>
+  <p>Understanding maintenance calories is useful even if your goal is not to maintain. Weight loss requires eating below maintenance; weight gain requires eating above it. You cannot set a smart target without first knowing where maintenance sits. That is why the <a href="/tdee-calculator/">TDEE calculator</a> is one of the most popular tools on this site: it gives you the baseline for every decision.</p>
+
+  <h2>How the maintenance calorie calculator works</h2>
+  <p>The calculator uses the Mifflin-St Jeor equation — the most accurate predictive formula for the general population. It considers:</p>
+  <ul>
+    <li><strong>Age:</strong> decreases ~100 calories per decade after 25</li>
+    <li><strong>Sex:</strong> men typically need ~200–400 more calories than women of similar size</li>
+    <li><strong>Height:</strong> taller people burn more calories due to larger organ and tissue mass</li>
+    <li><strong>Weight:</strong> higher weight equals higher maintenance; lose ~10–20 calories per kg lost</li>
+    <li><strong>Activity:</strong> can vary maintenance by 500–1,000+ calories depending on level</li>
+  </ul>
+
+  <h2>How to find maintenance calories step by step</h2>
+  <ol>
+    <li><strong>Enter your age:</strong> Be accurate to the year for best results.</li>
+    <li><strong>Select your sex:</strong> Required for the Mifflin-St Jeor equation.</li>
+    <li><strong>Input your height:</strong> Use cm or feet/inches — we convert automatically.</li>
+    <li><strong>Enter your weight:</strong> Use your current weight in kg or lbs.</li>
+    <li><strong>Choose activity level:</strong> Be honest — most people overestimate. Start with the lower option if you are unsure.</li>
+    <li><strong>Calculate:</strong> Your TDEE is your maintenance calorie target.</li>
+  </ol>
+
+  <h2>Maintenance calorie examples by profile</h2>
+  <table>
+    <thead><tr><th>Profile</th><th>BMR</th><th>Maintenance (Moderate)</th><th>Maintenance (High)</th></tr></thead>
+    <tbody>
+      <tr><td>Woman: 25, 165cm, 65kg</td><td>~1,400</td><td>~2,170</td><td>~2,500</td></tr>
+      <tr><td>Man: 30, 180cm, 80kg</td><td>~1,820</td><td>~2,821</td><td>~3,200</td></tr>
+      <tr><td>Woman: 40, 170cm, 75kg</td><td>~1,475</td><td>~2,286</td><td>~2,660</td></tr>
+      <tr><td>Man: 20, 175cm, 70kg</td><td>~1,690</td><td>~2,620</td><td>~2,950</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Using maintenance calories for weight loss</h2>
+  <p>To lose weight safely and sustainably, subtract 250–500 calories from your maintenance level. This creates a moderate deficit that yields:</p>
+  <ul>
+    <li>~0.5 lb (0.25 kg) per week with a 250-calorie deficit</li>
+    <li>~1 lb (0.5 kg) per week with a 500-calorie deficit</li>
+    <li>~2 lb (1 kg) per week with a 1,000-calorie deficit (extreme, not recommended long-term)</li>
+  </ul>
+  <p>Use our <a href="/">calorie calculator</a> to get goal-based targets automatically, or read the <a href="/guides/calorie-deficit-guide/">calorie deficit guide</a> for a detailed approach.</p>
+
+  <h2>Using maintenance calories for muscle gain</h2>
+  <p>To build muscle, add 250–500 calories above maintenance. This provides energy for muscle protein synthesis without excessive fat gain. Pair with resistance training and adequate protein (1.6–2.2g per kg) for optimal results. Read our <a href="/guides/calorie-surplus-guide/">calorie surplus guide</a> and use the <a href="/macro-calculator/">macro calculator</a> to structure your intake.</p>
+
+  <h2>Adjusting maintenance calories over time</h2>
+  <p>Your maintenance calories change as you lose or gain weight. Recalculate every 4–6 weeks or after a 5 kg (10 lb) weight change. When losing weight, maintenance drops by ~10–20 calories per kg lost. When gaining, it increases by ~10–15 calories per kg gained. This is why a strict deficit eventually stalls — your maintenance falls with your weight.</p>
+
+  <h2>Activity level selection guide</h2>
+  <p>Choosing the wrong activity level is the #1 cause of incorrect maintenance calorie estimates:</p>
+  <table>
+    <thead><tr><th>Activity Level</th><th>Description</th><th>Activity Multiplier</th></tr></thead>
+    <tbody>
+      <tr><td>Sedentary</td><td>Desk job, little/no exercise</td><td>1.2</td></tr>
+      <tr><td>Lightly Active</td><td>1–3 workouts/week</td><td>1.375</td></tr>
+      <tr><td>Moderately Active</td><td>3–5 workouts/week</td><td>1.55</td></tr>
+      <tr><td>Very Active</td><td>6–7 workouts/week</td><td>1.725</td></tr>
+      <tr><td>Extra Active</td><td>Athlete + physical job</td><td>1.9</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Common maintenance calorie mistakes</h2>
+  <ul>
+    <li><strong>Overestimating activity level</strong> — leads to eating above true maintenance and gradual weight gain</li>
+    <li><strong>Not tracking intake accurately</strong> — food scales and measuring cups are essential for precision</li>
+    <li><strong>Ignoring metabolic adaptation</strong> — weight loss slows maintenance needs over time</li>
+    <li><strong>Using outdated equations</strong> — Mifflin-St Jeor beats Harris-Benedict for accuracy</li>
+    <li><strong>Setting maintenance and forgetting it</strong> — maintenance shifts with weight, muscle, and age</li>
+  </ul>
+
+  <h2>Maintenance calories vs. BMR</h2>
+  <p>BMR is calories burned at complete rest. Maintenance calories add daily movement, exercise, and digestion. The gap between BMR and maintenance is where NEAT, EAT, and TEF live. For most people, maintenance is 1.2–1.9 times BMR. Use the <a href="/bmr-calculator/">BMR calculator</a> to find your baseline, then the <a href="/tdee-calculator/">TDEE calculator</a> to find your full daily needs.</p>
+
+  <Sources sources={[
+    { label: "Dietary Reference Intakes for Energy — National Academies", href: "https://www.nap.edu/read/10490/chapter/1" },
+    { label: "Energy requirements — World Health Organization (WHO)", href: "https://www.who.int/tools/elena" },
+    { label: "Energy expenditure — PubMed / NIH review", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
+  ]} />
+</ContentLayout>

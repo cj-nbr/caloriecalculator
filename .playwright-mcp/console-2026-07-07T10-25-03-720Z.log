@@ -1,0 +1,14 @@
+[    4506ms] Uncaught SyntaxError: Unexpected end of JSON input
+    at or.<computed> (https://furiousexpansion.com/b6/70/ef/b670efe9048f87f0d9d6fa5ac2c6c4aa.js:0:11842)
+[    4562ms] TypeError: Failed to execute 'requestIdleCallback' on 'Window': The provided value is not of type 'IdleRequestOptions'.
+    at https://caloriecalculatorfree.com/:25:81
+[    9441ms] TypeError: Failed to execute 'requestIdleCallback' on 'Window': The provided value is not of type 'IdleRequestOptions'.
+    at https://caloriecalculatorfree.com/?u=metric&s=male&a=30&w=70&h=175&act=moderate&g=maintain:25:81
+[   10601ms] Uncaught SyntaxError: Unexpected end of JSON input
+    at or.<computed> (https://exemplarfederallithe.com/b6/70/ef/b670efe9048f87f0d9d6fa5ac2c6c4aa.js:0:11842)
+[   16385ms] Uncaught SyntaxError: Unexpected end of JSON input
+    at or.<computed> (https://furiousexpansion.com/b6/70/ef/b670efe9048f87f0d9d6fa5ac2c6c4aa.js:0:11842)
+[   16389ms] TypeError: Failed to execute 'requestIdleCallback' on 'Window': The provided value is not of type 'IdleRequestOptions'.
+    at https://caloriecalculatorfree.com/resources/:25:81
+[   19683ms] TypeError: Failed to execute 'requestIdleCallback' on 'Window': The provided value is not of type 'IdleRequestOptions'.
+    at https://caloriecalculatorfree.com/resources/:25:81

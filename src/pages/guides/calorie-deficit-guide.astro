@@ -1,6 +1,8 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
+import Sources from "../../components/ui/Sources.astro";
 
 const faqs: FaqItem[] = [
   { q: "What is a calorie deficit?", a: "A calorie deficit means eating fewer calories than your body burns each day. It forces your body to use stored fat for energy, which is how you lose weight." },
@@ -21,6 +23,8 @@ const faqs: FaqItem[] = [
 >
   <h2>What is a calorie deficit?</h2>
   <p>A calorie deficit occurs when you consume fewer calories than your body uses. Faced with this energy shortfall, your body turns to its stored energy — primarily fat — to make up the difference. Sustain that deficit over time and you lose weight. It's the underlying mechanism behind every successful diet.</p>
+
+  <ArticleImage src="/assets/images/articles/weight-scale.svg" alt="Illustration of a balance scale showing weight loss when calories out exceed calories in." />
 
   <h2>The 3,500-calorie rule</h2>
   <p>A pound of body fat stores roughly 3,500 calories (a kilogram, about 7,700). So a daily deficit of 500 calories adds up to about one pound of fat loss per week. This is a useful rule of thumb, though real-world results vary with water, muscle, and metabolic adaptation.</p>
@@ -46,4 +50,9 @@ const faqs: FaqItem[] = [
 
   <h2>When progress stalls</h2>
   <p>As you lose weight, your maintenance calories fall, shrinking your deficit. Recalculate every 4–5 kg and adjust. Patience and consistency win.</p>
+
+  <Sources sources={[
+    { label: "CDC — Losing weight healthy", href: "https://www.cdc.gov/healthyweight/losing_weight/index.html" },
+    { label: "NHS — Calories and weight management", href: "https://www.nhs.uk/live-well/eat-well/calories/" },
+  ]} />
 </ContentLayout>

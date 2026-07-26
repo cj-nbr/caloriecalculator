@@ -3,6 +3,7 @@ import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import ExerciseCalculator from "../components/calculators/ExerciseCalculator.astro";
 import { RUNNING } from "../data/exercises";
 import type { FaqItem } from "../lib/seo";
+import ArticleImage from "../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "How many calories does running burn?", a: "A 70 kg (154 lb) runner burns roughly 300 calories running for 30 minutes at 6 mph (9.7 km/h), and around 360 calories at 7 mph. Faster paces and heavier body weight burn more." },
@@ -23,6 +24,8 @@ const faqs: FaqItem[] = [
   <ExerciseCalculator activities={RUNNING} defaultIndex={1} />
 
   <Fragment slot="content">
+    <ArticleImage src="/assets/images/articles/running-route.svg" alt="Illustration of a running route showing pace markers for calorie burn calculation." />
+
     <h2>Calories burned running</h2>
     <p>Running is one of the most efficient ways to burn calories. The exact number depends on three things: how fast you run (your pace), how much you weigh, and how long you run. This calculator uses MET values for each running speed to give you an accurate estimate.</p>
 

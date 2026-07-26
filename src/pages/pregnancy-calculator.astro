@@ -2,6 +2,8 @@
 import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls } from "../lib/ui";
 import type { FaqItem } from "../lib/seo";
+import MedicalNote from "../components/ui/MedicalNote.astro";
+import ArticleImage from "../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "How is due date calculated?", a: "Due date uses Naegele's rule: last menstrual period (LMP) plus 280 days (40 weeks). Our pregnancy calculator applies this standard method." },
@@ -57,6 +59,10 @@ const faqs: FaqItem[] = [
   </div>
 
   <Fragment slot="content">
+    <MedicalNote strong />
+
+    <ArticleImage src="/assets/images/articles/pregnancy-timeline.svg" alt="Illustration of a pregnancy timeline showing weekly progression from conception to due date." />
+
     <h2>How Pregnancy Calculation Works</h2>
     <p>This calculator uses Naegele's rule: LMP plus 280 days. It accounts for your cycle length to estimate ovulation and conception dates more accurately.</p>
 
@@ -125,7 +131,5 @@ const faqs: FaqItem[] = [
     }
 
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-    ["lmp", "cycle"].forEach((id) => { ($(id) as HTMLInputElement).addEventListener("input", render); });
-    render();
   }
 </script>

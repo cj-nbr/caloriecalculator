@@ -1,0 +1,4 @@
+[    5300ms] TypeError: Failed to execute 'requestIdleCallback' on 'Window': The provided value is not of type 'IdleRequestOptions'.
+    at https://caloriecalculatorfree.com/:25:81
+[    5309ms] Uncaught SyntaxError: Unexpected end of JSON input
+    at or.<computed> (https://sleepoverlimitprofound.com/b6/70/ef/b670efe9048f87f0d9d6fa5ac2c6c4aa.js:0:11842)

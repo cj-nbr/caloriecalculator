@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 
 const path = "/low-calorie/sweet-treats/";
 const description = "Low calorie sweet treats under 100 calories. Guilt-free desserts, snacks, and desserts for weight loss.";
@@ -24,6 +25,8 @@ const faqs = [
   faqs={faqs}
 >
   <h2>Low Calorie Sweet Treats by Type</h2>
+
+  <ArticleImage src="/assets/images/articles/balanced-plate.svg" alt="Illustration of low-calorie sweet treats and desserts for guilt-free eating." />
 
   <h3>Fruits (50-100 cal)</h3>
   <table>

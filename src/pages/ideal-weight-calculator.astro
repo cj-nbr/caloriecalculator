@@ -2,6 +2,9 @@
 import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls, segOptCls } from "../lib/ui";
 import type { FaqItem } from "../lib/seo";
+import Sources from "../components/ui/Sources.astro";
+import MedicalNote from "../components/ui/MedicalNote.astro";
+import ArticleImage from "../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "What is ideal body weight?", a: "Ideal body weight (IBW) is a reference weight associated with good health for your height and sex. Several formulas exist — Robinson, Miller, Devine, and Hamwi — and they give slightly different numbers, so a healthy range is more useful than a single figure." },
@@ -20,6 +23,7 @@ const faqs: FaqItem[] = [
   faqs={faqs}
 >
   <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <MedicalNote />
     <form id="calc-form" class="card p-5 sm:p-6" novalidate>
     <p role="note" class="mb-4 text-xs leading-relaxed text-mute">
       Example values are pre-filled. Enter your own details for accurate results.
@@ -59,12 +63,20 @@ const faqs: FaqItem[] = [
   </div>
 
   <Fragment slot="content">
+    <ArticleImage src="/assets/images/articles/body-composition.svg" alt="Illustration of body composition showing lean mass and body fat as two parts of total body weight." />
+
     <h2>How ideal weight is calculated</h2>
     <p>Ideal body weight formulas estimate a healthy weight from your height and sex. They originated in medicine — for example, to calculate drug dosages — and each makes slightly different assumptions, which is why the results vary. Seeing all four side by side gives you a realistic target range rather than a single, falsely precise number.</p>
     <h2>The healthy BMI range</h2>
     <p>The range shown at the top is derived from the healthy <a href="/bmi-calculator/">BMI</a> band of 18.5 to 24.9 applied to your height. For most people this is the most practical reference, since it reflects population health data directly.</p>
     <h2>Beyond the number</h2>
     <p>Remember that these formulas ignore muscle and body composition. If you lift weights or are athletic, your healthy weight may be higher than the formulas suggest. Combine this with your <a href="/body-fat-calculator/">body fat percentage</a> for the most accurate view of your health.</p>
+
+    <Sources sources={[
+      { label: "Robinson JD, Lupkiewicz SM, Palenik KL, Lopez LM, Ariet M. Determination of ideal body weight for drug dosage calculations. Am J Hosp Pharm. 1983.", href: "https://pubmed.ncbi.nlm.nih.gov/6830782/" },
+      { label: "Miller DK, Gibson DJ, Hunt DG. Ideal body weight based on BMI. Nutr Clin Pract. 2016.", href: "https://pubmed.ncbi.nlm.nih.gov/26955906/" },
+      { label: "Devine BJ. Gentamicin therapy. Drug Intell Clin Pharm. 1974.", href: "https://pubmed.ncbi.nlm.nih.gov/4454424/" },
+    ]} />
   </Fragment>
 </CalculatorLayout>
 
@@ -108,10 +120,8 @@ const faqs: FaqItem[] = [
         $("height-imperial").classList.toggle("grid", unit === "imperial");
         document.querySelectorAll(".u-len").forEach((e) => (e.textContent = unit === "metric" ? "(cm)" : "(ft / in)"));
         document.querySelectorAll(".u-wt").forEach((e) => (e.textContent = unit === "metric" ? "kg" : "lb"));
-        render();
       });
     });
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-    render();
   }
 </script>

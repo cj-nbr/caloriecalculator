@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../../layouts/ContentLayout.astro";
+import ArticleImage from "../../../components/ui/ArticleImage.astro";
 
 const path = "/workouts/all-in-one-exercise/equipment/";
 const faqs = [
@@ -20,6 +21,8 @@ const faqs = [
   categoryPath="/workouts/"
   faqs={faqs}
 >
+
+  <ArticleImage src="/assets/images/articles/equipment.svg" alt="Illustration of essential home workout equipment for strength training." />
 
   <h2>Choosing Equipment for Home Fitness</h2>
   <p>The right equipment amplifies your training without overwhelming your space. Consider three factors: your primary fitness goals, available square footage, and budget. Often, one versatile piece outshines multiple specialized items.</p>

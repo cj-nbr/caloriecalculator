@@ -1,6 +1,7 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "What is the protein to calorie ratio?", a: "Protein provides 4 calories per gram. For a 150g protein target: 150 × 4 = 600 calories from protein. See our <a href='/protein-calculator/'>protein calculator</a>." },
@@ -22,6 +23,8 @@ const faqs: FaqItem[] = [
   faqs={faqs}
 >
   <p>A <strong>protein to calories calculator</strong> converts grams of protein into calories. This is essential for using the <a href="/protein-calculator/">protein calculator</a> with your <a href="/guides/maintenance-calorie-calculator/">calorie targets</a>.</p>
+
+  <ArticleImage src="/assets/images/articles/protein-structure.svg" alt="Illustration of converting protein grams to calories at 4 kcal per gram." />
 
   <h2>Protein calorie conversion formula</h2>
   <p><code>Calories from protein = grams × 4</code></p>

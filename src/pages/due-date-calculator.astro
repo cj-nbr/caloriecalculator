@@ -2,6 +2,8 @@
 import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls } from "../lib/ui";
 import type { FaqItem } from "../lib/seo";
+import MedicalNote from "../components/ui/MedicalNote.astro";
+import ArticleImage from "../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "How accurate is a due date calculator?", a: "Due date calculators using LMP are accurate within 7-14 days. Only 5% of babies are born on their exact due date. First-trimester ultrasound is more precise." },
@@ -51,6 +53,10 @@ const faqs: FaqItem[] = [
   </div>
 
   <Fragment slot="content">
+    <MedicalNote strong />
+
+    <ArticleImage src="/assets/images/articles/due-date-calendar.svg" alt="Illustration of a calendar showing estimated due date calculation from last menstrual period." />
+
     <h2>Due Date Calculation Method</h2>
     <p>Standard pregnancy is 40 weeks (280 days) from the first day of your last menstrual period. This is called Naegele's rule and is the most common method used by providers.</p>
 
@@ -107,7 +113,5 @@ const faqs: FaqItem[] = [
     }
 
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-    ($("lmp") as HTMLInputElement).addEventListener("input", render);
-    render();
   }
 </script>

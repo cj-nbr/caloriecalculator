@@ -3,6 +3,7 @@ import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import ExerciseCalculator from "../components/calculators/ExerciseCalculator.astro";
 import { GENERAL } from "../data/exercises";
 import type { FaqItem } from "../lib/seo";
+import ArticleImage from "../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "How are calories burned during exercise calculated?", a: "We use the MET (Metabolic Equivalent of Task) method: calories = MET × 3.5 × your weight in kg ÷ 200 × minutes. Each activity has a MET value reflecting its intensity, so heavier people and longer or harder sessions burn more calories." },
@@ -23,6 +24,8 @@ const faqs: FaqItem[] = [
   <ExerciseCalculator activities={GENERAL} defaultIndex={1} />
 
   <Fragment slot="content">
+    <ArticleImage src="/assets/images/articles/activity-intensity.svg" alt="Illustration of exercise intensity levels showing how activity affects calorie burn." />
+
     <h2>How the calories burned calculator works</h2>
     <p>This calculator uses the MET (Metabolic Equivalent of Task) system, the same method used in exercise science. Every activity is assigned a MET value based on its intensity — sitting quietly is 1 MET, brisk walking is about 4.3, and running is 8 or more. The formula combines that intensity with your body weight and how long you exercise to estimate calories burned.</p>
 

@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
 
 const faqs: FaqItem[] = [
@@ -24,6 +25,8 @@ const faqs: FaqItem[] = [
   <p>A <strong>weight loss calculator</strong> tells you how long reaching your goal will take. It combines your calorie deficit with target weight difference.</p>
 
   <h2>Weight loss rate formula</h2>
+
+  <ArticleImage src="/assets/images/articles/weight-scale.svg" alt="Illustration of a weight loss progress timeline showing deficit and fat loss." />
   <p><code>Weeks to goal = (weight to lose in lbs × 3,500) ÷ weekly deficit</code></p>
   <p>Example: Lose 20 lbs at 1 lb/week = 20 weeks</p>
 

@@ -1,6 +1,8 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
+import Sources from "../../components/ui/Sources.astro";
 
 const faqs: FaqItem[] = [
   { q: "How many calories should I eat a day?", a: "Most adults need between 1,600 and 3,000 calories per day depending on sex, size, age, and activity. The most accurate way to find your number is to calculate your TDEE, then adjust it for your goal." },
@@ -21,6 +23,8 @@ const faqs: FaqItem[] = [
   faqs={faqs}
 >
   <p>"How many calories should I eat?" is one of the most common health questions — and the honest answer is: it depends. Your needs are shaped by your age, sex, height, weight, and activity level. The good news is that finding your personal number takes just a few minutes and a little simple math.</p>
+
+  <ArticleImage src="/assets/images/articles/energy-level.svg" alt="Illustration of activity level and energy expenditure, showing how movement increases daily calorie needs." />
 
   <h2>Step 1: Find your BMR</h2>
   <p>Your <a href="/bmr-calculator/">Basal Metabolic Rate (BMR)</a> is the number of calories your body burns at complete rest. It's the foundation of your calorie needs and typically accounts for 60–70% of the calories you burn each day. We calculate it with the Mifflin-St Jeor equation, the most accurate predictive formula available.</p>
@@ -56,4 +60,9 @@ const faqs: FaqItem[] = [
 
   <h2>Recalculate as you go</h2>
   <p>Your calorie needs change as your weight changes. Recalculate every 4–5 kg (about 10 lb) of weight change to keep your targets accurate, and adjust based on what the scale and mirror actually show over 2–3 weeks.</p>
+
+  <Sources sources={[
+    { label: "Dietary Guidelines for Americans — estimated calorie needs", href: "https://www.dietaryguidelines.gov/" },
+    { label: "Mifflin-St Jeor equation for resting energy expenditure — NIH", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
+  ]} />
 </ContentLayout>

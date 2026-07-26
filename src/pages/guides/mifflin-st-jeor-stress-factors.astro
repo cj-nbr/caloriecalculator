@@ -1,0 +1,117 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
+import type { FaqItem } from "../../lib/seo";
+import Sources from "../../components/ui/Sources.astro";
+
+const faqs: FaqItem[] = [
+  { q: "What are stress factors in Mifflin-St Jeor?", a: "Stress factors — also called injury or illness factors — increase your calorie needs above normal BMR because your body works harder to heal, fight infection, or cope with trauma." },
+  { q: "How do stress factors affect BMR?", a: "Stress factors raise BMR by 10–100% depending on severity. A mild fever may add 10%, while major surgery or severe burns can double or triple resting energy needs." },
+  { q: "Should I adjust my TDEE for stress or illness?", a: "Yes. During illness, injury, or high stress, your body burns more calories at rest. Add 10–20% for minor stress, or 20–50% for major illness or surgery, depending on clinical guidance." },
+  { q: "What are common activity multipliers?", a: "Standard TDEE activity multipliers are: sedentary 1.2, lightly active 1.375, moderately active 1.55, very active 1.725, and extra active 1.9." },
+  { q: "How do I choose the right activity multiplier?", a: "Be honest about your daily movement. Most people overestimate. If you have a desk job and work out twice a week, start with lightly active (1.375) rather than moderately active." },
+];
+---
+
+<ContentLayout
+  title="Mifflin-St Jeor Stress Factors & Activity Multipliers"
+  h1="Mifflin-St Jeor Stress Factors & Activity Multipliers"
+  description="Learn how stress, illness, and activity levels affect your BMR and TDEE. Understand activity multipliers and when to adjust them for real-world results."
+  path="/guides/mifflin-st-jeor-stress-factors/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="Your calorie needs change when you are stressed, sick, or highly active. Here is how to adjust the Mifflin-St Jeor equation for real life."
+  updated="July 2026"
+  faqs={faqs}
+>
+  <p>When you use the <a href="/bmr-calculator/">BMR calculator</a> or <a href="/tdee-calculator/">TDEE calculator</a>, you are getting a snapshot of your calorie needs under normal, healthy conditions. But real life is not always normal. Stress, illness, injury, and extreme activity can all push your calorie needs above what the standard Mifflin-St Jeor equation predicts. Understanding these stress factors and activity multipliers helps you adjust your targets accurately.</p>
+
+  <ArticleImage src="/assets/images/articles/resting-flame.svg" alt="Illustration of basal metabolic rate and how stress, illness, and activity modify calorie needs." />
+
+  <h2>What are stress factors in BMR?</h2>
+  <p>Stress factors — sometimes called injury factors or disease factors — are multipliers applied to BMR when the body is under physical stress. Stress increases metabolic rate because your body is working harder to heal, fight infection, regulate temperature, or manage hormonal changes. The concept was developed in clinical nutrition for hospitalized patients, but the principle applies to everyday stressors too.</p>
+
+  <h2>How stress and illness affect BMR</h2>
+  <p>Different conditions produce different elevations in resting energy expenditure:</p>
+  <table>
+    <thead><tr><th>Condition</th><th>Typical BMR increase</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>Mild fever (37.5–38.5 °C)</td><td>+10–20%</td><td>Common cold</td></tr>
+      <tr><td>Moderate fever (38.5–39.5 °C)</td><td>+20–30%</td><td>Flu, infection</td></tr>
+      <tr><td>Severe illness / sepsis</td><td>+30–60%</td><td>Hospitalized infection</td></tr>
+      <tr><td>Major surgery (post-op)</td><td>+20–30%</td><td>Recovery period</td></tr>
+      <tr><td>Severe burns (>20% body)</td><td>+50–100%</td><td>Burn unit care</td></tr>
+      <tr><td>Prolonged stress / trauma</td><td>+10–20%</td><td>Chronic high stress</td></tr>
+    </tbody>
+  </table>
+
+  <h2>When to adjust Mifflin-St Jeor for stress</h2>
+  <p>You do not need to adjust your BMR for a mild headache or a bad night's sleep. But you should consider adding a stress factor when:</p>
+  <ul>
+    <li>You have a fever above 38 °C (100.4 °F) lasting more than 24 hours</li>
+    <li>You are recovering from surgery, a serious injury, or a severe infection</li>
+    <li>You have a diagnosed condition that raises metabolism (hyperthyroidism, burns, sepsis)</li>
+    <li>You are experiencing chronic, unmanaged psychological stress that disrupts sleep and appetite</li>
+  </ul>
+
+  <h2>How to apply stress factors</h2>
+  <p>If you need to adjust for stress, take your calculated BMR and multiply by the appropriate factor:</p>
+  <ol>
+    <li>Calculate your normal BMR using Mifflin-St Jeor.</li>
+    <li>Identify the stress factor for your condition (e.g., +20% for moderate fever).</li>
+    <li>Multiply BMR × (1 + stress factor).</li>
+    <li>Then multiply by your normal activity factor to get stressed TDEE.</li>
+  </ol>
+  <p>Example: A woman with a BMR of 1,380 and a moderate fever (+25%):</p>
+  <pre>Stressed BMR = 1,380 × 1.25 = 1,725
+Stressed TDEE (moderate activity) = 1,725 × 1.55 = 2,674 calories/day</pre>
+  <p>Her normal TDEE was 2,139. During illness, her body needs roughly 535 extra calories per day — mostly for immune function and fever response.</p>
+
+  <h2>Activity multipliers explained</h2>
+  <p>Activity multipliers convert your BMR into TDEE by accounting for all movement beyond complete rest. The standard multipliers are:</p>
+  <table>
+    <thead><tr><th>Level</th><th>Multiplier</th><th>Description</th><th>Who this fits</th></tr></thead>
+    <tbody>
+      <tr><td>Sedentary</td><td>1.2</td><td>Desk job, minimal exercise</td><td>Office workers with little movement</td></tr>
+      <tr><td>Lightly Active</td><td>1.375</td><td>1–3 days/week exercise</td><td>Casual gym-goers or daily walkers</td></tr>
+      <tr><td>Moderately Active</td><td>1.55</td><td>3–5 days/week exercise</td><td>Regular strength or cardio training</td></tr>
+      <tr><td>Very Active</td><td>1.725</td><td>6–7 days/week intense exercise</td><td>Athletes in-season or double-session days</td></tr>
+      <tr><td>Extra Active</td><td>1.9</td><td>Athlete + physical job</td><td>Manual labor plus daily training</td></tr>
+    </tbody>
+  </table>
+
+  <h2>How to choose the right activity multiplier</h2>
+  <p>Choosing the wrong multiplier is the #1 source of error in TDEE calculation. Use these guidelines:</p>
+  <ul>
+    <li><strong>Sedentary:</strong> you sit most of the day and drive everywhere. A desk job with no regular workouts.</li>
+    <li><strong>Lightly active:</strong> you have a standing or walking job, or you exercise 1–3 times per week. Daily steps of 5,000–8,000 fit here.</li>
+    <li><strong>Moderately active:</strong> you strength train or do cardio 3–5 times per week consistently, or you have a physically active job plus light exercise.</li>
+    <li><strong>Very active:</strong> you train 6–7 days per week with high intensity, or you have a demanding physical job plus regular training.</li>
+    <li><strong>Extra active:</strong> you are a competitive athlete training multiple sessions per day, or you work in extreme physical conditions.</li>
+  </ul>
+  <p>If you are between two levels, choose the lower one. It is better to slightly underestimate activity and add calories back than to overestimate and stall progress.</p>
+
+  <h2>Practical guidance for adjusting TDEE</h2>
+  <p>Life events change your calorie needs. Here is how to handle common scenarios:</p>
+  <ul>
+    <li><strong>Starting a new job with more walking:</strong> bump your activity level up by one step after 2–3 weeks.</li>
+    <li><strong>Recovering from injury:</strong> reduce your activity multiplier temporarily and focus on protein intake to preserve muscle.</li>
+    <li><strong>High-stress period:</strong> track your weight closely. Stress can increase or decrease appetite. Adjust intake by 100–200 calories if your weight shifts unexpectedly.</li>
+    <li><strong>Training for an event:</strong> temporarily raise your activity level or add estimated calories burned from specific sessions using the <a href="/calories-burned-calculator/">calories burned calculator</a>.</li>
+  </ul>
+
+  <h2>Links to related tools</h2>
+  <ul>
+    <li><a href="/bmr-calculator/">BMR calculator</a> — find your resting metabolic rate</li>
+    <li><a href="/tdee-calculator/">TDEE calculator</a> — calculate maintenance calories with activity multipliers</li>
+    <li><a href="/calories-burned-calculator/">Calories burned calculator</a> — see how specific workouts change your daily total</li>
+    <li><a href="/guides/bmr-equations/">BMR equations comparison</a> — learn which formula is most accurate</li>
+    <li><a href="/guides/tdee-calculation/">TDEE calculation methods</a> — detailed walkthrough of finding maintenance</li>
+  </ul>
+
+  <Sources sources={[
+    { label: "Dietary Reference Intakes for Energy — National Academies", href: "https://www.nap.edu/read/10490/chapter/1" },
+    { label: "Energy requirements — World Health Organization (WHO)", href: "https://www.who.int/tools/elena" },
+    { label: "Energy expenditure — PubMed / NIH review", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
+  ]} />
+</ContentLayout>

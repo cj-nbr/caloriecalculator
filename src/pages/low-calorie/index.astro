@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 
 const path = "/low-calorie/";
 const description = "Low calorie foods, drinks, and sweet treats. Complete guide to satisfying low-calorie options including Starbucks, Dunkin, zero-calorie noodles, and more.";
@@ -26,6 +27,8 @@ const faqs = [
   lead="Discover satisfying low-calorie foods, drinks, sweet treats, and recipes to fill up while staying within your calorie target."
   faqs={faqs}
 >
+  <ArticleImage src="/assets/images/articles/balanced-plate.svg" alt="Illustration of a balanced plate with low-calorie food options for healthy eating." />
+
   <h2>What Are Low Calorie Foods?</h2>
   <p>Low calorie foods provide under 100 calories per serving. These nutrient-dense options help you feel full while staying within your daily calorie budget. The best low-calorie foods are high in water and fiber.</p>
 

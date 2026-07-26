@@ -1,10 +1,15 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
+import Sources from "../../components/ui/Sources.astro";
 
 const faqs: FaqItem[] = [
-  { q: "What does BMR stand for?", a: "BMR stands for Basal Metabolic Rate — the number of calories your body burns at complete rest to maintain basic life functions." },
-  { q: "Is BMR the same as RMR?", a: "They're very close. Resting Metabolic Rate (RMR) is measured under slightly less strict conditions and is usually a touch higher, but the terms are often used interchangeably." },
+  { q: "What does BMR stand for?", a: "BMR stands for Basal Metabolic Rate — the number of calories your body burns at complete rest to maintain basic life functions like breathing, circulation, and cell repair." },
+  { q: "Is BMR the same as RMR?", a: "They are very close. Resting Metabolic Rate (RMR) is measured under slightly less strict conditions and is usually a touch higher, but the terms are often used interchangeably in everyday nutrition and fitness contexts." },
+  { q: "How do I calculate my BMR?", a: "The most accurate predictive formula is the Mifflin-St Jeor equation. For men: BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age + 5. For women: BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age − 161. Use our <a href=\"/bmr-calculator/\">BMR calculator</a> for an instant result." },
+  { q: "What is a typical BMR?", a: "A typical BMR for adult women ranges from 1,200 to 1,500 kcal/day, and for adult men from 1,500 to 2,000 kcal/day. Your exact number depends on your size, age, sex, and muscle mass." },
+  { q: "Can I use my BMR for weight loss?", a: "Yes. Your BMR is the starting point for any weight goal. Calculate your BMR, then estimate your TDEE by applying your activity level. From there, create a deficit for weight loss or a surplus for weight gain." },
 ];
 ---
 
@@ -15,33 +20,70 @@ const faqs: FaqItem[] = [
   path="/resources/what-is-bmr/"
   category="Resources"
   categoryPath="/resources/"
-  lead="Basal Metabolic Rate is the foundation of your daily calorie needs. Here's what it means in plain English."
-  updated="January 2025"
+  lead="Basal Metabolic Rate is the foundation of your daily calorie needs. Here is what it means, what affects it, and how to use it for your goals."
+  updated="July 2026"
   faqs={faqs}
 >
-  <h2>Definition</h2>
-  <p>Your Basal Metabolic Rate (BMR) is the number of calories your body burns at complete rest just to stay alive. Even if you spent an entire day lying still, your body would still spend this energy keeping your heart beating, your lungs breathing, your brain working, and your cells repairing and regenerating.</p>
+  <p>Your Basal Metabolic Rate (BMR) is the number of calories your body burns at complete rest just to stay alive. Even if you spent an entire day lying still, your body would still spend this energy keeping your heart beating, your lungs breathing, your brain working, and your cells repairing and regenerating. BMR is the single largest component of your daily calorie expenditure — typically 60–70% of the total — making it the foundation for figuring out how much you should eat.</p>
+
+  <ArticleImage src="/assets/images/articles/basal-metabolism.svg" alt="Illustration of a resting metabolism with a flame inside a body outline, representing calories burned at rest." />
 
   <h2>Why BMR matters</h2>
-  <p>BMR is the largest single component of the calories you burn each day — typically 60–70% of the total. That makes it the foundation for figuring out how much you should eat. Once you know your BMR, you can estimate your full daily needs (your <a href="/resources/what-is-tdee/">TDEE</a>) and set targets for weight loss or gain.</p>
+  <p>Understanding your BMR helps you make informed decisions about your calorie intake. Once you know your BMR, you can estimate your full daily needs (your <a href="/resources/what-is-tdee/">TDEE</a>) and set targets for weight loss, maintenance, or weight gain. Without knowing your BMR, it is difficult to determine whether your current calorie intake is appropriate for your goals.</p>
+  <p>For example, if your BMR is 1,400 kcal/day and you eat 1,200 kcal/day, you are consuming fewer calories than your body needs at rest. Over time, this can lead to muscle loss, hormonal disruption, and a slower metabolism — not sustainable fat loss. On the other hand, eating above your TDEE consistently will lead to weight gain, which may be intentional if your goal is to build muscle.</p>
 
-  <h2>How BMR is calculated</h2>
-  <p>The most accurate predictive formula is the Mifflin-St Jeor equation:</p>
+  <h2>BMR vs RMR — what is the difference?</h2>
+  <p>Basal Metabolic Rate (BMR) and Resting Metabolic Rate (RMR) are closely related but measured under slightly different conditions:</p>
+  <ul>
+    <li><strong>BMR</strong> is measured after a full night of sleep and 12 hours of fasting, in a thermoneutral environment, with the subject completely at rest and awake. These strict conditions ensure the measurement reflects only the energy needed for basic life functions.</li>
+    <li><strong>RMR</strong> is measured under less strict conditions — no fasting requirement, and the subject may have been lightly active earlier in the day. As a result, RMR is typically 5–10% higher than BMR.</li>
+  </ul>
+  <p>In everyday nutrition and fitness contexts, the two terms are used interchangeably. Our <a href="/bmr-calculator/">BMR calculator</a> estimates RMR using the Mifflin-St Jeor equation, which is the most widely accepted predictive formula for the general population.</p>
+
+  <h2>How to calculate BMR</h2>
+  <p>The most accurate predictive formula is the Mifflin-St Jeor equation, published in 1990 using modern metabolic data:</p>
   <ul>
     <li><strong>Men:</strong> BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age + 5</li>
     <li><strong>Women:</strong> BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age − 161</li>
   </ul>
-  <p>The <a href="/bmr-calculator/">BMR calculator</a> does this instantly for you.</p>
+  <p>The formula requires your weight in kilograms, height in centimeters, and age in years. If you prefer imperial units, convert first: 1 kg = 2.205 lb, 1 cm = 0.394 in. Our <a href="/bmr-calculator/">BMR calculator</a> handles the math instantly and supports both metric and imperial inputs.</p>
+  <p>For a deeper comparison of equations, see our <a href="/guides/bmr-equations/">BMR equations guide</a>.</p>
 
-  <h2>What affects your BMR</h2>
-  <ul>
-    <li><strong>Muscle mass:</strong> muscle burns more calories at rest than fat, so more <a href="/lean-body-mass-calculator/">lean mass</a> means a higher BMR.</li>
-    <li><strong>Body size:</strong> larger bodies require more energy.</li>
-    <li><strong>Age:</strong> BMR gradually declines with age, partly due to muscle loss.</li>
-    <li><strong>Sex:</strong> men typically have higher BMRs due to greater muscle mass.</li>
-    <li><strong>Genetics and hormones:</strong> thyroid function and genetics cause individual variation.</li>
-  </ul>
+  <h2>BMR examples by profile</h2>
+  <table>
+    <thead><tr><th>Profile</th><th>BMR (kcal/day)</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Woman, 25, 60 kg, 165 cm</td><td>~1,340</td><td>Average for a young, average-sized woman</td></tr>
+      <tr><td>Man, 25, 80 kg, 180 cm</td><td>~1,825</td><td>Average for a young, average-sized man</td></tr>
+      <tr><td>Woman, 40, 70 kg, 163 cm</td><td>~1,400</td><td>Slightly higher due to more body mass</td></tr>
+      <tr><td>Man, 40, 90 kg, 178 cm</td><td>~1,920</td><td>Higher BMR from larger body size</td></tr>
+      <tr><td>Woman, 60, 75 kg, 160 cm</td><td>~1,350</td><td>Age-related decline offset by higher weight</td></tr>
+      <tr><td>Man, 60, 85 kg, 175 cm</td><td>~1,720</td><td>Muscle loss with age reduces BMR</td></tr>
+    </tbody>
+  </table>
 
-  <h2>Can you raise your BMR?</h2>
-  <p>The most reliable lever is building muscle through resistance training. Eating enough protein, staying active, and getting quality sleep all support a healthy metabolism too.</p>
+  <h2>How to use BMR for weight goals</h2>
+  <p>Your BMR is the starting point for any weight goal. Here is how to use it:</p>
+  <ol>
+    <li><strong>Calculate your BMR</strong> using the <a href="/bmr-calculator/">BMR calculator</a>.</li>
+    <li><strong>Estimate your TDEE</strong> by multiplying your BMR by an activity factor (1.2 for sedentary, 1.375 for lightly active, 1.55 for moderately active, 1.725 for very active).</li>
+    <li><strong>For weight loss:</strong> Subtract 250–500 calories from TDEE for a moderate, sustainable deficit. The <a href="/guides/calorie-deficit-guide/">calorie deficit guide</a> has detailed instructions.</li>
+    <li><strong>For weight gain:</strong> Add 250–500 calories to TDEE for a lean bulk. See the <a href="/guides/calorie-surplus-guide/">calorie surplus guide</a> for best practices.</li>
+    <li><strong>For maintenance:</strong> Eat at your TDEE and recalculate every 4–6 weeks as your body composition changes.</li>
+  </ol>
+  <p>Always use the <a href="/macro-calculator/">macro calculator</a> to ensure your protein intake is adequate, especially during weight loss, to preserve muscle mass.</p>
+
+  <h2>Common misconceptions about BMR</h2>
+  <p><strong>Myth: "Skinny people have higher BMRs."</strong> Not necessarily. Larger bodies, even with higher body fat, often have higher BMRs because there is more total tissue to maintain. Muscle mass matters more than body weight alone.</p>
+  <p><strong>Myth: "You can dramatically boost your BMR with supplements."</strong> Most metabolism-boosting supplements have minimal real-world impact. Caffeine may raise BMR slightly and temporarily, but the effect is small and diminishes with tolerance.</p>
+  <p><strong>Myth: "Eating more meals speeds up your metabolism."</strong> The thermic effect of food depends on total calorie and protein intake, not meal frequency. Eating three meals or six meals produces the same total thermic effect for the same calories.</p>
+  <p><strong>Myth: "Your BMR is fixed and unchangeable."</strong> While your BMR has a genetic baseline, it is not fixed. Building muscle through resistance training, changing body composition, and improving hormonal health can all shift your BMR over time.</p>
+
+  <h2>Try the BMR calculator</h2>
+  <p>Now that you understand what BMR is and how it works, get your personal number with the <a href="/bmr-calculator/">BMR calculator</a>. It uses the Mifflin-St Jeor equation and takes only a minute. Combine your BMR result with the <a href="/tdee-calculator/">TDEE calculator</a> to find your full daily calorie needs.</p>
+
+  <Sources sources={[
+    { label: "A new predictive equation for resting energy expenditure — Mifflin & St Jeor (1990)", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
+    { label: "Basal metabolic rate — Wikipedia summary of methods", href: "https://en.wikipedia.org/wiki/Basal_metabolic_rate" },
+  ]} />
 </ContentLayout>

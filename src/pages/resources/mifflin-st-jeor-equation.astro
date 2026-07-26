@@ -1,12 +1,17 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
+import Sources from "../../components/ui/Sources.astro";
 
 const faqs: FaqItem[] = [
   { q: "What is the Mifflin-St Jeor equation?", a: "Mifflin-St Jeor (1990) is the most accurate equation for predicting BMR: Men=10×weight+6.25×height-5×age+5; Women=same minus 161. Used in our <a href='/'>calorie calculator</a>." },
   { q: "How accurate is Mifflin-St Jeor?", a: "Research shows 85–90% accuracy versus measured metabolic rate, better than Harris-Benedict. Individual variation of 10–15% is normal." },
   { q: "What does BMR measure?", a: "BMR measures calories burned at complete rest for basic bodily functions: breathing, circulation, cell repair, brain function." },
   { q: "How to measure BMR accurately?", a: "Best methods: indirect calorimetry in lab, BMR calculator using Mifflin-St Jeor for everyday use, or track weight changes to calibrate." },
+  { q: "Who developed the Mifflin-St Jeor equation?", a: "Dr. Mifflin and Dr. St Jeor published the equation in 1990 based on a study of 247 healthy adults. It replaced the older Harris-Benedict equation with a more accurate model for modern populations." },
+  { q: "Can Mifflin-St Jeor be used for TDEE?", a: "Yes. Mifflin-St Jeor gives you BMR, which you then multiply by an activity factor (1.2 to 1.9) to get TDEE. Our <a href='/tdee-calculator/'>TDEE calculator</a> automates this." },
+  { q: "Does Mifflin-St Jeor work for athletes?", a: "It works well for most people, but very lean or very muscular athletes may need adjustments. Katch-McArdle or Cunningham equations, which use body fat percentage, can be more accurate for this population." },
 ];
 ---
 
@@ -21,9 +26,14 @@ const faqs: FaqItem[] = [
   updated="June 2026"
   faqs={faqs}
 >
-  <p>The <strong>Mifflin-St Jeor equation</strong> (1990) revolutionized calorie calculation. Unlike the older Harris-Benedict formula, it uses modern metabolic data and shows 85–90% accuracy for most people.</p>
+  <p>The <strong>Mifflin-St Jeor equation</strong> (1990) revolutionized calorie calculation. Unlike the older Harris-Benedict formula, it uses modern metabolic data and shows 85–90% accuracy for most people. It remains the gold standard for predicting basal metabolic rate in healthy adults.</p>
+
+  <h2>Historical context</h2>
+  <p>Before 1990, the Harris-Benedict equation (1919) was the dominant formula for estimating BMR. But Harris-Benedict was developed using a small, homogeneous sample of mostly young men, and it systematically overestimates metabolic rate in modern populations. Dr. Michael Mifflin and Dr. Steven St Jeor recognized this limitation and designed a new study with 247 healthy adults of varying ages, weights, and body compositions. Their result — the Mifflin-St Jeor equation — cut the prediction error significantly and became the most widely adopted BMR formula in nutrition science, clinical dietetics, and fitness.</p>
 
   <h2>Mifflin-St Jeor equation formulas</h2>
+
+  <ArticleImage src="/assets/images/articles/resting-flame.svg" alt="Illustration of the Mifflin-St Jeor equation for calculating BMR." />
   <table>
     <thead><tr><th>Metric</th><th>Formula</th></tr></thead>
     <tbody>
@@ -39,6 +49,8 @@ const faqs: FaqItem[] = [
   <h3>For women:</h3>
   <p><code>BMR = 10 × weight(kg) + 6.25 × height(cm) - 5 × age - 161</code></p>
 
+  <p>The only difference between the men's and women's formulas is the constant at the end: +5 for men, −161 for women. This reflects average differences in lean body mass and body composition between sexes.</p>
+
   <h2>How Mifflin-St Jeor compares to Harris-Benedict</h2>
   <p>Developed in 1990 using modern metabolic data, Mifflin-St Jeor outperforms the 1919 Harris-Benedict equation. See our <a href="/guides/bmr-equations/">BMR equations comparison</a> for details.</p>
 
@@ -48,6 +60,45 @@ const faqs: FaqItem[] = [
 BMR = 700 + 1,031.25 - 175 - 161 = 1,495 calories/day</pre>
   <p>With moderate activity (1.55): 1,495 × 1.55 = 2,317 maintenance calories.</p>
 
+  <h2>Mifflin-St Jeor for different populations</h2>
+  <p>The equation was validated on healthy, non-obese adults. It performs well for:</p>
+  <ul>
+    <li><strong>General adult population:</strong> 85–90% accuracy for most people</li>
+    <li><strong>Overweight and obese individuals:</strong> slightly less accurate than for lean individuals, but still better than Harris-Benedict</li>
+    <li><strong>Older adults:</strong> reasonably accurate, though BMR naturally declines with age and muscle loss</li>
+  </ul>
+  <p>It may be less accurate for:</p>
+  <ul>
+    <li><strong>Very lean athletes:</strong> body fat percentage is low, and muscle mass is high</li>
+    <li><strong>Clinical populations:</strong> thyroid disorders, metabolic syndrome, or severe obesity</li>
+    <li><strong>Children and adolescents:</strong> still growing, with different energy needs</li>
+  </ul>
+
+  <h2>Accuracy discussion</h2>
+  <p>Mifflin-St Jeor typically predicts BMR within ±10–15% of measured values in a lab. That is good enough for everyday use, but it is not perfect. Individual variation exists due to genetics, hormone levels, body composition, and adaptation. The best way to confirm your true maintenance is to track your weight and adjust intake based on real-world results for 2–3 weeks.</p>
+
+  <h2>How to use Mifflin-St Jeor for TDEE</h2>
+  <p>Once you have your BMR from Mifflin-St Jeor, multiply it by an activity factor to get TDEE:</p>
+  <table>
+    <thead><tr><th>Activity level</th><th>Multiplier</th></tr></thead>
+    <tbody>
+      <tr><td>Sedentary</td><td>1.2</td></tr>
+      <tr><td>Lightly active</td><td>1.375</td></tr>
+      <tr><td>Moderately active</td><td>1.55</td></tr>
+      <tr><td>Very active</td><td>1.725</td></tr>
+      <tr><td>Extra active</td><td>1.9</td></tr>
+    </tbody>
+  </table>
+  <p>The <a href="/tdee-calculator/">TDEE calculator</a> automates this entire process. For a standalone resting number, use the <a href="/bmr-calculator/">BMR calculator</a>.</p>
+
+  <h2>Step-by-step calculation example</h2>
+  <p>Let's calculate BMR and TDEE for a 28-year-old man, 178 cm, 82 kg, moderately active:</p>
+  <pre>Step 1: BMR = 10 × 82 + 6.25 × 178 - 5 × 28 + 5
+BMR = 820 + 1,112.5 - 140 + 5 = 1,797.5
+
+Step 2: TDEE = 1,797.5 × 1.55 = 2,786 calories/day</pre>
+  <p>He would eat 2,286–2,536 calories/day for weight loss, or 3,036–3,286 calories/day for muscle gain.</p>
+
   <h2>Why Mifflin-St Jeor is the standard</h2>
   <p>Research validates its accuracy:</p>
   <ul>
@@ -56,4 +107,10 @@ BMR = 700 + 1,031.25 - 175 - 161 = 1,495 calories/day</pre>
     <li>Works across diverse populations</li>
     <li>Used by <a href="/bmr-calculator/">our BMR calculator</a> and all <a href="/guides/">our guides</a></li>
   </ul>
+
+  <Sources sources={[
+    { label: "A new predictive equation for resting energy expenditure — Mifflin & St Jeor (1990)", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
+    { label: "Dietary Reference Intakes for Energy — National Academies", href: "https://www.nap.edu/read/10490/chapter/1" },
+    { label: "Energy expenditure — PubMed / NIH review", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
+  ]} />
 </ContentLayout>

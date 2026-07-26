@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" role="img" aria-hidden="true">
+  <rect width="400" height="220" rx="16" fill="transparent"/>
+  <g transform="translate(200 110)">
+    <rect x="-50" y="-30" width="100" height="60" rx="8" fill="#ffffff" stroke="#ebebeb" stroke-width="2"/>
+    <circle cx="-15" cy="0" r="12" fill="#0070f3" opacity="0.2"/>
+    <circle cx="15" cy="0" r="12" fill="#ff0080" opacity="0.2"/>
+    <path d="M-8 -8 C -8 -20 8 -20 8 -8 C 8 4 -8 4 -8 -8 Z" fill="#0070f3" opacity="0.6"/>
+    <path d="M8 -8 C 8 -20 24 -20 24 -8 C 24 4 8 4 8 -8 Z" fill="#ff0080" opacity="0.6"/>
+    <text x="0" y="46" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#6b6b6b" text-anchor="middle">Conception and fertility window</text>
+  </g>
+</svg>

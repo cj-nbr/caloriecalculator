@@ -3,6 +3,9 @@ import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls, segOptCls } from "../lib/ui";
 import type { FaqItem } from "../lib/seo";
 import { breadcrumbSchema, calculatorSchema, faqSchema } from "../lib/seo";
+import MedicalNote from "../components/ui/MedicalNote.astro";
+import ArticleImage from "../components/ui/ArticleImage.astro";
+import Sources from "../components/ui/Sources.astro";
 
 const faqs: FaqItem[] = [
   { q: "What is the Army body fat calculator?", a: "The U.S. Army body fat calculator estimates body fat percentage using circumference measurements. It is one of the simpler tape-based methods and does not require specialized equipment." },
@@ -13,6 +16,12 @@ const faqs: FaqItem[] = [
   { q: "Does hydration affect body fat measurements?", a: "Hydration does not affect circumference-based estimates as much as it affects bioelectrical impedance, but consistent testing conditions still give more reliable trend data." },
   { q: "How do I measure neck and waist correctly?", a: "Measure the neck at the midpoint, waist at the narrowest point or navel, and hips at the widest point for women. Keep the tape snug but not compressed." },
   { q: "Is this the same as BMI?", a: "No. BMI estimates weight relative to height. The Army body fat method estimates body fat percentage from circumference ratios, which can be more useful for athletic or muscular individuals." },
+  { q: "What is the Army tape test?", a: "The Army tape test is the U.S. Army's circumference-based body fat screening method. It uses height, neck, waist, and hip measurements to estimate body fat percentage. It is quick, requires only a measuring tape, and does not require special equipment." },
+  { q: "How do I pass the Army body fat test?", a: "To lower your tape test result, focus on reducing waist circumference through a moderate calorie deficit, resistance training to preserve lean mass, and consistent measurement technique. Use the <a href='/calorie-deficit-calculator/'>calorie deficit calculator</a> to set a safe daily target, and the <a href='/army-body-fat-calculator/'>army body fat calculator</a> to track weekly progress." },
+  { q: "What is the ABCP calculator?", a: "The ABCP (Army Body Composition Program) calculator refers to any tool that estimates Army body fat using the tape test method. Our <a href='/army-body-fat-calculator/'>army body fat calculator</a> follows the standard U.S. Army circumference equations." },
+  { q: "What is the Army body composition calculator?", a: "The Army body composition calculator estimates body fat percentage from height and tape measurements. It is used as part of the Army Body Composition Program (ABCP) to screen soldiers who exceed height-weight standards." },
+  { q: "How often can I retake the Army tape test?", a: "Soldiers who fail the tape test typically have a set period to retest, often 6–12 months depending on the situation. For personal fitness tracking, retest every 2–4 weeks under the same conditions." },
+  { q: "Can muscular people fail the Army body fat test?", a: "Yes, muscular individuals can have a high circumference ratio even with low body fat. The tape test is less precise than DEXA for athletes. If you are very muscular, use the <a href='/body-fat-calculator/'>body fat calculator</a> and <a href='/lean-body-mass-calculator/'>lean body mass calculator</a> alongside the tape test for a fuller picture." },
 ];
 
 const path = "/army-body-fat-calculator/";
@@ -108,17 +117,96 @@ const jsonLd = [
   </div>
 
   <Fragment slot="content">
+    <MedicalNote />
+
+    <ArticleImage src="/assets/images/articles/tape-measure.svg" alt="Illustration of a tape measure used for body circumference measurements in the Army body fat method." />
+
     <h2>What the Army body fat method is</h2>
-    <p>The U.S. Army tape test is a circumference-based screening tool. It estimates body fat percentage from height, neck, waist, and hip measurements. It is convenient because it needs only a measuring tape.</p>
+    <p>The U.S. Army tape test is a circumference-based screening tool. It estimates body fat percentage from height, neck, waist, and hip measurements. It is convenient because it needs only a measuring tape — no calipers, no scales, no specialized equipment. The Army uses it for enlistment screening and periodic fitness assessments because it is quick, low-cost, and repeatable.</p>
 
-    <h2>How the formulas work</h2>
-    <p>Male and female formulas differ because fat distribution patterns differ by sex. This calculator applies the standard U.S. Army equations for each gender.</p>
+    <h2>History and purpose of the Army body fat standard</h2>
+    <p>The Army developed its tape test method in the 1980s as a practical alternative to underwater weighing and skinfold calipers, which require trained administrators and controlled conditions. The standards serve two purposes: first, they ensure soldiers meet minimum fitness standards; second, they provide a health reference that correlates with cardiovascular risk and physical readiness. While originally designed for military use, the same formula has become popular among civilians who want a simple, equipment-free body fat estimate.</p>
 
-    <h2>Using the result</h2>
-    <p>Use this number as a general health reference. Combine it with strength, energy, clothing fit, and performance changes for a fuller picture of your fitness progress.</p>
+    <h2>How to measure correctly for the Army tape test</h2>
+    <p>Accurate results depend entirely on consistent technique. Here is the standard procedure for each measurement:</p>
+    <ul>
+      <li><strong>Neck:</strong> Measure at the midpoint of the neck, below the Adam's apple and above the collar bone. Keep the tape snug but not compressing the skin. Look straight ahead — do not tilt your chin up or down.</li>
+      <li><strong>Waist:</strong> Measure at the narrowest point (the natural waist) or at the level of the navel if no clear narrow point exists. Keep the tape parallel to the floor and snug without pulling in.</li>
+      <li><strong>Hips (women only):</strong> Measure at the widest point around the buttocks. Keep feet together and the tape level.</li>
+      <li><strong>Height:</strong> Measure without shoes on a flat surface.</li>
+    </ul>
+    <p>Always measure on bare skin or tight clothing. Avoid bulky layers that add volume. Take each measurement twice and use the average. Measure under similar conditions each time — same time of day, same clothing, and before eating when possible.</p>
 
-    <h2>Limitations</h2>
-    <p>Tape-based estimates can be affected by measurement placement, tightness, and body shape. They are useful for tracking trends, but not as precise as lab-grade methods like DEXA or hydrostatic weighing.</p>
+    <h2>Army body fat standards chart</h2>
+    <p>The U.S. Army sets maximum allowable body fat percentages that vary by age and sex. Soldiers who exceed the standard may be placed in a weight-control program. As a civilian tool, use these ranges as general health references rather than official military requirements:</p>
+    <div class="not-prose overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-hairline text-left text-xs uppercase tracking-wide text-mute">
+            <th class="px-4 py-3 font-medium">Age group</th>
+            <th class="px-4 py-3 text-right font-medium">Men max</th>
+            <th class="px-4 py-3 text-right font-medium">Women max</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-hairline last:border-0"><td class="px-4 py-2.5 text-body">17–20</td><td class="px-4 py-2.5 text-right font-medium text-ink">24%</td><td class="px-4 py-2.5 text-right font-medium text-ink">30%</td></tr>
+          <tr class="border-b border-hairline last:border-0"><td class="px-4 py-2.5 text-body">21–27</td><td class="px-4 py-2.5 text-right font-medium text-ink">26%</td><td class="px-4 py-2.5 text-right font-medium text-ink">32%</td></tr>
+          <tr class="border-b border-hairline last:border-0"><td class="px-4 py-2.5 text-body">28–39</td><td class="px-4 py-2.5 text-right font-medium text-ink">28%</td><td class="px-4 py-2.5 text-right font-medium text-ink">34%</td></tr>
+          <tr class="border-b border-hairline last:border-0"><td class="px-4 py-2.5 text-body">40+</td><td class="px-4 py-2.5 text-right font-medium text-ink">30%</td><td class="px-4 py-2.5 text-right font-medium text-ink">36%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>How to calculate Army body fat manually</h2>
+    <p>If you want to check your number without a calculator, the formulas are straightforward. For men: body fat percentage = 86.010 × log10(waist − neck) − 70.041 × log10(height) + 36.76. For women: body fat percentage = 163.205 × log10(waist + hip − neck) − 97.684 × log10(height) − 78.387. All measurements must be in the same unit system — centimeters for the formula above, or inches with a conversion to centimeters. Our <a href="/army-body-fat-calculator/">army body fat calculator</a> does this automatically.</p>
+
+    <h2>Army body fat vs BMI</h2>
+    <p>The Army actually uses both. BMI is a quick height-weight screening, but muscular soldiers often fail the BMI screen despite low body fat. The tape test is the appeal path — it estimates actual body fat so that muscular individuals are not penalized. If you are athletic or muscular, the <a href="/body-fat-calculator/">U.S. Navy body fat calculator</a> and the <a href="/lean-body-mass-calculator/">lean body mass calculator</a> give you a fuller body-composition picture.</p>
+
+    <h2>Tips for passing the Army tape test</h2>
+    <ul>
+      <li>Measure at the same time of day, ideally in the morning before eating.</li>
+      <li>Use consistent technique: same tape tightness, same landmarks.</li>
+      <li>Stay hydrated but avoid extreme bloating or dehydration before testing.</li>
+      <li>Focus on waist reduction through a modest calorie deficit from the <a href="/calorie-deficit-calculator/">calorie deficit calculator</a> and strength training to preserve lean mass.</li>
+      <li>Track progress with the <a href="/army-body-fat-calculator/">army body fat calculator</a> weekly rather than obsessing over daily numbers.</li>
+    </ul>
+
+    <h2>Common mistakes in Army tape test measurements</h2>
+    <ul>
+      <li><strong>Pulling the tape too tight:</strong> This artificially lowers waist and neck measurements, giving a falsely low body fat estimate.</li>
+      <li><strong>Measuring at the wrong spot:</strong> The neck should be measured at the midpoint, not at the base. The waist should be at the narrowest point or navel, not at the hip.</li>
+      <li><strong>Inconsistent timing:</strong> Eating, drinking, and exercise all temporarily change circumference. Test under the same conditions each time.</li>
+      <li><strong>Forgetting age matters:</strong> The formula uses age as an input. Older adults naturally trend higher, so use the correct number.</li>
+    </ul>
+
+    <h2>Related calculators</h2>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/body-fat-calculator/">Body Fat Calculator — U.S. Navy Method</a></h3>
+        <p class="mt-1 text-sm text-body">Estimate body fat using the U.S. Navy tape method — a broader fitness tool with healthy ranges.</p>
+      </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/lean-body-mass-calculator/">Lean Body Mass Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Find your fat-free mass and track muscle while you reduce body fat.</p>
+      </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/bmi-calculator/">BMI Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Calculate your BMI as a quick overall weight-status check.</p>
+      </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/calorie-deficit-calculator/">Calorie Deficit Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Plan a safe calorie deficit to reduce body fat while preserving muscle.</p>
+      </div>
+    </div>
+
+    <ArticleImage src="/assets/images/articles/army-body-fat-chart.svg" alt="Illustration comparing Army body fat standards by age and sex." />
+
+    <Sources sources={[
+      { label: "U.S. Army Regulation 600-9 — The Army Body Composition Program", href: "https://armypubs.army.mil/" },
+      { label: "Body composition assessment: Navy circumference method compared with a four-compartment model — PubMed", href: "https://pubmed.ncbi.nlm.nih.gov/19996798/" },
+      { label: "American Council on Exercise — Body Fat Percentage Guidelines", href: "https://www.acefitness.org/resources/everyone/exercise/1087/physical-activity-calorie-counter/" },
+    ]} />
   </Fragment>
 </CalculatorLayout>
 
@@ -188,11 +276,9 @@ const jsonLd = [
         document.querySelectorAll(".height-unit, .neck-unit, .waist-unit, .hip-unit").forEach((e) => {
           (e as HTMLElement).textContent = unit === "metric" ? "(cm)" : "(in)";
         });
-        render();
       });
     });
 
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-    render();
   }
 </script>

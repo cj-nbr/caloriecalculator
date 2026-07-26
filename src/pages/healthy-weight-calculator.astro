@@ -3,6 +3,9 @@ import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls, segOptCls } from "../lib/ui";
 import { healthyWeightRange } from "../lib/calculations";
 import type { FaqItem } from "../lib/seo";
+import Sources from "../components/ui/Sources.astro";
+import MedicalNote from "../components/ui/MedicalNote.astro";
+import ArticleImage from "../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "What is a healthy weight?", a: "A healthy weight is a weight range where your body mass index (BMI) falls between 18.5 and 24.9, which is associated with lower risk of weight-related health problems for most adults." },
@@ -25,6 +28,7 @@ const faqs: FaqItem[] = [
   faqs={faqs}
 >
   <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <MedicalNote />
     <form id="calc-form" class="card p-5 sm:p-6" novalidate>
       <p role="note" class="mb-4 text-xs leading-relaxed text-mute">Example values are pre-filled. Enter your own details for accurate results.</p>
       <div class="mb-4 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1" role="tablist" aria-label="Unit system">
@@ -66,6 +70,8 @@ const faqs: FaqItem[] = [
   </div>
 
   <Fragment slot="content">
+    <ArticleImage src="/assets/images/articles/body-composition.svg" alt="Illustration of body composition showing lean mass and body fat as two parts of total body weight." />
+
     <h2>How to use the Healthy Weight Calculator</h2>
     <p>Enter your height and current weight, then press <strong>Calculate Healthy Weight</strong>. The result shows your BMI-based healthy weight range, not a single target number. If your current weight falls outside that range, use the weight loss or weight gain calculators to plan a safe transition.</p>
 
@@ -89,6 +95,12 @@ const faqs: FaqItem[] = [
         <p class="mt-1 text-sm text-body">Find your maintenance calories and learn how to keep your weight stable over time.</p>
       </div>
     </div>
+
+    <Sources sources={[
+      { label: "World Health Organization — BMI classification (2004)", href: "https://www.who.int/publications/i/item/9789241596323" },
+      { label: "Centers for Disease Control and Prevention — Healthy Weight", href: "https://www.cdc.gov/healthyweight/index.html" },
+      { label: "National Heart, Lung, and Blood Institute — Body Mass Index Table", href: "https://www.nhlbi.nih.gov/health/educational/lose_wt/index.htm" },
+    ]} />
   </Fragment>
 </CalculatorLayout>
 
@@ -142,11 +154,9 @@ const faqs: FaqItem[] = [
         });
         const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
         if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
-        render();
       });
     });
 
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-    render();
   }
 </script>

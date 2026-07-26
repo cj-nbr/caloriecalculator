@@ -2,6 +2,9 @@
 import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls, segOptCls } from "../lib/ui";
 import type { FaqItem } from "../lib/seo";
+import MedicalNote from "../components/ui/MedicalNote.astro";
+import Sources from "../components/ui/Sources.astro";
+import ArticleImage from "../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "How is body fat percentage calculated?", a: "This tool uses the U.S. Navy circumference method, which estimates body fat from your height and tape measurements of your neck and waist (plus hips for women). It's free, requires only a tape measure, and correlates reasonably well with more expensive methods." },
@@ -59,12 +62,22 @@ const faqs: FaqItem[] = [
   </div>
 
   <Fragment slot="content">
+    <MedicalNote />
+
+    <ArticleImage src="/assets/images/articles/body-composition.svg" alt="Illustration of body composition showing lean mass and body fat as two parts of total body weight." />
+
     <h2>About the U.S. Navy method</h2>
     <p>The U.S. Navy developed this circumference-based formula as a quick, equipment-free way to estimate body fat. It uses the relationship between your height and key body measurements to approximate the percentage of your weight that is fat versus lean tissue.</p>
     <h2>Why body fat beats the scale</h2>
     <p>Your body fat percentage tells you far more about your health and fitness than weight or <a href="/bmi-calculator/">BMI</a> alone. Two people at the same weight can look and feel completely different depending on how much of that weight is muscle. Tracking body fat helps you confirm you're losing fat — not muscle — during a <a href="/guides/weight-loss-guide/">weight-loss phase</a>.</p>
     <h2>Healthy ranges</h2>
     <p>Essential fat keeps your body functioning and sits around 3–5% for men and 10–13% for women. Athletic ranges are higher, and "fitness" and "average" ranges higher still. Pair this with your <a href="/lean-body-mass-calculator/">lean body mass</a> for a complete body-composition picture.</p>
+
+    <Sources sources={[
+      { label: "U.S. Navy Body Fat Estimation Method — Encyclopedia of Weight Loss (US Navy, 1980s)", href: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4968983/" },
+      { label: "Body composition assessment: Navy circumference method compared with a four-compartment model", href: "https://pubmed.ncbi.nlm.nih.gov/19996798/" },
+      { label: "American Council on Exercise — Body Fat Percentage Guidelines", href: "https://www.acefitness.org/resources/everyone/exercise/1087/physical-activity-calorie-counter/" },
+    ]} />
   </Fragment>
 </CalculatorLayout>
 
@@ -120,10 +133,8 @@ const faqs: FaqItem[] = [
         root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((b) => { const on = b.dataset.unit === unit; b.setAttribute("aria-pressed", String(on)); b.classList.toggle("bg-canvas", on); b.classList.toggle("text-ink", on); b.classList.toggle("shadow-sm", on); b.classList.toggle("text-mute", !on); });
         document.querySelectorAll(".u-len").forEach((e) => (e.textContent = unit === "metric" ? "(cm)" : "(in)"));
         document.querySelectorAll(".u-wt").forEach((e) => (e.textContent = unit === "metric" ? "kg" : "lb"));
-        render();
       });
     });
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-    render();
   }
 </script>

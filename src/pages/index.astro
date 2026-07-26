@@ -5,6 +5,8 @@ import Button from "../components/ui/Button.astro";
 import CalorieCalculator from "../components/calculators/CalorieCalculator.astro";
 import FaqSection from "../components/FaqSection.astro";
 import AdsterraAd from "../components/AdsterraAd.astro";
+import Sources from "../components/ui/Sources.astro";
+import ArticleImage from "../components/ui/ArticleImage.astro";
 import { SITE, NAV } from "../data/site";
 import { HOME_FAQS } from "../data/faqs";
 import {
@@ -309,23 +311,21 @@ const jsonLd = [
         <li><strong>Complete toolkit</strong> — 11 connected calculators covering calories, BMI, body fat, water intake, and more.</li>
       </ul>
 
-<p>
-         Whether you searched for a <strong>daily calorie calculator</strong>, a
-         <strong>calorie deficit calculator</strong>, a <strong>TDEE calculator</strong>,
-         a <strong>maintenance calorie calculator</strong>, or simply a reliable <strong>online calorie calculator</strong> or <strong>free food calorie calculator</strong>, you're in the
-         right place. Enter your details above to get your personalized numbers, then
-         explore the guides below to put your plan into action and reach your goal faster.
-       </p>
+ <p>
+          Whether you searched for a <strong>daily calorie calculator</strong>, a
+          <strong>calorie deficit calculator</strong>, a <strong>TDEE calculator</strong>,
+          a <strong>maintenance calorie calculator</strong>, or simply a reliable <strong>online calorie calculator</strong> or <strong>free food calorie calculator</strong>, you're in the
+          right place. Enter your details above to get your personalized numbers, then
+          explore the guides below to put your plan into action and reach your goal faster.
+        </p>
 
-<div class="not-prose mt-8">
-         <Button href="/guides/how-many-calories-should-i-eat/" variant="secondary">
-           Read the full guide
-         </Button>
-       </div>
-       <div class="not-prose mt-4 flex flex-wrap gap-3">
-         <Button href="/guides/maintenance-calorie-calculator/" variant="ghost">Maintenance Calorie Calculator</Button>
-         <Button href="/guides/online-calorie-calculator/" variant="ghost">Online Calorie Calculator</Button>
-       </div>
+     <Sources sources={[
+       { label: "Dietary Guidelines for Americans — calorie needs", href: "https://www.dietaryguidelines.gov/" },
+       { label: "Mifflin-St Jeor equation for resting energy expenditure — NIH", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
+      ]} />
+
+      <ArticleImage src="/assets/images/articles/balanced-plate.svg" alt="Illustration of a balanced plate divided into protein, carbohydrate, and fat segments for meal planning." />
+
     </div>
   </Section>
 

@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 import TopicCategoryGrid from "../../components/workouts/TopicCategoryGrid.astro";
 import { LEG_CURL_PILLAR, LEG_CURL_TOPICS } from "../../data/leg-curl-topics";
 import { RELATED_EXERCISE_TOPICS } from "../../data/workout-topics";
@@ -35,6 +36,8 @@ const faqs = [
   updated="June 2026"
   faqs={faqs}
 >
+  <ArticleImage src="/assets/images/articles/leg-day.svg" alt="Illustration of leg curl machine setup for hamstring training." />
+
   <TopicCategoryGrid title="Choose a leg curl machine topic" categories={categories} />
 
   <TopicCategoryGrid title="More leg and hamstring machine guides" categories={RELATED_EXERCISE_TOPICS.map((topic) => ({

@@ -1,6 +1,7 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "What is intermittent fasting for beginners?", a: "Intermittent fasting for beginners usually starts with 12:12 or 14:10 before moving to 16:8. It cycles between eating and fasting windows and supports calorie control without strict meal counting." },
@@ -11,6 +12,9 @@ const faqs: FaqItem[] = [
   { q: "What should I eat during my eating window?", a: "Prioritize protein, fiber, and whole foods. Use the <a href='/protein-calculator/'>protein calculator</a> and <a href='/macro-calculator/'>macro calculator</a> to avoid nutrient deficits while fasting." },
   { q: "Does intermittent fasting slow metabolism?", a: "Short-term fasting does not meaningfully slow metabolism. Very low-calorie dieting over long periods can, but typical intermittent fasting with adequate nutrition is generally safe." },
   { q: "Can I exercise while fasting?", a: "Light exercise is usually fine, but intense sessions may feel harder without fuel. Use the <a href='/target-heart-rate-calculator/'>target heart rate calculator</a> to keep effort manageable if you train fasted." },
+  { q: "How do I transition to intermittent fasting?", a: "Start with 12:12 for one week, then move to 14:10 for another week, then 16:8. Gradual transitions reduce hunger and side effects. Use the <a href='/intermittent-fasting-calculator/'>intermittent fasting calculator</a> to plan windows." },
+  { q: "What are common side effects of intermittent fasting?", a: "Hunger, mild headaches, and fatigue are common in the first 1–2 weeks. Stay hydrated, get enough sleep, and eat nutrient-dense meals. Side effects usually pass as your body adapts." },
+  { q: "Can I drink alcohol while fasting?", a: "Alcohol breaks a fast because it contains calories. If you drink, do so during your eating window and account for those calories in your daily target from the <a href='/'>calorie calculator</a>." },
 ];
 ---
 
@@ -26,7 +30,9 @@ const faqs: FaqItem[] = [
   faqs={faqs}
 >
   <h2 id="what-is-if">What intermittent fasting really is</h2>
-  <p>Intermittent fasting schedules eating and fasting periods rather than counting every calorie. It reduces eating windows, which can simplify nutrition and create a natural calorie deficit for many people.</p>
+  <p>Intermittent fasting schedules eating and fasting periods rather than counting every calorie. It reduces eating windows, which can simplify nutrition and create a natural calorie deficit for many people. The method does not dictate what you eat — only when.</p>
+
+  <ArticleImage src="/assets/images/articles/fasting-clock.svg" alt="Illustration of a clock face showing time-restricted eating windows for intermittent fasting." />
 
   <h2 id="popular-plans">Popular fasting plans</h2>
   <ul>
@@ -37,6 +43,52 @@ const faqs: FaqItem[] = [
   </ul>
   <p>Use the <a href="/intermittent-fasting-calculator/">intermittent fasting calculator</a> to compare plans and visualize your fasting and eating times.</p>
 
+  <h2 id="transition">How to transition to fasting</h2>
+  <p>Do not jump straight into 16:8 if you have never tried fasting. A gradual transition helps your body and mind adapt:</p>
+  <ol>
+    <li><strong>Week 1:</strong> Start with 12:12. Finish dinner by 7 pm and eat breakfast at 7 am.</li>
+    <li><strong>Week 2:</strong> Move to 14:10. Finish dinner by 7 pm and eat lunch at 9 am.</li>
+    <li><strong>Week 3:</strong> Try 16:8. Skip breakfast and eat between 12 pm and 8 pm.</li>
+    <li><strong>Week 4:</strong> If comfortable, experiment with 18:6 or 20:4.</li>
+  </ol>
+  <p>Use the <a href="/intermittent-fasting-calculator/">intermittent fasting calculator</a> to map each plan to your schedule. Track how you feel, your energy levels, and your hunger patterns.</p>
+
+  <h2 id="side-effects">Common side effects and how to manage them</h2>
+  <p>The first few weeks of fasting can bring mild side effects. Most pass as your body adapts:</p>
+  <ul>
+    <li><strong>Hunger:</strong> Drink water, black coffee, or tea. Hunger usually peaks at your usual meal times and fades after 30–60 minutes.</li>
+    <li><strong>Headaches:</strong> Often caused by dehydration or caffeine withdrawal. Add salt to water or reduce caffeine gradually.</li>
+    <li><strong>Fatigue:</strong> Common in week one. Ensure you eat enough calories and protein during eating windows. Use the <a href="/protein-calculator/">protein calculator</a> to check intake.</li>
+    <li><strong>Brain fog:</strong> Temporary. Your brain will switch to using fat for fuel after a few days.</li>
+    <li><strong>Digestive changes:</strong> Eating less frequently can change bowel habits. Increase fiber and water intake.</li>
+  </ul>
+  <p>If side effects are severe or last beyond two weeks, shorten your fast or consult a doctor.</p>
+
+  <h2 id="sample-schedules">Sample fasting schedules</h2>
+  <p>Here are realistic schedules for different lifestyles:</p>
+  <table>
+    <thead><tr><th>Plan</th><th>Fasting window</th><th>Eating window</th><th>Typical schedule</th></tr></thead>
+    <tbody>
+      <tr><td>12:12</td><td>8 pm – 8 am</td><td>8 am – 8 pm</td><td>Breakfast at 8 am, dinner at 7:30 pm</td></tr>
+      <tr><td>14:10</td><td>8 pm – 10 am</td><td>10 am – 8 pm</td><td>First meal at 10 am, last at 7:30 pm</td></tr>
+      <tr><td>16:8</td><td>8 pm – 12 pm</td><td>12 pm – 8 pm</td><td>Lunch at 12 pm, dinner at 7:30 pm</td></tr>
+      <tr><td>18:6</td><td>8 pm – 2 pm</td><td>2 pm – 8 pm</td><td>First meal at 2 pm, dinner at 7:30 pm</td></tr>
+      <tr><td>20:4</td><td>8 pm – 4 pm</td><td>4 pm – 8 pm</td><td>One large meal around 4:30 pm</td></tr>
+    </tbody>
+  </table>
+  <p class="text-sm text-mute">Adjust these to match your work schedule, family meals, and sleep times. Consistency matters more than exact hours.</p>
+
+  <h2 id="nutrition-guidelines">Nutritional guidelines during eating windows</h2>
+  <p>What you eat during your eating window determines whether fasting succeeds or fails:</p>
+  <ul>
+    <li><strong>Protein first:</strong> Aim for 1.6–2.2 g/kg body weight daily. Use the <a href="/protein-calculator/">protein calculator</a> to find your target.</li>
+    <li><strong>Fiber for fullness:</strong> Vegetables, fruits, legumes, and whole grains keep you satisfied between meals.</li>
+    <li><strong>Healthy fats:</strong> Avocado, nuts, olive oil, and fatty fish support hormone health and satiety.</li>
+    <li><strong>Limit processed foods:</strong> High-sugar and high-refined-carb meals spike insulin and increase hunger.</li>
+    <li><strong>Hydrate:</strong> Drink water, black coffee, or tea during fasting. Dehydration mimics hunger.</li>
+  </ul>
+  <p>Use the <a href="/macro-calculator/">macro calculator</a> to ensure your eating window meals hit your calorie and macro targets. Use the <a href="/meal-calorie-calculator/">meal calorie calculator</a> for single-meal planning if you do OMAD.</p>
+
   <h2 id="safety">Safety and who should avoid fasting</h2>
   <p>Pregnant people, those with diabetes, eating disorders, or on certain medications should avoid fasting without medical guidance. Begin with shorter fasts and stop if you feel dizzy, faint, or unusually fatigued.</p>
 
@@ -45,4 +97,24 @@ const faqs: FaqItem[] = [
 
   <h2 id="exercise">Exercising while fasting</h2>
   <p>Light cardio and resistance training are usually fine. For intense sessions, eat a small meal beforehand or schedule training near the end of your eating window. The <a href="/walking-calorie-calculator/">walking</a>, <a href="/cycling-calories-calculator/">cycling</a>, and <a href="/swimming-calories-calculator/">swimming</a> calorie calculators help you estimate burn around your fast.</p>
+
+  <h2 id="tools">Tools to support your fasting journey</h2>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/intermittent-fasting-calculator/">Intermittent Fasting Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Compare fasting plans and visualize your eating and fasting windows.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/">Calorie Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Find your daily calorie target for weight loss, maintenance, or gain.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/macro-calculator/">Macro Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Set protein, carbs, and fat targets for your eating windows.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/target-heart-rate-calculator/">Target Heart Rate Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Keep exercise intensity safe and effective while fasting.</p>
+    </div>
+  </div>
 </ContentLayout>

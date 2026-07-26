@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" role="img" aria-hidden="true">
+  <rect width="400" height="220" rx="16" fill="transparent"/>
+  <g transform="translate(200 110)">
+    <rect x="-50" y="-50" width="100" height="70" rx="8" fill="#ffffff" stroke="#ebebeb" stroke-width="2"/>
+    <circle cx="0" cy="-15" r="18" fill="#0070f3" opacity="0.2"/>
+    <circle cx="0" cy="-15" r="10" fill="#0070f3" opacity="0.4"/>
+    <path d="M-6 -15 L6 -15 M0 -21 L0 -9" stroke="#0070f3" stroke-width="2" stroke-linecap="round"/>
+    <rect x="-30" y="35" width="60" height="4" rx="2" fill="#d4d4d4"/>
+    <rect x="-30" y="45" width="45" height="4" rx="2" fill="#d4d4d4"/>
+    <rect x="-30" y="55" width="50" height="4" rx="2" fill="#d4d4d4"/>
+    <text x="0" y="80" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#6b6b6b" text-anchor="middle">Ideal body weight for height</text>
+  </g>
+</svg>

@@ -2,6 +2,9 @@
 import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls, selectCls } from "../lib/ui";
 import type { FaqItem } from "../lib/seo";
+import MedicalNote from "../components/ui/MedicalNote.astro";
+import ArticleImage from "../components/ui/ArticleImage.astro";
+import Sources from "../components/ui/Sources.astro";
 
 const faqs: FaqItem[] = [
   { q: "How long will it take to lose weight?", a: "It depends on your calorie deficit. A 500-calorie daily deficit produces about 0.45 kg (1 lb) of loss per week. This calculator estimates your timeline based on the weekly rate you choose and the total weight you want to lose." },
@@ -14,6 +17,10 @@ const faqs: FaqItem[] = [
   { q: "Can I speed up my weight loss timeline?", a: "You can increase deficit through diet or exercise, but combined deficits over 1000 calories are hard to maintain. Better to increase activity slightly and stick to the plan." },
   { q: "Why am I not losing weight at the expected rate?", a: "Common causes: underestimating food intake, overestimating activity, water retention, metabolic adaptation. Track everything precisely for 1-2 weeks." },
   { q: "How many calories should I eat to lose weight?", a: "Subtract your desired deficit (usually 500) from your TDEE. If your TDEE is 2200, aim for 1700 calories daily for 1 lb/week loss." },
+  { q: "What is a caloric weight loss calculator?", a: "A caloric weight loss calculator like this one converts your weight loss goal into a daily calorie deficit and timeline. It uses the 3,500-calorie rule to estimate how long your goal will take." },
+  { q: "What is a weight loss calculator predictor?", a: "A weight loss calculator predictor estimates your future weight based on your current plan. This tool projects your target date from your chosen weekly rate and starting weight." },
+  { q: "How does intermittent fasting affect weight loss?", a: "Intermittent fasting can help control calories by limiting eating windows. Pair it with a moderate deficit for best results. Use the <a href='/intermittent-fasting-calculator/'>intermittent fasting calculator</a> to plan your schedule." },
+  { q: "Does cardio help weight loss?", a: "Cardio burns extra calories and supports heart health. Combine it with dietary changes for the fastest results. Use the <a href='/calories-burned-calculator/'>calories burned calculator</a> to estimate your exercise contribution." },
 ];
 ---
 
@@ -69,40 +76,44 @@ const faqs: FaqItem[] = [
   </div>
 
   <Fragment slot="content">
+    <MedicalNote />
+
     <h2>How the weight-loss timeline works</h2>
     <p>Fat loss comes down to energy balance. Because a pound of body fat stores roughly 3,500 calories (and a kilogram about 7,700), the size of your daily calorie deficit determines how quickly you lose weight. This calculator converts your chosen weekly rate into the daily deficit you'll need and projects a realistic target date.</p>
+
+    <h2>The 3,500-calorie rule in practice</h2>
+    <p>The 3,500-calorie rule is a useful starting point, but real-world results vary. Water retention, muscle gain, hormonal shifts, and metabolic adaptation all mean your actual weekly loss may differ from the mathematical projection. Use the result as a guide, not a guarantee, and adjust your intake based on 2–3 week trends rather than daily scale weight.</p>
+
     <h2>Choosing a sustainable pace</h2>
     <p>Faster isn't always better. Losing 0.5–1% of your body weight per week protects muscle and is far easier to maintain than crash dieting. If your required deficit feels too large, choose a gentler rate — slow, consistent progress wins. Learn more in the <a href="/guides/weight-loss-guide/">weight loss guide</a>.</p>
-    <h2>Putting your plan into action</h2>
-    <p>Find your maintenance calories with the <a href="/tdee-calculator/">TDEE calculator</a>, then subtract your daily deficit to get your target intake. Pair that with a high-protein <a href="/macro-calculator/">macro split</a> to preserve muscle while the fat comes off.</p>
 
-    <h2>Recommended Tools for Your Weight Loss Journey</h2>
-    <div class="grid gap-4 sm:grid-cols-2">
-      <div class="card p-4">
-        <h3 class="text-lg font-semibold text-ink"><a href="/tdee-calculator/">TDEE Calculator</a></h3>
-        <p class="mt-1 text-sm text-body">Calculate your exact daily calorie burn to set proper deficit targets.</p>
-      </div>
-      <div class="card p-4">
-        <h3 class="text-lg font-semibold text-ink"><a href="/macro-calculator/">Macro Calculator</a></h3>
-        <p class="mt-1 text-sm text-body">Get protein, carb, and fat targets to preserve muscle while losing fat.</p>
-      </div>
-      <div class="card p-4">
-        <h3 class="text-lg font-semibold text-ink"><a href="/protein-calculator/">Protein Calculator</a></h3>
-        <p class="mt-1 text-sm text-body">Ensure adequate protein to maintain muscle mass during weight loss.</p>
-      </div>
-      <div class="card p-4">
-        <h3 class="text-lg font-semibold text-ink"><a href="/workouts/home-workouts/">Home Workouts</a></h3>
-        <p class="mt-1 text-sm text-body">Burn extra calories with equipment-free exercise routines.</p>
-      </div>
-      <div class="card p-4">
-        <h3 class="text-lg font-semibold text-ink"><a href="/weight-gain-calculator/">Weight Gain Calculator</a></h3>
-        <p class="mt-1 text-sm text-body">Plan a healthy calorie surplus and timeline if your goal is to gain weight.</p>
-      </div>
-      <div class="card p-4">
-        <h3 class="text-lg font-semibold text-ink"><a href="/healthy-weight-calculator/">Healthy Weight Calculator</a></h3>
-        <p class="mt-1 text-sm text-body">Find your healthy weight range based on height and BMI.</p>
-      </div>
-    </div>
+    <ArticleImage src="/assets/images/articles/weight-timeline.svg" alt="Illustration of a weight-loss progress line from a start point to a goal weight." />
+
+    <h2>Setting up your calorie deficit</h2>
+    <p>Your starting point is your maintenance calories. Find those with the <a href="/tdee-calculator/">TDEE calculator</a>, then subtract your daily deficit to get your target intake. A deficit of about 500 calories per day produces roughly one pound of fat loss per week. Pair that with a high-protein <a href="/macro-calculator/">macro split</a> to preserve muscle while the fat comes off.</p>
+
+    <h2>Combining diet with exercise</h2>
+    <p>You can create your deficit through diet, exercise, or both. Moving more — walking, strength training, or cardio — gives you more calories to eat while still losing fat. Use the <a href="/calories-burned-calculator/">calories burned calculator</a> to see how much your workouts contribute. For running, try the <a href="/running-calorie-calculator/">running calorie calculator</a>; for walking, the <a href="/walking-calorie-calculator/">walking calorie calculator</a>; and for gym sessions, the <a href="/treadmill-calorie-calculator/">treadmill calorie calculator</a>. Even adding steps with a <a href="/walking-calorie-calculator/">walking calorie calculator</a> can add 100–300 calories of burn per day.</p>
+
+    <h2>How to break through plateaus</h2>
+    <p>If the scale stalls for more than 2–3 weeks, recalculate your TDEE at your new weight — it will be lower. Tighten your food tracking, add 10–15 minutes of activity, or reduce your deficit slightly to reset your metabolism. Small, consistent adjustments beat drastic cuts.</p>
+
+    <h2>Common mistakes that slow weight loss</h2>
+    <ul>
+      <li><strong>Underestimating portions:</strong> Weighing and logging food removes guesswork.</li>
+      <li><strong>Forgetting liquid calories:</strong> Coffee drinks, smoothies, and cooking oils add up fast.</li>
+      <li><strong>Skipping strength training:</strong> Muscle is metabolically active; losing it slows your metabolism.</li>
+      <li><strong>Not recalculating:</strong> Your maintenance drops as you lose weight. Recalculate every 4–5 kg.</li>
+      <li><strong>Ignoring sleep:</strong> Poor sleep increases hunger hormones and weakens willpower.</li>
+    </ul>
+
+    <h2>Putting your plan into action</h2>
+    <p>Use the <a href="/calorie-deficit-calculator/">calorie deficit calculator</a> to find your exact daily deficit target, then the <a href="/meal-calorie-calculator/">meal calorie calculator</a> to split that target across breakfast, lunch, dinner, and snacks. For extra accountability, try the <a href="/intermittent-fasting-calculator/">intermittent fasting calculator</a> to fit meals into a shorter eating window.</p>
+
+    <Sources sources={[
+      { label: "CDC — Healthy weight loss", href: "https://www.cdc.gov/healthyweight/losing_weight/index.html" },
+      { label: "NHS — Calories and weight management", href: "https://www.nhs.uk/live-well/eat-well/calories/" },
+    ]} />
   </Fragment>
 </CalculatorLayout>
 
@@ -153,11 +164,8 @@ const faqs: FaqItem[] = [
         root.querySelectorAll<HTMLButtonElement>(".unit-tab").forEach((b) => { const on = b.dataset.unit === unit; b.setAttribute("aria-pressed", String(on)); b.classList.toggle("bg-canvas", on); b.classList.toggle("text-ink", on); b.classList.toggle("shadow-sm", on); b.classList.toggle("text-mute", !on); });
         document.querySelectorAll(".u-wt").forEach((e) => (e.textContent = unit === "metric" ? "(kg)" : "(lb)"));
         ["current", "goal"].forEach((id) => { const i = $(id) as HTMLInputElement; const cv = parseFloat(i.value) || 0; if (cv) i.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1); });
-        render();
       });
     });
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-    ($("rate") as HTMLSelectElement).addEventListener("change", render);
-    render();
   }
 </script>

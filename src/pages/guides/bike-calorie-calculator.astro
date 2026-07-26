@@ -1,0 +1,111 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "How accurate is a bike calorie calculator?", a: "Bike calorie calculators using MET values are estimates within 10–20% of actual burn. Accuracy depends on weight, speed, terrain, and effort level. Use them as a guide, not an exact measurement." },
+  { q: "What is the formula for calories burned biking?", a: "Calories per minute = MET × 3.5 × weight (kg) ÷ 200. Multiply by duration in minutes for total burn. A 70 kg rider at 6.0 MET for 60 minutes burns about 735 calories." },
+  { q: "Does cycling speed change calorie burn?", a: "Yes. Faster speeds increase air resistance and effort. Going from 10 mph to 20 mph can double or triple calories burned per minute for the same rider." },
+  { q: "Should I use a cycling calculator for indoor or outdoor biking?", a: "Both. Outdoor cycling includes wind and terrain variables. Indoor cycling removes wind resistance but lets you control resistance precisely. Use the <a href='/cycling-calories-calculator/'>cycling calories calculator</a> for either." },
+  { q: "Can cycling really help with weight loss?", a: "Yes. Cycling burns 400–800+ calories per hour and is low-impact, making it sustainable for daily or near-daily sessions. Pair it with a modest calorie deficit for steady fat loss." },
+];
+
+---
+
+<ContentLayout
+  title="Bike Calorie Calculator — Calories Burned Biking Guide"
+  h1="Bike Calorie Calculator"
+  description="Learn how bike calorie calculators work, what affects cycling calorie burn, and how to estimate calories burned biking accurately."
+  path="/guides/bike-calorie-calculator/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="A bike calorie calculator estimates how many calories you burn cycling based on speed, weight, and duration. Here's how they work and how to get the most accurate estimate."
+  updated="July 2026"
+  faqs={faqs}
+>
+  <ArticleImage src="/assets/images/articles/activity-intensity.svg" alt="Illustration of cycling intensity levels and how they affect calorie burn." />
+
+  <h2 id="how-it-works">How Bike Calorie Calculators Work</h2>
+  <p>A bike calorie calculator uses MET values — Metabolic Equivalents of Task — to estimate energy expenditure. MET measures how hard your body works during an activity compared to resting quietly. Cycling at different speeds and intensities has different MET values assigned by exercise scientists.</p>
+  <p>When you enter your weight, cycling speed, and duration, the calculator applies the formula: <strong>Calories per minute = MET × 3.5 × weight (kg) ÷ 200</strong>. The result is multiplied by your ride duration to give total calories burned.</p>
+  <p>This approach is the same method used in the <a href="/cycling-calories-calculator/">cycling calories calculator</a> and the <a href="/calories-burned-calculator/">calories burned calculator</a>. It provides a science-backed estimate rather than a random guess.</p>
+
+  <h2 id="factors">Factors That Affect Cycling Calorie Burn</h2>
+  <p>Several variables change how many calories you burn on a bike:</p>
+  <ul>
+    <li><strong>Body weight:</strong> Heavier riders burn more calories at the same speed because they move more mass.</li>
+    <li><strong>Cycling speed:</strong> Faster speeds increase air resistance dramatically. Doubling speed can quadruple effort.</li>
+    <li><strong>Terrain:</strong> Hills, uneven surfaces, and rough trails raise MET values. Mountain biking burns more than flat-road riding.</li>
+    <li><strong>Wind:</strong> Headwinds increase effort; tailwinds decrease it. Outdoor cycling calculators account for typical conditions.</li>
+    <li><strong>Bike type:</strong> Road bikes are lighter and more efficient; mountain bikes weigh more and absorb energy.</li>
+    <li><strong>Rider position:</strong> Leaning forward on a road bike is more aerodynamic than upright cruising.</li>
+  </ul>
+
+  <h2 id="met-values">MET Values for Common Cycling Speeds</h2>
+  <p>Understanding MET values helps you interpret calculator results:</p>
+  <table>
+    <thead><tr><th>Cycling Pace</th><th>MET Value</th><th>Calories/hr (70 kg)</th></tr></thead>
+    <tbody>
+      <tr><td>Leisure / easy (10 mph)</td><td>4.0</td><td>~280 kcal</td></tr>
+      <tr><td>Moderate (12 mph)</td><td>6.0</td><td>~420 kcal</td></tr>
+      <tr><td>Vigorous (14 mph)</td><td>8.0</td><td>~560 kcal</td></tr>
+      <tr><td>Racing (20 mph)</td><td>15.8</td><td>~1,100 kcal</td></tr>
+    </tbody>
+  </table>
+  <p>Use these reference points when reading <a href="/cycling-calories-calculator/">cycling calculator</a> results or planning your rides.</p>
+
+  <h2 id="how-to-calculate">How to Calculate Calories Burned Biking</h2>
+  <p>You can estimate cycling calories manually or with a tool:</p>
+  <ol>
+    <li><strong>Know your weight in kilograms.</strong> If using pounds, divide by 2.2.</li>
+    <li><strong>Identify your cycling speed and intensity.</strong> Match it to a MET value from the table above.</li>
+    <li><strong>Apply the formula:</strong> Calories per minute = MET × 3.5 × weight (kg) ÷ 200.</li>
+    <li><strong>Multiply by ride duration in minutes</strong> to get total calories.</li>
+    <li><strong>Adjust for terrain and wind</strong> if you want a more personalized estimate.</li>
+  </ol>
+  <p>For the fastest results, use the <a href="/cycling-calories-calculator/">cycling calories calculator</a> — it handles the math and shows comparisons across 15, 30, 45, 60, and 90-minute durations.</p>
+
+  <h2 id="accurate-tips">Tips for Accurate Cycling Calorie Estimates</h2>
+  <p>Bike calorie calculators give estimates, not exact numbers. Here's how to get closer to your real burn:</p>
+  <ul>
+    <li><strong>Weigh yourself accurately.</strong> Enter your current weight, not an estimate. Even 5 kg changes the result.</li>
+    <li><strong>Be honest about intensity.</strong> If you can chat easily, you're at leisure pace. If you can only say short phrases, that's moderate or vigorous.</li>
+    <li><strong>Account for elevation gain.</strong> Climbing burns significantly more calories than flat riding. Add 10–20% for hilly routes.</li>
+    <li><strong>Include all ride time.</strong> Stop-and-go city cycling burns more than uninterrupted rural riding.</li>
+    <li><strong>Use heart rate if available.</strong> A heart rate monitor gives better intensity data than perceived effort alone.</li>
+  </ul>
+
+  <h2 id="indoor-outdoor">Indoor vs Outdoor Cycling Calorie Burn</h2>
+  <p>Indoor stationary bikes remove variables like wind and traffic lights, but they also remove the natural calorie boost from those challenges. A 60-minute moderate indoor ride might burn 10–15% fewer calories than the same perceived effort on the road.</p>
+  <p>However, indoor cycling lets you hold steady resistance and intensity without coasting. Spin classes with interval bursts can exceed outdoor casual riding. For weight loss, both are effective — pick the one you'll do consistently.</p>
+  <p>Try the <a href="/cycling-calories-calculator/">cycling calories calculator</a> for indoor rides, and compare it with the <a href="/running-calorie-calculator/">running calorie calculator</a> or <a href="/walking-calorie-calculator/">walking calorie calculator</a> to find your best activity.</p>
+
+  <h2 id="related-tools">Related Calculators and Guides</h2>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/cycling-calories-calculator/">Cycling Calories Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Estimate calories burned cycling at different speeds and durations. Based on MET values.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/calories-burned-calculator/">Calories Burned Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Compare calorie burn across running, cycling, swimming, walking, and more.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/running-calorie-calculator/">Running Calorie Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Running usually burns more per minute, but cycling is easier on the joints for longer sessions.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/walking-calorie-calculator/">Walking Calorie Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Walking is lower intensity but highly sustainable. Combine with cycling for balanced weekly activity.</p>
+    </div>
+  </div>
+
+  <h2 id="continue-learning">Continue Learning</h2>
+  <ul>
+    <li><a href="/cycling-calories-calculator/">Cycling Calories Calculator</a> — Estimate your ride burn</li>
+    <li><a href="/calories-burned-calculator/">Calories Burned Calculator</a> — Compare all exercises</li>
+    <li><a href="/guides/best-exercises-to-burn-calories/">Best Exercises to Burn Calories</a> — Pick your primary activity</li>
+    <li><a href="/macro-calculator/">Macro Calculator</a> — Fuel cycling with the right macros</li>
+  </ul>
+</ContentLayout>

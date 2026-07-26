@@ -1,0 +1,631 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - navigation "Primary" [ref=e4]:
+      - link "CalorieCalculatorFree" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e7]
+        - generic [ref=e10]: CalorieCalculatorFree
+      - list [ref=e11]:
+        - listitem [ref=e12]:
+          - link "Calculators" [ref=e13] [cursor=pointer]:
+            - /url: /resources/
+            - text: Calculators
+            - img [ref=e14]
+        - listitem [ref=e16]:
+          - link "Pregnancy" [ref=e17] [cursor=pointer]:
+            - /url: /resources/
+            - text: Pregnancy
+            - img [ref=e18]
+        - listitem [ref=e20]:
+          - link "Guides" [ref=e21] [cursor=pointer]:
+            - /url: /resources/
+            - text: Guides
+            - img [ref=e22]
+        - listitem [ref=e24]:
+          - link "Workouts" [ref=e25] [cursor=pointer]:
+            - /url: /resources/
+            - text: Workouts
+            - img [ref=e26]
+        - listitem [ref=e28]:
+          - link "Resources" [ref=e29] [cursor=pointer]:
+            - /url: /resources/
+            - text: Resources
+            - img [ref=e30]
+        - listitem [ref=e32]:
+          - link "About" [ref=e33] [cursor=pointer]:
+            - /url: /about/
+      - generic [ref=e34]:
+        - button "Toggle color theme" [ref=e35]:
+          - img [ref=e36]
+        - link "Calculate Calories" [ref=e39] [cursor=pointer]:
+          - /url: /#calculator
+  - main [ref=e40]:
+    - generic [ref=e42]:
+      - link "Science-based · Updated for 2025" [ref=e43] [cursor=pointer]:
+        - /url: /guides/how-many-calories-should-i-eat/
+        - text: Science-based · Updated for 2025
+      - heading "Free Calorie Calculator for Accurate Daily Calorie Needs" [level=1] [ref=e45]
+      - paragraph [ref=e46]: Find exactly how many calories to eat for weight loss, weight gain, or maintenance. Get your BMR, TDEE, and personalized macros in seconds — completely free.
+      - generic [ref=e47]:
+        - link "Calculate Calories" [ref=e48] [cursor=pointer]:
+          - /url: "#calculator"
+        - link "Learn More" [ref=e49] [cursor=pointer]:
+          - /url: /guides/how-many-calories-should-i-eat/
+    - generic [ref=e51]:
+      - generic [ref=e52]:
+        - img [ref=e53]
+        - text: Science-based formulas
+      - generic [ref=e55]:
+        - img [ref=e56]
+        - text: Instant calculations
+      - generic [ref=e58]:
+        - img [ref=e59]
+        - text: Mobile friendly
+      - generic [ref=e61]:
+        - img [ref=e62]
+        - text: Free forever
+    - generic [ref=e65]:
+      - generic [ref=e66]:
+        - heading "Calculate your daily calories" [level=2] [ref=e67]
+        - paragraph [ref=e68]: Enter your details below. Everything updates instantly and stays private on your device.
+      - generic [ref=e69]:
+        - generic [ref=e70]:
+          - note [ref=e71]: Example values are pre-filled. Enter your own details for accurate results.
+          - tablist "Unit system" [ref=e72]:
+            - button "Metric" [pressed] [ref=e73]
+            - button "Imperial" [ref=e74]
+          - group "Gender" [ref=e75]:
+            - generic [ref=e76]: Gender
+            - generic [ref=e77]:
+              - generic [ref=e78] [cursor=pointer]:
+                - radio "Male" [checked] [ref=e79]
+                - text: Male
+              - generic [ref=e80] [cursor=pointer]:
+                - radio "Female" [ref=e81]
+                - text: Female
+          - generic [ref=e82]:
+            - generic [ref=e83]:
+              - generic [ref=e84]: Age
+              - spinbutton "Age" [ref=e85]: "30"
+            - generic [ref=e86]:
+              - generic [ref=e87]: Weight (kg)
+              - spinbutton "Weight (kg)" [ref=e88]: "70"
+          - generic [ref=e89]:
+            - generic [ref=e90]: Height (cm)
+            - spinbutton [ref=e92]: "175"
+          - generic [ref=e93]:
+            - generic [ref=e94]: Activity level
+            - generic [ref=e95]:
+              - combobox "Activity level" [ref=e96]:
+                - option "Sedentary — little or no exercise"
+                - option "Lightly active — 1–3 days/week"
+                - option "Moderately active — 3–5 days/week" [selected]
+                - option "Very active — 6–7 days/week"
+                - option "Extra active — hard exercise + job"
+              - img
+          - button "Calculate" [ref=e97]
+        - generic [ref=e98]:
+          - generic [ref=e100]:
+            - generic [ref=e101]:
+              - generic [ref=e102]:
+                - paragraph [ref=e103]: Your daily calories to maintain weight
+                - paragraph [ref=e104]: 2,556 kcal/day
+              - generic [ref=e105]:
+                - paragraph [ref=e106]: Weekly
+                - paragraph [ref=e107]: 17,889
+            - generic [ref=e108]:
+              - generic [ref=e109]: Adjust goal
+              - generic [ref=e110]:
+                - combobox "Adjust goal" [ref=e111]:
+                  - option "Maintain weight" [selected]
+                  - option "Mild weight loss — 0.5 lb/week"
+                  - option "Weight loss — 1 lb/week"
+                  - option "Extreme loss — 2 lb/week"
+                  - option "Mild weight gain — 0.5 lb/week"
+                  - option "Weight gain — 1 lb/week"
+                  - option "Extreme gain — 2 lb/week"
+                - img
+            - generic [ref=e112]:
+              - button "Copy" [ref=e113]:
+                - img [ref=e114]
+                - generic [ref=e117]: Copy
+              - button "Print / PDF" [ref=e118]:
+                - img [ref=e119]
+                - text: Print / PDF
+              - button "Share" [ref=e121]:
+                - img [ref=e122]
+                - generic [ref=e127]: Share
+          - generic [ref=e128]:
+            - generic [ref=e129]:
+              - paragraph [ref=e130]: BMR
+              - paragraph [ref=e131]: 1,649
+              - paragraph [ref=e132]: Basal metabolic rate
+            - generic [ref=e133]:
+              - paragraph [ref=e134]: TDEE
+              - paragraph [ref=e135]: 2,556
+              - paragraph [ref=e136]: Total daily energy
+          - generic [ref=e137]:
+            - generic [ref=e138]:
+              - heading "Recommended macros" [level=3] [ref=e139]
+              - generic [ref=e140]: 30P / 40C / 30F
+            - generic [ref=e141]:
+              - img "Macro distribution" [ref=e142]
+              - list [ref=e147]:
+                - listitem [ref=e148]:
+                  - generic [ref=e149]: Protein
+                  - generic [ref=e151]: 192 g
+                - listitem [ref=e152]:
+                  - generic [ref=e153]: Carbs
+                  - generic [ref=e155]: 256 g
+                - listitem [ref=e156]:
+                  - generic [ref=e157]: Fat
+                  - generic [ref=e159]: 85 g
+          - table "Daily calories for each weight goal" [ref=e161]:
+            - caption [ref=e162]: Daily calories for each weight goal
+            - rowgroup [ref=e163]:
+              - row "Goal Per day Per week" [ref=e164]:
+                - columnheader "Goal" [ref=e165]
+                - columnheader "Per day" [ref=e166]
+                - columnheader "Per week" [ref=e167]
+            - rowgroup [ref=e168]:
+              - row "Maintain weight 2,556 17,889" [ref=e169]:
+                - cell "Maintain weight" [ref=e170]
+                - cell "2,556" [ref=e171]
+                - cell "17,889" [ref=e172]
+              - row "Mild weight loss 2,306 16,139" [ref=e173]:
+                - cell "Mild weight loss" [ref=e174]
+                - cell "2,306" [ref=e175]
+                - cell "16,139" [ref=e176]
+              - row "Weight loss 2,056 14,389" [ref=e177]:
+                - cell "Weight loss" [ref=e178]
+                - cell "2,056" [ref=e179]
+                - cell "14,389" [ref=e180]
+              - row "Extreme weight loss 1,556 10,889" [ref=e181]:
+                - cell "Extreme weight loss" [ref=e182]
+                - cell "1,556" [ref=e183]
+                - cell "10,889" [ref=e184]
+              - row "Mild weight gain 2,806 19,639" [ref=e185]:
+                - cell "Mild weight gain" [ref=e186]
+                - cell "2,806" [ref=e187]
+                - cell "19,639" [ref=e188]
+              - row "Weight gain 3,056 21,389" [ref=e189]:
+                - cell "Weight gain" [ref=e190]
+                - cell "3,056" [ref=e191]
+                - cell "21,389" [ref=e192]
+              - row "Extreme weight gain 3,556 24,889" [ref=e193]:
+                - cell "Extreme weight gain" [ref=e194]
+                - cell "3,556" [ref=e195]
+                - cell "24,889" [ref=e196]
+          - paragraph [ref=e197]: Estimates use the Mifflin-St Jeor equation. Individual needs vary — use these as a starting point and adjust based on real-world results.
+    - generic [ref=e202]:
+      - link [ref=e203] [cursor=pointer]:
+        - /url: //
+      - generic [ref=e206]: Won 10k$ in roulette. Try your luck
+    - generic [ref=e208]:
+      - generic [ref=e209]:
+        - heading "Tools" [level=2] [ref=e210]
+        - paragraph [ref=e211]: Beyond calculators — handy tools to make tracking your nutrition easier.
+      - generic [ref=e213]:
+        - generic [ref=e214]:
+          - img [ref=e216]
+          - heading "Food Calories Search" [level=3] [ref=e219]
+          - paragraph [ref=e220]: Search nutrition facts, calories, protein, carbs, fats, vitamins, and minerals for thousands of foods.
+        - link "Search Food Calories" [ref=e222] [cursor=pointer]:
+          - /url: /food-calories-search/
+    - generic [ref=e224]:
+      - generic [ref=e225]:
+        - heading "Everything you need to hit your goal" [level=2] [ref=e226]
+        - paragraph [ref=e227]: More than a number — a complete, science-backed picture of your nutrition.
+      - generic [ref=e228]:
+        - article [ref=e229]:
+          - img [ref=e231]
+          - heading "BMR & TDEE breakdown" [level=3] [ref=e233]
+          - paragraph [ref=e234]: See exactly how many calories your body burns at rest and in total each day, calculated with the trusted Mifflin-St Jeor equation.
+        - article [ref=e235]:
+          - img [ref=e237]
+          - heading "Goal-based targets" [level=3] [ref=e239]
+          - paragraph [ref=e240]: Get tailored calorie numbers for maintenance, weight loss, and weight gain — from a gentle 0.5 lb/week to aggressive cutting or bulking.
+        - article [ref=e241]:
+          - img [ref=e243]
+          - heading "Macro recommendations" [level=3] [ref=e245]
+          - paragraph [ref=e246]: Turn your calorie target into grams of protein, carbs, and fat with a clear visual breakdown you can actually follow.
+        - article [ref=e247]:
+          - img [ref=e249]
+          - heading "Weekly & timeline view" [level=3] [ref=e251]
+          - paragraph [ref=e252]: Understand your weekly calorie budget and estimate how long it will take to reach your target weight at your chosen pace.
+    - generic [ref=e254]:
+      - generic [ref=e255]:
+        - heading "Explore all 15 calculators" [level=2] [ref=e256]
+        - paragraph [ref=e257]: A complete toolkit for calories, body composition, and nutrition.
+      - generic [ref=e258]:
+        - link "Calorie Calculator Daily calories for your goal" [ref=e259] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e260]:
+            - generic [ref=e261]: Calorie Calculator
+            - generic [ref=e262]: Daily calories for your goal
+          - img [ref=e263]
+        - link "TDEE Calculator Total daily energy expenditure" [ref=e265] [cursor=pointer]:
+          - /url: /tdee-calculator/
+          - generic [ref=e266]:
+            - generic [ref=e267]: TDEE Calculator
+            - generic [ref=e268]: Total daily energy expenditure
+          - img [ref=e269]
+        - link "BMR Calculator Basal metabolic rate" [ref=e271] [cursor=pointer]:
+          - /url: /bmr-calculator/
+          - generic [ref=e272]:
+            - generic [ref=e273]: BMR Calculator
+            - generic [ref=e274]: Basal metabolic rate
+          - img [ref=e275]
+        - link "BMI Calculator Body mass index" [ref=e277] [cursor=pointer]:
+          - /url: /bmi-calculator/
+          - generic [ref=e278]:
+            - generic [ref=e279]: BMI Calculator
+            - generic [ref=e280]: Body mass index
+          - img [ref=e281]
+        - link "Macro Calculator Protein, carbs & fat split" [ref=e283] [cursor=pointer]:
+          - /url: /macro-calculator/
+          - generic [ref=e284]:
+            - generic [ref=e285]: Macro Calculator
+            - generic [ref=e286]: Protein, carbs & fat split
+          - img [ref=e287]
+        - link "Body Fat Calculator U.S. Navy method" [ref=e289] [cursor=pointer]:
+          - /url: /body-fat-calculator/
+          - generic [ref=e290]:
+            - generic [ref=e291]: Body Fat Calculator
+            - generic [ref=e292]: U.S. Navy method
+          - img [ref=e293]
+        - link "Ideal Weight Healthy weight range" [ref=e295] [cursor=pointer]:
+          - /url: /ideal-weight-calculator/
+          - generic [ref=e296]:
+            - generic [ref=e297]: Ideal Weight
+            - generic [ref=e298]: Healthy weight range
+          - img [ref=e299]
+        - link "Lean Body Mass Fat-free mass" [ref=e301] [cursor=pointer]:
+          - /url: /lean-body-mass-calculator/
+          - generic [ref=e302]:
+            - generic [ref=e303]: Lean Body Mass
+            - generic [ref=e304]: Fat-free mass
+          - img [ref=e305]
+        - link "Protein Calculator Daily protein target" [ref=e307] [cursor=pointer]:
+          - /url: /protein-calculator/
+          - generic [ref=e308]:
+            - generic [ref=e309]: Protein Calculator
+            - generic [ref=e310]: Daily protein target
+          - img [ref=e311]
+        - link "Water Intake Daily hydration" [ref=e313] [cursor=pointer]:
+          - /url: /water-intake-calculator/
+          - generic [ref=e314]:
+            - generic [ref=e315]: Water Intake
+            - generic [ref=e316]: Daily hydration
+          - img [ref=e317]
+        - link "Weight Loss Plan & timeline" [ref=e319] [cursor=pointer]:
+          - /url: /weight-loss-calculator/
+          - generic [ref=e320]:
+            - generic [ref=e321]: Weight Loss
+            - generic [ref=e322]: Plan & timeline
+          - img [ref=e323]
+        - link "Calories Burned Exercise calorie burn" [ref=e325] [cursor=pointer]:
+          - /url: /calories-burned-calculator/
+          - generic [ref=e326]:
+            - generic [ref=e327]: Calories Burned
+            - generic [ref=e328]: Exercise calorie burn
+          - img [ref=e329]
+        - link "Pace Calculator Running, walking, cycling pace" [ref=e331] [cursor=pointer]:
+          - /url: /pace-calculator/
+          - generic [ref=e332]:
+            - generic [ref=e333]: Pace Calculator
+            - generic [ref=e334]: Running, walking, cycling pace
+          - img [ref=e335]
+        - link "Pregnancy Calculator Due date & conception" [ref=e337] [cursor=pointer]:
+          - /url: /pregnancy-calculator/
+          - generic [ref=e338]:
+            - generic [ref=e339]: Pregnancy Calculator
+            - generic [ref=e340]: Due date & conception
+          - img [ref=e341]
+        - link "Due Date Calculator Estimated delivery date" [ref=e343] [cursor=pointer]:
+          - /url: /due-date-calculator/
+          - generic [ref=e344]:
+            - generic [ref=e345]: Due Date Calculator
+            - generic [ref=e346]: Estimated delivery date
+          - img [ref=e347]
+    - generic [ref=e351]:
+      - heading "The free online calorie calculator that does the math for you" [level=2] [ref=e352]
+      - paragraph [ref=e353]:
+        - text: Our
+        - strong [ref=e354]: calorie calculator
+        - text: is a fast, accurate, and completely
+        - strong [ref=e355]: free
+        - text: tool — an
+        - strong [ref=e356]: online calorie calculator
+        - text: that tells you exactly how many calories to eat each day to reach your goal — whether that's losing fat, gaining weight, or maintaining where you are. Instead of guessing, you get a personalized
+        - strong [ref=e357]: daily calorie calculator
+        - text: result in seconds, backed by the same science-based formulas used by dietitians and researchers worldwide.
+      - heading "How the calorie calculator works" [level=3] [ref=e358]
+      - paragraph [ref=e359]:
+        - text: The number of calories you need each day depends on your age, sex, height, weight, and activity level. Your body burns a baseline amount just to stay alive — your
+        - link "Basal Metabolic Rate (BMR)" [ref=e360] [cursor=pointer]:
+          - /url: /bmr-calculator/
+        - text: — and burns more on top of that through movement and exercise. Add them together and you get your
+        - link "Total Daily Energy Expenditure (TDEE)" [ref=e361] [cursor=pointer]:
+          - /url: /tdee-calculator/
+        - text: . Our built-in
+        - strong [ref=e362]: TDEE calculator
+        - text: handles this automatically using the trusted Mifflin-St Jeor equation, so your
+        - strong [ref=e363]: maintenance calorie calculator
+        - text: number is as accurate as a simple formula can get.
+      - heading "Calorie calculator for weight loss and weight gain" [level=3] [ref=e364]
+      - paragraph [ref=e365]:
+        - text: Once you know your maintenance calories, reaching any goal becomes simple math. To lose weight, you eat fewer calories than you burn — a
+        - link "calorie deficit" [ref=e366] [cursor=pointer]:
+          - /url: /guides/calorie-deficit-guide/
+        - text: . Our
+        - strong [ref=e367]: calorie deficit calculator
+        - text: shows you the daily target for a gentle, steady, or aggressive pace, so you always know how many calories you should eat to lose weight safely. A deficit of about 500 calories per day produces roughly one pound of fat loss per week, since a pound of body fat stores about 3,500 calories. Want to build muscle instead? Use the
+        - strong [ref=e368]: calorie calculator to gain weight
+        - text: by selecting a weight-gain goal, which adds a controlled surplus on top of your TDEE. If you're tracking a specific target, the
+        - link "weight loss calculator" [ref=e369] [cursor=pointer]:
+          - /url: /weight-loss-calculator/
+        - text: estimates how long it will take to reach your goal weight.
+      - heading "From calories to food and macros" [level=3] [ref=e370]
+      - paragraph [ref=e371]:
+        - text: Every result from this
+        - strong [ref=e372]: free food calorie calculator
+        - text: also splits your daily total into grams of protein, carbohydrates, and fat with our
+        - link "macro calculator" [ref=e373] [cursor=pointer]:
+          - /url: /macro-calculator/
+        - text: . Whether you're logging a home recipe, a restaurant meal, or a quick snack, you can match the calories of your food against your personalized budget. Protein provides 4 calories per gram — use our
+        - link "protein calculator" [ref=e374] [cursor=pointer]:
+          - /url: /protein-calculator/
+        - text: to hit your daily protein target.
+      - paragraph [ref=e375]:
+        - text: Pair it with the
+        - link "protein calculator" [ref=e376] [cursor=pointer]:
+          - /url: /protein-calculator/
+        - text: to make sure you're eating enough protein to preserve muscle while you lose fat or build it while you gain. Learn all about
+        - link "protein calories" [ref=e377] [cursor=pointer]:
+          - /url: /guides/protein-calories/
+        - text: and the
+        - link "macro guide" [ref=e378] [cursor=pointer]:
+          - /url: /guides/macro-guide/
+        - text: for complete nutrition tracking.
+      - heading "Your daily food calorie calculator and tracker" [level=3] [ref=e379]
+      - paragraph [ref=e380]:
+        - text: Think of this as your everyday
+        - strong [ref=e381]: online calorie calculator
+        - text: — a fast, app-like
+        - strong [ref=e382]: food calorie calculator
+        - text: "you can return to any time you need to check your numbers. There's nothing to download: it works instantly in your browser on phone, tablet, or desktop, which makes it a practical free alternative to a paid"
+        - strong [ref=e383]: food calorie calculator app
+        - text: . Your most recent results are saved on your own device so you can pick up where you left off, and you can copy, print, or share your results with a single tap. Because your calorie needs change as your body changes, it's smart to revisit the calculator every few weeks — recalculating after every 4–5 kg (about 10 lb) of weight change keeps your daily target accurate and your progress steady.
+      - heading "Why choose our calorie calculator?" [level=3] [ref=e384]
+      - list [ref=e385]:
+        - listitem [ref=e386]:
+          - strong [ref=e387]: Calorie calculator free
+          - text: — every tool here is 100% free, with no sign-up, no paywall, and no limits.
+        - listitem [ref=e388]:
+          - strong [ref=e389]: Private by design
+          - text: — calculations run entirely in your browser; your data never leaves your device.
+        - listitem [ref=e390]:
+          - strong [ref=e391]: Science-based
+          - text: — built on the Mifflin-St Jeor BMR equation and standard activity multipliers.
+        - listitem [ref=e392]:
+          - strong [ref=e393]: Works everywhere
+          - text: — a mobile-first, app-like experience that loads instantly on any device.
+        - listitem [ref=e394]:
+          - strong [ref=e395]: Complete toolkit
+          - text: — 11 connected calculators covering calories, BMI, body fat, water intake, and more.
+      - paragraph [ref=e396]:
+        - text: Whether you searched for a
+        - strong [ref=e397]: daily calorie calculator
+        - text: ", a"
+        - strong [ref=e398]: calorie deficit calculator
+        - text: ", a"
+        - strong [ref=e399]: TDEE calculator
+        - text: ", a"
+        - strong [ref=e400]: maintenance calorie calculator
+        - text: ", or simply a reliable"
+        - strong [ref=e401]: online calorie calculator
+        - text: or
+        - strong [ref=e402]: free food calorie calculator
+        - text: ", you're in the right place. Enter your details above to get your personalized numbers, then explore the guides below to put your plan into action and reach your goal faster."
+      - link "Read the full guide" [ref=e404] [cursor=pointer]:
+        - /url: /guides/how-many-calories-should-i-eat/
+      - generic [ref=e405]:
+        - link "Maintenance Calorie Calculator" [ref=e406] [cursor=pointer]:
+          - /url: /guides/maintenance-calorie-calculator/
+        - link "Online Calorie Calculator" [ref=e407] [cursor=pointer]:
+          - /url: /guides/online-calorie-calculator/
+    - generic [ref=e410]:
+      - heading "Frequently asked questions" [level=2] [ref=e411]
+      - generic [ref=e412]:
+        - group [ref=e413]:
+          - generic "What is a maintenance calorie calculator?" [ref=e414] [cursor=pointer]:
+            - generic [ref=e415]: What is a maintenance calorie calculator?
+            - img [ref=e417]
+        - group [ref=e419]:
+          - generic "What is an online calorie calculator?" [ref=e420] [cursor=pointer]:
+            - generic [ref=e421]: What is an online calorie calculator?
+            - img [ref=e423]
+        - group [ref=e425]:
+          - generic "What is a calorie deficit calculator?" [ref=e426] [cursor=pointer]:
+            - generic [ref=e427]: What is a calorie deficit calculator?
+            - img [ref=e429]
+        - group [ref=e431]:
+          - generic "How do I set a calorie deficit with this calculator?" [ref=e432] [cursor=pointer]:
+            - generic [ref=e433]: How do I set a calorie deficit with this calculator?
+            - img [ref=e435]
+        - group [ref=e437]:
+          - generic "How does the calorie deficit calculator work?" [ref=e438] [cursor=pointer]:
+            - generic [ref=e439]: How does the calorie deficit calculator work?
+            - img [ref=e441]
+        - group [ref=e443]:
+          - generic "What is the most accurate calorie calculator?" [ref=e444] [cursor=pointer]:
+            - generic [ref=e445]: What is the most accurate calorie calculator?
+            - img [ref=e447]
+        - group [ref=e449]:
+          - generic "What should my calorie deficit be?" [ref=e450] [cursor=pointer]:
+            - generic [ref=e451]: What should my calorie deficit be?
+            - img [ref=e453]
+        - group [ref=e455]:
+          - generic "How can I set a calorie deficit for free?" [ref=e456] [cursor=pointer]:
+            - generic [ref=e457]: How can I set a calorie deficit for free?
+            - img [ref=e459]
+        - group [ref=e461]:
+          - generic "How much weight will I lose with this calorie calculator?" [ref=e462] [cursor=pointer]:
+            - generic [ref=e463]: How much weight will I lose with this calorie calculator?
+            - img [ref=e465]
+        - group [ref=e467]:
+          - generic "What is my calorie deficit?" [ref=e468] [cursor=pointer]:
+            - generic [ref=e469]: What is my calorie deficit?
+            - img [ref=e471]
+        - group [ref=e473]:
+          - generic "How do I get into a calorie deficit?" [ref=e474] [cursor=pointer]:
+            - generic [ref=e475]: How do I get into a calorie deficit?
+            - img [ref=e477]
+        - group [ref=e479]:
+          - generic "How many calories should I eat in a calorie deficit?" [ref=e480] [cursor=pointer]:
+            - generic [ref=e481]: How many calories should I eat in a calorie deficit?
+            - img [ref=e483]
+        - group [ref=e485]:
+          - generic "How do I use the calorie calculator to lose weight?" [ref=e486] [cursor=pointer]:
+            - generic [ref=e487]: How do I use the calorie calculator to lose weight?
+            - img [ref=e489]
+        - group [ref=e491]:
+          - generic "What is my calorie maintenance level?" [ref=e492] [cursor=pointer]:
+            - generic [ref=e493]: What is my calorie maintenance level?
+            - img [ref=e495]
+        - group [ref=e497]:
+          - generic "How do I eat in a calorie deficit?" [ref=e498] [cursor=pointer]:
+            - generic [ref=e499]: How do I eat in a calorie deficit?
+            - img [ref=e501]
+        - group [ref=e503]:
+          - generic "How do I do a calorie deficit calculation?" [ref=e504] [cursor=pointer]:
+            - generic [ref=e505]: How do I do a calorie deficit calculation?
+            - img [ref=e507]
+        - group [ref=e509]:
+          - generic "How much should I eat according to the calorie calculator?" [ref=e510] [cursor=pointer]:
+            - generic [ref=e511]: How much should I eat according to the calorie calculator?
+            - img [ref=e513]
+        - group [ref=e515]:
+          - generic "What is the best calorie deficit calculator?" [ref=e516] [cursor=pointer]:
+            - generic [ref=e517]: What is the best calorie deficit calculator?
+            - img [ref=e519]
+        - group [ref=e521]:
+          - generic "Can I use this calorie calculator for restaurant or fast-food meals?" [ref=e522] [cursor=pointer]:
+            - generic [ref=e523]: Can I use this calorie calculator for restaurant or fast-food meals?
+            - img [ref=e525]
+        - group [ref=e527]:
+          - generic "What should my daily calorie deficit be to lose weight?" [ref=e528] [cursor=pointer]:
+            - generic [ref=e529]: What should my daily calorie deficit be to lose weight?
+            - img [ref=e531]
+        - group [ref=e533]:
+          - generic "Which calorie calculator is the most accurate?" [ref=e534] [cursor=pointer]:
+            - generic [ref=e535]: Which calorie calculator is the most accurate?
+            - img [ref=e537]
+        - group [ref=e539]:
+          - generic "What exactly is a calorie deficit calculator and how do I read the result?" [ref=e540] [cursor=pointer]:
+            - generic [ref=e541]: What exactly is a calorie deficit calculator and how do I read the result?
+            - img [ref=e543]
+    - generic [ref=e548]:
+      - heading "Ready to take control of your nutrition?" [level=2] [ref=e549]
+      - paragraph [ref=e550]: Calculate your personalized calorie and macro targets now — free, instant, and private.
+      - link "Calculate My Calories" [ref=e552] [cursor=pointer]:
+        - /url: "#calculator"
+  - contentinfo [ref=e553]:
+    - generic [ref=e554]:
+      - generic [ref=e555]:
+        - generic [ref=e556]:
+          - link "CalorieCalculatorFree" [ref=e557] [cursor=pointer]:
+            - /url: /
+            - img [ref=e559]
+            - generic [ref=e562]: CalorieCalculatorFree
+          - paragraph [ref=e563]: Free, science-based calorie and nutrition calculators to help you reach your weight goals with confidence.
+        - generic [ref=e564]:
+          - heading "Calculators" [level=2] [ref=e565]
+          - list [ref=e566]:
+            - listitem [ref=e567]:
+              - link "Calorie Calculator" [ref=e568] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e569]:
+              - link "TDEE Calculator" [ref=e570] [cursor=pointer]:
+                - /url: /tdee-calculator/
+            - listitem [ref=e571]:
+              - link "BMR Calculator" [ref=e572] [cursor=pointer]:
+                - /url: /bmr-calculator/
+            - listitem [ref=e573]:
+              - link "BMI Calculator" [ref=e574] [cursor=pointer]:
+                - /url: /bmi-calculator/
+            - listitem [ref=e575]:
+              - link "Macro Calculator" [ref=e576] [cursor=pointer]:
+                - /url: /macro-calculator/
+            - listitem [ref=e577]:
+              - link "Body Fat Calculator" [ref=e578] [cursor=pointer]:
+                - /url: /body-fat-calculator/
+            - listitem [ref=e579]:
+              - link "Calorie Deficit Calculator" [ref=e580] [cursor=pointer]:
+                - /url: /calorie-deficit-calculator/
+            - listitem [ref=e581]:
+              - link "Pace Calculator" [ref=e582] [cursor=pointer]:
+                - /url: /pace-calculator/
+        - generic [ref=e583]:
+          - heading "Resources" [level=2] [ref=e584]
+          - list [ref=e585]:
+            - listitem [ref=e586]:
+              - link "How Many Calories Should I Eat?" [ref=e587] [cursor=pointer]:
+                - /url: /guides/how-many-calories-should-i-eat/
+            - listitem [ref=e588]:
+              - link "Maintenance Calorie Calculator" [ref=e589] [cursor=pointer]:
+                - /url: /guides/maintenance-calorie-calculator/
+            - listitem [ref=e590]:
+              - link "Online Calorie Calculator" [ref=e591] [cursor=pointer]:
+                - /url: /guides/online-calorie-calculator/
+            - listitem [ref=e592]:
+              - link "Mifflin-St Jeor Equation" [ref=e593] [cursor=pointer]:
+                - /url: /resources/mifflin-st-jeor-equation/
+            - listitem [ref=e594]:
+              - link "Calories Burned in a Day" [ref=e595] [cursor=pointer]:
+                - /url: /resources/calories-burned-in-a-day/
+            - listitem [ref=e596]:
+              - link "TDEE Calculator Guide" [ref=e597] [cursor=pointer]:
+                - /url: /resources/tdee-calculator/
+            - listitem [ref=e598]:
+              - link "What is TDEE?" [ref=e599] [cursor=pointer]:
+                - /url: /resources/what-is-tdee/
+        - generic [ref=e600]:
+          - heading "Company" [level=2] [ref=e601]
+          - list [ref=e602]:
+            - listitem [ref=e603]:
+              - link "About" [ref=e604] [cursor=pointer]:
+                - /url: /about/
+            - listitem [ref=e605]:
+              - link "Contact" [ref=e606] [cursor=pointer]:
+                - /url: /contact/
+            - listitem [ref=e607]:
+              - link "Privacy Policy" [ref=e608] [cursor=pointer]:
+                - /url: /privacy-policy/
+            - listitem [ref=e609]:
+              - link "Terms" [ref=e610] [cursor=pointer]:
+                - /url: /terms/
+        - generic [ref=e611]:
+          - heading "Tools" [level=2] [ref=e612]
+          - list [ref=e613]:
+            - listitem [ref=e614]:
+              - link "Food Calories Search" [ref=e615] [cursor=pointer]:
+                - /url: /food-calories-search/
+            - listitem [ref=e616]:
+              - link "Calories Burned Calculator" [ref=e617] [cursor=pointer]:
+                - /url: /calories-burned-calculator/
+            - listitem [ref=e618]:
+              - link "Age Calculator" [ref=e619] [cursor=pointer]:
+                - /url: /age-calculator/
+            - listitem [ref=e620]:
+              - link "Mortgage Calculator" [ref=e621] [cursor=pointer]:
+                - /url: /mortgage-calculator/
+            - listitem [ref=e622]:
+              - link "Disclaimer" [ref=e623] [cursor=pointer]:
+                - /url: /disclaimer/
+      - generic [ref=e624]:
+        - paragraph [ref=e625]: © 2026 Calorie Calculator Free. All rights reserved.
+        - paragraph [ref=e626]: For educational purposes only. Not medical advice — consult a healthcare professional before making health decisions.

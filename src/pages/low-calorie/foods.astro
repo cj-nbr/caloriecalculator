@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 
 const path = "/low-calorie/foods/";
 const description = "Low calorie foods list with nutrition facts. High-volume, filling foods under 100 calories per serving to help with weight loss.";
@@ -23,6 +24,8 @@ const faqs = [
   faqs={faqs}
 >
   <h2>Best Low Calorie Foods by Category</h2>
+
+  <ArticleImage src="/assets/images/articles/balanced-plate.svg" alt="Illustration of a balanced plate with low-calorie healthy food options." />
 
   <h3>Vegetables (Unlimited - under 50 cal per cup)</h3>
   <table>

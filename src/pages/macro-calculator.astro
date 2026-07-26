@@ -2,6 +2,9 @@
 import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls, selectCls } from "../lib/ui";
 import type { FaqItem } from "../lib/seo";
+import Sources from "../components/ui/Sources.astro";
+import MedicalNote from "../components/ui/MedicalNote.astro";
+import ArticleImage from "../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "What are macros?", a: "Macronutrients — protein, carbohydrates, and fat — are the three nutrients that provide calories. Protein and carbs supply 4 calories per gram; fat supplies 9. Tracking macros gives you control over body composition, not just weight." },
@@ -28,6 +31,7 @@ const faqs: FaqItem[] = [
   faqs={faqs}
 >
   <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <MedicalNote />
     <form id="calc-form" class="card p-5 sm:p-6" novalidate>
     <p role="note" class="mb-4 text-xs leading-relaxed text-mute">
       Example values are pre-filled. Enter your own details for accurate results.
@@ -74,6 +78,8 @@ const faqs: FaqItem[] = [
   </div>
 
   <Fragment slot="content">
+    <ArticleImage src="/assets/images/articles/macros-plate.svg" alt="Illustration of a plate divided into protein, carbohydrate, and fat segments showing the three macronutrients." />
+
     <h2>Quick Answer: Calories Per Gram of Macros</h2>
     <p class="text-display-sm font-semibold text-ink"><strong>Protein: 4 kcal/g &nbsp;&nbsp;|&nbsp;&nbsp; Carbs: 4 kcal/g &nbsp;&nbsp;|&nbsp;&nbsp; Fat: 9 kcal/g</strong></p>
     <p>This is the universal formula used by nutrition scientists, dietitians, and calculators worldwide. Understanding these conversions lets you calculate calories from macros instantly.</p>
@@ -169,6 +175,12 @@ const faqs: FaqItem[] = [
       <li><a href="/guides/protein-guide/">Protein Guide</a> — Complete protein reference</li>
       <li><a href="/guides/macro-guide/">Macro Guide</a> — Everything about macro splits</li>
     </ul>
+
+    <Sources sources={[
+      { label: "Institute of Medicine — Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids (2005)", href: "https://www.nationalacademies.org/publication/dietary-reference-intakes-for-energy-carbohydrate-fiber-fat-fatty-acids-cholesterol-protein-and-amino-acids" },
+      { label: "Academy of Nutrition and Dietetics — Macronutrients (position paper)", href: "https://www.eatright.org/health/essential-nutrients/carbohydrates/protein-and-carbohydrates" },
+      { label: "Mayo Clinic — Nutrition: How to look at nutrition labels and understand macros", href: "https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/in-depth/nutrition/art-20046025" },
+    ]} />
   </Fragment>
 </CalculatorLayout>
 
@@ -206,8 +218,5 @@ const faqs: FaqItem[] = [
       setArc("arc-fat", f, p + c);
     }
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-    ($("split") as HTMLSelectElement).addEventListener("change", render);
-    ($("calories") as HTMLInputElement).addEventListener("input", render);
-    render();
   }
 </script>

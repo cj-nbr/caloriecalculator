@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Section from "../../components/ui/Section.astro";
 import AdsterraAd from "../../components/AdsterraAd.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 import { NAV } from "../../data/site";
 import { breadcrumbSchema } from "../../lib/seo";
 
@@ -15,7 +16,7 @@ const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Guides",
   canonical="/guides/"
   jsonLd={jsonLd}
 >
-  <header class="relative overflow-hidden border-b border-hairline">
+   <header class="relative overflow-hidden border-b border-hairline">
     <div class="bg-grid pointer-events-none absolute inset-0 -z-10 opacity-50" aria-hidden="true"></div>
     <div class="container-page py-12 sm:py-16">
       <p class="text-sm font-medium text-brand">Guides</p>
@@ -24,7 +25,12 @@ const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Guides",
     </div>
   </header>
   <Section>
-    <div class="grid gap-3 sm:grid-cols-2">
+    <ArticleImage src="/assets/images/articles/workout-routine.svg" alt="Illustration of nutrition and workout planning guides for achieving health goals." />
+
+    <div class="prose-content mx-auto max-w-3xl">
+      <p>These guides turn the numbers from our calculators into a plan you can follow. They cover how to set a calorie target, build a deficit or surplus, choose your macros, and apply the results to real meals and training. Start with <a href="/guides/how-many-calories-should-i-eat/">how many calories you should eat</a>, then move on to the topic that matches your goal.</p>
+    </div>
+    <div class="mt-8 grid gap-3 sm:grid-cols-2">
       {
         guides.map((g) => (
           <a href={g.href} class="card group flex items-center justify-between gap-3 p-5 transition-all hover:border-hairline-strong hover:bg-canvas-soft">

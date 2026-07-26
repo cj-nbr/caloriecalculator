@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../../layouts/ContentLayout.astro";
+import ArticleImage from "../../../components/ui/ArticleImage.astro";
 
 const path = "/workouts/all-in-one-exercise/10-exercises/";
 const faqs = [
@@ -20,6 +21,8 @@ const faqs = [
   categoryPath="/workouts/"
   faqs={faqs}
 >
+
+  <ArticleImage src="/assets/images/articles/ten-exercises.svg" alt="Illustration of 10 essential full body exercises for beginners." />
 
   <h2>The Ultimate Home Exercise List</h2>
   <p>These 10 exercises cover all major movement patterns using zero equipment. Whether you are training in a living room, bedroom, or office, these movements deliver complete-body conditioning in minimal time.</p>

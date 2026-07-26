@@ -1,0 +1,105 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
+import Sources from "../../components/ui/Sources.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "How do I calculate my BMR step by step?", a: "Use the Mifflin-St Jeor equation: Men — BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age + 5. Women — BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age − 161. Our <a href=\"/bmr-calculator/\">BMR calculator</a> does this automatically." },
+  { q: "What units do I need for BMR calculation?", a: "The Mifflin-St Jeor equation requires weight in kilograms, height in centimeters, and age in years. Use our <a href=\"/bmr-calculator/\">BMR calculator</a> to skip manual conversions — it accepts both metric and imperial inputs." },
+  { q: "Can I calculate BMR without a calculator?", a: "Yes, you can use the Mifflin-St Jeor formula manually. However, the <a href=\"/bmr-calculator/\">BMR calculator</a> is faster and eliminates the risk of arithmetic mistakes. It also handles imperial conversions automatically." },
+  { q: "How accurate is the Mifflin-St Jeor BMR calculation?", a: "Mifflin-St Jeor is the most accurate predictive equation available, with 85–90% accuracy compared to indirect calorimetry. It outperforms older equations like Harris-Benedict for most populations." },
+  { q: "Should I calculate my BMR every time I lose weight?", a: "Yes. As your body weight changes, your BMR changes too. Recalculate every 4–6 weeks or after a 5 kg weight change to keep your calorie targets accurate." },
+];
+---
+
+<ContentLayout
+  title="Calculate Your BMR — Step-by-Step Guide"
+  h1="Calculate Your BMR"
+  description="Step-by-step guide to calculating your Basal Metabolic Rate using the Mifflin-St Jeor equation. Includes example calculations for men and women."
+  path="/guides/calculate-bmr/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="Learn how to calculate your BMR manually, understand the Mifflin-St Jeor formula, and see real examples for men and women."
+  updated="July 2026"
+  faqs={faqs}
+>
+  <p>Calculating your BMR is the first step toward understanding your daily calorie needs. This guide walks you through the Mifflin-St Jeor equation step by step, with worked examples for both men and women. Once you understand the math, you can use our <a href="/bmr-calculator/">BMR calculator</a> for instant results.</p>
+
+  <ArticleImage src="/assets/images/articles/resting-flame.svg" alt="Illustration of a resting metabolism flame representing calories burned at complete rest." />
+
+  <h2>What is BMR calculation?</h2>
+  <p>BMR calculation estimates how many calories your body burns at complete rest to maintain basic life functions. The result is expressed in kilocalories per day (kcal/day). This number represents the minimum energy your body needs if you were to lie still all day — your heart beating, lungs breathing, brain functioning, and cells repairing.</p>
+  <p>The most widely accepted formula for BMR calculation is the Mifflin-St Jeor equation, published in 1990. It was developed using modern metabolic data and is considered the gold standard for predictive BMR estimation.</p>
+
+  <h2>Mifflin-St Jeor formula walkthrough</h2>
+  <p>The Mifflin-St Jeor equation has two versions — one for men and one for women:</p>
+  <p><strong>For men:</strong> BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age + 5</p>
+  <p><strong>For women:</strong> BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age − 161</p>
+  <p>Each part of the formula contributes something:</p>
+  <ul>
+    <li><strong>10 × weight(kg):</strong> weight component — heavier bodies need more energy</li>
+    <li><strong>6.25 × height(cm):</strong> height component — taller bodies have more tissue</li>
+    <li><strong>− 5 × age:</strong> age component — metabolism slows with age</li>
+    <li><strong>+ 5 (men) or − 161 (women):</strong> sex adjustment — accounts for average differences in body composition</li>
+  </ul>
+
+  <h2>Example calculation for a man</h2>
+  <p>Let us walk through a real example:</p>
+  <p><strong>Profile:</strong> 30-year-old man, 80 kg, 180 cm</p>
+  <p><strong>Step 1:</strong> 10 × 80 = 800 (weight component)</p>
+  <p><strong>Step 2:</strong> 6.25 × 180 = 1,125 (height component)</p>
+  <p><strong>Step 3:</strong> − 5 × 30 = −150 (age component)</p>
+  <p><strong>Step 4:</strong> + 5 (sex adjustment for men)</p>
+  <p><strong>Result:</strong> 800 + 1,125 − 150 + 5 = 1,780 kcal/day</p>
+  <p>Verify this with our <a href="/bmr-calculator/">BMR calculator</a> — the result should match closely.</p>
+
+  <h2>Example calculation for a woman</h2>
+  <p><strong>Profile:</strong> 30-year-old woman, 65 kg, 165 cm</p>
+  <p><strong>Step 1:</strong> 10 × 65 = 650 (weight component)</p>
+  <p><strong>Step 2:</strong> 6.25 × 165 = 1,031 (height component)</p>
+  <p><strong>Step 3:</strong> − 5 × 30 = −150 (age component)</p>
+  <p><strong>Step 4:</strong> − 161 (sex adjustment for women)</p>
+  <p><strong>Result:</strong> 650 + 1,031 − 150 − 161 = 1,370 kcal/day</p>
+
+  <h2>Example for a middle-aged person</h2>
+  <p><strong>Profile:</strong> 50-year-old man, 90 kg, 178 cm</p>
+  <p><strong>Step 1:</strong> 10 × 90 = 900</p>
+  <p><strong>Step 2:</strong> 6.25 × 178 = 1,113</p>
+  <p><strong>Step 3:</strong> − 5 × 50 = −250</p>
+  <p><strong>Step 4:</strong> + 5</p>
+  <p><strong>Result:</strong> 900 + 1,113 − 250 + 5 = 1,768 kcal/day</p>
+  <p>Notice how the age component (−250 at age 50 vs −150 at age 30) reduces the BMR by 100 calories — a direct effect of aging on metabolism.</p>
+
+  <h2>Using BMR results for your goals</h2>
+  <p>Once you have your BMR, you can use it to plan your nutrition:</p>
+  <ul>
+    <li><strong>Weight loss:</strong> Multiply BMR by your activity factor to get TDEE, then subtract 250–500 calories. See the <a href="/guides/calorie-deficit-guide/">calorie deficit guide</a>.</li>
+    <li><strong>Weight gain:</strong> Add 250–500 calories to TDEE for a lean surplus. See the <a href="/guides/calorie-surplus-guide/">calorie surplus guide</a>.</li>
+    <li><strong>Maintenance:</strong> Eat at TDEE. Use the <a href="/maintenance-calories-calculator/">maintenance calories calculator</a> for a quick estimate.</li>
+  </ul>
+  <p>For a complete daily plan, combine your BMR with the <a href="/macro-calculator/">macro calculator</a> to determine protein, carb, and fat targets.</p>
+
+  <h2>Tips for accurate BMR calculation</h2>
+  <ol>
+    <li><strong>Use accurate measurements:</strong> Weigh yourself in the morning after using the bathroom, before eating or drinking. Measure height without shoes.</li>
+    <li><strong>Be honest about your age:</strong> The age component has a real impact — do not understate your age to get a higher result.</li>
+    <li><strong>Know your activity level:</strong> Your BMR is only the resting component. For total daily needs, you must apply an activity factor.</li>
+    <li><strong>Recalculate after weight changes:</strong> A 5 kg change in body weight shifts your BMR by roughly 50 calories. Recalculate regularly.</li>
+    <li><strong>Use the BMR calculator for convenience:</strong> Our <a href="/bmr-calculator/">BMR calculator</a> handles all the math instantly and supports both metric and imperial units.</li>
+  </ol>
+
+  <h2>Related tools</h2>
+  <ul>
+    <li><a href="/bmr-calculator/">BMR Calculator</a> — get your BMR instantly</li>
+    <li><a href="/tdee-calculator/">TDEE Calculator</a> — find your total daily energy expenditure</li>
+    <li><a href="/macro-calculator/">Macro Calculator</a> — split calories into protein, carbs, and fats</li>
+    <li><a href="/guides/bmr-equations/">BMR Equations Guide</a> — compare Mifflin-St Jeor vs Harris-Benedict</li>
+    <li><a href="/guides/maintenance-calorie-calculator/">Maintenance Calories Calculator</a> — find your daily target</li>
+  </ul>
+
+  <Sources sources={[
+    { label: "A new predictive equation for resting energy expenditure — Mifflin & St Jeor (1990)", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
+    { label: "Basal metabolic rate — Wikipedia summary of methods", href: "https://en.wikipedia.org/wiki/Basal_metabolic_rate" },
+  ]} />
+</ContentLayout>

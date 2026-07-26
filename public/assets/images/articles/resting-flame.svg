@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" role="img" aria-hidden="true">
+  <rect width="400" height="220" rx="16" fill="transparent"/>
+  <g transform="translate(200 110)">
+    <path d="M0 -50 C 32 -28 28 -2 10 2 C 22 -18 8 -34 0 -34 C -8 -34 -22 -18 -10 2 C -28 -2 -32 -28 0 -50 Z" fill="#f5a623"/>
+    <rect x="-70" y="-36" width="140" height="72" rx="8" fill="#ffffff" stroke="#ebebeb" stroke-width="2"/>
+    <text x="0" y="52" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#6b6b6b" text-anchor="middle">Calories burned at complete rest</text>
+  </g>
+</svg>

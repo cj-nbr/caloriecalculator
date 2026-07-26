@@ -1,6 +1,7 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "How many calories do I burn in a day?", a: "Your daily burn equals TDEE: BMR plus activity. Use our <a href='/tdee-calculator/'>TDEE calculator</a> or <a href='/'>calorie calculator</a> to find your number." },
@@ -22,6 +23,8 @@ const faqs: FaqItem[] = [
   faqs={faqs}
 >
   <p><strong>Calories burned in a day</strong> equals your Total Daily Energy Expenditure (TDEE). This is the foundation for weight management.</p>
+
+  <ArticleImage src="/assets/images/articles/daily-burn.svg" alt="Illustration of daily calorie burn components including BMR, TEF, and activity." />
 
   <h2>Components of daily calorie burn</h2>
   <table>

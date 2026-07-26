@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" role="img" aria-hidden="true">
+  <rect width="400" height="240" rx="16" fill="transparent"/>
+  <g transform="translate(200 120)">
+    <circle r="78" fill="#ffffff" stroke="#ebebeb" stroke-width="2"/>
+    <path d="M0 0 L0 -78 A78 78 0 0 1 67 -39 Z" fill="#0070f3"/>
+    <path d="M0 0 L67 -39 A78 78 0 0 1 67 39 Z" fill="#f5a623"/>
+    <path d="M0 0 L67 39 A78 78 0 0 1 0 78 L0 78 Z" fill="#ff0080"/>
+    <circle r="30" fill="#fafafa"/>
+    <text x="0" y="-6" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600" fill="#171717" text-anchor="middle">Macros</text>
+    <text x="0" y="12" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#6b6b6b" text-anchor="middle">P · C · F</text>
+  </g>
+  <g font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">
+    <rect x="40" y="196" width="12" height="12" rx="2" fill="#0070f3"/><text x="58" y="206" fill="#171717">Protein</text>
+    <rect x="150" y="196" width="12" height="12" rx="2" fill="#f5a623"/><text x="168" y="206" fill="#171717">Carbs</text>
+    <rect x="250" y="196" width="12" height="12" rx="2" fill="#ff0080"/><text x="268" y="206" fill="#171717">Fat</text>
+  </g>
+</svg>

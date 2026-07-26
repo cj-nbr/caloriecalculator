@@ -1,0 +1,42 @@
+---
+/**
+ * Sources — reusable block of authoritative external references.
+ * Used to add corroborating links (E-E-A-T) on calculator, guide, and
+ * resource pages. Renders nothing if no sources are passed.
+ */
+interface Props {
+  sources?: { label: string; href: string }[];
+  title?: string;
+}
+
+const {
+  sources = [],
+  title = "Sources and further reading",
+} = Astro.props;
+---
+
+{
+  sources.length > 0 && (
+    <section class="card border-hairline p-5 sm:p-6">
+      <h2 class="text-display-sm text-ink">{title}</h2>
+      <p class="mt-1 text-sm leading-relaxed text-body">
+        These independent, authoritative sources inform the methods used on this page.
+      </p>
+      <ul class="mt-4 space-y-2">
+        {sources.map((s) => (
+          <li>
+            <a
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 text-sm text-brand underline underline-offset-2 transition-colors hover:text-brand-hover"
+            >
+              {s.label}
+              <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8" /></svg>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}

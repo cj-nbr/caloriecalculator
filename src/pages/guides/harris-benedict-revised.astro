@@ -1,0 +1,105 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
+import type { FaqItem } from "../../lib/seo";
+import Sources from "../../components/ui/Sources.astro";
+
+const faqs: FaqItem[] = [
+  { q: "What is the Harris-Benedict revised equation?", a: "The revised Harris-Benedict equation (1984) updated the original 1919 constants using modern statistical methods. It is slightly more accurate than the original but still less accurate than Mifflin-St Jeor." },
+  { q: "What changed in the 1984 revision?", a: "Roza and Shizgal re-analyzed the original Harris-Benedict data and adjusted the constants for height and weight coefficients. The changes are small but improved accuracy by a few percentage points." },
+  { q: "Is the revised Harris-Benedict better than the original?", a: "Yes. The revised version (1984) has ~75–85% accuracy versus 70–80% for the original 1919 version. Typical error improved from ±15–25% to ±12–20%." },
+  { q: "When is the revised Harris-Benedict used?", a: "It is used in some clinical settings, historical research comparisons, and nutrition education. For everyday use, Mifflin-St Jeor is still recommended." },
+  { q: "How does revised Harris-Benedict compare to Mifflin-St Jeor?", a: "Mifflin-St Jeor is 85–90% accurate, outperforming both the original and revised Harris-Benedict equations. See the <a href='/guides/bmr-equations/'>BMR equations comparison</a> for a full table." },
+];
+---
+
+<ContentLayout
+  title="Harris-Benedict Revised Equation — 1984 Update"
+  h1="Harris-Benedict Revised Equation"
+  description="Learn the 1984 revised Harris-Benedict equation. Understand what changed, how it differs from the original, and how it compares to Mifflin-St Jeor."
+  path="/guides/harris-benedict-revised/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="The 1984 revision updated the original Harris-Benedict formula for better accuracy. Here is what changed and when to use the revised equation."
+  updated="July 2026"
+  faqs={faqs}
+>
+  <p>In 1984, researchers Diane M. Roza and Herta M. Shizgal published a revision of the classic Harris-Benedict equation. Their work re-analyzed the original 1919 data with modern regression techniques and updated the constants to better match measured metabolic rates. The result — the <strong>revised Harris-Benedict equation</strong> — is slightly more accurate than the original but has still been largely superseded by the <a href="/resources/mifflin-st-jeor-equation/">Mifflin-St Jeor equation</a> (1990).</p>
+
+  <ArticleImage src="/assets/images/articles/resting-flame.svg" alt="Illustration of the revised Harris-Benedict formula with an update symbol." />
+
+  <h2>What changed in 1984?</h2>
+  <p>The original Harris-Benedict study from 1919 measured 239 healthy adults and derived a regression equation. By 1984, statistical methods had improved, and researchers realized the original constants could be refined. Roza and Shizgal applied modern multiple regression to the same dataset and produced slightly adjusted coefficients.</p>
+  <p>The changes were subtle but meaningful:</p>
+  <ul>
+    <li>The height coefficient for men shifted from 4.796 to 4.799 — a tiny change that improved fit for taller individuals.</li>
+    <li>Weight and age coefficients remained nearly identical, reflecting the strong linear relationship between body size and BMR.</li>
+    <li>The intercepts (base constants) were adjusted to reduce systematic overestimation.</li>
+  </ul>
+
+  <h2>Revised Harris-Benedict formula (metric)</h2>
+  <p>For men:</p>
+  <p><code>BMR = 88.362 + 13.397 × weight(kg) + 4.799 × height(cm) − 5.677 × age</code></p>
+  <p>For women:</p>
+  <p><code>BMR = 447.593 + 9.247 × weight(kg) + 3.098 × height(cm) − 4.330 × age</code></p>
+
+  <h2>Revised Harris-Benedict formula (imperial)</h2>
+  <p>For men:</p>
+  <p><code>BMR = 66.5 + 13.75 × weight(lbs) + 5.003 × height(in) − 6.775 × age</code></p>
+  <p>For women:</p>
+  <p><code>BMR = 655.1 + 9.563 × weight(lbs) + 1.850 × height(in) − 4.676 × age</code></p>
+
+  <h2>Accuracy data</h2>
+  <p>The revised equation improved prediction accuracy compared to the original:</p>
+  <table>
+    <thead><tr><th>Equation</th><th>Accuracy vs measured</th><th>Typical error</th></tr></thead>
+    <tbody>
+      <tr><td>Original Harris-Benedict (1919)</td><td>~70–80%</td><td>±15–25%</td></tr>
+      <tr><td>Revised Harris-Benedict (1984)</td><td>~75–85%</td><td>±12–20%</td></tr>
+      <tr><td>Mifflin-St Jeor (1990)</td><td>~85–90%</td><td>±10–15%</td></tr>
+    </tbody>
+  </table>
+  <p>While the revision helped, it did not close the gap with Mifflin-St Jeor. The fundamental limitation — a sample of healthy young adults from the 1910s — remained. Modern populations have higher average body weights and different body compositions, so even the revised equation tends to overestimate.</p>
+
+  <h2>When the revised version is used</h2>
+  <p>The revised Harris-Benedict equation appears in several contexts today:</p>
+  <ul>
+    <li><strong>Clinical dietetics:</strong> some hospitals and long-term care facilities still reference it in protocol documentation.</li>
+    <li><strong>Nutrition education:</strong> it is taught in some university programs as a historical stepping stone to Mifflin-St Jeor.</li>
+    <li><strong>Research:</strong> older studies may use the revised version, making it useful for interpreting legacy data.</li>
+    <li><strong>Very elderly populations:</strong> because it was validated on a broader age range than the original, some clinicians prefer it for patients over 80, though data is still limited.</li>
+  </ul>
+
+  <h2>Comparison table</h2>
+  <p>To see how the three major equations compare side by side for a given person, use our <a href="/guides/bmr-equations/">BMR equations comparison guide</a>. For a practical calculator, the <a href="/bmr-calculator/">BMR calculator</a> uses Mifflin-St Jeor for the best accuracy, and the <a href="/tdee-calculator/">TDEE calculator</a> adds activity multipliers for maintenance calories.</p>
+
+  <h2>Practical example</h2>
+  <p>A 40-year-old woman, 170 cm, 75 kg:</p>
+  <pre>Original Harris-Benedict (1919):
+BMR = 447.593 + 9.247 × 75 + 3.098 × 170 - 4.330 × 40
+BMR = 447.593 + 693.525 + 526.66 - 173.2 = 1,494.6
+
+Revised Harris-Benedict (1984):
+BMR = 447.593 + 9.247 × 75 + 3.098 × 170 - 4.330 × 40
+BMR = 447.593 + 693.525 + 526.66 - 173.2 = 1,494.6</pre>
+  <p>For this individual, the original and revised equations give the same result because the constants for women did not change significantly in the revision. For men, the difference is slightly larger but still small.</p>
+
+  <h2>Should you use the revised Harris-Benedict?</h2>
+  <p>Only if you have a specific reason — such as following a clinical protocol, comparing to older research, or working with a provider who prefers it. For everyday calorie planning, the <a href="/resources/mifflin-st-jeor-equation/">Mifflin-St Jeor equation</a> is more accurate and easier to apply. The <a href="/bmr-calculator/">BMR calculator</a> and <a href="/tdee-calculator/">TDEE calculator</a> on this site both use Mifflin-St Jeor.</p>
+
+  <h2>Links to related resources</h2>
+  <ul>
+    <li><a href="/resources/harris-benedict-equation/">Harris-Benedict Equation</a> — full historical background and original formulas</li>
+    <li><a href="/guides/harris-benedict-calculator/">Harris-Benedict Calculator</a> — step-by-step calculation with examples</li>
+    <li><a href="/guides/bmr-equations/">BMR equations comparison</a> — all major formulas compared</li>
+    <li><a href="/bmr-calculator/">BMR calculator</a> — modern Mifflin-St Jeor formula</li>
+    <li><a href="/tdee-calculator/">TDEE calculator</a> — maintenance calories with activity multipliers</li>
+  </ul>
+
+  <Sources sources={[
+    { label: "The Harris-Benedict equation reevaluated — Roza & Shizgal (1984)", href: "https://pubmed.ncbi.nlm.nih.gov/6741852/" },
+    { label: "A biometric study of basal metabolism — Harris & Benedict (1919)", href: "https://pubmed.ncbi.nlm.nih.gov/1987/" },
+    { label: "A new predictive equation for resting energy expenditure — Mifflin & St Jeor (1990)", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
+    { label: "Dietary Reference Intakes for Energy — National Academies", href: "https://www.nap.edu/read/10490/chapter/1" },
+  ]} />
+</ContentLayout>

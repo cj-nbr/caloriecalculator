@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" role="img" aria-hidden="true">
+  <rect width="400" height="220" rx="16" fill="transparent"/>
+  <g transform="translate(200 110)">
+    <rect x="-70" y="-50" width="140" height="20" rx="4" fill="#d4d4d4"/>
+    <rect x="-70" y="-20" width="140" height="20" rx="4" fill="#d4d4d4"/>
+    <rect x="-70" y="10" width="140" height="20" rx="4" fill="#d4d4d4"/>
+    <rect x="-70" y="40" width="140" height="20" rx="4" fill="#d4d4d4"/>
+    <line x1="-40" y1="100" x2="-40" y2="50" stroke="#171717" stroke-width="4" stroke-linecap="round"/>
+    <line x1="40" y1="100" x2="40" y2="70" stroke="#171717" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="-40" cy="104" r="14" fill="#0cce6b"/>
+    <text x="-40" y="108" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">↓</text>
+    <circle cx="40" cy="104" r="14" fill="#ee0000"/>
+    <text x="40" y="108" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">↑</text>
+    <text x="0" y="146" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#6b6b6b" text-anchor="middle">Eat less than you burn to lose fat</text>
+  </g>
+</svg>

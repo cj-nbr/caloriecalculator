@@ -179,11 +179,8 @@ const faqs: FaqItem[] = [
         document.querySelectorAll(".height-unit").forEach((e) => (e.textContent = unit === "metric" ? "(cm)" : "(ft / in)"));
         const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
         if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
-        render();
       });
     });
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-    ($("activity") as HTMLSelectElement).addEventListener("change", render);
-    render();
   }
 </script>

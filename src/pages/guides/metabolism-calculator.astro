@@ -1,0 +1,94 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
+import Sources from "../../components/ui/Sources.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "What is a metabolism calculator?", a: "A metabolism calculator estimates how many calories your body burns at rest — your resting metabolic rate (RMR) or basal metabolic rate (BMR). Our <a href=\"/bmr-calculator/\">BMR calculator</a> uses the Mifflin-St Jeor equation to give you an accurate estimate based on your age, sex, height, and weight." },
+  { q: "Is a metabolism calculator the same as a BMR calculator?", a: "Yes, in practice. Both estimate the calories your body burns at rest. The terms metabolism calculator, BMR calculator, and resting metabolism calculator are used interchangeably. Our <a href=\"/bmr-calculator/\">BMR calculator</a> is the tool to use." },
+  { q: "Can a metabolism calculator help me lose weight?", a: "Yes. Knowing your resting metabolism is the first step in any weight loss plan. Once you know your BMR, you can estimate your total daily needs and create a calorie deficit. Combine your result with the <a href=\"/tdee-calculator/\">TDEE calculator</a> for a complete picture." },
+  { q: "How accurate are online metabolism calculators?", a: "Predictive equations like Mifflin-St Jeor are 85–90% as accurate as clinical indirect calorimetry. For most people, the result is within ±10% of their true resting metabolic rate. Individual variation means no online calculator is perfectly precise." },
+  { q: "Should I use my metabolism calculator result for a diet plan?", a: "Use it as a starting point, not a final answer. Your resting metabolism gives you the baseline, but your total daily needs include activity. Always recalculate after significant weight changes and adjust based on real-world results." },
+];
+---
+
+<ContentLayout
+  title="Metabolism Calculator — Calculate Your Resting Metabolic Rate"
+  h1="Metabolism Calculator"
+  description="Calculate your resting metabolic rate (RMR) and basal metabolic rate (BMR) using the Mifflin-St Jeor equation. Understand how your metabolism works and use it for weight goals."
+  path="/guides/metabolism-calculator/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="Your metabolism is the engine behind every calorie you burn. Here is how to calculate your resting metabolic rate and use it for your goals."
+  updated="July 2026"
+  faqs={faqs}
+>
+  <p>Your metabolism is the sum of all the chemical processes that keep your body alive and functioning. Every cell in your body needs energy to operate — from your brain sending signals to your lungs expanding with each breath. The metabolism calculator estimates how many calories your body burns at rest, which is the foundation for understanding your daily calorie needs.</p>
+
+  <ArticleImage src="/assets/images/articles/resting-flame.svg" alt="Illustration of a flame inside a body outline representing resting metabolic rate and calories burned at rest." />
+
+  <h2>What does metabolism mean?</h2>
+  <p>Metabolism refers to all the biochemical reactions that convert food into energy your body can use. These reactions power everything from heartbeat and breathing to thinking and repairing damaged tissue. Your metabolic rate is the speed at which your body burns calories, and it is measured in kilocalories per day (kcal/day).</p>
+  <p>Your total daily calorie burn comes from four sources: your resting metabolism (BMR/RMR), the thermic effect of food, non-exercise activity, and structured exercise. The resting component is the largest — typically 60–70% of your total — which is why a metabolism calculator is such a useful starting point for any nutrition plan.</p>
+
+  <h2>RMR vs BMR — what is the difference?</h2>
+  <p>Basal Metabolic Rate (BMR) and Resting Metabolic Rate (RMR) are often confused, but they are measured under different conditions:</p>
+  <ul>
+    <li><strong>BMR</strong> is measured under strict laboratory conditions — after 12 hours of fasting, a full night of sleep, and complete rest in a thermoneutral environment. It reflects the minimum energy needed for basic life functions.</li>
+    <li><strong>RMR</strong> is measured under less strict conditions — no fasting required, and the person may have been lightly active earlier. RMR is typically 5–10% higher than BMR.</li>
+  </ul>
+  <p>In everyday use, the two terms are interchangeable. When you use a <a href="/bmr-calculator/">BMR calculator</a> online, you are typically getting an RMR estimate. The Mifflin-St Jeor equation — used by our calculator — predicts RMR with high accuracy for the general population.</p>
+
+  <h2>How to calculate your resting metabolic rate</h2>
+  <p>The Mifflin-St Jeor equation is the most widely accepted formula for estimating resting metabolism:</p>
+  <ul>
+    <li><strong>Men:</strong> RMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age + 5</li>
+    <li><strong>Women:</strong> RMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age − 161</li>
+  </ul>
+  <p>You can use our <a href="/bmr-calculator/">BMR calculator</a> to run this calculation instantly. It accepts both metric and imperial units and handles the math for you. For a deeper dive into the equation and its history, see the <a href="/resources/mifflin-st-jeor-equation/">Mifflin-St Jeor equation guide</a>.</p>
+
+  <h2>Why your resting metabolism matters</h2>
+  <p>Your resting metabolism is the calorie baseline for every dietary decision you make. If you do not know how many calories your body burns at rest, it is very difficult to set a meaningful calorie target. Here is why it matters:</p>
+  <ul>
+    <li><strong>Weight loss:</strong> Your BMR sets the floor. Eating below your BMR for extended periods can cause muscle loss and metabolic slowdown.</li>
+    <li><strong>Weight gain:</strong> A surplus above your TDEE drives weight gain, but your BMR determines how large that surplus needs to be.</li>
+    <li><strong>Maintenance:</strong> Knowing your BMR helps you understand why your calorie needs change as your body composition shifts.</li>
+  </ul>
+
+  <h2>Example resting metabolic rate calculations</h2>
+  <table>
+    <thead><tr><th>Profile</th><th>Formula</th><th>RMR Result</th></tr></thead>
+    <tbody>
+      <tr><td>Man, 30, 80 kg, 180 cm</td><td>10 × 80 + 6.25 × 180 − 5 × 30 + 5</td><td>~1,825 kcal/day</td></tr>
+      <tr><td>Woman, 30, 65 kg, 165 cm</td><td>10 × 65 + 6.25 × 165 − 5 × 30 − 161</td><td>~1,377 kcal/day</td></tr>
+      <tr><td>Man, 50, 90 kg, 178 cm</td><td>10 × 90 + 6.25 × 178 − 5 × 50 + 5</td><td>~1,870 kcal/day</td></tr>
+      <tr><td>Woman, 50, 75 kg, 163 cm</td><td>10 × 75 + 6.25 × 163 − 5 × 50 − 161</td><td>~1,424 kcal/day</td></tr>
+    </tbody>
+  </table>
+  <p>These are estimates. For your personal resting metabolism, use the <a href="/bmr-calculator/">BMR calculator</a> with your own stats.</p>
+
+  <h2>How to use your metabolism results for weight goals</h2>
+  <p>Once you know your resting metabolic rate, you can build a plan around it:</p>
+  <ol>
+    <li><strong>Calculate your BMR/RMR</strong> using the <a href="/bmr-calculator/">BMR calculator</a>.</li>
+    <li><strong>Estimate your TDEE</strong> by applying an activity multiplier. Use the <a href="/tdee-calculator/">TDEE calculator</a> for a detailed breakdown.</li>
+    <li><strong>For weight loss:</strong> Subtract 250–500 calories from TDEE. See the <a href="/guides/calorie-deficit-guide/">calorie deficit guide</a> for detailed instructions.</li>
+    <li><strong>For weight gain:</strong> Add 250–500 calories to TDEE. The <a href="/guides/calorie-surplus-guide/">calorie surplus guide</a> covers best practices.</li>
+    <li><strong>For maintenance:</strong> Eat at TDEE and recalculate every 4–6 weeks.</li>
+  </ol>
+  <p>Always pair your calorie target with adequate protein. Use the <a href="/protein-calculator/">protein calculator</a> to find your daily protein goal.</p>
+
+  <h2>Common misconceptions about metabolism</h2>
+  <p><strong>Myth: "Some people have a fast metabolism and others do not."</strong> While there is individual variation, the differences are smaller than most people think. The biggest drivers of metabolic rate are body size, muscle mass, and age — not some mysterious genetic speed dial.</p>
+  <p><strong>Myth: "Eating late at night slows your metabolism."</strong> Your body burns calories the same way regardless of when you eat. Total daily intake matters more than meal timing.</p>
+  <p><strong>Myth: "You can reset a broken metabolism."</strong> There is no such thing as a broken metabolism. If your weight loss has stalled, it is usually because your TDEE has decreased as you lost weight — not because your metabolism is broken. Recalculate and adjust.</p>
+
+  <h2>Start with the BMR calculator</h2>
+  <p>The fastest way to get your resting metabolic rate is to use the <a href="/bmr-calculator/">BMR calculator</a>. It takes less than a minute and gives you an accurate estimate using the Mifflin-St Jeor equation. From there, combine your result with the <a href="/tdee-calculator/">TDEE calculator</a> and the <a href="/macro-calculator/">macro calculator</a> to build a complete nutrition plan.</p>
+
+  <Sources sources={[
+    { label: "A new predictive equation for resting energy expenditure — Mifflin & St Jeor (1990)", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
+    { label: "Basal metabolic rate — Wikipedia summary of methods", href: "https://en.wikipedia.org/wiki/Basal_metabolic_rate" },
+  ]} />
+</ContentLayout>

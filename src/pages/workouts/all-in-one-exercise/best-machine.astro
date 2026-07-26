@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../../layouts/ContentLayout.astro";
+import ArticleImage from "../../../components/ui/ArticleImage.astro";
 
 const path = "/workouts/all-in-one-exercise/best-machine/";
 const faqs = [
@@ -20,6 +21,8 @@ const faqs = [
   categoryPath="/workouts/"
   faqs={faqs}
 >
+
+  <ArticleImage src="/assets/images/articles/best-machine.svg" alt="Illustration of the best all-in-one exercise machine for home gyms." />
 
   <h2>Why Consider an All-In-One Exercise Machine?</h2>
   <p>All-in-one machines consolidate multiple exercise stations into single units, perfect for home gyms where space is limited. While bodyweight training remains excellent, machines offer guided movement and progressive resistance that accelerates strength gains.</p>

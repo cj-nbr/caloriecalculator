@@ -3,6 +3,8 @@ import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls } from "../lib/ui";
 import Button from "../components/ui/Button.astro";
 import type { FaqItem } from "../lib/seo";
+import ArticleImage from "../components/ui/ArticleImage.astro";
+import Sources from "../components/ui/Sources.astro";
 
 const faqs: FaqItem[] = [
   { q: "How do I calculate calories in a recipe?", a: "Add up the calories for each ingredient, then divide by the number of servings. Use the food calories search to find per-ingredient calories, then plug them into this calculator." },
@@ -50,19 +52,40 @@ const faqs: FaqItem[] = [
   </div>
 
   <Fragment slot="content">
+    <ArticleImage src="/assets/images/articles/recipe-book.svg" alt="Illustration of a recipe book with ingredients list for calculating recipe calories." />
+
     <h2>How to use the Recipe Calorie Calculator</h2>
     <p>Set your number of servings, then add ingredients with their calorie amounts. If you don't know the calories, use our <a href="/food-calories-search/">food calories search</a> to look them up first. The calculator sums total calories and divides by servings.</p>
 
     <h2>How to count recipe calories</h2>
     <p>The easiest way to estimate homemade recipe calories is to add up the calories for each ingredient and divide by servings. Use the <a href="/food-calories-search/">food calories search</a> to look up ingredient calories, then plug them into this calculator.</p>
 
-    <h2>Tips for calorie-aware cooking</h2>
+    <h2>Step-by-step guide to calculating calories in a recipe</h2>
+    <ol>
+      <li><strong>List every ingredient.</strong> Include oils, sauces, and garnishes — they add hidden calories.</li>
+      <li><strong>Find calories per amount.</strong> Use the <a href="/food-calories-search/">food calories search</a> for each item. If a label gives calories per 100 g, scale it to the amount you use.</li>
+      <li><strong>Add them up.</strong> Sum all ingredient calories for the total.</li>
+      <li><strong>Divide by servings.</strong> Split the total by the number of portions to get calories per serving.</li>
+      <li><strong>Adjust for cooking loss.</strong> Some water evaporates during cooking, slightly concentrating calories per gram. Weighing cooked portions gives a more accurate per-serving count than raw weights.</li>
+    </ol>
+
+    <h2>Tips for accurate recipe calorie counting</h2>
     <ul>
       <li>Use a kitchen scale for ingredient portions.</li>
       <li>Log sauces and cooking oils — they add hidden calories.</li>
       <li>Batch cook and divide into portions using the serving count.</li>
       <li>Pair recipes with the <a href="/macro-calculator/">macro calculator</a> for protein, carbs, and fat balance.</li>
+      <li>Save frequent recipes as templates so you don't have to recalculate every time.</li>
     </ul>
+
+    <h2>How cooking affects calorie content</h2>
+    <p>Cooking can change weight through water loss or absorption, but it rarely changes calorie content enough to matter for planning. A 100 g serving of raw chicken and a 100 g serving of cooked chicken have different weights but similar calorie densities per gram of dry matter. When possible, weigh ingredients raw for consistency, or use cooked-state nutrition data.</p>
+
+    <h2>Scaling recipes for meal prep</h2>
+    <p>Once you know the calories per serving, multiply by the number of portions you plan to eat. Use the <a href="/meal-calorie-calculator/">meal calorie calculator</a> to distribute those calories across your daily eating schedule. If you follow a specific split, the <a href="/macro-calculator/">macro calculator</a> helps you hit your protein, carb, and fat targets from the same recipe.</p>
+
+    <h2>Sample recipe calculation walkthrough</h2>
+    <p>Consider a simple chicken and rice bowl: 200 g chicken breast (330 kcal), 150 g cooked rice (195 kcal), 50 g broccoli (55 kcal), 1 tsp olive oil (40 kcal). Total = 620 calories across 2 servings = 310 calories per serving. Use this method for any homemade meal — the <a href="/recipe-calorie-calculator/">recipe calorie calculator</a> automates the math once you enter the ingredient calories.</p>
 
     <div class="card relative overflow-hidden p-6 sm:p-8">
       <div class="pointer-events-none absolute right-0 top-0 -z-0 h-64 w-64 rounded-full opacity-20 blur-[100px]" style="background: radial-gradient(circle, #007cf0, transparent 70%);" aria-hidden="true"></div>
@@ -84,6 +107,11 @@ const faqs: FaqItem[] = [
         <p class="mt-1 text-sm text-body">Pair your meal planning with the right activities to support your calorie budget.</p>
       </div>
     </div>
+
+    <Sources sources={[
+      { label: "USDA FoodData Central — nutrition data", href: "https://fdc.nal.usda.gov/" },
+      { label: "Academy of Nutrition and Dietetics — How to Count Calories", href: "https://www.eatright.org/health/wellness/healthy-aging/how-to-count-calories" },
+    ]} />
   </Fragment>
 </CalculatorLayout>
 
@@ -99,8 +127,6 @@ const faqs: FaqItem[] = [
       row.innerHTML = `<input class="ing-name w-full h-10 rounded-lg border border-hairline bg-canvas px-3 text-sm text-ink placeholder:text-mute focus:border-brand focus:outline-none" value="${name}" placeholder="Ingredient" /><input class="ing-cal w-full h-10 rounded-lg border border-hairline bg-canvas px-3 text-sm text-ink placeholder:text-mute focus:border-brand focus:outline-none" inputmode="numeric" value="${calories}" placeholder="Calories" /><button type="button" class="remove-row inline-flex h-10 w-10 items-center justify-center rounded-full border border-hairline text-body hover:text-ink">×</button>`;
       $("ingredients").appendChild(row);
       row.querySelector(".remove-row")?.addEventListener("click", () => { row.remove(); render(); });
-      row.querySelector(".ing-name")?.addEventListener("input", render);
-      row.querySelector(".ing-cal")?.addEventListener("input", render);
     }
 
     function readIngredients() {
@@ -127,10 +153,8 @@ const faqs: FaqItem[] = [
     $("add-ingredient")?.addEventListener("click", () => addRow());
     $("calculate-btn")?.addEventListener("click", render);
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-    ($("servings") as HTMLInputElement).addEventListener("input", render);
     addRow("Chicken breast", "165");
     addRow("Rice (cooked)", "130");
     addRow("Broccoli", "55");
-    render();
   }
 </script>

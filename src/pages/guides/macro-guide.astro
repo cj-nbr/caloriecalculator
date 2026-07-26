@@ -1,6 +1,7 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "How many calories in 1 gram of protein?", a: "Protein provides exactly 4 calories per gram. This is a scientific universal measurement established through bomb calorimetry." },
@@ -47,6 +48,8 @@ const faqs: FaqItem[] = [
   <h2 id="calories-per-gram">Calories Per Gram: The Universal Truth</h2>
   <p class="text-lg font-semibold text-ink"><strong>Protein = 4 kcal/g | Carbs = 4 kcal/g | Fat = 9 kcal/g</strong></p>
   <p>This is not an approximation — it's the Atwater system, established through controlled scientific bomb calorimetry testing. When these macronutrients burn, each releases a predictable amount of energy.</p>
+
+  <ArticleImage src="/assets/images/articles/macros-plate.svg" alt="Illustration of a plate divided into protein, carbohydrate, and fat segments showing the three macronutrients." />
 
   <h3 id="quick-facts">Quick Facts Everyone Should Know</h3>
   <table>

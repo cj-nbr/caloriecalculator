@@ -1,12 +1,18 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
+import Sources from "../../components/ui/Sources.astro";
 
 const faqs: FaqItem[] = [
   { q: "What is Lean Body Mass?", a: "Lean Body Mass (LBM) is your weight minus fat mass. Includes muscle, bone, organs, and water. Higher LBM = higher metabolism." },
   { q: "How to calculate Lean Body Mass?", a: "Two methods: Boer formula for max muscle prediction, or actual via body fat: LBM = weight × (1 - body fat%). Use our <a href='/lean-body-mass-calculator/'>LBM calculator</a>." },
   { q: "What is my Lean Body Mass?", a: "Most adults: 70–85% of body weight. Men tend higher due to muscle and organ size. Measure with our <a href='/lean-body-mass-calculator/'>Lean Body Mass calculator</a>." },
   { q: "Why does Lean Body Mass matter?", a: "Higher LBM increases BMR, improves body composition, and supports strength/performance. Track during weight loss to preserve muscle." },
+  { q: "What is the Boer formula for LBM?", a: "The Boer formula estimates LBM from sex, height, and weight. For men: 0.407 × weight + 0.267 × height - 19.2. For women: 0.252 × weight + 0.473 × height - 48.3. Weight in kg, height in cm." },
+  { q: "How do I use LBM in nutrition planning?", a: "Set protein relative to LBM (1.6–2.2 g/kg) instead of total weight when body fat is high. This ensures you eat enough to preserve muscle without overfeeding on fat mass." },
+  { q: "What is a healthy lean body mass range?", a: "Men typically 78–85% of body weight; women 70–77%. Athletes sit at the upper end. Below these ranges may reflect low muscle or excess fat; above may reflect hydration or muscularity." },
+  { q: "Does LBM change with age?", a: "Yes. Sarcopenia (age-related muscle loss) reduces LBM by roughly 3–8% per decade after 30. Resistance training and higher protein intake slow this decline." },
 ];
 ---
 
@@ -23,7 +29,12 @@ const faqs: FaqItem[] = [
 >
   <p>A <strong>Lean Body Mass calculator</strong> estimates fat-free mass in your body. This impacts metabolism and is crucial during weight loss or muscle building.</p>
 
+  <h2>What is lean body mass?</h2>
+  <p>Lean body mass is your total body weight minus fat mass. It covers muscle, bones, organs, blood, connective tissue, and body water. Because lean tissue is metabolically active, a higher LBM raises your basal metabolic rate. Someone with a lot of muscle may burn hundreds more calories at rest than a lighter person with more fat.</p>
+
   <h2>Lean Body Mass formulas</h2>
+
+  <ArticleImage src="/assets/images/articles/body-composition.svg" alt="Illustration of lean body mass versus body fat composition." />
   <p>Boer formula (predicts maximum potential):</p>
   <table>
     <thead><tr><th>Sex</th><th>Formula</th></tr></thead>
@@ -32,13 +43,13 @@ const faqs: FaqItem[] = [
       <tr><td>Women</td><td>LBM = 0.252 × weight + 0.473 × height - 48.3</td></tr>
     </tbody>
   </table>
-  <p>Both weight and height in kg/cm. Our <a href="/lean-body-mass-calculator/">LBM calculator</a> uses this.</p>
+  <p>Both weight and height in kg/cm. Our <a href="/lean-body-mass-calculator/">LBM calculator</a> uses this. The Boer formula was designed to normalise body fluid volumes and is widely validated for general populations.</p>
 
   <h2>Fat-based Lean Body Mass calculation</h2>
-  <p>If you know your body fat:</p>
+  <p>If you know your body fat percentage from the <a href="/body-fat-calculator/">body fat calculator</a>:</p>
   <p><code>LBM = weight × (1 - body fat percentage)</code></p>
   <p>Example: 80 kg person, 15% body fat = 80 × 0.85 = 68 kg LBM</p>
-  <p>Use our <a href="/body-fat-calculator/">body fat calculator</a> to find this value.</p>
+  <p>This method reflects actual body composition today, while the Boer formula estimates an upper potential.</p>
 
   <h2>Lean Body Mass ranges by demographics</h2>
   <table>
@@ -50,6 +61,9 @@ const faqs: FaqItem[] = [
       <tr><td>Women, athletic</td><td>72–80%</td></tr>
     </tbody>
   </table>
+
+  <h2>How to use LBM in nutrition planning</h2>
+  <p>Many coaches set protein relative to LBM rather than total body weight. This is especially useful if you carry extra body fat, because eating enough for your full weight may overshoot on calories. A common guideline is 1.6–2.2 g of protein per kg of lean body mass. Use the <a href="/protein-calculator/">protein calculator</a> to convert your target to grams, and the <a href="/macro-calculator/">macro calculator</a> to build a full meal plan.</p>
 
   <h2>Why Lean Body Mass matters for calories</h2>
   <ul>
@@ -80,4 +94,22 @@ const faqs: FaqItem[] = [
     <li><strong>Surplus calories:</strong> Small surplus for muscle gain with <a href="/tdee-calculator/">TDEE calculator</a></li>
     <li><strong>Sleep/recovery:</strong> 7–9 hours supports muscle synthesis</li>
   </ul>
+
+  <h2>Related tools</h2>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/lean-body-mass-calculator/">Lean Body Mass Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Estimate your LBM with the Boer formula.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/body-fat-calculator/">Body Fat Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Find your body fat percentage to compare with LBM.</p>
+    </div>
+  </div>
+
+  <Sources sources={[
+    { label: "Boer P. Estimated lean body mass as an index for normalization of body fluid volumes in man. Am J Physiol. 1984.", href: "https://pubmed.ncbi.nlm.nih.gov/6742590/" },
+    { label: "Institute of Medicine — Dietary Reference Intakes for Energy (2005)", href: "https://www.nationalacademies.org/publication/dietary-reference-intakes-for-energy" },
+    { label: "American Council on Exercise — Body Composition and LBM", href: "https://www.acefitness.org/resources/everyone/exercise/1087/physical-activity-calorie-counter/" },
+  ]} />
 </ContentLayout>

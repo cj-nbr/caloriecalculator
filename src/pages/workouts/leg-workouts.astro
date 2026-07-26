@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 
 const categories = [
   { title: "Best Leg Workout for Beginners", href: "#beginners", description: "A simple lower-body routine for building strength, confidence, and clean form." },
@@ -39,16 +40,7 @@ const faqs = [
   updated="June 2026"
   faqs={faqs}
 >
-  <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-    {
-      categories.map((category) => (
-        <a href={category.href} class="card group p-5 transition-all hover:border-hairline-strong hover:bg-canvas-soft">
-          <h2 class="text-base font-semibold text-ink group-hover:text-brand">{category.title}</h2>
-          <p class="mt-2 text-sm leading-relaxed text-body">{category.description}</p>
-        </a>
-      ))
-    }
-  </div>
+  <ArticleImage src="/assets/images/articles/leg-day.svg" alt="Illustration of leg day exercises including squats, lunges, and hamstring curls." />
 
   <section class="card border-brand/20 p-5 sm:p-6">
     <h2 class="text-display-sm text-ink">Quick leg workout facts</h2>

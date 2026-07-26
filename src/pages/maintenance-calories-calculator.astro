@@ -3,6 +3,9 @@ import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls, segOptCls } from "../lib/ui";
 import { bmrMifflinStJeor, tdee, macrosFromCalories, ACTIVITY_LEVELS, type Sex, type ActivityKey } from "../lib/calculations";
 import type { FaqItem } from "../lib/seo";
+import Sources from "../components/ui/Sources.astro";
+import MedicalNote from "../components/ui/MedicalNote.astro";
+import ArticleImage from "../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "What are maintenance calories?", a: "Maintenance calories are the number of calories you need to eat each day to keep your current weight stable. It is the same as your Total Daily Energy Expenditure (TDEE)." },
@@ -25,6 +28,7 @@ const faqs: FaqItem[] = [
   faqs={faqs}
 >
   <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <MedicalNote />
     <form id="calc-form" class="card p-5 sm:p-6" novalidate>
       <p role="note" class="mb-4 text-xs leading-relaxed text-mute">Example values are pre-filled. Enter your own details for accurate results.</p>
       <div class="mb-4 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1" role="tablist" aria-label="Unit system">
@@ -90,6 +94,8 @@ const faqs: FaqItem[] = [
   </div>
 
   <Fragment slot="content">
+    <ArticleImage src="/assets/images/articles/balance-scale.svg" alt="Illustration of a balanced scale representing calories in versus calories out for weight maintenance." />
+
     <h2>How to use the Maintenance Calories Calculator</h2>
     <p>Enter your age, height, weight, sex, and activity level, then press <strong>Calculate Maintenance Calories</strong>. The result shows your TDEE — the calories you need to stay at your current weight. Use this number as your baseline for any weight goal.</p>
 
@@ -117,6 +123,12 @@ const faqs: FaqItem[] = [
         <p class="mt-1 text-sm text-body">A complete guide to setting your daily calorie target based on goals, activity, and lifestyle.</p>
       </div>
     </div>
+
+    <Sources sources={[
+      { label: "Mifflin MD, St Jeor ST, Hill LA, Scott BJ, Daugherty SA, Koh YO. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr. 1990.", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
+      { label: "Institute of Medicine — Dietary Reference Intakes for Energy (2005)", href: "https://www.nationalacademies.org/publication/dietary-reference-intakes-for-energy" },
+      { label: "American Council on Exercise — Physical Activity Calorie Counter", href: "https://www.acefitness.org/resources/everyone/exercise/1087/physical-activity-calorie-counter/" },
+    ]} />
   </Fragment>
 </CalculatorLayout>
 
@@ -174,11 +186,9 @@ const faqs: FaqItem[] = [
         document.querySelectorAll(".weight-unit").forEach((e) => (e.textContent = unit === "metric" ? "(kg)" : "(lb)"));
         const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
         if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
-        render();
       });
     });
 
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-    render();
   }
 </script>

@@ -1,6 +1,7 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "What are maintenance calories?", a: "Maintenance calories are the number of calories you need to eat each day to keep your current weight. They are the same as your Total Daily Energy Expenditure (TDEE)." },
@@ -27,6 +28,8 @@ const faqs: FaqItem[] = [
 >
   <h2 id="what-are-maintenance">What maintenance calories really are</h2>
   <p>Maintenance calories are the calories you burn in a normal day — not at complete rest, but when you combine your resting metabolism with daily movement. In other words, maintenance calories equal your TDEE, and eating that amount keeps your weight stable.</p>
+
+  <ArticleImage src="/assets/images/articles/balance-scale.svg" alt="Illustration of a balanced scale representing calories in versus calories out for weight maintenance." />
 
   <h2 id="bmr-vs-tdee">BMR vs TDEE vs maintenance calories</h2>
   <ul>

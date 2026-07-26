@@ -1,0 +1,93 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
+import type { FaqItem } from "../../lib/seo";
+import Sources from "../../components/ui/Sources.astro";
+
+const faqs: FaqItem[] = [
+  { q: "What is the Mifflin-St Jeor equation for women?", a: "For women, BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age − 161. This gives your resting calorie burn, which you then multiply by activity to get TDEE." },
+  { q: "How accurate is Mifflin-St Jeor for women?", a: "85–90% accurate for most women, similar to men. It is the most accurate general-purpose formula for female BMR and is used in our <a href='/bmr-calculator/'>BMR calculator</a>." },
+  { q: "How does the women's formula differ from men's?", a: "The only difference is the constant: women subtract 161, while men add 5. This reflects average differences in lean body mass and body composition between sexes." },
+  { q: "Can I use the women's formula during pregnancy?", a: "Pregnancy increases BMR significantly. The Mifflin-St Jeor equation is not designed for pregnancy. Consult a clinician or registered dietitian for personalized guidance." },
+  { q: "Does menopause affect the Mifflin-St Jeor equation for women?", a: "Menopause can lower BMR by 5–10% due to hormonal changes and muscle loss. The equation still works as a starting point, but you may need to adjust your intake based on real-world tracking." },
+];
+---
+
+<ContentLayout
+  title="Mifflin-St Jeor Equation for Women — BMR Formula"
+  h1="Mifflin-St Jeor Equation for Women"
+  description="Learn the Mifflin-St Jeor equation specifically for women. Calculate BMR, understand the formula, and find your maintenance calories with examples."
+  path="/resources/mifflin-st-jeor-women/"
+  category="Resources"
+  categoryPath="/resources/"
+  lead="The Mifflin-St Jeor equation for women uses a simple formula to estimate resting calorie needs. Here is how to apply it and why it works."
+  updated="July 2026"
+  faqs={faqs}
+>
+  <p>The <strong>Mifflin-St Jeor equation for women</strong> is the most accurate formula available for estimating basal metabolic rate (BMR) in healthy adult women. BMR is the number of calories your body burns at complete rest just to keep you alive: breathing, pumping blood, repairing cells, and running your brain. Knowing your BMR is the first step toward finding your maintenance calories and setting targets for weight loss or gain.</p>
+
+  <ArticleImage src="/assets/images/articles/resting-flame.svg" alt="Illustration of basal metabolic rate represented as a flame, with formula elements around it." />
+
+  <h2>The women's formula explained</h2>
+  <p>The Mifflin-St Jeor equation for women is:</p>
+  <p><code>BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age − 161</code></p>
+  <p>That is it — four numbers and one subtraction. The formula uses kilograms for weight, centimeters for height, and years for age. If you use imperial units, convert first: 1 kg = 2.205 lb, 1 cm = 0.394 in. Our <a href="/bmr-calculator/">BMR calculator</a> handles both systems automatically.</p>
+
+  <h2>What each part of the formula means</h2>
+  <ul>
+    <li><strong>10 × weight(kg):</strong> every kilogram of body mass contributes about 10 calories per day to your resting burn. This is the largest driver of BMR.</li>
+    <li><strong>6.25 × height(cm):</strong> taller bodies have more tissue to maintain, so height adds to resting calorie needs.</li>
+    <li><strong>− 5 × age:</strong> metabolism slows slightly with each year of life. After puberty, BMR drops about 5 calories per year.</li>
+    <li><strong>− 161:</strong> this constant adjusts for average differences in body composition between women and men. Men add 5 instead.</li>
+  </ul>
+
+  <h2>How the women's formula compares to men's</h2>
+  <p>The men's formula is almost identical:</p>
+  <p><code>BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age + 5</code></p>
+  <p>The only difference is the final constant: women subtract 161, men add 5. This gap of 166 calories reflects the average difference in lean body mass. Women typically have more body fat and less muscle than men of the same height and weight, and muscle is metabolically active tissue. That is why men's BMRs tend to run 100–400 calories higher than women's for similar body sizes.</p>
+
+  <h2>Example calculation for women</h2>
+  <p>Let's calculate BMR for a 28-year-old woman, 165 cm, 65 kg:</p>
+  <pre>Step 1: BMR = 10 × 65 + 6.25 × 165 - 5 × 28 - 161
+BMR = 650 + 1,031.25 - 140 - 161 = 1,380.25</pre>
+  <p>Rounded to the nearest calorie, her BMR is <strong>1,380 kcal/day</strong>. With moderate activity (1.55), her TDEE is 1,380 × 1.55 = <strong>2,139 kcal/day</strong>.</p>
+
+  <h2>Using the women's formula for TDEE</h2>
+  <p>BMR is only the first step. To find your full daily calorie needs, multiply by an activity factor:</p>
+  <table>
+    <thead><tr><th>Activity level</th><th>Multiplier</th><th>TDEE example for 1,380 BMR</th></tr></thead>
+    <tbody>
+      <tr><td>Sedentary</td><td>1.2</td><td>1,656</td></tr>
+      <tr><td>Lightly active</td><td>1.375</td><td>1,898</td></tr>
+      <tr><td>Moderately active</td><td>1.55</td><td>2,139</td></tr>
+      <tr><td>Very active</td><td>1.725</td><td>2,381</td></tr>
+      <tr><td>Extra active</td><td>1.9</td><td>2,622</td></tr>
+    </tbody>
+  </table>
+  <p>Use the <a href="/tdee-calculator/">TDEE calculator</a> to compute this automatically.</p>
+
+  <h2>How activity level changes women's TDEE</h2>
+  <p>Women often underestimate the impact of NEAT (Non-Exercise Activity Thermogenesis). A nurse who walks 12,000 steps per day burns significantly more calories than a desk worker who drives everywhere, even if both attend the same number of gym sessions. When choosing an activity level, include your walking, standing, and daily movement — not just your workouts.</p>
+
+  <h2>Common questions</h2>
+  <ul>
+    <li><strong>Do I need a separate formula if I am on birth control?</strong> Some hormonal contraceptives can slightly affect water retention and appetite, but they do not meaningfully change your BMR. Use the standard formula and track your weight to verify.</li>
+    <li><strong>Does the formula work during my menstrual cycle?</strong> BMR is relatively stable across the menstrual cycle, though resting energy expenditure can fluctuate by 50–150 calories depending on the phase. This variation is normal and averages out over time.</li>
+    <li><strong>Can I use this formula if I am very muscular?</strong> Yes, but very muscular women may have a higher BMR than the formula predicts because muscle is metabolically active. Consider the <a href="/guides/bmr-equations/">Katch-McArdle equation</a> if you know your body fat percentage.</li>
+  </ul>
+
+  <h2>Practical next steps</h2>
+  <ol>
+    <li>Calculate your BMR with the <a href="/bmr-calculator/">BMR calculator</a>.</li>
+    <li>Estimate your TDEE by multiplying by your activity factor.</li>
+    <li>For weight loss, subtract 300–500 calories. For gain, add 250–500. For maintenance, eat at TDEE.</li>
+    <li>Track your weight for 2–3 weeks and adjust based on real results.</li>
+    <li>Use the <a href="/macro-calculator/">macro calculator</a> to ensure adequate protein.</li>
+  </ol>
+
+  <Sources sources={[
+    { label: "A new predictive equation for resting energy expenditure — Mifflin & St Jeor (1990)", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
+    { label: "Dietary Reference Intakes for Energy — National Academies", href: "https://www.nap.edu/read/10490/chapter/1" },
+    { label: "Energy expenditure — PubMed / NIH review", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
+  ]} />
+</ContentLayout>

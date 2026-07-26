@@ -2,12 +2,21 @@
 import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls, segOptCls } from "../lib/ui";
 import type { FaqItem } from "../lib/seo";
+import Sources from "../components/ui/Sources.astro";
+import MedicalNote from "../components/ui/MedicalNote.astro";
+import ArticleImage from "../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "What is lean body mass?", a: "Lean body mass (LBM) is everything in your body that isn't fat — muscle, bone, organs, water, and connective tissue. It's a key reference point for setting protein needs and tracking muscle during weight changes." },
   { q: "How is lean body mass calculated?", a: "This calculator uses the Boer formula, which estimates LBM from your sex, height, and weight. It's one of the most widely used equations and works well for the general population." },
   { q: "Why does lean body mass matter?", a: "LBM drives your metabolism — more lean mass means a higher resting calorie burn. Preserving it during weight loss keeps your metabolism strong and your body looking toned rather than 'skinny fat'." },
   { q: "How can I increase lean body mass?", a: "Resistance training combined with adequate protein (1.6–2.2 g/kg) and a slight calorie surplus is the proven recipe for building lean mass over time." },
+  { q: "How does LBM affect metabolism?", a: "Lean tissue burns about 15–25 kcal per kg per day at rest, while fat tissue burns less than 5 kcal/kg. More LBM means a higher BMR, which helps you burn more calories around the clock." },
+  { q: "What's the difference between LBM and muscle mass?", a: "LBM includes muscle, bone, organs, and water. Muscle mass is just one part of LBM. You can have a high LBM from water weight or bones, but true muscle growth requires resistance training and protein." },
+  { q: "How do I use LBM for protein calculations?", a: "Many coaches recommend 1.6–2.2 g of protein per kg of lean body mass for those in a deficit or building muscle. Our <a href='/protein-calculator/'>protein calculator</a> can help you target the right intake." },
+  { q: "Is LBM more accurate than BMI for body composition?", a: "BMI is a height-to-weight ratio that cannot distinguish fat from muscle. LBM estimates your fat-free tissue directly, so it is far more useful for athletes, muscular individuals, or anyone tracking body composition changes." },
+  { q: "How can I increase LBM naturally?", a: "Progressive resistance training, adequate protein, and a slight calorie surplus build LBM over months. Recovery and sleep are also essential. Avoid extreme deficits that force the body to burn muscle for energy." },
+  { q: "What is a healthy lean body mass percentage?", a: "A healthy LBM is typically 70–85% of total body weight for men and 70–77% for women. Athletes often sit at the upper end. Use the <a href='/body-fat-calculator/'>body fat calculator</a> alongside LBM to get a fuller picture." },
 ];
 ---
 
@@ -20,6 +29,7 @@ const faqs: FaqItem[] = [
   faqs={faqs}
 >
   <div class="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr]" id="calc-root">
+    <MedicalNote />
     <form id="calc-form" class="card p-5 sm:p-6" novalidate>
     <p role="note" class="mb-4 text-xs leading-relaxed text-mute">
       Example values are pre-filled. Enter your own details for accurate results.
@@ -63,12 +73,34 @@ const faqs: FaqItem[] = [
   </div>
 
   <Fragment slot="content">
-    <h2>Understanding lean body mass</h2>
-    <p>Lean body mass is the total weight of everything in your body except stored fat: your muscles, bones, organs, blood, and water. It's the engine of your metabolism, since lean tissue burns considerably more energy at rest than fat does.</p>
-    <h2>Why it's worth tracking</h2>
-    <p>When you lose weight, the goal is to lose fat while keeping lean mass. Tracking LBM alongside your <a href="/body-fat-calculator/">body fat percentage</a> confirms you're doing exactly that. If your lean mass is dropping, you likely need more protein or a smaller deficit.</p>
-    <h2>From LBM to protein needs</h2>
-    <p>Many coaches set protein targets relative to lean body mass rather than total weight, which is especially useful for those with higher body fat. Check the <a href="/protein-calculator/">protein calculator</a> to translate your numbers into a daily gram target.</p>
+    <ArticleImage src="/assets/images/articles/body-composition.svg" alt="Illustration of body composition showing lean mass and body fat as two parts of total body weight." />
+
+    <h2>What lean body mass means</h2>
+    <p>Lean body mass is your total weight minus fat mass. It includes skeletal muscle, organs, bones, connective tissue, blood, and water. Because muscle and organs are metabolically active, a higher LBM means you burn more calories at rest. This is why two people at the same weight can have very different energy needs.</p>
+
+    <h2>How LBM affects metabolism</h2>
+    <p>Muscle tissue is metabolically expensive. Each kilogram of lean mass adds roughly 15–25 kcal to your resting metabolic rate, while fat tissue adds less than 5 kcal/kg. When you lose weight, preserving LBM keeps your metabolism from slowing too much. When you gain muscle, your daily calorie budget rises naturally.</p>
+
+    <h2>LBM vs muscle mass</h2>
+    <p>Muscle mass is only one component of LBM. Bone mineral, organs, and body water also count. That means a high LBM does not guarantee a high muscle mass, and a low LBM does not necessarily mean low muscle. Use body fat percentage alongside LBM for a clearer body-composition picture. Check the <a href="/body-fat-calculator/">body fat calculator</a> to pair with these numbers.</p>
+
+    <h2>How to increase LBM</h2>
+    <p>Building lean mass requires three things: mechanical tension from resistance training, sufficient protein (1.6–2.2 g per kg of body weight for most active adults), and a small calorie surplus for growth. Track your protein using the <a href="/protein-calculator/">protein calculator</a> and your calories with the <a href="/macro-calculator/">macro calculator</a>. Prioritise compound lifts, progressive overload, and recovery.</p>
+
+    <h2>LBM for protein calculations</h2>
+    <p>Coaches often set protein relative to LBM rather than total weight, especially for people with higher body fat. For example, 1.8 g per kg of LBM is a common target for those in a deficit. Our <a href="/protein-calculator/">protein calculator</a> uses body weight by default, but you can adjust your target based on your LBM from this calculator.</p>
+
+    <h2>LBM vs body fat percentage</h2>
+    <p>Body fat percentage tells you what portion of your weight is fat; LBM tells you what the rest weighs. Together they show body composition more clearly than weight alone. An 80 kg person with 15% body fat has 12 kg of fat and 68 kg of LBM — a much more useful profile than simply weighing 80 kg.</p>
+
+    <h2>LBM common questions</h2>
+    <p>You can use LBM to estimate healthy weight ranges, set protein targets, and track muscle changes during a cut or bulk. It is especially valuable for lifters, athletes, and anyone who does not want the scale to hide muscle loss.</p>
+
+    <Sources sources={[
+      { label: "Boer P. Estimated lean body mass as an index for normalization of body fluid volumes in man. Am J Physiol. 1984.", href: "https://pubmed.ncbi.nlm.nih.gov/6742590/" },
+      { label: "Institute of Medicine — Dietary Reference Intakes for Energy (2005)", href: "https://www.nationalacademies.org/publication/dietary-reference-intakes-for-energy" },
+      { label: "American Council on Exercise — Body Composition and LBM", href: "https://www.acefitness.org/resources/everyone/exercise/1087/physical-activity-calorie-counter/" },
+    ]} />
   </Fragment>
 </CalculatorLayout>
 
@@ -114,10 +146,8 @@ const faqs: FaqItem[] = [
         document.querySelectorAll(".u-wt").forEach((e) => (e.textContent = unit === "metric" ? "kg" : "lb"));
         const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
         if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
-        render();
       });
     });
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-    render();
   }
 </script>

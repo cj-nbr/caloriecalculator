@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" role="img" aria-hidden="true">
+  <rect width="400" height="200" rx="16" fill="transparent"/>
+  <g transform="translate(40 100)">
+    <line x1="0" y1="0" x2="300" y2="0" stroke="#d4d4d4" stroke-width="3"/>
+    <circle cx="0" cy="0" r="9" fill="#0070f3"/>
+    <circle cx="300" cy="0" r="9" fill="#0cce6b"/>
+    <path d="M280 -14 L308 0 L280 14" fill="none" stroke="#0cce6b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="0" y="32" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#6b6b6b" text-anchor="middle">Start</text>
+    <text x="300" y="32" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#6b6b6b" text-anchor="middle">Goal</text>
+  </g>
+</svg>

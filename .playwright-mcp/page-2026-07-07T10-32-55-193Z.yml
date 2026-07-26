@@ -1,0 +1,310 @@
+- generic [active] [ref=f111e1]:
+  - link "Skip to content" [ref=f111e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f111e3]:
+    - navigation "Primary" [ref=f111e4]:
+      - link "CalorieCalculatorFree" [ref=f111e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=f111e7]
+        - generic [ref=f111e10]: CalorieCalculatorFree
+      - list [ref=f111e11]:
+        - listitem [ref=f111e12]:
+          - link "Calculators" [ref=f111e13] [cursor=pointer]:
+            - /url: "#"
+            - text: Calculators
+            - img [ref=f111e14]
+        - listitem [ref=f111e16]:
+          - link "Pregnancy" [ref=f111e17] [cursor=pointer]:
+            - /url: "#"
+            - text: Pregnancy
+            - img [ref=f111e18]
+        - listitem [ref=f111e20]:
+          - link "Guides" [ref=f111e21] [cursor=pointer]:
+            - /url: "#"
+            - text: Guides
+            - img [ref=f111e22]
+        - listitem [ref=f111e24]:
+          - link "Workouts" [ref=f111e25] [cursor=pointer]:
+            - /url: "#"
+            - text: Workouts
+            - img [ref=f111e26]
+        - listitem [ref=f111e28]:
+          - link "Resources" [ref=f111e29] [cursor=pointer]:
+            - /url: "#"
+            - text: Resources
+            - img [ref=f111e30]
+        - listitem [ref=f111e32]:
+          - link "About" [ref=f111e33] [cursor=pointer]:
+            - /url: /about/
+      - generic [ref=f111e34]:
+        - button "Toggle color theme" [ref=f111e35]:
+          - img [ref=f111e36]
+        - link "Calculate Calories" [ref=f111e40] [cursor=pointer]:
+          - /url: /#calculator
+  - main [ref=f111e41]:
+    - navigation "Breadcrumb" [ref=f111e42]:
+      - list [ref=f111e43]:
+        - listitem [ref=f111e44]:
+          - link "Home" [ref=f111e45] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=f111e46]:
+          - generic [ref=f111e47]: /
+          - generic [ref=f111e48]: BMR Calculator
+    - generic [ref=f111e50]:
+      - heading "BMR Calculator" [level=1] [ref=f111e51]
+      - paragraph [ref=f111e52]: Calculate your Basal Metabolic Rate — the calories your body burns at complete rest — using the trusted Mifflin-St Jeor equation.
+    - generic [ref=f111e55]:
+      - generic [ref=f111e56]:
+        - note [ref=f111e57]: Example values are pre-filled. Enter your own details for accurate results.
+        - tablist "Unit system" [ref=f111e58]:
+          - button "Metric" [pressed] [ref=f111e59]
+          - button "Imperial" [ref=f111e60]
+        - group "Gender" [ref=f111e61]:
+          - generic [ref=f111e62]: Gender
+          - generic [ref=f111e63]:
+            - generic [ref=f111e64] [cursor=pointer]:
+              - radio "Male" [checked] [ref=f111e65]
+              - text: Male
+            - generic [ref=f111e66] [cursor=pointer]:
+              - radio "Female" [ref=f111e67]
+              - text: Female
+        - generic [ref=f111e68]:
+          - generic [ref=f111e69]:
+            - generic [ref=f111e70]: Age
+            - spinbutton "Age" [ref=f111e71]: "30"
+          - generic [ref=f111e72]:
+            - generic [ref=f111e73]: Weight (kg)
+            - spinbutton "Weight (kg)" [ref=f111e74]: "70"
+        - generic [ref=f111e75]:
+          - generic [ref=f111e76]: Height (cm)
+          - spinbutton [ref=f111e78]: "175"
+        - button "Calculate BMR" [ref=f111e79]
+      - generic [ref=f111e80]:
+        - generic [ref=f111e81]:
+          - paragraph [ref=f111e82]: Your Basal Metabolic Rate
+          - paragraph [ref=f111e83]: 1,649 kcal/day
+          - paragraph [ref=f111e84]: These are the calories you'd burn resting in bed all day.
+        - generic [ref=f111e85]:
+          - heading "Daily calories by activity level (TDEE)" [level=2] [ref=f111e87]
+          - table [ref=f111e88]:
+            - rowgroup [ref=f111e89]:
+              - row "Sedentary Little or no exercise 1,979" [ref=f111e90]:
+                - cell "Sedentary Little or no exercise" [ref=f111e91]:
+                  - text: Sedentary
+                  - generic [ref=f111e92]: Little or no exercise
+                - cell "1,979" [ref=f111e93]
+              - row "Lightly active Exercise 1–3 days/week 2,267" [ref=f111e94]:
+                - cell "Lightly active Exercise 1–3 days/week" [ref=f111e95]:
+                  - text: Lightly active
+                  - generic [ref=f111e96]: Exercise 1–3 days/week
+                - cell "2,267" [ref=f111e97]
+              - row "Moderately active Exercise 3–5 days/week 2,556" [ref=f111e98]:
+                - cell "Moderately active Exercise 3–5 days/week" [ref=f111e99]:
+                  - text: Moderately active
+                  - generic [ref=f111e100]: Exercise 3–5 days/week
+                - cell "2,556" [ref=f111e101]
+              - row "Very active Exercise 6–7 days/week 2,844" [ref=f111e102]:
+                - cell "Very active Exercise 6–7 days/week" [ref=f111e103]:
+                  - text: Very active
+                  - generic [ref=f111e104]: Exercise 6–7 days/week
+                - cell "2,844" [ref=f111e105]
+              - row "Extra active Hard exercise + physical job 3,133" [ref=f111e106]:
+                - cell "Extra active Hard exercise + physical job" [ref=f111e107]:
+                  - text: Extra active
+                  - generic [ref=f111e108]: Hard exercise + physical job
+                - cell "3,133" [ref=f111e109]
+    - generic [ref=f111e114]:
+      - link [ref=f111e115] [cursor=pointer]:
+        - /url: //
+      - generic [ref=f111e118]: Beuatiful girls looking for a date
+    - generic [ref=f111e121]:
+      - heading "What your BMR means" [level=2] [ref=f111e122]
+      - paragraph [ref=f111e123]: Your Basal Metabolic Rate is the energy your body needs to keep its core systems running while at complete rest — the heart beating, the lungs breathing, cells repairing, and body temperature steady. It is the largest single component of the calories you burn each day.
+      - heading "From BMR to daily calories (maintenance calorie calculator)" [level=2] [ref=f111e124]
+      - paragraph [ref=f111e125]:
+        - text: Nobody spends all day at rest. To estimate your real daily needs, your BMR is multiplied by an activity factor to produce your
+        - link "Total Daily Energy Expenditure (TDEE)" [ref=f111e126] [cursor=pointer]:
+          - /url: /tdee-calculator/
+        - text: — your maintenance calorie target. From there, you can create a
+        - link "calorie deficit" [ref=f111e127] [cursor=pointer]:
+          - /url: /guides/calorie-deficit-guide/
+        - text: to lose weight or a surplus to gain it. Use the full
+        - link "online calorie calculator" [ref=f111e128] [cursor=pointer]:
+          - /url: /
+        - text: to get goal-based targets and macros.
+      - heading "The Mifflin-St Jeor equation" [level=2] [ref=f111e129]
+      - paragraph [ref=f111e130]:
+        - text: "For men: BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age + 5. For women: the same formula ending in − 161. Research has found it to be more accurate for most people than the older Harris-Benedict equation. For your complete maintenance calorie calculator needs, use our"
+        - link "maintenance calorie calculator guide" [ref=f111e131] [cursor=pointer]:
+          - /url: /guides/maintenance-calorie-calculator/
+        - text: .
+    - generic [ref=f111e134]:
+      - heading "Frequently asked questions" [level=2] [ref=f111e135]
+      - generic [ref=f111e136]:
+        - group [ref=f111e137]:
+          - generic "What is BMR?" [ref=f111e138] [cursor=pointer]:
+            - generic [ref=f111e139]: What is BMR?
+            - img [ref=f111e141]
+        - group [ref=f111e143]:
+          - generic "How is BMR calculated?" [ref=f111e144] [cursor=pointer]:
+            - generic [ref=f111e145]: How is BMR calculated?
+            - img [ref=f111e147]
+        - group [ref=f111e149]:
+          - generic "How can I increase my BMR?" [ref=f111e150] [cursor=pointer]:
+            - generic [ref=f111e151]: How can I increase my BMR?
+            - img [ref=f111e153]
+        - group [ref=f111e155]:
+          - generic "What is the difference between BMR and TDEE?" [ref=f111e156] [cursor=pointer]:
+            - generic [ref=f111e157]: What is the difference between BMR and TDEE?
+            - img [ref=f111e159]
+        - group [ref=f111e161]:
+          - generic "Does muscle increase BMR?" [ref=f111e162] [cursor=pointer]:
+            - generic [ref=f111e163]: Does muscle increase BMR?
+            - img [ref=f111e165]
+        - group [ref=f111e167]:
+          - generic "How accurate is BMR for weight loss?" [ref=f111e168] [cursor=pointer]:
+            - generic [ref=f111e169]: How accurate is BMR for weight loss?
+            - img [ref=f111e171]
+        - group [ref=f111e173]:
+          - generic "At what age does BMR decline?" [ref=f111e174] [cursor=pointer]:
+            - generic [ref=f111e175]: At what age does BMR decline?
+            - img [ref=f111e177]
+        - group [ref=f111e179]:
+          - generic "Is the Mifflin-St Jeor equation accurate?" [ref=f111e180] [cursor=pointer]:
+            - generic [ref=f111e181]: Is the Mifflin-St Jeor equation accurate?
+            - img [ref=f111e183]
+    - generic [ref=f111e186]:
+      - heading "Related calculators" [level=2] [ref=f111e187]
+      - generic [ref=f111e188]:
+        - link "Calorie Calculator Daily calories for your goal" [ref=f111e189] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f111e190]:
+            - generic [ref=f111e191]: Calorie Calculator
+            - generic [ref=f111e192]: Daily calories for your goal
+          - img [ref=f111e193]
+        - link "TDEE Calculator Total daily energy expenditure" [ref=f111e195] [cursor=pointer]:
+          - /url: /tdee-calculator/
+          - generic [ref=f111e196]:
+            - generic [ref=f111e197]: TDEE Calculator
+            - generic [ref=f111e198]: Total daily energy expenditure
+          - img [ref=f111e199]
+        - link "BMI Calculator Body mass index" [ref=f111e201] [cursor=pointer]:
+          - /url: /bmi-calculator/
+          - generic [ref=f111e202]:
+            - generic [ref=f111e203]: BMI Calculator
+            - generic [ref=f111e204]: Body mass index
+          - img [ref=f111e205]
+        - link "Macro Calculator Protein, carbs & fat split" [ref=f111e207] [cursor=pointer]:
+          - /url: /macro-calculator/
+          - generic [ref=f111e208]:
+            - generic [ref=f111e209]: Macro Calculator
+            - generic [ref=f111e210]: Protein, carbs & fat split
+          - img [ref=f111e211]
+        - link "Body Fat Calculator U.S. Navy method" [ref=f111e213] [cursor=pointer]:
+          - /url: /body-fat-calculator/
+          - generic [ref=f111e214]:
+            - generic [ref=f111e215]: Body Fat Calculator
+            - generic [ref=f111e216]: U.S. Navy method
+          - img [ref=f111e217]
+        - link "Ideal Weight Healthy weight range" [ref=f111e219] [cursor=pointer]:
+          - /url: /ideal-weight-calculator/
+          - generic [ref=f111e220]:
+            - generic [ref=f111e221]: Ideal Weight
+            - generic [ref=f111e222]: Healthy weight range
+          - img [ref=f111e223]
+  - contentinfo [ref=f111e225]:
+    - generic [ref=f111e226]:
+      - generic [ref=f111e227]:
+        - generic [ref=f111e228]:
+          - link "CalorieCalculatorFree" [ref=f111e229] [cursor=pointer]:
+            - /url: /
+            - img [ref=f111e231]
+            - generic [ref=f111e234]: CalorieCalculatorFree
+          - paragraph [ref=f111e235]: Free, science-based calorie and nutrition calculators to help you reach your weight goals with confidence.
+        - generic [ref=f111e236]:
+          - heading "Calculators" [level=2] [ref=f111e237]
+          - list [ref=f111e238]:
+            - listitem [ref=f111e239]:
+              - link "Calorie Calculator" [ref=f111e240] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=f111e241]:
+              - link "TDEE Calculator" [ref=f111e242] [cursor=pointer]:
+                - /url: /tdee-calculator/
+            - listitem [ref=f111e243]:
+              - link "BMR Calculator" [ref=f111e244] [cursor=pointer]:
+                - /url: /bmr-calculator/
+            - listitem [ref=f111e245]:
+              - link "BMI Calculator" [ref=f111e246] [cursor=pointer]:
+                - /url: /bmi-calculator/
+            - listitem [ref=f111e247]:
+              - link "Macro Calculator" [ref=f111e248] [cursor=pointer]:
+                - /url: /macro-calculator/
+            - listitem [ref=f111e249]:
+              - link "Body Fat Calculator" [ref=f111e250] [cursor=pointer]:
+                - /url: /body-fat-calculator/
+            - listitem [ref=f111e251]:
+              - link "Calorie Deficit Calculator" [ref=f111e252] [cursor=pointer]:
+                - /url: /calorie-deficit-calculator/
+            - listitem [ref=f111e253]:
+              - link "Pace Calculator" [ref=f111e254] [cursor=pointer]:
+                - /url: /pace-calculator/
+        - generic [ref=f111e255]:
+          - heading "Resources" [level=2] [ref=f111e256]
+          - list [ref=f111e257]:
+            - listitem [ref=f111e258]:
+              - link "How Many Calories Should I Eat?" [ref=f111e259] [cursor=pointer]:
+                - /url: /guides/how-many-calories-should-i-eat/
+            - listitem [ref=f111e260]:
+              - link "Maintenance Calorie Calculator" [ref=f111e261] [cursor=pointer]:
+                - /url: /guides/maintenance-calorie-calculator/
+            - listitem [ref=f111e262]:
+              - link "Online Calorie Calculator" [ref=f111e263] [cursor=pointer]:
+                - /url: /guides/online-calorie-calculator/
+            - listitem [ref=f111e264]:
+              - link "Mifflin-St Jeor Equation" [ref=f111e265] [cursor=pointer]:
+                - /url: /resources/mifflin-st-jeor-equation/
+            - listitem [ref=f111e266]:
+              - link "Calories Burned in a Day" [ref=f111e267] [cursor=pointer]:
+                - /url: /resources/calories-burned-in-a-day/
+            - listitem [ref=f111e268]:
+              - link "TDEE Calculator Guide" [ref=f111e269] [cursor=pointer]:
+                - /url: /resources/tdee-calculator/
+            - listitem [ref=f111e270]:
+              - link "What is TDEE?" [ref=f111e271] [cursor=pointer]:
+                - /url: /resources/what-is-tdee/
+        - generic [ref=f111e272]:
+          - heading "Company" [level=2] [ref=f111e273]
+          - list [ref=f111e274]:
+            - listitem [ref=f111e275]:
+              - link "About" [ref=f111e276] [cursor=pointer]:
+                - /url: /about/
+            - listitem [ref=f111e277]:
+              - link "Contact" [ref=f111e278] [cursor=pointer]:
+                - /url: /contact/
+            - listitem [ref=f111e279]:
+              - link "Privacy Policy" [ref=f111e280] [cursor=pointer]:
+                - /url: /privacy-policy/
+            - listitem [ref=f111e281]:
+              - link "Terms" [ref=f111e282] [cursor=pointer]:
+                - /url: /terms/
+        - generic [ref=f111e283]:
+          - heading "Tools" [level=2] [ref=f111e284]
+          - list [ref=f111e285]:
+            - listitem [ref=f111e286]:
+              - link "Food Calories Search" [ref=f111e287] [cursor=pointer]:
+                - /url: /food-calories-search/
+            - listitem [ref=f111e288]:
+              - link "Calories Burned Calculator" [ref=f111e289] [cursor=pointer]:
+                - /url: /calories-burned-calculator/
+            - listitem [ref=f111e290]:
+              - link "Age Calculator" [ref=f111e291] [cursor=pointer]:
+                - /url: /age-calculator/
+            - listitem [ref=f111e292]:
+              - link "Mortgage Calculator" [ref=f111e293] [cursor=pointer]:
+                - /url: /mortgage-calculator/
+            - listitem [ref=f111e294]:
+              - link "Disclaimer" [ref=f111e295] [cursor=pointer]:
+                - /url: /disclaimer/
+      - generic [ref=f111e296]:
+        - paragraph [ref=f111e297]: © 2026 Calorie Calculator Free. All rights reserved.
+        - paragraph [ref=f111e298]: For educational purposes only. Not medical advice — consult a healthcare professional before making health decisions.

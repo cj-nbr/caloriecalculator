@@ -1,6 +1,7 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "What is the fastest safe way to lose weight?", a: "Aim for 0.5–1 kg (1–2 lb) per week through a moderate calorie deficit, high protein, and regular activity. Faster loss risks muscle loss and rebound." },
@@ -21,6 +22,8 @@ const faqs: FaqItem[] = [
 >
   <h2>It all comes down to energy balance</h2>
   <p>Fat loss happens when you consistently consume fewer calories than you burn. This is the <a href="/guides/calorie-deficit-guide/">calorie deficit</a>, and it's the one non-negotiable principle of weight loss. Every diet that works — keto, intermittent fasting, low-fat — works because it helps you eat fewer calories, whether you realize it or not.</p>
+
+  <ArticleImage src="/assets/images/articles/weight-scale.svg" alt="Illustration of a balance scale showing weight loss when calories out exceed calories in." />
 
   <h2>Step 1: Set your calorie target</h2>
   <p>Find your <a href="/tdee-calculator/">TDEE</a> and subtract 300–500 calories. This produces about 0.3–0.5 kg of fat loss per week — fast enough to stay motivated, slow enough to protect muscle and stay sane. Use the <a href="/weight-loss-calculator/">weight loss calculator</a> to estimate your timeline.</p>

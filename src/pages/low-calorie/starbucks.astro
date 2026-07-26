@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 
 const path = "/low-calorie/starbucks/";
 const description = "Low calorie Starbucks drinks under 100 calories. Complete nutrition guide with calories, carb counts, and ordering tips.";
@@ -23,20 +24,10 @@ const faqs = [
   faqs={faqs}
 >
   <h2>Lowest Calorie Starbucks Drinks (Under 50 Calories)</h2>
-  <table>
-    <thead>
-      <tr><th>Drink</th><th>Size</th><th>Calories</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Americano (Black)</td><td>Grande</td><td>15</td></tr>
-      <tr><td>Hot Brewed Coffee</td><td>Any</td><td>5-10</td></tr>
-      <tr><td>Cold Brew (Plain)</td><td>Grande</td><td>5</td></tr>
-      <tr><td>Shaken Espresso</td><td>Grande</td><td>10</td></tr>
-      <tr><td>Brewed Coffee + Sugar Free Syrup</td><td>Grande</td><td>10-20</td></tr>
-    </tbody>
-  </table>
+  <p>Black coffee is always the lowest-calorie option at Starbucks. An Americano has about 15 calories, plain Cold Brew has 5, and Hot Brewed Coffee has 5–10. Add sugar-free syrup for flavor without calories.</p>
 
-  <h2>Low Calorie Drinks 50-150 Calories</h2>
+  <ArticleImage src="/assets/images/articles/balanced-plate.svg" alt="Illustration of low-calorie drink choices at Starbucks for healthy eating." />
+
   <table>
     <thead>
       <tr><th>Drink</th><th>Size</th><th>Calories</th></tr>

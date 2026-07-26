@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
 
 const faqs: FaqItem[] = [
@@ -7,6 +8,9 @@ const faqs: FaqItem[] = [
   { q: "How accurate is TDEE calculation?", a: "TDEE formulas are 85–90% accurate for most people. Track your weight for 2–3 weeks and adjust your intake by 100–200 calories if needed." },
   { q: "Can I calculate TDEE without a calculator?", a: "Yes. Calculate BMR using Mifflin-St Jeor, then multiply by 1.2 (sedentary) to 1.9 (athlete). Most people are moderately active (1.55)." },
   { q: "Why is my TDEE calculation wrong?", a: "Common errors: overestimating activity, incorrect weight entry, or not accounting for metabolic adaptation after weight change. Track and adjust." },
+  { q: "Which activity multiplier should I use?", a: "Start with 1.2 (sedentary) if you have a desk job and little exercise, 1.375 (light) for 1–3 sessions per week, 1.55 (moderate) for 3–5 sessions, 1.725 (active) for 6–7 intense sessions, or 1.9 (athlete) for a physical job plus daily training." },
+  { q: "How do I adjust my TDEE if my weight stalls?", a: "If your weight is not changing after 2–3 weeks, adjust your calorie intake by 100–200 calories and continue tracking. Weight loss slows as you get lighter, so recalculate your TDEE every 4–5 kg." },
+  { q: "Should I use TDEE for maintenance or BMR?", a: "TDEE is for maintenance because it includes all daily movement. BMR is only for complete rest. Use TDEE for any real-world calorie planning." },
 ];
 ---
 
@@ -24,13 +28,15 @@ const faqs: FaqItem[] = [
   <p><strong>TDEE calculation</strong> (Total Daily Energy Expenditure) gives you your <a href="/guides/maintenance-calorie-calculator/">maintenance calories</a> — the number you can eat to keep your weight stable. Here are the best methods.</p>
 
   <h2>The Mifflin-St Jeor TDEE method (recommended)</h2>
+
+  <ArticleImage src="/assets/images/articles/energy-level.svg" alt="Illustration of total daily energy expenditure showing metabolism and activity combined." />
   <p>This is the most accurate formula for calculating TDEE. The process:</p>
   <ol>
-    <li>Calculate BMR using Mifflin-St Jeor</li>
-    <li>Multiply BMR by activity factor</li>
-    <li>Adjust for individual variation after 2–3 weeks</li>
+    <li>Calculate BMR using Mifflin-St Jeor: Men = 10 × weight(kg) + 6.25 × height(cm) − 5 × age + 5; Women = 10 × weight(kg) + 6.25 × height(cm) − 5 × age − 161.</li>
+    <li>Multiply BMR by your activity factor.</li>
+    <li>Adjust for individual variation after 2–3 weeks of tracking real-world weight changes.</li>
   </ol>
-  <p>Use our <a href="/tdee-calculator/">TDEE calculator</a> for automatic calculation.</p>
+  <p>Use our <a href="/tdee-calculator/">TDEE calculator</a> for automatic calculation. For a comparison of BMR equations, see the <a href="/guides/bmr-equations/">BMR equations comparison guide</a>.</p>
 
   <h2>TDEE calculation methods compared</h2>
   <table>
@@ -43,49 +49,83 @@ const faqs: FaqItem[] = [
     </tbody>
   </table>
 
-  <h2>Activity factors for TDEE calculation</h2>
+  <h2>Activity multipliers for TDEE calculation</h2>
+  <p>Choosing the right activity multiplier is the most important step in TDEE calculation. The wrong choice is the most common source of error:</p>
   <table>
-    <thead><tr><th>Level</th><th>Factor</th><th>Description</th></tr></thead>
+    <thead><tr><th>Level</th><th>Factor</th><th>Description</th><th>Who this fits</th></tr></thead>
     <tbody>
-      <tr><td>Sedentary</td><td>1.2</td><td>Desk job, minimal exercise</td></tr>
-      <tr><td>Lightly Active</td><td>1.375</td><td>1–3 days/week exercise</td></tr>
-      <tr><td>Moderately Active</td><td>1.55</td><td>3–5 days/week exercise</td></tr>
-      <tr><td>Very Active</td><td>1.725</td><td>6–7 days/week intense exercise</td></tr>
-      <tr><td>Extra Active</td><td>1.9</td><td>Athlete + physical job</td></tr>
+      <tr><td>Sedentary</td><td>1.2</td><td>Desk job, minimal exercise</td><td>Office workers who rarely work out</td></tr>
+      <tr><td>Lightly Active</td><td>1.375</td><td>1–3 days/week exercise</td><td>Casual gym-goers or daily walkers</td></tr>
+      <tr><td>Moderately Active</td><td>1.55</td><td>3–5 days/week exercise</td><td>Regular strength or cardio training</td></tr>
+      <tr><td>Very Active</td><td>1.725</td><td>6–7 days/week intense exercise</td><td>Athletes in-season or double-session days</td></tr>
+      <tr><td>Extra Active</td><td>1.9</td><td>Athlete + physical job</td><td>Manual labor plus daily training</td></tr>
     </tbody>
   </table>
+  <p>If you are unsure, choose the lower activity level. It is better to slightly underestimate activity and add calories back than to overestimate and stall progress.</p>
+
+  <h2>How to choose the right activity level</h2>
+  <p>Most people struggle with activity level selection. Use these rules of thumb:</p>
+  <ul>
+    <li>If you sit at a desk and drive everywhere, start with <strong>sedentary</strong> even if you occasionally exercise.</li>
+    <li>If you have a standing job or walk regularly, add one level for NEAT.</li>
+    <li>If you strength train 3–5 times per week consistently, you are at least <strong>moderately active</strong>.</li>
+    <li>Only choose <strong>very active</strong> or <strong>extra active</strong> if you truly train 6–7 days per week with high intensity or have a physically demanding job.</li>
+  </ul>
+  <p>Remember: NEAT counts too. A nurse who walks 10,000 steps daily has higher TDEE than an office worker who drives everywhere, even if both go to the gym three times per week.</p>
 
   <h2>Manual TDEE calculation example</h2>
   <p>A 30-year-old woman, 165 cm, 65 kg, moderately active:</p>
   <pre>BMR = 10 × 65 + 6.25 × 165 - 5 × 30 - 161 = 1,400
 TDEE = 1,400 × 1.55 = 2,170 calories/day</pre>
-  <p>This is her <a href="/guides/maintenance-calorie-calculator/">maintenance calorie calculator</a> number.</p>
+  <p>This is her <a href="/guides/maintenance-calorie-calculator/">maintenance calorie calculator</a> number. She would eat 1,670–1,920 calories/day to lose weight, or 2,420–2,670 calories/day to gain.</p>
 
   <h2>Measuring TDEE without equations</h2>
   <p>If you want to verify your TDEE without formulas:</p>
   <ol>
-    <li>Eat the same number of calories daily for 2 weeks</li>
-    <li>Weigh yourself daily, average the results</li>
-    <li>If weight stays stable, you've found your TDEE</li>
-    <li>If gaining/losing, adjust by 100–200 calories daily</li>
+    <li>Eat the same number of calories daily for 2 weeks using a food scale and tracking app.</li>
+    <li>Weigh yourself daily at the same time, then average the results weekly.</li>
+    <li>If weight stays stable within ±0.5 kg, you have found your TDEE.</li>
+    <li>If gaining/losing, adjust by 100–200 calories daily and repeat.</li>
   </ol>
+  <p>This empirical approach is more accurate than any formula because it accounts for your unique metabolism, NEAT, and food thermogenesis.</p>
 
   <h2>When TDEE calculation breaks down</h2>
   <p>Certain situations require adjustment:</p>
   <ul>
     <li><strong>Weight change:</strong> Recalculate every 4–5 kg</li>
     <li><strong>Age:</strong> Metabolism slows ~2% per decade</li>
-    <li><strong>Medical conditions:</strong> Thyroid, diabetes affect metabolism</li>
-    <li><strong>Medications:</strong> Some suppress appetite or alter metabolism</li>
+    <li><strong>Medical conditions:</strong> Thyroid, diabetes, and hormonal disorders affect metabolism</li>
+    <li><strong>Medications:</strong> Some suppress appetite or alter metabolic rate</li>
+    <li><strong>Pregnancy:</strong> TDEE increases significantly; specialized guidance is needed</li>
   </ul>
 
   <h2>Improving TDEE calculation accuracy</h2>
   <p>For better results:</p>
   <ul>
-    <li>Use accurate measurements for weight and height</li>
-    <li>Choose conservative activity level if unsure</li>
-    <li>Track weight for 2–3 weeks before adjusting</li>
-    <li>Account for non-exercise activity (NEAT)</li>
+    <li>Use accurate measurements for weight and height — weigh yourself first thing in the morning.</li>
+    <li>Choose conservative activity level if unsure.</li>
+    <li>Track weight for 2–3 weeks before adjusting.</li>
+    <li>Account for non-exercise activity (NEAT) — steps matter.</li>
+    <li>Use the <a href="/calories-burned-calculator/">calories burned calculator</a> to see how specific workouts impact your daily total.</li>
   </ul>
-  <p>Combine with our <a href="/calories-burned-calculator/">calories burned calculator</a> for complete tracking.</p>
+
+  <h2>TDEE adjustment strategies</h2>
+  <p>Once you have your TDEE estimate, use these strategies to refine it:</p>
+  <ul>
+    <li><strong>The 2-week rule:</strong> make one change at a time and wait 2 weeks before making another.</li>
+    <li><strong>The 100-calorie rule:</strong> adjust by 100–200 calories per change, not 500. Small changes are easier to sustain and easier to interpret.</li>
+    <li><strong>The weekly weigh-in:</strong> average your daily weights over a week to smooth out water fluctuations.</li>
+    <li><strong>The trend line:</strong> look at the 2-week trend, not daily noise. A downward trend means you are in a deficit; upward means surplus.</li>
+  </ul>
+
+  <h2>Links to related TDEE tools</h2>
+  <p>Use these calculators to support your TDEE-based plan:</p>
+  <ul>
+    <li><a href="/tdee-calculator/">TDEE calculator</a> — find your maintenance calories instantly</li>
+    <li><a href="/bmr-calculator/">BMR calculator</a> — your resting metabolic baseline</li>
+    <li><a href="/macro-calculator/">Macro calculator</a> — split your calories into protein, carbs, and fats</li>
+    <li><a href="/weight-loss-calculator/">Weight loss calculator</a> — plan your timeline to goal weight</li>
+    <li><a href="/weight-gain-calculator/">Weight gain calculator</a> — plan a lean bulk</li>
+    <li><a href="/calories-burned-calculator/">Calories burned calculator</a> — see how exercise changes your daily total</li>
+  </ul>
 </ContentLayout>

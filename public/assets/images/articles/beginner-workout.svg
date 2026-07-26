@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" role="img" aria-hidden="true">
+  <rect width="400" height="220" rx="16" fill="transparent"/>
+  <g transform="translate(200 110)">
+    <rect x="-50" y="-40" width="100" height="80" rx="8" fill="#ffffff" stroke="#ebebeb" stroke-width="2"/>
+    <circle cx="0" cy="-10" r="14" fill="#0070f3" opacity="0.2"/>
+    <path d="M-6 -10 L6 -10 M0 -16 L0 -4" stroke="#0070f3" stroke-width="2" stroke-linecap="round"/>
+    <text x="0" y="25" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#171717" text-anchor="middle">Beginner</text>
+    <text x="0" y="45" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#6b6b6b" text-anchor="middle">Easy starting exercises</text>
+  </g>
+</svg>

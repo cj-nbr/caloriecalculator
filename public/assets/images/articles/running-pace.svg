@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" role="img" aria-hidden="true">
+  <rect width="400" height="220" rx="16" fill="transparent"/>
+  <g transform="translate(200 110)">
+    <ellipse cx="0" cy="30" rx="60" ry="16" fill="#d4d4d4"/>
+    <path d="M-30 30 L-20 -20 L-10 10 L0 -30 L10 10 L20 -20 L30 30 Z" fill="#0070f3" opacity="0.85"/>
+    <circle cx="0" cy="-40" r="12" fill="#0cce6b"/>
+    <text x="0" y="70" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#6b6b6b" text-anchor="middle">Running pace per kilometer or mile</text>
+  </g>
+</svg>

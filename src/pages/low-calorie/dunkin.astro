@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 
 const path = "/low-calorie/dunkin/";
 const description = "Low calorie Dunkin drinks under 100 calories. Complete guide to the best low-calorie coffee and beverage options.";
@@ -22,6 +23,8 @@ const faqs = [
   faqs={faqs}
 >
   <h2>Lowest Calorie Dunkin Drinks (Under 50 Calories)</h2>
+
+  <ArticleImage src="/assets/images/articles/balanced-plate.svg" alt="Illustration of low-calorie food choices at Dunkin for healthy eating." />
   <table>
     <thead>
       <tr><th>Drink</th><th>Size</th><th>Calories</th></tr>

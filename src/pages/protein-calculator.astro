@@ -2,6 +2,9 @@
 import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls, selectCls } from "../lib/ui";
 import type { FaqItem } from "../lib/seo";
+import MedicalNote from "../components/ui/MedicalNote.astro";
+import Sources from "../components/ui/Sources.astro";
+import ArticleImage from "../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "How much protein do I need per day?", a: "Active adults generally need 1.2–2.0 g of protein per kilogram of body weight daily. Sedentary people need the RDA of 0.8 g/kg. Athletes and those in a calorie deficit should aim for 1.6–2.2 g/kg to preserve and build muscle." },
@@ -18,6 +21,9 @@ const faqs: FaqItem[] = [
   { q: "Protein calorie chart?", a: "10g = 40 cal, 20g = 80 cal, 25g = 100 cal, 50g = 200 cal, 100g = 400 cal, 150g = 600 cal, 200g = 800 cal. Every gram of protein = 4 calories." },
   { q: "Does protein have more calories than carbs?", a: "No. Both protein and carbohydrates contain exactly 4 calories per gram. Fat is more calorie-dense at 9 calories per gram." },
   { q: "Why does protein have 4 calories per gram?", a: "When protein is metabolized, the carbon bonds release energy measured at 4 kcal/g through controlled scientific testing called bomb calorimetry." },
+  { q: "Best protein sources for weight loss?", a: "Lean chicken breast, white fish, Greek yogurt, egg whites, and protein powder give high protein with fewer calories. Use the <a href='/macro-calculator/'>macro calculator</a> to fit them into your plan." },
+  { q: "Protein timing for muscle gain?", a: "Eat 25–40g protein every 3–4 hours. Post-workout protein within 2 hours maximizes muscle protein synthesis. Spread across 4–5 meals for best results." },
+  { q: "How much protein for muscle gain vs weight loss?", a: "Weight loss: 1.6–2.2 g/kg to preserve muscle. Muscle gain: 1.6–2.2 g/kg plus a calorie surplus. Use the <a href='/macro-calculator/'>macro calculator</a> to set your split." },
 ];
 ---
 
@@ -89,6 +95,10 @@ const faqs: FaqItem[] = [
   </div>
 
   <Fragment slot="content">
+    <MedicalNote />
+
+    <ArticleImage src="/assets/images/articles/protein-structure.svg" alt="Illustration of amino acid structures forming protein molecules." />
+
     <h2>Quick Answer: How Many Calories in 1 Gram of Protein?</h2>
     <p class="text-display-sm font-semibold text-ink"><strong>One gram of protein equals exactly 4 calories.</strong></p>
     <p>This is a scientific fact established through controlled testing. Whether you eat chicken, fish, eggs, or protein powder, protein always provides 4 kcal per gram. This is why converting protein to calories is simple: multiply grams by 4.</p>
@@ -110,6 +120,42 @@ const faqs: FaqItem[] = [
       </div>
     </div>
 
+    <h2>How Much Protein Per Day?</h2>
+    <p>Daily protein needs depend on your weight, activity level, and goals. Use the <a href="/protein-calculator/">protein calculator</a> above to find your personalized range, or refer to these general guidelines:</p>
+    <ul>
+      <li><strong>Sedentary adults:</strong> 0.8 g/kg — minimum to prevent deficiency</li>
+      <li><strong>General health:</strong> 1.0–1.2 g/kg — maintenance and daily vitality</li>
+      <li><strong>Active / weight loss:</strong> 1.6–2.2 g/kg — preserve muscle while dieting</li>
+      <li><strong>Muscle building:</strong> 1.6–2.2 g/kg — maximize muscle protein synthesis</li>
+      <li><strong>Athletes:</strong> 1.4–2.0 g/kg — performance and recovery</li>
+    </ul>
+
+    <h2>Best Protein Sources</h2>
+    <p>Some foods pack more protein per calorie than others. Prioritize these for efficient intake:</p>
+    <table>
+      <thead><tr><th>Food</th><th>Protein per 100g</th><th>Calories per 100g</th><th>Protein %</th></tr></thead>
+      <tbody>
+        <tr><td>Chicken breast (cooked)</td><td>31g</td><td>165 kcal</td><td>75%</td></tr>
+        <tr><td>White fish (cod)</td><td>20–25g</td><td>80–100 kcal</td><td>80–90%</td></tr>
+        <tr><td>Greek yogurt (0% fat)</td><td>10g</td><td>59 kcal</td><td>68%</td></tr>
+        <tr><td>Eggs</td><td>13g</td><td>72 kcal</td><td>72%</td></tr>
+        <tr><td>Whey protein isolate</td><td>80–90g</td><td>300–350 kcal</td><td>96%</td></tr>
+        <tr><td>Lentils (cooked)</td><td>9g</td><td>116 kcal</td><td>31%</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Protein Timing</h2>
+    <p>Total daily protein matters most, but timing amplifies results. Research shows 25–40 grams of protein per meal maximally stimulates muscle protein synthesis. Eating more in one sitting does not help — it is the per-meal amount that counts.</p>
+    <p>For a 150g daily target, aim for 4 meals of ~37g each. That is roughly 150 calories from protein per meal. Use the <a href="/meal-calorie-calculator/">meal calorie calculator</a> to plan portions, or the <a href="/recipe-calorie-calculator/">recipe calorie calculator</a> for home cooking.</p>
+
+    <h2>Protein for Weight Loss vs Muscle Gain</h2>
+    <p>Protein needs shift slightly depending on your goal:</p>
+    <ul>
+      <li><strong>Weight loss:</strong> Higher protein (1.6–2.2 g/kg) preserves muscle during a calorie deficit and increases fullness. Use the <a href="/">calorie calculator</a> to set your deficit.</li>
+      <li><strong>Muscle gain:</strong> Same high protein range plus a small calorie surplus. Protein provides the building blocks; extra calories provide the energy for growth.</li>
+      <li><strong>Maintenance:</strong> 1.2–1.6 g/kg keeps muscle stable without aggressive dieting or bulking.</li>
+    </ul>
+
     <h2>Calories in Protein vs Carbs vs Fat</h2>
     <table>
       <thead><tr><th>Macronutrient</th><th>Calories per gram</th><th>Percentage of total</th></tr></thead>
@@ -118,19 +164,6 @@ const faqs: FaqItem[] = [
         <tr><td>Carbohydrates</td><td class="text-brand font-semibold">4 kcal</td><td>Primary energy source</td></tr>
         <tr><td>Fat</td><td class="text-brand font-semibold">9 kcal</td><td>Most calorie-dense macro</td></tr>
         <tr><td>Alcohol</td><td class="text-warning">7 kcal</td><td>Not a macronutrient</td></tr>
-      </tbody>
-    </table>
-
-    <h2>How Much Protein Do You Really Need?</h2>
-    <p>Protein needs vary by body weight, activity level, and goals:</p>
-    <table>
-      <thead><tr><th>Category</th><th>Protein intake</th><th>Grams per kg</th><th>Calories from 150g</th></tr></thead>
-      <tbody>
-        <tr><td>Sedentary adult</td><td>RDA minimum</td><td>0.8 g</td><td>60 kcal/kg</td></tr>
-        <tr><td>General health</td><td>Maintenance</td><td>1.0–1.2 g</td><td>80–96 kcal/kg</td></tr>
-        <tr><td>Active / weight loss</td><td>Muscle preservation</td><td>1.6–2.2 g</td><td>128–176 kcal/kg</td></tr>
-        <tr><td>Muscle building</td><td>Maximize synthesis</td><td>1.6–2.2 g</td><td>128–176 kcal/kg</td></tr>
-        <tr><td>Athlete</td><td>Performance/recovery</td><td>1.4–2.0 g</td><td>112–160 kcal/kg</td></tr>
       </tbody>
     </table>
 
@@ -174,12 +207,11 @@ const faqs: FaqItem[] = [
       <li><strong>Combine with:</strong> Your <a href="/">daily calorie target</a> and <a href="/macro-calculator/">macro split</a></li>
     </ul>
 
-    <h2>Continue Learning</h2>
-    <ul>
-      <li><a href="/macro-calculator/">Macro Calculator</a> — Convert calories to all macros</li>
-      <li><a href="/guides/protein-guide/">Protein Guide</a> — Complete protein reference</li>
-      <li><a href="/guides/macro-guide/">Macro Guide</a> — Protein, carbs, fat explained</li>
-    </ul>
+    <Sources sources={[
+      { label: "Institute of Medicine — Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids (2005)", href: "https://www.nationalacademies.org/publication/dietary-reference-intakes-for-energy-carbohydrate-fiber-fat-fatty-acids-cholesterol-protein-and-amino-acids" },
+      { label: "Academy of Nutrition and Dietetics — Protein and Amino Acids (position paper)", href: "https://www.eatright.org/health/essential-nutrients/carbohydrates/protein-and-carbohydrates" },
+      { label: "Mayo Clinic — Nutrition: Protein and daily intake recommendations", href: "https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/in-depth/protein/art-20045169" },
+    ]} />
   </Fragment>
 </CalculatorLayout>
 
@@ -219,11 +251,8 @@ const faqs: FaqItem[] = [
         document.querySelectorAll(".u-wt").forEach((e) => (e.textContent = unit === "metric" ? "(kg)" : "(lb)"));
         const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
         if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
-        render();
       });
     });
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-    ($("activity") as HTMLSelectElement).addEventListener("change", render);
-    render();
   }
 </script>

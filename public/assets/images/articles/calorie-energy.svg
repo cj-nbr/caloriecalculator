@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-hidden="true">
+  <rect width="400" height="260" rx="16" fill="transparent"/>
+  <g transform="translate(200 130)">
+    <path d="M0 -78 C 40 -54 34 -22 14 -14 C 30 -34 14 -54 0 -54 C -14 -54 -30 -34 -14 -14 C -34 -22 -40 -54 0 -78 Z" fill="#0070f3"/>
+    <circle cx="0" cy="34" r="64" fill="none" stroke="#d4d4d4" stroke-width="10"/>
+    <path d="M-64 34 A64 64 0 0 1 50 86" fill="none" stroke="#0070f3" stroke-width="10" stroke-linecap="round"/>
+    <text x="0" y="46" font-family="Inter, system-ui, sans-serif" font-size="30" font-weight="600" fill="#171717" text-anchor="middle">kcal</text>
+  </g>
+</svg>

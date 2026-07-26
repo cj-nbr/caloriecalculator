@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../../layouts/ContentLayout.astro";
+import ArticleImage from "../../../components/ui/ArticleImage.astro";
 
 const path = "/workouts/all-in-one-exercise/best-beginners/";
 const faqs = [
@@ -20,6 +21,8 @@ const faqs = [
   categoryPath="/workouts/"
   faqs={faqs}
 >
+
+  <ArticleImage src="/assets/images/articles/beginner-workout.svg" alt="Illustration of beginner-friendly exercises with proper form cues." />
 
   <h2>Why All-In-One Exercises Work for Beginners</h2>
   <p>Traditional workout routines often overwhelm beginners with complex programming and isolated movements. All-in-one exercises simplify training by combining multiple muscle groups into single, fluid motions that build coordination, strength, and confidence simultaneously.</p>

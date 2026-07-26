@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
 
 const faqs: FaqItem[] = [
@@ -26,6 +27,8 @@ const faqs: FaqItem[] = [
   faqs={faqs}
 >
   <h2 id="cardio-vs-weights">Cardio vs strength training for calorie burn</h2>
+
+  <ArticleImage src="/assets/images/articles/activity-intensity.svg" alt="Illustration of exercise intensity levels showing how different activities affect calorie burn." />
   <p>Cardio tends to burn more calories during the session, while strength training builds muscle that raises metabolism at rest. For long-term fat loss, combine both: cardio for immediate burn, and weights for sustained metabolic benefit.</p>
 
   <h2 id="top-exercises">Top calorie-burning exercises</h2>

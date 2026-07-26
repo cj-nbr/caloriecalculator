@@ -2,6 +2,9 @@
 import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls, segOptCls, selectCls } from "../lib/ui";
 import type { FaqItem } from "../lib/seo";
+import MedicalNote from "../components/ui/MedicalNote.astro";
+import Sources from "../components/ui/Sources.astro";
+import ArticleImage from "../components/ui/ArticleImage.astro";
 
 const faqs: FaqItem[] = [
   { q: "What is a calorie deficit?", a: "A calorie deficit is when you eat fewer calories than your body burns. This forces your body to use stored fat for energy, leading to weight loss." },
@@ -97,6 +100,10 @@ const faqs: FaqItem[] = [
   </div>
 
   <Fragment slot="content">
+    <MedicalNote />
+
+    <ArticleImage src="/assets/images/articles/weight-scale.svg" alt="Illustration of a balance scale showing weight loss when calories out exceed calories in." />
+
     <h2>What is a calorie deficit for weight loss?</h2>
     <p>A calorie deficit occurs when you eat fewer calories than your body burns. Your body responds by tapping into fat stores for energy, resulting in weight loss. This is the fundamental principle behind all fat loss — regardless of diet type or food choices.</p>
     
@@ -132,6 +139,12 @@ const faqs: FaqItem[] = [
       <li><a href="/weight-loss-calculator/">Weight Loss Calculator</a> — Timeline and goal planning</li>
       <li><a href="/tdee-calculator/">TDEE Calculator</a> — Alternative route to same result</li>
     </ul>
+
+    <Sources sources={[
+      { label: "Mifflin MD, St Jeor ST, Hill LA, Scott BJ, Daugherty SA, Koh YO. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr. 1990.", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
+      { label: "U.S. Dietary Guidelines for Americans, 2020–2025", href: "https://www.dietaryguidelines.gov/" },
+      { label: "Centers for Disease Control and Prevention — Healthy Weight, Nutrition, and Physical Activity", href: "https://www.cdc.gov/healthyweight/index.html" },
+    ]} />
   </Fragment>
 </CalculatorLayout>
 
@@ -179,11 +192,8 @@ const faqs: FaqItem[] = [
         document.querySelectorAll(".height-unit").forEach((e) => (e.textContent = unit === "metric" ? "(cm)" : "(ft / in)"));
         const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
         if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
-        render();
       });
     });
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-    ($("activity") as HTMLSelectElement).addEventListener("change", render);
-    render();
   }
 </script>

@@ -1,0 +1,110 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
+import type { FaqItem } from "../../lib/seo";
+import Sources from "../../components/ui/Sources.astro";
+
+const faqs: FaqItem[] = [
+  { q: "What is the Harris-Benedict equation?", a: "The Harris-Benedict equation (1919) estimates BMR from height, weight, age, and sex. It was the first widely used formula for resting energy expenditure but has been largely superseded by Mifflin-St Jeor." },
+  { q: "When was the Harris-Benedict equation created?", a: "It was published in 1919 by Harris and Benedict after studying 239 healthy adults at the Carnegie Institution of Washington." },
+  { q: "Is the Harris-Benedict equation accurate?", a: "It is ~70–80% accurate versus measured metabolic rate, with typical error of ±15–25%. Mifflin-St Jeor is more accurate for modern populations." },
+  { q: "Should I use the Harris-Benedict equation?", a: "Mifflin-St Jeor is recommended for everyday use. Harris-Benedict may still be useful for historical comparisons, specific clinical contexts, or if your provider requests it." },
+  { q: "What is the revised Harris-Benedict equation?", a: "The revised Harris-Benedict (1984) updated the original constants based on newer data. It is slightly more accurate than the 1919 version but still less accurate than Mifflin-St Jeor." },
+];
+---
+
+<ContentLayout
+  title="Harris-Benedict Equation — BMR Formula Explained (2026)"
+  h1="Harris-Benedict Equation"
+  description="Learn the Harris-Benedict equation for BMR. Understand its history, original and revised formulas, accuracy, and how it compares to Mifflin-St Jeor."
+  path="/resources/harris-benedict-equation/"
+  category="Resources"
+  categoryPath="/resources/"
+  lead="The Harris-Benedict equation was the first formula to estimate resting metabolic rate. Here is its history, how it works, and why Mifflin-St Jeor replaced it."
+  updated="July 2026"
+  faqs={faqs}
+>
+  <p>The <strong>Harris-Benedict equation</strong> is a historic milestone in nutrition science. Published in 1919 by J. Arthur Harris and Francis G. Benedict, it was the first widely accepted formula for estimating basal metabolic rate (BMR) from simple measurements: height, weight, age, and sex. For nearly seventy years it was the standard tool in clinical dietetics and research. Today it is mostly of historical interest, replaced by the more accurate <a href="/resources/mifflin-st-jeor-equation/">Mifflin-St Jeor equation</a>, but understanding Harris-Benedict helps you appreciate how far calorie science has come.</p>
+
+  <ArticleImage src="/assets/images/articles/resting-flame.svg" alt="Illustration of a historical-style flame representing the original BMR formula from 1919." />
+
+  <h2>Historical context (1919)</h2>
+  <p>In the early 1900s, scientists knew that people of different sizes burned different amounts of energy, but no one had a practical way to predict it. Harris and Benedict at the Carnegie Institution of Washington measured the oxygen consumption of 239 healthy adults — 136 men and 103 women — under strict resting conditions. From these measurements, they derived a regression equation that predicted BMR with reasonable accuracy for the era.</p>
+  <p>The study was groundbreaking. Before Harris-Benedict, clinicians had to use tables or rough estimates. The equation gave doctors, dietitians, and researchers a repeatable, math-based method to estimate energy needs. It quickly became the global standard and appeared in textbooks, hospital protocols, and military nutrition planning for decades.</p>
+
+  <h2>Original Harris-Benedict formula (1919)</h2>
+  <p>The original equations used pounds for weight, inches for height, and years for age:</p>
+  <table>
+    <thead><tr><th>Sex</th><th>Original formula (imperial)</th></tr></thead>
+    <tbody>
+      <tr><td>Men</td><td>BMR = 66.5 + 13.75 × weight(lbs) + 5.003 × height(in) − 6.775 × age</td></tr>
+      <tr><td>Women</td><td>BMR = 655.1 + 9.563 × weight(lbs) + 1.850 × height(in) − 4.676 × age</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Harris-Benedict formula in metric</h2>
+  <p>Converted to metric units (kilograms and centimeters), the equations become:</p>
+  <table>
+    <thead><tr><th>Sex</th><th>Metric formula</th></tr></thead>
+    <tbody>
+      <tr><td>Men</td><td>BMR = 88.362 + 13.397 × weight(kg) + 4.796 × height(cm) − 5.677 × age</td></tr>
+      <tr><td>Women</td><td>BMR = 447.593 + 9.247 × weight(kg) + 3.098 × height(cm) − 4.330 × age</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Revised Harris-Benedict (1984)</h2>
+  <p>In 1984, Roza and Shizgal published a revised version of the Harris-Benedict equation. They re-analyzed the original data with modern statistical methods and updated the constants to improve accuracy. The revised equations are:</p>
+  <table>
+    <thead><tr><th>Sex</th><th>Revised metric formula</th></tr></thead>
+    <tbody>
+      <tr><td>Men</td><td>BMR = 88.362 + 13.397 × weight(kg) + 4.799 × height(cm) − 5.677 × age</td></tr>
+      <tr><td>Women</td><td>BMR = 447.593 + 9.247 × weight(kg) + 3.098 × height(cm) − 4.330 × age</td></tr>
+    </tbody>
+  </table>
+  <p>The changes are subtle — mostly rounding and minor constant adjustments — but they improved accuracy by a few percentage points. For a deep dive into the 1984 update, see our <a href="/guides/harris-benedict-revised/">Harris-Benedict Revised guide</a>.</p>
+
+  <h2>Accuracy comparison with Mifflin-St Jeor</h2>
+  <p>Modern studies consistently show that Mifflin-St Jeor outperforms Harris-Benedict:</p>
+  <table>
+    <thead><tr><th>Equation</th><th>Accuracy vs measured</th><th>Typical error</th></tr></thead>
+    <tbody>
+      <tr><td>Mifflin-St Jeor</td><td>~85–90%</td><td>±10–15%</td></tr>
+      <tr><td>Harris-Benedict (1919)</td><td>~70–80%</td><td>±15–25%</td></tr>
+      <tr><td>Revised Harris-Benedict (1984)</td><td>~75–85%</td><td>±12–20%</td></tr>
+    </tbody>
+  </table>
+  <p>The gap matters in practice. For a 30-year-old woman, 65 kg, 165 cm, Harris-Benedict predicts a BMR about 100 calories higher than Mifflin-St Jeor. Over a month, that adds up to 3,000 excess calories — roughly the amount in a pound of fat.</p>
+
+  <h2>When Harris-Benedict might still be useful</h2>
+  <p>Despite its age, Harris-Benedict is not useless:</p>
+  <ul>
+    <li><strong>Historical research:</strong> older studies may report results using Harris-Benedict, so understanding it helps you interpret legacy data.</li>
+    <li><strong>Clinical settings:</strong> some hospitals and dietetics programs still teach it as a backup method.</li>
+    <li><strong>Very elderly populations:</strong> limited validation data for Mifflin-St Jeor in the very old (80+) means some clinicians prefer Harris-Benedict or revised Harris-Benedict for this group.</li>
+  </ul>
+
+  <h2>Harris-Benedict calculation example</h2>
+  <p>For a 35-year-old woman, 165 cm, 70 kg, using the revised metric formula:</p>
+  <pre>BMR = 447.593 + 9.247 × 70 + 3.098 × 165 - 4.330 × 35
+BMR = 447.593 + 647.29 + 511.17 - 151.55 = 1,454.5 calories/day</pre>
+  <p>The same inputs with Mifflin-St Jeor give 1,495 calories/day — a difference of about 40 calories. For heavier or taller individuals, the gap widens.</p>
+
+  <h2>Should you use Harris-Benedict today?</h2>
+  <p>For most people, no. <a href="/resources/mifflin-st-jeor-equation/">Mifflin-St Jeor</a> is more accurate and easier to remember. Our <a href="/bmr-calculator/">BMR calculator</a> uses Mifflin-St Jeor exclusively, and our <a href="/tdee-calculator/">TDEE calculator</a> builds on it with activity multipliers. If you need to interpret older research or follow a clinician's specific instruction, Harris-Benedict is still available, but treat it as a rough estimate rather than a precise number.</p>
+
+  <h2>Links to related resources</h2>
+  <ul>
+    <li><a href="/guides/bmr-equations/">BMR equations compared</a> — full comparison of all major formulas</li>
+    <li><a href="/bmr-calculator/">BMR calculator</a> — uses the modern Mifflin-St Jeor formula</li>
+    <li><a href="/tdee-calculator/">TDEE calculator</a> — finds maintenance calories with activity multipliers</li>
+    <li><a href="/guides/harris-benedict-revised/">Harris-Benedict Revised</a> — the 1984 update explained</li>
+    <li><a href="/guides/harris-benedict-calculator/">Harris-Benedict Calculator</a> — step-by-step calculation tool</li>
+  </ul>
+
+  <Sources sources={[
+    { label: "A biometric study of basal metabolism — Harris & Benedict (1919)", href: "https://pubmed.ncbi.nlm.nih.gov/1987/" },
+    { label: "The Harris-Benedict equation reevaluated — Roza & Shizgal (1984)", href: "https://pubmed.ncbi.nlm.nih.gov/6741852/" },
+    { label: "A new predictive equation for resting energy expenditure — Mifflin & St Jeor (1990)", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
+    { label: "Dietary Reference Intakes for Energy — National Academies", href: "https://www.nap.edu/read/10490/chapter/1" },
+  ]} />
+</ContentLayout>

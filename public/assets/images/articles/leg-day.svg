@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" role="img" aria-hidden="true">
+  <rect width="400" height="220" rx="16" fill="transparent"/>
+  <g transform="translate(200 110)">
+    <path d="M-30 20 L-20 -10 L-10 10 L0 -20 L10 10 L20 -10 L30 20" fill="none" stroke="#0070f3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="-30" cy="20" r="5" fill="#0070f3"/>
+    <circle cx="30" cy="20" r="5" fill="#0070f3"/>
+    <text x="0" y="55" font-family="Inter, system-ui, sans-serif" font-size="12" fill="#6b6b6b" text-anchor="middle">Leg day workout exercises</text>
+  </g>
+</svg>

@@ -3,6 +3,9 @@ import CalculatorLayout from "../layouts/CalculatorLayout.astro";
 import { inputCls, segOptCls } from "../lib/ui";
 import { bmrMifflinStJeor, tdee, goalCalories, macrosFromCalories, ACTIVITY_LEVELS, type Sex, type ActivityKey, type GoalKey } from "../lib/calculations";
 import type { FaqItem } from "../lib/seo";
+import MedicalNote from "../components/ui/MedicalNote.astro";
+import ArticleImage from "../components/ui/ArticleImage.astro";
+import Sources from "../components/ui/Sources.astro";
 
 const faqs: FaqItem[] = [
   { q: "How many calories should I eat to gain weight?", a: "Aim for a 250–500 calorie surplus above your maintenance calories. This calculator estimates your daily target based on your chosen weekly gain rate." },
@@ -97,14 +100,21 @@ const faqs: FaqItem[] = [
   </div>
 
   <Fragment slot="content">
+    <MedicalNote />
+
+    <ArticleImage src="/assets/images/articles/weight-timeline.svg" alt="Illustration of a weight gain progress line from a start point toward a higher goal weight." />
+
     <h2>How to use the Weight Gain Calculator</h2>
     <p>Enter your age, height, current weight, sex, and activity level, then choose a weekly gain target. The calculator estimates your daily calorie target and macro split. A 0.5 kg/week gain is a sensible starting point for most people.</p>
 
-    <h2>How to gain weight safely</h2>
-    <p>Healthy weight gain is slower and more sustainable than most people expect. Add a modest calorie surplus, prioritize protein, and pair nutrition with resistance training to build muscle rather than just fat.</p>
+    <h2>What is a healthy rate of weight gain?</h2>
+    <p>A healthy pace is about 0.25–0.5 kg (0.5–1 lb) per week for most people. Faster gain usually adds excess fat unless you are new to resistance training. The <a href="/weight-gain-calculator/">weight gain calculator</a> helps you set a realistic pace and daily target so you can minimize fat gain while building lean tissue.</p>
 
     <h2>Calorie surplus explained</h2>
-    <p>One kilogram of body mass stores roughly 7700 calories. A 500-calorie daily surplus averages about 0.5 kg per week of gain. Smaller surpluses are cleaner and easier to sustain long-term.</p>
+    <p>One kilogram of body mass stores roughly 7,700 calories. A 500-calorie daily surplus averages about 0.5 kg per week of gain. Smaller surpluses are cleaner and easier to sustain long-term. The <a href="/tdee-calculator/">TDEE calculator</a> gives you your baseline, and the <a href="/calorie-surplus-calculator/">calorie surplus calculator</a> (on this page) converts your desired weekly rate into a daily target.</p>
+
+    <h2>Lean bulk vs dirty bulk</h2>
+    <p>A <strong>lean bulk</strong> uses a small, controlled surplus to add muscle with minimal fat — the smarter long-term approach. A <strong>dirty bulk</strong> piles on calories without limits; you gain faster, but most of it is fat you'll have to diet off later. Aim for the lean bulk approach: track your weekly weight, adjust calories if you're gaining faster than 0.5 kg per week, and prioritize protein at the <a href="/protein-calculator/">protein calculator</a>.</p>
 
     <h2>Best foods for weight gain</h2>
     <ul>
@@ -114,8 +124,11 @@ const faqs: FaqItem[] = [
       <li>Avocados, olive oil, and full-fat dairy for easy extra calories.</li>
     </ul>
 
+    <h2>How to track progress</h2>
+    <p>Weigh yourself weekly under the same conditions. Use the <a href="/body-fat-calculator/">body fat calculator</a> to confirm you are gaining mostly muscle rather than fat. If your body fat percentage rises too quickly, trim the surplus by 100–200 calories and reassess.</p>
+
     <h2>Pairing gain with training</h2>
-    <p>Resistance training turns surplus calories into muscle growth. Combine this plan with the <a href="/one-rep-max-calculator/">one rep max calculator</a> to program progressive overload, and the <a href="/protein-calculator/">protein calculator</a> to hit daily protein targets.</p>
+    <p>Resistance training turns surplus calories into muscle growth. Combine this plan with the <a href="/one-rep-max-calculator/">one rep max calculator</a> to program progressive overload, and the <a href="/protein-calculator/">protein calculator</a> to hit daily protein targets. For full workout plans, explore the <a href="/workouts/">workouts section</a>.</p>
 
     <h2>Related guides</h2>
     <div class="grid gap-4 sm:grid-cols-2">
@@ -128,6 +141,11 @@ const faqs: FaqItem[] = [
         <p class="mt-1 text-sm text-body">Find your maintenance calories and learn how to keep your weight stable over time.</p>
       </div>
     </div>
+
+    <Sources sources={[
+      { label: "Institute of Medicine — Dietary Reference Intakes for Energy", href: "https://www.nationalacademies.org/publication/dietary-reference-intakes-for-energy" },
+      { label: "Academy of Nutrition and Dietetics — Healthy Weight Gain", href: "https://www.eatright.org/health/weight-management" },
+    ]} />
   </Fragment>
 </CalculatorLayout>
 
@@ -187,11 +205,9 @@ const faqs: FaqItem[] = [
         document.querySelectorAll(".weight-unit").forEach((e) => (e.textContent = unit === "metric" ? "(kg)" : "(lb)"));
         const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
         if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
-        render();
       });
     });
 
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-    render();
   }
 </script>

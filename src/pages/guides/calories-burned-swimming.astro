@@ -1,0 +1,125 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
+import type { FaqItem } from "../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { q: "How many calories does swimming burn?", a: "A 70 kg person burns roughly 420 calories during 30 minutes of moderate swimming. Vigorous swimming or butterfly can push that to 600+ calories in the same time." },
+  { q: "Does swimming burn more calories than running?", a: "Running burns slightly more per minute, but swimming is gentler on the joints and can be sustained for longer sessions. For joint-sensitive people, swimming may yield higher total weekly calorie burn." },
+  { q: "Which swimming stroke burns the most calories?", a: "Butterfly burns the most (~13.0 MET), followed by freestyle and backstroke (~7.0–10.0 MET). Breaststroke is lowest intensity. Technique and pace change the exact numbers." },
+  { q: "Can swimming help me lose weight?", a: "Yes. Swimming is full-body, low-impact cardio that burns serious calories. 3–5 sessions per week of 30–60 minutes, paired with a modest calorie deficit, supports steady fat loss." },
+  { q: "How do I estimate calories burned swimming?", a: "Use MET values: Calories per minute = MET × 3.5 × weight (kg) ÷ 200. Moderate swimming is 7.0 MET, vigorous is 10.0 MET. Use the <a href='/swimming-calories-calculator/'>swimming calories calculator</a> for automatic estimates." },
+];
+
+---
+
+<ContentLayout
+  title="Calories Burned Swimming — Full Guide & Calculator"
+  h1="Calories Burned Swimming"
+  description="Complete guide to calories burned swimming: MET values by stroke, intensity, weight, and duration. Use the swimming calorie calculator for personalized estimates."
+  path="/guides/calories-burned-swimming/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="Swimming is a full-body, low-impact workout that burns serious calories. Here's how many calories swimming burns by stroke, intensity, and duration — and how to estimate your own swim."
+  updated="July 2026"
+  faqs={faqs}
+>
+  <ArticleImage src="/assets/images/articles/activity-intensity.svg" alt="Illustration of swimming intensity levels and how stroke choice affects calorie burn." />
+
+  <h2 id="by-intensity">How Many Calories Swimming Burns by Intensity</h2>
+  <p>Swimming intensity is measured in MET — Metabolic Equivalent of Task. The higher the MET, the more calories you burn per minute. For a 70 kg person:</p>
+  <table>
+    <thead><tr><th>Swimming Intensity</th><th>MET</th><th>Calories per minute</th><th>Calories per hour</th></tr></thead>
+    <tbody>
+      <tr><td>Leisure / slow</td><td>6.0</td><td>~7.4 kcal</td><td>~440 kcal</td></tr>
+      <tr><td>Moderate laps</td><td>7.0</td><td>~8.6 kcal</td><td>~516 kcal</td></tr>
+      <tr><td>Vigorous laps</td><td>10.0</td><td>~12.3 kcal</td><td>~735 kcal</td></tr>
+      <tr><td>Butterfly / intense</td><td>13.0</td><td>~16.0 kcal</td><td>~960 kcal</td></tr>
+    </tbody>
+  </table>
+  <p class="text-sm text-mute">Heavier swimmers burn more calories at the same MET. Use the <a href="/swimming-calories-calculator/">swimming calories calculator</a> for personalized numbers.</p>
+
+  <h2 id="factors">Factors Affecting Swim Calorie Burn</h2>
+  <p>Swimming calorie burn isn't just about strokes. Several variables change your total:</p>
+  <ul>
+    <li><strong>Body weight:</strong> More mass means more energy to move through water. A 90 kg swimmer burns ~20% more calories than a 60 kg swimmer at the same pace.</li>
+    <li><strong>Stroke efficiency:</strong> Efficient swimmers glide farther per stroke, slightly reducing burn. Beginners often burn more simply because their technique is less efficient.</li>
+    <li><strong>Water temperature:</strong> Cold water raises metabolic rate slightly as your body works to maintain core temperature. Warm water can feel easier, reducing perceived effort.</li>
+    <li><strong>Rest intervals:</strong> Short rest between laps keeps heart rate elevated. Long rests lower total calorie burn per session.</li>
+    <li><strong>Swim duration:</strong> Longer sessions burn more total calories, but intensity matters more for time-efficient weight loss.</li>
+  </ul>
+
+  <h2 id="stroke-comparison">How Each Swimming Stroke Affects Calorie Burn</h2>
+  <p>Different strokes target different muscles and demand varying effort:</p>
+  <table>
+    <thead><tr><th>Stroke</th><th>MET</th><th>Primary Muscles</th><th>Calories per 30 min (70 kg)</th></tr></thead>
+    <tbody>
+      <tr><td>Freestyle</td><td>7.0–10.0</td><td>Full body, shoulders, core</td><td>420–600 kcal</td></tr>
+      <tr><td>Backstroke</td><td>7.0–8.0</td><td>Back, glutes, hamstrings</td><td>420–480 kcal</td></tr>
+      <tr><td>Breaststroke</td><td>5.0–7.0</td><td>Chest, inner thighs, hips</td><td>300–420 kcal</td></tr>
+      <tr><td>Butterfly</td><td>13.0</td><td>Upper body, core, chest</td><td>780+ kcal</td></tr>
+    </tbody>
+  </table>
+  <p>Mix strokes during a session to target different muscles and keep calorie burn high. Use the <a href="/swimming-calories-calculator/">swimming calories calculator</a> to estimate your specific stroke and intensity.</p>
+
+  <h2 id="swim-vs-other">Swimming vs Other Exercises for Weight Loss</h2>
+  <p>Swimming competes well with running and cycling for calorie burn, but with key advantages:</p>
+  <ul>
+    <li><strong>Low impact:</strong> Water supports 90% of your body weight, sparing knees, hips, and ankles.</li>
+    <li><strong>Full body:</strong> Unlike running (mostly legs), swimming works arms, core, back, and legs simultaneously.</li>
+    <li><strong>Sustainable:</strong> Because it's gentle, you can swim more frequently than you might run or cycle at high intensity.</li>
+    <li><strong>Comparable burn:</strong> Vigorous swimming (~10.0 MET) is close to running at 6 mph (~9.8 MET) and cycling at 14 mph (~8.0 MET).</li>
+  </ul>
+  <p>Compare swimming directly with other activities using the <a href="/calories-burned-calculator/">calories burned calculator</a>, the <a href="/running-calorie-calculator/">running calorie calculator</a>, and the <a href="/cycling-calories-calculator/">cycling calories calculator</a>.</p>
+
+  <h2 id="maximize">Tips for Maximizing Swim Calorie Burn</h2>
+  <p>Get more from every swim session:</p>
+  <ul>
+    <li><strong>Use interval sets:</strong> Sprint 25 meters, rest 15 seconds, repeat. Intervals raise average intensity.</li>
+    <li><strong>Mix strokes:</strong> Alternate freestyle, backstroke, and breaststroke to recruit different muscles.</li>
+    <li><strong>Reduce rest time:</strong> Keep rest intervals to 10–20 seconds between laps to stay in the calorie-burning zone.</li>
+    <li><strong>Add pull sets:</strong> Use a pull buoy to isolate upper-body effort and increase arm engagement.</li>
+    <li><strong>Extend gradually:</strong> Add 5 minutes per week to build endurance and total calorie burn.</li>
+  </ul>
+  <p>Pair your swim routine with a daily calorie target from the <a href="/">calorie calculator</a> and a macro plan from the <a href="/macro-calculator/">macro calculator</a> for best results.</p>
+
+  <h2 id="sample-table">Sample Swimming Calorie Burn Table</h2>
+  <p>Quick reference for a 70 kg swimmer:</p>
+  <table>
+    <thead><tr><th>Duration</th><th>Moderate (7.0 MET)</th><th>Vigorous (10.0 MET)</th><th>Butterfly (13.0 MET)</th></tr></thead>
+    <tbody>
+      <tr><td>15 minutes</td><td>210 kcal</td><td>300 kcal</td><td>390 kcal</td></tr>
+      <tr><td>30 minutes</td><td>420 kcal</td><td>600 kcal</td><td>780 kcal</td></tr>
+      <tr><td>45 minutes</td><td>630 kcal</td><td>900 kcal</td><td>1,170 kcal</td></tr>
+      <tr><td>60 minutes</td><td>840 kcal</td><td>1,200 kcal</td><td>1,560 kcal</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="related-tools">Related Tools and Guides</h2>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/swimming-calories-calculator/">Swimming Calories Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Estimate calories burned swimming by weight, stroke, and duration.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/calories-burned-calculator/">Calories Burned Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Compare swimming with running, cycling, and walking side by side.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/running-calorie-calculator/">Running Calorie Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">See how running stacks up against swimming for calorie burn and joint impact.</p>
+    </div>
+    <div class="card p-4">
+      <h3 class="text-lg font-semibold text-ink"><a href="/cycling-calories-calculator/">Cycling Calories Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Compare cycling and swimming for low-impact cardio and calorie burn.</p>
+    </div>
+  </div>
+
+  <h2 id="continue-learning">Continue Learning</h2>
+  <ul>
+    <li><a href="/swimming-calories-calculator/">Swimming Calories Calculator</a> — Estimate your swim burn</li>
+    <li><a href="/calories-burned-calculator/">Calories Burned Calculator</a> — Compare all activities</li>
+    <li><a href="/guides/best-exercises-to-burn-calories/">Best Exercises to Burn Calories</a> — Find your best workout</li>
+    <li><a href="/macro-calculator/">Macro Calculator</a> — Fuel swimming with the right macros</li>
+  </ul>
+</ContentLayout>
