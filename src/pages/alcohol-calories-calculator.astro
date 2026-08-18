@@ -138,7 +138,7 @@ const drinkTypes = [
   </Fragment>
 </CalculatorLayout>
 
-<script is:inline>
+<script>
   const root = document.getElementById("alc-root");
   if (root) {
     const $ = (id: string) => document.getElementById(id)!;
@@ -158,6 +158,7 @@ const drinkTypes = [
       volume: number;
       label: string;
     }
+
     const presets: Record<string, Preset> = {
       beer: { abv: 5, volume: 355, label: "beers" },
       wine: { abv: 12, volume: 148, label: "glasses" },
@@ -166,7 +167,7 @@ const drinkTypes = [
     };
 
     function render() {
-      const drinkKey = ($("drink-type") as HTMLSelectElement).value
+      const drinkKey = $("drink-type") as HTMLSelectElement
       const abvEl = $("abv") as HTMLInputElement
       const volEl = $("volume") as HTMLInputElement
       const qtyEl = $("quantity") as HTMLInputElement
@@ -180,8 +181,9 @@ const drinkTypes = [
       $("alc-total").textContent = fmtCal(total)
       $("alc-per-drink").textContent = fmtCal(perDrink)
 
-      const preset: Preset = presets[drinkKey] || presets.beer
-      ($("units-display") as HTMLInputElement).value = qtyVal === 1 ? preset.label.replace(/s$/, "") : preset.label
+      const preset = presets[drinkKey.value] || presets.beer
+      const label = qtyVal === 1 ? preset.label.replace(/s$/, "") : preset.label
+      $("units-display").textContent = `${qtyVal} ${label}`
 
       const rows = [
         { name: "Light beer (12 oz)", abv: 4.2, volumeMl: 355 },
@@ -206,14 +208,14 @@ const drinkTypes = [
         .join("")
     }
 
-    ;($("alc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render() });
-    ;($("drink-type") as HTMLSelectElement).addEventListener("change", () => {
-      const drinkKey = ($("drink-type") as HTMLSelectElement).value
-      const preset = presets[drinkKey] || presets.beer
-      ($("abv") as HTMLInputElement).value = String(preset.abv)
-      ($("volume") as HTMLInputElement).value = String(preset.volume)
-      render()
-    })
-    render()
+    $("alc-form").addEventListener("submit", (e) => { e.preventDefault(); render() });
+    $("drink-type").addEventListener("change", function() {
+      const drinkKey = $("drink-type") as HTMLSelectElement;
+      const preset = presets[drinkKey.value] || presets.beer;
+      ($("abv") as HTMLInputElement).value = preset.abv.toString();
+      ($("volume") as HTMLInputElement).value = preset.volume.toString();
+      render();
+    });
+    render();
   }
 </script>

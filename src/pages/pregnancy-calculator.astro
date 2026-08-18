@@ -126,7 +126,7 @@ const faqs: FaqItem[] = [
       ];
       $("milestones").innerHTML = milestones.map(m => {
         const past = m.d < today ? " <span class='text-success'>✓</span>" : "";
-        return `<tr class="border-b border-hairline last:border-0"><td class="px-5 py-2.5 text-body">${m.wt}</td><td class="px-5 py-2.5 text-body">${m.evt}${past}</td><td class="px-5 py-2.5 text-right text-ink">${fmt(m.d)}</td></tr>`;
+        return `<tr class="border-b border-hairline last:border-0"><td class="px-5 py-2.5 text-body">${m.wk}</td><td class="px-5 py-2.5 text-body">${m.evt}${past}</td><td class="px-5 py-2.5 text-right text-ink">${fmt(m.d)}</td></tr>`;
       }).join("");
     }
 

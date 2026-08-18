@@ -32,35 +32,30 @@ const extraCalculators = [
 const allCalculators = [...calculators, ...extraCalculators];
 
 const trust = [
-  { label: "Science-based formulas", icon: "M9 12l2 2 4-4" },
-  { label: "Instant calculations", icon: "M13 2L3 14h9l-1 8 10-12h-9z" },
-  { label: "Mobile friendly", icon: "M7 2h10v20H7zM11 18h2" },
-  { label: "Free forever", icon: "M20 6L9 17l-5-5" },
+  { label: "Science-backed formulas", icon: "M9 12l2 2 4-4", description: "Mifflin-St Jeor BMR and established activity multipliers" },
+  { label: "Private by design", icon: "M13 2L3 14h9l-1 8 10-12h-9z", description: "All calculations run in your browser — no data leaves your device" },
+  { label: "Free forever", icon: "M20 6L9 17l-5-5", description: "11+ calculators with no sign-up, no paywall, no limits" },
 ];
 
 const features = [
   {
-    title: "BMR & TDEE breakdown",
-    body: "See exactly how many calories your body burns at rest and in total each day, calculated with the trusted Mifflin-St Jeor equation.",
-    accent: "from-grad-develop-start to-grad-develop-end",
+    title: "BMR and TDEE breakdown",
+    body: "See exactly how many calories your body burns at rest (BMR) and in total each day (TDEE), calculated with the Mifflin-St Jeor equation.",
     icon: "M3 3v18h18M7 15l3-4 3 2 4-6",
   },
   {
     title: "Goal-based targets",
-    body: "Get tailored calorie numbers for maintenance, weight loss, and weight gain — from a gentle 0.5 lb/week to aggressive cutting or bulking.",
-    accent: "from-grad-preview-start to-grad-preview-end",
+    body: "Get personalized calorie numbers for maintenance, weight loss, or weight gain — from a gentle 0.5 lb/week to aggressive cutting or bulking.",
     icon: "M12 2v20M2 12h20",
   },
   {
-    title: "Macro recommendations",
-    body: "Turn your calorie target into grams of protein, carbs, and fat with a clear visual breakdown you can actually follow.",
-    accent: "from-grad-ship-start to-grad-ship-end",
+    title: "Macro split breakdown",
+    body: "See protein, carbs, and fat in grams and calories, with a donut chart showing your distribution.",
     icon: "M21 12a9 9 0 1 1-9-9v9z",
   },
   {
-    title: "Weekly & timeline view",
-    body: "Understand your weekly calorie budget and estimate how long it will take to reach your target weight at your chosen pace.",
-    accent: "from-grad-develop-start to-grad-preview-end",
+    title: "Weekly timeline",
+    body: "Understand how long it takes to reach a goal weight at your chosen calorie pace — 0.5, 1, or 2 lb/week.",
     icon: "M3 3v18h18M7 14l4-4 3 3 5-6",
   },
 ];
@@ -97,15 +92,14 @@ const jsonLd = [
         class="inline-flex items-center gap-2 rounded-full border border-hairline bg-canvas-soft px-3 py-1 text-xs text-body transition-colors hover:text-ink"
       >
         <span class="h-1.5 w-1.5 rounded-full bg-success"></span>
-        Science-based · Updated for 2025
+        Science-driven · Updated for 2026
       </a>
       <h1 class="mx-auto mt-6 max-w-4xl text-display-xl text-ink">
-        Free Calorie Calculator for <span class="text-gradient">Accurate Daily Calorie Needs</span>
+        Free calculator for <span class="text-gradient">Actual calorie calculations</span>
       </h1>
       <p class="mx-auto mt-6 max-w-2xl text-lg text-body">
-        Find exactly how many calories to eat for weight loss, weight gain, or
-        maintenance. Get your BMR, TDEE, and personalized macros in seconds —
-        completely free.
+        Find precisely how many calories you need to eat daily to lose fat, gain muscle, or maintain your current weight. 
+        Get your personalized target with BMR calculations based on the Mifflin-St Jeor equation.
       </p>
       <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
         <Button href="#calculator" size="lg">Calculate Calories</Button>
@@ -118,14 +112,15 @@ const jsonLd = [
 
   <!-- ── Trust row ────────────────────────────────────── -->
   <div class="border-y border-hairline bg-canvas-soft/50">
-    <div class="container-page grid grid-cols-2 gap-4 py-6 sm:grid-cols-4">
+    <div class="container-page grid grid-cols-2 gap-4 py-6 sm:grid-cols-3">
       {
         trust.map((t) => (
-          <div class="flex items-center justify-center gap-2 text-sm text-body">
-            <svg class="h-4 w-4 text-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="group flex flex-col items-center justify-center gap-1 text-sm text-body p-4 rounded-lg hover:bg-canvas transition-colors">
+            <svg class="h-5 w-5 text-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d={t.icon} />
             </svg>
-            {t.label}
+            <span class="font-medium text-ink">{t.label}</span>
+            <p class="text-xs text-mute text-center max-w-xs opacity-0 group-hover:opacity-100 transition-opacity">{t.description}</p>
           </div>
         ))
       }
@@ -183,16 +178,16 @@ const jsonLd = [
   <!-- ── Features ─────────────────────────────────────── -->
   <Section class="border-t border-hairline">
     <div class="mb-12 max-w-2xl">
-      <h2 class="text-display-md text-ink">Everything you need to hit your goal</h2>
+      <h2 class="text-display-md text-ink">How we calculate your numbers</h2>
       <p class="mt-3 text-body">
-        More than a number — a complete, science-backed picture of your nutrition.
+        Every calculator uses peer-reviewed equations — Mifflin-St Jeor for metabolism, the U.S. Navy circumference method for body fat, and standard MET values for activity. Inputs, formulas, and assumptions are disclosed on each page.
       </p>
     </div>
     <div class="grid gap-5 sm:grid-cols-2">
       {
         features.map((f) => (
           <article class="card group p-6 transition-colors hover:border-hairline-strong">
-            <div class={`mb-4 inline-grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br ${f.accent} text-white`}>
+            <div class={`mb-4 inline-grid h-11 w-11 place-items-center rounded-xl bg-canvas text-ink`}>
               <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d={f.icon} />
               </svg>
@@ -344,10 +339,10 @@ const jsonLd = [
       >
       </div>
       <div class="relative">
-        <h2 class="text-display-md text-ink">Ready to take control of your nutrition?</h2>
+        <h2 class="text-display-md text-ink">Ready to calculate your daily calories?</h2>
         <p class="mx-auto mt-3 max-w-lg text-body">
-          Calculate your personalized calorie and macro targets now — free, instant,
-          and private.
+          Enter your height, weight, age, and activity level for an instant, private
+          calorie target and macro split.
         </p>
         <div class="mt-7">
           <Button href="#calculator" size="lg">Calculate My Calories</Button>

@@ -150,22 +150,22 @@ const faqs: FaqItem[] = [
 </CalculatorLayout>
 
 <script>
-  import { bmrMifflinStJeor, tdee, goalCalories, macrosFromCalories, type Sex, type ActivityKey, type GoalKey } from "../lib/calculations";
+  import { bmrMifflinStJeor, tdee, goalCalories, macrosFromCalories, ACTIVITY_LEVELS, type ActivityKey, type Sex, type GoalKey } from "../lib/calculations";
   import { lbToKg } from "../lib/units";
 
-  const root = document.getElementById("calc-root");
-  if (root) {
+  const root = document.getElementById("calc-root") as HTMLElement | null;
+  if (!root) throw new Error("calc-root not found");
     const $ = (id: string) => document.getElementById(id)!;
     const fmt = (n: number) => Math.round(n).toLocaleString("en-US");
     let unit: "metric" | "imperial" = "metric";
 
     function read() {
-      const sex = (root.querySelector('input[name="sex"]:checked') as HTMLInputElement).value as Sex;
+      const sex = (root!.querySelector('input[name="sex"]:checked') as HTMLInputElement).value as "male" | "female";
       const age = parseFloat(($("age") as HTMLInputElement).value) || 0;
       let w = parseFloat(($("weight") as HTMLInputElement).value) || 0;
       const h = unit === "imperial" ? lbToKg(parseFloat(($("height") as HTMLInputElement).value) || 0) : parseFloat(($("height") as HTMLInputElement).value) || 0;
       if (unit === "imperial") w = lbToKg(w);
-      const activity = ($("activity") as HTMLSelectElement).value as ActivityKey;
+      const activity = ($("activity") as HTMLSelectElement).value as "sedentary" | "light" | "moderate" | "active" | "athlete";
       const rate = parseInt(($("rate") as HTMLSelectElement).value || "500", 10);
       return { sex, age, w, h, activity, rate };
     }
@@ -209,5 +209,4 @@ const faqs: FaqItem[] = [
     });
 
     ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-  }
 </script>

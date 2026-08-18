@@ -133,17 +133,17 @@ const faqs: FaqItem[] = [
 </CalculatorLayout>
 
 <script>
-  import { bmrMifflinStJeor, tdee, macrosFromCalories, ACTIVITY_LEVELS, type Sex, type ActivityKey } from "../lib/calculations";
+  import { bmrMifflinStJeor, tdee, macrosFromCalories, ACTIVITY_LEVELS } from "../lib/calculations";
   import { lbToKg, ftInToCm } from "../lib/units";
 
   const root = document.getElementById("calc-root");
-  if (root) {
+  if (!root) throw new Error("calc-root not found");
     const $ = (id: string) => document.getElementById(id)!;
     const fmt = (n: number) => Math.round(n).toLocaleString("en-US");
     let unit: "metric" | "imperial" = "metric";
 
     function read() {
-      const sex = (root.querySelector('input[name="sex"]:checked') as HTMLInputElement).value as Sex;
+      const sex = (root!.querySelector('input[name="sex"]:checked') as HTMLInputElement).value as "male" | "female";
       const age = parseFloat(($("age") as HTMLInputElement).value) || 0;
       let w = parseFloat(($("weight") as HTMLInputElement).value) || 0;
       let h: number;
@@ -151,7 +151,7 @@ const faqs: FaqItem[] = [
         w = lbToKg(w);
         h = ftInToCm(parseFloat(($("height-ft") as HTMLInputElement).value) || 0, parseFloat(($("height-in") as HTMLInputElement).value) || 0);
       } else h = parseFloat(($("height-cm") as HTMLInputElement).value) || 0;
-      const activity = ($("activity") as HTMLSelectElement).value as ActivityKey;
+      const activity = ($("activity") as HTMLSelectElement).value as "sedentary" | "light" | "moderate" | "active" | "athlete";
       return { sex, age, w, h, activity };
     }
 
@@ -189,6 +189,4 @@ const faqs: FaqItem[] = [
       });
     });
 
-    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
-  }
-</script>
+    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });</script>
