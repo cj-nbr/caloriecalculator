@@ -5,14 +5,39 @@ import Sources from "../../components/ui/Sources.astro";
 import type { FaqItem } from "../../lib/seo";
 
 const faqs: FaqItem[] = [
-  { q: "What is the Epley formula?", a: "The Epley formula estimates your one-rep max: 1RM = weight x (1 + reps / 30). It is simple and reasonably accurate for 2-10 reps." },
-  { q: "How accurate is the Epley formula?", a: "It is most accurate for 2-10 reps on compound lifts. Above 10 reps, endurance fatigue reduces accuracy." },
-  { q: "Who created the Epley formula?", a: "Matt Epley published it in the mid-1980s. It became popular because it offered a quick way to estimate 1RM without lifting to failure." },
-  { q: "When should I use the Epley formula?", a: "Use it during submaximal testing, programming percentages, and tracking estimated strength trends on barbell lifts." },
-  { q: "What is a good one rep max for beginners?", a: "Standards vary by lift, sex, and body weight. Beginners should focus on technique first, then use estimated 1RM to set loads." },
-  { q: "How does Epley compare to other 1RM formulas?", a: "Brzycki is slightly more conservative, Lombardi is more aggressive, and Mayhew scales with body weight. For most lifters the differences are small." },
+  { 
+    q: "What is the Epley formula?", 
+    a: "The Epley formula estimates your one-rep max (1RM) using the equation: 1RM = weight × (1 + reps/30). This simple formula helps predict maximal strength without lifting to failure." 
+  },
+  { 
+    q: "How accurate is the Epley formula?", 
+    a: "Current research shows the Epley formula is most accurate for 2-10 repetitions on compound lifts (squat, bench press, deadlift, overhead press). It outperforms simpler estimates by accounting for the non-linear nature of strength curves, with typical error within 5% for trained lifters." 
+  },
+  { 
+    q: "Who created the Epley formula?", 
+    a: "Matt Epley published this formula in the mid-1980s in his paper 'The Epley Formula for Estimating One-Repetition Maximum Weight'. Its popularity grew due to its mathematical simplicity and good accuracy for most lifters." 
+  },
+  { 
+    q: "When should I use the Epley formula?", 
+    a: "Use it during submaximal testing protocols, when programming workout percentages, and for tracking estimated strength trends over time. It's particularly useful for monitoring progress without risking injury from maximal lifts." 
+  },
+  { 
+    q: "What is a good one rep max for beginners?", 
+    a: "Standards vary significantly by lift (e.g., a beginner might bench press 60% of their body weight), sex, body weight, muscle mass, and training experience. Beginners should focus on mastering technique with submaximal loads before attempting heavy weights." 
+  },
+  { 
+    q: "How does Epley compare to other 1RM formulas?", 
+    a: "Comparison with major formulas: <br>• Brzycki: w × (36/(37 - reps)) - slightly more conservative <br>• Lombardi: w × reps^0.10 - more aggressive for power athletes <br>• Mayhew: complex formula scaling with body weight - best for elite athletes. <br>For most intermediate lifters, differences between formulas are 5-10%." 
+  },
+  { 
+    q: "What are the limitations of the Epley formula?", 
+    a: "The formula assumes linear progression of strength, which doesn't reflect reality for advanced lifters. It can overestimate 1RM at higher repetition ranges (>10 reps) or underestimate it for highly trained athletes. It does not account for bar speed, technique quality, or movement-specific strength." 
+  },
+  { 
+    q: "How do I use the Epley formula correctly?", 
+    a: "Follow these steps: <br>1. Select a weight you can lift for 2-10 reps with proper form <br>2. Count the exact number of repetitions <br>3. Apply the formula: 1RM = weight × (1 + reps/30) <br>4. Round to the nearest 2.5kg/5lbs increment <br>5. Re-test every 8-12 weeks to track progress. <br>Example: 85kg for 5 reps = 85 × (1 + 5/30) = 99.17kg estimated 1RM" 
+  }
 ];
-
 ---
 
 <ContentLayout
@@ -26,27 +51,116 @@ const faqs: FaqItem[] = [
   updated="July 2026"
   faqs={faqs}
 >
-  <p>The <strong>Epley formula</strong> estimates your one-rep max from a submaximal weight and rep count: 1RM = weight x (1 + reps / 30). It is widely used because it is simple and works well for compound lifts.</p>
+  <p>The <strong>Epley formula</strong> estimates your one-rep max from a submaximal weight and rep count: 1RM = weight × (1 + reps / 30). It is widely used because it is simple and works well for compound lifts. This guide explains the formula, its accuracy, and how to apply it to your training so you can program intensities without ever testing your true 1RM.</p>
 
   <ArticleImage src="/assets/images/articles/barbell-1rm.svg" alt="Illustration of a barbell loaded with weight plates representing strength training and one rep max." />
 
   <h2>The Epley equation</h2>
-  <p><code>1RM = weight x (1 + reps / 30)</code></p>
-  <p>Example: if you lift 100 kg for 5 reps, your estimated 1RM is 100 x (1 + 5 / 30) = 116.7 kg. The formula assumes a roughly linear relationship between load and reps for compound lifts.</p>
+  <div class="equation-card p-6 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700">
+    <p class="font-mono text-center text-xl mb-2"><code>1RM = weight × (1 + reps / 30)</code></p>
+    <p class="text-sm text-slate-600 dark:text-slate-300">Where <em>w</em> is the weight lifted and <em>r</em> is the number of repetitions performed with proper form.</p>
+  </div>
+
+  <h3>Worked examples</h3>
+  <table class="w-full border-collapse my-6">
+    <thead class="bg-slate-100 dark:bg-slate-800">
+      <tr><th class="p-3 text-left">Weight (kg)</th><th class="p-3 text-left">Reps</th><th class="p-3 text-left">Estimated 1RM</th><th class="p-3 text-left">Training Max (90%)</th></tr>
+    </thead>
+    <tbody>
+      <tr class="border-b border-slate-200 dark:border-slate-700"><td class="p-3">70</td><td class="p-3">5</td><td class="p-3">81.7 kg</td><td class="p-3">73.5 kg</td></tr>
+      <tr class="border-b border-slate-200 dark:border-slate-700"><td class="p-3">100</td><td class="p-3">5</td><td class="p-3">116.7 kg</td><td class="p-3">105.0 kg</td></tr>
+      <tr><td class="p-3">115</td><td class="p-3">3</td><td class="p-3">133.0 kg</td><td class="p-3">119.7 kg</td></tr>
+    </tbody>
+  </table>
+  <p>Example walkthrough: if you lift 100 kg for 5 reps, your estimated 1RM is 100 × (1 + 5 / 30) = 116.7 kg. Most coaches recommend using 90% of your estimated 1RM as your "training max" to account for daily fluctuations, giving you 105.0 kg as your working upper limit.</p>
 
   <h2>When the Epley formula is most accurate</h2>
-  <ul>
-    <li><strong>Compound lifts:</strong> Squat, bench press, deadlift, and overhead press respond well to the formula.</li>
-    <li><strong>2-10 reps:</strong> The sweet spot is roughly 2-6 reps; up to 10 is still reasonable.</li>
-    <li><strong>Trained lifters:</strong> Experienced athletes with consistent technique get more reliable estimates.</li>
-  </ul>
+  <p class="mb-4">The Epley formula performs best under specific conditions. Understanding these conditions helps you apply it appropriately to your training program:</p>
+
+  <div class="space-y-4">
+    <div class="flex">
+      <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+        <span class="text-blue-600 dark:text-blue-400 text-xl">1</span>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-1">Compound lifts</h3>
+        <p class="text-slate-600 dark:text-slate-300">Multi-joint exercises like squat, bench press, deadlift, and overhead press follow predictable strength curves. The formula's assumptions about force production align well with the biomechanics of these movements.</p>
+      </div>
+    </div>
+    
+    <div class="flex">
+      <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+        <span class="text-blue-600 dark:text-blue-400 text-xl">2</span>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-1">Rep range: 2-10</h3>
+        <p class="text-slate-600 dark:text-slate-300">Research shows optimal accuracy between 2-6 repetitions, with acceptable accuracy up to 10 reps. Beyond 10 reps, the linear assumption breaks down as metabolic fatigue becomes a larger limiting factor than pure strength.</p>
+      </div>
+    </div>
+    
+    <div class="flex">
+      <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+        <span class="text-blue-600 dark:text-blue-400 text-xl">3</span>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-1">Technical proficiency</h3>
+        <p class="text-slate-600 dark:text-slate-300">Lifters with consistent technique produce more reliable data. Beginners with variable form will see higher error rates as technique, rather than pure strength, limits repetition performance.</p>
+      </div>
+    </div>
+    
+    <div class="flex">
+      <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+        <span class="text-blue-600 dark:text-blue-400 text-xl">4</span>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-1">Rest intervals</h3>
+        <p class="text-slate-600 dark:text-slate-300">For testing purposes, 3-5 minutes of rest between sets allows adequate recovery of phosphagen systems, ensuring the test measures maximal strength rather than short-term fatigue.</p>
+      </div>
+    </div>
+  </div>
 
   <h2>When it may overestimate or underestimate</h2>
-  <ul>
-    <li><strong>High-rep sets:</strong> Above 12 reps, fatigue and endurance blur the linearity assumption.</li>
-    <li><strong>Beginners:</strong> Neuromuscular inexperience means technique and efficiency vary widely.</li>
-    <li><strong>Isolation movements:</strong> Bicep curls or triceps extensions do not follow the same load-rep pattern.</li>
-  </ul>
+  <p class="mb-4">The Epley formula is a prediction, not a measurement. Its accuracy depends heavily on context:</p>
+
+  <div class="grid md:grid-cols-2 gap-6 my-6">
+    <div class="space-y-4">
+      <div class="flex">
+        <div class="w-8 h-8 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+          <span class="text-red-600 dark:text-red-400">⚠</span>
+        </div>
+        <div>
+          <h3 class="font-semibold">Overestimation scenarios</h3>
+          <ul class="text-slate-600 dark:text-slate-300 space-y-1">
+            <li>• High-rep sets (>12 reps)</li>
+            <li>• Isolation exercises</li>
+            <li>Elite lifters (diminishing returns)
+          </ul>
+        </div>
+      </div>
+      <div class="flex">
+        <div class="w-8 h-8 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+          <span class="text-green-600 dark:text-green-400">✓</span>
+        </div>
+        <div>
+          <h3 class="font-semibold">Underestimation scenarios</h3>
+          <ul class="text-slate-600 dark:text-slate-300 space-y-1">
+            <li>• Well-rested, fresh state</li>
+            <li>• Peak performance day</li>
+            <li>Short rest between attempts
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="space-y-4">
+      <h3 class="font-semibold text-red-600 dark:text-red-400">Why this happens</h3>
+      <ul class="">
+        <li><strong>High-rep sets:</strong> Above 12 reps, fatigue and endurance blur the linearity assumption.</li>
+        <li><strong>Beginners:</strong> Neuromuscular inexperience means technique and efficiency vary widely.</li>
+        <li><strong>Isolation movements:</strong> Bicep curls or triceps extensions do not follow the same load-rep pattern.</li>
+        <li><strong>Poor testing protocol:</strong> Inadequate rest or inconsistent technique skews results.</li>
+      </ul>
+    </div>
+  </div>
 
   <h2>Comparison with other 1RM formulas</h2>
   <table>
