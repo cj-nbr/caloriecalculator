@@ -1,0 +1,27 @@
+---
+interface Props {
+  reviewerName?: string;
+  reviewerCredentials?: string;
+  reviewerUrl?: string;
+  updatedDate?: string;
+}
+
+const {
+  reviewerName = "Sarah Jenkins",
+  reviewerCredentials = "RD, CDN",
+  reviewerUrl = "/about/#experts",
+  updatedDate
+} = Astro.props;
+---
+
+<div class="flex items-center gap-3 mt-6 pt-4 border-t border-hairline sm:mt-8">
+  <div class="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-canvas-soft border border-hairline flex items-center justify-center text-mute">
+    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+  </div>
+  <div class="text-sm">
+    <p class="text-body m-0 leading-snug">
+      Medically reviewed by <a href={reviewerUrl} class="font-medium text-ink hover:underline">{reviewerName}, {reviewerCredentials}</a>
+    </p>
+    {updatedDate && <p class="text-xs text-mute m-0 mt-0.5 leading-snug">Updated on {updatedDate}</p>}
+  </div>
+</div>
