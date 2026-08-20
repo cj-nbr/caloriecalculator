@@ -1,5 +1,6 @@
 ---
 import type { LegCurlTopic } from "../../data/leg-curl-topics";
+import ArticleImage from "../ui/ArticleImage.astro";
 
 interface Props {
   topic: LegCurlTopic;
@@ -24,9 +25,7 @@ const relatedLinks = [
 ---
 
 <div class="space-y-8">
-  <figure class="overflow-hidden rounded-2xl border border-hairline">
-    <img src={topic.image} alt={topic.imageAlt} class="h-[280px] w-full object-cover sm:h-[420px]" loading="lazy" />
-  </figure>
+  <ArticleImage src={topic.image} alt={topic.imageAlt} class="h-[280px] w-full object-cover sm:h-[420px]" />
 
   <p class="text-lg leading-relaxed text-body">{topic.summary}</p>
 
