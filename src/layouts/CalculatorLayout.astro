@@ -4,7 +4,7 @@ import Section from "../components/ui/Section.astro";
 import FaqSection from "../components/FaqSection.astro";
 import AdsterraAd from "../components/AdsterraAd.astro";
 import ReviewBadge from "../components/ui/ReviewBadge.astro";
-import { NAV, FOOTER } from "../data/site";
+import { NAV, FOOTER, ALL_CALCULATORS } from "../data/site";
 import type { FaqItem } from "../lib/seo";
 import { breadcrumbSchema, calculatorSchema, faqSchema } from "../lib/seo";
 
@@ -31,7 +31,7 @@ const jsonLd = [
 ];
 
 // Related calculators (exclude current page)
-const related = FOOTER[0].links.filter((c) => c.href !== path).slice(0, 6);
+const related = ALL_CALCULATORS.filter((c) => c.href !== path).slice(0, 6);
 ---
 
 <Layout title={title} description={description} canonical={path} jsonLd={jsonLd}>
