@@ -1,6 +1,6 @@
 ---
 import Button from "./ui/Button.astro";
-import { NAV } from "../data/site";
+import { NAV, FOOTER } from "../data/site";
 
 interface Props {
   code: string;
@@ -8,7 +8,7 @@ interface Props {
   message: string;
 }
 const { code, title, message } = Astro.props;
-const calculators = NAV[0].children!.slice(0, 6);
+const calculators = FOOTER[0].links.slice(0, 6);
 ---
 
 <section class="container-page flex min-h-[60vh] flex-col items-center justify-center py-20 text-center">

@@ -7,7 +7,7 @@ import FaqSection from "../components/FaqSection.astro";
 import AdsterraAd from "../components/AdsterraAd.astro";
 import Sources from "../components/ui/Sources.astro";
 import ArticleImage from "../components/ui/ArticleImage.astro";
-import { SITE, NAV } from "../data/site";
+import { SITE, NAV, FOOTER } from "../data/site";
 import { HOME_FAQS } from "../data/faqs";
 import {
   organizationSchema,
@@ -16,7 +16,7 @@ import {
   calculatorSchema,
 } from "../lib/seo";
 
-const calculators = NAV[0].children!;
+const calculators = FOOTER[0].links;
 
 const extraCalculators = [
   { label: "Healthy Weight Calculator", href: "/healthy-weight-calculator/", desc: "BMI-based healthy weight range" },
