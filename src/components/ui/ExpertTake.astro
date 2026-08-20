@@ -1,0 +1,33 @@
+---
+interface Props {
+  expertName?: string;
+  expertTitle?: string;
+  quote: string;
+}
+
+const {
+  expertName = "Dr. Elena Rossi",
+  expertTitle = "MD, Board Certified Physician",
+  quote,
+} = Astro.props;
+---
+
+<div class="my-8 rounded-2xl bg-brand/5 border border-brand/20 p-6 sm:p-8 relative">
+  <div class="absolute -top-3 left-6 bg-brand text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm flex items-center gap-1.5">
+    <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+    Doctor's Advice
+  </div>
+  <div class="flex flex-col sm:flex-row gap-5 items-start mt-2">
+    <div class="h-14 w-14 shrink-0 overflow-hidden rounded-full bg-canvas border-2 border-brand/20 flex items-center justify-center text-brand">
+      <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M19 8v6"></path><path d="M22 11h-6"></path></svg>
+    </div>
+    <div>
+      <p class="text-body italic text-sm sm:text-base leading-relaxed text-ink/90">"{quote}"</p>
+      <div class="mt-4 flex items-center gap-2">
+        <p class="text-sm font-semibold text-ink">{expertName}</p>
+        <span class="inline-flex items-center rounded-full bg-success/10 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-widest text-success">Verified</span>
+      </div>
+      <p class="text-xs text-mute mt-0.5">{expertTitle}</p>
+    </div>
+  </div>
+</div>

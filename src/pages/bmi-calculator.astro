@@ -5,6 +5,7 @@ import type { FaqItem } from "../lib/seo";
 import Sources from "../components/ui/Sources.astro";
 import MedicalNote from "../components/ui/MedicalNote.astro";
 import ArticleImage from "../components/ui/ArticleImage.astro";
+import ExpertTake from "../components/ui/ExpertTake.astro";
 
 const faqs: FaqItem[] = [
   { q: "What is a healthy BMI?", a: "A BMI between 18.5 and 24.9 is classified as a healthy weight for most adults. Below 18.5 is underweight, 25–29.9 is overweight, and 30 or above is obese." },
@@ -96,6 +97,8 @@ const faqs: FaqItem[] = [
      <p>BMI sorts adults into four broad categories. While a "normal" BMI is associated with lower risk for many chronic conditions, the number is only one piece of the puzzle. Your <a href="/body-fat-calculator/">body fat percentage</a>, waist circumference, fitness level, and family history all matter.</p>
      <h2>Limitations of BMI</h2>
      <p>Because BMI cannot tell muscle from fat, athletes and very muscular individuals may have a high BMI while being extremely lean. Conversely, older adults who have lost muscle may have a "normal" BMI while carrying excess fat. For a more complete picture, combine BMI with a <a href="/body-fat-calculator/">body fat calculation</a> and your <a href="/lean-body-mass-calculator/">lean body mass</a>.</p>
+
+     <ExpertTake quote="While BMI is a widely used screening tool for populations, it shouldn't be the only metric you look at for personal health. It cannot distinguish between muscle weight and fat weight. I advise my patients to look at BMI in conjunction with their waist circumference and daily energy levels for a much clearer picture of overall metabolic health." />
 
      <ArticleImage src="/assets/images/articles/bmi-scale.svg" alt="BMI category scale showing underweight, normal, overweight, and obese ranges with dividing lines at 18.5, 25, and 30." />
 

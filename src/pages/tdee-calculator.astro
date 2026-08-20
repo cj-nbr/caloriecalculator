@@ -4,6 +4,7 @@ import { inputCls, segOptCls, selectCls } from "../lib/ui";
 import type { FaqItem } from "../lib/seo";
 import Sources from "../components/ui/Sources.astro";
 import ArticleImage from "../components/ui/ArticleImage.astro";
+import ExpertTake from "../components/ui/ExpertTake.astro";
 
 const faqs: FaqItem[] = [
   { q: "What is TDEE?", a: "Total Daily Energy Expenditure is the total number of calories you burn in a full day, including your resting metabolism (BMR) plus all movement, exercise, and digestion. It's the key number for managing your weight." },
@@ -108,6 +109,8 @@ const faqs: FaqItem[] = [
        <li><strong>Diet composition:</strong> high-protein diets increase TEF and preserve muscle during weight loss, helping maintain a higher TDEE. Very low-calorie diets can trigger metabolic adaptation, lowering BMR by 5–15%.</li>
        <li><strong>Body size:</strong> larger bodies burn more calories simply because there is more tissue to maintain. Height, weight, and body composition all play a role.</li>
      </ul>
+
+     <ExpertTake quote="I constantly remind patients that TDEE is a moving target. As you lose weight, your body requires fewer calories to maintain itself, meaning your TDEE drops. This is why a calorie deficit that worked in month 1 might stop working in month 3. It's critical to recalculate your TDEE after every 10 lbs of weight loss to avoid plateauing." />
 
      <h2>TDEE vs maintenance calories</h2>
      <p>TDEE and maintenance calories mean the same thing. Your <strong>Total Daily Energy Expenditure</strong> is the amount of energy you burn in a day. When you eat that exact amount, your weight stays the same — that is maintenance. The terms are interchangeable, though TDEE is the more common technical term in research, while "maintenance calories" is more common in fitness and dieting conversations. Use the <a href="/guides/maintenance-calorie-calculator/">maintenance calorie calculator guide</a> for a deeper dive, or explore <a href="/guides/maintenance-calories/">maintenance calories explained</a> for practical tips on staying stable.</p>
