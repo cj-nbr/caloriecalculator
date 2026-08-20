@@ -3,6 +3,7 @@ import Layout from "./Layout.astro";
 import Section from "../components/ui/Section.astro";
 import FaqSection from "../components/FaqSection.astro";
 import AdsterraAd from "../components/AdsterraAd.astro";
+import ReviewBadge from "../components/ui/ReviewBadge.astro";
 import { NAV } from "../data/site";
 import type { FaqItem } from "../lib/seo";
 import { breadcrumbSchema, calculatorSchema, faqSchema } from "../lib/seo";
@@ -58,6 +59,7 @@ const related = NAV[0].children!.filter((c) => c.href !== path).slice(0, 6);
     <div class="container-page py-12 sm:py-16">
       <h1 class="max-w-3xl text-display-lg text-ink">{h1}</h1>
       <p class="mt-4 max-w-2xl text-lg text-body">{intro}</p>
+      <ReviewBadge updatedDate="August 2026" />
     </div>
   </header>
 
