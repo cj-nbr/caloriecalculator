@@ -7,6 +7,24 @@ import Button from "./ui/Button.astro";
 <header
   class="sticky top-0 z-40 border-b border-hairline bg-canvas/70 backdrop-blur-xl backdrop-saturate-150"
 >
+  <!-- Trust Bar -->
+  <div class="hidden bg-canvas-soft border-b border-hairline text-xs font-medium text-mute py-1.5 sm:block">
+    <div class="container-page flex items-center justify-center gap-6">
+      <span class="flex items-center gap-1.5">
+        <svg class="h-3.5 w-3.5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        Medically Reviewed
+      </span>
+      <span class="flex items-center gap-1.5">
+        <svg class="h-3.5 w-3.5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
+        100% Free Forever
+      </span>
+      <span class="flex items-center gap-1.5">
+        <svg class="h-3.5 w-3.5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+        Evidence Based
+      </span>
+    </div>
+  </div>
+
   <nav
     class="container-page flex h-16 items-center justify-between gap-4"
     aria-label="Primary"

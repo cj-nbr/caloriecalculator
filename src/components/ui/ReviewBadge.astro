@@ -24,6 +24,10 @@ const {
         <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
         Verified
       </span>
+      <span class="inline-flex items-center gap-1 rounded bg-brand/10 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-brand">
+        <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        Fact Checked
+      </span>
       <span>Medically reviewed by <a href={reviewerUrl} class="font-medium text-ink hover:underline">{reviewerName}, {reviewerCredentials}</a></span>
     </p>
     {updatedDate && <p class="text-xs text-mute m-0 mt-0.5 leading-snug">Updated on {updatedDate}</p>}

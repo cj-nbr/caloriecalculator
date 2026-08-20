@@ -1,5 +1,5 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 // Tailwind CSS v4 is wired up via PostCSS (see postcss.config.mjs).
@@ -7,6 +7,7 @@ import { defineConfig } from 'astro/config';
 // (served at /sitemap.xml) and referenced from robots.txt.
 export default defineConfig({
   site: 'https://caloriecalculatorfree.com',
+  integrations: [sitemap()],
   build: {
     inlineStylesheets: 'auto',
   },
