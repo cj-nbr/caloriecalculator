@@ -120,13 +120,8 @@ const ogImage = new URL("/og-default.svg", SITE.url).href;
       (function () {
         try {
           var stored = localStorage.getItem("theme");
-          var theme = stored || "light"; // light by default
-          if (stored === null) {
-            // No explicit choice yet: follow the device, defaulting to light.
-            theme = window.matchMedia("(prefers-color-scheme: dark)").matches
-              ? "dark"
-              : "light";
-          }
+          // Default to light mode for all new visitors, ignoring OS preference.
+          var theme = stored || "light"; 
           document.documentElement.classList.toggle("dark", theme === "dark");
         } catch (e) {
           document.documentElement.classList.remove("dark");
