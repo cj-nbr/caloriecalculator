@@ -36,7 +36,7 @@ const ogImage = new URL("/og-default.svg", SITE.url).href;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -120,16 +120,16 @@ const ogImage = new URL("/og-default.svg", SITE.url).href;
       (function () {
         try {
           var stored = localStorage.getItem("theme");
-          var theme = stored || "dark"; // dark by default
+          var theme = stored || "light"; // light by default
           if (stored === null) {
-            // No explicit choice yet: follow the device, defaulting to dark.
-            theme = window.matchMedia("(prefers-color-scheme: light)").matches
-              ? "light"
-              : "dark";
+            // No explicit choice yet: follow the device, defaulting to light.
+            theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
           }
           document.documentElement.classList.toggle("dark", theme === "dark");
         } catch (e) {
-          document.documentElement.classList.add("dark");
+          document.documentElement.classList.remove("dark");
         }
       })();
     </script>
