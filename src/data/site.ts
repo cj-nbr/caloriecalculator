@@ -22,36 +22,9 @@ export interface NavLink {
 /** Header dropdown groups. */
 export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
   {
-    label: "Calculators",
+    label: "Home",
     href: "/",
-    children: [
-      { label: "Calorie Calculator", href: "/", desc: "Daily calories for your goal" },
-      { label: "TDEE Calculator", href: "/tdee-calculator/", desc: "Total daily energy expenditure" },
-      { label: "BMR Calculator", href: "/bmr-calculator/", desc: "Basal metabolic rate" },
-      { label: "BMI Calculator", href: "/bmi-calculator/", desc: "Body mass index" },
-      { label: "Macro Calculator", href: "/macro-calculator/", desc: "Protein, carbs & fat split" },
-      { label: "Body Fat Calculator", href: "/body-fat-calculator/", desc: "U.S. Navy method" },
-      { label: "Army Body Fat Calculator", href: "/army-body-fat-calculator/", desc: "U.S. Army tape test" },
-      { label: "Ideal Weight", href: "/ideal-weight-calculator/", desc: "Healthy weight range" },
-      { label: "Lean Body Mass", href: "/lean-body-mass-calculator/", desc: "Fat-free mass" },
-      { label: "Protein Calculator", href: "/protein-calculator/", desc: "Daily protein target" },
-      { label: "Water Intake", href: "/water-intake-calculator/", desc: "Daily hydration" },
-      { label: "Weight Loss", href: "/weight-loss-calculator/", desc: "Plan & timeline" },
-      { label: "Weight Gain", href: "/weight-gain-calculator/", desc: "Calorie surplus & timeline" },
-      { label: "Calorie Deficit Calculator", href: "/calorie-deficit-calculator/", desc: "Daily deficit target" },
-      { label: "Calories Burned", href: "/calories-burned-calculator/", desc: "Exercise calorie burn" },
-      { label: "Running Calorie Calculator", href: "/running-calorie-calculator/", desc: "Calories burned running" },
-      { label: "Walking Calorie Calculator", href: "/walking-calorie-calculator/", desc: "Calories burned walking" },
-      { label: "Treadmill Calorie Calculator", href: "/treadmill-calorie-calculator/", desc: "Treadmill calorie burn" },
-      { label: "Cycling Calories Calculator", href: "/cycling-calories-calculator/", desc: "Calories burned cycling" },
-      { label: "Swimming Calories Calculator", href: "/swimming-calories-calculator/", desc: "Calories burned swimming" },
-      { label: "Recipe Calorie Calculator", href: "/recipe-calorie-calculator/", desc: "Total & per-serving recipe calories" },
-      { label: "Intermittent Fasting Calculator", href: "/intermittent-fasting-calculator/", desc: "Fasting window planner" },
-      { label: "One Rep Max Calculator", href: "/one-rep-max-calculator/", desc: "Estimate your 1RM" },
-      { label: "Target Heart Rate Calculator", href: "/target-heart-rate-calculator/", desc: "Training heart rate zones" },
-      { label: "Alcohol Calories Calculator", href: "/alcohol-calories-calculator/", desc: "Calories in beer, wine & spirits" },
-      { label: "Pace Calculator", href: "/pace-calculator/", desc: "Running, walking, cycling pace" },
-    ],
+
   },
   {
     label: "Health",
