@@ -1,10 +1,10 @@
 /** Shared Tailwind class strings for form controls across calculators. */
 export const inputCls =
-  "w-full h-11 rounded-lg border border-hairline bg-canvas px-3.5 text-sm text-ink placeholder:text-mute transition-colors focus:border-brand focus:outline-none";
+  "w-full h-11 rounded-lg border border-hairline bg-canvas px-3.5 text-sm text-ink placeholder:text-mute transition-all focus:border-brand focus:ring-2 focus:ring-brand/20 focus:outline-none shadow-sm";
 
 export const selectWrapCls = "relative";
 export const selectCls =
-  "w-full h-11 appearance-none rounded-lg border border-hairline bg-canvas px-3.5 pr-9 text-sm text-ink focus:border-brand focus:outline-none";
+  "w-full h-11 appearance-none rounded-lg border border-hairline bg-canvas px-3.5 pr-9 text-sm text-ink transition-all focus:border-brand focus:ring-2 focus:ring-brand/20 focus:outline-none shadow-sm";
 
 /** Segmented sex toggle option label classes. */
 export const segOptCls =
