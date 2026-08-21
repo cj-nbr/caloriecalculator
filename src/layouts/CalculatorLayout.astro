@@ -1,23 +1,37 @@
----
+﻿---
 import Layout from "./Layout.astro";
 import Section from "../components/ui/Section.astro";
 import FaqSection from "../components/FaqSection.astro";
 import AdsterraAd from "../components/AdsterraAd.astro";
 import ReviewBadge from "../components/ui/ReviewBadge.astro";
+import ExpertBio from "../components/ui/ExpertBio.astro";
 import { NAV, FOOTER, ALL_CALCULATORS } from "../data/site";
 import type { FaqItem } from "../lib/seo";
 import { breadcrumbSchema, calculatorSchema, faqSchema } from "../lib/seo";
+import { DEFAULT_AUTHOR, DEFAULT_REVIEWER } from "../data/authors";
+import type { Expert } from "../data/authors";
 
 interface Props {
-  title: string; // <title> / meta
-  h1: string; // visible heading
+  title: string;
+  h1: string;
   description: string;
   intro: string;
-  path: string; // e.g. "/bmi-calculator/"
+  path: string;
   faqs?: FaqItem[];
+  author?: Expert;
+  reviewer?: Expert;
 }
 
-const { title, h1, description, intro, path, faqs = [] } = Astro.props;
+const { 
+  title, 
+  h1, 
+  description, 
+  intro, 
+  path, 
+  faqs = [],
+  author = DEFAULT_AUTHOR,
+  reviewer = DEFAULT_REVIEWER
+} = Astro.props;
 
 const crumbs = [
   { name: "Home", path: "/" },
@@ -26,16 +40,14 @@ const crumbs = [
 
 const jsonLd = [
   breadcrumbSchema(crumbs),
-  calculatorSchema(h1, description, path),
+  calculatorSchema(h1, description, path, reviewer),
   ...(faqs.length ? [faqSchema(faqs)] : []),
 ];
 
-// Related calculators (exclude current page)
 const related = ALL_CALCULATORS.filter((c) => c.href !== path).slice(0, 6);
 ---
 
 <Layout title={title} description={description} canonical={path} jsonLd={jsonLd}>
-  <!-- Breadcrumb -->
   <nav aria-label="Breadcrumb" class="border-b border-hairline bg-canvas-soft/40">
     <ol class="container-page flex items-center gap-2 py-3 text-xs text-mute">
       {
@@ -53,34 +65,35 @@ const related = ALL_CALCULATORS.filter((c) => c.href !== path).slice(0, 6);
     </ol>
   </nav>
 
-  <!-- Header -->
   <header class="relative overflow-hidden border-b border-hairline">
     <div class="bg-grid pointer-events-none absolute inset-0 -z-10 opacity-50" aria-hidden="true"></div>
     <div class="container-page py-12 sm:py-16">
       <h1 class="max-w-3xl text-display-lg text-ink">{h1}</h1>
       <p class="mt-4 max-w-2xl text-lg text-body">{intro}</p>
       <ReviewBadge updatedDate="August 2026" />
+      <div class="mt-4 flex flex-wrap gap-4 text-sm text-mute">
+         <div class="flex items-center gap-2"><img src={author.image} alt={author.name} class="w-6 h-6 rounded-full object-cover" /> <span>Built & written by <span class="font-medium text-ink">{author.name}</span></span></div>
+         <div class="flex items-center gap-2"><img src={reviewer.image} alt={reviewer.name} class="w-6 h-6 rounded-full object-cover" /> <span>Medically reviewed by <span class="font-medium text-ink">{reviewer.name}</span></span></div>
+      </div>
     </div>
   </header>
 
-<!-- Calculator -->
    <Section class="!py-12 sm:!py-16">
      <slot />
    </Section>
 
-   <!-- Ad placement - below calculator results -->
    <AdsterraAd />
 
-   <!-- Long-form content -->
   <div class="border-t border-hairline">
     <div class="container-page py-12 sm:py-16">
       <div class="prose-content mx-auto max-w-3xl">
         <slot name="content" />
+        
+        <ExpertBio expert={reviewer} title="Medically Reviewed By" />
       </div>
     </div>
   </div>
 
-  <!-- FAQ -->
   {
     faqs.length > 0 && (
       <Section class="border-t border-hairline">
@@ -89,7 +102,6 @@ const related = ALL_CALCULATORS.filter((c) => c.href !== path).slice(0, 6);
     )
   }
 
-  <!-- Related calculators -->
   <Section class="border-t border-hairline">
     <h2 class="text-display-sm text-ink">Related calculators</h2>
     <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

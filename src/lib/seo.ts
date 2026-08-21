@@ -1,5 +1,6 @@
-/** seo.ts — JSON-LD structured-data builders. */
+/** seo.ts - JSON-LD structured-data builders. */
 import { SITE } from "../data/site";
+import type { Expert } from "../data/authors";
 
 export interface FaqItem {
   q: string;
@@ -51,9 +52,20 @@ export function breadcrumbSchema(crumbs: { name: string; path: string }[]) {
   };
 }
 
+function getPersonSchema(expert: Expert) {
+  const schema: any = {
+    "@type": "Person",
+    name: expert.name,
+    jobTitle: expert.role,
+    image: expert.image,
+  };
+  if (expert.url) schema.url = expert.url;
+  return schema;
+}
+
 /** WebApplication schema for a calculator tool page. */
-export function calculatorSchema(name: string, description: string, path: string) {
-  return {
+export function calculatorSchema(name: string, description: string, path: string, reviewer?: Expert) {
+  const schema: any = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     name,
@@ -63,11 +75,13 @@ export function calculatorSchema(name: string, description: string, path: string
     operatingSystem: "Any",
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   };
+  if (reviewer) schema.reviewedBy = getPersonSchema(reviewer);
+  return schema;
 }
 
 /** SoftwareApplication schema for tool pages. */
-export function softwareApplicationSchema(name: string, description: string, path: string) {
-  return {
+export function softwareApplicationSchema(name: string, description: string, path: string, reviewer?: Expert) {
+  const schema: any = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name,
@@ -77,6 +91,8 @@ export function softwareApplicationSchema(name: string, description: string, pat
     operatingSystem: "Any",
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   };
+  if (reviewer) schema.reviewedBy = getPersonSchema(reviewer);
+  return schema;
 }
 
 /** Article schema for long-form guide / resource pages. */
@@ -85,6 +101,8 @@ export function articleSchema(opts: {
   description: string;
   path: string;
   dateModified?: string;
+  author?: Expert;
+  reviewer?: Expert;
 }) {
   const data: Record<string, any> = {
     "@context": "https://schema.org",
@@ -92,7 +110,7 @@ export function articleSchema(opts: {
     headline: opts.headline,
     description: opts.description,
     mainEntityOfPage: { "@type": "WebPage", "@id": new URL(opts.path, SITE.url).href },
-    author: { "@type": "Organization", name: SITE.name, url: SITE.url },
+    author: opts.author ? getPersonSchema(opts.author) : { "@type": "Organization", name: SITE.name, url: SITE.url },
     publisher: {
       "@type": "Organization",
       name: SITE.name,
@@ -100,5 +118,6 @@ export function articleSchema(opts: {
     },
   };
   if (opts.dateModified) data.dateModified = opts.dateModified;
+  if (opts.reviewer) data.reviewedBy = getPersonSchema(opts.reviewer);
   return data;
 }

@@ -1,24 +1,29 @@
----
+﻿---
 import Layout from "./Layout.astro";
 import Section from "../components/ui/Section.astro";
 import FaqSection from "../components/FaqSection.astro";
 import Button from "../components/ui/Button.astro";
 import AdsterraAd from "../components/AdsterraAd.astro";
 import ReviewBadge from "../components/ui/ReviewBadge.astro";
+import ExpertBio from "../components/ui/ExpertBio.astro";
 import type { FaqItem } from "../lib/seo";
 import { breadcrumbSchema, faqSchema, articleSchema } from "../lib/seo";
+import { DEFAULT_AUTHOR, DEFAULT_REVIEWER } from "../data/authors";
+import type { Expert } from "../data/authors";
 
 interface Props {
   title: string;
   h1: string;
   description: string;
   path: string;
-  category?: string; // breadcrumb middle label, e.g. "Guides"
+  category?: string;
   categoryPath?: string;
   lead?: string;
   updated?: string;
   faqs?: FaqItem[];
   showCta?: boolean;
+  author?: Expert;
+  reviewer?: Expert;
 }
 
 const {
@@ -32,6 +37,8 @@ const {
   updated,
   faqs = [],
   showCta = true,
+  author = DEFAULT_AUTHOR,
+  reviewer = DEFAULT_REVIEWER,
 } = Astro.props;
 
 const crumbs = [
@@ -42,7 +49,7 @@ const crumbs = [
 
 const jsonLd = [
   breadcrumbSchema(crumbs),
-  ...(category ? [articleSchema({ headline: h1, description, path, dateModified: updated })] : []),
+  ...(category ? [articleSchema({ headline: h1, description, path, dateModified: updated, author, reviewer })] : []),
   ...(faqs.length ? [faqSchema(faqs)] : []),
 ];
 ---
@@ -72,16 +79,22 @@ const jsonLd = [
       <h1 class="mt-2 text-display-lg text-ink">{h1}</h1>
       {lead && <p class="mt-4 text-lg text-body">{lead}</p>}
       <ReviewBadge updatedDate={updated || "August 2026"} />
+      <div class="mt-4 flex flex-wrap gap-4 text-sm text-mute">
+         <div class="flex items-center gap-2"><img src={author.image} alt={author.name} class="w-6 h-6 rounded-full object-cover" /> <span>Written by <span class="font-medium text-ink">{author.name}</span></span></div>
+         <div class="flex items-center gap-2"><img src={reviewer.image} alt={reviewer.name} class="w-6 h-6 rounded-full object-cover" /> <span>Reviewed by <span class="font-medium text-ink">{reviewer.name}</span></span></div>
+      </div>
     </div>
   </header>
 
   <div class="container-page py-12 sm:py-16">
     <article class="prose-content mx-auto max-w-3xl">
       <slot />
+      
+      <ExpertBio expert={reviewer} title="Medically Reviewed By" />
+      <ExpertBio expert={author} title="Written By" />
     </article>
   </div>
 
-  <!-- Ad placement - below article content -->
   <AdsterraAd />
 
   {
@@ -99,7 +112,7 @@ const jsonLd = [
           <div class="pointer-events-none absolute inset-0 opacity-[0.1]" style="background: linear-gradient(120deg,#007cf0,#00dfd8,#7928ca,#ff0080);" aria-hidden="true" />
           <div class="relative">
             <h2 class="text-display-sm text-ink">Calculate your numbers</h2>
-            <p class="mx-auto mt-2 max-w-md text-body">Put this into practice — get your personalized calorie and macro targets free.</p>
+            <p class="mx-auto mt-2 max-w-md text-body">Put this into practice - get your personalized calorie and macro targets free.</p>
             <div class="mt-6"><Button href="/#calculator" size="lg">Open the calculator</Button></div>
           </div>
         </div>
