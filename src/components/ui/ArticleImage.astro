@@ -30,19 +30,19 @@ if (src.includes(".svg")) {
   }
   // Running & Cardio
   else if (filename.includes("run") || filename.includes("walk") || filename.includes("pace")) {
-    finalSrc = "https://images.unsplash.com/photo-1476480862126-209bcaa8ea47?auto=format&fit=crop&w=800&q=80"; // Running outdoors
+    finalSrc = "https://loremflickr.com/800/600/running,workout"; // Running outdoors
   }
   // Weight & Measurement (BMI, BMR, Scales)
-  else if (filename.includes("bmi") || filename.includes("bmr") || filename.includes("scale") || filename.includes("weight") || filename.includes("tape") || filename.includes("body")) {
-    finalSrc = "https://images.unsplash.com/photo-1584308666744-247e8f68e0d6?auto=format&fit=crop&w=800&q=80"; // Tape measure / scale
+  else if (filename.includes("bmi") || filename.includes("bmr") || filename.includes("scale") || filename.includes("weight") || filename.includes("tape") || filename.includes("body") || filename.includes("mass")) {
+    finalSrc = "https://loremflickr.com/800/600/scale,weight"; // Tape measure / scale
   }
   // Pregnancy & Time
   else if (filename.includes("pregnancy") || filename.includes("conception") || filename.includes("date") || filename.includes("fasting")) {
-    finalSrc = "https://images.unsplash.com/photo-1511285560929-80a456fea0bc?auto=format&fit=crop&w=800&q=80"; // Clock / Time
+    finalSrc = "https://loremflickr.com/800/600/pregnancy,woman"; // Clock / Time
   }
   // Fallback health image
   else {
-    finalSrc = "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"; // Healthy lifestyle
+    finalSrc = "https://loremflickr.com/800/600/health,fitness"; // Healthy lifestyle
   }
 }
 ---
