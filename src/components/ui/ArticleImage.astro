@@ -10,9 +10,10 @@ interface Props {
   class?: string;
   width?: number;
   height?: number;
+  priority?: boolean;
 }
 
-const { src, alt, class: className = "", width, height } = Astro.props;
+const { src, alt, class: className = "", width, height, priority = false } = Astro.props;
 
 let finalSrc = src;
 
@@ -52,8 +53,9 @@ if (src.includes(".svg")) {
     <img
       src={finalSrc}
       alt={alt}
-      loading="lazy"
+      loading={priority ? "eager" : "lazy"}
       decoding="async"
+      fetchpriority={priority ? "high" : "auto"}
       {width}
       {height}
       class="mx-auto h-auto w-full max-w-2xl rounded-xl object-cover shadow-sm aspect-video"
