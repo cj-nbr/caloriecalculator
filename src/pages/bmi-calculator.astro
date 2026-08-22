@@ -59,7 +59,7 @@ const faqs: FaqItem[] = [
     </form>
 
     <div class="space-y-5">
-      <div class="card p-6 sm:p-8 text-center">
+      <div id="result-box" class="card p-6 sm:p-8 text-center transition-all duration-300">
         <p class="text-sm text-mute">Your BMI</p>
         <p id="bmi-value" class="mt-1 text-display-xl text-ink tabular-nums">22.9</p>
         <p class="mt-2 inline-flex items-center gap-2 rounded-full border border-hairline px-3 py-1 text-sm">
@@ -69,7 +69,7 @@ const faqs: FaqItem[] = [
         <!-- Scale -->
         <div class="mt-6">
           <div class="relative h-2.5 w-full rounded-full" style="background: linear-gradient(90deg,#f5a623 0%,#0cce6b 25%,#0cce6b 45%,#f5a623 60%,#ee0000 100%);">
-            <div id="bmi-marker" class="absolute top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-canvas bg-ink shadow" style="left:50%"></div>
+            <div id="bmi-marker" class="absolute top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-canvas bg-ink shadow transition-all duration-300" style="left:50%"></div>
           </div>
           <div class="mt-2 flex justify-between text-[11px] text-mute">
             <span>15</span><span>18.5</span><span>25</span><span>30</span><span>40</span>
@@ -117,6 +117,7 @@ const faqs: FaqItem[] = [
   if (root) {
     const $ = (id: string) => document.getElementById(id)!;
     let unit: "metric" | "imperial" = "metric";
+    let isDirty = false;
 
     function read() {
       let w = parseFloat(($("weight") as HTMLInputElement).value) || 0;
@@ -130,7 +131,18 @@ const faqs: FaqItem[] = [
       return { w, h };
     }
 
+    function markDirty() {
+      if (isDirty) return;
+      isDirty = true;
+      $("result-box").classList.add("opacity-40", "grayscale");
+      $("bmi-value").textContent = "-.-";
+      $("bmi-cat").textContent = "Update values...";
+      ($("bmi-dot") as HTMLElement).style.background = "#94a3b8";
+    }
+
     function render() {
+      isDirty = false;
+      $("result-box").classList.remove("opacity-40", "grayscale");
       const { w, h } = read();
       if (w <= 0 || h <= 0) return;
       const v = bmi(w, h);
@@ -165,9 +177,12 @@ const faqs: FaqItem[] = [
         const wi = $("weight") as HTMLInputElement;
         const cv = parseFloat(wi.value) || 0;
         if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
+        markDirty();
       });
     });
 
-    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    const form = $("calc-form") as HTMLFormElement;
+    form.addEventListener("input", markDirty);
+    form.addEventListener("submit", (e) => { e.preventDefault(); render(); });
   }
 </script>
