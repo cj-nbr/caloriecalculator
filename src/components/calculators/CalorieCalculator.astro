@@ -247,17 +247,19 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
     function markDirty() {
       if (isDirty) return;
       isDirty = true;
-      const box = $("calc-results");
-      if (box) box.classList.add("opacity-40", "grayscale");
-      const btn = $("calc-btn");
+      const box = document.getElementById("result-box") || document.getElementById("calc-results");
+      if (box) {
+        box.querySelectorAll(".tabular-nums").forEach((el) => {
+          el.textContent = "-.-";
+        });
+      }
+      const btn = document.getElementById("calc-btn");
       if (btn) btn.classList.add("is-dirty");
     }
 
     function clearDirty() {
       isDirty = false;
-      const box = $("calc-results");
-      if (box) box.classList.remove("opacity-40", "grayscale");
-      const btn = $("calc-btn");
+      const btn = document.getElementById("calc-btn");
       if (btn) btn.classList.remove("is-dirty");
     }
 

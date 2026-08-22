@@ -134,17 +134,18 @@ const faqs: FaqItem[] = [
     function markDirty() {
       if (isDirty) return;
       isDirty = true;
-      $("result-box").classList.add("opacity-40", "grayscale");
-      $("bmi-value").textContent = "-.-";
-      $("bmi-cat").textContent = "Update values...";
-      ($("bmi-dot") as HTMLElement).style.background = "#94a3b8";
-      const btn = $("calc-btn");
+      const box = document.getElementById("result-box") || document.getElementById("calc-results");
+      if (box) {
+        box.querySelectorAll(".tabular-nums").forEach((el) => {
+          el.textContent = "-.-";
+        });
+      }
+      const btn = document.getElementById("calc-btn");
       if (btn) btn.classList.add("is-dirty");
     }
 
     function render() {
       isDirty = false;
-      $("result-box").classList.remove("opacity-40", "grayscale");
       const btn = $("calc-btn");
       if (btn) btn.classList.remove("is-dirty");
       const { w, h } = read();
