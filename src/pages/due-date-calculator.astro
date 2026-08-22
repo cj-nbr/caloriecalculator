@@ -31,11 +31,11 @@ const faqs: FaqItem[] = [
         <label for="lmp" class="block text-sm font-medium text-ink">Last Menstrual Period (LMP)</label>
         <input id="lmp" type="date" class={inputCls} />
       </div>
-      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Due Date</button>
+      <button type="submit" id="calc-btn" class="shimmer-btn inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Due Date</button>
     </form>
 
     <div class="space-y-5">
-      <div class="card p-6 sm:p-8 text-center">
+      <div id="result-box" class="card p-6 sm:p-8 text-center transition-all duration-300">
         <p class="text-sm text-mute">Estimated Due Date</p>
         <p id="due-date" class="mt-1 text-display-xl text-ink tabular-nums">—</p>
       </div>
@@ -81,11 +81,30 @@ const faqs: FaqItem[] = [
   const root = document.getElementById("calc-root");
   if (root) {
     const $ = (id: string) => document.getElementById(id)!;
+    let isDirty = false;
+
+    function markDirty() {
+      if (isDirty) return;
+      isDirty = true;
+      const box = $("result-box");
+      if (box) box.classList.add("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.add("is-dirty");
+    }
+
+    function clearDirty() {
+      isDirty = false;
+      const box = $("result-box");
+      if (box) box.classList.remove("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.remove("is-dirty");
+    }
     const fmt = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
     const addDays = (date: Date, days: number) => { const d = new Date(date); d.setDate(d.getDate() + days); return d; };
     const diffDays = (a: Date, b: Date) => Math.round((b.getTime() - a.getTime()) / (1000 * 60 * 60 * 24));
 
     function render() {
+      clearDirty();
       const lmpVal = ($("lmp") as HTMLInputElement).value;
       if (!lmpVal) return;
       const lmp = new Date(lmpVal);
@@ -112,6 +131,8 @@ const faqs: FaqItem[] = [
       }).join("");
     }
 
-    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    const form = $("calc-form") as HTMLFormElement;
+    form.addEventListener("input", markDirty);
+    form.addEventListener("submit", (e) => { e.preventDefault(); render(); });
   }
 </script>

@@ -91,11 +91,11 @@ const jsonLd = [
           <input id="hip" type="number" inputmode="decimal" min="50" max="150" value="95" class={inputCls} />
         </div>
       </div>
-      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Body Fat</button>
+      <button type="submit" id="calc-btn" class="shimmer-btn inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Body Fat</button>
     </form>
 
     <div class="space-y-5">
-      <div class="card p-6 sm:p-8 text-center">
+      <div id="result-box" class="card p-6 sm:p-8 text-center transition-all duration-300">
         <p class="text-sm text-mute">Estimated body fat percentage</p>
         <p class="mt-1"><span id="bf-value" class="text-display-xl text-ink tabular-nums">—</span> <span class="text-lg text-mute">%</span></p>
         <p id="bf-note" class="mt-2 text-sm text-body"></p>
@@ -216,6 +216,24 @@ const jsonLd = [
   const root = document.getElementById("calc-root");
   if (root) {
     const $ = (id: string) => document.getElementById(id)!;
+    let isDirty = false;
+
+    function markDirty() {
+      if (isDirty) return;
+      isDirty = true;
+      const box = $("result-box");
+      if (box) box.classList.add("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.add("is-dirty");
+    }
+
+    function clearDirty() {
+      isDirty = false;
+      const box = $("result-box");
+      if (box) box.classList.remove("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.remove("is-dirty");
+    }
     const fmt = (n: number) => Math.round(n * 10) / 10;
     let unit: "metric" | "imperial" = "metric";
 
@@ -224,6 +242,7 @@ const jsonLd = [
     }
 
     function render() {
+      clearDirty();
       const sex = (root!.querySelector('input[name="sex"]:checked') as HTMLInputElement).value as "male" | "female";
       const age = parseInt(($("age") as HTMLInputElement).value || "0", 10);
       const height = parseFloat(($("height") as HTMLInputElement).value) || 0;
@@ -279,6 +298,8 @@ const jsonLd = [
       });
     });
 
-    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    const form = $("calc-form") as HTMLFormElement;
+    form.addEventListener("input", markDirty);
+    form.addEventListener("submit", (e) => { e.preventDefault(); render(); });
   }
 </script>

@@ -62,11 +62,11 @@ const drinkTypes = [
         <label for="quantity" class="block text-sm font-medium text-ink">Quantity</label>
         <input id="quantity" type="number" inputmode="numeric" min="1" step="1" value="1" class={inputCls} />
       </div>
-      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Alcohol Calories</button>
+      <button type="submit" id="calc-btn" class="shimmer-btn inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Alcohol Calories</button>
     </form>
 
     <div class="space-y-5">
-      <div class="card p-6 sm:p-8 text-center">
+      <div id="result-box" class="card p-6 sm:p-8 text-center transition-all duration-300">
         <p class="text-sm text-mute">Total alcohol calories</p>
         <p class="mt-1"><span id="alc-total" class="text-display-xl text-ink tabular-nums">0</span> <span class="text-lg text-mute">kcal</span></p>
         <p class="mt-2 text-sm text-body"><span id="alc-per-drink" class="text-ink">0</span> <span class="text-mute">kcal per drink</span> · <span id="units-display" class="text-mute">1 drink</span></p>
@@ -142,6 +142,24 @@ const drinkTypes = [
   const root = document.getElementById("alc-root");
   if (root) {
     const $ = (id: string) => document.getElementById(id)!;
+    let isDirty = false;
+
+    function markDirty() {
+      if (isDirty) return;
+      isDirty = true;
+      const box = $("result-box");
+      if (box) box.classList.add("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.add("is-dirty");
+    }
+
+    function clearDirty() {
+      isDirty = false;
+      const box = $("result-box");
+      if (box) box.classList.remove("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.remove("is-dirty");
+    }
 
     function fmtCal(n: number) {
       return n.toLocaleString("en-US");
@@ -167,6 +185,7 @@ const drinkTypes = [
     };
 
     function render() {
+      clearDirty();
       const drinkKey = $("drink-type") as HTMLSelectElement
       const abvEl = $("abv") as HTMLInputElement
       const volEl = $("volume") as HTMLInputElement

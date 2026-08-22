@@ -43,11 +43,11 @@ const faqs: FaqItem[] = [
           ))}
         </select>
       </div>
-      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Fasting Window</button>
+      <button type="submit" id="calc-btn" class="shimmer-btn inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Fasting Window</button>
     </form>
 
     <div class="space-y-5">
-      <div class="card p-6 sm:p-8 text-center">
+      <div id="result-box" class="card p-6 sm:p-8 text-center transition-all duration-300">
         <p class="text-sm text-mute">Your fasting window</p>
         <p id="fast-window" class="mt-1 text-display-lg text-ink">16 hours fast / 8 hours eat</p>
         <p id="fast-desc" class="mt-2 text-sm text-body"></p>
@@ -143,8 +143,27 @@ const faqs: FaqItem[] = [
   const root = document.getElementById("calc-root");
   if (root) {
     const $ = (id: string) => document.getElementById(id)!;
+    let isDirty = false;
+
+    function markDirty() {
+      if (isDirty) return;
+      isDirty = true;
+      const box = $("result-box");
+      if (box) box.classList.add("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.add("is-dirty");
+    }
+
+    function clearDirty() {
+      isDirty = false;
+      const box = $("result-box");
+      if (box) box.classList.remove("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.remove("is-dirty");
+    }
 
     function render() {
+      clearDirty();
       const planName = ($("plan") as HTMLSelectElement).value;
       const plan = FASTING_PLANS.find((p) => p.name === planName);
       if (!plan) return;
@@ -157,6 +176,8 @@ const faqs: FaqItem[] = [
       ).join("");
     }
 
-    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    const form = $("calc-form") as HTMLFormElement;
+    form.addEventListener("input", markDirty);
+    form.addEventListener("submit", (e) => { e.preventDefault(); render(); });
   }
 </script>

@@ -55,7 +55,7 @@ const faqs: FaqItem[] = [
           </div>
         </div>
       </div>
-      <button type="submit" class="mt-5 inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate BMI</button>
+      <button type="submit" id="calc-btn" class="shimmer-btn mt-5 inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate BMI</button>
     </form>
 
     <div class="space-y-5">
@@ -138,11 +138,15 @@ const faqs: FaqItem[] = [
       $("bmi-value").textContent = "-.-";
       $("bmi-cat").textContent = "Update values...";
       ($("bmi-dot") as HTMLElement).style.background = "#94a3b8";
+      const btn = $("calc-btn");
+      if (btn) btn.classList.add("is-dirty");
     }
 
     function render() {
       isDirty = false;
       $("result-box").classList.remove("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.remove("is-dirty");
       const { w, h } = read();
       if (w <= 0 || h <= 0) return;
       const v = bmi(w, h);

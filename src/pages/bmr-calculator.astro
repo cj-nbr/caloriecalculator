@@ -69,11 +69,11 @@ const faqs: FaqItem[] = [
           <div class="relative"><input id="height-in" type="number" min="0" max="11" value="9" class={inputCls} /><span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">in</span></div>
         </div>
       </div>
-      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate BMR</button>
+      <button type="submit" id="calc-btn" class="shimmer-btn inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate BMR</button>
     </form>
 
     <div class="space-y-5">
-      <div class="card p-6 sm:p-8 text-center">
+      <div id="result-box" class="card p-6 sm:p-8 text-center transition-all duration-300">
         <p class="text-sm text-mute">Your Basal Metabolic Rate</p>
         <p class="mt-1"><span id="bmr-value" class="text-display-xl text-ink tabular-nums">1,649</span> <span class="text-lg text-mute">kcal/day</span></p>
         <p class="mt-2 text-sm text-body">These are the calories you'd burn resting in bed all day.</p>
@@ -182,6 +182,24 @@ const faqs: FaqItem[] = [
   const root = document.getElementById("calc-root");
   if (root) {
     const $ = (id: string) => document.getElementById(id)!;
+    let isDirty = false;
+
+    function markDirty() {
+      if (isDirty) return;
+      isDirty = true;
+      const box = $("result-box");
+      if (box) box.classList.add("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.add("is-dirty");
+    }
+
+    function clearDirty() {
+      isDirty = false;
+      const box = $("result-box");
+      if (box) box.classList.remove("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.remove("is-dirty");
+    }
     const fmt = (n: number) => Math.round(n).toLocaleString("en-US");
     let unit: "metric" | "imperial" = "metric";
 
@@ -198,6 +216,7 @@ const faqs: FaqItem[] = [
     }
 
     function render() {
+      clearDirty();
       const { sex, age, w, h } = read();
       if (w <= 0 || h <= 0 || age <= 0) return;
       const bmr = bmrMifflinStJeor(sex, age, h, w);
@@ -225,8 +244,11 @@ const faqs: FaqItem[] = [
         document.querySelectorAll(".height-unit").forEach((e) => (e.textContent = unit === "metric" ? "(cm)" : "(ft / in)"));
         const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
         if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
+        markDirty();
       });
     });
-    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    const form = $("calc-form") as HTMLFormElement;
+    form.addEventListener("input", markDirty);
+    form.addEventListener("submit", (e) => { e.preventDefault(); render(); });
   }
 </script>

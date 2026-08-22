@@ -63,11 +63,11 @@ const jsonLd = [
           <input id="resting" type="number" inputmode="numeric" min="30" max="120" value="65" class={inputCls} />
         </div>
       </div>
-      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Zones</button>
+      <button type="submit" id="calc-btn" class="shimmer-btn inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Zones</button>
     </form>
 
     <div class="space-y-5">
-      <div class="card p-6 sm:p-8 text-center">
+      <div id="result-box" class="card p-6 sm:p-8 text-center transition-all duration-300">
         <p class="text-sm text-mute">Maximum heart rate</p>
         <p class="mt-1"><span id="max-hr" class="text-display-xl text-ink tabular-nums">190</span> <span class="text-lg text-mute">bpm</span></p>
         <p class="mt-2 text-sm text-body">220 minus your age is a common estimation.</p>
@@ -165,8 +165,27 @@ const jsonLd = [
   const root = document.getElementById("calc-root");
   if (root) {
     const $ = (id: string) => document.getElementById(id)!;
+    let isDirty = false;
+
+    function markDirty() {
+      if (isDirty) return;
+      isDirty = true;
+      const box = $("result-box");
+      if (box) box.classList.add("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.add("is-dirty");
+    }
+
+    function clearDirty() {
+      isDirty = false;
+      const box = $("result-box");
+      if (box) box.classList.remove("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.remove("is-dirty");
+    }
 
     function render() {
+      clearDirty();
       const age = parseInt(($("age") as HTMLInputElement).value || "0", 10);
       const resting = parseInt(($("resting") as HTMLInputElement).value || "0", 10);
       if (age <= 0 || resting <= 0) return;
@@ -191,6 +210,8 @@ const jsonLd = [
         .join("");
     }
 
-    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    const form = $("calc-form") as HTMLFormElement;
+    form.addEventListener("input", markDirty);
+    form.addEventListener("submit", (e) => { e.preventDefault(); render(); });
   }
 </script>

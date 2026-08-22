@@ -45,11 +45,11 @@ const faqs: FaqItem[] = [
           <input id="weight" type="number" inputmode="decimal" min="20" step="0.1" value="70" class={inputCls} />
         </div>
       </div>
-      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Healthy Weight</button>
+      <button type="submit" id="calc-btn" class="shimmer-btn inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Healthy Weight</button>
     </form>
 
     <div class="space-y-5">
-      <div class="card p-6 sm:p-8 text-center">
+      <div id="result-box" class="card p-6 sm:p-8 text-center transition-all duration-300">
         <p class="text-sm text-mute">Healthy weight range</p>
         <p class="mt-1"><span id="hw-min" class="text-display-xl text-ink tabular-nums">53.8</span> – <span id="hw-max" class="text-display-xl text-ink tabular-nums">72.4</span> <span class="text-lg text-mute">kg</span></p>
         <p id="hw-bmi" class="mt-2 text-sm text-body"></p>
@@ -111,10 +111,29 @@ const faqs: FaqItem[] = [
   const root = document.getElementById("calc-root");
   if (root) {
     const $ = (id: string) => document.getElementById(id)!;
+    let isDirty = false;
+
+    function markDirty() {
+      if (isDirty) return;
+      isDirty = true;
+      const box = $("result-box");
+      if (box) box.classList.add("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.add("is-dirty");
+    }
+
+    function clearDirty() {
+      isDirty = false;
+      const box = $("result-box");
+      if (box) box.classList.remove("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.remove("is-dirty");
+    }
     const fmt = (n: number) => Math.round(n * 10) / 10;
     let unit: "metric" | "imperial" = "metric";
 
     function render() {
+      clearDirty();
       const heightCm = unit === "metric" ? parseFloat(($("height-cm") as HTMLInputElement).value) || 0 : (parseFloat(($("height-cm") as HTMLInputElement).value) || 0) * 2.54;
       const weightKg = unit === "metric" ? parseFloat(($("weight") as HTMLInputElement).value) || 0 : lbToKg(parseFloat(($("weight") as HTMLInputElement).value) || 0);
       if (heightCm <= 0) return;
@@ -154,9 +173,12 @@ const faqs: FaqItem[] = [
         });
         const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
         if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
+        markDirty();
       });
     });
 
-    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    const form = $("calc-form") as HTMLFormElement;
+    form.addEventListener("input", markDirty);
+    form.addEventListener("submit", (e) => { e.preventDefault(); render(); });
   }
 </script>

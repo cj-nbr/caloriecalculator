@@ -34,11 +34,11 @@ const faqs: FaqItem[] = [
         <div class="space-y-1.5"><label for="weight" class="block text-sm font-medium text-ink">Weight <span class="u-wt text-mute">(kg)</span></label><input id="weight" type="number" inputmode="decimal" step="0.1" value="70" class={inputCls} /></div>
         <div class="space-y-1.5"><label for="exercise" class="block text-sm font-medium text-ink">Daily exercise (minutes)</label><input id="exercise" type="number" inputmode="numeric" min="0" max="300" value="30" class={inputCls} /></div>
       </div>
-      <button type="submit" class="mt-5 inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Water Intake</button>
+      <button type="submit" id="calc-btn" class="shimmer-btn mt-5 inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Water Intake</button>
     </form>
 
     <div class="space-y-5">
-      <div class="card p-6 sm:p-8 text-center">
+      <div id="result-box" class="card p-6 sm:p-8 text-center transition-all duration-300">
         <p class="text-sm text-mute">Recommended daily water</p>
         <p class="mt-1"><span id="w-main" class="text-display-xl text-ink tabular-nums">2.7</span> <span class="text-lg text-mute u-vol">litres</span></p>
         <p class="mt-2 text-sm text-body">≈ <span id="w-glasses">11</span> glasses (250 ml each)</p>
@@ -77,9 +77,28 @@ const faqs: FaqItem[] = [
   const root = document.getElementById("calc-root");
   if (root) {
     const $ = (id: string) => document.getElementById(id)!;
+    let isDirty = false;
+
+    function markDirty() {
+      if (isDirty) return;
+      isDirty = true;
+      const box = $("result-box");
+      if (box) box.classList.add("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.add("is-dirty");
+    }
+
+    function clearDirty() {
+      isDirty = false;
+      const box = $("result-box");
+      if (box) box.classList.remove("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.remove("is-dirty");
+    }
     let unit: "metric" | "imperial" = "metric";
 
     function render() {
+      clearDirty();
       let w = parseFloat(($("weight") as HTMLInputElement).value) || 0;
       if (unit === "imperial") w = lbToKg(w);
       const ex = parseFloat(($("exercise") as HTMLInputElement).value) || 0;
@@ -101,8 +120,11 @@ const faqs: FaqItem[] = [
         document.querySelectorAll(".u-wt").forEach((e) => (e.textContent = unit === "metric" ? "(kg)" : "(lb)"));
         const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
         if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
+        markDirty();
       });
     });
-    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    const form = $("calc-form") as HTMLFormElement;
+    form.addEventListener("input", markDirty);
+    form.addEventListener("submit", (e) => { e.preventDefault(); render(); });
   }
 </script>

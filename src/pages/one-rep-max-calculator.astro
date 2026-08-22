@@ -61,11 +61,11 @@ const jsonLd = [
           <input id="reps" type="number" inputmode="numeric" min="1" max="20" value="5" class={inputCls} />
         </div>
       </div>
-      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate 1RM</button>
+      <button type="submit" id="calc-btn" class="shimmer-btn inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate 1RM</button>
     </form>
 
     <div class="space-y-5">
-      <div class="card p-6 sm:p-8 text-center">
+      <div id="result-box" class="card p-6 sm:p-8 text-center transition-all duration-300">
         <p class="text-sm text-mute">Estimated one rep max</p>
         <p class="mt-1"><span id="orm-value" class="text-display-xl text-ink tabular-nums">116.7</span> <span class="text-lg text-mute">kg</span></p>
         <p id="orm-note" class="mt-2 text-sm text-body"></p>
@@ -157,9 +157,28 @@ const jsonLd = [
   const root = document.getElementById("calc-root");
   if (root) {
     const $ = (id: string) => document.getElementById(id)!;
+    let isDirty = false;
+
+    function markDirty() {
+      if (isDirty) return;
+      isDirty = true;
+      const box = $("result-box");
+      if (box) box.classList.add("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.add("is-dirty");
+    }
+
+    function clearDirty() {
+      isDirty = false;
+      const box = $("result-box");
+      if (box) box.classList.remove("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.remove("is-dirty");
+    }
     const fmt = (n: number) => Math.round(n * 10) / 10;
 
     function render() {
+      clearDirty();
       const weight = parseFloat(($("weight") as HTMLInputElement).value) || 0;
       const reps = parseInt(($("reps") as HTMLInputElement).value || "0", 10);
       if (weight <= 0 || reps <= 0) return;
@@ -179,6 +198,8 @@ const jsonLd = [
         .join("");
     }
 
-    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    const form = $("calc-form") as HTMLFormElement;
+    form.addEventListener("input", markDirty);
+    form.addEventListener("submit", (e) => { e.preventDefault(); render(); });
   }
 </script>

@@ -74,11 +74,11 @@ const faqs: FaqItem[] = [
           <option value="1000">1 kg / 2 lb per week</option>
         </select>
       </div>
-      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Weight Gain Plan</button>
+      <button type="submit" id="calc-btn" class="shimmer-btn inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Weight Gain Plan</button>
     </form>
 
     <div class="space-y-5">
-      <div class="card p-6 sm:p-8 text-center">
+      <div id="result-box" class="card p-6 sm:p-8 text-center transition-all duration-300">
         <p class="text-sm text-mute">Target calories for weight gain</p>
         <p class="mt-1"><span id="gain-value" class="text-display-xl text-ink tabular-nums">2,806</span> <span class="text-lg text-mute">kcal/day</span></p>
         <p id="gain-note" class="mt-2 text-sm text-body"></p>
@@ -156,6 +156,24 @@ const faqs: FaqItem[] = [
   const root = document.getElementById("calc-root") as HTMLElement | null;
   if (!root) throw new Error("calc-root not found");
     const $ = (id: string) => document.getElementById(id)!;
+    let isDirty = false;
+
+    function markDirty() {
+      if (isDirty) return;
+      isDirty = true;
+      const box = $("result-box");
+      if (box) box.classList.add("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.add("is-dirty");
+    }
+
+    function clearDirty() {
+      isDirty = false;
+      const box = $("result-box");
+      if (box) box.classList.remove("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.remove("is-dirty");
+    }
     const fmt = (n: number) => Math.round(n).toLocaleString("en-US");
     let unit: "metric" | "imperial" = "metric";
 
@@ -171,6 +189,7 @@ const faqs: FaqItem[] = [
     }
 
     function render() {
+      clearDirty();
       const { sex, age, w, h, activity, rate } = read();
       if (w <= 0 || h <= 0 || age <= 0) return;
       const bmr = bmrMifflinStJeor(sex, age, h, w);
@@ -205,8 +224,11 @@ const faqs: FaqItem[] = [
         document.querySelectorAll(".weight-unit").forEach((e) => (e.textContent = unit === "metric" ? "(kg)" : "(lb)"));
         const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
         if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
+        markDirty();
       });
     });
 
-    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    const form = $("calc-form") as HTMLFormElement;
+    form.addEventListener("input", markDirty);
+    form.addEventListener("submit", (e) => { e.preventDefault(); render(); });
 </script>

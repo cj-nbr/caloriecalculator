@@ -75,11 +75,11 @@ const jsonLd = [
             <input id="target" type="date" class={inputCls} />
           </div>
         </div>
-        <button type="submit" class="mt-5 inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Age</button>
+        <button type="submit" id="calc-btn" class="shimmer-btn mt-5 inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Age</button>
       </form>
 
       <div class="space-y-5">
-        <div class="card p-6 sm:p-8 text-center">
+        <div id="result-box" class="card p-6 sm:p-8 text-center transition-all duration-300">
           <p class="text-sm text-mute">Your age is</p>
           <p class="mt-1 text-display-md text-ink"><span id="a-years" class="tabular-nums">—</span> years, <span id="a-months" class="tabular-nums">—</span> months, <span id="a-days" class="tabular-nums">—</span> days</p>
           <p id="a-next" class="mt-2 text-sm text-body"></p>
@@ -166,6 +166,24 @@ const jsonLd = [
   const root = document.getElementById("age-root");
   if (root) {
     const $ = (id: string) => document.getElementById(id)!;
+    let isDirty = false;
+
+    function markDirty() {
+      if (isDirty) return;
+      isDirty = true;
+      const box = $("result-box");
+      if (box) box.classList.add("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.add("is-dirty");
+    }
+
+    function clearDirty() {
+      isDirty = false;
+      const box = $("result-box");
+      if (box) box.classList.remove("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.remove("is-dirty");
+    }
     const target = $("target") as HTMLInputElement;
     // default target = today
     const today = new Date();

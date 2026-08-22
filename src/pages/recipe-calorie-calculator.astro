@@ -39,7 +39,7 @@ const faqs: FaqItem[] = [
     </form>
 
     <div class="space-y-5">
-      <div class="card p-6 sm:p-8 text-center">
+      <div id="result-box" class="card p-6 sm:p-8 text-center transition-all duration-300">
         <p class="text-sm text-mute">Total recipe calories</p>
         <p class="mt-1"><span id="recipe-total" class="text-display-xl text-ink tabular-nums">0</span> <span class="text-lg text-mute">kcal</span></p>
         <p class="mt-2 text-sm text-body"><span id="recipe-per" class="text-ink">0</span> <span class="text-mute">kcal per serving</span></p>
@@ -119,6 +119,24 @@ const faqs: FaqItem[] = [
   const root = document.getElementById("calc-root");
   if (root) {
     const $ = (id: string) => document.getElementById(id)!;
+    let isDirty = false;
+
+    function markDirty() {
+      if (isDirty) return;
+      isDirty = true;
+      const box = $("result-box");
+      if (box) box.classList.add("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.add("is-dirty");
+    }
+
+    function clearDirty() {
+      isDirty = false;
+      const box = $("result-box");
+      if (box) box.classList.remove("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.remove("is-dirty");
+    }
     let ingredients: { name: string; calories: number }[] = [];
 
     function addRow(name = "", calories = "") {
@@ -141,6 +159,7 @@ const faqs: FaqItem[] = [
     }
 
     function render() {
+      clearDirty();
       const servings = parseFloat(($("servings") as HTMLInputElement).value) || 1;
       ingredients = readIngredients();
       const total = ingredients.reduce((s, i) => s + i.calories, 0);
@@ -152,7 +171,9 @@ const faqs: FaqItem[] = [
 
     $("add-ingredient")?.addEventListener("click", () => addRow());
     $("calculate-btn")?.addEventListener("click", render);
-    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    const form = $("calc-form") as HTMLFormElement;
+    form.addEventListener("input", markDirty);
+    form.addEventListener("submit", (e) => { e.preventDefault(); render(); });
     addRow("Chicken breast", "165");
     addRow("Rice (cooked)", "130");
     addRow("Broccoli", "55");

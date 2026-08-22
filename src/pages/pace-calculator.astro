@@ -47,11 +47,11 @@ const faqs: FaqItem[] = [
         <label for="seconds" class="block text-sm font-medium text-ink">Seconds</label>
         <input id="seconds" type="number" min="0" max="59" step="1" value="0" class={inputCls} />
       </div>
-      <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Pace</button>
+      <button type="submit" id="calc-btn" class="shimmer-btn inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Pace</button>
     </form>
 
     <div class="space-y-5">
-      <div class="card p-6 sm:p-8 text-center">
+      <div id="result-box" class="card p-6 sm:p-8 text-center transition-all duration-300">
         <p class="text-sm text-mute">Your Average Pace</p>
         <p class="mt-1"><span id="pace-value" class="text-display-xl text-ink tabular-nums">5:00</span> <span class="text-lg text-mute">min/km</span></p>
       </div>
@@ -132,6 +132,24 @@ const faqs: FaqItem[] = [
   const root = document.getElementById("calc-root");
   if (root) {
     const $ = (id: string) => document.getElementById(id)!;
+    let isDirty = false;
+
+    function markDirty() {
+      if (isDirty) return;
+      isDirty = true;
+      const box = $("result-box");
+      if (box) box.classList.add("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.add("is-dirty");
+    }
+
+    function clearDirty() {
+      isDirty = false;
+      const box = $("result-box");
+      if (box) box.classList.remove("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.remove("is-dirty");
+    }
     let unit: "metric" | "imperial" = "metric";
 
     function fmtPace(min: number): string {
@@ -141,6 +159,7 @@ const faqs: FaqItem[] = [
     }
 
     function render() {
+      clearDirty();
       const distKm = parseFloat(($("distance") as HTMLInputElement).value) || 0;
       const hrs = parseFloat(($("hours") as HTMLInputElement).value) || 0;
       const mins = parseFloat(($("minutes") as HTMLInputElement).value) || 0;
@@ -172,6 +191,8 @@ const faqs: FaqItem[] = [
         document.querySelectorAll(".dist-unit").forEach((e) => (e.textContent = unit === "metric" ? "(km)" : "(mi)"));
       });
     });
-    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    const form = $("calc-form") as HTMLFormElement;
+    form.addEventListener("input", markDirty);
+    form.addEventListener("submit", (e) => { e.preventDefault(); render(); });
   }
 </script>

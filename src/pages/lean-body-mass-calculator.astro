@@ -56,11 +56,11 @@ const faqs: FaqItem[] = [
           </div>
         </div>
       </div>
-      <button type="submit" class="mt-5 inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate LBM</button>
+      <button type="submit" id="calc-btn" class="shimmer-btn mt-5 inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate LBM</button>
     </form>
 
     <div class="space-y-5">
-      <div class="card p-6 sm:p-8 text-center">
+      <div id="result-box" class="card p-6 sm:p-8 text-center transition-all duration-300">
         <p class="text-sm text-mute">Lean body mass</p>
         <p class="mt-1"><span id="lbm-value" class="text-display-xl text-ink tabular-nums">57.1</span> <span class="text-lg text-mute u-wt">kg</span></p>
         <p class="mt-2 text-sm text-body"><span id="lbm-pct">82</span>% of your body weight is lean tissue.</p>
@@ -111,6 +111,24 @@ const faqs: FaqItem[] = [
   const root = document.getElementById("calc-root");
   if (root) {
     const $ = (id: string) => document.getElementById(id)!;
+    let isDirty = false;
+
+    function markDirty() {
+      if (isDirty) return;
+      isDirty = true;
+      const box = $("result-box");
+      if (box) box.classList.add("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.add("is-dirty");
+    }
+
+    function clearDirty() {
+      isDirty = false;
+      const box = $("result-box");
+      if (box) box.classList.remove("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.remove("is-dirty");
+    }
     let unit: "metric" | "imperial" = "metric";
 
     function read() {
@@ -123,6 +141,7 @@ const faqs: FaqItem[] = [
     }
 
     function render() {
+      clearDirty();
       const { sex, w, h } = read();
       if (w <= 0 || h <= 0) return;
       const lbm = Math.max(0, leanBodyMassBoer(sex, h, w));
@@ -146,8 +165,11 @@ const faqs: FaqItem[] = [
         document.querySelectorAll(".u-wt").forEach((e) => (e.textContent = unit === "metric" ? "kg" : "lb"));
         const wi = $("weight") as HTMLInputElement; const cv = parseFloat(wi.value) || 0;
         if (cv) wi.value = (unit === "imperial" ? cv * 2.2046226218 : cv / 2.2046226218).toFixed(1);
+        markDirty();
       });
     });
-    ($("calc-form") as HTMLFormElement).addEventListener("submit", (e) => { e.preventDefault(); render(); });
+    const form = $("calc-form") as HTMLFormElement;
+    form.addEventListener("input", markDirty);
+    form.addEventListener("submit", (e) => { e.preventDefault(); render(); });
   }
 </script>
