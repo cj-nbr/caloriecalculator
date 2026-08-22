@@ -95,7 +95,7 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
       </div>
     </div>
 
-    <button type="submit" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">
+    <button type="submit" id="calc-btn" class="shimmer-btn inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">
       Calculate
     </button>
   </form>
@@ -242,8 +242,28 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
     const fmt = (n: number) => Math.round(n).toLocaleString("en-US");
 
     let unit: "metric" | "imperial" = "metric";
+    let isDirty = false;
+
+    function markDirty() {
+      if (isDirty) return;
+      isDirty = true;
+      const box = $("calc-results");
+      if (box) box.classList.add("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.add("is-dirty");
+    }
+
+    function clearDirty() {
+      isDirty = false;
+      const box = $("calc-results");
+      if (box) box.classList.remove("opacity-40", "grayscale");
+      const btn = $("calc-btn");
+      if (btn) btn.classList.remove("is-dirty");
+    }
 
     const form = $("calc-form") as HTMLFormElement;
+    form.addEventListener("input", markDirty);
+    
     const goalSelect = $("goal") as HTMLSelectElement;
 
     function readInputs() {
@@ -274,6 +294,7 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
     }
 
     function render() {
+      clearDirty();
       const { sex, age, activity, weightKg, heightCm } = readInputs();
       if (weightKg <= 0 || heightCm <= 0 || age <= 0) return;
 
