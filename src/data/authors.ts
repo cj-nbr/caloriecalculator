@@ -1,4 +1,4 @@
-﻿export interface Expert {
+export interface Expert {
   id: string;
   name: string;
   role: string;
@@ -15,7 +15,7 @@ export const EXPERTS: Record<string, Expert> = {
     role: "Medical Reviewer",
     credentials: "MD",
     bio: "Dr. Sarah Jenkins is a board-certified physician with over 15 years of clinical experience specializing in metabolic health, weight management, and hormonal balance. She rigorously reviews our health calculators to ensure medical accuracy.",
-    image: "https://loremflickr.com/400/400/doctor,woman",
+    image: "https://ui-avatars.com/api/?name=Sarah+Jenkins&background=0f172a&color=fff&size=400",
   },
   "marcus-chen": {
     id: "marcus-chen",
@@ -23,7 +23,7 @@ export const EXPERTS: Record<string, Expert> = {
     role: "Nutrition Expert",
     credentials: "RD, CSSD",
     bio: "Marcus Chen is a Registered Dietitian and Certified Specialist in Sports Dietetics. He has worked with elite athletes and everyday individuals to optimize their nutrition, macros, and fitness performance.",
-    image: "https://loremflickr.com/400/400/man,portrait",
+    image: "https://ui-avatars.com/api/?name=Marcus+Chen&background=0f172a&color=fff&size=400",
   },
   "elena-rodriguez": {
     id: "elena-rodriguez",
@@ -31,7 +31,7 @@ export const EXPERTS: Record<string, Expert> = {
     role: "Fitness Advisor",
     credentials: "CSCS, CPT",
     bio: "Elena Rodriguez is a Certified Strength and Conditioning Specialist with a background in kinesiology. She designs and reviews our workout guides, ensuring they meet the highest standards of safety and biomechanics.",
-    image: "https://loremflickr.com/400/400/fitness,woman",
+    image: "https://ui-avatars.com/api/?name=Elena+Rodriguez&background=0f172a&color=fff&size=400",
   }
 };
 
