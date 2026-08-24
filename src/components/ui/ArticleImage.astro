@@ -1,6 +1,6 @@
 ---
 /**
- * ArticleImage — consistent, accessible, responsive image for article bodies.
+ * ArticleImage ?" consistent, accessible, responsive image for article bodies.
  * Defaults to lazy loading and a constrained max width. Pass a meaningful
  * `alt` describing the image; decorative images should set alt="" explicitly.
  */
@@ -15,37 +15,7 @@ interface Props {
 
 const { src, alt, class: className = "", width, height, priority = false } = Astro.props;
 
-let finalSrc = src;
-
-// Replace vector SVGs with high-quality real images from Unsplash
-if (src.includes(".svg")) {
-  const filename = src.toLowerCase();
-  
-  // Gym & Workouts
-  if (filename.includes("workout") || filename.includes("leg") || filename.includes("chest") || filename.includes("shoulder") || filename.includes("back") || filename.includes("barbell") || filename.includes("exercise")) {
-    finalSrc = "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80"; // Gym/Weights
-  } 
-  // Nutrition & Macros
-  else if (filename.includes("plate") || filename.includes("macro") || filename.includes("protein") || filename.includes("recipe") || filename.includes("calorie") || filename.includes("energy")) {
-    finalSrc = "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80"; // Healthy food bowl
-  }
-  // Running & Cardio
-  else if (filename.includes("run") || filename.includes("walk") || filename.includes("pace")) {
-    finalSrc = "https://loremflickr.com/800/600/running,workout"; // Running outdoors
-  }
-  // Weight & Measurement (BMI, BMR, Scales)
-  else if (filename.includes("bmi") || filename.includes("bmr") || filename.includes("scale") || filename.includes("weight") || filename.includes("tape") || filename.includes("body") || filename.includes("mass")) {
-    finalSrc = "https://loremflickr.com/800/600/scale,weight"; // Tape measure / scale
-  }
-  // Pregnancy & Time
-  else if (filename.includes("pregnancy") || filename.includes("conception") || filename.includes("date") || filename.includes("fasting")) {
-    finalSrc = "https://loremflickr.com/800/600/pregnancy,woman"; // Clock / Time
-  }
-  // Fallback health image
-  else {
-    finalSrc = "https://loremflickr.com/800/600/health,fitness"; // Healthy lifestyle
-  }
-}
+const finalSrc = src;
 ---
 
 <figure class={`not-prose my-8 ${className}`}>
