@@ -1,0 +1,69 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
+import ArticleImage from "../../components/ui/ArticleImage.astro";
+import Sources from "../../components/ui/Sources.astro";
+import MedicalNote from "../../components/ui/MedicalNote.astro";
+import ExpertTake from "../../components/ui/ExpertTake.astro";
+
+const faqs: FaqItem[] = [
+  { q: "Is it possible to lose fat and build muscle at the same time?", a: "Yes, this process is known as body recomposition. It is most effective for beginners, detrained individuals, or those with higher body fat percentages who eat high protein in a slight calorie deficit while strength training." },
+  { q: "How many calories should I eat for body recomposition?", a: "You should aim for a very slight calorie deficit—typically 200 to 300 calories below your maintenance (TDEE). A massive deficit will prevent muscle growth, while a surplus will add fat." },
+  { q: "How much protein do I need for body recomposition?", a: "Aim for at least 0.8 to 1 gram of protein per pound of body weight to provide the building blocks necessary for muscle synthesis while in a calorie deficit." },
+];
+---
+
+<ContentLayout
+  title="Body Recomposition Guide: Lose Fat & Build Muscle Simultaneously | Calorie Calculator Free"
+  h1="The Ultimate Guide to Body Recomposition"
+  description="Learn the science of body recomposition. Discover how to lose fat and build lean muscle at the exact same time using the right calories and protein."
+  path="/guides/body-recomposition-guide/"
+  category="Guides"
+  categoryPath="/guides/"
+  lead="For decades, the fitness industry said you had to choose: bulk to gain muscle, or cut to lose fat. Science now proves you can do both simultaneously through a process called body recomposition. Here is the evidence-based protocol to transform your physique."
+  updated="August 2026"
+  faqs={faqs}
+>
+  <MedicalNote />
+
+  <p>If you have ever tried to get in shape, you have likely been told that you must undergo cyclical phases of "bulking" (eating a calorie surplus to build muscle, accepting some fat gain) and "cutting" (eating a calorie deficit to lose fat, accepting some muscle loss). But modern sports science tells a different story.</p>
+
+  <p><strong>Body recomposition</strong> is the holy grail of fitness: losing body fat and building lean muscle tissue simultaneously. While it requires precision, it is completely achievable for most people—especially beginners, those returning from a break, or individuals carrying excess body fat.</p>
+
+  <ArticleImage src="/assets/images/articles/energy-level.svg" alt="Illustration representing energy balance and metabolism" priority={true} />
+
+  <h2>The 3 Pillars of Body Recomposition</h2>
+  <p>To successfully pull off body recomposition, your body needs a very specific environment. If you miss any of these three pillars, your results will stall.</p>
+
+  <h3>1. The "Goldilocks" Calorie Deficit</h3>
+  <p>To lose fat, you absolutely must be in a calorie deficit. However, to build muscle at the same time, the deficit cannot be too large, or your body will shut down muscle synthesis to conserve energy.</p>
+  <p>You need to find your <a href="/tdee-calculator/">Total Daily Energy Expenditure (TDEE)</a> and subtract a very modest amount—around <strong>200 to 300 calories per day</strong>. This slight deficit forces your body to burn stored fat for energy without starving the muscles.</p>
+
+  <h3>2. High Protein Intake</h3>
+  <p>When you are in a calorie deficit, muscle building is hormonally difficult. You must overcompensate by providing an abundance of amino acids (the building blocks of muscle).</p>
+  <p>Research consistently shows that eating <strong>0.8 to 1 gram of protein per pound of body weight</strong> (or 1.8 to 2.2 grams per kg) is required to build muscle during a deficit. Use our <a href="/protein-calculator/">Protein Calculator</a> to find your exact daily target, and split it evenly across 4 to 5 meals to maximize muscle protein synthesis.</p>
+
+  <h3>3. Progressive Overload Resistance Training</h3>
+  <p>Your body has no reason to build muscle if you do not challenge it. To trigger muscle growth, you must engage in resistance training (lifting weights, calisthenics) and practice <strong>progressive overload</strong>—lifting slightly heavier weights or doing more reps over time. You can use tools like our <a href="/one-rep-max-calculator/">One Rep Max Calculator</a> to track your strength gains.</p>
+
+  <ExpertTake quote="Body recomposition is absolutely real, but it requires patience. Because you are building heavy muscle tissue while losing lighter fat tissue, the scale might not move for weeks. I tell my clients to ignore the scale completely and track their progress using body measurements, progress photos, and strength gains in the gym." />
+
+  <h2>Who is Body Recomposition Best For?</h2>
+  <p>While almost anyone can achieve some level of body recomposition, it happens fastest for four specific groups of people:</p>
+  <ul class="list-disc pl-5 space-y-2 mt-4">
+    <li><strong>Beginners:</strong> The "newbie gains" phenomenon allows untrained individuals to build muscle rapidly even in a steep calorie deficit.</li>
+    <li><strong>Detrained Lifters:</strong> If you used to lift weights but stopped, "muscle memory" allows you to regain lost muscle quickly while losing fat.</li>
+    <li><strong>High Body Fat:</strong> Individuals with excess fat stores have ample reserved energy, allowing the body to build muscle easily even when food intake is lowered.</li>
+    <li><strong>Sub-Optimally Trained:</strong> If you have been working out for years but eating poorly or following bad programming, fixing your macros will trigger sudden recomposition.</li>
+  </ul>
+
+  <h2>How to Measure Your Progress</h2>
+  <p>The biggest mistake people make during body recomposition is relying on the bathroom scale. Since muscle is denser than fat, you could lose 3 pounds of fat and gain 3 pounds of muscle. The scale will say you made zero progress, but you will look significantly leaner in the mirror.</p>
+  <p>Instead of the scale, track your <a href="/body-fat-calculator/">body fat percentage</a>, take weekly progress photos in the same lighting, and monitor how your clothes fit. If your strength in the gym is going up while your waist measurement is going down, body recomposition is happening.</p>
+
+  <Sources sources={[
+    { label: "Campbell, B. I., et al. (2015). International Society of Sports Nutrition position stand: diets and body composition.", href: "https://jissn.biomedcentral.com/articles/10.1186/s12970-017-0174-y" },
+    { label: "Barakat, C., et al. (2020). Body Recomposition: Can Trained Individuals Build Muscle and Lose Fat at the Same Time?", href: "https://journals.lww.com/nsca-scj/fulltext/2020/10000/body_recomposition__can_trained_individuals_build.3.aspx" }
+  ]} />
+</ContentLayout>
+
