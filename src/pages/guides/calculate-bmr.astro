@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import Sources from "../../components/ui/Sources.astro";
@@ -24,6 +25,9 @@ const faqs: FaqItem[] = [
   updated="July 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>Calculating your BMR is the first step toward understanding your daily calorie needs. This guide walks you through the Mifflin-St Jeor equation step by step, with worked examples for both men and women. Once you understand the math, you can use our <a href="/bmr-calculator/">BMR calculator</a> for instant results.</p>
 
   <ArticleImage src="/assets/images/articles/resting-flame.svg" alt="Illustration of a resting metabolism flame representing calories burned at complete rest." />

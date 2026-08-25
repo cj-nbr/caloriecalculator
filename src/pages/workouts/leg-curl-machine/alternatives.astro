@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../../layouts/ContentLayout.astro";
 import LegCurlArticle from "../../../components/workouts/LegCurlArticle.astro";
 import { LEG_CURL_TOPICS } from "../../../data/leg-curl-topics";
@@ -17,5 +18,8 @@ const topic = LEG_CURL_TOPICS.find((item) => item.slug === "leg-curl-machine-alt
   lead={topic.summary}
   faqs={topic.faqs}
 >
+
+  <MedicalNote />
+
   <LegCurlArticle topic={topic} />
 </ContentLayout>

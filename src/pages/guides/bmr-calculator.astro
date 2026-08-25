@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import Sources from "../../components/ui/Sources.astro";
@@ -27,6 +28,9 @@ const faqs: FaqItem[] = [
   updated="July 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p><strong>BMR calculator</strong> results tell you how many calories your body needs at complete rest. This is the foundation for any nutrition plan. Whether you want to lose fat, build muscle, or maintain your current weight, your BMR is the number you start from.</p>
 
   <ArticleImage src="/assets/images/articles/resting-flame.svg" alt="Illustration of resting metabolism showing calories burned at complete rest." />

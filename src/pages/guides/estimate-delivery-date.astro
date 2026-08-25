@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import Sources from "../../components/ui/Sources.astro";
@@ -27,6 +28,9 @@ const faqs: FaqItem[] = [
   updated="July 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>An <strong>estimated delivery date</strong> is the date a baby is expected to be born. It is calculated from the mother's last menstrual period, conception date, or early ultrasound measurements.</p>
 
   <ArticleImage src="/assets/images/articles/pregnancy-calendar.svg" alt="Illustration of a pregnancy calendar showing estimated due date and trimesters." />

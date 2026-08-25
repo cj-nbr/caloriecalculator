@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -25,6 +26,9 @@ const faqs: FaqItem[] = [
   updated="June 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p><strong>TDEE calculation</strong> (Total Daily Energy Expenditure) gives you your <a href="/guides/maintenance-calorie-calculator/">maintenance calories</a> — the number you can eat to keep your weight stable. Here are the best methods.</p>
 
   <h2>The Mifflin-St Jeor TDEE method (recommended)</h2>

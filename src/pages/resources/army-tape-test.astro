@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import Sources from "../../components/ui/Sources.astro";
@@ -27,6 +28,9 @@ const faqs: FaqItem[] = [
   updated="July 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>The <strong>Army tape test</strong> is the U.S. Army's official method for screening body fat when a soldier's weight exceeds the height-weight standard. Unlike scales or BMI, it estimates actual body fat percentage using only a measuring tape and the standard U.S. Army circumference equations.</p>
 
   <ArticleImage src="/assets/images/articles/tape-measure.svg" alt="Illustration of a tape measure used for body circumference measurements in the Army body fat method." />

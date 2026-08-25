@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -24,6 +25,9 @@ const faqs: FaqItem[] = [
   updated="July 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>Your Basal Metabolic Rate (BMR) is the number of calories your body burns at complete rest just to stay alive. Even if you spent an entire day lying still, your body would still spend this energy keeping your heart beating, your lungs breathing, your brain working, and your cells repairing and regenerating. BMR is the single largest component of your daily calorie expenditure — typically 60–70% of the total — making it the foundation for figuring out how much you should eat.</p>
 
   <ArticleImage src="/assets/images/articles/basal-metabolism.svg" alt="Illustration of a resting metabolism with a flame inside a body outline, representing calories burned at rest." />

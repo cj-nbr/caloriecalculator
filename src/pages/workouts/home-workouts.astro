@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 
@@ -23,6 +24,9 @@ const faqs = [
   lead="Train at home with simple routines that need little or no equipment."
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <ArticleImage src="/assets/images/articles/home-workout.svg" alt="Illustration of home workout exercises with bodyweight and minimal equipment." />
 
   <section class="card border-brand/20 p-5 sm:p-6">

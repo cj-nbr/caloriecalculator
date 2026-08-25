@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -24,6 +25,9 @@ const faqs: FaqItem[] = [
   updated="July 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>A <strong>maintenance calorie calculator</strong> tells you precisely how many calories you need each day to keep your current weight. This number — also called your TDEE (Total Daily Energy Expenditure) — is the foundation of every nutrition plan. Without it, you are guessing at how much to eat, and guesses lead to frustration, stalled progress, and unnecessary weight gain or loss.</p>
 
   <ArticleImage src="/assets/images/articles/balance-scale.svg" alt="Illustration of a balanced scale representing calories in versus calories out for maintenance." />

@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -26,6 +27,9 @@ const faqs: FaqItem[] = [
   updated="July 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <h2 id="what-are-maintenance">What maintenance calories really are</h2>
   <p>Maintenance calories are the calories you burn in a normal day — not at complete rest, but when you combine your resting metabolism with daily movement. In other words, maintenance calories equal your TDEE, and eating that amount keeps your weight stable.</p>
 

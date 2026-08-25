@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 
@@ -25,6 +26,9 @@ const faqs = [
   lead="Zero and low-calorie drinks to satisfy thirst while supporting your weight loss goals."
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <h2>Zero Calorie Drinks (0-5 cal)</h2>
 
   <ArticleImage src="/assets/images/articles/hydration-glass.svg" alt="Illustration of healthy low-calorie drinks and hydration options." />

@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -22,6 +23,9 @@ const faqs: FaqItem[] = [
   updated="June 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>A <strong>TDEE calculator</strong> reveals your Total Daily Energy Expenditure—the calories you burn each day. This equals your <a href="/guides/maintenance-calorie-calculator/">maintenance calories</a>.</p>
 
   <h2>What TDEE means</h2>

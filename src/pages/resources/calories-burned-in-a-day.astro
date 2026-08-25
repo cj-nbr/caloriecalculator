@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -22,6 +23,9 @@ const faqs: FaqItem[] = [
   updated="June 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p><strong>Calories burned in a day</strong> equals your Total Daily Energy Expenditure (TDEE). This is the foundation for weight management.</p>
 
   <ArticleImage src="/assets/images/articles/daily-burn.svg" alt="Illustration of daily calorie burn components including BMR, TEF, and activity." />

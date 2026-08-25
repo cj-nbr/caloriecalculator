@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -24,6 +25,9 @@ const faqs: FaqItem[] = [
   updated="July 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>If you are asking <strong>"what's my TDEE?"</strong>, you are already asking the right question. TDEE — or Total Daily Energy Expenditure — is the total number of calories your body burns in a full day. It is the single most important number for weight management because it is your <a href="/guides/maintenance-calorie-calculator/">maintenance calorie</a> baseline. Once you know it, you can eat the right amount to lose, gain, or hold your weight steady.</p>
 
   <ArticleImage src="/assets/images/articles/energy-level.svg" alt="Illustration of daily energy expenditure showing how activity and rest combine to determine total calories burned." />

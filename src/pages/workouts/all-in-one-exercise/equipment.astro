@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../../layouts/ContentLayout.astro";
 import ArticleImage from "../../../components/ui/ArticleImage.astro";
 
@@ -21,6 +22,9 @@ const faqs = [
   categoryPath="/workouts/"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
 
   <ArticleImage src="/assets/images/articles/equipment.svg" alt="Illustration of essential home workout equipment for strength training." />
 

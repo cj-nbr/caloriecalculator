@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 
@@ -23,6 +24,9 @@ const faqs = [
   lead="Build chest strength with push-ups, presses, flyes, smart progression, and balanced upper-body training."
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <ArticleImage src="/assets/images/articles/chest-workout.svg" alt="Illustration of chest and tricep exercises including presses and flyes." />
 
   <section class="card border-brand/20 p-5 sm:p-6">

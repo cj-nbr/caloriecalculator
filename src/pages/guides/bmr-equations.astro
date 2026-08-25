@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -25,6 +26,9 @@ const faqs: FaqItem[] = [
   updated="June 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>When you use a <a href="/guides/maintenance-calorie-calculator/">maintenance calorie calculator</a> or any <a href="/guides/online-calorie-calculator/">online calorie calculator</a>, the underlying math matters. Two equations have dominated for decades. Here's how they compare.</p>
 
   <h2>The Mifflin-St Jeor equation (current standard)</h2>

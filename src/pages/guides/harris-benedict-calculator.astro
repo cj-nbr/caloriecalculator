@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -24,6 +25,9 @@ const faqs: FaqItem[] = [
   updated="July 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>The <strong>Harris-Benedict calculator</strong> applies the historic 1919 formula to estimate your basal metabolic rate (BMR) — the calories your body burns at complete rest. While we recommend the modern <a href="/bmr-calculator/">Mifflin-St Jeor calculator</a> for everyday use, understanding the Harris-Benedict method is valuable for interpreting older research, clinical contexts, and the history of calorie science.</p>
 
   <ArticleImage src="/assets/images/articles/resting-flame.svg" alt="Illustration of the Harris-Benedict formula in a historical context." />

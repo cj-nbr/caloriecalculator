@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../../layouts/ContentLayout.astro";
 import ExerciseArticle from "../../../components/workouts/ExerciseArticle.astro";
 import { RELATED_EXERCISE_TOPICS } from "../../../data/workout-topics";
@@ -17,5 +18,8 @@ const topic = RELATED_EXERCISE_TOPICS.find((item) => item.slug === "evolve-stehe
   lead={topic.summary}
   faqs={topic.faqs}
 >
+
+  <MedicalNote />
+
   <ExerciseArticle topic={topic} />
 </ContentLayout>

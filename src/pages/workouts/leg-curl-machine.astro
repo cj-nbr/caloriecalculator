@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import TopicCategoryGrid from "../../components/workouts/TopicCategoryGrid.astro";
@@ -36,6 +37,9 @@ const faqs = [
   updated="June 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <ArticleImage src="/assets/images/articles/leg-day.svg" alt="Illustration of leg curl machine setup for hamstring training." />
 
   <TopicCategoryGrid title="Choose a leg curl machine topic" categories={categories} />

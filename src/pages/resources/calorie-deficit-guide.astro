@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -22,6 +23,9 @@ const faqs: FaqItem[] = [
   updated="June 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>A <strong>calorie deficit</strong> means eating fewer calories than your body expends. This forces your body to use stored energy, resulting in weight loss.</p>
 
   <h2>Calorie deficit amounts and results</h2>

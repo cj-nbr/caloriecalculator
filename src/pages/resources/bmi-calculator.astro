@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -22,6 +23,9 @@ const faqs: FaqItem[] = [
   updated="June 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>Your <strong>BMI calculator</strong> result places weight on a standardized scale. BMI = weight (kg) ÷ height (m)². <a href="/bmi-calculator/">Our calculator</a> does this automatically.</p>
 
   <h2>BMI formula</h2>

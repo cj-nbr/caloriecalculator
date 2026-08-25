@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -29,6 +30,9 @@ const faqs: FaqItem[] = [
   updated="July 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <h2 id="what-is-if">What intermittent fasting really is</h2>
   <p>Intermittent fasting schedules eating and fasting periods rather than counting every calorie. It reduces eating windows, which can simplify nutrition and create a natural calorie deficit for many people. The method does not dictate what you eat — only when.</p>
 

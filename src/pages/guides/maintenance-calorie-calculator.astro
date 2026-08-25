@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -28,6 +29,9 @@ const faqs: FaqItem[] = [
   updated="August 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p><strong>Maintenance calorie calculator</strong> finds your daily energy needs to maintain your current weight. This number — also called your TDEE (Total Daily Energy Expenditure) — is the cornerstone of any nutrition plan, whether your goal is fat loss, muscle gain, or weight maintenance.</p>
 
   <h2>Why maintenance calories are the foundation of nutrition</h2>

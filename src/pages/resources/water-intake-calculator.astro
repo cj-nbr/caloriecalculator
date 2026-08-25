@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -22,6 +23,9 @@ const faqs: FaqItem[] = [
   updated="June 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>A <strong>water intake calculator</strong> personalizes your daily hydration target based on weight, activity, and environment. Adequate water supports every calorie-related process.</p>
 
   <h2>Daily water needs formula</h2>

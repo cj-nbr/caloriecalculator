@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -24,6 +25,9 @@ const faqs: FaqItem[] = [
   updated="July 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <ArticleImage src="/assets/images/articles/activity-intensity.svg" alt="Illustration of swimming intensity levels and how stroke choice affects calorie burn." />
 
   <h2 id="by-intensity">How Many Calories Swimming Burns by Intensity</h2>

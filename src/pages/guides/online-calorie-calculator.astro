@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -26,6 +27,9 @@ const faqs: FaqItem[] = [
   updated="June 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>An <strong>online calorie calculator</strong> gives you immediate, private access to personalized nutrition numbers. Run it on any device with a browser — phone, tablet, or computer — and get your calorie targets in seconds, completely free.</p>
 
   <h2>Why choose an online calorie calculator?</h2>

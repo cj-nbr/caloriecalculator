@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 
@@ -24,6 +25,9 @@ const faqs = [
   lead="Sweet, satisfying treats under 100 calories. No deprivation needed for weight loss."
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <h2>Low Calorie Sweet Treats by Type</h2>
 
   <ArticleImage src="/assets/images/articles/balanced-plate.svg" alt="Illustration of low-calorie sweet treats and desserts for guilt-free eating." />

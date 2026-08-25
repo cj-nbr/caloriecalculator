@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import Sources from "../../components/ui/Sources.astro";
@@ -24,6 +25,9 @@ const faqs: FaqItem[] = [
   updated="July 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>Your metabolism is the sum of all the chemical processes that keep your body alive and functioning. Every cell in your body needs energy to operate — from your brain sending signals to your lungs expanding with each breath. The metabolism calculator estimates how many calories your body burns at rest, which is the foundation for understanding your daily calorie needs.</p>
 
   <ArticleImage src="/assets/images/articles/resting-flame.svg" alt="Illustration of a flame inside a body outline representing resting metabolic rate and calories burned at rest." />

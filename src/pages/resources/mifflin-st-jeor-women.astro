@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -24,6 +25,9 @@ const faqs: FaqItem[] = [
   updated="July 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>The <strong>Mifflin-St Jeor equation for women</strong> is the most accurate formula available for estimating basal metabolic rate (BMR) in healthy adult women. BMR is the number of calories your body burns at complete rest just to keep you alive: breathing, pumping blood, repairing cells, and running your brain. Knowing your BMR is the first step toward finding your maintenance calories and setting targets for weight loss or gain.</p>
 
   <ArticleImage src="/assets/images/articles/resting-flame.svg" alt="Illustration of basal metabolic rate represented as a flame, with formula elements around it." />

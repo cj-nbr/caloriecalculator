@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -24,6 +25,9 @@ const faqs: FaqItem[] = [
   updated="January 2025"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>Your Total Daily Energy Expenditure (TDEE) is the total number of calories you burn in a full day. It's your maintenance level — eat this much and your weight stays the same. Eat less and you lose weight; eat more and you gain. But TDEE is more than a single number: it is the sum of several different energy systems working together around the clock.</p>
 
   <h2>TDEE meaning and definition</h2>

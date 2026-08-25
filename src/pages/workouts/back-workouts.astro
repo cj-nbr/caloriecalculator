@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 
@@ -23,6 +24,9 @@ const faqs = [
   lead="Build a stronger back with rows, pulldowns, pull-ups, face pulls, and smart form."
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <ArticleImage src="/assets/images/articles/back-workout.svg" alt="Illustration of back and bicep exercises including rows and pulldowns." />
 
   <section class="card border-brand/20 p-5 sm:p-6">

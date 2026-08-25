@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -26,6 +27,9 @@ const faqs: FaqItem[] = [
   updated="July 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <h2 id="what-is-healthy-weight">What healthy weight really means</h2>
   <p>Healthy weight is not a single number on a scale. It is a range tied to your height and overall health risk. For most adults, a BMI between 18.5 and 24.9 is considered the healthy zone. This range comes from large population studies linking lower disease risk to moderate weight relative to height.</p>
 

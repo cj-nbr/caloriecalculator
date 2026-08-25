@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -20,6 +21,9 @@ const faqs: FaqItem[] = [
   updated="January 2025"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <h2>It all comes down to energy balance</h2>
   <p>Fat loss happens when you consistently consume fewer calories than you burn. This is the <a href="/guides/calorie-deficit-guide/">calorie deficit</a>, and it's the one non-negotiable principle of weight loss. Every diet that works — keto, intermittent fasting, low-fat — works because it helps you eat fewer calories, whether you realize it or not.</p>
 

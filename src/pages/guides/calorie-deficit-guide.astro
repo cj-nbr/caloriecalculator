@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -21,6 +22,9 @@ const faqs: FaqItem[] = [
   updated="January 2025"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <h2>What is a calorie deficit?</h2>
   <p>A calorie deficit occurs when you consume fewer calories than your body uses. Faced with this energy shortfall, your body turns to its stored energy — primarily fat — to make up the difference. Sustain that deficit over time and you lose weight. It's the underlying mechanism behind every successful diet.</p>
 

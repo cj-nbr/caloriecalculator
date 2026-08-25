@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import Sources from "../../components/ui/Sources.astro";
@@ -51,6 +52,9 @@ const faqs: FaqItem[] = [
   updated="July 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>The <strong>Epley formula</strong> estimates your one-rep max from a submaximal weight and rep count: 1RM = weight × (1 + reps / 30). It is widely used because it is simple and works well for compound lifts. This guide explains the formula, its accuracy, and how to apply it to your training so you can program intensities without ever testing your true 1RM.</p>
 
   <ArticleImage src="/assets/images/articles/barbell-1rm.svg" alt="Illustration of a barbell loaded with weight plates representing strength training and one rep max." />

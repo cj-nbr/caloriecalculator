@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -26,6 +27,9 @@ const faqs: FaqItem[] = [
   updated="July 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <h2 id="why-healthy-gain-matters">Why healthy weight gain matters</h2>
   <p>Gaining weight quickly by eating junk food often adds fat rather than muscle. Healthy gain means adding mostly lean mass while keeping fat gain minimal. It requires a modest calorie surplus, protein-first nutrition, and progressive resistance training.</p>
 

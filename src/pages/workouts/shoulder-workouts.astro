@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 
@@ -23,6 +24,9 @@ const faqs = [
   lead="Train shoulders with presses, raises, and stability work for strength, balance, and joint control."
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <ArticleImage src="/assets/images/articles/shoulder-workout.svg" alt="Illustration of shoulder workout exercises including presses and raises." />
 
   <section class="card border-brand/20 p-5 sm:p-6">

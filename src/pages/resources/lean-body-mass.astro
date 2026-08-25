@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -27,6 +28,9 @@ const faqs: FaqItem[] = [
   updated="June 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>A <strong>Lean Body Mass calculator</strong> estimates fat-free mass in your body. This impacts metabolism and is crucial during weight loss or muscle building.</p>
 
   <h2>What is lean body mass?</h2>

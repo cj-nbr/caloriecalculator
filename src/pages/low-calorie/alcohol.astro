@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 
@@ -23,6 +24,9 @@ const faqs = [
   lead="Better-for-you alcoholic options that won't derail your weight loss."
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <h2>Lowest Calorie Alcohol by Type</h2>
 
   <ArticleImage src="/assets/images/articles/balanced-plate.svg" alt="Illustration of a balanced plate showing low-calorie alcohol choices within a healthy diet." />

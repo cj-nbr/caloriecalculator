@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -22,6 +23,9 @@ const faqs: FaqItem[] = [
   updated="June 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>A <strong>protein to calories calculator</strong> converts grams of protein into calories. This is essential for using the <a href="/protein-calculator/">protein calculator</a> with your <a href="/guides/maintenance-calorie-calculator/">calorie targets</a>.</p>
 
   <ArticleImage src="/assets/images/articles/protein-structure.svg" alt="Illustration of converting protein grams to calories at 4 kcal per gram." />

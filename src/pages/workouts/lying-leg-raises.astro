@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import ExerciseArticle from "../../components/workouts/ExerciseArticle.astro";
@@ -18,5 +19,8 @@ const topic = RELATED_EXERCISE_TOPICS.find((item) => item.slug === "lying-leg-ra
   lead={topic.summary}
   faqs={topic.faqs}
 >
+
+  <MedicalNote />
+
   <ExerciseArticle topic={topic} />
 </ContentLayout>

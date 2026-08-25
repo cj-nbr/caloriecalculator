@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -23,6 +24,9 @@ const faqs: FaqItem[] = [
   updated="June 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>A <strong>body fat percentage calculator</strong> estimates fat mass versus lean mass. Our <a href="/body-fat-calculator/">calculator</a> uses the U.S. Navy circumference method—a validated field test requiring only a tape measure.</p>
 
   <ArticleImage src="/assets/images/articles/body-composition.svg" alt="Illustration of body composition showing lean mass and body fat percentages." />

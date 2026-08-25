@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -20,6 +21,9 @@ const faqs: FaqItem[] = [
   updated="January 2025"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <h2>What is a calorie surplus?</h2>
   <p>A calorie surplus is the opposite of a deficit: you eat more energy than your body burns. That extra energy gives your body the raw materials it needs to repair and build new muscle tissue after training. Without a surplus (or at least maintenance), building significant muscle is very difficult.</p>
 

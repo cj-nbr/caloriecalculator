@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 
@@ -23,6 +24,9 @@ const faqs = [
   lead="Filling, nutrient-dense foods under 100 calories. Perfect for weight loss while staying satisfied."
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <h2>Best Low Calorie Foods by Category</h2>
 
   <ArticleImage src="/assets/images/articles/balanced-plate.svg" alt="Illustration of a balanced plate with low-calorie healthy food options." />

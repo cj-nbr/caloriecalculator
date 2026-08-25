@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -24,6 +25,9 @@ const faqs: FaqItem[] = [
   updated="July 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>The <strong>Harris-Benedict equation</strong> is a historic milestone in nutrition science. Published in 1919 by J. Arthur Harris and Francis G. Benedict, it was the first widely accepted formula for estimating basal metabolic rate (BMR) from simple measurements: height, weight, age, and sex. For nearly seventy years it was the standard tool in clinical dietetics and research. Today it is mostly of historical interest, replaced by the more accurate <a href="/resources/mifflin-st-jeor-equation/">Mifflin-St Jeor equation</a>, but understanding Harris-Benedict helps you appreciate how far calorie science has come.</p>
 
   <ArticleImage src="/assets/images/articles/resting-flame.svg" alt="Illustration of a historical-style flame representing the original BMR formula from 1919." />

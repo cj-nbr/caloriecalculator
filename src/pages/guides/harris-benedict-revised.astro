@@ -1,4 +1,5 @@
 ---
+import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -24,6 +25,9 @@ const faqs: FaqItem[] = [
   updated="July 2026"
   faqs={faqs}
 >
+
+  <MedicalNote />
+
   <p>In 1984, researchers Diane M. Roza and Herta M. Shizgal published a revision of the classic Harris-Benedict equation. Their work re-analyzed the original 1919 data with modern regression techniques and updated the constants to better match measured metabolic rates. The result — the <strong>revised Harris-Benedict equation</strong> — is slightly more accurate than the original but has still been largely superseded by the <a href="/resources/mifflin-st-jeor-equation/">Mifflin-St Jeor equation</a> (1990).</p>
 
   <ArticleImage src="/assets/images/articles/resting-flame.svg" alt="Illustration of the revised Harris-Benedict formula with an update symbol." />
