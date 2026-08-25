@@ -70,6 +70,8 @@ export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
     children: [
       { label: "How Many Calories Should I Eat?", href: "/guides/how-many-calories-should-i-eat/" },
         { label: "Body Recomposition Guide", href: "/guides/body-recomposition-guide/" },
+        { label: "Best Free Calorie Calculator Apps", href: "/guides/best-free-calorie-calculator/" },
+        { label: "Are Calorie Calculators Accurate?", href: "/guides/are-calorie-calculators-accurate/" },
       { label: "Maintenance Calorie Calculator", href: "/guides/maintenance-calorie-calculator/" },
       { label: "Maintenance Calories", href: "/guides/maintenance-calories/" },
       { label: "Online Calorie Calculator", href: "/guides/online-calorie-calculator/" },
@@ -174,6 +176,8 @@ export const FOOTER: { title: string; links: NavLink[] }[] = [
     links: [
       { label: "How Many Calories Should I Eat?", href: "/guides/how-many-calories-should-i-eat/" },
         { label: "Body Recomposition Guide", href: "/guides/body-recomposition-guide/" },
+        { label: "Best Free Calorie Calculator Apps", href: "/guides/best-free-calorie-calculator/" },
+        { label: "Are Calorie Calculators Accurate?", href: "/guides/are-calorie-calculators-accurate/" },
       { label: "Maintenance Calories", href: "/guides/maintenance-calories/" },
       { label: "TDEE Calculator Guide", href: "/resources/tdee-calculator/" },
       { label: "What is TDEE?", href: "/resources/what-is-tdee/" },
