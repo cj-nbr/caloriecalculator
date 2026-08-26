@@ -1,0 +1,61 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/ui/Section.astro";
+import { ALL_CALCULATORS, NAV } from "../data/site";
+---
+
+<Layout
+  title="HTML Sitemap | CalorieCalculatorFree"
+  description="A complete directory of all calculators, guides, and resources available on CalorieCalculatorFree."
+>
+  <Section>
+    <div class="container-page py-12">
+      <h1 class="text-display-md text-ink mb-4">HTML Sitemap</h1>
+      <p class="text-body max-w-2xl mb-12">Welcome to our complete directory. Here you will find direct links to every free calculator, workout guide, and nutrition resource on our site.</p>
+
+      <div class="grid gap-12 lg:grid-cols-2">
+        <!-- Calculators Directory -->
+        <div>
+          <h2 class="text-2xl font-bold text-ink mb-6 pb-2 border-b border-hairline">All Calculators</h2>
+          <ul class="space-y-3">
+            {ALL_CALCULATORS.map((calc) => (
+              <li>
+                <a href={calc.href} class="text-brand hover:underline font-medium">{calc.label}</a>
+                <p class="text-sm text-mute">{calc.desc}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Guides & Articles Directory -->
+        <div class="space-y-12">
+          {NAV.filter(nav => nav.children && nav.children.length > 0).map((navSection) => (
+            <div>
+              <h2 class="text-2xl font-bold text-ink mb-6 pb-2 border-b border-hairline">{navSection.label}</h2>
+              <ul class="space-y-3">
+                {navSection.children?.map((child) => (
+                  <li>
+                    <a href={child.href} class="text-brand hover:underline font-medium">{child.label}</a>
+                    {child.desc && <p class="text-sm text-mute">{child.desc}</p>}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          
+          <div>
+            <h2 class="text-2xl font-bold text-ink mb-6 pb-2 border-b border-hairline">Company & Legal</h2>
+            <ul class="space-y-3">
+              <li><a href="/about/" class="text-brand hover:underline font-medium">About Us</a></li>
+              <li><a href="/editorial-policy/" class="text-brand hover:underline font-medium">Editorial Policy</a></li>
+              <li><a href="/contact/" class="text-brand hover:underline font-medium">Contact Us</a></li>
+              <li><a href="/privacy-policy/" class="text-brand hover:underline font-medium">Privacy Policy</a></li>
+              <li><a href="/terms/" class="text-brand hover:underline font-medium">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
+</Layout>
+

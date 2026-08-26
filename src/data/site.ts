@@ -210,6 +210,7 @@ export const FOOTER: { title: string; links: NavLink[] }[] = [
       { label: "Age Calculator", href: "/age-calculator/" },
       { label: "Mortgage Calculator", href: "/mortgage-calculator/" },
       { label: "Disclaimer", href: "/disclaimer/" },
+      { label: "HTML Sitemap", href: "/html-sitemap/" },
     ],
   },
 ];
