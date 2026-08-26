@@ -32,8 +32,8 @@ const faqs: FaqItem[] = [
       Example values are pre-filled for a 5km run.
     </p>
       <div class="mb-5 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1" role="tablist" aria-label="Unit system">
-        <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" aria-pressed="true">Metric (km)</button>
-        <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" aria-pressed="false">Imperial (mi)</button>
+        <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" role="tab" aria-selected="true">Metric (km)</button>
+        <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" role="tab" aria-selected="false">Imperial (mi)</button>
       </div>
       <div class="mb-4 space-y-1.5">
         <label for="distance" class="block text-sm font-medium text-ink">Distance <span class="dist-unit text-mute">(km)</span></label>
@@ -83,7 +83,7 @@ const faqs: FaqItem[] = [
 
     <h2>Running, walking, and cycling pace</h2>
     <table>
-      <thead><tr><th>Activity</th><th>Easy pace</th><th>Moderate</th><th>Fast</th></tr></thead>
+      <thead><tr><th scope="col">Activity</th><th scope="col">Easy pace</th><th scope="col">Moderate</th><th scope="col">Fast</th></tr></thead>
       <tbody>
         <tr><td>Walking</td><td>15–18 min/km</td><td>12–14 min/km</td><td>10–11 min/km</td></tr>
         <tr><td>Running</td><td>6–8 min/km</td><td>5–6 min/km</td><td>4–5 min/km</td></tr>

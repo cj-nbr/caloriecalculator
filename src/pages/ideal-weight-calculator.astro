@@ -29,8 +29,8 @@ const faqs: FaqItem[] = [
       Example values are pre-filled. Enter your own details for accurate results.
     </p>
       <div class="mb-5 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1" role="tablist" aria-label="Unit system">
-        <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" aria-pressed="true">Metric</button>
-        <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" aria-pressed="false">Imperial</button>
+        <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" role="tab" aria-selected="true">Metric</button>
+        <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" role="tab" aria-selected="false">Imperial</button>
       </div>
       <fieldset class="mb-4">
         <legend class="mb-1.5 block text-sm font-medium text-ink">Gender</legend>
@@ -41,10 +41,10 @@ const faqs: FaqItem[] = [
       </fieldset>
       <div>
         <label class="mb-1.5 block text-sm font-medium text-ink">Height <span class="u-len text-mute">(cm)</span></label>
-        <div id="height-metric"><input id="height-cm" type="number" min="120" max="230" value="175" class={inputCls} /></div>
+        <div id="height-metric"><input id="height-cm" type="number" min="120" max="230" value="175" class={inputCls}  aria-label="Height in centimetres" /></div>
         <div id="height-imperial" class="hidden grid-cols-2 gap-3">
-          <div class="relative"><input id="height-ft" type="number" min="3" max="8" value="5" class={inputCls} /><span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">ft</span></div>
-          <div class="relative"><input id="height-in" type="number" min="0" max="11" value="9" class={inputCls} /><span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">in</span></div>
+          <div class="relative"><input id="height-ft" type="number" min="3" max="8" value="5" class={inputCls}  aria-label="Height in feet" /><span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">ft</span></div>
+          <div class="relative"><input id="height-in" type="number" min="0" max="11" value="9" class={inputCls}  aria-label="Height in inches" /><span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">in</span></div>
         </div>
       </div>
       <button type="submit" id="calc-btn" class="shimmer-btn mt-5 inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">Calculate Ideal Weight</button>

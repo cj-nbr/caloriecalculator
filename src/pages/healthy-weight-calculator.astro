@@ -32,13 +32,13 @@ const faqs: FaqItem[] = [
     <form id="calc-form" class="card p-5 sm:p-6" novalidate>
       <p role="note" class="mb-4 text-xs leading-relaxed text-mute">Example values are pre-filled. Enter your own details for accurate results.</p>
       <div class="mb-4 grid grid-cols-2 gap-1 rounded-full border border-hairline bg-canvas-soft p-1" role="tablist" aria-label="Unit system">
-        <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" aria-pressed="true">Metric</button>
-        <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" aria-pressed="false">Imperial</button>
+        <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium bg-canvas text-ink shadow-sm" role="tab" aria-selected="true">Metric</button>
+        <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium text-mute" role="tab" aria-selected="false">Imperial</button>
       </div>
       <div class="mb-4 grid grid-cols-2 gap-3">
         <div class="space-y-1.5">
           <label for="height-cm" class="block text-sm font-medium text-ink">Height <span class="height-unit text-mute">(cm)</span></label>
-          <input id="height-cm" type="number" inputmode="decimal" min="100" max="250" value="170" class={inputCls} />
+          <input id="height-cm" type="number" inputmode="decimal" min="100" max="250" value="170" class={inputCls}  aria-label="Height in centimetres" />
         </div>
         <div class="space-y-1.5">
           <label for="weight" class="block text-sm font-medium text-ink">Current weight <span class="weight-unit text-mute">(kg)</span></label>

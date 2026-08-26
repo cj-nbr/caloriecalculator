@@ -26,8 +26,8 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
       role="tablist"
       aria-label="Unit system"
     >
-      <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium transition-colors" aria-pressed="true">Metric</button>
-      <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium transition-colors" aria-pressed="false">Imperial</button>
+      <button type="button" data-unit="metric" class="unit-tab h-9 rounded-full text-sm font-medium transition-colors" role="tab" aria-selected="true">Metric</button>
+      <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium transition-colors" role="tab" aria-selected="false">Imperial</button>
     </div>
 
     <!-- Sex -->
@@ -66,15 +66,15 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
         Height <span class="height-unit text-mute">(cm)</span>
       </label>
       <div id="height-metric">
-        <input id="height-cm" type="number" inputmode="numeric" min="100" max="250" value="175" class={inputCls} />
+        <input id="height-cm" type="number" inputmode="numeric" min="100" max="250" value="175" class={inputCls}  aria-label="Height in centimetres" />
       </div>
       <div id="height-imperial" class="hidden grid-cols-2 gap-3">
         <div class="relative">
-          <input id="height-ft" type="number" inputmode="numeric" min="3" max="8" value="5" class={inputCls} />
+          <input id="height-ft" type="number" inputmode="numeric" min="3" max="8" value="5" class={inputCls}  aria-label="Height in feet" />
           <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">ft</span>
         </div>
         <div class="relative">
-          <input id="height-in" type="number" inputmode="numeric" min="0" max="11" value="9" class={inputCls} />
+          <input id="height-in" type="number" inputmode="numeric" min="0" max="11" value="9" class={inputCls}  aria-label="Height in inches" />
           <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">in</span>
         </div>
       </div>
