@@ -8,6 +8,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://caloriecalculatorfree.com',
   integrations: [sitemap()],
+  prefetch: true,
   build: {
     inlineStylesheets: 'auto',
   },
