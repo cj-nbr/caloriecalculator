@@ -1,25 +1,26 @@
----
+ï»¿---
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import type { FaqItem } from "../../lib/seo";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import ExpertTake from "../../components/ui/ExpertTake.astro";
 import Sources from "../../components/ui/Sources.astro";
-import type { FaqItem } from "../../lib/seo";
 
 const faqs: FaqItem[] = [
-  { q: "What is a protein calorie calculator?", a: "A tool that converts your daily protein target into calories. Since protein provides 4 calories per gram, a calculator simply multiplies your protein grams by 4 to show how many calories are coming specifically from protein." },
-  { q: "How do I calculate calories from protein?", a: "Multiply your total protein grams by 4. For example, if you eat 150g of protein in a day, 150 × 4 = 600 calories from protein." },
-  { q: "How many calories are in 1 gram of protein?", a: "There are exactly 4 calories in 1 gram of protein. This is a universal biological standard known as the Atwater factor." },
-  { q: "How many calories in a scoop of protein powder?", a: "A standard scoop of whey isolate contains about 25 grams of protein. 25g × 4 = 100 calories from protein, though most powders have an extra 10-20 calories from trace carbs and fats." },
-  { q: "How do I calculate protein from total calories?", a: "If you want 30% of a 2,000 calorie diet to come from protein: First, find 30% of 2,000 (which is 600 calories). Then divide by 4. 600 ÷ 4 = 150 grams of protein." },
-  { q: "What is the protein to calories ratio?", a: "The ratio is always 1:4 (1 gram of protein = 4 calories). By comparison, the fat ratio is 1:9, making fat more than twice as calorie-dense as protein." }
+  { q: "How many calories are in a gram of protein?", a: "There are exactly 4 calories (kcal) in one gram of protein. You can calculate total protein calories by multiplying the grams of protein by 4." },
+  { q: "How many calories is 150 grams of protein?", a: "150 grams of protein is exactly 600 calories. Calculate this by multiplying 150g by 4 calories per gram (150 Ã— 4 = 600)." },
+  { q: "How many calories is 100 grams of protein?", a: "100 grams of protein provides 400 calories (100g Ã— 4 kcal/g = 400 kcal)." },
+  { q: "How many calories does it take to digest a gram of protein?", a: "Your body burns about 20% to 30% of protein calories during digestion due to the Thermic Effect of Food (TEF). This means out of the 4 calories in a gram of protein, your body burns about 0.8 to 1.2 calories just to process it." },
+  { q: "What is a good protein to calorie ratio?", a: "A highly recommended standard is the 10-to-1 ratio: aim for at least 10 grams of protein for every 100 calories of food. For example, a 150-calorie snack should ideally have 15g of protein to be considered 'high protein'." },
+  { q: "How many calories is 130 grams of protein?", a: "130 grams of protein is equal to 520 calories (130g Ã— 4 kcal/g = 520 kcal)." },
+  { q: "How many calories is 180 grams of protein?", a: "180 grams of protein is equal to 720 calories (180g Ã— 4 kcal/g = 720 kcal)." }
 ];
 ---
 
 <ContentLayout
-  title="Protein Calorie Calculator – Convert Protein Grams to Calories"
+  title="Protein Calorie Calculator & Conversion Chart (Grams to kcal)"
   h1="Protein Calorie Calculator & Conversion Guide"
-  description="Learn exactly how to calculate calories from protein. Master the 4 kcal/g rule, understand macro math, and optimize your diet for muscle growth and fat loss."
+  description="Convert protein grams to calories effortlessly. Use our charts for 100g, 150g, 180g and 200g of protein, and learn the 4 kcal per gram math."
   path="/guides/protein-calorie-calculator/"
   category="Guides"
   categoryPath="/guides/"
@@ -35,82 +36,85 @@ const faqs: FaqItem[] = [
     <div class="grid gap-3 sm:grid-cols-2">
       <div class="card p-4 text-center bg-canvas">
         <p class="text-xs uppercase text-mute tracking-wider">To Find Calories</p>
-        <p class="mt-1 font-semibold text-ink text-lg">Protein Grams × 4</p>
+        <p class="mt-1 font-semibold text-ink text-lg">Protein Grams x 4</p>
       </div>
       <div class="card p-4 text-center bg-canvas">
         <p class="text-xs uppercase text-mute tracking-wider">To Find Grams</p>
-        <p class="mt-1 font-semibold text-ink text-lg">Protein Calories ÷ 4</p>
+        <p class="mt-1 font-semibold text-ink text-lg">Protein Calories Ã· 4</p>
       </div>
     </div>
     <p class="text-sm text-center text-brand font-medium mt-2"><a href="/protein-calculator/">Need your daily target? Use our free Protein Calculator &rarr;</a></p>
   </div>
 
-  <p>A <strong>protein calorie calculator</strong> doesn't just spit out random numbers—it uses a universal biological constant known as the Atwater system. By understanding that protein yields 4 kcal/g, you can effortlessly reverse-engineer any diet plan, read nutrition labels like a pro, and hit your fitness goals faster.</p>
+  <p>If you're meticulously tracking your diet, one of the most common questions you'll ask is: <strong>how many calories are in a gram of protein?</strong> Understanding the relationship between protein grams and total calories is the foundation of nutrition, whether you're using a <a href="/macro-calculator/">macro calculator</a> to build muscle or a <a href="/weight-loss-calculator/">weight loss calculator</a> to shed fat.</p>
 
-  <ArticleImage src="/assets/images/articles/protein-structure.svg" alt="Illustration of amino acid structures forming protein molecules for calorie calculation." priority={true} />
+  <p>In this comprehensive guide, we will break down the exact math behind <strong>protein to calories</strong>, provide rapid conversion charts for common protein targets, and explain the fascinating science of how your body actually burns calories just to digest protein.</p>
 
-  <h2>Why is Protein Exactly 4 Calories?</h2>
-  <p>In the late 19th century, chemist Wilbur Olin Atwater burned different macronutrients in a calorimeter to measure the exact amount of heat (energy) they released. He discovered:</p>
+  <ArticleImage src="/assets/images/articles/protein-structure.svg" alt="Illustration showing that 1 gram of protein equals 4 calories." priority={true} />
+
+  <h2>Why is Protein Exactly 4 Calories? (The Atwater System)</h2>
+  <p>In the late 19th century, chemist Wilbur Olin Atwater burned different macronutrients in a calorimeter to measure the exact amount of heat (energy) they released. He established the baseline measurements we still use today:</p>
   <ul class="list-disc pl-5 space-y-2 mt-4 mb-8">
     <li><strong>Protein:</strong> 4 calories per gram</li>
     <li><strong>Carbohydrates:</strong> 4 calories per gram</li>
     <li><strong>Fats:</strong> 9 calories per gram</li>
-    <li><strong>Alcohol:</strong> 7 calories per gram</li>
   </ul>
   
-  <p>This means protein and carbs are equally calorie-dense, while fats carry more than double the energy. This is why high-protein diets are so effective for weight loss—you can eat a massive physical volume of food for very few calories.</p>
+  <p>This means protein and carbs are equally calorie-dense, while fats carry more than double the energy. This is why high-protein diets are so effective for weight lossâ€”you can eat a massive physical volume of food for very few calories.</p>
 
   <ExpertTake quote="When my clients switch from a high-fat diet to a high-protein diet, they are always shocked by how much food they get to eat. Because protein is only 4 calories per gram, 200 calories of chicken breast takes up significantly more space in your stomach than 200 calories of olive oil, keeping you full for hours." />
 
-  <h2>Protein to Calories Conversion Chart</h2>
-  <p>If you don't want to do the math yourself, use this quick reference chart to see how your daily protein target translates into total calories.</p>
+  <h2>Rapid Protein to Calories Conversion Chart</h2>
+  <p>Instead of pulling out a calculator every time you look at your meal plan, use this cheat sheet. We have calculated the most heavily searched daily protein targets directly into calories.</p>
   
-  <div class="overflow-x-auto my-6">
-    <table class="min-w-full border-collapse">
+  <div class="overflow-x-auto my-8">
+    <table class="w-full text-left border-collapse">
       <thead>
-        <tr class="border-b border-hairline text-left text-sm font-semibold text-ink">
-          <th class="py-3 pr-4">Protein (Grams)</th>
-          <th class="py-3 pr-4">Calories Provided</th>
-          <th class="py-3 pr-4">Real-World Example</th>
+        <tr class="bg-canvas-soft border-y border-hairline">
+          <th scope="col" class="py-3 px-4 font-bold text-ink">Grams of Protein</th>
+          <th scope="col" class="py-3 px-4 font-bold text-ink">Total Calories (kcal)</th>
+          <th scope="col" class="py-3 px-4 font-bold text-ink">Typical Goal Alignment</th>
         </tr>
       </thead>
-      <tbody class="text-sm text-body">
-        <tr class="border-b border-hairline/50">
-          <td class="py-3 pr-4 font-medium">25g</td>
-          <td class="py-3 pr-4">100 kcal</td>
-          <td class="py-3 pr-4">1 scoop of whey isolate</td>
-        </tr>
-        <tr class="border-b border-hairline/50">
-          <td class="py-3 pr-4 font-medium">50g</td>
-          <td class="py-3 pr-4">200 kcal</td>
-          <td class="py-3 pr-4">1 large chicken breast (raw, ~225g)</td>
-        </tr>
-        <tr class="border-b border-hairline/50">
-          <td class="py-3 pr-4 font-medium">100g</td>
-          <td class="py-3 pr-4">400 kcal</td>
-          <td class="py-3 pr-4">2 chicken breasts + 1 Greek yogurt</td>
-        </tr>
-        <tr class="border-b border-hairline/50">
-          <td class="py-3 pr-4 font-medium">150g</td>
-          <td class="py-3 pr-4">600 kcal</td>
-          <td class="py-3 pr-4">Standard target for a 150lb person</td>
-        </tr>
-        <tr>
-          <td class="py-3 pr-4 font-medium">200g</td>
-          <td class="py-3 pr-4">800 kcal</td>
-          <td class="py-3 pr-4">Standard target for a 200lb bodybuilder</td>
-        </tr>
+      <tbody class="divide-y divide-hairline">
+        <tr><td class="py-3 px-4 font-medium">10 grams</td><td class="py-3 px-4">40 calories</td><td class="py-3 px-4 text-mute">A small snack (e.g., string cheese)</td></tr>
+        <tr><td class="py-3 px-4 font-medium">24 grams</td><td class="py-3 px-4">96 calories</td><td class="py-3 px-4 text-mute">One standard scoop of whey protein</td></tr>
+        <tr><td class="py-3 px-4 font-medium">30 grams</td><td class="py-3 px-4">120 calories</td><td class="py-3 px-4 text-mute">A standard high-protein meal</td></tr>
+        <tr><td class="py-3 px-4 font-medium">60 grams</td><td class="py-3 px-4">240 calories</td><td class="py-3 px-4 text-mute">Daily minimum for inactive adults</td></tr>
+        <tr><td class="py-3 px-4 font-medium">65 grams</td><td class="py-3 px-4">260 calories</td><td class="py-3 px-4 text-mute">Moderate daily target</td></tr>
+        <tr><td class="py-3 px-4 font-medium">84 grams</td><td class="py-3 px-4">336 calories</td><td class="py-3 px-4 text-mute">Moderate daily target</td></tr>
+        <tr><td class="py-3 px-4 font-medium">100 grams</td><td class="py-3 px-4">400 calories</td><td class="py-3 px-4 text-mute">Common weight loss baseline</td></tr>
+        <tr><td class="py-3 px-4 font-medium">110 grams</td><td class="py-3 px-4">440 calories</td><td class="py-3 px-4 text-mute">Lean muscle maintenance</td></tr>
+        <tr><td class="py-3 px-4 font-medium">115 grams</td><td class="py-3 px-4">460 calories</td><td class="py-3 px-4 text-mute">Lean muscle maintenance</td></tr>
+        <tr><td class="py-3 px-4 font-medium">130 grams</td><td class="py-3 px-4">520 calories</td><td class="py-3 px-4 text-mute">Active fitness enthusiast</td></tr>
+        <tr><td class="py-3 px-4 font-medium">140 grams</td><td class="py-3 px-4">560 calories</td><td class="py-3 px-4 text-mute">Active fitness enthusiast</td></tr>
+        <tr><td class="py-3 px-4 font-medium">150 grams</td><td class="py-3 px-4">600 calories</td><td class="py-3 px-4 text-mute">Standard bodybuilding target</td></tr>
+        <tr><td class="py-3 px-4 font-medium">160 grams</td><td class="py-3 px-4">640 calories</td><td class="py-3 px-4 text-mute">Aggressive muscle building</td></tr>
+        <tr><td class="py-3 px-4 font-medium">170 grams</td><td class="py-3 px-4">680 calories</td><td class="py-3 px-4 text-mute">Heavy lifting & bulking</td></tr>
+        <tr><td class="py-3 px-4 font-medium">176 grams</td><td class="py-3 px-4">704 calories</td><td class="py-3 px-4 text-mute">Heavy lifting & bulking</td></tr>
+        <tr><td class="py-3 px-4 font-medium">180 grams</td><td class="py-3 px-4">720 calories</td><td class="py-3 px-4 text-mute">Advanced bodybuilding</td></tr>
+        <tr><td class="py-3 px-4 font-medium">200 grams</td><td class="py-3 px-4">800 calories</td><td class="py-3 px-4 text-mute">High-mass athlete target</td></tr>
       </tbody>
     </table>
   </div>
+
+  <h2>What is a Good Protein to Calorie Ratio? (The 10-to-1 Rule)</h2>
+  <p>When you are shopping at the grocery store, you might wonder how to spot a genuinely "high protein" food versus a clever marketing gimmick. This brings up a highly searched question: <strong>what is a good ratio of protein to calories?</strong></p>
+  <p>Fitness experts and nutritionists often recommend the <strong>10 to 1 calorie to protein ratio</strong>. Here is how it works:</p>
+  <ul class="list-disc pl-5 space-y-2 mt-4 mb-8">
+    <li>Drop the last zero from the total calories of the food item.</li>
+    <li>The remaining number is the <em>minimum</em> amount of protein (in grams) the food should have to be considered a highly efficient protein source.</li>
+    <li><strong>Example:</strong> If a cup of Greek yogurt has 120 calories, drop the zero (12). Does it have at least 12 grams of protein? If it has 15g, it surpasses the 10-to-1 rule. It is a fantastic protein source!</li>
+    <li><strong>Example:</strong> A protein bar has 250 calories. It should have at least 25g of protein. If it only has 10g, it is essentially a candy bar, heavily weighted toward carbs and fats.</li>
+  </ul>
 
   <h2>How to Calculate Protein from Total Calories (Percentages)</h2>
   <p>Many diet plans (like the Zone Diet or standard bodybuilding splits) prescribe macros as percentages, such as "Eat 30% protein." Here is how to convert that percentage back into grams using the 4 kcal/g rule.</p>
   
   <p><strong>Example: You are eating 2,000 calories a day and want 30% to come from protein.</strong></p>
   <ol class="list-decimal pl-5 space-y-2 mt-4 mb-8">
-    <li>Find 30% of 2,000 calories: <strong>(2,000 × 0.30) = 600 protein calories</strong></li>
-    <li>Divide those calories by 4 to get grams: <strong>600 ÷ 4 = 150 grams of protein</strong></li>
+    <li>Find 30% of 2,000 calories: <strong>(2,000 x 0.30) = 600 protein calories</strong></li>
+    <li>Divide those calories by 4 to get grams: <strong>600 Ã· 4 = 150 grams of protein</strong></li>
   </ol>
   <p>You can skip this manual math entirely by using our <a href="/macro-calculator/">Macro Calculator</a>, which does percentage-to-gram conversions automatically.</p>
 
@@ -118,12 +122,12 @@ const faqs: FaqItem[] = [
   <p>While a gram of protein technically contains 4 calories, your body actually burns a massive amount of energy just trying to digest it. This is called the <strong>Thermic Effect of Food (TEF)</strong>.</p>
   
   <ul class="list-disc pl-5 space-y-2 mt-4 mb-8">
-    <li><strong>Fat TEF:</strong> 0–3% of calories burned during digestion</li>
-    <li><strong>Carb TEF:</strong> 5–10% of calories burned during digestion</li>
-    <li><strong>Protein TEF:</strong> 20–30% of calories burned during digestion</li>
+    <li><strong>Fat TEF:</strong> 0-3% of calories burned during digestion</li>
+    <li><strong>Carb TEF:</strong> 5-10% of calories burned during digestion</li>
+    <li><strong>Protein TEF:</strong> 20-30% of calories burned during digestion</li>
   </ul>
   
-  <p>This means if you eat 100 calories of pure protein, your body burns about 25 of those calories simply breaking down the amino acid chains. The net yield to your body is closer to 75 calories! This hidden "metabolic advantage" is why high-protein diets are overwhelmingly recommended by nutritionists for fat loss.</p>
+  <p>This means if you eat 100 calories of pure protein (25 grams), your body burns about 25 of those calories simply breaking down the amino acid chains. The net yield to your body is closer to 75 calories! This hidden "metabolic advantage" is why high-protein diets are overwhelmingly recommended by nutritionists for fat loss.</p>
 
   <h2>Suggested Calculators & Next Steps</h2>
   <p>Now that you understand the math behind protein calories, it is time to put it into practice. Use our free tools to build your perfect diet:</p>
@@ -134,8 +138,8 @@ const faqs: FaqItem[] = [
   </ul>
 
   <Sources sources={[
+    { label: "Dietary Guidelines for Americans - calorie needs", href: "https://www.dietaryguidelines.gov/" },
     { label: "Buchholz, A. C., & Schoeller, D. A. (2004). Is a calorie a calorie?", href: "https://academic.oup.com/ajcn/article/79/5/899S/4690186" },
     { label: "Westerterp, K. R. (2004). Diet induced thermogenesis.", href: "https://nutritionandmetabolism.biomedcentral.com/articles/10.1186/1743-7075-1-5" }
   ]} />
 </ContentLayout>
-
