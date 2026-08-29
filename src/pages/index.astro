@@ -77,8 +77,8 @@ const jsonLd = [
   description="Free calorie calculator for your daily calorie needs — weight loss, gain, or maintenance. Get your TDEE, BMR, calorie deficit and macros instantly."
   jsonLd={jsonLd}
 >
-  <!-- ?? Hero & Calculator -->
-  <section class="relative overflow-hidden pt-12 pb-16 lg:pt-20 lg:pb-24">
+  <!-- ── Hero ─────────────────────────────────────────── -->
+  <section class="relative overflow-hidden">
     <div class="bg-grid pointer-events-none absolute inset-0 -z-10" aria-hidden="true"></div>
     <div
       class="pointer-events-none absolute left-1/2 top-0 -z-10 h-[400px] w-[800px] -translate-x-1/2 rounded-full opacity-20 blur-[120px]"
@@ -86,57 +86,60 @@ const jsonLd = [
       aria-hidden="true"
     >
     </div>
-    
-    <div class="container-page">
-      <div class="grid gap-12 lg:grid-cols-[1fr_420px] items-start">
-        
-        <!-- Left: Copy & Trust -->
-        <div class="text-center lg:text-left pt-2 lg:pt-8">
-          <a
-            href="/guides/how-many-calories-should-i-eat/"
-            class="inline-flex items-center gap-2 rounded-full border border-hairline bg-canvas-soft px-3 py-1 text-xs text-body transition-colors hover:text-ink"
-          >
-            <span class="h-1.5 w-1.5 rounded-full bg-success"></span>
-            Science-driven � Updated for 2026
-          </a>
-          <h1 class="mx-auto lg:mx-0 mt-6 max-w-2xl text-display-lg lg:text-display-xl tracking-tight text-ink">
-            The most accurate <span class="text-gradient">free calorie calculator</span>
-          </h1>
-          <p class="mx-auto lg:mx-0 mt-5 max-w-xl text-lg text-body">
-            Find precisely how many calories you need to eat daily to lose fat, gain muscle, or maintain your current weight. 
-            Get your personalized target with BMR calculations based on the Mifflin-St Jeor equation.
-          </p>
-          
-          <div class="mt-10 grid gap-6 sm:grid-cols-3 lg:grid-cols-2">
-            {trust.map((t) => (
-              <div class="flex items-start gap-3 text-left">
-                <div class="mt-0.5 flex-shrink-0">
-                  <svg class="h-5 w-5 text-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d={t.icon} />
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-sm font-semibold text-ink">{t.label}</h3>
-                  <p class="text-xs text-mute mt-1 leading-relaxed">{t.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <!-- Right: Calculator -->
-        <div id="calculator" class="w-full relative z-10 scroll-mt-20">
-          <div class="mb-4 text-center lg:hidden">
-            <h2 class="text-lg font-bold text-ink">Calculate your daily calories</h2>
-          </div>
-          <CalorieCalculator />
-        </div>
-
+    <div class="container-page pb-10 pt-16 text-center sm:pt-24">
+      <a
+        href="/guides/how-many-calories-should-i-eat/"
+        class="inline-flex items-center gap-2 rounded-full border border-hairline bg-canvas-soft px-3 py-1 text-xs text-body transition-colors hover:text-ink"
+      >
+        <span class="h-1.5 w-1.5 rounded-full bg-success"></span>
+        Science-driven · Updated for 2026
+      </a>
+      <h1 class="mx-auto mt-6 max-w-4xl text-display-xl text-ink">
+        The most accurate <span class="text-gradient">free calorie calculator</span>
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-body">
+        Find precisely how many calories you need to eat daily to lose fat, gain muscle, or maintain your current weight. 
+        Get your personalized target with BMR calculations based on the Mifflin-St Jeor equation.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+        <Button href="#calculator" size="lg">Calculate Calories</Button>
+        <Button href="/guides/how-many-calories-should-i-eat/" variant="secondary" size="lg">
+          Learn More
+        </Button>
       </div>
     </div>
   </section>
 
-  <!-- Ad placement - below calculator -->
+  <!-- ── Trust row ────────────────────────────────────── -->
+  <div class="border-y border-hairline bg-canvas-soft/50">
+    <div class="container-page grid grid-cols-2 gap-4 py-6 sm:grid-cols-3">
+      {
+        trust.map((t) => (
+          <div class="group flex flex-col items-center justify-center gap-1 text-sm text-body p-4 rounded-lg hover:bg-canvas transition-colors">
+            <svg class="h-5 w-5 text-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d={t.icon} />
+            </svg>
+            <span class="font-medium text-ink">{t.label}</span>
+            <p class="text-xs text-mute text-center max-w-xs opacity-0 group-hover:opacity-100 transition-opacity">{t.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+<!-- ── Calculator ───────────────────────────────────── -->
+   <Section id="calculator" class="scroll-mt-20">
+     <div class="mb-8 text-center">
+       <h2 class="text-display-md text-ink">Calculate your daily calories</h2>
+       <p class="mx-auto mt-3 max-w-xl text-body">
+         Enter your details below. Everything updates instantly and stays private
+         on your device.
+       </p>
+     </div>
+     <CalorieCalculator />
+   </Section>
+
+   <!-- Ad placement - below calculator -->
    <AdsterraAd />
 
    <!-- Tools: Food Calories Search (placed above the features section) -->
