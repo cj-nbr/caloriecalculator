@@ -16,7 +16,7 @@ export default defineConfig({
     '/guides/calorie-calculator-for-men/': '/guides/how-many-calories-should-i-eat/',
     '/guides/calorie-calculator-for-women/': '/guides/how-many-calories-should-i-eat/',
     '/guides/calorie-calculator-by-age/': '/guides/how-many-calories-should-i-eat/',
-    '/guides/calorie-calculator-accuracy/': '/guides/how-many-calories-should-i-eat/',
+    
     '/sitemap.xml': '/sitemap-index.xml',
   },
 });
