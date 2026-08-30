@@ -3,6 +3,8 @@ import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
+import ExpertTake from "../../components/ui/ExpertTake.astro";
+import Sources from "../../components/ui/Sources.astro";
 
 const faqs: FaqItem[] = [
   { q: "How many calories are in 1 gram of protein?", a: "There are exactly 4 calories (kcal) in 1 gram of protein. This is a standard measurement used in nutrition to convert protein grams into total calories." },
@@ -106,6 +108,9 @@ const faqs: FaqItem[] = [
   <p>What does this mean in practice? If you eat 100 calories of pure protein (25 grams), your body will burn 20 to 30 of those calories simply digesting it. You only net about 70 to 80 usable calories. Therefore, <strong>1 gram of protein (4 calories) actually burns roughly 0.8 to 1.2 calories during digestion</strong>.</p>
   <p>This is why high-protein diets are universally recommended in our <a href="/guides/weight-loss-guide/">weight loss guide</a>—they literally boost your metabolism.</p>
 
+  
+  <ExpertTake quote="When my clients try to hit 150g of protein, they often rely too heavily on protein powders, which bypass the digestive process faster than solid food. While 1 gram of whey protein still equals 4 calories, chewing and digesting solid proteins like chicken or steak maximizes the Thermic Effect of Food (TEF) and keeps you satiated significantly longer." />
+  
   <h2>Balancing Protein within Your Overall Calories</h2>
   <p>While protein is vital, you cannot eat unlimited amounts of it. Your <strong>protein kcal</strong> must fit within your <a href="/tdee-calculator/">Total Daily Energy Expenditure (TDEE)</a>. If you need 2,000 calories a day to maintain your weight, and you eat 150g of protein (600 calories), you have 1,400 calories left over to split between carbohydrates and fats.</p>
   
@@ -116,4 +121,9 @@ const faqs: FaqItem[] = [
     <li>Split the rest of your calories perfectly with the <a href="/macro-calculator/">macro calculator</a>.</li>
   </ul>
 
+
+  <Sources sources={[
+    { label: "Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids (Macronutrients)", href: "https://nap.nationalacademies.org/read/10490/chapter/1" },
+    { label: "Westerterp, K. R. (2004). Diet induced thermogenesis.", href: "https://nutritionandmetabolism.biomedcentral.com/articles/10.1186/1743-7075-1-5" }
+  ]} />
 </ContentLayout>
