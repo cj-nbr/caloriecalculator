@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>다이어트를 위한 칼로리 계산기</title>
+  <link rel="alternate" hreflang="ko-KR" href="https://caloriecalculatorfree.com/country/%EB%8B%A4%EC%9D%B4%EC%96%B4%ED%8A%B8%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EC%B9%BC%EB%A1%9C%EB%A6%AC%20%EA%B3%84%EC%82%B0%EA%B8%B0.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --color-hairline: #e2e8f0;
+      --color-protein: #f43f5e;
+      --color-carbs: #3b82f6;
+      --color-fat: #eab308;
+    }
+    .text-ink { color: #0f172a; }
+    .text-mute { color: #64748b; }
+    .bg-canvas { background-color: #ffffff; }
+    .bg-canvas-soft { background-color: #f8fafc; }
+    .border-hairline { border-color: #e2e8f0; }
+    .focus-border-brand:focus { border-color: #3b82f6; outline: none; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans p-4 sm:p-8">
+
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-ink">다이어트를 위한 칼로리 계산기</h1>
+
+    <div class="grid gap-6 lg:grid-cols-[minmax(0,420px)_1fr]" id="calc-root">
+      
+      <!-- ── Form ───────────────────────────────────────────────── -->
+      <form id="calc-form" class="bg-canvas rounded-xl shadow-sm border border-hairline p-5 sm:p-6" novalidate>
+        <p class="mb-4 text-xs leading-relaxed text-mute">
+          예시 값이 미리 채워져 있습니다. 정확한 결과를 위해 귀하의 정보를 입력하세요.
+        </p>
+
+        <!-- Sex -->
+        <fieldset class="mb-4">
+          <legend class="mb-1.5 block text-sm font-medium text-ink">성별</legend>
+          <div class="grid grid-cols-2 gap-2">
+            <label class="flex h-11 cursor-pointer items-center justify-center gap-2 rounded-lg border border-hairline text-sm font-medium transition-colors hover:bg-gray-50 focus-within:ring-2 focus-within:ring-blue-500">
+              <input type="radio" name="sex" value="male" class="text-blue-600 focus:ring-blue-500" checked />
+              남성
+            </label>
+            <label class="flex h-11 cursor-pointer items-center justify-center gap-2 rounded-lg border border-hairline text-sm font-medium transition-colors hover:bg-gray-50 focus-within:ring-2 focus-within:ring-blue-500">
+              <input type="radio" name="sex" value="female" class="text-blue-600 focus:ring-blue-500" />
+              여성
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="mb-4 grid grid-cols-2 gap-3">
+          <!-- Age -->
+          <div class="space-y-1.5">
+            <label for="age" class="block text-sm font-medium text-ink">나이</label>
+            <input id="age" name="age" type="number" inputmode="numeric" min="15" max="100" value="30" class="w-full h-11 rounded-lg border border-hairline px-3.5 text-sm focus-border-brand" />
+          </div>
+          <!-- Weight -->
+          <div class="space-y-1.5">
+            <label for="weight" class="block text-sm font-medium text-ink">몸무게 (kg)</label>
+            <input id="weight" name="weight" type="number" inputmode="decimal" min="20" step="0.1" value="70" class="w-full h-11 rounded-lg border border-hairline px-3.5 text-sm focus-border-brand" />
+          </div>
+        </div>
+
+        <!-- Height -->
+        <div class="mb-4">
+          <label class="mb-1.5 block text-sm font-medium text-ink">키 (cm)</label>
+          <input id="height-cm" type="number" inputmode="numeric" min="100" max="250" value="175" class="w-full h-11 rounded-lg border border-hairline px-3.5 text-sm focus-border-brand" />
+        </div>
+
+        <!-- Activity -->
+        <div class="mb-6 space-y-1.5">
+          <label for="activity" class="block text-sm font-medium text-ink">활동량</label>
+          <select id="activity" name="activity" class="w-full h-11 rounded-lg border border-hairline bg-canvas px-3.5 text-sm focus-border-brand appearance-none pr-9 bg-no-repeat bg-right" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22><path d=%22m6 9 6 6 6-6%22/></svg>'); background-position: right 0.75rem center; background-size: 1em;">
+            <option value="sedentary">앉아서 생활 (운동 거의 안함)</option>
+            <option value="light">가벼운 활동 (주 1–3회 운동)</option>
+            <option value="moderate" selected>보통 활동 (주 3–5회 운동)</option>
+            <option value="active">적극적인 활동 (주 6–7회 운동)</option>
+            <option value="athlete">매우 적극적인 활동 (힘든 운동 + 육체 노동)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="w-full h-12 bg-gray-900 text-white rounded-full text-base font-medium transition-opacity hover:opacity-90">
+          계산하기
+        </button>
+      </form>
+
+      <!-- ── Results ────────────────────────────────────────────── -->
+      <div id="calc-results" class="space-y-5">
+        
+        <!-- Headline -->
+        <div class="bg-canvas rounded-xl shadow-sm border border-hairline overflow-hidden p-6 sm:p-8 relative">
+          <div class="flex flex-wrap items-end justify-between gap-3 relative z-10">
+            <div>
+              <p class="text-sm text-mute"><span id="goal-label" class="text-ink font-semibold">체중 유지</span>를 위한 일일 칼로리</p>
+              <p class="mt-1">
+                <span id="result-calories" class="text-4xl font-bold text-ink tabular-nums">-</span>
+                <span class="text-lg text-mute">kcal/일</span>
+              </p>
+            </div>
+            <div class="text-right">
+              <p class="text-xs text-mute">주간 칼로리</p>
+              <p id="result-weekly" class="text-2xl font-semibold text-ink tabular-nums">-</p>
+            </div>
+          </div>
+
+          <!-- Goal selector -->
+          <div class="mt-6 space-y-1.5 relative z-10">
+            <label for="goal" class="block text-xs font-medium text-mute">목표 설정</label>
+            <select id="goal" class="w-full h-11 rounded-lg border border-hairline bg-canvas px-3.5 text-sm focus-border-brand appearance-none pr-9 bg-no-repeat bg-right" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22><path d=%22m6 9 6 6 6-6%22/></svg>'); background-position: right 0.75rem center; background-size: 1em;">
+              <option value="maintain" selected>체중 유지</option>
+              <option value="mildLoss">가벼운 체중 감량 (주 0.25kg 감량)</option>
+              <option value="loss">체중 감량 (주 0.5kg 감량)</option>
+              <option value="extremeLoss">극적인 체중 감량 (주 1kg 감량)</option>
+              <option value="mildGain">가벼운 체중 증량 (주 0.25kg 증량)</option>
+              <option value="gain">체중 증량 (주 0.5kg 증량)</option>
+              <option value="extremeGain">극적인 체중 증량 (주 1kg 증량)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- BMR + TDEE -->
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-canvas rounded-xl shadow-sm border border-hairline p-5">
+            <p class="text-xs uppercase tracking-wide text-mute">기초대사량 (BMR)</p>
+            <p id="result-bmr" class="mt-1 text-2xl font-semibold text-ink tabular-nums">-</p>
+          </div>
+          <div class="bg-canvas rounded-xl shadow-sm border border-hairline p-5">
+            <p class="text-xs uppercase tracking-wide text-mute">일일 에너지 소비 (TDEE)</p>
+            <p id="result-tdee" class="mt-1 text-2xl font-semibold text-ink tabular-nums">-</p>
+          </div>
+        </div>
+
+        <!-- Macros -->
+        <div class="bg-canvas rounded-xl shadow-sm border border-hairline p-5 sm:p-6">
+          <div class="flex items-center justify-between border-b border-hairline pb-4 mb-4">
+            <h3 class="text-sm font-semibold text-ink">권장 다량영양소 (매크로)</h3>
+            <span class="text-xs text-mute">30% 단백질 / 40% 탄수화물 / 30% 지방</span>
+          </div>
+          <div class="flex flex-col sm:flex-row items-center gap-6">
+            <ul class="w-full space-y-3">
+              <li class="flex items-center justify-between gap-3">
+                <span class="flex items-center gap-2 text-sm text-gray-700"><span class="h-3 w-3 rounded-full bg-rose-500"></span>단백질</span>
+                <span class="text-sm font-medium text-ink"><span id="macro-protein" class="tabular-nums">-</span> g</span>
+              </li>
+              <li class="flex items-center justify-between gap-3">
+                <span class="flex items-center gap-2 text-sm text-gray-700"><span class="h-3 w-3 rounded-full bg-blue-500"></span>탄수화물</span>
+                <span class="text-sm font-medium text-ink"><span id="macro-carbs" class="tabular-nums">-</span> g</span>
+              </li>
+              <li class="flex items-center justify-between gap-3">
+                <span class="flex items-center gap-2 text-sm text-gray-700"><span class="h-3 w-3 rounded-full bg-yellow-500"></span>지방</span>
+                <span class="text-sm font-medium text-ink"><span id="macro-fat" class="tabular-nums">-</span> g</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const ACTIVITY_LEVELS = {
+      sedentary: { multiplier: 1.2 },
+      light: { multiplier: 1.375 },
+      moderate: { multiplier: 1.55 },
+      active: { multiplier: 1.725 },
+      athlete: { multiplier: 1.9 },
+    };
+
+    const GOALS = {
+      maintain: { label: "체중 유지", delta: 0 },
+      mildLoss: { label: "가벼운 체중 감량", delta: -250 },
+      loss: { label: "체중 감량", delta: -500 },
+      extremeLoss: { label: "극적인 체중 감량", delta: -1000 },
+      mildGain: { label: "가벼운 체중 증량", delta: 250 },
+      gain: { label: "체중 증량", delta: 500 },
+      extremeGain: { label: "극적인 체중 증량", delta: 1000 },
+    };
+
+    function bmrMifflinStJeor(sex, age, heightCm, weightKg) {
+      const base = 10 * weightKg + 6.25 * heightCm - 5 * age;
+      return sex === "male" ? base + 5 : base - 161;
+    }
+
+    function tdee(bmr, activity) {
+      return bmr * ACTIVITY_LEVELS[activity].multiplier;
+    }
+
+    function goalCalories(tdeeValue, goal, sex) {
+      const target = tdeeValue + GOALS[goal].delta;
+      const floor = sex === "male" ? 1500 : 1200;
+      return Math.max(target, floor);
+    }
+
+    function macrosFromCalories(calories) {
+      const split = { protein: 0.3, carbs: 0.4, fat: 0.3 };
+      const proteinKcal = calories * split.protein;
+      const carbsKcal = calories * split.carbs;
+      const fatKcal = calories * split.fat;
+      return {
+        proteinG: Math.round(proteinKcal / 4),
+        carbsG: Math.round(carbsKcal / 4),
+        fatG: Math.round(fatKcal / 9),
+      };
+    }
+
+    const fmt = (n) => Math.round(n).toLocaleString("ko-KR");
+    const $ = (id) => document.getElementById(id);
+
+    function render() {
+      const sex = document.querySelector('input[name="sex"]:checked').value;
+      const age = parseFloat($("age").value) || 0;
+      const weightKg = parseFloat($("weight").value) || 0;
+      const heightCm = parseFloat($("height-cm").value) || 0;
+      const activity = $("activity").value;
+      const goal = $("goal").value;
+
+      if (weightKg <= 0 || heightCm <= 0 || age <= 0) return;
+
+      const bmr = bmrMifflinStJeor(sex, age, heightCm, weightKg);
+      const tdeeVal = tdee(bmr, activity);
+      const cals = goalCalories(tdeeVal, goal, sex);
+
+      $("result-bmr").textContent = fmt(bmr);
+      $("result-tdee").textContent = fmt(tdeeVal);
+      $("result-calories").textContent = fmt(cals);
+      $("result-weekly").textContent = fmt(cals * 7);
+      $("goal-label").textContent = GOALS[goal].label;
+
+      const m = macrosFromCalories(cals);
+      $("macro-protein").textContent = String(m.proteinG);
+      $("macro-carbs").textContent = String(m.carbsG);
+      $("macro-fat").textContent = String(m.fatG);
+    }
+
+    $("calc-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      render();
+    });
+
+    $("goal").addEventListener("change", render);
+    $("activity").addEventListener("change", render);
+    
+    // Initial render
+    render();
+  </script>
+</body>
+</html>
