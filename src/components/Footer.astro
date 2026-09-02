@@ -3,43 +3,51 @@ import { SITE, FOOTER } from "../data/site";
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-hairline bg-canvas-soft">
-  <div class="container-page py-14">
+<footer class="relative overflow-hidden border-t border-hairline bg-surface-elevated">
+  <!-- Decorative background glow -->
+  <div class="pointer-events-none absolute left-1/2 top-0 -z-10 h-64 w-[800px] -translate-x-1/2 rounded-full opacity-10 blur-[120px]" style="background: radial-gradient(circle, #007cf0, transparent 70%);" aria-hidden="true"></div>
+
+  <div class="container-page py-16">
     <div class="grid gap-10 lg:grid-cols-[1.5fr_repeat(4,1fr)]">
       <!-- Brand blurb -->
       <div class="max-w-xs">
         <a href="/" class="flex items-center gap-2 font-semibold text-ink">
-          <span class="grid h-8 w-8 place-items-center rounded-lg bg-ink text-canvas" aria-hidden="true">
+          <span class="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-[#007cf0] to-[#00dfd8] text-white shadow-md" aria-hidden="true">
             <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M3 3v18h18" /><path d="M7 15l3-4 3 2 4-6" />
             </svg>
           </span>
-          <span class="text-[15px] tracking-tight">CalorieCalculatorFree</span>
+          <span class="text-[17px] tracking-tight font-bold">Calorie<span class="text-brand">Calculator</span>Free</span>
         </a>
         <p class="mt-4 text-sm leading-relaxed text-body">
           Free, science-based calorie and nutrition calculators to help you
           reach your weight goals with confidence.
         </p>
-        <div class="mt-5 flex items-center gap-2 rounded-lg border border-success/20 bg-success/5 p-3">
-          <svg class="h-5 w-5 text-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-          <span class="text-xs font-medium text-success">Medically Reviewed & Verified</span>
+        <div class="mt-6 flex items-center gap-3 rounded-xl border border-success/20 bg-success/5 p-4 shadow-sm transition-all hover:shadow-md hover:bg-success/10">
+          <div class="rounded-full bg-success/20 p-1.5">
+            <svg class="h-4 w-4 text-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          </div>
+          <span class="text-xs font-semibold tracking-wide text-success uppercase">Medically Reviewed</span>
         </div>
       </div>
 
       {
         FOOTER.map((col) => (
           <div>
-            <h2 class="text-xs font-semibold uppercase tracking-wider text-mute">
+            <h2 class="text-sm font-bold tracking-wider text-ink">
               {col.title}
             </h2>
-            <ul class="mt-4 space-y-2.5">
+            <ul class="mt-6 space-y-3">
               {col.links.map((link) => (
                 <li>
                   <a
                     href={link.href}
-                    class="text-sm text-body transition-colors hover:text-ink"
+                    class="group flex items-center text-sm text-body transition-colors hover:text-brand"
                   >
-                    {link.label}
+                    <span class="relative">
+                      {link.label}
+                      <span class="absolute -bottom-1 left-0 h-0.5 w-0 bg-brand transition-all duration-300 group-hover:w-full"></span>
+                    </span>
                   </a>
                 </li>
               ))}
@@ -50,10 +58,10 @@ const year = new Date().getFullYear();
     </div>
 
     <div
-      class="mt-12 flex flex-col items-start justify-between gap-4 border-t border-hairline pt-6 text-sm text-mute sm:flex-row sm:items-center"
+      class="mt-16 flex flex-col items-start justify-between gap-6 border-t border-hairline pt-8 text-sm text-mute sm:flex-row sm:items-center"
     >
-      <p>&copy; {year} {SITE.name}. All rights reserved.</p>
-      <p class="max-w-md text-xs leading-relaxed">
+      <p class="font-medium">&copy; {year} {SITE.name}. All rights reserved.</p>
+      <p class="max-w-md text-xs leading-relaxed text-body opacity-80">
         For educational purposes only. Not medical advice — consult a healthcare
         professional before making health decisions.
       </p>
