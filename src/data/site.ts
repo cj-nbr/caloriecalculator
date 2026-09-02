@@ -46,6 +46,9 @@ export const ALL_CALCULATORS: NavLink[] = [
   { label: "Target Heart Rate Calculator", href: "/target-heart-rate-calculator/", desc: "Training heart rate zones" },
   { label: "Alcohol Calories Calculator", href: "/alcohol-calories-calculator/", desc: "Calories in beer, wine & spirits" },
   { label: "Pace Calculator", href: "/pace-calculator/", desc: "Running, walking, cycling pace" },
+  { label: "Pregnancy Calculator", href: "/pregnancy-calculator/", desc: "Due date & conception" },
+  { label: "Due Date Calculator", href: "/due-date-calculator/", desc: "Estimated delivery date" },
+  { label: "Conception Calculator", href: "/pregnancy-conception-calculator/", desc: "Fertility window" },
 ];
 
 /** Header dropdown groups. */
@@ -54,15 +57,6 @@ export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
     label: "Home",
     href: "/",
 
-  },
-  {
-    label: "Health",
-    href: "/pregnancy-calculator/",
-    children: [
-      { label: "Pregnancy Calculator", href: "/pregnancy-calculator/", desc: "Due date & conception" },
-      { label: "Due Date Calculator", href: "/due-date-calculator/", desc: "Estimated delivery date" },
-      { label: "Conception Calculator", href: "/pregnancy-conception-calculator/", desc: "Fertility window" },
-    ],
   },
   {
     label: "Guides",
