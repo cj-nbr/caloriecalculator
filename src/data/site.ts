@@ -154,44 +154,6 @@ export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
 
 /** Footer link groups. */
 export const FOOTER: { title: string; links: NavLink[] }[] = [
-  {
-    title: "Calculators",
-    links: [
-      { label: "Calorie Calculator", href: "/" },
-      { label: "TDEE Calculator", href: "/tdee-calculator/" },
-      { label: "BMR Calculator", href: "/bmr-calculator/" },
-      { label: "BMI Calculator", href: "/bmi-calculator/" },
-      { label: "Macro Calculator", href: "/macro-calculator/" },
-      { label: "Body Fat Calculator", href: "/body-fat-calculator/" },
-      { label: "Army Body Fat Calculator", href: "/army-body-fat-calculator/" },
-      { label: "Weight Loss Calculator", href: "/weight-loss-calculator/" },
-      { label: "Weight Gain Calculator", href: "/weight-gain-calculator/" },
-      { label: "Calories Burned Calculator", href: "/calories-burned-calculator/" },
-      { label: "Recipe Calorie Calculator", href: "/recipe-calorie-calculator/" },
-      { label: "Pace Calculator", href: "/pace-calculator/" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { label: "How Many Calories Should I Eat?", href: "/guides/how-many-calories-should-i-eat/" },
-        { label: "Body Recomposition Guide", href: "/guides/body-recomposition-guide/" },
-        { label: "Best Free Calorie Calculator Apps", href: "/guides/best-free-calorie-calculator/" },
-        { label: "Are Calorie Calculators Accurate?", href: "/guides/are-calorie-calculators-accurate/" },
-      { label: "Maintenance Calories", href: "/guides/maintenance-calories/" },
-      { label: "TDEE Calculator Guide", href: "/resources/tdee-calculator/" },
-      { label: "What is TDEE?", href: "/resources/what-is-tdee/" },
-      { label: "Mifflin-St Jeor Equation", href: "/resources/mifflin-st-jeor-equation/" },
-      { label: "Calories Burned in a Day", href: "/resources/calories-burned-in-a-day/" },
-      { label: "BMR Calculator Guide", href: "/guides/bmr-calculator/" },
-      { label: "Calculate Your BMR", href: "/guides/calculate-bmr/" },
-      { label: "Metabolism Calculator", href: "/guides/metabolism-calculator/" },
-      { label: "Army Tape Test", href: "/resources/army-tape-test/" },
-      { label: "Harris-Benedict Equation", href: "/resources/harris-benedict-equation/" },
-      { label: "Alcohol Calorie Counter", href: "/guides/alcohol-calorie-counter/" },
-      { label: "Epley Formula", href: "/guides/epley-formula/" },
-    ],
-  },
       {
         title: "Company",
         links: [
