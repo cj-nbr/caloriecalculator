@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de Calorías Diarias | CalorieCalculatorFree</title>
-  <meta name="description" content="Calculadora de calorías gratis y precisa para calcular tus necesidades diarias, TMB y macronutrientes. Ideal para perder peso, ganar músculo o mantener.">
-  <link rel="canonical" href="https://caloriecalculatorfree.com/country/spain/calculadora-de-calorias.html">
-  <link rel="alternate" hreflang="es" href="https://caloriecalculatorfree.com/country/spain/calculadora-de-calorias.html" />
-  <link rel="alternate" hreflang="es-ES" href="https://caloriecalculatorfree.com/country/spain/calculadora-de-calorias.html" />
+  <title>다이어트를 위한 칼로리 계산기 - 정확한 하루 권장 칼로리</title>
+  <meta name="description" content="다이어트, 체중 유지, 증량을 위한 하루 권장 칼로리를 정확하게 계산해주는 무료 칼로리 계산기입니다. 매크로(탄단지) 비율까지 한 번에 확인하세요.">
+  <link rel="alternate" hreflang="ko-KR" href="https://caloriecalculatorfree.com/country/%EB%8B%A4%EC%9D%B4%EC%96%B4%ED%8A%B8%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EC%B9%BC%EB%A1%9C%EB%A6%AC%20%EA%B3%84%EC%82%B0%EA%B8%B0.html" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
     :root {
       --color-hairline: #e5e5ea;
+      --color-protein: #ff3b30;
+      --color-carbs: #007aff;
+      --color-fat: #ffcc00;
     }
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: #f5f5f7;
       color: #1d1d1f;
       -webkit-font-smoothing: antialiased;
@@ -61,47 +62,13 @@
       transition: all 0.2s ease;
     }
   </style>
-
-  <!-- JSON-LD FAQ Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "¿Es realmente una calculadora de calorías gratis?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sí, nuestra calculadora de calorías es 100% gratuita. No requiere registro ni pagos ocultos para obtener tus resultados de calorías diarias."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Qué tan exacta es esta calculadora de calorías diarias?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Utilizamos ecuaciones científicamente probadas (como la ecuación de Mifflin-St Jeor) que son el estándar en la industria de la nutrición, haciéndola altamente precisa."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Por qué usar una calorie calculator (calculadora de calorías)?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Conocer tus necesidades calóricas elimina las suposiciones de tu dieta, permitiéndote perder grasa, mantener peso o desarrollar masa muscular con precisión científica."
-        }
-      }
-    ]
-  }
-  </script>
 </head>
-<body class="p-4 sm:p-10 relative">
+<body class="p-4 sm:p-10">
 
   <div class="max-w-5xl mx-auto">
     <div class="text-center mb-10">
-      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-ink mb-4">Calculadora de Calorías Diarias</h1>
-      <p class="text-lg text-mute max-w-2xl mx-auto">Calcula con precisión tus necesidades calóricas diarias y tus proporciones de macronutrientes usando fórmulas científicas comprobadas.</p>
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-ink mb-4">다이어트를 위한 칼로리 계산기</h1>
+      <p class="text-lg text-mute max-w-2xl mx-auto">과학적인 공식을 통해 하루 권장 칼로리와 완벽한 매크로(탄단지) 비율을 계산해 드립니다.</p>
     </div>
 
     <div class="grid gap-8 lg:grid-cols-[400px_1fr]" id="calc-root">
@@ -109,23 +76,23 @@
       <!-- ── Form ───────────────────────────────────────────────── -->
       <form id="calc-form" class="apple-card p-6 sm:p-8 h-fit" novalidate>
         <p class="mb-6 text-sm text-mute">
-          Por favor, ingresa tus datos físicos para un cálculo exacto.
+          정확한 계산을 위해 현재 신체 정보를 입력해주세요.
         </p>
 
         <!-- Sex -->
         <fieldset class="mb-5">
-          <legend class="mb-2 block text-sm font-semibold text-ink">Sexo</legend>
+          <legend class="mb-2 block text-sm font-semibold text-ink">성별</legend>
           <div class="grid grid-cols-2 gap-3">
             <label class="radio-pill cursor-pointer block">
               <input type="radio" name="sex" value="male" class="sr-only" checked />
               <div class="h-12 rounded-xl flex items-center justify-center text-sm font-medium hover:bg-gray-50">
-                Hombre
+                남성
               </div>
             </label>
             <label class="radio-pill cursor-pointer block">
               <input type="radio" name="sex" value="female" class="sr-only" />
               <div class="h-12 rounded-xl flex items-center justify-center text-sm font-medium hover:bg-gray-50">
-                Mujer
+                여성
               </div>
             </label>
           </div>
@@ -134,36 +101,36 @@
         <div class="mb-5 grid grid-cols-2 gap-4">
           <!-- Age -->
           <div>
-            <label for="age" class="block text-sm font-semibold text-ink mb-2">Edad</label>
+            <label for="age" class="block text-sm font-semibold text-ink mb-2">나이</label>
             <input id="age" name="age" type="number" inputmode="numeric" min="15" max="100" value="30" class="w-full h-12 px-4 text-base apple-input" />
           </div>
           <!-- Weight -->
           <div>
-            <label for="weight" class="block text-sm font-semibold text-ink mb-2">Peso (kg)</label>
+            <label for="weight" class="block text-sm font-semibold text-ink mb-2">몸무게 (kg)</label>
             <input id="weight" name="weight" type="number" inputmode="decimal" min="20" step="0.1" value="70" class="w-full h-12 px-4 text-base apple-input" />
           </div>
         </div>
 
         <!-- Height -->
         <div class="mb-5">
-          <label class="block text-sm font-semibold text-ink mb-2">Altura (cm)</label>
+          <label class="block text-sm font-semibold text-ink mb-2">키 (cm)</label>
           <input id="height-cm" type="number" inputmode="numeric" min="100" max="250" value="175" class="w-full h-12 px-4 text-base apple-input" />
         </div>
 
         <!-- Activity -->
         <div class="mb-8">
-          <label for="activity" class="block text-sm font-semibold text-ink mb-2">Nivel de actividad</label>
+          <label for="activity" class="block text-sm font-semibold text-ink mb-2">활동량</label>
           <select id="activity" name="activity" class="w-full h-12 px-4 text-base apple-input appearance-none bg-no-repeat bg-right" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2386868b%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%226 9 12 15 18 9%22/></svg>'); background-position: right 1rem center; background-size: 1.2em;">
-            <option value="sedentary">Sedentario (Poco o ningún ejercicio)</option>
-            <option value="light">Ligero (Ejercicio 1-3 días/semana)</option>
-            <option value="moderate" selected>Moderado (Ejercicio 3-5 días/semana)</option>
-            <option value="active">Activo (Ejercicio 6-7 días/semana)</option>
-            <option value="athlete">Muy activo (Ejercicio intenso / Trabajo físico)</option>
+            <option value="sedentary">앉아서 생활 (운동 거의 안함)</option>
+            <option value="light">가벼운 활동 (주 1–3회 운동)</option>
+            <option value="moderate" selected>보통 활동 (주 3–5회 운동)</option>
+            <option value="active">적극적인 활동 (주 6–7회 운동)</option>
+            <option value="athlete">매우 적극적인 활동 (힘든 운동 + 육체 노동)</option>
           </select>
         </div>
 
         <button type="submit" class="w-full h-14 apple-btn text-lg font-semibold shadow-md">
-          Calcular Resultados
+          결과 확인하기
         </button>
       </form>
 
@@ -174,63 +141,63 @@
         <div class="apple-card overflow-hidden p-8 relative">
           <div class="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p class="text-sm font-semibold text-mute tracking-wide uppercase mb-2">Objetivo para <span id="goal-label" class="text-ink">Mantenimiento</span></p>
+              <p class="text-sm font-semibold text-mute tracking-wide uppercase mb-2"><span id="goal-label" class="text-ink">체중 유지</span>를 위한 목표</p>
               <div class="flex items-baseline gap-2">
                 <span id="result-calories" class="text-5xl font-extrabold text-ink tabular-nums tracking-tight">-</span>
-                <span class="text-xl font-medium text-mute">kcal / día</span>
+                <span class="text-xl font-medium text-mute">kcal / 일</span>
               </div>
             </div>
             <div class="text-right pb-1">
-              <p class="text-xs font-semibold text-mute uppercase tracking-wide mb-1">Total Semanal</p>
+              <p class="text-xs font-semibold text-mute uppercase tracking-wide mb-1">주간 총량</p>
               <p id="result-weekly" class="text-2xl font-bold text-ink tabular-nums">-</p>
             </div>
           </div>
 
           <!-- Goal selector -->
           <div class="mt-8 pt-6 border-t border-gray-100">
-            <label for="goal" class="block text-sm font-semibold text-ink mb-2">Selecciona tu objetivo</label>
+            <label for="goal" class="block text-sm font-semibold text-ink mb-2">원하는 목표를 선택하세요</label>
             <select id="goal" class="w-full h-12 px-4 text-base apple-input appearance-none bg-no-repeat bg-right bg-gray-50 hover:bg-gray-100 cursor-pointer" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2386868b%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%226 9 12 15 18 9%22/></svg>'); background-position: right 1rem center; background-size: 1.2em;">
-              <option value="maintain" selected>Mantenimiento (Mantener peso actual)</option>
-              <option value="mildLoss">Pérdida de peso ligera (0.25kg/semana)</option>
-              <option value="loss">Pérdida de peso (0.5kg/semana)</option>
-              <option value="extremeLoss">Pérdida de peso extrema (1kg/semana)</option>
-              <option value="mildGain">Aumento de peso ligero (0.25kg/semana)</option>
-              <option value="gain">Aumento de peso (0.5kg/semana)</option>
-              <option value="extremeGain">Aumento de peso extremo (1kg/semana)</option>
+              <option value="maintain" selected>체중 유지</option>
+              <option value="mildLoss">가벼운 체중 감량 (주 0.25kg 감량)</option>
+              <option value="loss">체중 감량 (주 0.5kg 감량)</option>
+              <option value="extremeLoss">극적인 체중 감량 (주 1kg 감량)</option>
+              <option value="mildGain">가벼운 체중 증량 (주 0.25kg 증량)</option>
+              <option value="gain">체중 증량 (주 0.5kg 증량)</option>
+              <option value="extremeGain">극적인 체중 증량 (주 1kg 증량)</option>
             </select>
           </div>
         </div>
 
         <div class="grid grid-cols-2 gap-6">
           <div class="apple-card p-6">
-            <p class="text-xs font-semibold uppercase tracking-wider text-mute mb-1">Tasa Metabólica Basal (TMB)</p>
+            <p class="text-xs font-semibold uppercase tracking-wider text-mute mb-1">기초대사량 (BMR)</p>
             <p id="result-bmr" class="text-3xl font-bold text-ink tabular-nums">-</p>
-            <p class="text-xs text-mute mt-2">Calorías quemadas en reposo absoluto</p>
+            <p class="text-xs text-mute mt-2">숨만 쉬어도 소모되는 열량</p>
           </div>
           <div class="apple-card p-6">
-            <p class="text-xs font-semibold uppercase tracking-wider text-mute mb-1">Gasto Energético (TDEE)</p>
+            <p class="text-xs font-semibold uppercase tracking-wider text-mute mb-1">총 에너지 소비 (TDEE)</p>
             <p id="result-tdee" class="text-3xl font-bold text-ink tabular-nums">-</p>
-            <p class="text-xs text-mute mt-2">Calorías quemadas con tu actividad diaria</p>
+            <p class="text-xs text-mute mt-2">활동량을 포함한 하루 총 소비량</p>
           </div>
         </div>
 
         <!-- Macros -->
         <div class="apple-card p-6 sm:p-8">
           <div class="flex items-center justify-between border-b border-gray-100 pb-5 mb-5">
-            <h3 class="text-lg font-bold text-ink">Macronutrientes Recomendados</h3>
-            <span class="px-3 py-1 bg-gray-100 text-xs font-semibold text-mute rounded-full">Proteínas 30% / Carbs 40% / Grasas 30%</span>
+            <h3 class="text-lg font-bold text-ink">권장 다량영양소 (매크로)</h3>
+            <span class="px-3 py-1 bg-gray-100 text-xs font-semibold text-mute rounded-full">비율: 단백질 30% / 탄수화물 40% / 지방 30%</span>
           </div>
           <div class="grid grid-cols-3 gap-4 text-center">
             <div class="p-4 bg-red-50 rounded-2xl">
-              <span class="block text-sm font-semibold text-red-500 mb-1">Proteínas</span>
+              <span class="block text-sm font-semibold text-red-500 mb-1">단백질</span>
               <span class="text-2xl font-bold text-red-600"><span id="macro-protein" class="tabular-nums">-</span>g</span>
             </div>
             <div class="p-4 bg-blue-50 rounded-2xl">
-              <span class="block text-sm font-semibold text-blue-500 mb-1">Carbohidratos</span>
+              <span class="block text-sm font-semibold text-blue-500 mb-1">탄수화물</span>
               <span class="text-2xl font-bold text-blue-600"><span id="macro-carbs" class="tabular-nums">-</span>g</span>
             </div>
             <div class="p-4 bg-yellow-50 rounded-2xl">
-              <span class="block text-sm font-semibold text-yellow-600 mb-1">Grasas</span>
+              <span class="block text-sm font-semibold text-yellow-600 mb-1">지방</span>
               <span class="text-2xl font-bold text-yellow-700"><span id="macro-fat" class="tabular-nums">-</span>g</span>
             </div>
           </div>
@@ -241,31 +208,31 @@
 
     <!-- Related Guides / Internal Links Section -->
     <div class="mt-16 pt-12 border-t border-gray-200">
-      <h2 class="text-2xl font-bold text-ink mb-6 text-center">Guías de Nutrición y Calorías</h2>
+      <h2 class="text-2xl font-bold text-ink mb-6 text-center">칼로리 관리 및 다이어트 가이드</h2>
       <div class="grid md:grid-cols-3 gap-6">
         
-        <a href="/country/spain/calculadora-de-tmb-y-gasto-calorico.html" class="apple-card p-6 hover:shadow-lg transition-shadow group">
+        <a href="/country/diet-recommended-calorie-guide.html" class="apple-card p-6 hover:shadow-lg transition-shadow group">
           <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
           </div>
-          <h3 class="text-lg font-bold text-ink mb-2">Calculadora de TMB y Gasto</h3>
-          <p class="text-sm text-mute leading-relaxed">Descubre la fórmula de Harris Benedict y calcula tus calorías de mantenimiento exactas con TMB.</p>
+          <h3 class="text-lg font-bold text-ink mb-2">하루 권장 칼로리 가이드</h3>
+          <p class="text-sm text-mute leading-relaxed">남자, 여자 평균 권장 칼로리와 다이어트 유지 칼로리에 대해 상세하게 알아보세요.</p>
         </a>
 
-        <a href="/country/spain/calculadora-de-calorias-para-perder-peso-y-ganar-musculo.html" class="apple-card p-6 hover:shadow-lg transition-shadow group">
+        <a href="/country/food-exercise-calorie-app.html" class="apple-card p-6 hover:shadow-lg transition-shadow group">
           <div class="w-10 h-10 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
           </div>
-          <h3 class="text-lg font-bold text-ink mb-2">Perder Peso y Ganar Músculo</h3>
-          <p class="text-sm text-mute leading-relaxed">Aprende a usar la calculadora de calorías para bajar de peso, ganar masa muscular y medir en libras o kilos.</p>
+          <h3 class="text-lg font-bold text-ink mb-2">칼로리 계산기 앱 추천</h3>
+          <p class="text-sm text-mute leading-relaxed">서브웨이 음식부터 운동 칼로리까지! 가장 유용한 다이어트 어플과 사이트를 추천합니다.</p>
         </a>
 
-        <a href="/country/spain/calcular-calorias-de-alimentos-y-macros.html" class="apple-card p-6 hover:shadow-lg transition-shadow group">
+        <a href="/country/korean-community-calorie-calculator.html" class="apple-card p-6 hover:shadow-lg transition-shadow group">
           <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
           </div>
-          <h3 class="text-lg font-bold text-ink mb-2">Calorías de Alimentos y Macros</h3>
-          <p class="text-sm text-mute leading-relaxed">Aprende sobre la calculadora de macros, cómo contar calorías de alimentos y recomendaciones nutricionales.</p>
+          <h3 class="text-lg font-bold text-ink mb-2">커뮤니티 추천 칼로리 계산법</h3>
+          <p class="text-sm text-mute leading-relaxed">디시, 더쿠, 네이버 블로그 등 한국 커뮤니티에서 가장 화제가 된 다이어트 비법을 확인하세요.</p>
         </a>
 
       </div>
@@ -282,13 +249,13 @@
     };
 
     const GOALS = {
-      maintain: { label: "Mantenimiento", delta: 0 },
-      mildLoss: { label: "Pérdida de peso ligera", delta: -250 },
-      loss: { label: "Pérdida de peso", delta: -500 },
-      extremeLoss: { label: "Pérdida de peso extrema", delta: -1000 },
-      mildGain: { label: "Aumento de peso ligero", delta: 250 },
-      gain: { label: "Aumento de peso", delta: 500 },
-      extremeGain: { label: "Aumento de peso extremo", delta: 1000 },
+      maintain: { label: "체중 유지", delta: 0 },
+      mildLoss: { label: "가벼운 체중 감량", delta: -250 },
+      loss: { label: "체중 감량", delta: -500 },
+      extremeLoss: { label: "극적인 체중 감량", delta: -1000 },
+      mildGain: { label: "가벼운 체중 증량", delta: 250 },
+      gain: { label: "체중 증량", delta: 500 },
+      extremeGain: { label: "극적인 체중 증량", delta: 1000 },
     };
 
     function bmrMifflinStJeor(sex, age, heightCm, weightKg) {
@@ -318,7 +285,7 @@
       };
     }
 
-    const fmt = (n) => Math.round(n).toLocaleString("es-ES");
+    const fmt = (n) => Math.round(n).toLocaleString("ko-KR");
     const $ = (id) => document.getElementById(id);
 
     function render() {
