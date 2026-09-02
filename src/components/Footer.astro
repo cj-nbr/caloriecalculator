@@ -8,53 +8,56 @@ const year = new Date().getFullYear();
   <div class="pointer-events-none absolute left-1/2 top-0 -z-10 h-64 w-[800px] -translate-x-1/2 rounded-full opacity-10 blur-[120px]" style="background: radial-gradient(circle, #007cf0, transparent 70%);" aria-hidden="true"></div>
 
   <div class="container-page py-16">
-    <div class="grid gap-10 lg:grid-cols-[1.5fr_repeat(4,1fr)]">
+    <div class="grid gap-12 lg:grid-cols-12">
       <!-- Brand blurb -->
-      <div class="max-w-xs">
-        <a href="/" class="flex items-center gap-2 font-semibold text-ink">
-          <span class="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-[#007cf0] to-[#00dfd8] text-white shadow-md" aria-hidden="true">
-            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <div class="lg:col-span-5 max-w-md">
+        <a href="/" class="flex items-center gap-3 font-semibold text-ink">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-[#007cf0] to-[#00dfd8] text-white shadow-lg shadow-brand/20" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M3 3v18h18" /><path d="M7 15l3-4 3 2 4-6" />
             </svg>
           </span>
-          <span class="text-[17px] tracking-tight font-bold">Calorie<span class="text-brand">Calculator</span>Free</span>
+          <span class="text-lg tracking-tight font-extrabold">Calorie<span class="text-brand">Calculator</span>Free</span>
         </a>
-        <p class="mt-4 text-sm leading-relaxed text-body">
-          Free, science-based calorie and nutrition calculators to help you
-          reach your weight goals with confidence.
+        <p class="mt-5 text-base leading-relaxed text-body">
+          Your ultimate toolkit for nutrition and fitness. Free, science-based calculators to help you reach your weight goals with absolute confidence.
         </p>
-        <div class="mt-6 flex items-center gap-3 rounded-xl border border-success/20 bg-success/5 p-4 shadow-sm transition-all hover:shadow-md hover:bg-success/10">
-          <div class="rounded-full bg-success/20 p-1.5">
-            <svg class="h-4 w-4 text-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        
+        <div class="mt-8 flex items-center gap-3 rounded-2xl border border-success/20 bg-success/5 p-4 shadow-sm backdrop-blur-sm transition-all hover:shadow-md hover:bg-success/10 w-fit">
+          <div class="rounded-full bg-success/20 p-2 shadow-inner">
+            <svg class="h-5 w-5 text-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
           </div>
-          <span class="text-xs font-semibold tracking-wide text-success uppercase">Medically Reviewed</span>
+          <span class="text-sm font-bold tracking-wide text-success uppercase">Medically Reviewed & Verified</span>
         </div>
       </div>
 
-      {
-        FOOTER.map((col) => (
-          <div>
-            <h2 class="text-sm font-bold tracking-wider text-ink">
-              {col.title}
-            </h2>
-            <ul class="mt-6 space-y-3">
-              {col.links.map((link) => (
-                <li>
-                  <a
-                    href={link.href}
-                    class="group flex items-center text-sm text-body transition-colors hover:text-brand"
-                  >
-                    <span class="relative">
-                      {link.label}
-                      <span class="absolute -bottom-1 left-0 h-0.5 w-0 bg-brand transition-all duration-300 group-hover:w-full"></span>
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
+      <!-- Links Wrapper -->
+      <div class="lg:col-span-6 lg:col-start-7 grid grid-cols-2 gap-8 sm:gap-10">
+        {
+          FOOTER.map((col) => (
+            <div>
+              <h3 class="text-sm font-extrabold tracking-widest text-ink uppercase opacity-90">
+                {col.title}
+              </h3>
+              <ul class="mt-6 space-y-4">
+                {col.links.map((link) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      class="group flex items-center text-sm font-medium text-body transition-all hover:text-brand"
+                    >
+                      <span class="relative">
+                        {link.label}
+                        <span class="absolute -bottom-1 left-0 h-[2px] w-0 bg-brand transition-all duration-300 group-hover:w-full rounded-full"></span>
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
     </div>
 
     <div
