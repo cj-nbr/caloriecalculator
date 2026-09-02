@@ -162,6 +162,8 @@ export const FOOTER: { title: string; links: NavLink[] }[] = [
           { label: "Contact", href: "/contact/" },
           { label: "Privacy Policy", href: "/privacy-policy/" },
           { label: "Terms", href: "/terms/" },
+          { label: "Disclaimer", href: "/disclaimer/" },
+          { label: "HTML Sitemap", href: "/html-sitemap/" },
         ],
       },
   {
@@ -172,8 +174,6 @@ export const FOOTER: { title: string; links: NavLink[] }[] = [
       { label: "Calories Burned Calculator", href: "/calories-burned-calculator/" },
       { label: "Age Calculator", href: "/age-calculator/" },
       { label: "Mortgage Calculator", href: "/mortgage-calculator/" },
-      { label: "Disclaimer", href: "/disclaimer/" },
-      { label: "HTML Sitemap", href: "/html-sitemap/" },
     ],
   },
 ];
