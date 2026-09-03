@@ -23,10 +23,12 @@
     .text-ink { color: #1d1d1f; }
     .text-mute { color: #86868b; }
     .apple-card {
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-radius: 1.5rem;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
-      border: 1px solid rgba(0,0,0,0.02);
+      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.5);
     }
     .apple-input {
       border: 1px solid #d2d2d7;
@@ -43,23 +45,42 @@
       background-color: #007aff;
       color: #ffffff;
       border-radius: 9999px;
-      transition: all 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .apple-btn:hover {
-      background-color: #007aff;
-      opacity: 0.9;
-      transform: scale(0.99);
+      background-color: #005bb5;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
     }
     .radio-pill input:checked + div {
       background-color: #007aff;
       color: white;
       border-color: #007aff;
+      box-shadow: 0 2px 8px rgba(0, 122, 255, 0.25);
     }
     .radio-pill div {
       border: 1px solid #d2d2d7;
       color: #1d1d1f;
       transition: all 0.2s ease;
     }
+    
+    /* Typography styles for the long-form content */
+    .content-body h2 { font-size: 2.25rem; font-weight: 800; margin-top: 3rem; margin-bottom: 1.5rem; color: #1d1d1f; letter-spacing: -0.025em; line-height: 1.2; }
+    .content-body h3 { font-size: 1.75rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; color: #1d1d1f; letter-spacing: -0.015em; }
+    .content-body p { margin-bottom: 1.5rem; line-height: 1.8; color: #4b5563; font-size: 1.125rem; }
+    .content-body ul, .content-body ol { margin-bottom: 1.5rem; margin-left: 1.5rem; color: #4b5563; font-size: 1.125rem; line-height: 1.8; }
+    .content-body li { margin-bottom: 0.75rem; padding-left: 0.5rem; }
+    .content-body ul { list-style-type: none; }
+    .content-body ul li::before { content: "•"; color: #007aff; font-weight: bold; display: inline-block; width: 1em; margin-left: -1em; }
+    .content-body strong { color: #1d1d1f; font-weight: 700; }
+    .content-body img { border-radius: 1rem; margin: 2rem 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 100%; height: auto; object-fit: cover; }
+    
+    /* Table styles */
+    .apple-table-wrapper { overflow-x: auto; margin: 2rem 0; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); border: 1px solid #e5e5ea; }
+    .apple-table { width: 100%; border-collapse: collapse; text-align: left; background: white; }
+    .apple-table th { background-color: #f9fafb; padding: 1rem; font-weight: 600; color: #1d1d1f; border-bottom: 1px solid #e5e5ea; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .apple-table td { padding: 1rem; border-bottom: 1px solid #f3f4f6; color: #4b5563; }
+    .apple-table tr:last-child td { border-bottom: none; }
   </style>
 
   <!-- JSON-LD FAQ Schema -->
@@ -86,10 +107,18 @@
       },
       {
         "@type": "Question",
-        "name": "¿Por qué usar una calorie calculator (calculadora de calorías)?",
+        "name": "¿Por qué usar una calculadora de calorías?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Conocer tus necesidades calóricas elimina las suposiciones de tu dieta, permitiéndote perder grasa, mantener peso o desarrollar masa muscular con precisión científica."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué son los METs y cómo afectan mi gasto calórico?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Los METs (Equivalentes Metabólicos) son una medida que estima cuánta energía quema tu cuerpo durante una actividad específica en comparación con el reposo absoluto."
         }
       }
     ]
@@ -98,16 +127,16 @@
 </head>
 <body class="p-4 sm:p-10 relative">
 
-  <div class="max-w-5xl mx-auto">
-    <div class="text-center mb-10">
-      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-ink mb-4">Calculadora de Calorías Diarias</h1>
-      <p class="text-lg text-mute max-w-2xl mx-auto">Calcula con precisión tus necesidades calóricas diarias y tus proporciones de macronutrientes usando fórmulas científicas comprobadas.</p>
+  <main class="max-w-5xl mx-auto space-y-16">
+    <div class="text-center mb-12 pt-8">
+      <h1 class="text-5xl sm:text-6xl font-extrabold tracking-tight text-ink mb-6">Calculadora de Calorías Diarias</h1>
+      <p class="text-xl text-mute max-w-3xl mx-auto leading-relaxed">Calcula con precisión tus necesidades calóricas diarias, tu metabolismo basal y tus proporciones exactas de macronutrientes. La ciencia al servicio de tu transformación física.</p>
     </div>
 
     <div class="grid gap-8 lg:grid-cols-[400px_1fr]" id="calc-root">
       
       <!-- ── Form ───────────────────────────────────────────────── -->
-      <form id="calc-form" class="apple-card p-6 sm:p-8 h-fit" novalidate>
+      <form id="calc-form" class="apple-card p-6 sm:p-8 h-fit bg-white/90" novalidate>
         <p class="mb-6 text-sm text-mute">
           Por favor, ingresa tus datos físicos para un cálculo exacto.
         </p>
@@ -171,7 +200,7 @@
       <div id="calc-results" class="space-y-6">
         
         <!-- Headline -->
-        <div class="apple-card overflow-hidden p-8 relative">
+        <div class="apple-card overflow-hidden p-8 relative bg-white/90">
           <div class="flex flex-wrap items-end justify-between gap-4">
             <div>
               <p class="text-sm font-semibold text-mute tracking-wide uppercase mb-2">Objetivo para <span id="goal-label" class="text-ink">Mantenimiento</span></p>
@@ -202,34 +231,34 @@
         </div>
 
         <div class="grid grid-cols-2 gap-6">
-          <div class="apple-card p-6">
+          <div class="apple-card p-6 bg-white/90">
             <p class="text-xs font-semibold uppercase tracking-wider text-mute mb-1">Tasa Metabólica Basal (TMB)</p>
             <p id="result-bmr" class="text-3xl font-bold text-ink tabular-nums">-</p>
-            <p class="text-xs text-mute mt-2">Calorías quemadas en reposo absoluto</p>
+            <p class="text-xs text-mute mt-2">Calorías quemadas en reposo</p>
           </div>
-          <div class="apple-card p-6">
+          <div class="apple-card p-6 bg-white/90">
             <p class="text-xs font-semibold uppercase tracking-wider text-mute mb-1">Gasto Energético (TDEE)</p>
             <p id="result-tdee" class="text-3xl font-bold text-ink tabular-nums">-</p>
-            <p class="text-xs text-mute mt-2">Calorías quemadas con tu actividad diaria</p>
+            <p class="text-xs text-mute mt-2">Calorías quemadas con actividad</p>
           </div>
         </div>
 
         <!-- Macros -->
-        <div class="apple-card p-6 sm:p-8">
-          <div class="flex items-center justify-between border-b border-gray-100 pb-5 mb-5">
-            <h3 class="text-lg font-bold text-ink">Macronutrientes Recomendados</h3>
-            <span class="px-3 py-1 bg-gray-100 text-xs font-semibold text-mute rounded-full">Proteínas 30% / Carbs 40% / Grasas 30%</span>
+        <div class="apple-card p-6 sm:p-8 bg-white/90">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-gray-100 pb-5 mb-5 gap-3">
+            <h3 class="text-lg font-bold text-ink m-0">Macronutrientes Recomendados</h3>
+            <span class="px-3 py-1 bg-gray-100 text-xs font-semibold text-mute rounded-full whitespace-nowrap">Proteínas 30% / Carbs 40% / Grasas 30%</span>
           </div>
           <div class="grid grid-cols-3 gap-4 text-center">
-            <div class="p-4 bg-red-50 rounded-2xl">
+            <div class="p-4 bg-red-50/80 rounded-2xl">
               <span class="block text-sm font-semibold text-red-500 mb-1">Proteínas</span>
               <span class="text-2xl font-bold text-red-600"><span id="macro-protein" class="tabular-nums">-</span>g</span>
             </div>
-            <div class="p-4 bg-blue-50 rounded-2xl">
+            <div class="p-4 bg-blue-50/80 rounded-2xl">
               <span class="block text-sm font-semibold text-blue-500 mb-1">Carbohidratos</span>
               <span class="text-2xl font-bold text-blue-600"><span id="macro-carbs" class="tabular-nums">-</span>g</span>
             </div>
-            <div class="p-4 bg-yellow-50 rounded-2xl">
+            <div class="p-4 bg-yellow-50/80 rounded-2xl">
               <span class="block text-sm font-semibold text-yellow-600 mb-1">Grasas</span>
               <span class="text-2xl font-bold text-yellow-700"><span id="macro-fat" class="tabular-nums">-</span>g</span>
             </div>
@@ -239,38 +268,174 @@
       </div>
     </div>
 
-    <!-- Related Guides / Internal Links Section -->
-    <div class="mt-16 pt-12 border-t border-gray-200">
-      <h2 class="text-2xl font-bold text-ink mb-6 text-center">Guías de Nutrición y Calorías</h2>
+    <!-- ── COMPREHENSIVE SEO CONTENT ────────────────────────────── -->
+    <article class="apple-card p-8 sm:p-12 md:p-16 content-body bg-white/95 mt-16">
+      
+      <p class="text-2xl font-medium text-ink mb-10 leading-snug">Dominar tu nutrición comienza con una comprensión clara de tus números. Nuestra <strong>Calculadora de Calorías</strong> no es solo una herramienta; es tu puerta de entrada científica para alcanzar el físico que deseas, ya sea que busques perder grasa de manera sostenible, construir masa muscular magra, o simplemente mantenerte saludable y lleno de energía.</p>
+
+      <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80" alt="Alimentación saludable y cálculo de calorías" class="h-80 w-full object-cover rounded-3xl" />
+
+      <h2>La Ciencia Detrás de las Calorías</h2>
+      <p>Para transformar tu cuerpo, primero debes entender cómo procesa la energía. Toda comida o bebida que consumes aporta energía, que se mide en <strong>kilocalorías (kcal)</strong>, o simplemente calorías. Pero, ¿cómo decide tu cuerpo cuánta energía quemar cada día? Aquí entran en juego los pilares del metabolismo humano.</p>
+      
+      <h3>Tasa Metabólica Basal (TMB / BMR)</h3>
+      <p>La <strong>Tasa Metabólica Basal</strong> es la cantidad absoluta de calorías que tu cuerpo requiere para mantener sus funciones vitales básicas si estuvieras en cama todo el día sin moverte. Esto incluye la respiración, la circulación sanguínea, la regulación de la temperatura y la función cerebral. Para la mayoría de los adultos, la TMB representa entre el <strong>60% y el 75%</strong> del gasto calórico total diario.</p>
+      <p>Nuestra calculadora utiliza la ecuación de <strong>Mifflin-St Jeor</strong>, validada por numerosos estudios clínicos como la fórmula predictiva más precisa para la población general moderna.</p>
+
+      <h3>Gasto Energético Diario Total (TDEE)</h3>
+      <p>El <strong>TDEE (Total Daily Energy Expenditure)</strong> es tu número mágico. Representa el total de calorías que quemas en un periodo de 24 horas. Se compone de:</p>
+      <ul>
+        <li><strong>TMB:</strong> Tu metabolismo base.</li>
+        <li><strong>NEAT (Termogénesis por Actividad Sin Ejercicio):</strong> Las calorías quemadas al caminar, limpiar, hablar e incluso parpadear.</li>
+        <li><strong>TEF (Efecto Térmico de los Alimentos):</strong> La energía que tu cuerpo gasta en digerir, absorber y almacenar los nutrientes de tu comida (la proteína tiene el mayor efecto térmico).</li>
+        <li><strong>EAT (Termogénesis por Actividad de Ejercicio):</strong> Las calorías quemadas intencionalmente a través del ejercicio y el deporte estructurado.</li>
+      </ul>
+
+      <h3>El Concepto de METs en la Actividad Física</h3>
+      <p>Los <strong>METs (Equivalentes Metabólicos)</strong> son una métrica científica utilizada para estimar el costo energético de una actividad. Un MET (1.0) se define como la energía consumida mientras se está sentado en reposo. Una actividad de 5 METs (como trotar a paso ligero) significa que estás quemando 5 veces más calorías que en reposo.</p>
+
+      <div class="apple-table-wrapper my-12">
+        <table class="apple-table">
+          <thead>
+            <tr>
+              <th>Actividad</th>
+              <th>Valor MET aproximado</th>
+              <th>Calorías / Hora (Adulto 70kg)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Dormir</td>
+              <td>0.9 METs</td>
+              <td>~63 kcal</td>
+            </tr>
+            <tr>
+              <td>Caminar ligero (4 km/h)</td>
+              <td>3.0 METs</td>
+              <td>~210 kcal</td>
+            </tr>
+            <tr>
+              <td>Levantamiento de pesas</td>
+              <td>4.0 - 6.0 METs</td>
+              <td>~280 - 420 kcal</td>
+            </tr>
+            <tr>
+              <td>Correr (10 km/h)</td>
+              <td>9.8 METs</td>
+              <td>~686 kcal</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80" alt="Entrenamiento y ejercicio físico" class="h-80 w-full object-cover rounded-3xl" />
+
+      <h2>Estrategias y Consejos Prácticos para el Éxito</h2>
+      <p>Saber tus números es solo el comienzo. Aplicarlos consistentemente es donde ocurre la magia. Aquí tienes las mejores estrategias avaladas por expertos para utilizar tu información calórica a tu favor.</p>
+      
+      <h3>1. El Principio del Déficit Sostenible</h3>
+      <p>El mayor error que cometen las personas al intentar perder peso es crear un déficit calórico excesivamente agresivo. Un déficit extremo (más de 1000 calorías diarias) puede causar:</p>
+      <ul>
+        <li>Pérdida rápida de masa muscular en lugar de grasa.</li>
+        <li>Reducción del metabolismo basal (adaptación metabólica).</li>
+        <li>Fatiga extrema, irritabilidad y desequilibrios hormonales.</li>
+        <li>Un efecto rebote inminente.</li>
+      </ul>
+      <p>Recomendamos un <strong>déficit moderado del 15% al 20%</strong> de tu TDEE, lo que se traduce típicamente en 300-500 calorías menos al día, promoviendo una pérdida de grasa pura de aproximadamente 0.5 kg por semana.</p>
+
+      <h3>2. La Importancia de los Macronutrientes</h3>
+      <p>Mientras que las calorías determinan <em>cuánto</em> peso pierdes o ganas, los macronutrientes (proteínas, carbohidratos y grasas) determinan la <em>calidad</em> de ese peso (si es grasa o músculo) y cómo te sientes en el proceso.</p>
+      <p>Nuestra calculadora sugiere una distribución de <strong>30% de Proteína, 40% de Carbohidratos y 30% de Grasas</strong>. Esta división es ideal para mantener altos niveles de energía y preservar la masa muscular magra.</p>
+
+      <h2>Derribando Mitos Comunes (Myth Busting)</h2>
+      <p>La industria de las dietas está plagada de desinformación. Es hora de limpiar el panorama y basarnos en evidencia científica real.</p>
+      
+      <div class="space-y-6 mt-8">
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <h4 class="text-xl font-bold text-red-600 mb-2">Mito: "Comer carbohidratos por la noche te hace engordar"</h4>
+          <p class="text-gray-700 m-0 text-base"><strong>Realidad:</strong> Tu cuerpo no tiene un reloj biológico que convierte todo mágicamente en grasa cuando se pone el sol. El aumento de peso ocurre por un exceso calórico total a lo largo del día y la semana, independientemente de la hora a la que ingieras los alimentos.</p>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <h4 class="text-xl font-bold text-red-600 mb-2">Mito: "Todas las calorías son exactamente iguales"</h4>
+          <p class="text-gray-700 m-0 text-base"><strong>Realidad:</strong> Termodinámicamente, una caloría es una caloría. Sin embargo, fisiológicamente, 100 calorías de brócoli afectarán tu saciedad, hormonas y efecto térmico (TEF) de manera muy diferente a 100 calorías de azúcar puro. La <em>calidad</em> de los alimentos importa enormemente para la salud a largo plazo y la adherencia a la dieta.</p>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <h4 class="text-xl font-bold text-red-600 mb-2">Mito: "Necesitas hacer horas de cardio para perder peso"</h4>
+          <p class="text-gray-700 m-0 text-base"><strong>Realidad:</strong> La nutrición (controlar la ingesta calórica) es el principal impulsor de la pérdida de peso. El ejercicio cardiovascular es excelente para la salud del corazón y para incrementar ligeramente tu TDEE, pero es increíblemente difícil superar una mala dieta simplemente haciendo más ejercicio.</p>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- ── FAQ SECTION ─────────────────────────────────────────── -->
+    <section class="apple-card p-8 sm:p-12 content-body bg-white/95">
+      <h2 class="text-3xl font-bold mb-8 text-center mt-0">Preguntas Frecuentes (FAQ)</h2>
+      
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-xl font-bold text-ink mt-0 mb-3">¿Es realmente una calculadora de calorías gratis?</h3>
+          <p class="text-gray-600 text-lg">Sí, nuestra calculadora de calorías es 100% gratuita. Creemos en democratizar el acceso a herramientas nutricionales basadas en ciencia. No requiere registro, descargas de aplicaciones ni pagos ocultos para obtener tus resultados de calorías diarias y macronutrientes.</p>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-bold text-ink mt-0 mb-3">¿Qué tan exacta es esta calculadora de calorías diarias?</h3>
+          <p class="text-gray-600 text-lg">Utilizamos la ecuación de Mifflin-St Jeor, que es considerada el estándar de oro en la industria clínica y de la nutrición para estimar el gasto energético en la población general moderna. Sin embargo, recuerda que cualquier calculadora proporciona un excelente <em>punto de partida</em>. Debes monitorear tu progreso durante 2 a 3 semanas y ajustar la ingesta en consecuencia.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-ink mt-0 mb-3">¿Por qué es importante usar una calculadora de calorías?</h3>
+          <p class="text-gray-600 text-lg">Conocer tus necesidades calóricas elimina las suposiciones y los juegos de azar de tu dieta. Te permite establecer objetivos realistas y cuantificables para perder grasa, mantener tu peso actual o desarrollar nueva masa muscular con un nivel de precisión científica que ninguna "dieta de moda" puede igualar.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-ink mt-0 mb-3">¿Qué pasa si estanco mi peso después de unas semanas?</h3>
+          <p class="text-gray-600 text-lg">Los estancamientos son una parte normal del proceso. A medida que pierdes peso corporal, tu cuerpo requiere naturalmente menos calorías para moverse y mantenerse (tu TMB disminuye). Cuando te estanques durante más de 10-14 días, vuelve a ingresar tus nuevos datos físicos en la calculadora para ajustar tu objetivo calórico.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SUGGESTED CONTENT / INTERNAL LINKS ─────────────────── -->
+    <section class="mt-16 pt-12 border-t border-gray-200">
+      <h2 class="text-3xl font-extrabold text-ink mb-10 text-center tracking-tight">Contenido Sugerido</h2>
+      
+      <div class="flex justify-center mb-12">
+        <a href="/country/spain/calculadora-de-calorias.html" class="inline-flex items-center justify-center h-14 px-8 bg-black text-white font-semibold rounded-full hover:bg-gray-800 transition-all shadow-lg transform hover:-translate-y-1">
+          Volver a la Calculadora Principal
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+        </a>
+      </div>
+
       <div class="grid md:grid-cols-3 gap-6">
         
-        <a href="/country/spain/calculadora-de-tmb-y-gasto-calorico.html" class="apple-card p-6 hover:shadow-lg transition-shadow group">
-          <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+        <a href="/country/spain/calculadora-de-tmb-y-gasto-calorico.html" class="apple-card p-6 hover:shadow-2xl transition-all duration-300 group bg-white">
+          <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
           </div>
-          <h3 class="text-lg font-bold text-ink mb-2">Calculadora de TMB y Gasto</h3>
-          <p class="text-sm text-mute leading-relaxed">Descubre la fórmula de Harris Benedict y calcula tus calorías de mantenimiento exactas con TMB.</p>
+          <h3 class="text-xl font-bold text-ink mb-3">Calculadora de TMB y Gasto</h3>
+          <p class="text-base text-mute leading-relaxed">Descubre la fórmula de Harris Benedict y calcula tus calorías de mantenimiento exactas analizando tu TMB a fondo.</p>
         </a>
 
-        <a href="/country/spain/calculadora-de-calorias-para-perder-peso-y-ganar-musculo.html" class="apple-card p-6 hover:shadow-lg transition-shadow group">
-          <div class="w-10 h-10 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+        <a href="/country/spain/calculadora-de-calorias-para-perder-peso-y-ganar-musculo.html" class="apple-card p-6 hover:shadow-2xl transition-all duration-300 group bg-white">
+          <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
           </div>
-          <h3 class="text-lg font-bold text-ink mb-2">Perder Peso y Ganar Músculo</h3>
-          <p class="text-sm text-mute leading-relaxed">Aprende a usar la calculadora de calorías para bajar de peso, ganar masa muscular y medir en libras o kilos.</p>
+          <h3 class="text-xl font-bold text-ink mb-3">Perder Peso y Ganar Músculo</h3>
+          <p class="text-base text-mute leading-relaxed">Aprende a usar el déficit y superávit calórico. Las estrategias definitivas para bajar de grasa corporal y ganar masa muscular magra.</p>
         </a>
 
-        <a href="/country/spain/calcular-calorias-de-alimentos-y-macros.html" class="apple-card p-6 hover:shadow-lg transition-shadow group">
-          <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+        <a href="/country/spain/calcular-calorias-de-alimentos-y-macros.html" class="apple-card p-6 hover:shadow-2xl transition-all duration-300 group bg-white">
+          <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
           </div>
-          <h3 class="text-lg font-bold text-ink mb-2">Calorías de Alimentos y Macros</h3>
-          <p class="text-sm text-mute leading-relaxed">Aprende sobre la calculadora de macros, cómo contar calorías de alimentos y recomendaciones nutricionales.</p>
+          <h3 class="text-xl font-bold text-ink mb-3">Calorías de Alimentos y Macros</h3>
+          <p class="text-base text-mute leading-relaxed">La guía definitiva sobre cómo contar calorías de alimentos y cómo dividir tus macros (proteínas, carbohidratos, grasas).</p>
         </a>
 
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
 
   <script>
     const ACTIVITY_LEVELS = {

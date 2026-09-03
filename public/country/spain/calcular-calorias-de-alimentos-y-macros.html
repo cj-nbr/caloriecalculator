@@ -21,11 +21,11 @@
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
                         brand: '#0070f3',
-                        ink: '#0f172a',
-                        body: '#334155',
+                        ink: '#1d1d1f',
+                        body: '#424245',
                         surface: '#ffffff',
                         hairline: '#e2e8f0',
-                        gradStart: '#007cf0',
+                        gradStart: '#0070f3',
                         gradEnd: '#00dfd8'
                     }
                 }
@@ -33,10 +33,11 @@
         }
     </script>
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
-        .text-gradient { background: linear-gradient(90deg, #007cf0, #00dfd8); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .bg-glow { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 800px; height: 600px; background: radial-gradient(circle, #007cf0, transparent 70%); opacity: 0.08; filter: blur(100px); z-index: -1; pointer-events: none; }
-        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(16px); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05); }
+        body { font-family: 'Inter', sans-serif; background-color: #f5f5f7; color: #1d1d1f; }
+        .text-gradient { background: linear-gradient(90deg, #0070f3, #00dfd8); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .bg-glow { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 800px; height: 600px; background: radial-gradient(circle, #0070f3, transparent 70%); opacity: 0.05; filter: blur(100px); z-index: -1; pointer-events: none; }
+        .apple-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(226, 232, 240, 0.6); box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04); border-radius: 1.5rem; }
+        .apple-card-lg { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(24px); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06); border-radius: 2rem; }
     </style>
 
     <script type="application/ld+json">
@@ -78,268 +79,320 @@
     <main class="flex-grow w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
         <!-- Header -->
-        <header class="text-center mb-16">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-ink tracking-tight mb-6">
-                Cómo <span class="text-gradient">Calcular Calorías de Alimentos</span> y Dividir tus Macros
+        <header class="text-center mb-16 pt-8">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-ink tracking-tight mb-6 leading-tight">
+                La Guía Definitiva para <span class="text-gradient">Calcular Calorías de Alimentos</span> y Dominar tus Macros
             </h1>
-            <p class="text-lg md:text-xl text-body max-w-3xl mx-auto leading-relaxed">
-                Descubre el secreto del éxito nutricional: aprende paso a paso a utilizar una calculadora de macros, contabilizar correctamente las calorias alimentos y entender la función de las proteínas, los carbohidratos y las grasas en tu dieta diaria.
+            <p class="text-lg md:text-xl text-body max-w-3xl mx-auto leading-relaxed font-light">
+                Descubre el secreto del éxito nutricional: aprende paso a paso a utilizar una calculadora de macros, contabilizar correctamente las calorías de los alimentos y entender la función crítica de las proteínas, los carbohidratos y las grasas en tu dieta diaria. Domina la ciencia de la recomposición corporal con nuestro manual completo.
             </p>
         </header>
 
         <!-- Main Image -->
         <div class="mb-16">
-            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80" alt="Plato con ingredientes saludables, proteínas, grasas y carbohidratos para calcular macros" class="w-full h-[400px] md:h-[500px] object-cover rounded-3xl shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80" alt="Plato saludable lleno de macronutrientes esenciales como proteínas, grasas y carbohidratos complejos" class="w-full h-[400px] md:h-[550px] object-cover rounded-3xl shadow-xl">
         </div>
 
         <!-- Article Content -->
         <article class="prose prose-lg prose-slate max-w-none text-body">
             
-            <section class="glass-card rounded-3xl p-8 md:p-12 mb-12">
-                <h2 class="text-3xl font-bold text-ink mt-0 mb-6">Introducción: El Camino Hacia el Control de tus Calorías</h2>
+            <section class="apple-card-lg p-8 md:p-12 mb-12">
+                <h2 class="text-3xl font-bold text-ink mt-0 mb-6 tracking-tight">1. Introducción: El Arte y la Ciencia del Control Calorífico</h2>
                 <p>
-                    Comprender la nutrición puede parecer un desafío abrumador al principio. Sin embargo, cuando se trata de lograr cualquier objetivo físico (ya sea perder grasa, ganar masa muscular o simplemente mantener un estilo de vida saludable), la base científica sigue siendo la misma: el balance energético. El primer paso crucial es <strong>calcular calorias de alimentos</strong> con precisión.
+                    Comprender la nutrición puede parecer un desafío abrumador al principio. Entre cientos de dietas de moda y consejos contradictorios en internet, es fácil sentirse perdido. Sin embargo, cuando se trata de lograr cualquier objetivo físico (ya sea perder grasa, ganar masa muscular o simplemente mantener un estilo de vida saludable y lleno de vitalidad), la base científica sigue siendo inalterable: el <strong>balance energético</strong>. El primer paso verdaderamente crucial hacia la transformación corporal es aprender a <strong>calcular calorias de alimentos</strong> con extrema precisión.
                 </p>
                 <p>
-                    No obstante, no todas las calorías son iguales en la forma en que tu cuerpo las procesa y utiliza. Aquí es donde entra en juego el concepto de <strong>macros</strong> (macronutrientes). Saber cuántas calorías consumir es importante, pero saber cómo están divididas esas calorías es lo que realmente transformará tu composición corporal. En esta guía extensiva, desglosaremos cada aspecto de la nutrición para que puedas dominar tu dieta diaria.
-                </p>
-            </section>
-
-            <section class="mb-12">
-                <h2 class="text-3xl font-bold text-ink mb-6">¿Qué Significa Realmente Calcular Calorías de Alimentos?</h2>
-                <p>
-                    <strong>Calcular calorias de alimentos</strong> es el proceso de cuantificar la energía que tu cuerpo recibe a través de la comida y bebida. Una caloría es, científicamente hablando, una unidad de energía. Tu cuerpo quema energía constantemente (incluso cuando estás durmiendo) y necesita reponer esa energía a través de los alimentos.
-                </p>
-                <p>
-                    Cuando consumes más energía de la que gastas, tu cuerpo almacena el excedente en forma de tejido (principalmente grasa o músculo, dependiendo de tu entrenamiento y genética). Cuando consumes menos de lo que gastas, tu cuerpo recurre a sus reservas de energía (quemando grasa). Por eso, saber medir las <strong>calorias alimentos</strong> es la piedra angular de cualquier transformación física.
-                </p>
-                <div class="bg-gradient-to-r from-blue-50 to-teal-50 border-l-4 border-gradStart p-6 rounded-r-2xl my-8">
-                    <h3 class="font-bold text-ink text-xl mb-2">💡 Tip Profesional</h3>
-                    <p class="m-0 text-body">Para <strong>calcular calorias de alimentos</strong> de forma correcta, siempre es recomendable usar una báscula de cocina. Las mediciones como "una taza" o "una cucharada" pueden variar drásticamente. Pesar la comida en gramos te garantiza precisión absoluta y elimina el error humano.</p>
-                </div>
-            </section>
-
-            <section class="mb-12">
-                <h2 class="text-3xl font-bold text-ink mb-6">¿Qué son los Macros y Por Qué Deberían Importarte?</h2>
-                <p>
-                    La palabra <strong>macros</strong> es la abreviatura de "macronutrientes". Mientras que las calorías son la suma total de la energía que consumes, los macronutrientes son las categorías de nutrientes que proporcionan esa energía. Existen tres macronutrientes principales, y cada uno cumple funciones completamente distintas en el organismo.
-                </p>
-                <p>
-                    Para optimizar tu nutrición, una <strong>calculadora de macros</strong> te dirá exactamente cuántos gramos de cada uno debes ingerir diariamente en función de tu peso, altura, nivel de actividad física y meta específica. A continuación, exploraremos profundamente qué hace cada macronutriente.
+                    No obstante, no todas las calorías son iguales en la forma en que tu cuerpo las procesa y utiliza. Aquí es donde entra en juego el concepto de <strong>macros</strong> o macronutrientes. Saber cuántas calorías en total debes consumir es fundamental, pero comprender cómo están divididas esas calorías es lo que realmente transformará tu composición corporal y tu metabolismo. Si deseas que tu cuerpo funcione como una máquina bien engrasada, necesitas darle el combustible adecuado en las proporciones correctas. A lo largo de esta guía masiva y fundamentada, desglosaremos la ciencia detrás del metabolismo, desmentiremos los mitos más arraigados y te enseñaremos cómo convertirte en el maestro de tu propia nutrición. Puedes consultar nuestra <a href="/country/spain/calculadora-de-calorias-para-perder-peso-y-ganar-musculo.html" class="text-brand no-underline hover:underline font-semibold">guía de calorías para perder peso o ganar músculo</a> para ver cómo adaptar estos principios a tu situación específica.
                 </p>
             </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                <!-- Proteínas -->
-                <div class="glass-card rounded-2xl p-8 hover:shadow-lg transition-shadow">
-                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                        <span class="text-2xl">🥩</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-ink mb-4">Proteínas</h3>
-                    <p class="text-body mb-4">
-                        Son los bloques constructores del cuerpo. Cruciales para reparar los tejidos, desarrollar masa muscular y mantener el cabello y la piel saludables.
-                    </p>
-                    <ul class="list-disc pl-5 space-y-2 text-sm">
-                        <li><strong>Calorías:</strong> 4 kcal por gramo.</li>
-                        <li><strong>Fuentes:</strong> Pollo, pescado, huevos, tofu, legumbres.</li>
-                        <li><strong>Beneficio:</strong> Alto efecto térmico y gran poder saciante.</li>
-                    </ul>
-                </div>
-
-                <!-- Carbohidratos -->
-                <div class="glass-card rounded-2xl p-8 hover:shadow-lg transition-shadow">
-                    <div class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
-                        <span class="text-2xl">🌾</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-ink mb-4">Carbohidratos</h3>
-                    <p class="text-body mb-4">
-                        La principal y más rápida fuente de energía para el cuerpo humano, especialmente vital para el funcionamiento del cerebro y los entrenamientos intensos.
-                    </p>
-                    <ul class="list-disc pl-5 space-y-2 text-sm">
-                        <li><strong>Calorías:</strong> 4 kcal por gramo.</li>
-                        <li><strong>Fuentes:</strong> Avena, arroz, patatas, frutas, verduras.</li>
-                        <li><strong>Beneficio:</strong> Energía rápida, almacenamiento de glucógeno.</li>
-                    </ul>
-                </div>
-
-                <!-- Grasas -->
-                <div class="glass-card rounded-2xl p-8 hover:shadow-lg transition-shadow">
-                    <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                        <span class="text-2xl">🥑</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-ink mb-4">Grasas</h3>
-                    <p class="text-body mb-4">
-                        Totalmente esenciales para la regulación hormonal, la absorción de vitaminas (A, D, E y K) y la protección de los órganos vitales del cuerpo.
-                    </p>
-                    <ul class="list-disc pl-5 space-y-2 text-sm">
-                        <li><strong>Calorías:</strong> 9 kcal por gramo.</li>
-                        <li><strong>Fuentes:</strong> Aguacate, nueces, aceite de oliva, salmón.</li>
-                        <li><strong>Beneficio:</strong> Entorno hormonal saludable y energía sostenida.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <section class="glass-card rounded-3xl p-8 md:p-12 mb-12">
-                <h2 class="text-3xl font-bold text-ink mb-6">Cómo Utilizar una Calculadora de Macros de Forma Efectiva</h2>
+            <section class="mb-12 apple-card p-8 md:p-10">
+                <h2 class="text-3xl font-bold text-ink mb-6 tracking-tight">2. La Ciencia del Balance Energético: METs, BMR y TDEE</h2>
                 <p>
-                    Una <strong>calculadora de macros</strong> es una herramienta matemática que toma tus datos personales (edad, género, peso, altura) para estimar tu Tasa Metabólica Basal (TMB). Luego, multiplica ese número por tu nivel de actividad diaria para determinar tus Calorías de Mantenimiento.
+                    Para verdaderamente <strong>calcular calorias de alimentos</strong> y entender su impacto, primero debemos mirar dentro de la fisiología humana. Nuestro cuerpo es un sistema complejo que sigue las leyes de la termodinámica. La energía no se crea ni se destruye, solo se transforma. Si consumes más energía (calorías) de la que tu cuerpo gasta, esa energía extra se almacenará (generalmente como grasa corporal). Si consumes menos, el cuerpo tendrá que recurrir a sus reservas almacenadas para compensar el déficit.
                 </p>
                 <p>
-                    Una vez que tienes el total calórico, la <strong>calculadora de macros</strong> divide ese número basándose en proporciones (como 40% carbohidratos, 30% proteínas, 30% grasas) y te da una meta exacta en gramos para cada macronutriente.
+                    Pero, ¿cómo gasta energía el cuerpo? Existen cuatro componentes principales que conforman tu <strong>Gasto Energético Diario Total (TDEE - Total Daily Energy Expenditure)</strong>:
+                </p>
+                <ul class="list-none pl-0 space-y-4">
+                    <li class="flex items-start">
+                        <span class="bg-brand text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 shrink-0">1</span>
+                        <div>
+                            <strong>Tasa Metabólica Basal (BMR):</strong> Es la energía que tu cuerpo necesita para mantener las funciones vitales en reposo absoluto (respirar, bombear sangre, función cerebral). Representa aproximadamente el 60-70% de tu TDEE. Para entender esto a fondo, te recomendamos revisar nuestro artículo sobre la <a href="/country/spain/calculadora-de-tmb-y-gasto-calorico.html" class="text-brand no-underline hover:underline">calculadora de TMB y gasto calórico</a>.
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="bg-brand text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 shrink-0">2</span>
+                        <div>
+                            <strong>Termogénesis de la Actividad Sin Ejercicio (NEAT):</strong> Toda la energía quemada en actividades diarias no consideradas ejercicio formal (caminar al trabajo, limpiar la casa, incluso mover el pie por nerviosismo). Es altamente variable y representa del 15% al 20%.
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="bg-brand text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 shrink-0">3</span>
+                        <div>
+                            <strong>Efecto Térmico de los Alimentos (TEF):</strong> ¿Sabías que digerir la comida también quema calorías? Las proteínas tienen un TEF muy alto (20-30%), mientras que las grasas tienen uno bajo (0-3%).
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="bg-brand text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 shrink-0">4</span>
+                        <div>
+                            <strong>Termogénesis del Ejercicio Físico (EAT):</strong> Las calorías quemadas durante entrenamientos intencionales (levantamiento de pesas, correr, natación). Aquí es donde entran los <strong>METs (Equivalentes Metabólicos de Tarea)</strong>.
+                        </div>
+                    </li>
+                </ul>
+
+                <h3 class="text-2xl font-bold text-ink mt-8 mb-4">Entendiendo los METs</h3>
+                <p>
+                    Un MET es la proporción de la tasa metabólica durante el trabajo frente a la tasa metabólica en reposo. 1 MET es el equivalente a estar sentado tranquilamente. Correr a ritmo moderado puede ser 8 METs (es decir, quemas 8 veces más calorías que en reposo). Al calcular tu gasto para ajustar tus <strong>calorías de alimentos</strong>, usar METs aporta una precisión clínica que las aplicaciones estándar a menudo ignoran.
                 </p>
                 
-                <h3 class="text-2xl font-bold text-ink mt-8 mb-4">Ejemplo Práctico de División de Macros</h3>
-                <p>
-                    Imagina que la calculadora determina que debes consumir 2,000 calorías al día. Si eliges una distribución de 30% proteínas, 40% carbohidratos y 30% grasas, las matemáticas funcionarían así:
+                <div class="bg-blue-50/50 border border-blue-100 p-6 rounded-2xl my-8 flex flex-col md:flex-row items-center md:items-start gap-4">
+                    <div class="text-4xl">💡</div>
+                    <div>
+                        <h4 class="font-bold text-ink text-xl mb-1 m-0">El Consejo del Nutricionista</h4>
+                        <p class="m-0 text-sm text-body">Para <strong>calcular calorias de alimentos</strong> de forma correcta en relación con tu gasto, no sobrestimes las calorías quemadas por el ejercicio (EAT). Muchas personas asumen que por correr 30 minutos pueden comer 1,000 calorías extra. En realidad, correr 30 minutos apenas quema alrededor de 300-400 calorías para una persona promedio.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-ink mb-6 text-center">3. ¿Qué son los Macros y Por Qué Deberían Importarte?</h2>
+                <p class="text-center max-w-3xl mx-auto mb-10">
+                    La palabra <strong>macros</strong> es la abreviatura de "macronutrientes". Mientras que las calorías representan la suma total de la energía consumida, los macronutrientes son los vehículos específicos que proporcionan esa energía. Existen tres macronutrientes principales, y cada uno cumple funciones biológicas completamente distintas. Utilizar una buena <strong>calculadora de macros</strong> te dirá exactamente cuántos gramos de cada uno debes ingerir diariamente en función de tu meta específica, ya sea a través de nuestra <a href="/country/spain/calcular-calorias-de-alimentos-y-macros.html" class="text-brand no-underline hover:underline">guía actual</a> o de nuestro set completo de herramientas.
                 </p>
-                <div class="overflow-x-auto mt-6">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="bg-gray-100">
-                                <th class="p-4 border-b font-semibold text-ink">Macronutriente</th>
-                                <th class="p-4 border-b font-semibold text-ink">Porcentaje</th>
-                                <th class="p-4 border-b font-semibold text-ink">Calorías Totales</th>
-                                <th class="p-4 border-b font-semibold text-ink">División (Kcal/g)</th>
-                                <th class="p-4 border-b font-semibold text-ink text-brand font-bold">Meta en Gramos</th>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                    <!-- Proteínas -->
+                    <div class="apple-card p-8 hover:-translate-y-1 transition-transform duration-300">
+                        <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 border border-blue-100">
+                            <span class="text-3xl">🥩</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-ink mb-3 mt-0">Proteínas (4 kcal/g)</h3>
+                        <p class="text-sm mb-4 leading-relaxed">
+                            Son los verdaderos bloques constructores del cuerpo. Cruciales para reparar las fibras musculares rotas tras el entrenamiento, desarrollar masa muscular magra y mantener las enzimas celulares, el cabello y la piel saludables.
+                        </p>
+                        <ul class="text-sm space-y-1 text-gray-600 pl-4 list-disc">
+                            <li><strong>Alto Efecto Térmico:</strong> El cuerpo gasta mucha energía solo para digerirlas.</li>
+                            <li><strong>Máxima Saciedad:</strong> Reducen el apetito significativamente.</li>
+                            <li><strong>Fuentes Clave:</strong> Pechuga de pollo, salmón, huevos, lentejas, tofu, lácteos.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Carbohidratos -->
+                    <div class="apple-card p-8 hover:-translate-y-1 transition-transform duration-300">
+                        <div class="w-16 h-16 bg-yellow-50 rounded-2xl flex items-center justify-center mb-6 border border-yellow-100">
+                            <span class="text-3xl">🌾</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-ink mb-3 mt-0">Carbohidratos (4 kcal/g)</h3>
+                        <p class="text-sm mb-4 leading-relaxed">
+                            La principal, más rápida y más eficiente fuente de energía para el cuerpo humano, vital para el funcionamiento óptimo del cerebro (que se alimenta de glucosa) y para soportar entrenamientos intensos.
+                        </p>
+                        <ul class="text-sm space-y-1 text-gray-600 pl-4 list-disc">
+                            <li><strong>Glucógeno Muscular:</strong> Se almacenan en el músculo para proveer fuerza.</li>
+                            <li><strong>Fibra Dietética:</strong> Esencial para la salud intestinal.</li>
+                            <li><strong>Fuentes Clave:</strong> Avena, arroz integral, patatas, frutas, verduras, quinoa.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Grasas -->
+                    <div class="apple-card p-8 hover:-translate-y-1 transition-transform duration-300">
+                        <div class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mb-6 border border-green-100">
+                            <span class="text-3xl">🥑</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-ink mb-3 mt-0">Grasas (9 kcal/g)</h3>
+                        <p class="text-sm mb-4 leading-relaxed">
+                            Nutrientes altamente calóricos pero absolutamente esenciales para la regulación hormonal (incluyendo testosterona), la absorción de vitaminas (A, D, E y K) y la protección estructural de las membranas celulares.
+                        </p>
+                        <ul class="text-sm space-y-1 text-gray-600 pl-4 list-disc">
+                            <li><strong>Densidad Energética:</strong> Doble de calorías que carbohidratos/proteínas.</li>
+                            <li><strong>Salud Cerebral:</strong> El cerebro está compuesto por casi 60% de grasa.</li>
+                            <li><strong>Fuentes Clave:</strong> Aceite de oliva virgen extra, aguacate, nueces, almendras.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="apple-card-lg p-8 md:p-12 mb-12">
+                <h2 class="text-3xl font-bold text-ink mb-6">4. Tabla Maestra de Calorías y Macros en Alimentos Comunes de España</h2>
+                <p>
+                    Para hacerte la vida más fácil al <strong>calcular calorias de alimentos</strong>, hemos recopilado una tabla de referencia con los ingredientes más comunes en la dieta española y mediterránea. Todos los valores están calculados en porciones crudas por cada 100 gramos.
+                </p>
+                
+                <div class="overflow-hidden rounded-2xl border border-hairline mt-8 shadow-sm">
+                    <table class="w-full text-sm text-left">
+                        <thead class="bg-gray-50 text-gray-700">
+                            <tr>
+                                <th class="px-6 py-4 font-bold uppercase tracking-wider">Alimento (por 100g)</th>
+                                <th class="px-6 py-4 font-bold uppercase tracking-wider">Calorías (kcal)</th>
+                                <th class="px-6 py-4 font-bold uppercase tracking-wider text-blue-600">Proteína (g)</th>
+                                <th class="px-6 py-4 font-bold uppercase tracking-wider text-yellow-600">Carbohidratos (g)</th>
+                                <th class="px-6 py-4 font-bold uppercase tracking-wider text-green-600">Grasas (g)</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr class="hover:bg-gray-50 transition">
-                                <td class="p-4 border-b">Proteína</td>
-                                <td class="p-4 border-b">30%</td>
-                                <td class="p-4 border-b">600 kcal</td>
-                                <td class="p-4 border-b">÷ 4 kcal</td>
-                                <td class="p-4 border-b font-bold text-brand">150g</td>
+                        <tbody class="divide-y divide-hairline bg-white">
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-4 font-medium">Pechuga de Pollo (Cruda)</td>
+                                <td class="px-6 py-4">120</td>
+                                <td class="px-6 py-4 font-semibold text-blue-600">23.0</td>
+                                <td class="px-6 py-4">0.0</td>
+                                <td class="px-6 py-4">2.6</td>
                             </tr>
-                            <tr class="hover:bg-gray-50 transition">
-                                <td class="p-4 border-b">Carbohidratos</td>
-                                <td class="p-4 border-b">40%</td>
-                                <td class="p-4 border-b">800 kcal</td>
-                                <td class="p-4 border-b">÷ 4 kcal</td>
-                                <td class="p-4 border-b font-bold text-brand">200g</td>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-4 font-medium">Arroz Blanco (Crudo)</td>
+                                <td class="px-6 py-4">360</td>
+                                <td class="px-6 py-4">7.0</td>
+                                <td class="px-6 py-4 font-semibold text-yellow-600">80.0</td>
+                                <td class="px-6 py-4">0.6</td>
                             </tr>
-                            <tr class="hover:bg-gray-50 transition">
-                                <td class="p-4 border-b">Grasas</td>
-                                <td class="p-4 border-b">30%</td>
-                                <td class="p-4 border-b">600 kcal</td>
-                                <td class="p-4 border-b">÷ 9 kcal</td>
-                                <td class="p-4 border-b font-bold text-brand">67g</td>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-4 font-medium">Huevos Enteros</td>
+                                <td class="px-6 py-4">155</td>
+                                <td class="px-6 py-4">13.0</td>
+                                <td class="px-6 py-4">1.1</td>
+                                <td class="px-6 py-4 font-semibold text-green-600">11.0</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-4 font-medium">Aceite de Oliva Virgen Extra</td>
+                                <td class="px-6 py-4">884</td>
+                                <td class="px-6 py-4">0.0</td>
+                                <td class="px-6 py-4">0.0</td>
+                                <td class="px-6 py-4 font-semibold text-green-600">100.0</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-4 font-medium">Avena en Hojuelas</td>
+                                <td class="px-6 py-4">379</td>
+                                <td class="px-6 py-4 text-blue-600">13.0</td>
+                                <td class="px-6 py-4 font-semibold text-yellow-600">67.0</td>
+                                <td class="px-6 py-4">6.5</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-4 font-medium">Salmón Fresco</td>
+                                <td class="px-6 py-4">208</td>
+                                <td class="px-6 py-4 font-semibold text-blue-600">20.0</td>
+                                <td class="px-6 py-4">0.0</td>
+                                <td class="px-6 py-4 font-semibold text-green-600">13.0</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-4 font-medium">Lentejas (Secas)</td>
+                                <td class="px-6 py-4">353</td>
+                                <td class="px-6 py-4 font-semibold text-blue-600">25.0</td>
+                                <td class="px-6 py-4 font-semibold text-yellow-600">60.0</td>
+                                <td class="px-6 py-4">1.0</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-4 font-medium">Patata (Cruda)</td>
+                                <td class="px-6 py-4">77</td>
+                                <td class="px-6 py-4">2.0</td>
+                                <td class="px-6 py-4 font-semibold text-yellow-600">17.0</td>
+                                <td class="px-6 py-4">0.1</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                <p class="text-xs text-gray-500 mt-4 text-center">Nota: Los valores son aproximados y pueden variar ligeramente dependiendo de la marca comercial y el origen del producto.</p>
             </section>
 
             <section class="mb-12">
-                <h2 class="text-3xl font-bold text-ink mb-6">Guía Paso a Paso: Cómo Calcular Calorías de Alimentos en el Día a Día</h2>
+                <h2 class="text-3xl font-bold text-ink mb-6">5. Guía Práctica de Acción: Cómo Llevar el Control Diario</h2>
                 <p>
-                    Comenzar a registrar tus comidas puede sentirse tedioso, pero dominar el arte de <strong>calcular calorias de alimentos</strong> es una habilidad invaluable. Aquí tienes una guía paso a paso para asegurarte de que lo estás haciendo bien:
+                    La teoría es inútil sin aplicación práctica. Comenzar a registrar tus comidas puede sentirse como una tarea abrumadora o tediosa los primeros días, pero dominar el arte de <strong>calcular calorias de alimentos</strong> es una habilidad invaluable que te servirá toda la vida. Aquí tienes los pasos accionables que recomiendan los profesionales de la salud:
                 </p>
 
-                <div class="space-y-6 mt-8">
-                    <div class="flex">
-                        <div class="flex-shrink-0 mr-4">
-                            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-gradStart to-gradEnd flex items-center justify-center text-white font-bold text-lg">1</div>
+                <div class="grid gap-6 mt-8">
+                    <div class="apple-card p-6 flex flex-col md:flex-row gap-6">
+                        <div class="shrink-0 flex items-center justify-center w-12 h-12 bg-gradient-to-br from-brand to-cyan-400 text-white font-bold rounded-2xl text-xl shadow-md">
+                            01
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold text-ink mb-2">Compra una Báscula Digital para Alimentos</h4>
-                            <p class="text-body">Las básculas de cocina son económicas y son la herramienta más importante. Pesa siempre tus alimentos en gramos o mililitros, evitando el uso de tazas medidoras, ya que la densidad de los alimentos varía. Por ejemplo, una cucharada de crema de cacahuete puede variar entre 15g y 35g dependiendo de cómo se sirva.</p>
+                            <h4 class="text-xl font-bold text-ink mt-0 mb-2">Hazte con una Báscula Digital de Cocina</h4>
+                            <p class="m-0 text-gray-600">Olvídate de las mediciones abstractas. Usar "una taza", "un puñado" o "una cucharada" es una receta para el fracaso. La densidad de los alimentos varía enormemente (una taza de cereales no pesa lo mismo que una de arroz). Pesar en gramos asegura que tu precisión esté siempre al máximo nivel.</p>
                         </div>
                     </div>
                     
-                    <div class="flex">
-                        <div class="flex-shrink-0 mr-4">
-                            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-gradStart to-gradEnd flex items-center justify-center text-white font-bold text-lg">2</div>
+                    <div class="apple-card p-6 flex flex-col md:flex-row gap-6">
+                        <div class="shrink-0 flex items-center justify-center w-12 h-12 bg-gradient-to-br from-brand to-cyan-400 text-white font-bold rounded-2xl text-xl shadow-md">
+                            02
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold text-ink mb-2">Pesa los Alimentos en Crudo o Seco</h4>
-                            <p class="text-body">Las etiquetas nutricionales para las carnes y granos (como arroz y pasta) generalmente indican los valores del producto crudo o seco. Al cocinar, la carne pierde agua (se hace más ligera) y el arroz absorbe agua (se hace más pesado). Para evitar errores en el registro de <strong>calorias alimentos</strong>, siempre pesa antes de cocinar.</p>
+                            <h4 class="text-xl font-bold text-ink mt-0 mb-2">Regla de Oro: Pesaje en Crudo</h4>
+                            <p class="m-0 text-gray-600">La carne pierde un 25-30% de su peso en agua al cocinarse, mientras que alimentos como el arroz o la pasta triplican su peso al absorber agua. Las bases de datos nutricionales siempre usan el estado crudo/seco por defecto. Pesarlo crudo elimina el margen de error inducido por la cocción.</p>
                         </div>
                     </div>
 
-                    <div class="flex">
-                        <div class="flex-shrink-0 mr-4">
-                            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-gradStart to-gradEnd flex items-center justify-center text-white font-bold text-lg">3</div>
+                    <div class="apple-card p-6 flex flex-col md:flex-row gap-6">
+                        <div class="shrink-0 flex items-center justify-center w-12 h-12 bg-gradient-to-br from-brand to-cyan-400 text-white font-bold rounded-2xl text-xl shadow-md">
+                            03
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold text-ink mb-2">Aprende a Leer las Etiquetas Nutricionales</h4>
-                            <p class="text-body">Al mirar una etiqueta, lo primero que debes buscar es el "Tamaño de la porción" (Serving Size) y "Porciones por envase". A menudo, un paquete pequeño contiene 2 o más porciones. Si asumes erróneamente que todo el paquete es una porción, podrías estar duplicando o triplicando las calorías que registras.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex">
-                        <div class="flex-shrink-0 mr-4">
-                            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-gradStart to-gradEnd flex items-center justify-center text-white font-bold text-lg">4</div>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold text-ink mb-2">Usa Aplicaciones de Seguimiento</h4>
-                            <p class="text-body">Existen numerosas aplicaciones para tu smartphone (como MyFitnessPal, Cronometer, YAZIO o FatSecret) que cuentan con enormes bases de datos. Simplemente escanea el código de barras del producto, ingresa la cantidad en gramos que vas a consumir, y la aplicación sumará automáticamente los <strong>macros</strong> a tu total diario.</p>
+                            <h4 class="text-xl font-bold text-ink mt-0 mb-2">Domina las Etiquetas Nutricionales</h4>
+                            <p class="m-0 text-gray-600">Un truco clásico de la industria alimentaria es reducir el "Tamaño de Porción" (Serving Size) sugerido para que el producto parezca bajo en calorías. Un paquete pequeño de galletas puede afirmar tener "solo 100 calorías por porción", pero el paquete entero contiene 3 porciones. Lee atentamente la cantidad total.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="glass-card rounded-3xl p-8 md:p-12 mb-12">
-                <h2 class="text-3xl font-bold text-ink mb-6">Errores Comunes al Medir Macros y Calorías</h2>
-                <p>Incluso con las mejores intenciones, existen trampas ocultas que pueden frenar tu progreso. Evita estos errores frecuentes:</p>
+            <section class="apple-card-lg p-8 md:p-12 mb-16 bg-gradient-to-br from-white to-gray-50">
+                <h2 class="text-3xl font-bold text-ink mb-6 border-b pb-4 border-hairline">6. Mitos y Verdades (Myth Busting)</h2>
                 
-                <ul class="list-disc pl-6 space-y-4 text-body mt-6">
-                    <li><strong>No registrar aceites y salsas:</strong> Una cucharada extra de aceite de oliva al cocinar suma 120 calorías. Las salsas y aderezos suelen estar cargados de azúcar y grasas. Estos pequeños extras pueden sumar fácilmente 300-500 calorías al día si no se cuentan.</li>
-                    <li><strong>Olvidar las calorías líquidas:</strong> Refrescos regulares, jugos de fruta, cervezas, y cafés con leche o jarabes contienen altas cantidades de calorías. Es fácil beber calorías sin sentir saciedad.</li>
-                    <li><strong>Días trampa descontrolados:</strong> Un déficit calórico mantenido de lunes a viernes (por ejemplo, estar en un déficit de 300 calorías al día, un total de -1,500) puede ser completamente arruinado por un fin de semana sin control donde comes en exceso +2,000 calorías. La <strong>calculadora de macros</strong> aplica a la media semanal, no solo a los días laborales.</li>
-                    <li><strong>Obsesionarse y generar estrés:</strong> Mientras que la precisión es vital, la perfección no existe. Permitir un margen de error del 5% al 10% en tus metas de macros está bien. La consistencia a largo plazo es más importante que la perfección de un día.</li>
-                </ul>
+                <div class="space-y-6 mt-8">
+                    <div>
+                        <h4 class="text-xl font-bold text-red-600 mb-2">❌ Mito: Los carbohidratos engordan por la noche.</h4>
+                        <p class="text-body"><span class="font-bold text-green-600">✅ Verdad:</span> Tu metabolismo no tiene un reloj incorporado que decida almacenar grasa a las 8:00 PM. Lo que determina el aumento de peso es el exceso de <strong>calorías alimentos</strong> totales a lo largo del periodo de 24 horas. Los carbohidratos consumidos de noche se almacenan como glucógeno igual que los consumidos por la mañana.</p>
+                    </div>
+                    
+                    <hr class="border-hairline">
+                    
+                    <div>
+                        <h4 class="text-xl font-bold text-red-600 mb-2">❌ Mito: Si comes saludable, no necesitas contar calorías.</h4>
+                        <p class="text-body"><span class="font-bold text-green-600">✅ Verdad:</span> Puedes engordar comiendo solo aguacates, almendras y quinoa. Aunque son alimentos extremadamente nutritivos, son hipercalóricos (densos en energía). El aguacate es excelente para ti, pero si superas tus requerimientos diarios, almacenarás ese excedente calórico como tejido adiposo.</p>
+                    </div>
+
+                    <hr class="border-hairline">
+
+                    <div>
+                        <h4 class="text-xl font-bold text-red-600 mb-2">❌ Mito: Sudar más significa que quemas más grasa.</h4>
+                        <p class="text-body"><span class="font-bold text-green-600">✅ Verdad:</span> El sudor es solo el mecanismo de enfriamiento de tu cuerpo, compuesto por agua y minerales. No estás "derritiendo grasa" al usar fajas o saunas. La oxidación real de grasas ocurre a nivel celular y el subproducto se exhala principalmente como dióxido de carbono a través de los pulmones.</p>
+                    </div>
+                </div>
             </section>
 
             <section class="mb-16">
                 <h2 class="text-3xl font-bold text-ink mb-8 text-center">Preguntas Frecuentes (FAQ)</h2>
                 
-                <div class="space-y-4">
-                    <details class="group border border-hairline rounded-2xl bg-white overflow-hidden shadow-sm hover:shadow-md transition">
-                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-ink hover:text-brand transition">
+                <div class="space-y-4 max-w-4xl mx-auto">
+                    <details class="group apple-card overflow-hidden">
+                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-ink hover:text-brand transition-colors">
                             ¿Cómo puedo calcular calorías de alimentos si como en un restaurante?
-                            <span class="transition group-open:rotate-180">
+                            <span class="transition-transform group-open:rotate-180">
                                 <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><polyline points="6 9 12 15 18 9"/></svg>
                             </span>
                         </summary>
-                        <div class="text-body p-6 pt-0 leading-relaxed border-t border-hairline mt-2">
-                            Comer fuera de casa presenta un desafío para <strong>calcular calorias de alimentos</strong> porque no sabes exactamente cómo prepararon el plato. Lo mejor es buscar comidas similares en tu aplicación de seguimiento y elegir una opción que parezca promedio o un poco más alta en calorías, ya que los restaurantes suelen usar más aceites y mantequilla que en casa. Muchas cadenas de restaurantes también publican su información nutricional en línea.
+                        <div class="text-body p-6 pt-0 leading-relaxed border-t border-hairline/50 mt-2 text-sm">
+                            Comer fuera de casa presenta un verdadero desafío analítico para <strong>calcular calorias de alimentos</strong> porque ignoras las porciones exactas y los ingredientes ocultos. Lo más aconsejable es descomponer visualmente el plato. Si pides pollo con arroz, busca esos ingredientes genéricos en tu app. Como precaución de seguridad para tu déficit, suma siempre entre un 20% y un 30% más a las calorías estimadas, ya que los restaurantes utilizan generosamente aceites vegetales y mantequilla para mejorar el sabor, lo cual eleva drásticamente el valor energético del plato sin añadir volumen.
                         </div>
                     </details>
                     
-                    <details class="group border border-hairline rounded-2xl bg-white overflow-hidden shadow-sm hover:shadow-md transition">
-                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-ink hover:text-brand transition">
+                    <details class="group apple-card overflow-hidden">
+                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-ink hover:text-brand transition-colors">
+                            ¿Se alinea esto con las recomendaciones como la calculadora de calorías IMSS?
+                            <span class="transition-transform group-open:rotate-180">
+                                <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><polyline points="6 9 12 15 18 9"/></svg>
+                            </span>
+                        </summary>
+                        <div class="text-body p-6 pt-0 leading-relaxed border-t border-hairline/50 mt-2 text-sm">
+                            Sí, absolutamente. Nuestros cálculos, incluyendo la distribución de <strong>macros</strong> que promueve la <a href="/country/spain/calculadora-de-calorias.html" class="text-brand hover:underline">calculadora principal de calorías</a>, se basan en fórmulas estandarizadas internacionalmente (como Mifflin-St Jeor) y principios avalados por instituciones oficiales, tanto el IMSS como la OMS. Promueven un consumo equilibrado de proteínas magras, grasas saludables y carbohidratos complejos, evitando enfoques extremos o carencias nutricionales para garantizar tu salud a largo plazo.
+                        </div>
+                    </details>
+                    
+                    <details class="group apple-card overflow-hidden">
+                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-ink hover:text-brand transition-colors">
                             ¿Qué pasa si no cumplo exactamente con mis macros todos los días?
-                            <span class="transition group-open:rotate-180">
+                            <span class="transition-transform group-open:rotate-180">
                                 <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><polyline points="6 9 12 15 18 9"/></svg>
                             </span>
                         </summary>
-                        <div class="text-body p-6 pt-0 leading-relaxed border-t border-hairline mt-2">
-                            No te preocupes. Lo más importante al usar una <strong>calculadora de macros</strong> es alcanzar un balance semanal general. Si un día te pasas de carbohidratos y otro día te pasas de grasas, no arruinará tu progreso siempre que te mantengas cerca de tu límite total de calorías y consumas suficiente proteína para mantener tu masa muscular. Considera los macros como objetivos, no como reglas inflexibles.
-                        </div>
-                    </details>
-                    
-                    <details class="group border border-hairline rounded-2xl bg-white overflow-hidden shadow-sm hover:shadow-md transition">
-                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-ink hover:text-brand transition">
-                            ¿Necesito pesar absolutamente todo lo que como para siempre?
-                            <span class="transition group-open:rotate-180">
-                                <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><polyline points="6 9 12 15 18 9"/></svg>
-                            </span>
-                        </summary>
-                        <div class="text-body p-6 pt-0 leading-relaxed border-t border-hairline mt-2">
-                            No necesariamente. Registrar y <strong>calcular calorias de alimentos</strong> de forma estricta durante unos meses es una excelente herramienta educativa. Te enseñará cómo se ven realmente las porciones de 150g de pollo o 50g de arroz. Con el tiempo, muchas personas desarrollan la capacidad de estimar sus porciones "a ojo" (alimentación intuitiva informada) y pueden mantener su peso sin tener que usar una báscula todos los días.
-                        </div>
-                    </details>
-
-                    <details class="group border border-hairline rounded-2xl bg-white overflow-hidden shadow-sm hover:shadow-md transition">
-                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-ink hover:text-brand transition">
-                            ¿Importa de dónde provienen mis macros (comida sana vs. comida chatarra)?
-                            <span class="transition group-open:rotate-180">
-                                <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><polyline points="6 9 12 15 18 9"/></svg>
-                            </span>
-                        </summary>
-                        <div class="text-body p-6 pt-0 leading-relaxed border-t border-hairline mt-2">
-                            Sí y no. Para fines estrictos de pérdida o ganancia de peso corporal, 100 gramos de carbohidratos de un dulce tendrán el mismo efecto energético que 100 gramos de carbohidratos de la avena. Sin embargo, en términos de salud general, saciedad, niveles de energía, digestión y micronutrientes (vitaminas y minerales), la calidad de las <strong>calorias alimentos</strong> es fundamental. Una regla común es seguir el enfoque 80/20: 80% de tus calorías deben venir de alimentos enteros y nutritivos, y el 20% puede ser para tus antojos.
+                        <div class="text-body p-6 pt-0 leading-relaxed border-t border-hairline/50 mt-2 text-sm">
+                            No es motivo de alarma. El metabolismo humano no se reinicia a las 12:00 de la noche. Lo más importante al usar una <strong>calculadora de macros</strong> es el balance energético promedio a lo largo de la semana. Si te pasas un martes, puedes reducir ligeramente tus porciones el miércoles. Mientras la tendencia semanal sea correcta y la ingesta de proteínas sea consistente, seguirás viendo resultados formidables. Permítete un margen de maniobra de +/- 10 gramos en tus macros para cuidar tu salud mental.
                         </div>
                     </details>
                 </div>
@@ -347,42 +400,43 @@
         </article>
 
         <!-- Suggested Content Section -->
-        <section class="mt-20 border-t border-hairline pt-16 text-center">
-            <h2 class="text-2xl md:text-3xl font-extrabold text-ink mb-10">Continúa Tu Viaje de Nutrición</h2>
+        <section class="mt-24 pt-16 border-t border-gray-200 text-center">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-ink mb-12">Continúa Tu Formación Nutricional</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-20">
                 <!-- Suggestion 1 -->
-                <a href="/country/spain/calculadora-de-tmb-y-gasto-calorico.html" class="block group relative glass-card p-8 rounded-3xl text-left hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-brand">
-                    <span class="inline-block px-3 py-1 bg-blue-100 text-brand text-xs font-bold rounded-full mb-4">Artículo Sugerido</span>
-                    <h3 class="text-xl font-bold text-ink mb-3 group-hover:text-brand transition-colors">¿Cuál es tu Gasto Calórico?</h3>
-                    <p class="text-body text-sm mb-4">Aprende a fondo sobre tu Tasa Metabólica Basal (TMB) y cómo calcular la energía diaria que tu cuerpo quema en reposo.</p>
-                    <div class="flex items-center text-brand font-medium text-sm">
-                        Leer guía <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                <a href="/country/spain/calculadora-de-tmb-y-gasto-calorico.html" class="block group relative apple-card p-8 text-left hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-brand transform hover:-translate-y-1">
+                    <span class="inline-block px-4 py-1.5 bg-blue-100 text-brand text-xs font-bold rounded-full mb-4 tracking-wide uppercase">Lectura Sugerida</span>
+                    <h3 class="text-2xl font-bold text-ink mb-3 group-hover:text-brand transition-colors">Calcula tu Gasto Calórico y TMB</h3>
+                    <p class="text-gray-600 text-sm mb-6 leading-relaxed">Profundiza en la ciencia de tu metabolismo. Aprende cómo tu cuerpo quema energía en reposo (TMB) y cómo tus actividades diarias influyen en tu Gasto Energético Total.</p>
+                    <div class="flex items-center text-brand font-bold text-sm uppercase tracking-wide">
+                        Explorar Guía <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                     </div>
                 </a>
 
                 <!-- Suggestion 2 -->
-                <a href="/country/spain/calculadora-de-calorias-para-perder-peso-y-ganar-musculo.html" class="block group relative glass-card p-8 rounded-3xl text-left hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-brand">
-                    <span class="inline-block px-3 py-1 bg-teal-100 text-teal-700 text-xs font-bold rounded-full mb-4">Artículo Sugerido</span>
-                    <h3 class="text-xl font-bold text-ink mb-3 group-hover:text-brand transition-colors">Objetivos: Perder Peso o Ganar Músculo</h3>
-                    <p class="text-body text-sm mb-4">Descubre cómo adaptar tus calorías y macros según tus objetivos físicos específicos, ya sea etapa de volumen o definición.</p>
-                    <div class="flex items-center text-brand font-medium text-sm">
-                        Leer guía <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                <a href="/country/spain/calculadora-de-calorias-para-perder-peso-y-ganar-musculo.html" class="block group relative apple-card p-8 text-left hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-teal-500 transform hover:-translate-y-1">
+                    <span class="inline-block px-4 py-1.5 bg-teal-100 text-teal-700 text-xs font-bold rounded-full mb-4 tracking-wide uppercase">Lectura Sugerida</span>
+                    <h3 class="text-2xl font-bold text-ink mb-3 group-hover:text-teal-600 transition-colors">Estrategias: Perder Grasa o Ganar Músculo</h3>
+                    <p class="text-gray-600 text-sm mb-6 leading-relaxed">Descubre las metodologías exactas para configurar superávits o déficits calóricos seguros y eficientes. Ideal si buscas etapas de volumen limpio o definición extrema.</p>
+                    <div class="flex items-center text-teal-600 font-bold text-sm uppercase tracking-wide">
+                        Explorar Guía <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                     </div>
                 </a>
             </div>
 
             <!-- Prominent Calculator Button -->
-            <div class="bg-gradient-to-br from-ink to-body p-10 rounded-3xl shadow-2xl relative overflow-hidden">
-                <div class="absolute -right-20 -top-20 w-64 h-64 bg-gradEnd rounded-full blur-3xl opacity-20"></div>
-                <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-gradStart rounded-full blur-3xl opacity-20"></div>
+            <div class="bg-gradient-to-br from-ink to-[#1a1a24] p-12 md:p-16 rounded-[2.5rem] shadow-2xl relative overflow-hidden max-w-5xl mx-auto">
+                <!-- Abstract Glows -->
+                <div class="absolute -right-32 -top-32 w-96 h-96 bg-brand rounded-full blur-[100px] opacity-30 pointer-events-none"></div>
+                <div class="absolute -left-32 -bottom-32 w-96 h-96 bg-teal-500 rounded-full blur-[100px] opacity-20 pointer-events-none"></div>
                 
-                <h3 class="text-2xl md:text-3xl font-bold text-white mb-4 relative z-10">¿Listo para conocer tus números?</h3>
-                <p class="text-gray-300 mb-8 max-w-2xl mx-auto relative z-10">Usa nuestra herramienta gratuita y obtén tu perfil nutricional completo en segundos. Calcula tus calorías y macros ahora.</p>
+                <h3 class="text-3xl md:text-5xl font-extrabold text-white mb-6 relative z-10 tracking-tight">¿Listo para conocer tus números exactos?</h3>
+                <p class="text-gray-300 text-lg mb-10 max-w-2xl mx-auto relative z-10 leading-relaxed">Deja de adivinar y comienza a progresar con seguridad. Usa nuestra potente herramienta gratuita para obtener tu perfil nutricional completo, TDEE, macros y más en cuestión de segundos.</p>
                 
-                <a href="/country/spain/calculadora-de-calorias.html" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-ink bg-white rounded-full hover:scale-105 hover:shadow-lg transition-all duration-300 relative z-10">
-                    Ir a la Calculadora Principal
-                    <svg class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                <a href="/country/spain/calculadora-de-calorias.html" class="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-ink bg-white rounded-full hover:scale-105 hover:shadow-xl transition-all duration-300 relative z-10 hover:bg-gray-50">
+                    Ir a la Calculadora Principal Ahora
+                    <svg class="w-6 h-6 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                 </a>
             </div>
         </section>

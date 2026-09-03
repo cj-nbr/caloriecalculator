@@ -38,6 +38,7 @@
         .bg-glow { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 800px; height: 600px; background: radial-gradient(circle, #007cf0, transparent 70%); opacity: 0.08; filter: blur(100px); z-index: -1; pointer-events: none; }
         .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(16px); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05); }
         .glass-table th { background: rgba(248, 250, 252, 0.8); backdrop-filter: blur(8px); }
+        .apple-card { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); border-radius: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 4px 24px -6px rgba(0, 0, 0, 0.05); padding: 2rem; transition: transform 0.3s ease, box-shadow 0.3s ease; }
     </style>
 
     <script type="application/ld+json">
@@ -89,250 +90,310 @@
         
         <header class="text-center mb-16">
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-ink tracking-tight mb-6">
-                Guía Definitiva: <br/> <span class="text-gradient">Calculadora de TMB y Gasto Calórico</span>
+                Guía Definitiva y Científica: <br/> <span class="text-gradient">Calculadora de TMB y Gasto Calórico</span>
             </h1>
-            <p class="text-xl text-body max-w-3xl mx-auto leading-relaxed">
-                Descubre los motores invisibles de tu metabolismo. Desde la clásica ecuación de <strong>Harris Benedict</strong> hasta el moderno concepto de <em>tdee calculator</em>, aprende paso a paso a calcular tus <strong>calorías de mantenimiento</strong> con precisión científica.
+            <p class="text-xl text-body max-w-3xl mx-auto leading-relaxed mt-6">
+                Descubre los motores invisibles de tu metabolismo. Desde la clásica ecuación de <strong>Harris Benedict</strong> hasta el moderno concepto de <em>TDEE calculator</em>, aprende a calcular tus <strong>calorías de mantenimiento</strong> con una precisión clínica absoluta, desmitifica el metabolismo y optimiza tu salud para siempre.
             </p>
         </header>
 
-        <div class="mb-16 relative rounded-3xl overflow-hidden shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80" alt="Persona haciendo ejercicio y calculando gasto calórico" class="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent"></div>
-            <div class="absolute bottom-6 left-8 text-white">
-                <p class="text-sm font-semibold tracking-wider uppercase opacity-90">Nutrición y Metabolismo</p>
-                <p class="text-2xl font-bold">Domina tu Gasto Energético</p>
+        <div class="mb-16 relative rounded-3xl overflow-hidden shadow-2xl border border-white/20">
+            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1600&q=80" alt="Hombre y mujer calculando nutrición y entrenando, representando la Tasa Metabólica Basal" class="w-full h-[450px] object-cover hover:scale-105 transition-transform duration-1000">
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent"></div>
+            <div class="absolute bottom-8 left-8 sm:left-12 text-white max-w-2xl">
+                <p class="text-sm font-semibold tracking-widest uppercase opacity-90 text-blue-300 mb-2">Nutrición, Ciencia y Metabolismo</p>
+                <p class="text-3xl sm:text-4xl font-bold leading-tight shadow-sm">Domina tu Gasto Energético y Conquista tus Objetivos</p>
             </div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            
             <article class="lg:col-span-12 prose prose-lg prose-blue text-body max-w-none">
                 
-                <div class="glass-card p-8 rounded-3xl mb-12">
-                    <h2 class="text-3xl font-bold text-ink mb-4 mt-0">1. ¿Qué es la TMB (Tasa Metabólica Basal)?</h2>
+                <!-- Section 1: Intro to BMR -->
+                <div class="apple-card mb-12">
+                    <h2 class="text-3xl font-bold text-ink mb-6 mt-0">1. ¿Qué es exactamente la TMB (Tasa Metabólica Basal)? La Ciencia detrás de tu Supervivencia</h2>
                     <p>
-                        La <strong>calculadora de TMB</strong> (Tasa Metabólica Basal o <em>BMR</em> por sus siglas en inglés) mide la cantidad mínima de energía (calorías) que tu cuerpo requiere para sobrevivir mientras descansa en un entorno templado, sin haber comido recientemente (en estado de ayuno). Imagina que pasas 24 horas seguidas en cama sin moverte un solo milímetro; la energía que tu cuerpo utiliza para mantener tu corazón latiendo, tus pulmones respirando, tu cerebro funcionando y tu temperatura corporal estable, es exactamente tu TMB.
+                        La <strong>calculadora de TMB</strong> (Tasa Metabólica Basal o <em>BMR</em> por sus siglas en inglés, Basal Metabolic Rate) es el cálculo fundamental en cualquier proceso de transformación física. Mide la cantidad mínima, exacta y necesaria de energía (expresada en calorías) que tu cuerpo requiere para sobrevivir mientras descansa en un entorno térmicamente neutro, sin haber comido recientemente (en estado de ayuno posabsortivo). 
                     </p>
                     <p>
-                        Sorprendentemente, la TMB representa entre el <strong>60% y el 75%</strong> de tu gasto calórico diario total. Los órganos que más energía consumen en reposo son el cerebro, el hígado, el corazón y los riñones. Además, el tejido muscular es metabólicamente más activo que el tejido adiposo (grasa), lo que significa que a mayor masa muscular, mayor será tu TMB.
+                        Para entenderlo mejor: imagina que pasas 24 horas seguidas recostado en una cama sin moverte, sin estresarte, sin pensar intensamente y sin digerir alimentos. La energía que tu cuerpo utiliza exclusivamente para mantener tu corazón latiendo, tus pulmones respirando, tu hígado filtrando toxinas, tu cerebro operando y tu temperatura corporal estable, es exactamente tu TMB.
                     </p>
-                </div>
-
-                <div class="glass-card p-8 rounded-3xl mb-12">
-                    <h2 class="text-3xl font-bold text-ink mb-4 mt-0">2. Entendiendo el Gasto Calórico Total (TDEE)</h2>
                     <p>
-                        Mientras que la TMB es tu línea base, rara vez pasamos el día entero en cama. Aquí es donde entra en juego el <strong>gasto calórico total</strong>, frecuentemente calculado mediante un <strong>tdee calculator</strong> (Total Daily Energy Expenditure). Tu TDEE es el número total de calorías que quemas en un día, y se compone de cuatro elementos fundamentales:
-                    </p>
-                    <ul class="space-y-4 my-6">
-                        <li class="flex items-start">
-                            <span class="text-brand mr-2 mt-1">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            </span>
-                            <div><strong>TMB (Tasa Metabólica Basal):</strong> 60-75% del total diario.</div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-brand mr-2 mt-1">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            </span>
-                            <div><strong>NEAT (Termogénesis por Actividad No Relacionada con el Ejercicio):</strong> 15%. Caminar por la oficina, gesticular, limpiar la casa o mover el pie ansiosamente.</div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-brand mr-2 mt-1">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            </span>
-                            <div><strong>TEF (Efecto Térmico de los Alimentos):</strong> 10%. La energía que tu cuerpo gasta en masticar, digerir y absorber los nutrientes de los alimentos. La proteína tiene el TEF más alto.</div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-brand mr-2 mt-1">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            </span>
-                            <div><strong>EAT (Termogénesis por Actividad Física):</strong> 5-10%. El ejercicio voluntario y estructurado, como levantar pesas, correr o nadar.</div>
-                        </li>
-                    </ul>
-                    <p>
-                        La suma de todos estos factores te da como resultado tus <strong>calorías de mantenimiento</strong>. Si consumes esta cantidad exacta de calorías diariamente, tu peso corporal se mantendrá estable, sin subir ni bajar.
+                        Desde una perspectiva clínica, la TMB representa entre el <strong>60% y el 75%</strong> de tu gasto calórico diario total (TDEE). Los órganos que más energía consumen en reposo, en relación a su peso, son el cerebro, el hígado, el corazón y los riñones. Aunque estos órganos apenas representan el 5-6% de nuestro peso corporal total, consumen casi el 60% de nuestra TMB. Por otro lado, el tejido muscular esclético (los músculos) también es metabólicamente muy activo. Esto significa que a mayor cantidad de masa muscular magra poseas, mayor será tu Tasa Metabólica Basal.
                     </p>
                 </div>
 
+                <!-- Section 2: Formulas -->
                 <div class="mb-12">
-                    <h2 class="text-3xl font-bold text-ink mb-6">3. Fórmulas Metabólicas: Mifflin-St Jeor vs Harris Benedict</h2>
-                    <p class="mb-6">
-                        Para calcular la TMB, los científicos han desarrollado fórmulas empíricas basadas en el peso, altura, edad y género. Las dos más famosas a nivel mundial son la ecuación de Harris Benedict y la de Mifflin-St Jeor. Pero, ¿cuál deberías usar en tu calculadora de TMB?
+                    <h2 class="text-3xl font-bold text-ink mb-6">2. Fórmulas Metabólicas: Harris Benedict vs. Mifflin-St Jeor vs. Katch-McArdle</h2>
+                    <p class="mb-8">
+                        A lo largo de la historia médica y nutricional, los científicos han buscado la forma más precisa de calcular la TMB sin tener que meter a los pacientes en cámaras calorimétricas costosas. Así nacieron las fórmulas empíricas basadas en el peso, altura, edad, sexo biológico y, más recientemente, la composición corporal. Pero, ¿cuál es la mejor opción para tu calculadora de TMB?
                     </p>
 
-                    <div class="grid md:grid-cols-2 gap-8 mb-8">
-                        <div class="glass-card p-6 rounded-2xl border-t-4 border-t-brand">
-                            <h3 class="text-xl font-bold text-ink mb-3">La Ecuación Harris Benedict (1919)</h3>
-                            <p class="text-sm mb-4">
-                                Publicada en 1919 por James Arthur Harris y Francis Gano Benedict tras un exhaustivo estudio biométrico. Fue revisada en 1984 por Roza y Shizgal. Ha sido el pilar de la nutrición durante casi un siglo. Sin embargo, estudios modernos sugieren que tiende a <strong>sobreestimar</strong> las necesidades calóricas en un 5% a 10% en la población actual, que es en general más sedentaria que a principios del siglo XX.
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                        <div class="glass-card p-6 rounded-3xl border-t-4 border-t-brand flex flex-col">
+                            <h3 class="text-xl font-bold text-ink mb-3">Harris Benedict (1919)</h3>
+                            <p class="text-sm mb-4 flex-grow">
+                                Publicada en 1919 por James Arthur Harris y Francis Gano Benedict tras estudios biométricos exhaustivos. Fue revisada en 1984 por Roza y Shizgal. Ha sido el pilar de la nutrición clínica durante un siglo. Sin embargo, múltiples estudios contemporáneos indican que tiende a <strong>sobreestimar</strong> el gasto calórico entre un 5% y un 10% en la población actual, que es mucho más sedentaria.
                             </p>
-                            <div class="bg-gray-50 p-4 rounded-xl text-xs font-mono text-gray-700">
-                                <p class="font-bold mb-1">Hombres (Revisada 1984):</p>
-                                <p>TMB = 88.362 + (13.397 x peso kg) + (4.799 x altura cm) - (5.677 x edad)</p>
-                                <p class="font-bold mt-3 mb-1">Mujeres (Revisada 1984):</p>
-                                <p>TMB = 447.593 + (9.247 x peso kg) + (3.098 x altura cm) - (4.330 x edad)</p>
+                            <div class="bg-slate-50/80 p-4 rounded-xl text-xs font-mono text-slate-700 border border-slate-200">
+                                <span class="font-bold text-slate-900 block mb-1">Clásica Revisada (1984):</span>
+                                H: 88.362 + (13.397×P) + (4.799×A) - (5.677×E)<br/><br/>
+                                M: 447.593 + (9.247×P) + (3.098×A) - (4.330×E)
                             </div>
                         </div>
 
-                        <div class="glass-card p-6 rounded-2xl border-t-4 border-t-gradEnd">
-                            <h3 class="text-xl font-bold text-ink mb-3">La Ecuación Mifflin-St Jeor (1990)</h3>
-                            <p class="text-sm mb-4">
-                                Introducida en 1990, esta fórmula se diseñó analizando a grupos de personas con estilos de vida y dietas más acordes al mundo moderno. La Academia de Nutrición y Dietética (AND) recomienda encarecidamente Mifflin-St Jeor como la ecuación más precisa para predecir la TMB en individuos con peso normal, sobrepeso y obesidad.
+                        <div class="glass-card p-6 rounded-3xl border-t-4 border-t-gradEnd flex flex-col">
+                            <h3 class="text-xl font-bold text-ink mb-3">Mifflin-St Jeor (1990)</h3>
+                            <p class="text-sm mb-4 flex-grow">
+                                Introducida en 1990 por el Dr. Mark Mifflin y el Dr. Sachiko St. Jeor. Se diseñó analizando a grupos de personas con estilos de vida y dietas correspondientes al mundo moderno (incluyendo un alto porcentaje de individuos con sobrepeso). La Academia de Nutrición y Dietética la recomienda fuertemente como la ecuación predictiva más precisa del mercado para el público general.
                             </p>
-                            <div class="bg-gray-50 p-4 rounded-xl text-xs font-mono text-gray-700">
-                                <p class="font-bold mb-1">Hombres:</p>
-                                <p>TMB = (10 x peso kg) + (6.25 x altura cm) - (5 x edad) + 5</p>
-                                <p class="font-bold mt-3 mb-1">Mujeres:</p>
-                                <p>TMB = (10 x peso kg) + (6.25 x altura cm) - (5 x edad) - 161</p>
+                            <div class="bg-slate-50/80 p-4 rounded-xl text-xs font-mono text-slate-700 border border-slate-200">
+                                <span class="font-bold text-slate-900 block mb-1">Fórmula Moderna:</span>
+                                H: (10 × P) + (6.25 × A) - (5 × E) + 5<br/><br/>
+                                M: (10 × P) + (6.25 × A) - (5 × E) - 161
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="bg-blue-50/80 backdrop-blur-sm border border-blue-100 p-6 rounded-2xl">
-                        <h4 class="font-bold text-brand text-lg mb-2">💡 Veredicto</h4>
-                        <p class="text-sm text-body m-0">
-                            Aunque la <strong>calculadora de calorías Harris Benedict</strong> es un excelente punto de partida histórico y muy popular en internet, los nutricionistas profesionales prefieren Mifflin-St Jeor por su mayor nivel de precisión empírica actual. En nuestra plataforma integramos la fórmula de Mifflin-St Jeor para garantizar resultados más confiables.
-                        </p>
+                        
+                        <div class="glass-card p-6 rounded-3xl border-t-4 border-t-purple-500 flex flex-col">
+                            <h3 class="text-xl font-bold text-ink mb-3">Katch-McArdle (1996)</h3>
+                            <p class="text-sm mb-4 flex-grow">
+                                A diferencia de las dos anteriores, esta fórmula no distingue entre hombres y mujeres ni toma en cuenta la altura y la edad directamente. En su lugar, se basa exclusivamente en la <strong>Masa Corporal Magra (MCM)</strong>. Es extremadamente precisa para atletas, culturistas o personas que conocen su porcentaje de grasa corporal exacto.
+                            </p>
+                            <div class="bg-slate-50/80 p-4 rounded-xl text-xs font-mono text-slate-700 border border-slate-200">
+                                <span class="font-bold text-slate-900 block mb-1">Para todos (basada en masa magra):</span>
+                                TMB = 370 + (21.6 × Masa Magra en kg)<br/><br/>
+                                <em>Masa Magra = Peso × (1 - % Grasa)</em>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="glass-card p-8 rounded-3xl mb-12">
-                    <h2 class="text-3xl font-bold text-ink mb-4 mt-0">4. Guía Paso a Paso: Calculando tus Calorías de Mantenimiento</h2>
+                <!-- Section 3: METs -->
+                <div class="apple-card mb-12">
+                    <h2 class="text-3xl font-bold text-ink mb-6 mt-0">3. La Ciencia de los METs (Metabolic Equivalent of Task)</h2>
                     <p>
-                        Ahora que tienes tu TMB, el siguiente paso para usar un <em>tdee calculator</em> es multiplicar ese número base por un <strong>Factor de Actividad (Multiplicador)</strong>. Esto te dará tus <strong>calorías de mantenimiento</strong> precisas.
+                        Para entender verdaderamente tu <strong>calculadora de calorías de mantenimiento</strong> y cómo los multiplicadores de actividad funcionan, debemos hablar de los METs (Equivalentes Metabólicos). Un MET se define como el costo energético de estar sentado en silencio, lo que equivale aproximadamente a un consumo de 1 kcal por kilogramo de peso corporal por hora (o 3.5 ml de oxígeno por kg por minuto).
+                    </p>
+                    <p class="mb-6">
+                        Cuando usamos un <em>TDEE calculator</em>, los multiplicadores de actividad (1.2 para sedentarios, 1.55 para activos) no son números arbitrarios. Son promedios derivados de la ciencia de los METs. Diferentes actividades tienen diferentes valores MET:
                     </p>
                     
-                    <div class="overflow-x-auto mt-6">
+                    <div class="overflow-x-auto bg-white rounded-2xl shadow-sm border border-hairline">
                         <table class="w-full text-left border-collapse">
                             <thead>
-                                <tr class="border-b-2 border-hairline">
-                                    <th class="py-4 px-4 font-bold text-ink">Nivel de Actividad</th>
-                                    <th class="py-4 px-4 font-bold text-ink">Multiplicador</th>
-                                    <th class="py-4 px-4 font-bold text-ink">Descripción Común</th>
+                                <tr class="bg-slate-50">
+                                    <th class="py-4 px-6 font-bold text-ink border-b border-hairline">Actividad Física</th>
+                                    <th class="py-4 px-6 font-bold text-ink border-b border-hairline">Valor MET</th>
+                                    <th class="py-4 px-6 font-bold text-ink border-b border-hairline">Gasto Calórico Estimado (Persona de 70kg / 1h)</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-hairline text-sm">
-                                <tr class="hover:bg-white/50 transition">
-                                    <td class="py-4 px-4 font-semibold">Sedentario</td>
-                                    <td class="py-4 px-4 font-mono text-brand font-bold">x 1.2</td>
-                                    <td class="py-4 px-4 text-body">Trabajo de escritorio, poco o ningún ejercicio. Pasas mucho tiempo sentado.</td>
+                                <tr class="hover:bg-slate-50 transition">
+                                    <td class="py-4 px-6 font-medium text-ink">Dormir o ver televisión sentado</td>
+                                    <td class="py-4 px-6 font-mono font-semibold text-slate-500">0.9 - 1.0</td>
+                                    <td class="py-4 px-6 text-body">~ 63 - 70 kcal</td>
                                 </tr>
-                                <tr class="hover:bg-white/50 transition">
-                                    <td class="py-4 px-4 font-semibold">Ligeramente Activo</td>
-                                    <td class="py-4 px-4 font-mono text-brand font-bold">x 1.375</td>
-                                    <td class="py-4 px-4 text-body">Ejercicio ligero 1-3 días a la semana o caminatas frecuentes.</td>
+                                <tr class="hover:bg-slate-50 transition">
+                                    <td class="py-4 px-6 font-medium text-ink">Caminar a paso ligero (4.8 km/h)</td>
+                                    <td class="py-4 px-6 font-mono font-semibold text-blue-500">3.3</td>
+                                    <td class="py-4 px-6 text-body">~ 231 kcal</td>
                                 </tr>
-                                <tr class="hover:bg-white/50 transition">
-                                    <td class="py-4 px-4 font-semibold">Moderadamente Activo</td>
-                                    <td class="py-4 px-4 font-mono text-brand font-bold">x 1.55</td>
-                                    <td class="py-4 px-4 text-body">Deporte moderado 3-5 días a la semana. Trabajo activo (ej. enfermería, camarero).</td>
+                                <tr class="hover:bg-slate-50 transition">
+                                    <td class="py-4 px-6 font-medium text-ink">Levantamiento de pesas (esfuerzo intenso)</td>
+                                    <td class="py-4 px-6 font-mono font-semibold text-orange-500">6.0</td>
+                                    <td class="py-4 px-6 text-body">~ 420 kcal</td>
                                 </tr>
-                                <tr class="hover:bg-white/50 transition">
-                                    <td class="py-4 px-4 font-semibold">Muy Activo</td>
-                                    <td class="py-4 px-4 font-mono text-brand font-bold">x 1.725</td>
-                                    <td class="py-4 px-4 text-body">Entrenamiento intenso 6-7 días a la semana. Trabajo físico demandante (ej. construcción).</td>
+                                <tr class="hover:bg-slate-50 transition">
+                                    <td class="py-4 px-6 font-medium text-ink">Ciclismo moderado (19-22 km/h)</td>
+                                    <td class="py-4 px-6 font-mono font-semibold text-orange-500">8.0</td>
+                                    <td class="py-4 px-6 text-body">~ 560 kcal</td>
                                 </tr>
-                                <tr class="hover:bg-white/50 transition">
-                                    <td class="py-4 px-4 font-semibold">Extra Activo</td>
-                                    <td class="py-4 px-4 font-mono text-brand font-bold">x 1.9</td>
-                                    <td class="py-4 px-4 text-body">Entrenamiento muy intenso dos veces al día, atletas de élite o trabajos físicos extremos.</td>
+                                <tr class="hover:bg-slate-50 transition">
+                                    <td class="py-4 px-6 font-medium text-ink">Correr de forma intensa (12 km/h)</td>
+                                    <td class="py-4 px-6 font-mono font-semibold text-red-500">11.5</td>
+                                    <td class="py-4 px-6 text-body">~ 805 kcal</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    
-                    <p class="mt-6">
-                        <strong>Ejemplo práctico:</strong> Si Carlos (30 años, 80 kg, 180 cm) tiene una TMB de 1,825 kcal calculada con Mifflin-St Jeor, y trabaja en una oficina pero va al gimnasio 3 veces por semana (Ligeramente Activo), su Gasto Calórico Total sería: <br/> 
-                        <code>1,825 x 1.375 = 2,509 calorías de mantenimiento</code>.
-                    </p>
                 </div>
 
-                <div class="mb-12">
-                    <h2 class="text-3xl font-bold text-ink mb-6">5. Factores Críticos que Alteran tu Gasto Calórico</h2>
-                    <p>Ninguna calculadora es perfecta porque el cuerpo humano es dinámico y se adapta a su entorno. Varios factores influyen en el cálculo real de tu TMB y gasto calórico:</p>
+                <!-- Section 4: TDEE Breakdown -->
+                <div class="apple-card mb-12 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
+                    <h2 class="text-3xl font-bold text-ink mb-6 mt-0">4. El Gasto Calórico Total (TDEE) Desglosado</h2>
+                    <p class="mb-6">
+                        Mientras que la TMB es tu línea base innegociable, muy pocas personas pasan 24 horas en coma. Aquí es donde el <strong>Gasto Calórico Total</strong> (Total Daily Energy Expenditure o TDEE) cobra vida. Una <strong>calculadora de calorías</strong> integral, o TDEE calculator, suma tu TMB a los otros tres componentes del gasto energético diario:
+                    </p>
                     
-                    <div class="grid sm:grid-cols-2 gap-6 mt-6">
-                        <div class="bg-white/60 p-5 rounded-2xl border border-hairline shadow-sm">
-                            <h4 class="font-bold text-ink text-lg flex items-center mb-2">
-                                <span class="bg-blue-100 text-brand w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">1</span> 
-                                Composición Corporal
-                            </h4>
-                            <p class="text-sm text-body m-0">El músculo es tejido metabólicamente activo. Dos personas con el mismo peso y altura pueden tener una TMB radicalmente distinta si una tiene 10% de grasa corporal y la otra 30%.</p>
+                    <div class="space-y-6">
+                        <div class="flex gap-4 items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-brand font-bold text-xl">1</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-ink mt-0 mb-2">Tasa Metabólica Basal (BMR / TMB) - <span class="text-brand">60-75%</span></h3>
+                                <p class="text-body m-0">Como explicamos, es la energía basal. Aumentar tu masa muscular mediante entrenamiento de fuerza es una de las pocas formas probadas de incrementar permanentemente tu TMB.</p>
+                            </div>
                         </div>
-                        <div class="bg-white/60 p-5 rounded-2xl border border-hairline shadow-sm">
-                            <h4 class="font-bold text-ink text-lg flex items-center mb-2">
-                                <span class="bg-blue-100 text-brand w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">2</span> 
-                                Edad y Genética
-                            </h4>
-                            <p class="text-sm text-body m-0">A medida que envejecemos, tendemos a perder masa muscular, lo que ralentiza nuestra TMB. Además, ciertas predisposiciones genéticas y hormonas (como la tiroides) marcan variaciones de hasta un 10%.</p>
+                        
+                        <div class="flex gap-4 items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-xl">2</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-ink mt-0 mb-2">Termogénesis por Actividad No Relacionada con el Ejercicio (NEAT) - <span class="text-green-600">15-20%</span></h3>
+                                <p class="text-body m-0">El NEAT (Non-Exercise Activity Thermogenesis) es el verdadero comodín de la pérdida de peso. Incluye toda la energía que gastas haciendo cosas que no son dormir, comer o hacer deporte intencional. Caminar por la oficina, gesticular al hablar, limpiar la casa, ir de compras, e incluso la inquietud o mover la pierna ansiosamente (fidgeting). Una persona con un trabajo físico o muy activa en su cotidianidad puede tener un NEAT que queme hasta 1,000 calorías más al día que un oficinista sedentario.</p>
+                            </div>
                         </div>
-                        <div class="bg-white/60 p-5 rounded-2xl border border-hairline shadow-sm">
-                            <h4 class="font-bold text-ink text-lg flex items-center mb-2">
-                                <span class="bg-blue-100 text-brand w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">3</span> 
-                                Adaptación Metabólica
-                            </h4>
-                            <p class="text-sm text-body m-0">Si llevas mucho tiempo en un déficit calórico severo (dieta restrictiva), tu cuerpo ralentiza funciones no vitales para ahorrar energía. Tu TMB puede caer temporalmente. A esto se le llama "termogénesis adaptativa".</p>
+                        
+                        <div class="flex gap-4 items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 font-bold text-xl">3</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-ink mt-0 mb-2">Efecto Térmico de los Alimentos (TEF) - <span class="text-orange-600">10%</span></h3>
+                                <p class="text-body m-0">Tu cuerpo requiere energía simplemente para procesar la comida (masticar, digerir, absorber nutrientes y almacenar). Este es el TEF (Thermic Effect of Food). No todos los macronutrientes tienen el mismo efecto. Las grasas gastan alrededor del 0-3% de su energía en digerirse; los carbohidratos gastan un 5-10%; pero las proteínas gastan un masivo <strong>20-30%</strong>. Es por esto que las dietas altas en proteína aceleran el metabolismo y promueven mayor saciedad.</p>
+                            </div>
                         </div>
-                        <div class="bg-white/60 p-5 rounded-2xl border border-hairline shadow-sm">
-                            <h4 class="font-bold text-ink text-lg flex items-center mb-2">
-                                <span class="bg-blue-100 text-brand w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">4</span> 
-                                Efecto Térmico de los Alimentos
-                            </h4>
-                            <p class="text-sm text-body m-0">Las dietas altas en proteínas requieren más energía para ser digeridas (hasta un 30% de las calorías provenientes de la proteína se queman durante la digestión) comparado con las grasas (2-3%).</p>
+                        
+                        <div class="flex gap-4 items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-600 font-bold text-xl">4</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-ink mt-0 mb-2">Termogénesis por Actividad Física (EAT) - <span class="text-red-600">5-10%</span></h3>
+                                <p class="text-body m-0">Curiosamente, el ejercicio voluntario (Exercise Activity Thermogenesis) suele representar la porción más pequeña del gasto calórico para la mayoría de las personas (a menos que seas un atleta olímpico). Esa hora de gimnasio, salir a correr 5km o la clase de spinning entra aquí. Aunque quema menos de lo que la industria del fitness nos hace creer, es vital para la salud cardiovascular, la sensibilidad a la insulina y la retención muscular.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- FAQ Section -->
-                <div class="glass-card p-8 rounded-3xl mb-12">
-                    <h2 class="text-3xl font-bold text-ink mb-8 mt-0 text-center">Preguntas Frecuentes (FAQ)</h2>
+                <!-- Section 5: Myths -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-ink mb-6">5. Desmintiendo Mitos Comunes sobre el Metabolismo</h2>
+                    
+                    <div class="grid sm:grid-cols-2 gap-6 mt-6">
+                        <div class="bg-white/60 p-6 rounded-3xl border border-red-100 shadow-sm relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-bl-xl">MITO</div>
+                            <h4 class="font-bold text-ink text-xl mb-3 pr-8 mt-2">"Comer 6 veces al día acelera el metabolismo"</h4>
+                            <p class="text-sm text-body m-0">Falso. Numerosos estudios clínicos han demostrado que el Efecto Térmico de los Alimentos (TEF) es proporcional a la cantidad total de calorías y macros consumidos en el día, sin importar si los ingieres en 2 comidas gigantes o en 6 snacks pequeños. Come con la frecuencia que mejor se adapte a tus niveles de hambre y estilo de vida.</p>
+                        </div>
+                        
+                        <div class="bg-white/60 p-6 rounded-3xl border border-red-100 shadow-sm relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-bl-xl">MITO</div>
+                            <h4 class="font-bold text-ink text-xl mb-3 pr-8 mt-2">"El metabolismo se destruye o rompe por hacer dieta"</h4>
+                            <p class="text-sm text-body m-0">El metabolismo no es un cristal que se rompe. Lo que ocurre tras largas dietas restrictivas se llama "Adaptación Metabólica" o "Termogénesis Adaptativa". Al pesar menos, tu TMB baja; al comer menos, tu TEF baja; y subconscientemente, por la fatiga, te mueves menos (tu NEAT se desploma). Todo vuelve a la normalidad al subir las calorías.</p>
+                        </div>
+                        
+                        <div class="bg-white/60 p-6 rounded-3xl border border-red-100 shadow-sm relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-bl-xl">MITO</div>
+                            <h4 class="font-bold text-ink text-xl mb-3 pr-8 mt-2">"Sudar mucho significa que quemas más calorías"</h4>
+                            <p class="text-sm text-body m-0">El sudor es simplemente el mecanismo termorregulador del cuerpo humano para enfriarse. Depende de la temperatura ambiente, la humedad, tu genética y tu nivel de aclimatación, no del gasto calórico. Hacer ejercicio usando bolsas de basura, abrigos pesados o ir a saunas solo te hará perder peso en forma de agua, que recuperarás inmediatamente al beber.</p>
+                        </div>
+                        
+                        <div class="bg-white/60 p-6 rounded-3xl border border-red-100 shadow-sm relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-bl-xl">MITO</div>
+                            <h4 class="font-bold text-ink text-xl mb-3 pr-8 mt-2">"Tengo sobrepeso por un metabolismo lento"</h4>
+                            <p class="text-sm text-body m-0">Sorprendentemente, la ciencia muestra que las personas con mayor peso corporal (tanto en masa grasa como magra) tienen un TMB o metabolismo absoluto mucho más rápido y alto que las personas delgadas, ya que sus cuerpos requieren más energía diaria solo para sostener y transportar el exceso de tejido.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 6: Actionable Tips -->
+                <div class="apple-card mb-12 bg-gradient-to-br from-white/90 to-blue-50/50">
+                    <h2 class="text-3xl font-bold text-ink mb-6 mt-0">6. Consejos Prácticos (Actionable Tips) para Optimizar tu TMB</h2>
+                    <p class="mb-6">Si bien no puedes alterar tus genes o tu edad cronológica, sí tienes control absoluto sobre varios factores que pueden mantener tu TMB y tu gasto calórico altos y eficientes:</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-brand bg-white rounded-full p-1 shadow-sm mr-4 mt-1 border border-blue-100">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </span>
+                            <div>
+                                <strong class="text-ink">Prioriza el entrenamiento de Fuerza (Hipertrofia):</strong> El cardio quema calorías mientras lo haces, pero levantar pesas (sobrecarga progresiva) construye tejido muscular vivo. Cada kilogramo extra de músculo eleva pasivamente tu TMB las 24 horas del día.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand bg-white rounded-full p-1 shadow-sm mr-4 mt-1 border border-blue-100">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </span>
+                            <div>
+                                <strong class="text-ink">Maximiza tu NEAT:</strong> No te obsesiones solo con la hora de gimnasio. Aparca el coche más lejos, sube por las escaleras en lugar del ascensor, haz llamadas caminando, trabaja de pie (standing desk) algunas horas. Incrementar tus pasos diarios de 3,000 a 10,000 puede quemar más calorías extra en la semana que tres sesiones intensas de gimnasio.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand bg-white rounded-full p-1 shadow-sm mr-4 mt-1 border border-blue-100">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </span>
+                            <div>
+                                <strong class="text-ink">El sueño es tu regulador maestro:</strong> Dormir menos de 6 horas altera profundamente hormonas clave. Aumenta la grelina (hormona del hambre), reduce la leptina (hormona de la saciedad) y eleva el cortisol (estrés), lo que puede reducir sutilmente tu TMB e inclinar tu metabolismo hacia la retención de grasa visceral.
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand bg-white rounded-full p-1 shadow-sm mr-4 mt-1 border border-blue-100">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                            </span>
+                            <div>
+                                <strong class="text-ink">Aprovecha la Proteína y el Efecto Térmico:</strong> Consume entre 1.6 y 2.2 gramos de proteína por kilogramo de peso corporal. No solo reparará tus músculos, sino que su digestión elevará tu gasto calórico diario gracias al altísimo Efecto Térmico de los Alimentos (TEF) que poseen las fuentes de proteína magra.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Section 7: FAQ Expandida -->
+                <div class="apple-card mb-12">
+                    <h2 class="text-3xl font-bold text-ink mb-8 mt-0 text-center">Preguntas Frecuentes Definitivas (FAQ)</h2>
                     <div class="space-y-4">
-                        <details class="group border border-hairline rounded-2xl bg-white overflow-hidden shadow-sm">
-                            <summary class="flex justify-between items-center font-semibold cursor-pointer list-none p-5 text-ink hover:bg-gray-50 transition">
-                                ¿Qué es exactamente la calculadora de TMB y Gasto Calórico?
-                                <span class="transition-transform duration-300 group-open:rotate-180 text-brand">
-                                    <svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="24"><polyline points="6 9 12 15 18 9"/></svg>
+                        <details class="group border border-hairline rounded-2xl bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                            <summary class="flex justify-between items-center font-semibold cursor-pointer list-none p-6 text-ink hover:bg-slate-50 transition">
+                                ¿Qué es la calculadora de TMB y Gasto Calórico y por qué la necesito?
+                                <span class="transition-transform duration-300 group-open:rotate-180 text-brand bg-blue-50 p-2 rounded-full">
+                                    <svg fill="none" height="20" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="20"><polyline points="6 9 12 15 18 9"/></svg>
                                 </span>
                             </summary>
-                            <div class="text-body p-5 pt-0 border-t border-hairline mt-2 text-sm leading-relaxed">
-                                La calculadora de TMB (Tasa Metabólica Basal) estima matemáticamente las calorías que tu cuerpo quema en reposo absoluto para mantenerte vivo. Por otro lado, la calculadora de Gasto Calórico (o TDEE) toma ese número base y le añade un multiplicador basado en tus actividades diarias, el ejercicio físico y el efecto térmico de los alimentos, dándote el total de calorías que quemas en un día completo.
+                            <div class="text-body p-6 pt-0 mt-2 text-base leading-relaxed">
+                                La calculadora de TMB (Tasa Metabólica Basal) estima matemáticamente, mediante fórmulas empíricas validadas, las calorías que tu cuerpo quema en reposo absoluto para mantenerte vivo. La calculadora de Gasto Calórico (o TDEE) toma ese número base inamovible y le añade un multiplicador de estilo de vida basado en tus actividades diarias, el ejercicio físico y la digestión, dándote el total macro exacto de calorías que quemas en 24 horas. Lo necesitas porque es el GPS de la nutrición: sin este número, es imposible saber cuánto comer para perder, mantener o ganar peso.
                             </div>
                         </details>
                         
-                        <details class="group border border-hairline rounded-2xl bg-white overflow-hidden shadow-sm">
-                            <summary class="flex justify-between items-center font-semibold cursor-pointer list-none p-5 text-ink hover:bg-gray-50 transition">
-                                ¿Qué es la calculadora de calorías Harris Benedict?
-                                <span class="transition-transform duration-300 group-open:rotate-180 text-brand">
-                                    <svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="24"><polyline points="6 9 12 15 18 9"/></svg>
+                        <details class="group border border-hairline rounded-2xl bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                            <summary class="flex justify-between items-center font-semibold cursor-pointer list-none p-6 text-ink hover:bg-slate-50 transition">
+                                ¿Qué es la calculadora de calorías Harris Benedict? ¿Aún sirve?
+                                <span class="transition-transform duration-300 group-open:rotate-180 text-brand bg-blue-50 p-2 rounded-full">
+                                    <svg fill="none" height="20" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="20"><polyline points="6 9 12 15 18 9"/></svg>
                                 </span>
                             </summary>
-                            <div class="text-body p-5 pt-0 border-t border-hairline mt-2 text-sm leading-relaxed">
-                                Es una fórmula pionera creada en 1919 por científicos para predecir el gasto de energía en reposo (TMB). Toma en consideración cuatro variables: género, edad, peso y estatura. Aunque fue el estándar de oro en nutrición clínica durante gran parte del siglo XX, hoy en día se prefiere combinar o sustituir con la ecuación de Mifflin-St Jeor, debido a que la de Harris Benedict tiende a sobreestimar ligeramente las calorías en la población moderna.
+                            <div class="text-body p-6 pt-0 mt-2 text-base leading-relaxed">
+                                Es una fórmula matemática pionera desarrollada en 1919 por científicos del Laboratorio de Nutrición de Carnegie para predecir el gasto de energía basal. Toma en consideración cuatro variables físicas: género (cromosómico), edad cronológica, peso en kilos y estatura en centímetros. Aunque revolucionó la dietética clínica en el siglo XX, hoy en día se prefiere sustituir con la ecuación de Mifflin-St Jeor, ya que los estudios muestran que Harris Benedict suele sobreestimar el metabolismo de la población moderna actual en casi un 5-10%.
                             </div>
                         </details>
                         
-                        <details class="group border border-hairline rounded-2xl bg-white overflow-hidden shadow-sm">
-                            <summary class="flex justify-between items-center font-semibold cursor-pointer list-none p-5 text-ink hover:bg-gray-50 transition">
-                                ¿Para qué sirve una calculadora de calorías de mantenimiento?
-                                <span class="transition-transform duration-300 group-open:rotate-180 text-brand">
-                                    <svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="24"><polyline points="6 9 12 15 18 9"/></svg>
+                        <details class="group border border-hairline rounded-2xl bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                            <summary class="flex justify-between items-center font-semibold cursor-pointer list-none p-6 text-ink hover:bg-slate-50 transition">
+                                ¿Para qué sirve una calculadora de calorías de mantenimiento (TDEE calculator)?
+                                <span class="transition-transform duration-300 group-open:rotate-180 text-brand bg-blue-50 p-2 rounded-full">
+                                    <svg fill="none" height="20" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="20"><polyline points="6 9 12 15 18 9"/></svg>
                                 </span>
                             </summary>
-                            <div class="text-body p-5 pt-0 border-t border-hairline mt-2 text-sm leading-relaxed">
-                                Te indica exactamente el número de calorías (mediante un <em>tdee calculator</em>) que debes consumir a diario para mantener tu peso actual. Esto es crítico porque las calorías de mantenimiento son el "punto cero" o ancla de cualquier dieta. Si quieres perder grasa, debes restar entre 300 y 500 calorías a este número (déficit). Si quieres ganar masa muscular, debes sumarle entre 250 y 500 calorías (superávit).
+                            <div class="text-body p-6 pt-0 mt-2 text-base leading-relaxed">
+                                Una calculadora de mantenimiento te indica el número exacto de calorías que tu cuerpo requiere ingerir cada día para preservar la homeostasis de peso; es decir, para no subir ni bajar un solo gramo. Estas calorías de mantenimiento son el "punto cero" u "origen" de cualquier protocolo de recomposición corporal. Si tu objetivo primario es la pérdida de grasa, deberás crear un déficit sano restando entre 300 y 500 calorías diarias. Si buscas crear músculo, debes aplicar un ligero superávit calórico de 250 a 500 calorías.
                             </div>
                         </details>
 
-                        <details class="group border border-hairline rounded-2xl bg-white overflow-hidden shadow-sm">
-                            <summary class="flex justify-between items-center font-semibold cursor-pointer list-none p-5 text-ink hover:bg-gray-50 transition">
-                                ¿Cuál es la diferencia entre Mifflin-St Jeor y Harris Benedict?
-                                <span class="transition-transform duration-300 group-open:rotate-180 text-brand">
-                                    <svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="24"><polyline points="6 9 12 15 18 9"/></svg>
+                        <details class="group border border-hairline rounded-2xl bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                            <summary class="flex justify-between items-center font-semibold cursor-pointer list-none p-6 text-ink hover:bg-slate-50 transition">
+                                ¿Cuál es la diferencia real entre Mifflin-St Jeor y Harris Benedict?
+                                <span class="transition-transform duration-300 group-open:rotate-180 text-brand bg-blue-50 p-2 rounded-full">
+                                    <svg fill="none" height="20" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="20"><polyline points="6 9 12 15 18 9"/></svg>
                                 </span>
                             </summary>
-                            <div class="text-body p-5 pt-0 border-t border-hairline mt-2 text-sm leading-relaxed">
-                                La principal diferencia radica en la fecha y el grupo de población sobre el cual fueron basadas. Harris Benedict (1919) sobreestima el metabolismo de una persona promedio actual porque las personas hace un siglo eran inherentemente más activas en su vida cotidiana. Mifflin-St Jeor (1990) se ajusta mucho mejor a los estilos de vida contemporáneos, siendo hasta un 5% más precisa comprobada clínicamente.
+                            <div class="text-body p-6 pt-0 mt-2 text-base leading-relaxed">
+                                La principal diferencia subyace en la era en la que se recogieron los datos y los perfiles de la población estudiada. Harris Benedict (1919) asume inherentemente un mayor nivel de NEAT basal porque el mundo hace 100 años era mucho más activo. Mifflin-St Jeor (1990) introdujo factores de corrección que se ajustan mucho mejor al oficinista moderno y a la persona urbana contemporánea, resultando en una predicción de calorías probada clínicamente como más certera y conservadora, ideal para planes modernos de pérdida de peso.
+                            </div>
+                        </details>
+                        
+                        <details class="group border border-hairline rounded-2xl bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                            <summary class="flex justify-between items-center font-semibold cursor-pointer list-none p-6 text-ink hover:bg-slate-50 transition">
+                                ¿Cómo afectan los problemas de tiroides (hipotiroidismo) a mi TMB calculada?
+                                <span class="transition-transform duration-300 group-open:rotate-180 text-brand bg-blue-50 p-2 rounded-full">
+                                    <svg fill="none" height="20" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="20"><polyline points="6 9 12 15 18 9"/></svg>
+                                </span>
+                            </summary>
+                            <div class="text-body p-6 pt-0 mt-2 text-base leading-relaxed">
+                                La tiroides produce hormonas (T3 y T4) que actúan como el "acelerador" de tu metabolismo. Una condición clínica y no medicada de hipotiroidismo grave puede reducir temporalmente tu TMB basal en un 10% a 15% en el peor de los casos (raramente más que eso, contrario a la creencia popular). Esto equivale a una diferencia real de aproximadamente 150-250 calorías menos al día, lo cual requiere ajustes dietéticos o medicación endocrina, pero en ningún caso "imposibilita" la pérdida de peso si se ajustan las calorías correctas.
                             </div>
                         </details>
                     </div>
@@ -341,37 +402,48 @@
             </article>
         </div>
         
-        <!-- CTA Principal -->
-        <div class="flex justify-center my-12 relative z-10">
-            <a href="/country/spain/calculadora-de-calorias.html" class="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white transition-all bg-brand rounded-full shadow-lg hover:bg-blue-700 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300">
-                🚀 Calcular mi TMB y Gasto Calórico Ahora
-            </a>
+        <!-- CTA Principal Integrado -->
+        <div class="flex justify-center my-16 relative z-10 w-full px-4">
+            <div class="bg-gradient-to-r from-brand to-gradEnd p-1 rounded-full shadow-2xl hover:shadow-[0_0_40px_rgba(0,112,243,0.4)] transition-shadow duration-500 w-full sm:w-auto">
+                <a href="/country/spain/calculadora-de-calorias.html" class="flex items-center justify-center px-10 py-5 sm:px-16 sm:py-6 text-xl sm:text-2xl font-black text-ink bg-white hover:bg-slate-50 rounded-full transition-all duration-300 transform w-full">
+                    <span class="mr-3">🚀</span> Calcular mi TMB y Gasto Calórico AHORA
+                </a>
+            </div>
         </div>
 
         <!-- Suggested Content -->
-        <section class="mt-20 border-t border-hairline pt-16 relative z-10">
-            <h2 class="text-3xl font-extrabold text-ink mb-10 text-center tracking-tight">Contenido Sugerido</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <a href="/country/spain/calculadora-de-calorias-para-perder-peso-y-ganar-musculo.html" class="glass-card p-8 rounded-3xl hover:border-brand hover:shadow-lg transition-all group flex flex-col h-full">
-                    <div class="bg-blue-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+        <section class="mt-24 pt-16 relative z-10">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-brand to-transparent"></div>
+            
+            <h2 class="text-3xl font-extrabold text-ink mb-12 text-center tracking-tight">Profundiza en tu Conocimiento Nutricional: Contenido Sugerido</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+                <a href="/country/spain/calculadora-de-calorias-para-perder-peso-y-ganar-musculo.html" class="apple-card hover:border-brand hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group flex flex-col h-full cursor-pointer relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-blue-50 rounded-full group-hover:scale-150 transition-transform duration-700 ease-out z-0"></div>
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="bg-gradient-to-br from-brand to-blue-400 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-md text-white group-hover:rotate-6 transition-transform">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-ink group-hover:text-brand transition-colors mb-4">Guía para Perder Grasa y Ganar Músculo</h3>
+                        <p class="text-body leading-relaxed flex-grow text-lg">Ahora que conoces tu TMB biológica y tus calorías de mantenimiento, aprende los protocolos exactos para aplicar un déficit calórico de forma inteligente o un superávit estratégico para transformar tu cuerpo sin sacrificar salud.</p>
+                        <span class="text-brand font-bold mt-8 inline-flex items-center text-lg uppercase tracking-wide">
+                            Leer Guía Completa <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+                        </span>
                     </div>
-                    <h3 class="text-xl font-bold text-ink group-hover:text-brand transition-colors mb-3">Guía para Perder Peso y Ganar Músculo</h3>
-                    <p class="text-body leading-relaxed flex-grow">Ahora que conoces tu TMB y tus calorías de mantenimiento, aprende cómo aplicar un déficit o superávit calórico de forma inteligente para transformar tu físico sin perder músculo.</p>
-                    <span class="text-brand font-semibold mt-6 inline-flex items-center text-sm">
-                        Leer artículo <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </span>
                 </a>
                 
-                <a href="/country/spain/calcular-calorias-de-alimentos-y-macros.html" class="glass-card p-8 rounded-3xl hover:border-brand hover:shadow-lg transition-all group flex flex-col h-full">
-                    <div class="bg-blue-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 13h2l2 3h4l2-3h6m-2 0a2 2 0 110-4 2 2 0 010 4zM5 13a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                <a href="/country/spain/calcular-calorias-de-alimentos-y-macros.html" class="apple-card hover:border-brand hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group flex flex-col h-full cursor-pointer relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-blue-50 rounded-full group-hover:scale-150 transition-transform duration-700 ease-out z-0"></div>
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="bg-gradient-to-br from-gradEnd to-teal-400 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-md text-white group-hover:-rotate-6 transition-transform">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 13h2l2 3h4l2-3h6m-2 0a2 2 0 110-4 2 2 0 010 4zM5 13a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-ink group-hover:text-gradEnd transition-colors mb-4">Calculadora de Macros y Nutrición de Alimentos</h3>
+                        <p class="text-body leading-relaxed flex-grow text-lg">El gasto calórico es solo el inicio. Descubre cómo dividir científicamente tus calorías de mantenimiento en proteínas magras, carbohidratos complejos y grasas esenciales para maximizar tu energía diaria y rendimiento deportivo.</p>
+                        <span class="text-gradEnd font-bold mt-8 inline-flex items-center text-lg uppercase tracking-wide">
+                            Descubrir Macros <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+                        </span>
                     </div>
-                    <h3 class="text-xl font-bold text-ink group-hover:text-brand transition-colors mb-3">Calculadora de Macros y Alimentos</h3>
-                    <p class="text-body leading-relaxed flex-grow">No todas las calorías son iguales. Descubre cómo dividir tus calorías de mantenimiento en proteínas, carbohidratos y grasas saludables para maximizar tu energía y rendimiento.</p>
-                    <span class="text-brand font-semibold mt-6 inline-flex items-center text-sm">
-                        Leer artículo <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </span>
                 </a>
             </div>
         </section>
