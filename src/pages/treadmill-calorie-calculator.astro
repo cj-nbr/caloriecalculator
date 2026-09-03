@@ -24,15 +24,57 @@ const faqs: FaqItem[] = [
   <ExerciseCalculator activities={TREADMILL} defaultIndex={1} />
 
   <Fragment slot="content">
-    <ArticleImage src="/assets/images/articles/activity-intensity.svg" alt="Illustration of exercise intensity levels showing how treadmill speed and incline affect calorie burn." />
+    <ArticleImage src="/assets/images/articles/treadmill.svg" alt="Illustration of a treadmill dashboard showing incline, speed, and calories burned." />
 
-    <h2>Calories burned on the treadmill</h2>
-    <p>The treadmill is a gym staple for good reason — it lets you control your pace and incline precisely. Your calorie burn depends on whether you walk or run, how fast, and your body weight. This calculator estimates it from MET values for common treadmill speeds, and lets you enter your real weight for a more accurate number than the machine's built-in counter.</p>
+    <h2>How to Use the Treadmill Calorie Calculator</h2>
+    <p>Using our <strong>treadmill calorie calculator</strong> is the most accurate way to verify the calorie readout on your gym's machine. Simply input your body weight, the duration of your workout, and select the specific speed and incline setting you used. Because treadmill consoles often overestimate calories burned by failing to account for your unique body weight, our calculator uses precision MET algorithms to give you the exact numbers.</p>
 
-    <h2>Why the machine's number can be off</h2>
-    <p>Treadmill calorie displays often assume a generic body weight and don't know your true stats, so they frequently overestimate. Entering your own weight here gives a more personalized estimate. For incline work, choose the incline option, since climbing burns significantly more.</p>
+    <h2>The Hidden Power of Treadmill Incline</h2>
+    <p>While increasing your speed on a treadmill burns more calories, increasing the <em>incline</em> is often the secret weapon for massive fat loss. Walking uphill forces your body to work against gravity, drastically increasing cardiovascular demand and engaging the posterior chain (your glutes, hamstrings, and calves) far more than flat walking.</p>
+    <p>The beauty of incline walking is that it allows you to achieve a remarkably high heart rate (similar to running) without subjecting your knees and joints to the high-impact pounding of jogging. This makes it the perfect cardio choice for heavier individuals, people recovering from injuries, or bodybuilders looking to burn fat without sacrificing muscle.</p>
 
-    <h2>Make your treadmill time count</h2>
-    <p>Burning calories on the treadmill supports the <a href="/guides/calorie-deficit-guide/">calorie deficit</a> that leads to weight loss, but pairing it with the right daily intake is what delivers results — set yours with the <a href="/">calorie calculator</a>. Prefer the outdoors? See the <a href="/running-calorie-calculator/">running</a> and <a href="/walking-calorie-calculator/">walking</a> calculators.</p>
+    <h2>Treadmill Incline Calorie Burn Chart</h2>
+    <p>Curious about how much of a difference incline makes? The chart below illustrates the estimated calories burned by a <strong>160 lb (72 kg) person walking at a brisk 3.0 mph for 45 minutes</strong> across various inclines:</p>
+    <table>
+      <thead><tr><th scope="col">Incline Level</th><th scope="col">Intensity Level</th><th scope="col">Estimated Calories Burned (45 mins)</th></tr></thead>
+      <tbody>
+        <tr><td>0% Incline (Flat)</td><td>Light / Active Recovery</td><td>~175 calories</td></tr>
+        <tr><td>5% Incline</td><td>Moderate / Fat Burning</td><td>~250 calories</td></tr>
+        <tr><td>10% Incline</td><td>Vigorous / High Demand</td><td>~370 calories</td></tr>
+        <tr><td>15% Incline (Max)</td><td>Extreme / Strength Building</td><td>~480 calories</td></tr>
+      </tbody>
+    </table>
+
+    <h2>The Viral 12-3-30 Workout Explained</h2>
+    <p>You may have seen the viral "12-3-30" treadmill workout on social media. It involves setting the treadmill to a <strong>12% incline</strong>, walking at <strong>3.0 mph</strong>, for exactly <strong>30 minutes</strong>. But does it work?</p>
+    <p>Yes. The 12-3-30 routine is incredibly effective because it leverages the science of steep inclines to maximize caloric output in a short timeframe while remaining low impact. For an average 150 lb person, this 30-minute workout burns between 250 and 300 calories. By doing this 4-5 times a week, you can easily create the weekly <a href="/resources/calorie-deficit-guide/">calorie deficit</a> necessary to lose nearly half a pound of fat.</p>
+
+    <h2>Treadmill vs. Outdoor Running</h2>
+    <p>Is running on a treadmill easier than running outside? Physiologically, yes. When you run outdoors, you have to propel your body forward through wind resistance and overcome uneven terrain. On a treadmill, the belt assists in pulling your legs backward, slightly reducing the energy required by your hamstrings.</p>
+    <p><strong>Pro Tip:</strong> To make your treadmill run perfectly mimic the effort of running outdoors on flat ground, set the incline to <strong>1.0% or 1.5%</strong>. This beautifully compensates for the lack of wind resistance. (Note: if you plan to run outdoors primarily, use our <a href="/running-calorie-calculator/">running calorie calculator</a>).</p>
+
+    <h2>Common Treadmill Mistakes</h2>
+    <ul>
+      <li><strong>Mistake: Holding onto the handrails.</strong> Fact: Holding the rails takes the load off your legs and core, reducing your calorie burn by up to 20-30% and ruining your posture. Lower the incline or speed if you can't walk hands-free.</li>
+      <li><strong>Mistake: Trusting the machine's calorie counter.</strong> Fact: Gym treadmills notoriously overestimate calorie burn to make you feel good. Always use an independent <a href="/treadmill-calorie-calculator/">treadmill calorie calculator</a> that requires your body weight for true accuracy.</li>
+      <li><strong>Mistake: Staring down at your phone.</strong> Fact: Looking down rounds your shoulders and restricts your breathing. Keep your head up to maximize oxygen intake and keep your chest open.</li>
+    </ul>
+
+    <h2>Related Cardio Calculators</h2>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/walking-calorie-calculator/">Walking Calorie Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Prefer to get your steps outdoors in nature? Calculate your flat-ground walking calorie expenditure here.</p>
+      </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/target-heart-rate-calculator/">Target Heart Rate Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Maximize your treadmill workouts by ensuring your heart rate stays in the optimal fat-burning zones.</p>
+      </div>
+    </div>
+    
+    <Sources sources={[
+      { label: "Journal of Sports Sciences — A 1% treadmill grade most accurately reflects the energetic cost of outdoor running", href: "https://pubmed.ncbi.nlm.nih.gov/8887211/" },
+      { label: "American Council on Exercise (ACE) — The Truth About Treadmills", href: "https://www.acefitness.org/" },
+    ]} />
   </Fragment>
 </CalculatorLayout>

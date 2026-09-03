@@ -24,15 +24,56 @@ const faqs: FaqItem[] = [
   <ExerciseCalculator activities={RUNNING} defaultIndex={1} />
 
   <Fragment slot="content">
-    <ArticleImage src="/assets/images/articles/running-route.svg" alt="Illustration of a running route showing pace markers for calorie burn calculation." />
+    <ArticleImage src="/assets/images/articles/running-path.svg" alt="Illustration of a runner on a path tracking their running calorie burn." />
 
-    <h2>Calories burned running</h2>
-    <p>Running is one of the most efficient ways to burn calories. The exact number depends on three things: how fast you run (your pace), how much you weigh, and how long you run. This calculator uses MET values for each running speed to give you an accurate estimate.</p>
+    <h2>How to Use the Running Calorie Calculator</h2>
+    <p>Using our <strong>running calorie calculator</strong> takes the guesswork out of your cardio routine. Simply choose your running pace from the drop-down menu—whether you are doing a light 5 mph jog or an intense 10 mph sprint—enter your body weight, and input your run duration. The calculator uses standardized MET (Metabolic Equivalent of Task) values to provide a highly accurate estimate of the calories you just burned on the pavement.</p>
 
-    <h2>Running pace and calorie burn</h2>
-    <p>Faster paces carry higher MET values, so you burn more calories per minute. A heavier runner also burns more than a lighter one at the same pace, because moving more body mass requires more energy. Use the table above to compare calories burned across common durations.</p>
+    <h2>The Science of Running and Energy Expenditure</h2>
+    <p>Running is one of the most efficient calorie-burning exercises in existence. Because it engages massive muscle groups (glutes, quads, hamstrings, and calves) and requires your body to become briefly airborne with every single stride, the energy demand is immense.</p>
+    <p>When you run, your cardiovascular system pumps oxygen-rich blood to your working muscles. The faster you run, the more oxygen your body demands, and the higher your caloric burn rate per minute. This intense energy demand makes running an incredibly powerful tool for increasing your <a href="/resources/tdee-calculator/">Total Daily Energy Expenditure (TDEE)</a> and accelerating weight loss.</p>
 
-    <h2>Running for weight loss</h2>
-    <p>Burning calories through running helps create the <a href="/guides/calorie-deficit-guide/">calorie deficit</a> that drives fat loss — but nutrition matters just as much. Pair your runs with a sensible daily target from the <a href="/">calorie calculator</a>, and try the <a href="/walking-calorie-calculator/">walking</a> or <a href="/treadmill-calorie-calculator/">treadmill</a> calculators for your easy days.</p>
+    <h2>Running Calorie Burn Data Chart</h2>
+    <p>To help you visualize how your pace and body weight impact your results, review the chart below. It displays the estimated calories burned during a <strong>30-minute run</strong> at various speeds:</p>
+    <table>
+      <thead><tr><th scope="col">Running Pace</th><th scope="col">Burn (140 lbs / 63 kg)</th><th scope="col">Burn (170 lbs / 77 kg)</th><th scope="col">Burn (210 lbs / 95 kg)</th></tr></thead>
+      <tbody>
+        <tr><td>Light Jog (5.0 mph / 12 min mile)</td><td>~265 calories</td><td>~322 calories</td><td>~398 calories</td></tr>
+        <tr><td>Steady Run (6.0 mph / 10 min mile)</td><td>~312 calories</td><td>~379 calories</td><td>~468 calories</td></tr>
+        <tr><td>Fast Run (7.5 mph / 8 min mile)</td><td>~413 calories</td><td>~501 calories</td><td>~619 calories</td></tr>
+        <tr><td>Sprinting (10.0 mph / 6 min mile)</td><td>~508 calories</td><td>~617 calories</td><td>~762 calories</td></tr>
+      </tbody>
+    </table>
+
+    <h2>The "Afterburn" Effect (EPOC)</h2>
+    <p>One of the hidden benefits of running—especially high-intensity interval running or sprinting—is EPOC, or Excess Post-Exercise Oxygen Consumption. Often called the "afterburn effect," this phenomenon means your body continues to burn extra calories for hours after you finish your run as it works to repair muscle tissue, replenish oxygen stores, and cool down your core temperature.</p>
+    <p>While steady-state jogging provides a small afterburn, pushing your pace using HIIT (High-Intensity Interval Training) on a track or <a href="/treadmill-calorie-calculator/">treadmill</a> can maximize this metabolic boost.</p>
+
+    <h2>Running vs. Walking for Weight Loss</h2>
+    <p>Per minute, running burns roughly double the calories of walking. This makes it incredibly time-efficient for busy individuals trying to achieve a <a href="/resources/calorie-deficit-guide/">calorie deficit</a>. However, running is high-impact. If you are significantly overweight, running can put excessive strain on your knees, hips, and ankles. In such cases, long brisk walks calculated via our <a href="/walking-calorie-calculator/">walking calorie calculator</a> or low-impact cycling (<a href="/cycling-calories-calculator/">cycling calculator</a>) are safer alternatives until a baseline level of fitness is established.</p>
+
+    <h2>Common Myths About Running</h2>
+    <ul>
+      <li><strong>Myth: Running ruins your knees.</strong> Fact: Multiple long-term studies show that recreational runners actually have <em>lower</em> rates of osteoarthritis than sedentary individuals. Running strengthens the muscles around the joints, provided you increase mileage slowly and wear proper footwear.</li>
+      <li><strong>Myth: You must run fast to lose weight.</strong> Fact: Slow, steady Zone 2 cardio (where you can hold a conversation) is actually the optimal heart rate zone for oxidizing body fat. Use our <a href="/target-heart-rate-calculator/">target heart rate calculator</a> to find your Zone 2.</li>
+      <li><strong>Myth: Running allows you to eat whatever you want.</strong> Fact: While running burns significant calories, a bad diet will always outpace your training. 30 minutes of hard running burns ~350 calories, which is the equivalent of just two slices of pizza. You still need to track your intake with a <a href="/macro-calculator/">macro calculator</a>.</li>
+    </ul>
+
+    <h2>Related Fitness Guides</h2>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/resources/protein-calculator/">Protein Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Runners need more protein than sedentary people to repair muscle damage. Find your optimal daily protein target to enhance recovery.</p>
+      </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/resources/water-intake-calculator/">Hydration Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Running leads to massive fluid loss through sweat. Calculate exactly how much water you need to drink daily to maintain peak performance.</p>
+      </div>
+    </div>
+    
+    <Sources sources={[
+      { label: "American College of Sports Medicine (ACSM) — Energy Expenditure in Exercise", href: "https://www.acsm.org/" },
+      { label: "Journal of Orthopaedic & Sports Physical Therapy — Running and Knee Osteoarthritis", href: "https://www.jospt.org/doi/10.2519/jospt.2017.7137" },
+    ]} />
   </Fragment>
 </CalculatorLayout>

@@ -24,22 +24,68 @@ const faqs: FaqItem[] = [
   <ExerciseCalculator activities={GENERAL} defaultIndex={1} />
 
   <Fragment slot="content">
-    <ArticleImage src="/assets/images/articles/activity-intensity.svg" alt="Illustration of exercise intensity levels showing how activity affects calorie burn." />
+    <ArticleImage src="/assets/images/articles/calories-burned.svg" alt="Illustration of various sports and exercises depicting total calories burned." />
 
-    <h2>How the calories burned calculator works</h2>
-    <p>This calculator uses the MET (Metabolic Equivalent of Task) system, the same method used in exercise science. Every activity is assigned a MET value based on its intensity — sitting quietly is 1 MET, brisk walking is about 4.3, and running is 8 or more. The formula combines that intensity with your body weight and how long you exercise to estimate calories burned.</p>
+    <h2>How to Use the Calories Burned Calculator</h2>
+    <p>Our comprehensive <strong>calories burned calculator</strong> allows you to track the exact energy expenditure for hundreds of different sports, activities, and exercises. To use the tool, simply select your desired activity category (like Gym, Sports, or Daily Life), pick the specific exercise, input your body weight, and enter the duration in minutes. The calculator will instantly reveal your estimated calorie burn.</p>
 
-    <h2>Popular activity calculators</h2>
-    <p>Looking for a specific exercise? We have dedicated calculators with paces and intensities for each:</p>
+    <h2>The Science of METs (Metabolic Equivalents)</h2>
+    <p>Have you ever wondered how calculators know how many calories you burn while vacuuming versus playing basketball? The answer is <strong>METs</strong> (Metabolic Equivalent of Task).</p>
+    <p>One MET is defined as the amount of oxygen your body consumes while sitting completely at rest. Therefore, an activity with a MET value of 4 (like brisk walking) requires four times as much energy as sitting on the couch. An activity with a MET value of 10 (like jumping rope) requires ten times as much energy.</p>
+    <p>Our calculator takes the scientifically established MET value for your chosen activity, multiplies it by your body weight in kilograms, and adjusts for the exact number of minutes you spent exercising. This provides an incredibly accurate baseline for tracking your <a href="/resources/tdee-calculator/">Total Daily Energy Expenditure (TDEE)</a>.</p>
+
+    <h2>Top 10 Highest Calorie Burning Exercises</h2>
+    <p>If you are short on time and want to maximize your calorie burn, some exercises are vastly superior to others. Here are the top 10 calorie-torching activities for a <strong>160 lb (72 kg) person exercising for 60 minutes</strong>:</p>
+    <table>
+      <thead><tr><th scope="col">Exercise / Activity</th><th scope="col">Intensity Level</th><th scope="col">Est. Calories Burned (60 mins)</th></tr></thead>
+      <tbody>
+        <tr><td>1. Running (8 mph / 7.5 min mile)</td><td>Extreme</td><td>~980 calories</td></tr>
+        <tr><td>2. Jumping Rope (Fast pace)</td><td>Extreme</td><td>~860 calories</td></tr>
+        <tr><td>3. Boxing (Sparring in ring)</td><td>Vigorous</td><td>~840 calories</td></tr>
+        <tr><td>4. Swimming (Fast butterfly)</td><td>Vigorous</td><td>~780 calories</td></tr>
+        <tr><td>5. Bicycling (>20 mph racing)</td><td>Vigorous</td><td>~760 calories</td></tr>
+        <tr><td>6. Rowing Machine (Vigorous)</td><td>High</td><td>~640 calories</td></tr>
+        <tr><td>7. HIIT (High-Intensity Intervals)</td><td>High</td><td>~600 calories</td></tr>
+        <tr><td>8. Tennis (Singles match)</td><td>Moderate-High</td><td>~580 calories</td></tr>
+        <tr><td>9. Basketball (Full court game)</td><td>Moderate-High</td><td>~580 calories</td></tr>
+        <tr><td>10. Weightlifting (Vigorous)</td><td>Moderate</td><td>~450 calories</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Exercise vs. Diet for Weight Loss</h2>
+    <p>A common trap people fall into is trying to out-exercise a bad diet. While tracking your exercise with our <strong>calories burned calculator</strong> is fantastic for fitness motivation, the reality is that burning 500 calories through intense exercise takes roughly an hour of grueling work. Eating 500 calories takes about 5 minutes.</p>
+    <p>For sustainable weight loss, your primary focus should always be on nutrition. You must establish a baseline <a href="/resources/calorie-deficit-guide/">calorie deficit</a> using our main <a href="/">calorie calculator</a>. Think of exercise as a tool to improve cardiovascular health, build muscle, and provide a slight bonus to your calorie deficit, rather than the primary driver of weight loss.</p>
+
+    <h2>Common Myths About Burning Calories</h2>
     <ul>
-      <li><a href="/running-calorie-calculator/">Running calorie calculator</a> — by pace</li>
-      <li><a href="/walking-calorie-calculator/">Walking calorie calculator</a> — by speed</li>
-      <li><a href="/treadmill-calorie-calculator/">Treadmill calorie calculator</a> — walking &amp; running</li>
-      <li><a href="/cycling-calories-calculator/">Cycling calories calculator</a> — by speed</li>
-      <li><a href="/swimming-calories-calculator/">Swimming calories calculator</a> — by intensity</li>
+      <li><strong>Myth: Sweating more means you are burning more calories.</strong> Fact: Sweat is simply your body's biological air conditioning system. Sweating heavily in a sauna burns zero extra calories. Calorie burn is dictated by heart rate and muscle engagement, not body temperature.</li>
+      <li><strong>Myth: Smartwatches are 100% accurate.</strong> Fact: Studies show that most fitness trackers (Apple Watch, Fitbit, Garmin) overestimate calories burned by 20% to 40%. Our calculator uses clinical MET tables, which often provide a more realistic, conservative estimate.</li>
+      <li><strong>Myth: Weightlifting burns no calories.</strong> Fact: While the immediate calorie burn of weightlifting is lower than running, lifting weights builds muscle mass. Muscle is metabolically active tissue, meaning it permanently raises your <a href="/resources/what-is-bmr/">BMR (Basal Metabolic Rate)</a>, helping you burn more calories 24/7.</li>
     </ul>
 
-    <h2>Burning calories vs. eating calories</h2>
-    <p>Exercise is one side of the energy-balance equation; food is the other. To lose weight you need an overall <a href="/guides/calorie-deficit-guide/">calorie deficit</a>, which you can create by moving more, eating less, or both. Find how many calories you burn at rest and in total each day with the <a href="/tdee-calculator/">TDEE calculator</a>, then use the main <a href="/">calorie calculator</a> to set your daily eating target.</p>
+    <h2>More Specific Calculators</h2>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/walking-calorie-calculator/">Walking Calorie Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Get hyper-specific data on your daily steps and walking routes.</p>
+      </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/cycling-calories-calculator/">Cycling Calories Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Track your energy expenditure for both outdoor biking and indoor stationary cycling.</p>
+      </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/swimming-calories-calculator/">Swimming Calories Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Find out how many calories you burn doing laps, freestyle, breaststroke, and more.</p>
+      </div>
+      <div class="card p-4">
+        <h3 class="text-lg font-semibold text-ink"><a href="/macro-calculator/">Macro Calculator</a></h3>
+        <p class="mt-1 text-sm text-body">Now that you know what you burned, figure out exactly how many proteins, carbs, and fats you should eat to recover.</p>
+      </div>
+    </div>
+    
+    <Sources sources={[
+      { label: "Compendium of Physical Activities — Standardization of MET values", href: "https://pacompendium.com/" },
+      { label: "Stanford Medicine — Accuracy of Heart Rate and Calorie Burn by Fitness Trackers", href: "https://med.stanford.edu/news/all-news/2017/05/fitness-trackers-accurately-measure-heart-rate-but-not-calories-burned.html" },
+    ]} />
   </Fragment>
 </CalculatorLayout>
