@@ -4,6 +4,7 @@ import Section from "../components/ui/Section.astro";
 import Button from "../components/ui/Button.astro";
 import CalorieCalculator from "../components/calculators/CalorieCalculator.astro";
 import FaqSection from "../components/FaqSection.astro";
+import Testimonials from "../components/ui/Testimonials.astro";
 import AdsterraAd from "../components/AdsterraAd.astro";
 import Sources from "../components/ui/Sources.astro";
 import ArticleImage from "../components/ui/ArticleImage.astro";
@@ -317,6 +318,7 @@ const jsonLd = [
 
   <!-- ── FAQ ──────────────────────────────────────────── -->
   <Section class="border-t border-hairline">
+    <Testimonials />
     <FaqSection items={HOME_FAQS} />
   </Section>
 
