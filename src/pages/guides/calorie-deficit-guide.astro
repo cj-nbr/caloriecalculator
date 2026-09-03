@@ -25,38 +25,57 @@ const faqs: FaqItem[] = [
 
   <MedicalNote />
 
-  <h2>What is a calorie deficit?</h2>
-  <p>A calorie deficit occurs when you consume fewer calories than your body uses. Faced with this energy shortfall, your body turns to its stored energy — primarily fat — to make up the difference. Sustain that deficit over time and you lose weight. It's the underlying mechanism behind every successful diet.</p>
+  <ArticleImage src="/assets/images/articles/calorie-deficit.svg" alt="Illustration showing energy expenditure exceeding energy intake to create a calorie deficit." />
+  
+  <p>A <strong>calorie deficit</strong> is the absolute biological requirement for weight loss. No matter what diet protocol you follow—Keto, Paleo, Intermittent Fasting, or Vegan—they all function by forcing your body into a state where it expends more energy than it consumes. When this happens, your body is forced to break down stored body fat for fuel.</p>
 
-  <ArticleImage src="/assets/images/articles/weight-scale.svg" alt="Illustration of a balance scale showing weight loss when calories out exceed calories in." />
+  <h2>The Science: Thermodynamics of Fat Loss</h2>
+  <p>The first law of thermodynamics states that energy cannot be created or destroyed, only transformed. In human biology, the food you eat contains energy (calories). The physical movement of your body and the basal metabolic functions of your organs burn energy.</p>
+  <p>If Intake &gt; Output, you store energy (fat). If Intake &lt; Output, you burn energy (fat). A single pound of human body fat stores approximately <strong>3,500 calories</strong>. Therefore, a daily deficit of 500 calories (500 x 7 days) yields exactly 1 pound of fat loss per week.</p>
 
-  <h2>The 3,500-calorie rule</h2>
-  <p>A pound of body fat stores roughly 3,500 calories (a kilogram, about 7,700). So a daily deficit of 500 calories adds up to about one pound of fat loss per week. This is a useful rule of thumb, though real-world results vary with water, muscle, and metabolic adaptation.</p>
-
-  <h2>How to calculate your deficit</h2>
+  <h2>How to Calculate Your Ideal Calorie Deficit</h2>
+  <p>Before you can eat in a deficit, you must know your baseline. Follow these exact steps:</p>
   <ol>
-    <li>Find your maintenance calories with the <a href="/tdee-calculator/">TDEE calculator</a>.</li>
-    <li>Subtract 300–500 calories for a moderate, sustainable deficit.</li>
-    <li>That number is your daily intake target.</li>
+    <li><strong>Find your BMR:</strong> Use our <a href="/bmr-calculator/">BMR Calculator</a> to determine how many calories you burn doing absolutely nothing.</li>
+    <li><strong>Find your TDEE:</strong> Use our <a href="/tdee-calculator/">TDEE Calculator</a> to multiply your BMR by your daily activity level. This is your maintenance number.</li>
+    <li><strong>Subtract 500:</strong> Take your TDEE and subtract 300 to 500 calories. This is your new daily calorie target for sustainable weight loss.</li>
   </ol>
-  <p>The <a href="/weight-loss-calculator/">weight loss calculator</a> turns this into an estimated timeline to your goal weight.</p>
 
-  <h2>How to create the deficit</h2>
-  <p>You can build a deficit two ways — eat less or move more — and the best approach combines both:</p>
+  <h2>Calorie Deficit Tiers & Expectations</h2>
+  <div class="overflow-x-auto my-6">
+    <table class="w-full text-left border-collapse border border-hairline shadow-sm rounded-lg overflow-hidden">
+      <thead>
+        <tr class="bg-ink text-white">
+          <th class="p-3 border-b border-hairline">Deficit Tier</th>
+          <th class="p-3 border-b border-hairline">Daily Calorie Reduction</th>
+          <th class="p-3 border-b border-hairline">Expected Weekly Fat Loss</th>
+          <th class="p-3 border-b border-hairline">Sustainability</th>
+        </tr>
+      </thead>
+      <tbody class="text-sm">
+        <tr><td class="p-3 border-b font-semibold">Mild</td><td class="p-3 border-b">- 250 calories</td><td class="p-3 border-b">0.5 lbs</td><td class="p-3 border-b">Extremely high. Minimal hunger.</td></tr>
+        <tr class="bg-gray-50"><td class="p-3 border-b font-semibold">Moderate</td><td class="p-3 border-b">- 500 calories</td><td class="p-3 border-b">1.0 lbs</td><td class="p-3 border-b">High. The recommended gold standard.</td></tr>
+        <tr><td class="p-3 border-b font-semibold">Aggressive</td><td class="p-3 border-b">- 750 calories</td><td class="p-3 border-b">1.5 lbs</td><td class="p-3 border-b">Moderate. Requires high protein to prevent muscle loss.</td></tr>
+        <tr class="bg-gray-50"><td class="p-3 font-semibold">Extreme</td><td class="p-3">- 1,000+ calories</td><td class="p-3">2.0+ lbs</td><td class="p-3">Low. High risk of metabolic adaptation and binge eating.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Actionable Tips: How to Survive a Deficit</h2>
   <ul>
-    <li><strong>Nutrition:</strong> prioritize protein and fibre to stay full on fewer calories.</li>
-    <li><strong>Activity:</strong> daily steps (NEAT) burn surprising amounts of energy.</li>
-    <li><strong>Training:</strong> resistance work preserves muscle so the weight you lose is fat.</li>
+    <li><strong>Volume Eating:</strong> Focus on low-calorie, high-volume foods like leafy greens, watermelon, and broccoli. They physically stretch your stomach receptors, sending fullness signals to your brain without costing you calories.</li>
+    <li><strong>Max Out Protein:</strong> Protein is the most satiating macronutrient. It takes longer to digest and prevents your body from burning muscle mass during the deficit. Use our <a href="/protein-calculator/">protein calculator</a> to find your target.</li>
+    <li><strong>Don't Drink Calories:</strong> Liquid calories (sodas, juices, heavy coffees) do not trigger satiety. Swap them for water, black coffee, or diet sodas.</li>
   </ul>
 
-  <h2>Avoid an aggressive deficit</h2>
-  <p>It's tempting to slash calories for faster results, but very large deficits cause muscle loss, fatigue, hormonal disruption, and intense hunger that leads to bingeing. A moderate deficit you can sustain for months beats a crash diet you abandon in two weeks.</p>
+  <h2>Common Calorie Deficit Myths Debunked</h2>
+  <ul>
+    <li><strong>Myth: You must eat low carb to lose weight.</strong> Fact: Carbs do not make you fat; overeating calories does. You can eat nothing but carbohydrates and still lose weight if you are in a calorie deficit (though you would lose muscle).</li>
+    <li><strong>Myth: Starvation mode will make you gain weight.</strong> Fact: While extreme dieting can cause a slight metabolic slowdown (adaptive thermogenesis), your body cannot spontaneously create fat out of nothing. You will still lose weight in a severe deficit, but you will feel terrible.</li>
+    <li><strong>Myth: Exercise is the best way to create a deficit.</strong> Fact: It is much easier to skip a 400-calorie donut than it is to run for 45 minutes to burn it off. Use our <a href="/calories-burned-calculator/">calories burned calculator</a> to see how much work exercise really takes! Diet is the primary driver of weight loss.</li>
+  </ul>
 
-  <h2>When progress stalls</h2>
-  <p>As you lose weight, your maintenance calories fall, shrinking your deficit. Recalculate every 4–5 kg and adjust. Patience and consistency win.</p>
+  <h2>Next Steps</h2>
+  <p>To visualize your exact weight loss timeline based on your chosen deficit tier, use our advanced <a href="/weight-loss-calculator/">weight loss calculator</a>.</p>
 
-  <Sources sources={[
-    { label: "CDC — Losing weight healthy", href: "https://www.cdc.gov/healthyweight/losing_weight/index.html" },
-    { label: "NHS — Calories and weight management", href: "https://www.nhs.uk/live-well/eat-well/calories/" },
-  ]} />
 </ContentLayout>
