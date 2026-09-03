@@ -26,57 +26,62 @@ const faqs: FaqItem[] = [
 
   <MedicalNote />
 
-  <p>Your <strong>BMI calculator</strong> result places weight on a standardized scale. BMI = weight (kg) ÷ height (m)². <a href="/bmi-calculator/">Our calculator</a> does this automatically.</p>
+  <ArticleImage src="/assets/images/articles/bmi-scale.svg" alt="Comprehensive Body Mass Index (BMI) scale showing different weight categories." />
+  
+  <p>The <strong>BMI calculator</strong> is one of the most widely used screening tools in modern medicine and fitness. It provides a standardized metric to evaluate whether your current body weight falls within a historically established healthy range relative to your height.</p>
 
-  <h2>BMI formula</h2>
-
-  <ArticleImage src="/assets/images/articles/bmi-scale.svg" alt="BMI category scale showing underweight, normal, overweight, and obese ranges." />
-  <p><code>BMI = weight(kg) ÷ height(m)²</code></p>
-  <p>Example: 80 kg person, 180 cm tall:</p>
-  <pre>180 cm = 1.8 m
-BMI = 80 ÷ (1.8 × 1.8) = 80 ÷ 3.24 = 24.7 (normal range)</pre>
-
-  <h2>BMI categories and health risks</h2>
-  <table>
-    <thead><tr><th scope="col">BMI Range</th><th scope="col">Category</th><th scope="col">Health risk</th></tr></thead>
-    <tbody>
-      <tr><td>&lt; 18.5</td><td>Underweight</td><td>Increased risk of nutrient deficiency, osteoporosis</td></tr>
-      <tr><td>18.5–24.9</td><td>Normal weight</td><td>Lowest risk for chronic disease</td></tr>
-      <tr><td>25–29.9</td><td>Overweight</td><td>Moderate increase in diabetes, heart disease</td></tr>
-      <tr><td>30–34.9</td><td>Obese class I</td><td>High risk of metabolic issues</td></tr>
-      <tr><td>35–39.9</td><td>Obese class II</td><td>Very high health risks</td></tr>
-      <tr><td>&gt; 40</td><td>Obese class III</td><td>Extreme health risks</td></tr>
-    </tbody>
-  </table>
-
-  <h2>BMI limitations</h2>
-  <p>BMI cannot:</p>
-  <ul>
-    <li>Distinguish muscle from fat</li>
-    <li>Account for fat distribution</li>
-    <li>Reflect fitness or metabolic health</li>
-    <li>Apply accurately to athletes or elderly</li>
+  <h2>Understanding the BMI Formula</h2>
+  <p>The mathematical formula for calculating your Body Mass Index is incredibly straightforward, though converting imperial units (pounds and inches) can be tedious, which is why we highly recommend using our automatic <a href="/bmi-calculator/">BMI Calculator tool</a>.</p>
+  <div class="card p-6 bg-brand/5 border-brand/20 my-6">
+    <p class="font-mono text-lg font-bold text-center text-ink mb-0">BMI = Weight (kg) / Height (m)²</p>
+  </div>
+  <p>For example, if an adult weighs 80 kg and is 1.80 meters tall (about 5'11"):</p>
+  <ul class="list-disc pl-6 mb-6">
+    <li>Height squared: 1.80 x 1.80 = 3.24</li>
+    <li>BMI calculation: 80 / 3.24 = <strong>24.7</strong></li>
   </ul>
-  <p>For better assessment, use our <a href="/body-fat-calculator/">body fat calculator</a> or <a href="/lean-body-mass-calculator/">lean body mass calculator</a>.</p>
+  <p>A BMI of 24.7 places this individual squarely within the "Normal weight" category.</p>
 
-  <h2>BMI and basal metabolic rate</h2>
-  <p>BMI correlates with metabolic health but doesn't equal <a href="/bmr-calculator/">BMR</a>. Muscle increases metabolism even if BMI is high. Use <a href="/tdee-calculator/">TDEE calculator</a> for calorie targets.</p>
+  <h2>Comprehensive BMI Categories & Health Implications</h2>
+  <p>The World Health Organization (WHO) classifies adult BMI into the following categories. Falling significantly outside the "Normal" range often correlates with increased health risks.</p>
+  
+  <div class="overflow-x-auto my-6">
+    <table class="w-full text-left border-collapse">
+      <thead>
+        <tr class="bg-ink text-white">
+          <th class="p-4 rounded-tl-lg">BMI Range</th>
+          <th class="p-4">Category</th>
+          <th class="p-4 rounded-tr-lg">Associated Health Risks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-hairline"><td class="p-4 font-semibold text-blue-600">&lt; 18.5</td><td class="p-4">Underweight</td><td class="p-4">Nutrient deficiencies, osteoporosis, weakened immunity</td></tr>
+        <tr class="border-b border-hairline bg-green-50"><td class="p-4 font-semibold text-green-700">18.5 - 24.9</td><td class="p-4">Normal Weight</td><td class="p-4">Lowest statistical risk for chronic diseases</td></tr>
+        <tr class="border-b border-hairline"><td class="p-4 font-semibold text-yellow-600">25.0 - 29.9</td><td class="p-4">Overweight</td><td class="p-4">Moderate increase in cardiovascular disease and diabetes risk</td></tr>
+        <tr class="border-b border-hairline"><td class="p-4 font-semibold text-orange-600">30.0 - 34.9</td><td class="p-4">Obese (Class I)</td><td class="p-4">High risk of hypertension, joint issues, sleep apnea</td></tr>
+        <tr class="border-b border-hairline"><td class="p-4 font-semibold text-red-600">35.0 - 39.9</td><td class="p-4">Obese (Class II)</td><td class="p-4">Very high risk of severe metabolic conditions</td></tr>
+        <tr><td class="p-4 font-semibold text-red-800">&gt; 40.0</td><td class="p-4">Obese (Class III)</td><td class="p-4">Extreme health risks, potential surgical intervention indicated</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  <h2>BMI calculators vs manual calculation</h2>
-  <p>Our <a href="/bmi-calculator/">BMI calculator</a> offers advantages:</p>
+  <h2>Critical Limitations of BMI</h2>
+  <p>While a BMI calculator is an excellent population-level screening tool, it has severe limitations on an individual basis. It relies purely on the relationship between height and weight, meaning it is blind to your actual body composition.</p>
   <ul>
-    <li>Automatic unit conversion (cm/lbs to metric)</li>
-    <li>Instant category classification</li>
-    <li>Links to related calculators</li>
-    <li>No mental math required</li>
+    <li><strong>Muscle Mass vs. Fat:</strong> Muscle is incredibly dense. A highly muscular athlete might weigh enough to have a BMI of 28 (technically "Overweight"), yet have dangerously low body fat.</li>
+    <li><strong>Fat Distribution:</strong> Visceral fat (belly fat around organs) is far more dangerous than subcutaneous fat (fat just under the skin). BMI cannot tell where your fat is located.</li>
+    <li><strong>Age and Gender:</strong> Women naturally carry higher body fat percentages than men for reproductive health, and older adults naturally lose muscle mass. The standard BMI chart does not adjust for these biological realities.</li>
   </ul>
+  <p>If you suspect your BMI is misrepresenting your health due to high muscle mass, we strongly advise using our <a href="/body-fat-calculator/">body fat calculator</a> or <a href="/lean-body-mass-calculator/">lean body mass calculator</a> for a clinical-grade assessment.</p>
 
-  <h2>When to use BMI</h2>
-  <p>BMI is a screening tool, not a diagnostic. Best for:</p>
-  <ul>
-    <li>Initial weight assessment</li>
-    <li>Population health studies</li>
-    <li>Tracking trends over time</li>
-    <li>Insurance/health requirements</li>
-  </ul>
+  <h2>How to Use BMI in Your Weight Loss Journey</h2>
+  <p>Your BMI should serve as a starting point. If you fall into the overweight category and know you carry excess body fat, your next step is determining how to safely lower your weight. You should immediately calculate your baseline metabolism using a <a href="/bmr-calculator/">BMR calculator</a> and your total energy needs using a <a href="/tdee-calculator/">TDEE calculator</a>. From there, you can establish a healthy calorie deficit to gradually move your BMI into the normal range.</p>
+
+  <h2>Frequently Asked Questions</h2>
+  <h3>Is BMI used for children and teens?</h3>
+  <p>Yes, but the formula works differently. Children's BMI is plotted on a percentile chart comparing them against other children of the exact same age and biological sex, as they are still growing.</p>
+  
+  <h3>Does a normal BMI guarantee good health?</h3>
+  <p>No. You can have a "normal" BMI but still suffer from poor metabolic health, high cholesterol, or a condition known as "skinny fat" (normal weight but high body fat and extremely low muscle mass).</p>
+
 </ContentLayout>

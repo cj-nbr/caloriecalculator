@@ -25,58 +25,60 @@ const faqs: FaqItem[] = [
 
   <MedicalNote />
 
-  <p>The <strong>ideal body weight calculator</strong> estimates healthy weight ranges using formulas developed for medical use. These provide baselines, not targets.</p>
+  <ArticleImage src="/assets/images/articles/scale-illustration.svg" alt="Illustration representing the calculation of ideal body weight ranges." />
+  
+  <p>The concept of an <strong>Ideal Body Weight (IBW)</strong> was historically developed to help medical professionals dose medications safely. Today, calculating your IBW provides a highly practical target range for fitness and weight management goals. Our <a href="/ideal-weight-calculator/">ideal weight calculator</a> utilizes the four most scientifically recognized clinical formulas to give you a comprehensive target range.</p>
 
-  <ArticleImage src="/assets/images/articles/ideal-weight-chart.svg" alt="Illustration of ideal body weight formulas and healthy weight ranges by height." />
+  <h2>The 4 Clinical Formulas for Ideal Body Weight</h2>
+  <p>Because human bodies vary drastically in bone density, frame size, and muscle mass, no single formula is perfect for everyone. That is why our calculator simultaneously processes your data through the big four equations:</p>
 
-  <h2>Ideal weight formulas compared</h2>
-  <table>
-    <thead><tr><th scope="col">Formula</th><th scope="col">Men</th><th scope="col">Women</th><th scope="col">Origin</th></tr></thead>
-    <tbody>
-      <tr><td>Devine</td><td>50.0 + 2.3/inch over 5'</td><td>45.5 + 2.3/inch over 5'</td><td>1974, medicinal</td></tr>
-      <tr><td>Robinson</td><td>52.0 + 1.9/inch over 5'</td><td>49.0 + 1.7/inch over 5'</td><td>1983</td></tr>
-      <tr><td>Miller</td><td>56.2 + 1.41/inch over 5'</td><td>53.1 + 1.36/inch over 5'</td><td>1983</td></tr>
-      <tr><td>Hamwi</td><td>48.0 + 2.7/inch over 5'</td><td>45.5 + 2.2/inch over 5'</td><td>1964</td></tr>
-    </tbody>
-  </table>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+    <div class="card p-6 border border-hairline shadow-sm">
+      <h3 class="text-lg font-bold text-ink mb-2">1. The Devine Formula (1974)</h3>
+      <p class="text-sm text-body">Originally created for calculating drug dosages. It remains the most universally cited medical standard for IBW today.</p>
+    </div>
+    <div class="card p-6 border border-hairline shadow-sm">
+      <h3 class="text-lg font-bold text-ink mb-2">2. The Robinson Formula (1983)</h3>
+      <p class="text-sm text-body">An evolution of the Devine formula intended to yield slightly different, often more modernly accurate results for taller individuals.</p>
+    </div>
+    <div class="card p-6 border border-hairline shadow-sm">
+      <h3 class="text-lg font-bold text-ink mb-2">3. The Miller Formula (1983)</h3>
+      <p class="text-sm text-body">A contemporary alternative to Robinson that often suggests a slightly lighter target weight, heavily utilizing height scaling.</p>
+    </div>
+    <div class="card p-6 border border-hairline shadow-sm">
+      <h3 class="text-lg font-bold text-ink mb-2">4. The Hamwi Formula (1964)</h3>
+      <p class="text-sm text-body">The oldest method on our list, widely used in clinical nutrition to establish a broad baseline range for patients.</p>
+    </div>
+  </div>
 
-  <h2>Ideal weight ranges for common heights</h2>
-  <table>
-    <thead><tr><th scope="col">Height</th><th scope="col">Devine range (kg)</th><th scope="col">BMI 18.5–24.9 range (kg)</th></tr></thead>
-    <tbody>
-      <tr><td>5'0" (152 cm)</td><td>45.5–57.0</td><td>40.5–55.0</td></tr>
-      <tr><td>5'4" (163 cm)</td><td>50.0–62.0</td><td>46.5–62.5</td></tr>
-      <tr><td>5'8" (173 cm)</td><td>54.4–67.5</td><td>52.5–69.5</td></tr>
-      <tr><td>6'0" (183 cm)</td><td>58.8–73.0</td><td>59.0–78.5</td></tr>
-    </tbody>
-  </table>
-  <p>Our <a href="/ideal-weight-calculator/">ideal weight calculator</a> shows all formulas side-by-side.</p>
-
-  <h2>BMI healthy weight ranges</h2>
-  <p>BMI categories:</p>
-  <table>
-    <thead><tr><th scope="col">Category</th><th scope="col">BMI Range</th><th scope="col">Health risk</th></tr></thead>
-    <tbody>
-      <tr><td>Underweight</td><td>&lt; 18.5</td><td>May indicate health issues</td></tr>
-      <tr><td>Normal</td><td>18.5–24.9</td><td>Lowest risk range</td></tr>
-      <tr><td>Overweight</td><td>25–29.9</td><td>Moderate risk increase</td></tr>
-      <tr><td>Obese</td><td>&gt; 30</td><td>Significant health risk</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Using ideal weight for calorie calculations</h2>
-  <p>Ideal weight helps estimate <a href="/guides/maintenance-calorie-calculator/">maintenance calories</a> when current weight is not representative:</p>
+  <h2>How to Calculate Ideal Body Weight Manually</h2>
+  <p>If you wish to calculate it yourself, here is the standard Devine equation for a male:</p>
   <ul>
-    <li>Use ideal weight if underweight and gaining</li>
-    <li>Use current weight for accurate maintenance</li>
-    <li>BMI calculator gives additional context</li>
+    <li><strong>Men:</strong> 50.0 kg + 2.3 kg for every inch over 5 feet.</li>
+    <li><strong>Women:</strong> 45.5 kg + 2.3 kg for every inch over 5 feet.</li>
   </ul>
+  <p><em>Example:</em> A man who is 5'10" (10 inches over 5 feet) would calculate: 50.0 + (2.3 x 10) = <strong>73 kg (160 lbs)</strong>.</p>
+  <p>Instead of doing manual math, just use our <a href="/ideal-weight-calculator/">ideal weight calculator</a>, which instantly cross-references all four formulas and converts between metric and imperial automatically.</p>
 
-  <h2>Lean body mass considerations</h2>
-  <p>Muscle weighs more than fat. Two people at the same weight can have different appearances:</p>
-  <ul>
-    <li>High muscle: healthy at higher BMI (25–27)</li>
-    <li>Low muscle: may be unhealthy at lower BMI (18.5–22)</li>
-    <li>Use <a href="/body-fat-calculator/">body fat calculator</a> with weight formulas</li>
-  </ul>
+  <h2>Frame Size and the Healthy BMI Range</h2>
+  <p>While specific formulas provide an exact number, modern nutritionists prefer to view IBW as a <em>range</em>. To determine this range, we calculate the span of weights that would place you within the "Normal" BMI category (18.5 to 24.9).</p>
+  
+  <table>
+    <thead><tr><th scope="col">Height</th><th scope="col">Healthy BMI Weight Range (lbs)</th><th scope="col">Healthy BMI Weight Range (kg)</th></tr></thead>
+    <tbody>
+      <tr><td>5'2" (157 cm)</td><td>101 – 136 lbs</td><td>46 – 62 kg</td></tr>
+      <tr><td>5'6" (167 cm)</td><td>115 – 154 lbs</td><td>52 – 70 kg</td></tr>
+      <tr><td>5'10" (177 cm)</td><td>129 – 174 lbs</td><td>58 – 79 kg</td></tr>
+      <tr><td>6'2" (188 cm)</td><td>144 – 194 lbs</td><td>65 – 88 kg</td></tr>
+    </tbody>
+  </table>
+  <p class="text-sm text-mute mt-2">Note: This table uses the standard <a href="/bmi-calculator/">BMI calculator</a> formula thresholds.</p>
+
+  <h2>Limitations and Edge Cases</h2>
+  <p>It is crucial to understand that these formulas do not account for muscle mass or body fat percentage. A professional bodybuilder might weigh 220 lbs at 5'10" and be categorized as severely overweight by an IBW formula, despite having only 8% body fat.</p>
+  <p>If you are an athlete, you should abandon weight scales and instead focus entirely on body composition. Use our <a href="/body-fat-calculator/">body fat calculator</a> or <a href="/lean-body-mass-calculator/">lean body mass calculator</a> to track your progress.</p>
+
+  <h2>Next Steps: Achieving Your Ideal Weight</h2>
+  <p>Once you identify your target weight, you need a structured plan to reach it. Start by determining your daily energy burn using our <a href="/tdee-calculator/">TDEE calculator</a>. If your goal is to lose weight to reach your IBW, use our <a href="/guides/calorie-deficit-guide/">calorie deficit guide</a> to safely reduce your intake.</p>
+
 </ContentLayout>

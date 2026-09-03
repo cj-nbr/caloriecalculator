@@ -26,67 +26,50 @@ const faqs: FaqItem[] = [
 
   <MedicalNote />
 
-  <p>A <strong>weight loss calculator</strong> tells you how long reaching your goal will take. It combines your calorie deficit with target weight difference.</p>
+  <ArticleImage src="/assets/images/articles/weight-loss-chart.svg" alt="Graph depicting a structured weight loss timeline based on calorie deficits." />
+  
+  <p>A <strong>weight loss calculator</strong> is the ultimate planning tool for your fitness journey. Instead of simply telling you how many calories to eat, it projects exactly <em>when</em> you will reach your goal weight based on the aggressiveness of your calorie deficit. By visualizing the timeline, it removes frustration and replaces it with mathematical predictability.</p>
 
-  <h2>Weight loss rate formula</h2>
+  <h2>The Golden Rule of Weight Loss: The Calorie Deficit</h2>
+  <p>Weight loss is governed by the laws of thermodynamics. To lose weight, you must consume less energy (calories) than your body burns. This state is known as a <a href="/guides/calorie-deficit-guide/">calorie deficit</a>. No pill, powder, or fad diet can bypass this biological requirement.</p>
+  <p>One pound of human body fat stores approximately <strong>3,500 calories</strong> of energy. Therefore:</p>
+  <ul>
+    <li>A daily deficit of 500 calories = 1 pound of fat loss per week (500 x 7 = 3,500).</li>
+    <li>A daily deficit of 1,000 calories = 2 pounds of fat loss per week (1,000 x 7 = 7,000).</li>
+  </ul>
+  <p>Our <a href="/weight-loss-calculator/">weight loss calculator</a> does all this math for you. First, it determines your maintenance energy using our built-in <a href="/tdee-calculator/">TDEE calculator</a>. Then, it subtracts the appropriate number of calories to map out your timeline.</p>
 
-  <ArticleImage src="/assets/images/articles/weight-scale.svg" alt="Illustration of a weight loss progress timeline showing deficit and fat loss." />
-  <p><code>Weeks to goal = (weight to lose in lbs × 3,500) ÷ weekly deficit</code></p>
-  <p>Example: Lose 20 lbs at 1 lb/week = 20 weeks</p>
+  <h2>Choosing Your Weight Loss Intensity</h2>
+  <p>When using the calculator, you will see different plans. Choosing the right one is critical for long-term success without damaging your metabolism or losing muscle mass.</p>
 
-  <h2>Weight loss timeline calculator</h2>
-  <table>
-    <thead><tr><th scope="col">Weight to lose</th><th scope="col">At 0.5 lb/week</th><th scope="col">At 1 lb/week</th><th scope="col">At 2 lb/week</th></tr></thead>
-    <tbody>
-      <tr><td>10 lbs</td><td>20 weeks</td><td>10 weeks</td><td>5 weeks</td></tr>
-      <tr><td>20 lbs</td><td>40 weeks</td><td>20 weeks</td><td>10 weeks</td></tr>
-      <tr><td>30 lbs</td><td>60 weeks</td><td>30 weeks</td><td>15 weeks</td></tr>
-      <tr><td>50 lbs</td><td>100 weeks</td><td>50 weeks</td><td>25 weeks</td></tr>
+  <table class="w-full text-left my-6">
+    <thead>
+      <tr class="bg-ink text-white">
+        <th class="p-3">Intensity</th>
+        <th class="p-3">Weekly Loss</th>
+        <th class="p-3">Daily Deficit</th>
+        <th class="p-3">Pros & Cons</th>
+      </tr>
+    </thead>
+    <tbody class="text-sm">
+      <tr class="border-b border-hairline"><td class="p-3 font-bold text-green-600">Mild</td><td class="p-3">0.5 lbs / week</td><td class="p-3">-250 calories</td><td class="p-3">Extremely easy to sustain, no hunger. Very slow results.</td></tr>
+      <tr class="border-b border-hairline bg-gray-50"><td class="p-3 font-bold text-blue-600">Normal</td><td class="p-3">1.0 lbs / week</td><td class="p-3">-500 calories</td><td class="p-3">The sweet spot. Manageable hunger, steady visible progress.</td></tr>
+      <tr class="border-b border-hairline"><td class="p-3 font-bold text-orange-600">Aggressive</td><td class="p-3">1.5 lbs / week</td><td class="p-3">-750 calories</td><td class="p-3">Fast results, but requires high discipline and strict macro tracking.</td></tr>
+      <tr><td class="p-3 font-bold text-red-600">Extreme</td><td class="p-3">2.0+ lbs / week</td><td class="p-3">-1,000+ calories</td><td class="p-3">Risk of muscle loss and metabolic crash. Not recommended long-term.</td></tr>
     </tbody>
   </table>
 
-  <h2>Setting realistic weight loss expectations</h2>
-  <p>Research shows sustainable rates:</p>
-  <ul>
-    <li><strong>0.5 lb/week:</strong> Slow but steady, easy to maintain</li>
-    <li><strong>1 lb/week:</strong> Standard recommendation for most people</li>
-    <li><strong>1–2 lb/week:</strong> Upper end of safe range</li>
-    <li><strong>&gt;2 lb/week:</strong> Often includes water/muscle, not sustainable</li>
-  </ul>
+  <h2>How to Protect Muscle While Losing Weight</h2>
+  <p>When you are in a severe calorie deficit, your body will look for energy anywhere it can find it. If you aren't careful, it will break down your muscle tissue for energy alongside your fat stores. This results in the dreaded "skinny fat" look and lowers your <a href="/bmr-calculator/">BMR</a>.</p>
+  <p>To prevent this, you must do two things:</p>
+  <ol>
+    <li><strong>Eat a high-protein diet.</strong> Use our <a href="/protein-calculator/">protein calculator</a> to ensure you are eating at least 1.6 to 2.2 grams of protein per kilogram of body weight. Protein protects muscle.</li>
+    <li><strong>Lift weights.</strong> Resistance training signals to your body that the muscle is necessary for survival, forcing it to burn fat instead.</li>
+  </ol>
+  <p>Use our <a href="/macro-calculator/">macro calculator</a> to get a complete breakdown of exactly how many carbs, fats, and proteins you need to hit your calculator's calorie target.</p>
 
-  <h2>Adjusting weight loss timeline</h2>
-  <p>If results don't match:</p>
-  <ul>
-    <li><strong>Losing too fast:</strong> Increase calories 200–300</li>
-    <li><strong>Losing too slow:</strong> Decrease calories 100–200</li>
-    <li><strong>Plateau for weeks:</strong> Recalculate <a href="/tdee-calculator/">TDEE</a>, adjust intake</li>
-  </ul>
+  <h2>Plateaus: Why Did My Weight Loss Stop?</h2>
+  <p>As you lose weight, your body requires less energy to move around. A 250 lb person burns significantly more calories walking up a flight of stairs than a 200 lb person. This means your TDEE shrinks as you lose weight.</p>
+  <p>If you hit a plateau, your original calorie deficit has likely become your new <a href="/maintenance-calories-calculator/">maintenance calories</a>. To resume losing weight, you must return to the <a href="/weight-loss-calculator/">weight loss calculator</a>, input your <em>new</em> lighter body weight, and generate a new, lower daily calorie target.</p>
 
-  <h2>Weight loss calculator and metabolism</h2>
-  <p>As you lose weight, your <a href="/guides/maintenance-calorie-calculator/">maintenance calories</a> drop:</p>
-  <ul>
-    <li>Each kg lost reduces TDEE ~10–20 calories</li>
-    <li>A 20 kg loss may reduce maintenance ~200–400 calories</li>
-    <li>Adjust targets periodically</li>
-  </ul>
-
-  <h2>Maximizing weight loss success</h2>
-  <p>Strategies that work:</p>
-  <ul>
-    <li><strong>Consistent deficit:</strong> Track daily with <a href="/food-calories-search/">food search</a></li>
-    <li><strong>Adequate protein:</strong> Using <a href="/protein-calculator/">protein calculator</a></li>
-    <li><strong>Resistance training:</strong> Preserve lean mass</li>
-    <li><strong>Sleep:</strong> 7–9 hours supports hormones</li>
-    <li><strong>Hydration:</strong> Water boosts metabolism slightly</li>
-  </ul>
-
-  <h2>Weight loss milestones calculator</h2>
-  <p>Breaking down large goals:</p>
-  <ul>
-    <li>First 5%: Largest metabolic health improvements</li>
-    <li>10%: Noticeable visual changes</li>
-    <li>15%: Significant transformation</li>
-    <li>20%+: Requires maintenance planning</li>
-  </ul>
-  <p>Use <a href="/weight-loss-calculator/">our weight loss calculator</a> for updated timelines.</p>
 </ContentLayout>

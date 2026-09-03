@@ -26,61 +26,64 @@ const faqs: FaqItem[] = [
 
   <MedicalNote />
 
-  <p><strong>Calories burned in a day</strong> equals your Total Daily Energy Expenditure (TDEE). This is the foundation for weight management.</p>
+  <ArticleImage src="/assets/images/articles/daily-burn.svg" alt="Illustration representing total daily calories burned through exercise, resting metabolism, and digestion." />
+  
+  <p>Figuring out <strong>how many calories you burn in a day</strong> is the master key to human metabolism. Every action your body takes—from running a marathon to blinking your eyes while watching TV—requires energy. Understanding this total daily burn empowers you to take complete control over your body weight, whether you want to lose fat, build muscle, or simply maintain your physique.</p>
 
-  <ArticleImage src="/assets/images/articles/daily-burn.svg" alt="Illustration of daily calorie burn components including BMR, TEF, and activity." />
+  <h2>The Four Pillars of Daily Calorie Burn</h2>
+  <p>Your total daily calorie burn is scientifically referred to as your <a href="/tdee-calculator/">TDEE (Total Daily Energy Expenditure)</a>. It is not just about how much time you spend on the treadmill; it is a complex engine comprised of four distinct pillars:</p>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+    <div class="card p-6 border-l-4 border-l-brand shadow-sm">
+      <h3 class="text-xl font-bold text-ink mb-2">1. Basal Metabolic Rate (BMR)</h3>
+      <p class="text-sm text-body">This is the massive chunk of calories (60-75% of your day) your body burns just keeping you alive. Heartbeats, brain function, and lung capacity. Use our <a href="/bmr-calculator/">BMR calculator</a> to find yours.</p>
+    </div>
+    <div class="card p-6 border-l-4 border-l-green-500 shadow-sm">
+      <h3 class="text-xl font-bold text-ink mb-2">2. NEAT</h3>
+      <p class="text-sm text-body">Non-Exercise Activity Thermogenesis accounts for 15-20%. This is subconscious movement: fidgeting, walking down the hall, doing chores, and maintaining posture.</p>
+    </div>
+    <div class="card p-6 border-l-4 border-l-yellow-500 shadow-sm">
+      <h3 class="text-xl font-bold text-ink mb-2">3. Thermic Effect of Food (TEF)</h3>
+      <p class="text-sm text-body">Your body burns roughly 10% of its daily calories simply digesting the food you eat. Protein takes the most energy to digest, which is why a high <a href="/protein-calculator/">protein target</a> boosts metabolism.</p>
+    </div>
+    <div class="card p-6 border-l-4 border-l-red-500 shadow-sm">
+      <h3 class="text-xl font-bold text-ink mb-2">4. Exercise (EAT)</h3>
+      <p class="text-sm text-body">Exercise Activity Thermogenesis is intentional exercise. Surprisingly, for most people, this makes up only 5-10% of their total daily calorie burn.</p>
+    </div>
+  </div>
 
-  <h2>Components of daily calorie burn</h2>
-  <table>
-    <thead><tr><th scope="col">Component</th><th scope="col">Percentage</th><th scope="col">Details</th></tr></thead>
-    <tbody>
-      <tr><td>BMR</td><td>60–70%</td><td>Basal metabolic rate at rest</td></tr>
-      <tr><td>TEF</td><td>~10%</td><td>Thermic effect of food</td></tr>
-      <tr><td>Exercise activity</td><td>10–20%</td><td>Gym, sports, structured movement</td></tr>
-      <tr><td>Non-exercise activity</td><td>15–20%</td><td>Fidgeting, walking, daily tasks</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Calories burned while sleeping</h2>
-  <p>You burn ~70% of daily calories while sleeping. Your brain, heart, lungs, and organs never stop. A 70 kg person might burn 1,200–1,500 calories overnight depending on BMR.</p>
-  <p>Use our <a href="/bmr-calculator/">BMR calculator</a> to get your exact resting burn rate.</p>
-
-  <h2>Factoring activity into daily burn</h2>
-  <p>Activity multipliers:</p>
-  <table>
-    <thead><tr><th scope="col">Level</th><th scope="col">Multiplier</th><th scope="col">Burn example (70kg)</th></tr></thead>
-    <tbody>
-      <tr><td>Sedentary</td><td>1.2</td><td>~1,700–2,200 calories</td></tr>
-      <tr><td>Lightly active</td><td>1.375</td><td>~1,900–2,400 calories</td></tr>
-      <tr><td>Moderately active</td><td>1.55</td><td>~2,100–2,700 calories</td></tr>
-      <tr><td>Very active</td><td>1.725</td><td>~2,400–2,900 calories</td></tr>
-      <tr><td>Extra active</td><td>1.9</td><td>~2,600–3,200 calories</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Boosting your daily calorie burn</h2>
-  <ul>
-    <li><strong>Build muscle:</strong> Each kg adds 15–25 calories to BMR</li>
-    <li><strong>Increase NEAT:</strong> Walk more, fidget, stand while working</li>
-    <li><strong>Exercise:</strong> Adds 200–800 calories depending on type/intensity</li>
-    <li><strong>Consistency:</strong> Habitual activity creates lasting increases</li>
-  </ul>
-
-  <h2>How to measure your actual calorie burn</h2>
-  <p>Options:</p>
+  <h2>How to Calculate Your Daily Burn</h2>
+  <p>You have two main options to calculate your exact daily burn:</p>
   <ol>
-    <li><a href="/tdee-calculator/">TDEE calculator</a> (most accessible)</li>
-    <li>Luxury fitness trackers (inaccurate for most)</li>
-    <li>Indirect calorimetry (gold standard, expensive)</li>
-    <li>Track weight changes over 2–3 weeks to calibrate</li>
+    <li><strong>The Clinical Method (Highly Accurate):</strong> Input your biological stats into our <a href="/tdee-calculator/">TDEE calculator</a>. It uses the Mifflin-St Jeor formula, widely considered by dietitians to be the most accurate algorithm for modern populations.</li>
+    <li><strong>The Wearable Tracker Method:</strong> Smartwatches (Apple Watch, Fitbit, Garmin) estimate your daily burn by tracking your heart rate 24/7. While they are fantastic for tracking NEAT and step counts, studies show they routinely <em>overestimate</em> calories burned during intense exercise by 20% to 40%.</li>
   </ol>
+  <p>For the absolute best results, use the calculator formula as your baseline, and use the smartwatch purely to ensure you hit your daily step goal.</p>
 
-  <h2>Daily calorie burn decreases with age</h2>
-  <p>Metabolism slows ~2–5% per decade after 25. Reasons:</p>
+  <h2>How Activity Levels Drastically Change Your Burn</h2>
+  <p>To illustrate how much your daily habits impact your metabolism, let's look at a <strong>170 lb (77 kg), 35-year-old male who is 5'10"</strong>. His resting BMR is roughly 1,750 calories. Look at how his total daily burn changes based entirely on his job and exercise habits:</p>
+  
+  <table class="w-full text-left my-6 border-collapse">
+    <thead>
+      <tr class="bg-ink text-white">
+        <th class="p-3">Lifestyle / Activity Level</th>
+        <th class="p-3">Total Calories Burned in a Day</th>
+      </tr>
+    </thead>
+    <tbody class="text-sm">
+      <tr class="border-b border-hairline"><td class="p-3"><strong>Sedentary:</strong> Office job, plays video games, no exercise.</td><td class="p-3 font-bold text-red-600">~2,100 calories</td></tr>
+      <tr class="border-b border-hairline bg-gray-50"><td class="p-3"><strong>Lightly Active:</strong> Office job, but walks 10k steps and jogs twice a week.</td><td class="p-3 font-bold text-orange-500">~2,400 calories</td></tr>
+      <tr class="border-b border-hairline"><td class="p-3"><strong>Moderately Active:</strong> Waiter (on feet all day) who lifts weights 4x a week.</td><td class="p-3 font-bold text-green-600">~2,700 calories</td></tr>
+      <tr><td class="p-3"><strong>Extremely Active:</strong> Construction worker who also runs marathons.</td><td class="p-3 font-bold text-blue-600">~3,300+ calories</td></tr>
+    </tbody>
+  </table>
+
+  <h2>How to Manipulate Your Daily Burn for Weight Loss</h2>
+  <p>If your goal is fat loss, knowing how many calories you burn in a day is just step one. Step two is forcing your body into a <a href="/guides/calorie-deficit-guide/">calorie deficit</a>. You can achieve this by:</p>
   <ul>
-    <li>Muscle loss without resistance training</li>
-    <li>Hormonal changes</li>
-    <li>Reduced organ mass</li>
+    <li><strong>Eating Less:</strong> Using a <a href="/weight-loss-calculator/">weight loss calculator</a> to set a strict daily intake target below your TDEE.</li>
+    <li><strong>Moving More:</strong> Intentionally increasing your NEAT (taking the stairs, walking during lunch) or adding structured workouts tracked via a <a href="/calories-burned-calculator/">calories burned calculator</a>.</li>
+    <li><strong>Building Muscle:</strong> Muscle tissue burns more calories at rest than fat tissue. A solid strength training regimen permanently increases your BMR, making it much easier to keep weight off long term.</li>
   </ul>
-  <p>Recalculate your <a href="/guides/maintenance-calorie-calculator/">maintenance calories</a> every few years.</p>
+
 </ContentLayout>
