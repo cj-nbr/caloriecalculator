@@ -16,10 +16,17 @@
       -webkit-font-smoothing: antialiased;
     }
     .apple-card {
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-radius: 1.5rem;
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
-      border: 1px solid rgba(0,0,0,0.02);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   </style>
   <script type="application/ld+json">
@@ -44,78 +51,223 @@
   }
   </script>
 </head>
-<body class="p-4 sm:p-10">
-  <div class="max-w-4xl mx-auto">
-    
-    <header class="text-center mb-12">
-      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">최고의 칼로리 계산기 앱 & 사이트 추천</h1>
-      <p class="text-lg text-gray-500">음식, 운동부터 서브웨이 꿀조합까지 완벽하게 칼로리를 트래킹하세요.</p>
+<body class="p-4 sm:p-10 font-sans leading-relaxed text-gray-900 bg-gray-50">
+  <main class="max-w-4xl mx-auto space-y-12">
+    <!-- Header -->
+    <header class="text-center py-12">
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 text-gray-900">
+        최고의 <span class="gradient-text">칼로리 계산기</span> 완전 정복 가이드
+      </h1>
+      <p class="text-xl text-gray-500 max-w-2xl mx-auto">
+        음식 칼로리, 운동 칼로리 소모량부터 서브웨이 꿀조합 계산까지. 과학적인 데이터와 E-E-A-T 기반의 완벽한 다이어트 트래킹 비법을 공개합니다.
+      </p>
     </header>
 
-    <article class="apple-card p-6 sm:p-12 mb-10">
-      <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80" alt="음식과 스마트폰 칼로리 계산기 사진" class="w-full h-64 object-cover rounded-xl mb-8" />
+    <!-- Content 1 -->
+    <article class="apple-card p-8 sm:p-12">
+      <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80" alt="건강한 샐러드와 스마트폰" class="w-full h-80 object-cover rounded-3xl mb-10 shadow-sm" />
       
-      <h2 class="text-2xl font-bold mb-4">1. 음식 칼로리 계산기와 칼로리 계산기 사진 기능</h2>
-      <p class="text-gray-600 leading-relaxed mb-6">
-        현대 다이어터들에게 가장 필요한 것은 매끼 식사를 쉽게 기록하는 것입니다. 최근 <strong>칼로리 계산기 앱</strong>들은 바코드 스캔뿐만 아니라 <strong>칼로리 계산기 사진</strong> 기능을 도입하여, 식판 사진만 찍어도 인공지능이 <strong>음식 칼로리 계산기</strong> 역할을 수행합니다.
-        가장 정확한 나의 하루 목표는 <a href="/country/%EB%8B%A4%EC%9D%B4%EC%96%B4%ED%8A%B8%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EC%B9%BC%EB%A1%9C%EB%A6%AC%20%EA%B3%84%EC%82%B0%EA%B8%B0.html" class="text-blue-600 font-semibold hover:underline">무료 권장 칼로리 계산기 사이트</a>에서 먼저 확인한 뒤, 앱을 통해 그 한도 내에서 섭취하는 것이 좋습니다.
+      <h2 class="text-3xl font-bold mb-6 text-gray-900">1. 음식 칼로리 계산기 앱: 식단 기록의 혁명</h2>
+      <p class="text-lg text-gray-700 mb-6">
+        성공적인 다이어트의 8할은 '식단'이라고 합니다. 하지만 매번 먹는 음식의 칼로리를 일일이 찾아보는 것은 여간 번거로운 일이 아닙니다. 최근의 <strong>칼로리 계산기 앱</strong>들은 바코드 스캔을 넘어, 인공지능을 활용한 <strong>칼로리 계산기 사진</strong> 인식 기능을 제공합니다. 식판 사진만 찍으면 AI가 음식의 종류와 양을 분석하여 자동으로 <strong>음식 칼로리 계산기</strong> 역할을 수행하죠.
       </p>
-
-      <h2 class="text-2xl font-bold mb-4">2. 서브웨이 칼로리 계산기 활용법</h2>
-      <p class="text-gray-600 leading-relaxed mb-6">
-        다이어터들의 성지라고 불리는 서브웨이! 하지만 소스와 빵 선택에 따라 칼로리가 천차만별입니다. 
-        <strong>서브웨이 칼로리 계산기</strong>를 활용하면 위트 빵 속을 파내고 머스타드나 소금/후추로 간을 했을 때 칼로리가 얼마나 줄어드는지 정확히 알 수 있습니다.
-      </p>
-
-      <div class="bg-gray-50 rounded-xl p-6 mb-8 border border-gray-100">
-        <h3 class="text-lg font-bold text-gray-900 mb-2">💡 전문가 조언 (Expert Advice)</h3>
-        <p class="text-gray-700 text-sm">
-          "<strong>칼로리 계산기 추천</strong>을 받을 때는 한국 음식 데이터베이스가 얼마나 방대한지 확인해야 합니다. 서양식 위주의 앱은 김치찌개나 백반의 칼로리를 정확히 잡지 못하기 때문입니다. 또한 <strong>운동 칼로리 계산기</strong> 기능이 연동되어 하루 섭취와 소모의 밸런스를 보여주는 앱을 선택하세요."
-        </p>
+      
+      <div class="bg-white/90 rounded-2xl p-8 mb-8 border border-gray-100 shadow-sm">
+        <h3 class="text-2xl font-semibold mb-4 text-gray-800">📊 사진 인식 칼로리 앱 Top 3 비교</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-gray-50 text-gray-600 border-b">
+                <th class="p-4 font-semibold">앱 이름</th>
+                <th class="p-4 font-semibold">사진 인식 정확도</th>
+                <th class="p-4 font-semibold">한국 음식 DB</th>
+                <th class="p-4 font-semibold">특징</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b">
+                <td class="p-4 font-medium">YAZIO (야지오)</td>
+                <td class="p-4 text-green-600">높음 (85%)</td>
+                <td class="p-4">매우 풍부</td>
+                <td class="p-4 text-gray-600">직관적인 UI, 간헐적 단식 트래커 내장</td>
+              </tr>
+              <tr class="border-b">
+                <td class="p-4 font-medium">FatSecret (팻시크릿)</td>
+                <td class="p-4 text-yellow-600">보통 (70%)</td>
+                <td class="p-4">가장 방대함</td>
+                <td class="p-4 text-gray-600">완전 무료, 강력한 커뮤니티 기능</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium">MyFitnessPal</td>
+                <td class="p-4 text-blue-600">매우 높음 (90%)</td>
+                <td class="p-4">풍부 (글로벌 중심)</td>
+                <td class="p-4 text-gray-600">방대한 글로벌 DB, 다양한 기기 연동</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
-      <h2 class="text-2xl font-bold mb-4">3. 운동 칼로리 계산기로 소모량 체크하기</h2>
-      <p class="text-gray-600 leading-relaxed mb-6">
-        런닝머신을 30분 뛰었다고 과연 치킨 한 조각을 태웠을까요? <strong>운동 칼로리 계산기</strong>는 당신의 몸무게와 운동 종목, 시간을 입력하면 정확한 소모 칼로리를 알려줍니다. 웨이트 트레이닝, 러닝, 자전거 등 모든 종목의 소모량을 확인하여 다이어트 계획에 반영하세요.
+      <p class="text-lg text-gray-700 mb-6">
+        이러한 앱들을 사용하기 전, 가장 먼저 해야 할 일은 자신의 목표 칼로리를 설정하는 것입니다. <a href="/country/다이어트를 위한 칼로리 계산기.html" class="text-blue-600 font-semibold hover:underline">다이어트를 위한 칼로리 계산기</a>를 통해 TDEE(총 일일 에너지 소비량)를 정확히 파악하고, 그에 맞게 앱의 목표 수치를 조정하세요.
+      </p>
+    </article>
+
+    <!-- Content 2 -->
+    <article class="apple-card p-8 sm:p-12">
+      <h2 class="text-3xl font-bold mb-6 text-gray-900">2. 다이어트 과학: BMR, TDEE, 그리고 METs</h2>
+      <p class="text-lg text-gray-700 mb-6">
+        체중 감량의 원리는 단순한 열역학 법칙을 따릅니다. 섭취한 칼로리보다 소모한 칼로리가 많으면 살이 빠집니다. 이를 정확히 계산하기 위해 알아야 할 핵심 개념 세 가지를 소개합니다.
       </p>
       
-      <div class="text-center mt-10">
-        <a href="/country/%EB%8B%A4%EC%9D%B4%EC%96%B4%ED%8A%B8%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EC%B9%BC%EB%A1%9C%EB%A6%AC%20%EA%B3%84%EC%82%B0%EA%B8%B0.html" class="inline-block bg-blue-600 text-white font-bold py-4 px-8 rounded-full hover:bg-blue-700 transition shadow-md">
-          나의 다이어트 목표 칼로리 확인하기
-        </a>
+      <ul class="space-y-6 mb-8 text-gray-700">
+        <li class="bg-gray-50 p-6 rounded-2xl">
+          <strong class="text-xl text-gray-900 block mb-2">기초대사량 (BMR, Basal Metabolic Rate)</strong>
+          생명 유지를 위해 가만히 누워만 있어도 소모되는 최소한의 에너지입니다. 남성보다 여성의 BMR이 일반적으로 낮으며, 나이가 들수록 감소합니다. 더 자세한 권장량은 <a href="/country/diet-recommended-calorie-guide.html" class="text-blue-600 hover:underline">다이어트 하루 권장 칼로리 가이드</a>에서 확인하실 수 있습니다.
+        </li>
+        <li class="bg-gray-50 p-6 rounded-2xl">
+          <strong class="text-xl text-gray-900 block mb-2">총 일일 에너지 소비량 (TDEE)</strong>
+          BMR에 활동 대사량(걷기, 일하기, 운동하기 등)과 소화 대사량(TEF)을 합친 값입니다. 실제 우리가 하루에 유지하기 위해 필요한 총 칼로리입니다.
+        </li>
+        <li class="bg-gray-50 p-6 rounded-2xl">
+          <strong class="text-xl text-gray-900 block mb-2">대사당량 (METs, Metabolic Equivalents)</strong>
+          <strong>운동 칼로리 계산기</strong>의 핵심 기반이 되는 과학적 단위입니다. 1 MET는 휴식 상태에서의 산소 소비량이며, 활동의 강도에 따라 MET 값이 증가합니다. 예를 들어 시속 8km로 달리는 것은 약 8 METs에 해당합니다.
+        </li>
+      </ul>
+    </article>
+
+    <!-- Content 3 -->
+    <article class="apple-card p-8 sm:p-12">
+      <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1200&q=80" alt="서브웨이 샌드위치" class="w-full h-80 object-cover rounded-3xl mb-10 shadow-sm" />
+
+      <h2 class="text-3xl font-bold mb-6 text-gray-900">3. 서브웨이 다이어터의 필수품: 서브웨이 칼로리 계산기</h2>
+      <p class="text-lg text-gray-700 mb-6">
+        다이어터들의 영혼의 안식처, 서브웨이! 신선한 채소와 양질의 단백질을 섭취할 수 있어 인기지만, 빵과 소스의 유혹에 넘어가면 순식간에 고칼로리 패스트푸드로 전락합니다. 이때 필요한 것이 바로 <strong>서브웨이 칼로리 계산기</strong>입니다.
+      </p>
+
+      <div class="bg-green-50 rounded-2xl p-8 mb-8 border border-green-100">
+        <h3 class="text-2xl font-semibold mb-4 text-green-800">💡 서브웨이 다이어트 꿀조합 팁</h3>
+        <ul class="list-disc pl-6 space-y-3 text-green-900">
+          <li><strong>빵 파기:</strong> 위트 빵의 속을 파내면 약 50kcal 이상의 탄수화물을 절약할 수 있습니다.</li>
+          <li><strong>절임류 제외:</strong> 피클, 할라피뇨, 올리브는 나트륨과 당이 높으므로 생채소 위주로 채우세요.</li>
+          <li><strong>치즈 선택:</strong> 아메리칸 치즈(약 40kcal)가 가장 무난하며, 슈레드 치즈는 지방 함량이 다소 높습니다.</li>
+          <li><strong>소스의 마법:</strong> 달콤한 스위트 칠리(40kcal) 대신 소금, 후추, 올리브 오일, 레드와인 식초 조합을 선택하면 맛과 건강을 모두 잡을 수 있습니다.</li>
+        </ul>
+      </div>
+      
+      <p class="text-lg text-gray-700">
+        실제 조합별 칼로리는 <a href="/country/food-exercise-calorie-app.html" class="text-blue-600 hover:underline">현재 페이지의 앱 추천 리스트</a>에 언급된 앱들이나 전용 계산기 사이트에서 정확히 커스텀하여 계산할 수 있습니다.
+      </p>
+    </article>
+
+    <!-- Content 4 -->
+    <article class="apple-card p-8 sm:p-12">
+      <h2 class="text-3xl font-bold mb-6 text-gray-900">4. 정확한 소모량 측정: 운동 칼로리 계산기</h2>
+      <p class="text-lg text-gray-700 mb-6">
+        "유산소를 1시간 했으니 오늘 저녁은 피자다!" 다이어트 실패의 가장 흔한 원인입니다. 우리는 종종 운동으로 소모한 칼로리를 과대평가하곤 합니다. 스마트워치나 <strong>운동 칼로리 계산기</strong>를 통해 객관적인 데이터를 확인하는 것이 중요합니다.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full text-left border-collapse bg-white rounded-2xl overflow-hidden shadow-sm">
+          <thead>
+            <tr class="bg-gray-100 text-gray-700">
+              <th class="p-5 font-semibold border-b">운동 종류 (60kg 성인 기준)</th>
+              <th class="p-5 font-semibold border-b">30분 소모 칼로리</th>
+              <th class="p-5 font-semibold border-b">비고</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-600">
+            <tr class="border-b">
+              <td class="p-5">빠르게 걷기 (시속 6km)</td>
+              <td class="p-5 font-medium">약 130 kcal</td>
+              <td class="p-5 text-sm">관절에 무리가 가지 않는 최고의 지방 연소 운동</td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-5">가볍게 달리기 (시속 8km)</td>
+              <td class="p-5 font-medium">약 240 kcal</td>
+              <td class="p-5 text-sm">심폐 지구력 향상에 탁월</td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-5">웨이트 트레이닝 (고강도)</td>
+              <td class="p-5 font-medium">약 180 kcal</td>
+              <td class="p-5 text-sm">근육량 증가로 기초대사량(BMR) 상승 효과</td>
+            </tr>
+            <tr>
+              <td class="p-5">수영 (자유형)</td>
+              <td class="p-5 font-medium">약 280 kcal</td>
+              <td class="p-5 text-sm">전신 근육을 사용하는 고효율 유산소</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-2xl font-bold mb-4 text-gray-900">🚫 다이어트 미신 부수기 (Myth Busting)</h3>
+      <div class="grid sm:grid-cols-2 gap-6 mb-6">
+        <div class="bg-red-50 p-6 rounded-2xl border border-red-100">
+          <h4 class="font-bold text-red-800 mb-2">미신: 땀을 많이 흘릴수록 칼로리가 많이 탄다?</h4>
+          <p class="text-red-700 text-sm">거짓입니다. 땀은 체온 조절을 위한 수분 배출일 뿐, 지방 연소의 척도가 아닙니다. 사우나에서 흘린 땀은 물을 마시면 즉시 복구됩니다.</p>
+        </div>
+        <div class="bg-red-50 p-6 rounded-2xl border border-red-100">
+          <h4 class="font-bold text-red-800 mb-2">미신: 부위별 살빼기 운동이 존재한다?</h4>
+          <p class="text-red-700 text-sm">거짓입니다. 윗몸일으키기를 천 번 한다고 뱃살만 빠지지 않습니다. 지방은 전신에서 골고루 연소되며, 칼로리 적자가 필수입니다.</p>
+        </div>
       </div>
     </article>
 
     <!-- FAQ Section -->
-    <div class="apple-card p-6 sm:p-12 mb-10">
-      <h2 class="text-2xl font-bold mb-6">자주 묻는 질문 (FAQ)</h2>
-      <div class="space-y-4">
-        <div class="border-b border-gray-100 pb-4">
-          <h3 class="font-bold text-lg text-gray-900">칼로리 계산기 앱 추천해주세요.</h3>
-          <p class="text-gray-600 mt-2">다이어터들에게 가장 인기가 많은 앱으로는 팻시크릿, 야지오 등이 있습니다. 한국 음식이 잘 등록되어 있어 기록하기 편리합니다.</p>
-        </div>
-        <div class="pb-4">
-          <h3 class="font-bold text-lg text-gray-900">서브웨이 칼로리 계산기는 어떻게 쓰나요?</h3>
-          <p class="text-gray-600 mt-2">서브웨이는 커스텀이 다양하므로, 전용 사이트를 통해 빵, 치즈, 소스를 선택하여 나오는 최종 칼로리를 확인하는 것이 좋습니다.</p>
-        </div>
+    <article class="apple-card p-8 sm:p-12 mb-12">
+      <h2 class="text-3xl font-bold mb-8 text-gray-900 text-center">자주 묻는 질문 (FAQ)</h2>
+      <div class="space-y-6">
+        <details class="group bg-white p-6 rounded-2xl shadow-sm border border-gray-100 cursor-pointer">
+          <summary class="font-bold text-xl text-gray-900 flex justify-between items-center">
+            칼로리 계산기 앱 추천해주세요.
+            <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <p class="text-gray-600 mt-4 leading-relaxed">
+            한국인 다이어터들에게 가장 추천하는 앱은 <strong>야지오(YAZIO)</strong>와 <strong>팻시크릿(FatSecret)</strong>입니다. 야지오는 직관적인 디자인과 단식 트래커가 훌륭하며, 팻시크릿은 한국 음식 데이터베이스가 가장 방대하여 <a href="/country/korean-community-calorie-calculator.html" class="text-blue-600 hover:underline">한국 커뮤니티</a>에서도 극찬받는 무료 앱입니다.
+          </p>
+        </details>
+        <details class="group bg-white p-6 rounded-2xl shadow-sm border border-gray-100 cursor-pointer">
+          <summary class="font-bold text-xl text-gray-900 flex justify-between items-center">
+            서브웨이 칼로리 계산기는 어떻게 쓰나요?
+            <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <p class="text-gray-600 mt-4 leading-relaxed">
+            서브웨이 공식 홈페이지의 영양 성분표를 참고하거나, 개인 개발자들이 만든 서브웨이 전용 칼로리 계산기 웹사이트에 접속합니다. 샌드위치 메뉴(예: 로스트 치킨)를 고르고, 빵 종류, 치즈, 제외할 채소, 추가할 소스를 순서대로 선택하면 자동으로 총 칼로리와 매크로(탄단지) 비율이 계산됩니다.
+          </p>
+        </details>
+        <details class="group bg-white p-6 rounded-2xl shadow-sm border border-gray-100 cursor-pointer">
+          <summary class="font-bold text-xl text-gray-900 flex justify-between items-center">
+            음식 칼로리 계산기 사진 기능은 정확한가요?
+            <span class="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <p class="text-gray-600 mt-4 leading-relaxed">
+            최근 AI 기술의 발전으로 단일 식품(사과, 바나나, 닭가슴살 등)이나 형태가 명확한 음식은 90% 이상의 높은 정확도를 보입니다. 하지만 국물 요리나 여러 재료가 섞인 볶음밥 등은 정확도가 떨어질 수 있으므로, 사진 인식 후 사용자가 수량을 한 번 더 검토하는 것이 좋습니다.
+          </p>
+        </details>
       </div>
-    </div>
+    </article>
 
-    <!-- Suggested Content -->
-    <div class="mb-10">
-      <h2 class="text-xl font-bold mb-4 pl-4">관련 추천 콘텐츠</h2>
-      <div class="grid sm:grid-cols-2 gap-4">
-        <a href="/country/diet-recommended-calorie-guide.html" class="apple-card p-5 hover:shadow-lg transition block">
-          <h3 class="font-bold text-gray-900">다이어트 하루 권장 칼로리 가이드</h3>
-          <p class="text-sm text-gray-500 mt-1">남자, 여자 유지 칼로리 상세 분석</p>
+    <!-- Contenido Sugerido / 추천 콘텐츠 (Suggested Content) -->
+    <section class="mt-16 bg-gray-900 rounded-3xl p-8 sm:p-12 text-white shadow-2xl">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-8 text-center">추천 콘텐츠 (Contenido Sugerido)</h2>
+      <div class="grid sm:grid-cols-2 gap-6 mb-10">
+        <a href="/country/diet-recommended-calorie-guide.html" class="bg-gray-800 p-6 rounded-2xl hover:bg-gray-700 transition duration-300 border border-gray-700 flex flex-col justify-center">
+          <h3 class="font-bold text-xl text-white mb-2">다이어트 하루 권장 칼로리 가이드</h3>
+          <p class="text-gray-400 text-sm">성별, 연령별 상세한 유지 칼로리와 감량 목표 설정법을 심도 있게 분석합니다.</p>
         </a>
-        <a href="/country/korean-community-calorie-calculator.html" class="apple-card p-5 hover:shadow-lg transition block">
-          <h3 class="font-bold text-gray-900">한국 커뮤니티 추천 칼로리 꿀팁</h3>
-          <p class="text-sm text-gray-500 mt-1">네이버, 더쿠의 생생한 리뷰</p>
+        <a href="/country/korean-community-calorie-calculator.html" class="bg-gray-800 p-6 rounded-2xl hover:bg-gray-700 transition duration-300 border border-gray-700 flex flex-col justify-center">
+          <h3 class="font-bold text-xl text-white mb-2">한국 커뮤니티 추천 칼로리 꿀팁</h3>
+          <p class="text-gray-400 text-sm">국내 다이어터들이 숨겨둔 실전 칼로리 계산 및 식단 관리 비법을 만나보세요.</p>
         </a>
       </div>
-    </div>
+      
+      <div class="text-center">
+        <p class="text-gray-400 mb-6">최고의 글로벌 칼로리 계산기를 지금 바로 체험해보세요.</p>
+        
+      </div>
+    </section>
 
-  </div>
+  </main>
 </body>
 </html>

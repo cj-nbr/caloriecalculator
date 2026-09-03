@@ -61,17 +61,51 @@
       color: #1d1d1f;
       transition: all 0.2s ease;
     }
+    .prose-korean h2 {
+      font-size: 1.875rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-top: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #1d1d1f;
+    }
+    .prose-korean h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #1d1d1f;
+    }
+    .prose-korean p {
+      font-size: 1.125rem;
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+      color: #333336;
+    }
+    .prose-korean ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .prose-korean li {
+      font-size: 1.125rem;
+      line-height: 1.75;
+      margin-bottom: 0.5rem;
+    }
   </style>
 </head>
 <body class="p-4 sm:p-10">
 
-  <div class="max-w-5xl mx-auto">
+  <main class="max-w-5xl mx-auto">
+    <!-- Calculator Header -->
     <div class="text-center mb-10">
       <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-ink mb-4">다이어트를 위한 칼로리 계산기</h1>
-      <p class="text-lg text-mute max-w-2xl mx-auto">과학적인 공식을 통해 하루 권장 칼로리와 완벽한 매크로(탄단지) 비율을 계산해 드립니다.</p>
+      <p class="text-lg text-mute max-w-2xl mx-auto">과학적인 미플린-세인트 지어(Mifflin-St Jeor) 공식을 통해 하루 권장 칼로리와 완벽한 매크로(탄단지) 비율을 정확하게 계산해 드립니다. 다이어트 성공의 첫걸음을 시작해보세요.</p>
     </div>
 
-    <div class="grid gap-8 lg:grid-cols-[400px_1fr]" id="calc-root">
+    <!-- The Calculator -->
+    <div class="grid gap-8 lg:grid-cols-[400px_1fr] mb-16" id="calc-root">
       
       <!-- ── Form ───────────────────────────────────────────────── -->
       <form id="calc-form" class="apple-card p-6 sm:p-8 h-fit" novalidate>
@@ -206,38 +240,194 @@
       </div>
     </div>
 
-    <!-- Related Guides / Internal Links Section -->
-    <div class="mt-16 pt-12 border-t border-gray-200">
-      <h2 class="text-2xl font-bold text-ink mb-6 text-center">칼로리 관리 및 다이어트 가이드</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        
-        <a href="/country/diet-recommended-calorie-guide.html" class="apple-card p-6 hover:shadow-lg transition-shadow group">
-          <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-          </div>
-          <h3 class="text-lg font-bold text-ink mb-2">하루 권장 칼로리 가이드</h3>
-          <p class="text-sm text-mute leading-relaxed">남자, 여자 평균 권장 칼로리와 다이어트 유지 칼로리에 대해 상세하게 알아보세요.</p>
-        </a>
+    <!-- Extensive SEO Content -->
+    <article class="apple-card p-8 sm:p-12 mb-16 prose-korean">
+      <h2>성공적인 다이어트를 위한 칼로리 계산의 모든 것</h2>
+      <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80" alt="건강한 샐러드와 다이어트 식단" class="w-full rounded-2xl mb-8 object-cover h-[400px]">
+      
+      <p>체중 감량, 근육 증량, 혹은 현재의 체중을 유지하고자 할 때 가장 기본이 되는 것은 바로 <strong>'칼로리(Calorie)'</strong>입니다. 많은 사람들이 유행하는 다이어트 방법이나 원푸드 다이어트에 도전하지만, 결국 장기적인 성공을 결정짓는 핵심 요소는 <strong>에너지 섭취량과 소모량의 균형</strong>입니다.</p>
+      
+      <p>본 다이어트 칼로리 계산기는 최신 영양학적 연구와 과학적 공식을 바탕으로, 개인의 신체 스펙에 꼭 맞는 하루 권장 칼로리와 매크로(탄수화물, 단백질, 지방) 비율을 제안합니다. 복잡한 계산식은 저희에게 맡기시고, 여러분은 계산된 목표 수치에 맞춰 식단과 운동을 실천하기만 하면 됩니다.</p>
 
-        <a href="/country/food-exercise-calorie-app.html" class="apple-card p-6 hover:shadow-lg transition-shadow group">
-          <div class="w-10 h-10 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-          </div>
-          <h3 class="text-lg font-bold text-ink mb-2">칼로리 계산기 앱 추천</h3>
-          <p class="text-sm text-mute leading-relaxed">서브웨이 음식부터 운동 칼로리까지! 가장 유용한 다이어트 어플과 사이트를 추천합니다.</p>
-        </a>
+      <h3>1. 칼로리와 에너지 대사의 과학적 이해</h3>
+      <p>다이어트의 원리를 이해하기 위해서는 먼저 세 가지 핵심 개념인 <strong>기초대사량(BMR)</strong>, <strong>활동대사량</strong>, 그리고 <strong>총 에너지 소비량(TDEE)</strong>을 알아야 합니다.</p>
+      
+      <ul>
+        <li><strong>기초대사량 (BMR, Basal Metabolic Rate):</strong> 우리가 하루 종일 아무것도 하지 않고 누워만 있을 때, 즉 생명 유지를 위해 심장이 뛰고 호흡하며 체온을 유지하는 데 필요한 최소한의 에너지입니다. 전체 칼로리 소모의 약 60~70%를 차지합니다.</li>
+        <li><strong>활동대사량 (NEAT & EAT):</strong> 일상 생활에서의 움직임(NEAT)과 의도적인 운동(EAT)을 통해 소모되는 칼로리입니다. 직업과 운동 빈도에 따라 개인차가 가장 큰 영역입니다.</li>
+        <li><strong>식품 유도 발열 효과 (TEF, Thermic Effect of Food):</strong> 음식을 소화하고 흡수하는 과정에서 소모되는 칼로리로, 전체 에너지 소비의 약 10%를 차지합니다. (단백질이 탄수화물이나 지방보다 소화 시 더 많은 에너지를 소모합니다.)</li>
+        <li><strong>총 에너지 소비량 (TDEE, Total Daily Energy Expenditure):</strong> 위 세 가지 요소를 모두 합친, 하루에 총 소모하는 칼로리입니다.</li>
+      </ul>
 
-        <a href="/country/korean-community-calorie-calculator.html" class="apple-card p-6 hover:shadow-lg transition-shadow group">
-          <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
-          </div>
-          <h3 class="text-lg font-bold text-ink mb-2">커뮤니티 추천 칼로리 계산법</h3>
-          <p class="text-sm text-mute leading-relaxed">디시, 더쿠, 네이버 블로그 등 한국 커뮤니티에서 가장 화제가 된 다이어트 비법을 확인하세요.</p>
-        </a>
-
+      <div class="bg-gray-50 rounded-2xl p-6 my-8 border border-gray-100">
+        <h4 class="text-xl font-bold mb-4">미플린-세인트 지어(Mifflin-St Jeor) 공식</h4>
+        <p class="text-sm text-gray-600 mb-2">현존하는 BMR 계산식 중 가장 정확도가 높은 것으로 알려져 있으며, 이 계산기에 적용된 공식입니다.</p>
+        <ul class="text-sm font-mono text-gray-800 space-y-2">
+          <li>남자 BMR = (10 × 체중kg) + (6.25 × 키cm) - (5 × 나이) + 5</li>
+          <li>여자 BMR = (10 × 체중kg) + (6.25 × 키cm) - (5 × 나이) - 161</li>
+        </ul>
       </div>
-    </div>
-  </div>
+
+      <h3>2. 활동량과 METs (대사당량) 데이터 테이블</h3>
+      <p>우리의 신체는 어떤 운동을 하느냐에 따라 소모하는 칼로리가 다릅니다. 이 때 사용되는 지표가 바로 <strong>MET(Metabolic Equivalent of Task)</strong>입니다. 1 MET는 우리가 가만히 앉아 있을 때 소모되는 에너지 양을 의미하며, 운동 강도에 따라 배수가 증가합니다.</p>
+      
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-left border-collapse bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200">
+          <thead class="bg-gray-50 text-gray-700">
+            <tr>
+              <th class="p-4 border-b font-semibold">운동 종류</th>
+              <th class="p-4 border-b font-semibold">MET 수치</th>
+              <th class="p-4 border-b font-semibold">70kg 기준 1시간 소모 칼로리</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-600">
+            <tr>
+              <td class="p-4 border-b">휴식 / 수면</td>
+              <td class="p-4 border-b">1.0</td>
+              <td class="p-4 border-b">약 70 kcal</td>
+            </tr>
+            <tr class="bg-gray-50/50">
+              <td class="p-4 border-b">가벼운 걷기 (산책)</td>
+              <td class="p-4 border-b">3.0</td>
+              <td class="p-4 border-b">약 210 kcal</td>
+            </tr>
+            <tr>
+              <td class="p-4 border-b">빠른 걷기 / 파워 워킹</td>
+              <td class="p-4 border-b">4.3</td>
+              <td class="p-4 border-b">약 300 kcal</td>
+            </tr>
+            <tr class="bg-gray-50/50">
+              <td class="p-4 border-b">웨이트 트레이닝 (중강도)</td>
+              <td class="p-4 border-b">6.0</td>
+              <td class="p-4 border-b">약 420 kcal</td>
+            </tr>
+            <tr>
+              <td class="p-4 border-b">수영 (자유형)</td>
+              <td class="p-4 border-b">7.0</td>
+              <td class="p-4 border-b">약 490 kcal</td>
+            </tr>
+            <tr class="bg-gray-50/50">
+              <td class="p-4 border-b">런닝 / 조깅 (8km/h)</td>
+              <td class="p-4 border-b">8.3</td>
+              <td class="p-4 border-b">약 580 kcal</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>3. 탄수화물, 단백질, 지방 (매크로 영양소) 설정 팁</h3>
+      <p>단순히 칼로리만 맞추는 것보다 <strong>무엇을 먹느냐</strong>가 다이어트의 질을 좌우합니다. 근손실을 방지하고 체지방 위주의 감량을 원한다면 탄수화물, 단백질, 지방의 비율(Macronutrients)을 전략적으로 설정해야 합니다.</p>
+      
+      <ul>
+        <li><strong>단백질 (1g = 4kcal):</strong> 근육 회복과 성장에 필수적이며 포만감을 길게 유지해줍니다. 다이어트 시 체중 1kg당 1.6g~2.0g 섭취를 권장합니다.</li>
+        <li><strong>지방 (1g = 9kcal):</strong> 호르몬 분비와 세포막 형성에 중요합니다. 칼로리가 높으므로 총 칼로리의 20~30% 정도로 제한하되, 아보카도, 견과류, 올리브오일 등 건강한 불포화 지방을 섭취하세요.</li>
+        <li><strong>탄수화물 (1g = 4kcal):</strong> 운동 시 주 에너지원입니다. 총 칼로리에서 단백질과 지방을 뺀 나머지 양을 탄수화물로 채웁니다. 정제 탄수화물(빵, 과자)보다 복합 탄수화물(현미, 고구마, 오트밀) 위주로 섭취하는 것이 혈당 관리에 유리합니다.</li>
+      </ul>
+      <p>본 계산기는 기본적으로 가장 대중적이고 지속 가능한 비율인 <strong>탄수화물 40%, 단백질 30%, 지방 30%</strong>를 기준으로 매크로를 제안합니다.</p>
+
+      <h3>4. 다이어트 성공을 위한 액셔너블(Actionable) 팁</h3>
+      <p>이론을 아는 것과 실천하는 것은 다릅니다. 칼로리 계산 결과를 바탕으로 즉시 적용할 수 있는 현실적인 팁을 드립니다.</p>
+      <ol class="list-decimal pl-6 space-y-4 text-lg">
+        <li><strong>점진적인 감량 목표 설정:</strong> 무리하게 칼로리를 굶는 것은 요요현상의 지름길입니다. TDEE에서 <strong>300~500kcal</strong> 정도만 뺀 칼로리를 섭취하세요. 이는 일주일에 0.3~0.5kg의 건강한 체지방 감량을 이끌어냅니다.</li>
+        <li><strong>식단 기록 습관화:</strong> 내가 하루에 얼마나 먹는지 정확히 아는 것이 중요합니다. 시중에 나와있는 식단 어플을 활용해 식사 전후로 기록하는 습관을 들이세요.</li>
+        <li><strong>액체 칼로리 주의:</strong> 라떼, 주스, 탄산음료 등은 포만감은 주지 않으면서 칼로리만 높입니다. 음료는 물, 아메리카노, 제로 음료로 대체하세요.</li>
+        <li><strong>충분한 수면과 스트레스 관리:</strong> 수면이 부족하면 식욕을 자극하는 그렐린 호르몬이 분비됩니다. 하루 7~8시간의 양질의 수면은 다이어트 성공의 숨은 치트키입니다.</li>
+      </ol>
+
+      <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80" alt="운동하는 사람, 피트니스" class="w-full rounded-2xl my-8 object-cover h-[400px]">
+
+      <h3>5. 칼로리와 다이어트에 대한 오해와 진실 (Myth Busting)</h3>
+      <div class="space-y-6">
+        <div class="p-6 bg-white border border-gray-200 rounded-2xl shadow-sm">
+          <p class="font-bold text-red-500 mb-2">오해: 밤 6시 이후에 먹으면 무조건 살이 찐다?</p>
+          <p class="text-gray-700"><strong>진실:</strong> 체중 증가는 음식을 먹는 시간이 아니라, 하루 <strong>총 섭취 칼로리</strong>에 의해 결정됩니다. 늦은 시간에 먹더라도 하루 총 소모량(TDEE)보다 적게 먹었다면 살은 찌지 않습니다. 다만, 자기 직전 식사는 소화 불량과 수면 방해를 유발할 수 있으므로 취침 2~3시간 전에는 식사를 마치는 것이 좋습니다.</p>
+        </div>
+        <div class="p-6 bg-white border border-gray-200 rounded-2xl shadow-sm">
+          <p class="font-bold text-red-500 mb-2">오해: 특정 음식이 뱃살만 빼준다?</p>
+          <p class="text-gray-700"><strong>진실:</strong> '부분 감량'은 불가능합니다. 특정 차나 음식이 복부 지방만을 타겟으로 태워주지 않습니다. 꾸준한 칼로리 적자(Caloric Deficit)를 유지하면 전신의 지방이 골고루 감소하며 뱃살도 자연스럽게 빠집니다.</p>
+        </div>
+        <div class="p-6 bg-white border border-gray-200 rounded-2xl shadow-sm">
+          <p class="font-bold text-red-500 mb-2">오해: 탄수화물은 다이어트의 적이다?</p>
+          <p class="text-gray-700"><strong>진실:</strong> 과도한 정제 탄수화물 섭취가 문제일 뿐, 탄수화물 자체가 적은 아닙니다. 고강도 운동을 하거나 근육을 유지하기 위해서는 질 좋은 탄수화물이 반드시 필요합니다. 극단적인 저탄수화물 다이어트는 무기력증을 유발할 수 있습니다.</p>
+        </div>
+      </div>
+
+      <h3 class="mt-12">6. 자주 묻는 질문 (FAQ)</h3>
+      <div class="space-y-4">
+        <details class="group bg-gray-50 rounded-2xl border border-gray-200">
+          <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5">
+            <span class="text-lg">계산된 기초대사량보다 적게 먹으면 어떻게 되나요?</span>
+            <span class="transition group-open:rotate-180">
+              <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+          </summary>
+          <div class="text-gray-600 p-5 pt-0">
+            기초대사량(BMR)은 생존을 위한 최소한의 에너지입니다. 이보다 지속적으로 적게 섭취할 경우, 우리 몸은 '기아 상태'로 인식하여 신진대사를 급격히 떨어뜨리고 근육을 분해해 에너지로 사용합니다. 이로 인해 기초대사량이 더욱 낮아지며, 다이어트가 끝난 후 조금만 먹어도 살이 급격히 찌는 요요현상을 겪게 됩니다. 따라서 목표 칼로리는 기초대사량 이상으로 설정해야 합니다.
+          </div>
+        </details>
+        <details class="group bg-gray-50 rounded-2xl border border-gray-200">
+          <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5">
+            <span class="text-lg">치팅데이(Cheating Day)를 가져도 되나요?</span>
+            <span class="transition group-open:rotate-180">
+              <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+          </summary>
+          <div class="text-gray-600 p-5 pt-0">
+            엄격한 식단으로 인한 심리적 스트레스를 줄이기 위해 주 1회 정도 '치팅밀(Cheating Meal, 한 끼 정도 먹고 싶은 음식을 적당히 먹는 것)'을 가지는 것은 긍정적일 수 있습니다. 하지만 하루 종일 폭식하는 '치팅데이'는 일주일 동안 힘들게 만들어놓은 칼로리 적자를 단 하루 만에 원점으로 돌릴 수 있으므로 주의해야 합니다.
+          </div>
+        </details>
+        <details class="group bg-gray-50 rounded-2xl border border-gray-200">
+          <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5">
+            <span class="text-lg">운동을 안 해도 살을 뺄 수 있나요?</span>
+            <span class="transition group-open:rotate-180">
+              <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+          </summary>
+          <div class="text-gray-600 p-5 pt-0">
+            이론적으로 섭취 칼로리가 소모 칼로리보다 적다면 운동 없이 식단만으로도 체중은 감량됩니다. 하지만 운동을 병행하지 않으면 지방뿐만 아니라 근육도 함께 빠져나가 탄력 없는 몸매가 될 수 있으며, 기초대사량이 떨어져 다이어트 정체기가 빨리 올 수 있습니다. 건강하고 요요 없는 다이어트를 위해 유산소와 근력 운동의 병행을 적극 권장합니다.
+          </div>
+        </details>
+      </div>
+    </article>
+
+    <!-- Suggested Content (Contenido Sugerido) Section -->
+    <section class="mt-16 pt-12 border-t border-gray-200 mb-10">
+      <h2 class="text-3xl font-extrabold text-ink mb-8 text-center">추천 콘텐츠 (다이어트 가이드)</h2>
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        <a href="/country/diet-recommended-calorie-guide.html" class="apple-card p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group flex flex-col items-center text-center">
+          <div class="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-600 text-white rounded-full flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-ink mb-3">하루 권장 칼로리 가이드</h3>
+          <p class="text-base text-mute leading-relaxed">남녀 평균 권장 칼로리와 다이어트 유지 칼로리에 대한 심층 분석 가이드입니다.</p>
+        </a>
+
+        <a href="/country/food-exercise-calorie-app.html" class="apple-card p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group flex flex-col items-center text-center">
+          <div class="w-14 h-14 bg-gradient-to-br from-green-400 to-green-600 text-white rounded-full flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-ink mb-3">칼로리 어플 추천 Best</h3>
+          <p class="text-base text-mute leading-relaxed">음식부터 운동까지 한 번에 기록! 가장 유용한 다이어트 어플과 사이트를 리뷰합니다.</p>
+        </a>
+
+        <a href="/country/korean-community-calorie-calculator.html" class="apple-card p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group flex flex-col items-center text-center">
+          <div class="w-14 h-14 bg-gradient-to-br from-purple-400 to-purple-600 text-white rounded-full flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-ink mb-3">커뮤니티 다이어트 비법</h3>
+          <p class="text-base text-mute leading-relaxed">인터넷 커뮤니티에서 가장 화제가 된 현실적인 다이어트 식단과 비법 모음집.</p>
+        </a>
+      </div>
+
+      <div class="text-center">
+        <a href="/country/다이어트를 위한 칼로리 계산기.html" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl">
+          나만의 칼로리 다시 계산하기
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
 
   <script>
     const ACTIVITY_LEVELS = {
@@ -289,7 +479,9 @@
     const $ = (id) => document.getElementById(id);
 
     function render() {
-      const sex = document.querySelector('input[name="sex"]:checked').value;
+      const sexInput = document.querySelector('input[name="sex"]:checked');
+      if (!sexInput) return;
+      const sex = sexInput.value;
       const age = parseFloat($("age").value) || 0;
       const weightKg = parseFloat($("weight").value) || 0;
       const heightCm = parseFloat($("height-cm").value) || 0;
@@ -302,25 +494,27 @@
       const tdeeVal = tdee(bmr, activity);
       const cals = goalCalories(tdeeVal, goal, sex);
 
-      $("result-bmr").textContent = fmt(bmr);
-      $("result-tdee").textContent = fmt(tdeeVal);
-      $("result-calories").textContent = fmt(cals);
-      $("result-weekly").textContent = fmt(cals * 7);
-      $("goal-label").textContent = GOALS[goal].label;
+      if ($("result-bmr")) $("result-bmr").textContent = fmt(bmr);
+      if ($("result-tdee")) $("result-tdee").textContent = fmt(tdeeVal);
+      if ($("result-calories")) $("result-calories").textContent = fmt(cals);
+      if ($("result-weekly")) $("result-weekly").textContent = fmt(cals * 7);
+      if ($("goal-label")) $("goal-label").textContent = GOALS[goal].label;
 
       const m = macrosFromCalories(cals);
-      $("macro-protein").textContent = String(m.proteinG);
-      $("macro-carbs").textContent = String(m.carbsG);
-      $("macro-fat").textContent = String(m.fatG);
+      if ($("macro-protein")) $("macro-protein").textContent = String(m.proteinG);
+      if ($("macro-carbs")) $("macro-carbs").textContent = String(m.carbsG);
+      if ($("macro-fat")) $("macro-fat").textContent = String(m.fatG);
     }
 
-    $("calc-form").addEventListener("submit", (e) => {
-      e.preventDefault();
-      render();
-    });
+    if ($("calc-form")) {
+      $("calc-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        render();
+      });
+    }
 
-    $("goal").addEventListener("change", render);
-    $("activity").addEventListener("change", render);
+    if ($("goal")) $("goal").addEventListener("change", render);
+    if ($("activity")) $("activity").addEventListener("change", render);
     
     // Initial render
     render();
