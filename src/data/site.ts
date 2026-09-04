@@ -46,9 +46,6 @@ export const ALL_CALCULATORS: NavLink[] = [
   { label: "Target Heart Rate Calculator", href: "/target-heart-rate-calculator/", desc: "Training heart rate zones" },
   { label: "Alcohol Calories Calculator", href: "/alcohol-calories-calculator/", desc: "Calories in beer, wine & spirits" },
   { label: "Pace Calculator", href: "/pace-calculator/", desc: "Running, walking, cycling pace" },
-  { label: "Pregnancy Calculator", href: "/pregnancy-calculator/", desc: "Due date & conception" },
-  { label: "Due Date Calculator", href: "/due-date-calculator/", desc: "Estimated delivery date" },
-  { label: "Conception Calculator", href: "/pregnancy-conception-calculator/", desc: "Fertility window" },
   { label: "Maintenance Calorie Calculator", href: "/guides/maintenance-calorie-calculator/", desc: "Maintenance guide" },
   { label: "Online Calorie Calculator", href: "/guides/online-calorie-calculator/", desc: "Online tool guide" },
   { label: "Metabolism Calculator", href: "/guides/metabolism-calculator/", desc: "Metabolism guide" },
@@ -103,7 +100,6 @@ export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
       { label: "Epley Formula", href: "/guides/epley-formula/" },
       { label: "Harris-Benedict Revised", href: "/guides/harris-benedict-revised/" },
       { label: "Mifflin-St Jeor Stress Factors", href: "/guides/mifflin-st-jeor-stress-factors/" },
-      { label: "Estimate Delivery Date", href: "/guides/estimate-delivery-date/" },
     ],
   },
   {
@@ -161,8 +157,6 @@ export const FOOTER: { title: string; links: NavLink[] }[] = [
     links: [
       { label: "Korean Calorie Calculator", href: "/country/%EB%8B%A4%EC%9D%B4%EC%96%B4%ED%8A%B8%EB%A5%BC%20%EC%9C%84%ED%95%9C%20%EC%B9%BC%EB%A1%9C%EB%A6%AC%20%EA%B3%84%EC%82%B0%EA%B8%B0.html" },
       { label: "Spanish Calorie Calculator", href: "/country/spain/calculadora-de-calorias.html" },
-      { label: "Age Calculator", href: "/age-calculator/" },
-      { label: "Mortgage Calculator", href: "/mortgage-calculator/" },
     ],
   },
 ];
