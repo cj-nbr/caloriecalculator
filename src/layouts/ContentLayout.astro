@@ -3,7 +3,6 @@ import Layout from "./Layout.astro";
 import Section from "../components/ui/Section.astro";
 import FaqSection from "../components/FaqSection.astro";
 import Button from "../components/ui/Button.astro";
-import AdsterraAd from "../components/AdsterraAd.astro";
 import ReviewBadge from "../components/ui/ReviewBadge.astro";
 import ExpertBio from "../components/ui/ExpertBio.astro";
 import type { FaqItem } from "../lib/seo";
@@ -94,8 +93,6 @@ const jsonLd = [
       <ExpertBio expert={author} title="Written By" />
     </article>
   </div>
-
-  <AdsterraAd />
 
   {
     faqs.length > 0 && (

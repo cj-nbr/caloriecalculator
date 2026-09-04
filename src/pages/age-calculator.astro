@@ -3,7 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import Section from "../components/ui/Section.astro";
 import FaqSection from "../components/FaqSection.astro";
 import Button from "../components/ui/Button.astro";
-import AdsterraAd from "../components/AdsterraAd.astro";
 import { inputCls } from "../lib/ui";
 import type { FaqItem } from "../lib/seo";
 import {
@@ -94,9 +93,7 @@ const jsonLd = [
 </Section>
 
    <!-- Ad placement - below calculator results -->
-   <AdsterraAd />
-
-    <div class="border-t border-hairline">
+   <div class="border-t border-hairline">
      <div class="container-page py-12 sm:py-16">
      <div class="prose-content mx-auto max-w-3xl">
        <ArticleImage src="/assets/images/articles/birthday-cake.svg" alt="Illustration of a birthday cake with candle representing age calculation and birthdays." />

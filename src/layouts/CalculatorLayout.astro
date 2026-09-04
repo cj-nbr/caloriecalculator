@@ -2,7 +2,6 @@
 import Layout from "./Layout.astro";
 import Section from "../components/ui/Section.astro";
 import FaqSection from "../components/FaqSection.astro";
-import AdsterraAd from "../components/AdsterraAd.astro";
 import ReviewBadge from "../components/ui/ReviewBadge.astro";
 import ExpertBio from "../components/ui/ExpertBio.astro";
 import { NAV, FOOTER, ALL_CALCULATORS } from "../data/site";
@@ -82,9 +81,7 @@ const related = ALL_CALCULATORS.filter((c) => c.href !== path).slice(0, 6);
      <slot />
    </Section>
 
-   <AdsterraAd />
-
-  <div class="border-t border-hairline">
+   <div class="border-t border-hairline">
     <div class="container-page py-12 sm:py-16">
       <div class="prose-content mx-auto max-w-3xl">
         <slot name="content" />
