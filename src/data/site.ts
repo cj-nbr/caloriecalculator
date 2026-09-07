@@ -155,8 +155,8 @@ export const FOOTER: { title: string; links: NavLink[] }[] = [
   {
     title: "Tools",
     links: [
-      { label: "Korean Calorie Calculator", href: "/country/korean-weight-loss-calorie-calculator" },
-      { label: "Spanish Calorie Calculator", href: "/country/spain/calculadora-de-calorias" },
+      { label: "Korean Calorie Calculator", href: "/country/korean-weight-loss-calorie-calculator/" },
+      { label: "Spanish Calorie Calculator", href: "/country/spain/calculadora-de-calorias/" },
     ],
   },
 ];

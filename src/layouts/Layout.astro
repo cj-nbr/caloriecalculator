@@ -26,8 +26,13 @@ const {
   jsonLd = [],
 } = Astro.props;
 
-const canonicalPath = canonical ?? Astro.url.pathname;
+const rawPath = canonical ?? Astro.url.pathname;
+// Enforce trailing slash on canonicals (unless it's the root itself)
+const canonicalPath = rawPath.endsWith('/') ? rawPath : `${rawPath}/`;
+// Build clean URL without search params
 const canonicalUrl = new URL(canonicalPath, SITE.url);
+canonicalUrl.search = '';
+canonicalUrl.hash = '';
 canonicalUrl.hostname = SITE.domain;
 canonicalUrl.protocol = "https:";
 const canonicalUrlString = canonicalUrl.href;
