@@ -1,4 +1,6 @@
----
+import os
+
+content = """---
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -132,3 +134,8 @@ const faqs: FaqItem[] = [
   </div>
 
 </ContentLayout>
+"""
+
+with open(r"d:\TOOLS WEB TOOLS\kiro calorie\src\pages\guides\protein-calories.astro", "w", encoding="utf-8") as f:
+    f.write(content)
+print("Rewrote protein-calories.astro")
