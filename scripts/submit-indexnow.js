@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const distDir = path.join(__dirname, '../dist');
 
-const API_KEY = '919b9e2f83484d43abea1fdc52f2a2a3';
+const API_KEY = '21b6e8338b8246dfa0bb162dc5349410';
 const HOST = 'caloriecalculatorfree.com';
 const KEY_LOCATION = `https://${HOST}/${API_KEY}.txt`;
 
