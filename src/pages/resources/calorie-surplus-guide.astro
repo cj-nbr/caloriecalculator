@@ -5,101 +5,202 @@ import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
 
 const faqs: FaqItem[] = [
-  { q: "What is a calorie surplus?", a: "A calorie surplus is eating more calories than you burn. This provides energy for muscle growth and weight gain. ~3,500 surplus = ~1 lb gained." },
-  { q: "How much calorie surplus for muscle gain?", a: "Lean bulk: 250–500 calories above maintenance. This minimizes fat gain while maximizing muscle. Use our <a href='/guides/maintenance-calorie-calculator/'>maintenance calculator</a> first." },
-  { q: "What is the clean bulk vs dirty bulk?", a: "Clean bulk: 250–500 calorie surplus with nutrient-dense foods. Dirty bulk: larger surplus with less attention to food quality. Clean bulk is recommended for most people." },
-  { q: "How fast should I gain weight?", a: "For muscle: 0.25–0.5 lb/week. Faster gain often includes excess fat. Use our <a href='/weight-loss-calculator/'>weight loss calculator</a> reverse logic for timeframes." },
+  { q: "What is a calorie surplus?", a: "A calorie surplus is an energetic state where your dietary caloric intake consistently exceeds your total daily energy expenditure (TDEE). This extra energy is necessary for physiological processes like muscle hypertrophy and overall weight gain." },
+  { q: "How large should my calorie surplus be for muscle gain?", a: "For optimal lean muscle gain without excessive fat accumulation, a conservative surplus of 250–500 calories above maintenance is recommended. This minimizes lipogenesis while maximizing muscle protein synthesis. Use our <a href='/guides/maintenance-calorie-calculator/'>maintenance calculator</a> first." },
+  { q: "What is the difference between a clean bulk and a dirty bulk?", a: "A clean bulk utilizes a controlled 250–500 calorie surplus consisting primarily of nutrient-dense whole foods. A dirty bulk involves a much larger, uncontrolled surplus with highly processed foods, which often results in disproportionate fat gain." },
+  { q: "How fast should I expect to gain weight in a surplus?", a: "For primarily muscle growth, aim for a steady rate of 0.25–0.5 pounds per week. Faster rates of weight gain typically consist largely of adipose tissue rather than muscle." },
+  { q: "Can I build muscle without a calorie surplus?", a: "While complete beginners, significantly overweight individuals, or those returning from a layoff might achieve body recomposition (building muscle and losing fat simultaneously), most trained individuals require a steady calorie surplus to add significant lean mass." },
+  { q: "Should I do cardio while in a calorie surplus?", a: "Yes, maintaining moderate cardiovascular exercise during a surplus supports heart health, improves nutrient partitioning, and enhances metabolic flexibility. Just ensure you account for the burned calories in your intake." }
 ];
 ---
 
 <ContentLayout
   title="Calorie Surplus Guide — Lean Bulk vs Dirty Bulk"
   h1="Calorie Surplus Guide"
-  description="Learn about calorie surplus for muscle gain. Find optimal surplus size, clean vs dirty bulk, and maximize lean mass while minimizing fat."
+  description="Explore the science of a calorie surplus for muscle gain. Discover the optimal surplus size, differences between clean vs dirty bulking, and how to maximize lean mass."
   path="/resources/calorie-surplus-guide/"
   category="Resources"
   categoryPath="/resources/"
-  lead="A calorie surplus fuels muscle growth. Learn how to bulk effectively."
+  lead="A calorie surplus is the metabolic foundation of muscle growth. Learn how to engineer your nutrition to bulk effectively without unwanted fat gain."
   updated="June 2026"
   faqs={faqs}
 >
 
   <MedicalNote />
 
-  <p>A <strong>calorie surplus</strong> means eating more calories than you burn. This extra energy fuels muscle protein synthesis and supports weight gain.</p>
+  <p class="text-body text-ink mb-6">
+    To build muscle optimally, your body requires an anabolic environment, which is primarily driven by a <strong>calorie surplus</strong>. This physiological state occurs when you consume more calories than you expend through your basal metabolic rate (BMR), non-exercise activity thermogenesis (NEAT), exercise, and the thermic effect of food (TEF). This energetic abundance fuels muscle protein synthesis (MPS) and supports long-term tissue accretion.
+  </p>
 
-  <h2>Calorie surplus sizes and expected outcomes</h2>
+  <h2 class="text-2xl font-bold text-ink mt-8 mb-4">The Science of Caloric Surplus and Anabolism</h2>
+  <ArticleImage src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop" alt="A gym environment with weights, representing muscle building in a calorie surplus." />
+  
+  <p class="text-body text-ink mb-6">
+    Muscle hypertrophy is an energy-intensive biological process. When you train with weights, you cause microscopic damage to your muscle fibers. During the recovery phase, your body repairs these fibers, making them thicker and stronger. However, without adequate nutritional building blocks and a surplus of energy, the body struggles to complete this repair process efficiently. An optimal calorie surplus provides the metabolic leeway required to elevate mTOR pathway signaling and sustain elevated muscle protein synthesis over prolonged periods.
+  </p>
 
-  <ArticleImage src="/assets/images/articles/balance-scale.svg" alt="Illustration of a balanced scale representing calorie surplus for weight gain." />
-  <table>
-    <thead><tr><th scope="col">Surplus</th><th scope="col">Weekly gain</th><th scope="col">Composition</th></tr></thead>
-    <tbody>
-      <tr><td>250 calories</td><td>0.5 lb/week</td><td>Mostly muscle</td></tr>
-      <tr><td>500 calories</td><td>1 lb/week</td><td>Mixed muscle/fat</td></tr>
-      <tr><td>1,000 calories</td><td>2 lb/week</td><td>Significant fat gain</td></tr>
-    </tbody>
-  </table>
-  <p>Our <a href="/guides/maintenance-calorie-calculator/">maintenance calorie calculator</a> finds your baseline.</p>
+  <h2 class="text-2xl font-bold text-ink mt-8 mb-4">Calorie Surplus Sizes and Expected Outcomes</h2>
+  <p class="text-body text-ink mb-4">
+    Not all calorie surpluses are created equal. The magnitude of your surplus directly dictates the composition of the weight you gain. A massive surplus will invariably lead to increased adiposity (fat gain), whereas a moderate surplus can skew the ratio heavily toward lean muscle mass.
+  </p>
+  <div class="overflow-x-auto mb-8 rounded-xl border border-hairline">
+    <table class="w-full text-left border-collapse">
+      <thead class="bg-surface-alt">
+        <tr>
+          <th scope="col" class="p-4 border-b border-hairline font-semibold text-ink">Surplus Magnitude</th>
+          <th scope="col" class="p-4 border-b border-hairline font-semibold text-ink">Weekly Weight Gain</th>
+          <th scope="col" class="p-4 border-b border-hairline font-semibold text-ink">Tissue Composition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="p-4 border-b border-hairline text-body text-ink">+250 Calories (Lean Bulk)</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">~0.5 lb / week</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">High proportion of muscle, minimal fat</td>
+        </tr>
+        <tr>
+          <td class="p-4 border-b border-hairline text-body text-ink">+500 Calories (Moderate Bulk)</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">~1.0 lb / week</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">Balanced mix of muscle and fat</td>
+        </tr>
+        <tr>
+          <td class="p-4 border-b border-hairline text-body text-ink">+1,000 Calories (Dirty Bulk)</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">~2.0+ lb / week</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">Significant fat accumulation, marginal extra muscle</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="text-body text-ink mb-6">
+    To find your precise baseline starting point, utilize our <a href="/guides/maintenance-calorie-calculator/" class="text-primary hover:underline">maintenance calorie calculator</a>.
+  </p>
 
-  <h2>How to calculate your calorie surplus</h2>
-  <ol>
-    <li>Find your <a href="/tdee-calculator/">TDEE</a> (maintenance calories)</li>
-    <li>Add 250–500 calories for a lean bulk</li>
-    <li>This is your daily eating target</li>
-    <li>Use the <a href="/">calorie calculator</a> with gain goal for automation</li>
-  </ol>
+  <h2 class="text-2xl font-bold text-ink mt-8 mb-4">Clean Bulking vs. Dirty Bulking: An Evidence-Based Approach</h2>
+  <p class="text-body text-ink mb-4">
+    The age-old debate between "clean" and "dirty" bulking revolves around both the quality of the food ingested and the sheer size of the surplus. While a calorie is fundamentally a unit of energy, the hormonal and metabolic response to different foods varies drastically.
+  </p>
+  <div class="overflow-x-auto mb-8 rounded-xl border border-hairline">
+    <table class="w-full text-left border-collapse">
+      <thead class="bg-surface-alt">
+        <tr>
+          <th scope="col" class="p-4 border-b border-hairline font-semibold text-ink">Parameter</th>
+          <th scope="col" class="p-4 border-b border-hairline font-semibold text-ink">Clean Bulk (Lean Gaining)</th>
+          <th scope="col" class="p-4 border-b border-hairline font-semibold text-ink">Dirty Bulk (Unrestricted Gaining)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="p-4 border-b border-hairline font-medium text-ink">Dietary Surplus</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">Controlled 250–500 calorie surplus</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">Aggressive 500–1,000+ calorie surplus</td>
+        </tr>
+        <tr>
+          <td class="p-4 border-b border-hairline font-medium text-ink">Food Quality</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">Nutrient-dense, whole foods (high micronutrients)</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">Highly processed, hyper-palatable foods</td>
+        </tr>
+        <tr>
+          <td class="p-4 border-b border-hairline font-medium text-ink">Body Fat Accumulation</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">Minimal and highly manageable</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">Rapid and significant</td>
+        </tr>
+        <tr>
+          <td class="p-4 border-b border-hairline font-medium text-ink">Metabolic Health</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">Supports optimal insulin sensitivity</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">May induce mild insulin resistance and lethargy</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-  <h2>Clean bulk vs dirty bulk comparison</h2>
-  <table>
-    <thead><tr><th scope="col">Aspect</th><th scope="col">Clean bulk</th><th scope="col">Dirty bulk</th></tr></thead>
-    <tbody>
-      <tr><td>Surplus size</td><td>250–500 calories</td><td>500–1,000+ calories</td></tr>
-      <tr><td>Food quality</td><td>Nutrient-dense whole foods</td><td>Processed/high-calorie foods</td></tr>
-      <tr><td>Weekly gain</td><td>0.25–0.5 lb</td><td>1–2 lb</td></tr>
-      <tr><td>Body fat gain</td><td>Minimal</td><td>Significant</td></tr>
-      <tr><td>Recommended for</td><td>Most people, especially beginners</td><td>Hardgainers under expert supervision</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Macronutrients for muscle gain</h2>
-  <table>
-    <thead><tr><th scope="col">Macro</th><th scope="col">Recommended intake</th></tr></thead>
-    <tbody>
-      <tr><td>Protein</td><td>1.6–2.2 g/kg body weight</td></tr>
-      <tr><td>Fat</td><td>20–30% of total calories</td></tr>
-      <tr><td>Carbs</td><td>45–55% (fills remaining calories)</td></tr>
-    </tbody>
-  </table>
-  <p>Use our <a href="/protein-calculator/">protein calculator</a> and <a href="/macro-calculator/">macro calculator</a>.</p>
-
-  <h2>Calorie surplus foods for muscle</h2>
-  <table>
-    <thead><tr><th scope="col">Food</th><th scope="col">Calories per serving</th><th scope="col">Protein</th></tr></thead>
-    <tbody>
-      <tr><td>Oats (1 cup dry)</td><td>300</td><td>10 g</td></tr>
-      <tr><td>Brown rice (1 cup cooked)</td><td>220</td><td>5 g</td></tr>
-      <tr><td>Salmon (4 oz)</td><td>220</td><td>22 g</td></tr>
-      <tr><td>Banana (1 medium)</td><td>105</td><td>1 g</td></tr>
-      <tr><td>Nuts (1 oz)</td><td>170</td><td>6 g</td></tr>
-      <tr><td>Greek yogurt (1 cup)</td><td>130</td><td>23 g</td></tr>
-    </tbody>
-  </table>
-  <p>Search exact values with our <a href="/food-calories-search/">food calories search</a>.</p>
-
-  <h2>Adjusting your calorie surplus</h2>
-  <p>After 3–4 weeks:</p>
-  <ul>
-    <li><strong>Not gaining:</strong> Increase by 100–200 calories</li>
-    <li><strong>Gaining too fast (&gt;1 lb/week):</strong> Reduce surplus</li>
-    <li><strong>Excessive fat gain:</strong> Lower surplus or increase activity</li>
+  <h2 class="text-2xl font-bold text-ink mt-8 mb-4">Macronutrient Partitioning for Hypertrophy</h2>
+  <p class="text-body text-ink mb-4">
+    While calories dictate weight gain, macronutrients dictate body composition. To ensure the weight you gain in a surplus is predominantly skeletal muscle, strict adherence to macronutrient ratios is imperative.
+  </p>
+  <ul class="list-disc pl-6 mb-6 text-body text-ink space-y-2">
+    <li><strong>Protein:</strong> The structural foundation of muscle tissue. Aim for 1.6 to 2.2 grams per kilogram of body weight (0.7–1.0g per pound). Excess protein beyond this point provides diminishing returns for hypertrophy but can aid in satiety.</li>
+    <li><strong>Carbohydrates:</strong> Your primary energy currency. Carbs replenish intramuscular glycogen stores, support high-intensity weight training, and provoke an insulin response which is highly anti-catabolic. Aim for 4-7g per kg of body weight, filling the majority of your remaining surplus calories.</li>
+    <li><strong>Dietary Fats:</strong> Essential for hormonal optimization, specifically the production of endogenous testosterone. Maintain an intake of roughly 20-30% of your total daily caloric load from healthy fats (avocados, nuts, olive oil).</li>
   </ul>
-  <p>Recalculate maintenance with <a href="/tdee-calculator/">TDEE calculator</a> if weight changed significantly.</p>
+  <p class="text-body text-ink mb-6">
+    Optimize your specific intake using our <a href="/protein-calculator/" class="text-primary hover:underline">protein calculator</a> and <a href="/macro-calculator/" class="text-primary hover:underline">macro calculator</a>.
+  </p>
 
-  <h2>Signs you're in a good calorie surplus</h2>
-  <ul>
-    <li>Steady weight gain (0.25–0.5 lb/week)</li>
-    <li>Improved workout performance</li>
-    <li>Adequate energy for daily activities</li>
-    <li>Better sleep quality</li>
+  <h2 class="text-2xl font-bold text-ink mt-8 mb-4">Strategic Food Choices for a Caloric Surplus</h2>
+  <p class="text-body text-ink mb-4">
+    Consuming enough calories from purely "clean" foods can be challenging due to their high fiber and water content. Incorporating calorie-dense, yet nutrient-rich foods is the secret to a successful lean bulk.
+  </p>
+  <div class="overflow-x-auto mb-8 rounded-xl border border-hairline">
+    <table class="w-full text-left border-collapse">
+      <thead class="bg-surface-alt">
+        <tr>
+          <th scope="col" class="p-4 border-b border-hairline font-semibold text-ink">Food Item</th>
+          <th scope="col" class="p-4 border-b border-hairline font-semibold text-ink">Standard Serving</th>
+          <th scope="col" class="p-4 border-b border-hairline font-semibold text-ink">Calories</th>
+          <th scope="col" class="p-4 border-b border-hairline font-semibold text-ink">Protein Content</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="p-4 border-b border-hairline text-body text-ink">Rolled Oats</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">1 cup (dry, 80g)</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">300 kcal</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">10 g</td>
+        </tr>
+        <tr>
+          <td class="p-4 border-b border-hairline text-body text-ink">Wild-Caught Salmon</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">4 oz (113g)</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">220 kcal</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">22 g</td>
+        </tr>
+        <tr>
+          <td class="p-4 border-b border-hairline text-body text-ink">Almonds or Walnuts</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">1 oz (28g)</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">170 kcal</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">6 g</td>
+        </tr>
+        <tr>
+          <td class="p-4 border-b border-hairline text-body text-ink">Whole Milk Greek Yogurt</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">1 cup (227g)</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">220 kcal</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">20 g</td>
+        </tr>
+        <tr>
+          <td class="p-4 border-b border-hairline text-body text-ink">Jasmine Rice</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">1 cup (cooked, 158g)</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">205 kcal</td>
+          <td class="p-4 border-b border-hairline text-body text-ink">4 g</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="text-body text-ink mb-6">
+    Search for exact nutritional values using our comprehensive <a href="/food-calories-search/" class="text-primary hover:underline">food calories search database</a>.
+  </p>
+
+  <h2 class="text-2xl font-bold text-ink mt-8 mb-4">Monitoring and Adjusting Your Surplus</h2>
+  <p class="text-body text-ink mb-4">
+    Metabolic adaptation is a real phenomenon. As your mass increases, so does your basal metabolic rate and the energy cost of moving that extra mass. This means a 300-calorie surplus today might become your new maintenance level in a few months.
+  </p>
+  <ul class="list-disc pl-6 mb-6 text-body text-ink space-y-2">
+    <li><strong>Weight Stagnation:</strong> If you fail to gain weight for 2–3 consecutive weeks, your body has adapted. Increase your daily intake by a modest 100–150 calories and monitor the next two weeks.</li>
+    <li><strong>Excessive Rate of Gain:</strong> If you are gaining more than 1 pound per week (as an intermediate or advanced trainee), you are likely storing disproportionate amounts of body fat. Reduce your intake by 150-200 calories.</li>
+    <li><strong>Visual Composition:</strong> Rely heavily on mirror progress, progress photos, and gym performance rather than purely scale weight, which can fluctuate due to glycogen, water, and sodium variations.</li>
   </ul>
+  
+  <p class="text-body text-ink mb-6">
+    Consistently reassess your baseline with our <a href="/tdee-calculator/" class="text-primary hover:underline">TDEE calculator</a> as your total body weight changes.
+  </p>
+
+  <h2 class="text-2xl font-bold text-ink mt-8 mb-4">Key Indicators of an Effective Calorie Surplus</h2>
+  <p class="text-body text-ink mb-4">
+    How do you know if your surplus is truly working? Look for these physiological indicators:
+  </p>
+  <ul class="list-disc pl-6 mb-6 text-body text-ink space-y-2">
+    <li><strong>Progressive Overload:</strong> Consistent, measurable improvements in workout performance, including strength output and total volume handled over a mesocycle.</li>
+    <li><strong>Controlled Mass Accretion:</strong> Steady, reliable scale weight gain averaging 0.25 to 0.5 pounds weekly without drastic overnight spikes.</li>
+    <li><strong>Enhanced Recovery:</strong> Less delayed onset muscle soreness (DOMS) and feeling adequately recovered between training sessions.</li>
+    <li><strong>Robust Energy Levels:</strong> Sustained vitality throughout the day and notably better sleep quality, driven by an abundance of nutritional resources.</li>
+  </ul>
+
 </ContentLayout>

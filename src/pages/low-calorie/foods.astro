@@ -4,89 +4,232 @@ import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 
 const path = "/low-calorie/foods/";
-const description = "Low calorie foods list with nutrition facts. High-volume, filling foods under 100 calories per serving to help with weight loss.";
+const description = "A comprehensive low calorie foods list with nutrition facts. Discover high-volume, filling foods under 100 calories per serving to help with sustainable weight loss and metabolic health.";
 const faqs = [
-  { q: "What are the best low calorie foods for weight loss?", a: "Vegetables (5-50 cal/cup), fruits (40-100 cal/cup), and lean proteins (100-150 cal/serving) are ideal. They're high volume, nutrient-dense, and fit easily into any calorie plan." },
-  { q: "How many low calorie foods can I eat daily?", a: "Non-starchy vegetables are unlimited. For other foods, track portions. You can fill half your plate with low-calorie vegetables and still lose weight." },
-  { q: "Are low calorie foods filling?", a: "Yes. Foods high in water and fiber like cabbage, spinach, and berries provide volume for few calories. Protein also increases satiety." },
-  { q: "What is the lowest calorie food?", a: "Celery and lettuce have under 10 calories per cup. Air-popped popcorn (30 cal/cup) and broth-based soups (50-100 cal/bowl) offer satisfying volume." },
-  { q: "Can I eat only low calorie foods and lose weight?", a: "Yes, but you still need adequate protein. Focus on vegetable volume with protein portions. Our <a href='/protein-calculator/'>protein calculator</a> sets targets." },
+  { q: "What are the best low calorie foods for weight loss?", a: "The best low calorie foods are those high in water and dietary fiber, such as cruciferous vegetables (broccoli, cauliflower), leafy greens (spinach, kale), and water-rich fruits (watermelon, berries). They provide significant food volume and micronutrients for a fraction of the calories of processed foods, keeping you satiated." },
+  { q: "How many low calorie foods can I eat daily?", a: "Non-starchy vegetables are practically unlimited in a weight-loss context. However, it is essential to balance your intake with lean proteins and healthy fats to support muscle retention and hormonal health. Aim to fill at least half your plate with low-calorie vegetables for maximum satiety." },
+  { q: "Are low calorie foods actually filling?", a: "Yes, provided they contain high amounts of fiber, water, or protein. Foods with a low energy density (fewer calories per gram) stretch the stomach, signaling the brain that you are full. Protein-rich low-calorie foods also stimulate satiety hormones like GLP-1 and PYY." },
+  { q: "What is the lowest calorie food available?", a: "Vegetables with a high water content, such as celery, cucumbers, and iceberg lettuce, contain fewer than 16 calories per cup. Broth-based soups and air-popped popcorn are also excellent choices for volume eaters seeking minimal caloric impact." },
+  { q: "Can I survive purely on low calorie foods to lose weight?", a: "While creating a calorie deficit is necessary for weight loss, surviving solely on very low-calorie foods like celery or lettuce is dangerous. You must consume adequate protein and essential fats. We recommend using our <a href='/protein-calculator/'>protein calculator</a> to ensure you meet your structural nutritional needs." },
+  { q: "Do zero calorie foods exist?", a: "Technically, no food has absolutely zero calories, but foods like celery and shirataki noodles are incredibly close. Some refer to these as 'negative calorie foods', theorizing that digestion burns more calories than the food contains, though scientific consensus suggests the net caloric gain is just extremely low rather than negative." },
+  { q: "How can I make low calorie foods taste better?", a: "Utilize zero or low-calorie flavor enhancers such as fresh herbs, spices, hot sauce, lemon juice, vinegar, or mustard. Roasting vegetables instead of boiling them can also significantly improve their flavor profile by caramelizing their natural sugars." }
 ];
 ---
 
 <ContentLayout
-  title="Low Calorie Foods List — Under 100 Calorie High-Volume Foods"
-  h1="Low Calorie Foods List"
+  title="Low Calorie Foods List: High-Volume Foods for Satiety"
+  h1="Low Calorie Foods List: The Ultimate Guide to Volume Eating"
   description={description}
   path={path}
   category="Guides"
   categoryPath="/low-calorie/"
-  lead="Filling, nutrient-dense foods under 100 calories. Perfect for weight loss while staying satisfied."
+  lead="Discover the science of volume eating with our comprehensive list of filling, nutrient-dense foods under 100 calories. Perfect for weight loss while staying thoroughly satisfied."
   faqs={faqs}
 >
 
   <MedicalNote />
 
-  <h2>Best Low Calorie Foods by Category</h2>
+  <p class="text-body mt-4">
+    Navigating weight loss often feels like a constant battle against hunger. However, by understanding the principles of <strong>energy density</strong> and <strong>volume eating</strong>, you can design a diet that keeps you full without exceeding your daily caloric limits. The secret lies in identifying and incorporating low calorie foods that offer significant mass and nutritional value per serving.
+  </p>
+  
+  <p class="text-body mt-4">
+    In this comprehensive guide, we'll explore the best low calorie foods backed by nutritional science. We will break them down into categories—vegetables, fruits, and lean proteins—and provide practical strategies for building a balanced, highly satiating plate.
+  </p>
 
-  <ArticleImage src="/assets/images/articles/balanced-plate.svg" alt="Illustration of a balanced plate with low-calorie healthy food options." />
+  <ArticleImage src="https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=2000&auto=format&fit=crop" alt="A colorful array of low-calorie vegetables and fruits laid out on a table, including cucumbers, berries, and leafy greens." />
 
-  <h3>Vegetables (Unlimited - under 50 cal per cup)</h3>
-  <table>
-    <thead>
-      <tr><th scope="col">Food</th><th scope="col">Calories per Cup</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Cucumber</td><td>16</td></tr>
-      <tr><td>Celery</td><td>14</td></tr>
-      <tr><td>Lettuce (Romaine)</td><td>8</td></tr>
-      <tr><td>Spinach</td><td>7</td></tr>
-      <tr><td>Broccoli</td><td>25</td></tr>
-      <tr><td>Cauliflower</td><td>25</td></tr>
-      <tr><td>Bell Pepper</td><td>30</td></tr>
-      <tr><td>Zucchini</td><td>20</td></tr>
-    </tbody>
-  </table>
+  <h2 class="text-2xl font-bold text-ink mt-8 mb-4">The Science of Satiety and Energy Density</h2>
+  
+  <p class="text-body mb-4">
+    Satiety, the feeling of fullness after a meal, is governed by several factors including stomach stretching, hormonal signals (such as cholecystokinin, GLP-1, and peptide YY), and nutrient absorption rates. Foods with a <em>low energy density</em> contain fewer calories per gram, usually because they have a high water and fiber content.
+  </p>
+  
+  <p class="text-body mb-4">
+    When you consume a large volume of low energy density foods, your stomach stretches, triggering mechanoreceptors that signal the brain to stop eating. This is why you can eat a massive bowl of salad for the same calories as a small handful of potato chips, but the salad will leave you feeling significantly more full and satisfied.
+  </p>
 
-  <h3>Fruits (40-100 cal per cup)</h3>
-  <table>
-    <thead>
-      <tr><th scope="col">Food</th><th scope="col">Calories per Cup</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Strawberries</td><td>50</td></tr>
-      <tr><td>Raspberries</td><td>80</td></tr>
-      <tr><td>Watermelon</td><td>46</td></tr>
-      <tr><td>Grapefruit</td><td>50</td></tr>
-      <tr><td>Apples (sliced)</td><td>50</td></tr>
-    </tbody>
-  </table>
+  <h2 class="text-2xl font-bold text-ink mt-8 mb-4">Best Low Calorie Foods by Category</h2>
 
-  <h3>Proteins (100-150 cal per serving)</h3>
-  <table>
-    <thead>
-      <tr><th scope="col">Food</th><th scope="col">Calories per Serving</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Chicken breast (3 oz)</td><td>120</td></tr>
-      <tr><td>Greek yogurt non-fat (1/2 cup)</td><td>80</td></tr>
-      <tr><td>Egg whites (1/2 cup)</td><td>60</td></tr>
-      <tr><td>Cottage cheese 1% (1/2 cup)</td><td>100</td></tr>
-    </tbody>
-  </table>
+  <h3 class="text-xl font-semibold text-ink mt-6 mb-3">1. Non-Starchy Vegetables (Unlimited Volume, Minimal Calories)</h3>
+  
+  <p class="text-body mb-4">
+    Non-starchy vegetables are the holy grail of volume eating. They are predominantly water (often 90% or more) and indigestible dietary fiber. This means they pass through your digestive system slowly, regulating blood sugar and providing prolonged satiety for incredibly few calories.
+  </p>
 
-  <h2>Low Calorie Foods Strategy</h2>
-  <p>Build your meals with 50% vegetables, 25% lean protein, and 25% your chosen carbs. This creates volume while managing calories. Use our <a href='/calorie-deficit-calculator/'>calorie deficit calculator</a> to set targets.</p>
+  <div class="overflow-x-auto rounded-xl border-hairline my-6">
+    <table class="w-full text-left text-body text-sm">
+      <thead class="bg-surface text-ink border-b border-hairline">
+        <tr>
+          <th scope="col" class="px-4 py-3 font-semibold">Vegetable</th>
+          <th scope="col" class="px-4 py-3 font-semibold">Calories per Cup (Raw)</th>
+          <th scope="col" class="px-4 py-3 font-semibold">Key Nutrients & Benefits</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-hairline">
+        <tr>
+          <td class="px-4 py-3 font-medium text-ink">Cucumber</td>
+          <td class="px-4 py-3">16</td>
+          <td class="px-4 py-3">High in Vitamin K; extreme water content provides superior hydration.</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium text-ink">Celery</td>
+          <td class="px-4 py-3">14</td>
+          <td class="px-4 py-3">Contains apigenin, an antioxidant. Great for a crunchy snack.</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium text-ink">Lettuce (Romaine)</td>
+          <td class="px-4 py-3">8</td>
+          <td class="px-4 py-3">Rich in folate and Vitamin A. The perfect low-calorie base for any salad.</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium text-ink">Spinach</td>
+          <td class="px-4 py-3">7</td>
+          <td class="px-4 py-3">Packed with iron, magnesium, and antioxidants. Highly versatile.</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium text-ink">Broccoli</td>
+          <td class="px-4 py-3">31</td>
+          <td class="px-4 py-3">High in cruciferous compounds like sulforaphane, excellent fiber.</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium text-ink">Cauliflower</td>
+          <td class="px-4 py-3">27</td>
+          <td class="px-4 py-3">Incredibly versatile—can be riced or mashed as a low-carb substitute.</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium text-ink">Bell Pepper</td>
+          <td class="px-4 py-3">30</td>
+          <td class="px-4 py-3">Contains more Vitamin C than an orange; adds sweet crunch without sugar.</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium text-ink">Zucchini</td>
+          <td class="px-4 py-3">20</td>
+          <td class="px-4 py-3">Can be spiralized into "zoodles" for a very low-calorie pasta alternative.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-  <h2>Related Tools</h2>
+  <h3 class="text-xl font-semibold text-ink mt-6 mb-3">2. Fruits (40-100 Calories per Cup)</h3>
+  
+  <p class="text-body mb-4">
+    While fruits contain natural sugars (fructose), their high fiber and water content blunt the glycemic response, making them excellent low calorie options for satisfying a sweet tooth. Berries, in particular, are nutritional powerhouses with low caloric density.
+  </p>
+
+  <div class="overflow-x-auto rounded-xl border-hairline my-6">
+    <table class="w-full text-left text-body text-sm">
+      <thead class="bg-surface text-ink border-b border-hairline">
+        <tr>
+          <th scope="col" class="px-4 py-3 font-semibold">Fruit</th>
+          <th scope="col" class="px-4 py-3 font-semibold">Calories per Cup</th>
+          <th scope="col" class="px-4 py-3 font-semibold">Key Nutrients & Benefits</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-hairline">
+        <tr>
+          <td class="px-4 py-3 font-medium text-ink">Strawberries</td>
+          <td class="px-4 py-3">49</td>
+          <td class="px-4 py-3">Exceptionally high in Vitamin C and manganese; very low sugar for fruit.</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium text-ink">Raspberries</td>
+          <td class="px-4 py-3">64</td>
+          <td class="px-4 py-3">Incredible fiber content (8g per cup) makes them extremely filling.</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium text-ink">Watermelon</td>
+          <td class="px-4 py-3">46</td>
+          <td class="px-4 py-3">Rich in lycopene and the amino acid citrulline; highly hydrating.</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium text-ink">Grapefruit</td>
+          <td class="px-4 py-3">74 (per half)</td>
+          <td class="px-4 py-3">May improve insulin resistance and aid in weight management.</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium text-ink">Apples (sliced)</td>
+          <td class="px-4 py-3">57</td>
+          <td class="px-4 py-3">Contains pectin, a soluble fiber that slows digestion and boosts satiety.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="text-xl font-semibold text-ink mt-6 mb-3">3. Lean Proteins (High Thermic Effect)</h3>
+  
+  <p class="text-body mb-4">
+    Protein is the most satiating macronutrient. Furthermore, protein has a high Thermic Effect of Food (TEF), meaning your body burns up to 30% of the calories in protein simply by digesting it. Prioritizing lean, low-calorie protein sources ensures muscle retention while in a caloric deficit.
+  </p>
+
+  <div class="overflow-x-auto rounded-xl border-hairline my-6">
+    <table class="w-full text-left text-body text-sm">
+      <thead class="bg-surface text-ink border-b border-hairline">
+        <tr>
+          <th scope="col" class="px-4 py-3 font-semibold">Protein Source</th>
+          <th scope="col" class="px-4 py-3 font-semibold">Calories per Serving</th>
+          <th scope="col" class="px-4 py-3 font-semibold">Protein Content</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-hairline">
+        <tr>
+          <td class="px-4 py-3 font-medium text-ink">Chicken breast, skinless (3 oz)</td>
+          <td class="px-4 py-3">140</td>
+          <td class="px-4 py-3">26g</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium text-ink">Greek yogurt, non-fat plain (3/4 cup)</td>
+          <td class="px-4 py-3">100</td>
+          <td class="px-4 py-3">17g</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium text-ink">Egg whites (1/2 cup liquid)</td>
+          <td class="px-4 py-3">63</td>
+          <td class="px-4 py-3">13g</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium text-ink">Cottage cheese, low-fat 1% (1/2 cup)</td>
+          <td class="px-4 py-3">81</td>
+          <td class="px-4 py-3">14g</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium text-ink">White Fish (Cod/Tilapia, 3 oz)</td>
+          <td class="px-4 py-3">90</td>
+          <td class="px-4 py-3">19g</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="text-2xl font-bold text-ink mt-8 mb-4">Strategic Integration for Optimal Weight Management</h2>
+  
+  <p class="text-body mb-4">
+    Knowing which foods are low in calories is only half the battle; integrating them into a sustainable lifestyle is the true challenge. The most effective approach is the <strong>plate method</strong>, augmented by volume eating principles:
+  </p>
+  
+  <ul class="list-disc list-inside text-body mb-6 space-y-2">
+    <li><strong>50% High-Volume Vegetables:</strong> Fill half your plate with leafy greens, roasted broccoli, or zucchini. This provides immense physical volume and micronutrients for a fraction of your meal's caloric budget.</li>
+    <li><strong>25% Lean Protein:</strong> Incorporate high-quality, lean protein to anchor the meal, slow digestion, and stimulate satiety hormones.</li>
+    <li><strong>25% Complex Carbohydrates or Healthy Fats:</strong> Reserve the remainder of your plate for energy-dense but nutritionally critical foods like quinoa, sweet potatoes, avocado, or nuts.</li>
+  </ul>
+  
+  <p class="text-body mb-4">
+    This framework allows you to eat physically large, satisfying meals that naturally fall into a calorie deficit. To precisely tailor your energy requirements and find out exactly how much you should be eating, utilize our <a href='/calorie-deficit-calculator/' class="text-primary hover:underline">calorie deficit calculator</a>.
+  </p>
+  
+  <p class="text-body mb-6">
+    Remember, a successful diet is not about extreme restriction, but rather smart selection. By mastering low-calorie, high-volume foods, you take control of your hunger and set the foundation for long-term metabolic health.
+  </p>
+
+  <h2 class="text-2xl font-bold text-ink mt-8 mb-4">Related Tools & Resources</h2>
   <div class="grid gap-4 sm:grid-cols-2">
-    <div class="card p-4">
-      <h3 class="text-lg font-semibold text-ink"><a href="/food-calories-search/">Food Calories Search</a></h3>
-      <p class="mt-1 text-sm text-body">Look up any food's calories.</p>
+    <div class="card p-4 rounded-xl border border-hairline hover:shadow-sm transition-shadow bg-surface">
+      <h3 class="text-lg font-semibold text-ink"><a href="/food-calories-search/" class="hover:text-primary">Food Calories Search</a></h3>
+      <p class="mt-1 text-sm text-body">Instantly look up macro profiles and caloric content for thousands of foods in our comprehensive database.</p>
     </div>
-    <div class="card p-4">
-      <h3 class="text-lg font-semibold text-ink"><a href="/calorie-deficit-calculator/">Calorie Deficit Calculator</a></h3>
-      <p class="mt-1 text-sm text-body">Find your daily target.</p>
+    <div class="card p-4 rounded-xl border border-hairline hover:shadow-sm transition-shadow bg-surface">
+      <h3 class="text-lg font-semibold text-ink"><a href="/calorie-deficit-calculator/" class="hover:text-primary">Calorie Deficit Calculator</a></h3>
+      <p class="mt-1 text-sm text-body">Determine your exact daily target to lose weight predictably and safely based on your metabolic rate.</p>
     </div>
   </div>
 </ContentLayout>
