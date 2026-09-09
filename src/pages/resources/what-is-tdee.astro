@@ -7,90 +7,209 @@ import ArticleImage from "../../components/ui/ArticleImage.astro";
 import Sources from "../../components/ui/Sources.astro";
 
 const faqs: FaqItem[] = [
-  { q: "What does TDEE stand for?", a: "TDEE stands for Total Daily Energy Expenditure — the total number of calories you burn in a day, including rest, activity, exercise, and digestion." },
-  { q: "How do I calculate my TDEE?", a: "Calculate your BMR, then multiply by an activity factor from 1.2 (sedentary) to 1.9 (extra active). Our TDEE calculator does it for you." },
-  { q: "What is TDEE used for?", a: "TDEE tells you how many calories you can eat to maintain your current weight. Subtract calories for weight loss, or add them for weight gain." },
-  { q: "Is TDEE the same as maintenance calories?", a: "Yes. TDEE and maintenance calories are the same thing: the daily calorie amount that keeps your weight stable." },
-  { q: "How often should I check my TDEE?", a: "Recalculate every 4–6 weeks, or whenever your weight changes by more than 5% or your activity level shifts significantly." },
+  { q: "What does TDEE stand for?", a: "TDEE stands for Total Daily Energy Expenditure. It is the total number of calories your body burns in a single day, encompassing your basal metabolic rate, physical activity, deliberate exercise, and the energy required for digestion." },
+  { q: "How do I accurately calculate my TDEE?", a: "To calculate your TDEE, you must first determine your Basal Metabolic Rate (BMR) using a scientifically validated formula like Mifflin-St Jeor. Then, you multiply that BMR by an activity factor ranging from 1.2 (sedentary) to 1.9 (extremely active). Our calculator performs this complex calculation automatically." },
+  { q: "What is the primary purpose of knowing my TDEE?", a: "Your TDEE indicates the exact number of daily calories required to maintain your current weight. By subtracting calories from your TDEE you can achieve a caloric deficit for weight loss, and by adding calories you create a surplus for muscle hypertrophy." },
+  { q: "Is TDEE the same thing as maintenance calories?", a: "Yes, TDEE and maintenance calories are synonymous. Both terms refer to the precise daily caloric threshold required to keep your body mass stable without gaining or losing weight." },
+  { q: "How frequently should I recalculate my TDEE?", a: "It is highly recommended to recalculate your TDEE every 4 to 6 weeks, or whenever your body weight fluctuates by more than 5%. Significant changes in your physical activity level or body composition also necessitate a recalculation." },
+  { q: "Does building muscle increase my TDEE?", a: "Yes. Muscle tissue is metabolically active, meaning it burns more calories at rest compared to fat tissue. As you increase your lean muscle mass through resistance training, your BMR—and consequently your TDEE—will naturally increase." },
+  { q: "Why is my TDEE lower on rest days?", a: "Your TDEE fluctuates based on your daily activity. On rest days, you eliminate the Exercise Activity Thermogenesis (EAT) component, resulting in a lower total caloric expenditure compared to days when you engage in rigorous workouts." }
 ];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
 ---
 
 <ContentLayout
-  title="What is TDEE? — Total Daily Energy Expenditure Explained"
-  h1="What is TDEE?"
-  description="A clear explanation of Total Daily Energy Expenditure (TDEE): what it includes, how to calculate it, and how to use it to manage your weight."
+  title="What is TDEE? Everything About Your Total Daily Energy Expenditure"
+  h1="What is TDEE? The Ultimate Scientific Guide"
+  description="Discover what TDEE (Total Daily Energy Expenditure) is, how it is calculated, and why it is crucial for weight loss or muscle gain. A comprehensive step-by-step guide."
   path="/resources/what-is-tdee/"
   category="Resources"
   categoryPath="/resources/"
-  lead="TDEE is the single most useful number for managing your weight. Here's what it is and how to use it."
-  updated="January 2025"
+  lead="TDEE is the single most important metric for transforming your body. Understand exactly how many calories you burn each day and take absolute control of your weight."
+  updated="September 2026"
   faqs={faqs}
 >
 
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
   <MedicalNote />
 
-  <p>Your Total Daily Energy Expenditure (TDEE) is the total number of calories you burn in a full day. It's your maintenance level — eat this much and your weight stays the same. Eat less and you lose weight; eat more and you gain. But TDEE is more than a single number: it is the sum of several different energy systems working together around the clock.</p>
+  <div class="prose prose-lg prose-indigo mx-auto mt-8 text-body text-ink">
+    
+    <div class="bg-gradient-to-br from-indigo-50 to-blue-50 p-6 md:p-8 rounded-xl shadow-sm border border-hairline mb-10">
+      <p class="text-xl text-indigo-900 font-medium leading-relaxed mb-0">
+        Your Total Daily Energy Expenditure (TDEE) is the comprehensive total of calories your body burns throughout a 24-hour period. It represents your exact maintenance level: if you consume this precise number of calories, your weight will remain perfectly stable. If you consume less, you will lose weight; if you consume more, you will gain weight. However, TDEE is far more than just a simple number—it is the intricate culmination of various energetic systems functioning synchronously around the clock to sustain human physiology.
+      </p>
+    </div>
 
-  <h2>TDEE meaning and definition</h2>
-  <p>TDEE is short for <strong>Total Daily Energy Expenditure</strong>. It is the total caloric cost of living for 24 hours. That includes your resting metabolism, the calories burned processing food, and every movement from getting out of bed to running a marathon. Understanding your TDEE gives you a realistic baseline for any nutrition plan — without it, you are guessing at how much to eat.</p>
-  <p>Many people search for <em>tdee meaning</em> or <em>tdee what is it</em> because they see the acronym everywhere but do not know what it represents. Simply put, TDEE is your body's total daily calorie burn. It is different from BMR, which only covers calories burned at complete rest. TDEE adds movement, exercise, and digestion to that baseline.</p>
+    <h2 class="text-3xl font-bold text-ink mb-6">Meaning and Clinical Definition of TDEE</h2>
+    <p class="text-body">
+      TDEE stands for <strong>Total Daily Energy Expenditure</strong>. It represents the absolute caloric cost associated with human survival and movement over a 24-hour cycle. This comprehensive metric encompasses everything from your resting metabolism to the calories burned while digesting macronutrients, and every single movement you make—whether it's getting out of bed, typing on a keyboard, or running a competitive marathon. 
+    </p>
+    <p class="text-body">
+      Understanding your TDEE provides a realistic, evidence-based, and scientific foundation for any nutritional intervention. Without knowing this crucial data point, calculating your daily intake is merely a guessing game. Unlike the Basal Metabolic Rate (BMR), which strictly accounts for the calories burned in a state of complete rest, the TDEE encompasses your total cumulative movement, exercise, and the metabolic demands of digestion. This makes it the gold standard metric for designing customized diet plans.
+    </p>
 
-  <ArticleImage src="/assets/images/articles/basal-metabolism.svg" alt="Illustration of resting metabolism, showing the calories your body burns at rest before any activity." />
+    <div class="my-10 rounded-xl overflow-hidden shadow-lg border border-hairline">
+      <ArticleImage src="/assets/images/articles/basal-metabolism.svg" alt="Illustration of basal metabolism and the core components of TDEE, highlighting how the human body burns calories during both rest and physical activity." />
+    </div>
 
-  <h2>The four components of TDEE</h2>
-  <p>TDEE is made of four distinct parts. Understanding each one helps you see where you can make changes:</p>
-  <ul>
-    <li><strong>BMR (Basal Metabolic Rate) — ~60–70%:</strong> the calories your body uses at complete rest for breathing, circulation, cell repair, and brain function. BMR is largely determined by your lean body mass. See <a href="/bmr-calculator/">BMR calculator</a> for your baseline.</li>
-    <li><strong>NEAT (Non-Exercise Activity Thermogenesis) — ~15–30%:</strong> the calories burned through daily movement that is not structured exercise. This includes walking, fidgeting, standing, chores, and even typing. NEAT varies enormously between people and is often the hidden driver of differences in TDEE.</li>
-    <li><strong>TEF (Thermic Effect of Food) — ~10%:</strong> the energy your body spends digesting, absorbing, and processing food. Protein has the highest thermic effect, followed by carbohydrates, then fats. Eating more protein can slightly raise your TDEE through TEF.</li>
-    <li><strong>EAT (Exercise Activity Thermogenesis) — ~5–15%:</strong> calories burned during intentional exercise sessions. For most people, EAT is smaller than NEAT, but for athletes it can become a major contributor.</li>
-  </ul>
+    <h2 class="text-3xl font-bold text-ink mb-6 mt-12">The 4 Fundamental Scientific Components of TDEE</h2>
+    <p class="text-body">
+      Your total daily energy expenditure is fundamentally divided into four distinct physiological components. Developing a robust understanding of each element is essential for identifying where you can implement lifestyle changes to optimize your body composition and metabolic health:
+    </p>
+    
+    <div class="space-y-6 my-8">
+      <div class="bg-white/80 backdrop-blur-md p-6 rounded-xl border border-hairline shadow-sm hover:shadow-md transition-shadow">
+        <h3 class="text-xl font-bold text-indigo-700 mb-2">1. BMR (Basal Metabolic Rate) — ~60-70%</h3>
+        <p class="text-body text-ink mb-0">This represents the baseline calories your body requires in a state of absolute rest to maintain essential vital functions, including respiration, cardiovascular circulation, cellular repair, and neurological processing. Your BMR is heavily dictated by your lean body mass and age. Because muscle tissue is highly metabolically active, increasing your muscle mass is one of the most effective strategies to naturally elevate your BMR.</p>
+      </div>
 
-  <h2>How TDEE is calculated</h2>
-  <p>TDEE starts with your <a href="/bmr-calculator/">BMR</a> and multiplies it by an activity factor:</p>
-  <table>
-    <thead><tr><th scope="col">Activity level</th><th scope="col">Multiplier</th><th scope="col">Typical description</th></tr></thead>
-    <tbody>
-      <tr><td>Sedentary</td><td>1.2</td><td>Desk job, little to no exercise</td></tr>
-      <tr><td>Lightly active</td><td>1.375</td><td>1–3 days of light exercise per week</td></tr>
-      <tr><td>Moderately active</td><td>1.55</td><td>3–5 days of moderate exercise per week</td></tr>
-      <tr><td>Very active</td><td>1.725</td><td>6–7 days of intense exercise per week</td></tr>
-      <tr><td>Extra active</td><td>1.9</td><td>Physically demanding job plus daily training</td></tr>
-    </tbody>
-  </table>
-  <p>The <a href="/tdee-calculator/">TDEE calculator</a> applies this multiplier automatically after finding your BMR with the Mifflin-St Jeor equation.</p>
+      <div class="bg-white/80 backdrop-blur-md p-6 rounded-xl border border-hairline shadow-sm hover:shadow-md transition-shadow">
+        <h3 class="text-xl font-bold text-teal-700 mb-2">2. NEAT (Non-Exercise Activity Thermogenesis) — ~15-30%</h3>
+        <p class="text-body text-ink mb-0">NEAT accounts for the calories burned through all non-structured physical movements throughout the day. This encompasses walking around your home, standing at a desk, performing household chores, maintaining posture, or even subconscious fidgeting. NEAT exhibits tremendous variance between individuals and is frequently the primary differentiating factor between individuals who struggle to lose weight and those who do so effortlessly.</p>
+      </div>
 
-  <h2>TDEE for different goals</h2>
-  <p>Once you know your TDEE, you can set precise calorie targets:</p>
-  <ul>
-    <li><strong>Weight loss:</strong> eat 300–500 calories below your TDEE. This moderate deficit produces ~0.5–1 lb of fat loss per week. See the <a href="/guides/calorie-deficit-guide/">calorie deficit guide</a> for sustainable strategies.</li>
-    <li><strong>Weight gain:</strong> eat 250–500 calories above your TDEE. This lean bulk adds mostly muscle when paired with resistance training. Read the <a href="/guides/calorie-surplus-guide/">calorie surplus guide</a> for best practices.</li>
-    <li><strong>Maintenance:</strong> eat at your TDEE. Your weight stays stable. Recalculate every 4–6 weeks as your body changes. See the <a href="/guides/maintenance-calorie-calculator/">maintenance calorie calculator guide</a> and <a href="/guides/maintenance-calories/">maintenance calories guide</a> for details.</li>
-  </ul>
+      <div class="bg-white/80 backdrop-blur-md p-6 rounded-xl border border-hairline shadow-sm hover:shadow-md transition-shadow">
+        <h3 class="text-xl font-bold text-purple-700 mb-2">3. TEF (Thermic Effect of Food) — ~10%</h3>
+        <p class="text-body text-ink mb-0">TEF is the biochemical energy your body expends to digest, absorb, and metabolize the nutrients you consume. Different macronutrients have varying thermic effects. Dietary protein demands the highest energy expenditure for digestion (up to 20-30% of its caloric value), followed by complex carbohydrates, and finally dietary fats. Consequently, maintaining a high-protein diet can marginally increase your overall TDEE via an elevated TEF.</p>
+      </div>
 
-  <h2>Common misconceptions about TDEE</h2>
-  <p>Several myths trip people up when they first learn about TDEE:</p>
-  <ul>
-    <li><strong>Myth: "I need to eat as few calories as possible to lose weight."</strong> Eating far below your TDEE causes muscle loss, fatigue, and metabolic slowdown. A moderate deficit is more sustainable and preserves muscle.</li>
-    <li><strong>Myth: "Exercise is the biggest part of TDEE."</strong> For most people, NEAT and BMR dominate. Exercise matters, but daily movement and body composition have larger effects.</li>
-    <li><strong>Myth: "My TDEE is fixed."</strong> TDEE changes with weight, muscle mass, age, and activity. It is a snapshot, not a permanent label.</li>
-    <li><strong>Myth: "All calories are equal."</strong> While energy balance drives weight change, food quality affects hunger, energy, and body composition. Protein and fiber increase satiety, making it easier to stick to your TDEE target.</li>
-  </ul>
+      <div class="bg-white/80 backdrop-blur-md p-6 rounded-xl border border-hairline shadow-sm hover:shadow-md transition-shadow">
+        <h3 class="text-xl font-bold text-rose-700 mb-2">4. EAT (Exercise Activity Thermogenesis) — ~5-15%</h3>
+        <p class="text-body text-ink mb-0">EAT represents the calories burned exclusively during structured, intentional bouts of physical exercise—such as weightlifting, running, swimming, or playing a competitive sport. Interestingly, for the average individual, EAT constitutes a smaller percentage of overall expenditure compared to NEAT. However, for elite endurance athletes or individuals undergoing high-volume training, EAT can become a significantly larger portion of the daily caloric output.</p>
+      </div>
+    </div>
 
-  <h2>How to use your TDEE practically</h2>
-  <p>The best way to use TDEE is as a starting point, not a rigid rule:</p>
-  <ol>
-    <li>Calculate your TDEE with the <a href="/tdee-calculator/">TDEE calculator</a>.</li>
-    <li>Follow that calorie target for 2–3 weeks while weighing yourself daily.</li>
-    <li>If your weight is stable, you have found your true maintenance. If you are gaining, lower intake by 100–200 calories. If you are losing, raise it by 100–200 calories.</li>
-    <li>Use the <a href="/macro-calculator/">macro calculator</a> to ensure adequate protein and balanced nutrition.</li>
-  </ol>
-  <p>For a full plan that combines TDEE, macros, and goal-based targets, use the main <a href="/">calorie calculator free</a> tool on the homepage.</p>
+    <h2 class="text-3xl font-bold text-ink mb-6 mt-12">How to Mathematically Calculate Your TDEE</h2>
+    <p class="text-body">
+      Calculating your TDEE involves a two-step mathematical process. First, you must determine your Basal Metabolic Rate (BMR) utilizing clinically validated equations (such as the Mifflin-St Jeor or Harris-Benedict formulas). Second, you multiply this BMR value by a specific <strong>activity multiplier</strong> that corresponds to your average weekly lifestyle and training frequency:
+    </p>
 
-  <Sources sources={[
-    { label: "Energy requirements — World Health Organization (WHO)", href: "https://www.who.int/tools/elena" },
-    { label: "Dietary Reference Intakes for Energy — National Academies", href: "https://www.nap.edu/read/10490/chapter/1" },
-    { label: "Energy expenditure — PubMed / NIH review", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
-  ]} />
-<div class='my-10'><CalorieCalculator /></div>
+    <div class="overflow-x-auto my-8 rounded-xl border border-hairline shadow-sm">
+      <table class="min-w-full divide-y divide-gray-200 m-0">
+        <thead class="bg-gray-50">
+          <tr>
+            <th scope="col" class="px-6 py-4 text-left text-sm font-bold text-ink uppercase tracking-wider">Activity Level</th>
+            <th scope="col" class="px-6 py-4 text-left text-sm font-bold text-ink uppercase tracking-wider">Scientific Multiplier</th>
+            <th scope="col" class="px-6 py-4 text-left text-sm font-bold text-ink uppercase tracking-wider">Clinical Description</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <tr class="hover:bg-gray-50"><td class="px-6 py-4 text-sm font-medium text-ink">Sedentary</td><td class="px-6 py-4 text-sm text-body">1.2</td><td class="px-6 py-4 text-sm text-body">Desk job, little to no structured exercise.</td></tr>
+          <tr class="hover:bg-gray-50"><td class="px-6 py-4 text-sm font-medium text-ink">Lightly Active</td><td class="px-6 py-4 text-sm text-body">1.375</td><td class="px-6 py-4 text-sm text-body">1-3 days per week of light exercise or sports.</td></tr>
+          <tr class="hover:bg-gray-50"><td class="px-6 py-4 text-sm font-medium text-ink">Moderately Active</td><td class="px-6 py-4 text-sm text-body">1.55</td><td class="px-6 py-4 text-sm text-body">3-5 days per week of moderate exercise or sports.</td></tr>
+          <tr class="hover:bg-gray-50"><td class="px-6 py-4 text-sm font-medium text-ink">Very Active</td><td class="px-6 py-4 text-sm text-body">1.725</td><td class="px-6 py-4 text-sm text-body">6-7 days per week of intense physical exercise.</td></tr>
+          <tr class="hover:bg-gray-50"><td class="px-6 py-4 text-sm font-medium text-ink">Extra Active</td><td class="px-6 py-4 text-sm text-body">1.9</td><td class="px-6 py-4 text-sm text-body">Highly demanding physical labor combined with daily rigorous training.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <p class="text-body">
+      Our advanced online calculator applies this clinical multiplier automatically upon deriving your exact BMR, guaranteeing you highly precise, personalized metabolic data.
+    </p>
+
+    <div class="my-10 rounded-xl overflow-hidden shadow-lg border border-hairline">
+      <ArticleImage src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=1200&h=600" alt="Nutritious food showcasing the importance of proper caloric intake aligned with TDEE goals." />
+    </div>
+
+    <h2 class="text-3xl font-bold text-ink mb-6 mt-12">Strategic Application of TDEE for Body Recomposition</h2>
+    <p class="text-body">
+      Once you possess your TDEE value, you hold the definitive key to restructuring your dietary protocols. By precisely manipulating your caloric intake relative to your TDEE, you can mandate physiological adaptations:
+    </p>
+    <ul class="list-none space-y-4 my-6 pl-0">
+      <li class="flex items-start">
+        <span class="flex-shrink-0 h-6 w-6 text-green-500 mr-3">✓</span>
+        <span class="text-body"><strong>Weight Loss (Caloric Deficit):</strong> Subtract approximately 300 to 500 calories from your TDEE. This creates a moderate, sustainable caloric deficit that promotes steady fat oxidation (roughly 0.5 to 1 pound per week) while actively preserving valuable lean muscle tissue.</span>
+      </li>
+      <li class="flex items-start">
+        <span class="flex-shrink-0 h-6 w-6 text-green-500 mr-3">✓</span>
+        <span class="text-body"><strong>Muscle Hypertrophy (Caloric Surplus):</strong> Add roughly 250 to 500 calories to your calculated TDEE. This controlled nutritional surplus provides the essential energy and raw materials required for synthesizing new muscle tissue, especially when paired with progressive resistance training.</span>
+      </li>
+      <li class="flex items-start">
+        <span class="flex-shrink-0 h-6 w-6 text-green-500 mr-3">✓</span>
+        <span class="text-body"><strong>Weight Maintenance:</strong> Consume an absolute caloric match to your TDEE. Your total body weight will remain entirely stable over time. It is crucial to monitor and recalculate this number every 4 to 6 weeks, as adaptations in body composition will alter your baseline energy requirements.</span>
+      </li>
+    </ul>
+
+    <div class="bg-amber-50 p-6 md:p-8 rounded-xl border border-amber-200 my-10 shadow-sm">
+      <h2 class="text-2xl font-bold text-amber-900 mb-4 mt-0">Debunking Common Myths About TDEE</h2>
+      <ul class="space-y-3 text-amber-800 text-body">
+        <li><strong>"I need to eat as little as possible to lose fat."</strong> This is biologically false. Severe caloric restriction significantly below your BMR and TDEE induces metabolic adaptation, chronic fatigue, muscle catabolism, and hormonal disruptions.</li>
+        <li><strong>"Cardio is the most important factor for burning calories."</strong> In reality, for over 90% of the general population, NEAT and BMR overwhelmingly dictate the majority of total daily caloric expenditure, rendering intentional exercise a secondary component.</li>
+        <li><strong>"My TDEE remains completely static over time."</strong> Incorrect. Your TDEE is a highly dynamic metric. It fluctuates perpetually based on weight fluctuations, shifts in lean body mass, chronological age, and seasonal variations in daily activity.</li>
+      </ul>
+    </div>
+
+    <h2 class="text-3xl font-bold text-ink mb-6 mt-12">Step-by-Step Practical Implementation Guide</h2>
+    <p class="text-body">The most scientifically sound approach is to utilize your calculated TDEE as an intelligent starting point, rather than an absolute dogma:</p>
+    <ol class="list-decimal pl-6 space-y-2 mb-10 text-body">
+      <li><strong>Calculate:</strong> Utilize our <a href="/country/us/calorie-calculator.html" class="text-indigo-600 font-semibold hover:underline">Primary Calorie Calculator</a> to ascertain your baseline TDEE.</li>
+      <li><strong>Test and Monitor:</strong> Commit to this caloric target consistently for 14 to 21 days. Track your body weight under highly standardized conditions (e.g., first thing in the morning, post-bathroom, pre-hydration) and calculate a weekly moving average.</li>
+      <li><strong>Titrate and Adjust:</strong> If your objective is maintenance and your weekly weight average holds steady, you have identified your true TDEE. If you experience unintentional weight fluctuations, adjust your daily intake by 100-200 calories and repeat the monitoring process.</li>
+      <li><strong>Optimize Macronutrients:</strong> Ensure your caloric intake is intelligently distributed to include sufficient high-quality protein, essential dietary fats, and complex carbohydrates aligned with your physical training goals.</li>
+    </ol>
+
+    <div class="my-14 rounded-xl bg-white shadow-xl border border-hairline overflow-hidden">
+      <div class="bg-gradient-to-r from-indigo-600 to-blue-600 p-6 text-center">
+        <h3 class="text-2xl font-bold text-white m-0">Calculate Your TDEE Instantly</h3>
+        <p class="text-indigo-100 mt-2 mb-0">Leverage our sophisticated tool and uncover precisely how many calories you are burning today.</p>
+      </div>
+      <div class="p-4 md:p-8 bg-gray-50">
+        <CalorieCalculator />
+      </div>
+    </div>
+    
+    <h2 class="text-3xl font-bold text-ink mb-6 mt-12">Frequently Asked Questions (FAQ)</h2>
+    <div class="space-y-6">
+      {faqs.map((faq) => (
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-hairline">
+          <h3 class="text-lg font-bold text-ink mb-3">{faq.q}</h3>
+          <p class="text-body text-ink m-0">{faq.a}</p>
+        </div>
+      ))}
+    </div>
+
+    <Sources sources={[
+      { label: "Energy Requirements — World Health Organization (WHO)", href: "https://www.who.int/tools/elena" },
+      { label: "Dietary Reference Intakes — National Academies", href: "https://www.nap.edu/read/10490/chapter/1" },
+      { label: "Energy Expenditure and Metabolism — PubMed / NIH", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
+    ]} />
+
+    <!-- Suggested Content -->
+    <div class="mt-16 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 shadow-sm border border-hairline">
+      <h3 class="text-2xl font-bold text-ink mb-6 text-center">Suggested Scientific Content for You</h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <a href="/resources/what-is-bmr/" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-hairline group">
+          <h4 class="text-lg font-bold text-indigo-700 group-hover:text-indigo-600 transition-colors mb-2">What is BMR?</h4>
+          <p class="text-sm text-body m-0">Gain a profound understanding of Basal Metabolic Rate and uncover why it acts as the primary foundation for your total energy expenditure.</p>
+        </a>
+        
+        <a href="/resources/calories-burned-in-a-day/" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-hairline group">
+          <h4 class="text-lg font-bold text-indigo-700 group-hover:text-indigo-600 transition-colors mb-2">Calories Burned in a Day</h4>
+          <p class="text-sm text-body m-0">Explore how micro-movements, spontaneous physical activity, and planned exercise mathematically impact your daily caloric budget.</p>
+        </a>
+      </div>
+
+      <div class="text-center">
+        <a href="/country/us/calorie-calculator.html" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+          Access the Primary Calorie Calculator
+          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+      </div>
+    </div>
+  </div>
 </ContentLayout>

@@ -6,132 +6,255 @@ import ArticleImage from "../../components/ui/ArticleImage.astro";
 import type { FaqItem } from "../../lib/seo";
 
 const faqs: FaqItem[] = [
-  { q: "What is the best method to calculate TDEE?", a: "The best TDEE method uses Mifflin-St Jeor BMR multiplied by an accurate activity factor. Our TDEE calculator handles this automatically." },
-  { q: "How accurate is TDEE calculation?", a: "TDEE formulas are 85–90% accurate for most people. Track your weight for 2–3 weeks and adjust your intake by 100–200 calories if needed." },
-  { q: "Can I calculate TDEE without a calculator?", a: "Yes. Calculate BMR using Mifflin-St Jeor, then multiply by 1.2 (sedentary) to 1.9 (athlete). Most people are moderately active (1.55)." },
-  { q: "Why is my TDEE calculation wrong?", a: "Common errors: overestimating activity, incorrect weight entry, or not accounting for metabolic adaptation after weight change. Track and adjust." },
-  { q: "Which activity multiplier should I use?", a: "Start with 1.2 (sedentary) if you have a desk job and little exercise, 1.375 (light) for 1–3 sessions per week, 1.55 (moderate) for 3–5 sessions, 1.725 (active) for 6–7 intense sessions, or 1.9 (athlete) for a physical job plus daily training." },
-  { q: "How do I adjust my TDEE if my weight stalls?", a: "If your weight is not changing after 2–3 weeks, adjust your calorie intake by 100–200 calories and continue tracking. Weight loss slows as you get lighter, so recalculate your TDEE every 4–5 kg." },
-  { q: "Should I use TDEE for maintenance or BMR?", a: "TDEE is for maintenance because it includes all daily movement. BMR is only for complete rest. Use TDEE for any real-world calorie planning." },
+  { q: "What is the best method to calculate TDEE?", a: "The best method to calculate TDEE (Total Daily Energy Expenditure) is to use the Mifflin-St Jeor equation to find your Basal Metabolic Rate (BMR), and then multiply it by an accurate activity factor. Our calorie calculator does this automatically." },
+  { q: "How accurate is the TDEE estimation?", a: "TDEE formulas are about 85-90% accurate for most people. The best strategy is to track your weight for 2 to 3 weeks and adjust your intake by 100-200 calories based on your body's actual response." },
+  { q: "Can I calculate my TDEE without a calculator?", a: "Yes. First, calculate your BMR using the Mifflin-St Jeor formula, then multiply it by a factor ranging from 1.2 (sedentary) to 1.9 (athlete). Most people with moderate activity levels use the 1.55 factor." },
+  { q: "Why does my TDEE calculation seem incorrect?", a: "Common errors include overestimating physical activity levels, inputting incorrect weight or height data, or failing to account for metabolic adaptation after significant weight loss. Monitoring and adjusting are critical." },
+  { q: "Which activity multiplier should I choose?", a: "Start with 1.2 (sedentary) if you have an office job; 1.375 (light) for 1 to 3 exercise sessions a week; 1.55 (moderate) for 3 to 5 sessions; 1.725 (active) for 6 to 7 intense sessions; or 1.9 (very active/athlete) for intense physical labor and daily training." },
+  { q: "How do I adjust my TDEE if my weight stalls?", a: "If your weight hasn't changed after 2 to 3 weeks, decrease or increase your caloric intake by 100-200 calories. As you lose weight, your body requires less energy, so you must recalculate your TDEE for every 4-5 kg (10 lbs) lost." },
+  { q: "Should I use TDEE or BMR to maintain my weight?", a: "You must use TDEE for weight maintenance, as it includes all your daily activity and movement. BMR represents only the energy required for absolute rest." },
 ];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
 ---
 
 <ContentLayout
-  title="TDEE Calculation Methods — Best Way to Find Maintenance Calories"
-  h1="TDEE Calculation Methods"
-  description="Learn the best TDEE calculation methods. Find your Total Daily Energy Expenditure accurately using Mifflin-St Jeor and activity multipliers."
+  title="TDEE Calculation Methods — The Best Way to Find Your Maintenance Calories"
+  h1="TDEE Calculation Methods (Total Daily Energy Expenditure)"
+  description="Learn the most effective and accurate methods to calculate your TDEE. Discover your maintenance calories using the Mifflin-St Jeor formula and precise activity multipliers."
   path="/guides/tdee-calculation/"
   category="Guides"
   categoryPath="/guides/"
-  lead="TDEE is your maintenance calorie number. Calculate it accurately with the right method."
-  updated="June 2026"
+  lead="Your TDEE represents your maintenance calories. Learn how to calculate it as accurately as possible using the best scientific methods and professional tools."
+  updated="September 2026"
   faqs={faqs}
 >
 
   <MedicalNote />
+  
+  <div class="relative overflow-hidden rounded-3xl bg-white/80 backdrop-blur-md border border-hairline p-8 md:p-12 shadow-xl mb-12 mt-6">
+    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-gradient-to-br from-blue-50 to-indigo-100 opacity-50 blur-3xl -z-10"></div>
+    <p class="text-lg text-body leading-relaxed">
+      <strong>TDEE calculation</strong> (Total Daily Energy Expenditure) is the fundamental step in understanding exactly how many calories your body burns in a complete 24-hour cycle. This magic number represents your <strong>maintenance calories</strong>: the exact amount of food you can consume to keep your weight perfectly stable, without gaining or losing a single pound.
+    </p>
+    <p class="text-lg text-body leading-relaxed mt-4">
+      In this comprehensive, science-backed guide, we will explore the clinically proven methods to calculate your TDEE, teach you how to select your activity level with pinpoint accuracy, and reveal why standard calculators sometimes fail. Whether you're aiming for fat loss, muscle gain, or body recomposition, prepare to master your metabolism.
+    </p>
+  </div>
 
-  <p><strong>TDEE calculation</strong> (Total Daily Energy Expenditure) gives you your <a href="/guides/maintenance-calorie-calculator/">maintenance calories</a> — the number you can eat to keep your weight stable. Here are the best methods.</p>
+  <h2 class="text-display-sm text-ink mb-6">The Mifflin-St Jeor Method for TDEE (Highly Recommended)</h2>
 
-  <h2>The Mifflin-St Jeor TDEE method (recommended)</h2>
+  <div class="my-10 rounded-2xl overflow-hidden shadow-lg border border-hairline">
+    <ArticleImage src="/assets/images/articles/energy-level.svg" alt="Illustration showing total daily energy expenditure, combining basal metabolism and physical activity." />
+  </div>
 
-  <ArticleImage src="/assets/images/articles/energy-level.svg" alt="Illustration of total daily energy expenditure showing metabolism and activity combined." />
-  <p>This is the most accurate formula for calculating TDEE. The process:</p>
-  <ol>
-    <li>Calculate BMR using Mifflin-St Jeor: Men = 10 × weight(kg) + 6.25 × height(cm) − 5 × age + 5; Women = 10 × weight(kg) + 6.25 × height(cm) − 5 × age − 161.</li>
-    <li>Multiply BMR by your activity factor.</li>
-    <li>Adjust for individual variation after 2–3 weeks of tracking real-world weight changes.</li>
-  </ol>
-  <p>Use our <a href="/tdee-calculator/">TDEE calculator</a> for automatic calculation. For a comparison of BMR equations, see the <a href="/guides/bmr-equations/">BMR equations comparison guide</a>.</p>
+  <p class="text-body mb-4">
+    Introduced in 1990, the Mifflin-St Jeor equation is universally considered the gold standard and the most accurate formula for estimating basal metabolism in the general population. The scientific consensus ranks it above older models like Harris-Benedict. The calculation process is divided into these fundamental steps:
+  </p>
+  
+  <div class="bg-canvas-soft/50 rounded-2xl p-6 md:p-8 mb-10 border border-hairline">
+    <ol class="list-decimal list-inside space-y-4 text-body marker:text-brand marker:font-bold">
+      <li><strong>Calculate your BMR (Basal Metabolic Rate) using Mifflin-St Jeor:</strong>
+        <ul class="list-disc list-inside ml-6 mt-2 space-y-2 text-mute">
+          <li><strong>Men:</strong> 10 × weight (kg) + 6.25 × height (cm) − 5 × age (years) + 5</li>
+          <li><strong>Women:</strong> 10 × weight (kg) + 6.25 × height (cm) − 5 × age (years) − 161</li>
+        </ul>
+      </li>
+      <li><strong>Apply the Activity Factor:</strong> Multiply the obtained BMR by a multiplier that accurately reflects your daily movement, Non-Exercise Activity Thermogenesis (NEAT), and structured exercise routine.</li>
+      <li><strong>Real-World Calibration:</strong> Use the resulting number consistently for 2 to 3 weeks. Adjust based on the actual changes you observe on the scale and in the mirror. Math provides the baseline; real life provides the truth.</li>
+    </ol>
+  </div>
 
-  <h2>TDEE calculation methods compared</h2>
-  <table>
-    <thead><tr><th scope="col">Method</th><th scope="col">Accuracy</th><th scope="col">Best for</th></tr></thead>
-    <tbody>
-      <tr><td>Mifflin-St Jeor</td><td>85–90%</td><td>General population</td></tr>
-      <tr><td>Harris-Benedict</td><td>70–80%</td><td>Historical reference</td></tr>
-      <tr><td>Katch-McArdle</td><td>80–85%</td><td>Known body fat percentage</td></tr>
-      <tr><td>Direct measurement</td><td>95%+</td><td>Research settings only</td></tr>
-    </tbody>
-  </table>
+  <h2 class="text-display-sm text-ink mb-6">Comparison of TDEE Calculation Methods</h2>
+  
+  <p class="text-body mb-4">
+    Nutritionists, dietitians, and fitness professionals use various formulas depending on the individual's specific physiological profile. Here is a breakdown of the most common equations used to establish caloric baseline:
+  </p>
 
-  <h2>Activity multipliers for TDEE calculation</h2>
-  <p>Choosing the right activity multiplier is the most important step in TDEE calculation. The wrong choice is the most common source of error:</p>
-  <table>
-    <thead><tr><th scope="col">Level</th><th scope="col">Factor</th><th scope="col">Description</th><th scope="col">Who this fits</th></tr></thead>
-    <tbody>
-      <tr><td>Sedentary</td><td>1.2</td><td>Desk job, minimal exercise</td><td>Office workers who rarely work out</td></tr>
-      <tr><td>Lightly Active</td><td>1.375</td><td>1–3 days/week exercise</td><td>Casual gym-goers or daily walkers</td></tr>
-      <tr><td>Moderately Active</td><td>1.55</td><td>3–5 days/week exercise</td><td>Regular strength or cardio training</td></tr>
-      <tr><td>Very Active</td><td>1.725</td><td>6–7 days/week intense exercise</td><td>Athletes in-season or double-session days</td></tr>
-      <tr><td>Extra Active</td><td>1.9</td><td>Athlete + physical job</td><td>Manual labor plus daily training</td></tr>
-    </tbody>
-  </table>
-  <p>If you are unsure, choose the lower activity level. It is better to slightly underestimate activity and add calories back than to overestimate and stall progress.</p>
+  <div class="overflow-x-auto mb-12 rounded-2xl border border-hairline shadow-sm">
+    <table class="w-full text-left border-collapse">
+      <thead class="bg-canvas-soft text-ink">
+        <tr>
+          <th scope="col" class="px-6 py-4 font-semibold text-sm">Method / Formula</th>
+          <th scope="col" class="px-6 py-4 font-semibold text-sm">Estimated Accuracy</th>
+          <th scope="col" class="px-6 py-4 font-semibold text-sm">Best Used For</th>
+        </tr>
+      </thead>
+      <tbody class="text-body divide-y divide-hairline">
+        <tr class="hover:bg-canvas-soft/30 transition-colors">
+          <td class="px-6 py-4 font-medium">Mifflin-St Jeor</td>
+          <td class="px-6 py-4 text-brand font-semibold">85–90%</td>
+          <td class="px-6 py-4">General population and overweight individuals</td>
+        </tr>
+        <tr class="hover:bg-canvas-soft/30 transition-colors">
+          <td class="px-6 py-4 font-medium">Harris-Benedict (Revised)</td>
+          <td class="px-6 py-4">70–80%</td>
+          <td class="px-6 py-4">Historical reference (tends to overestimate by 5-10%)</td>
+        </tr>
+        <tr class="hover:bg-canvas-soft/30 transition-colors">
+          <td class="px-6 py-4 font-medium">Katch-McArdle</td>
+          <td class="px-6 py-4 text-brand font-semibold">80–85%</td>
+          <td class="px-6 py-4">Lean athletes with a known body fat percentage</td>
+        </tr>
+        <tr class="hover:bg-canvas-soft/30 transition-colors">
+          <td class="px-6 py-4 font-medium">Indirect Calorimetry</td>
+          <td class="px-6 py-4">95%+</td>
+          <td class="px-6 py-4">Clinical environments and research laboratories</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-  <h2>How to choose the right activity level</h2>
-  <p>Most people struggle with activity level selection. Use these rules of thumb:</p>
-  <ul>
-    <li>If you sit at a desk and drive everywhere, start with <strong>sedentary</strong> even if you occasionally exercise.</li>
-    <li>If you have a standing job or walk regularly, add one level for NEAT.</li>
-    <li>If you strength train 3–5 times per week consistently, you are at least <strong>moderately active</strong>.</li>
-    <li>Only choose <strong>very active</strong> or <strong>extra active</strong> if you truly train 6–7 days per week with high intensity or have a physically demanding job.</li>
+  <h2 class="text-display-sm text-ink mb-6">Activity Multipliers for TDEE (The Crucial Step)</h2>
+  
+  <p class="text-body mb-6">
+    Choosing the correct activity multiplier is the most critical and error-prone step in calculating your TDEE. Overestimating activity is the number one cause of frustration when planning a diet. Here is the definitive guide to choosing wisely:
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+    <div class="bg-white rounded-2xl p-6 shadow-sm border border-hairline hover:shadow-md transition-shadow relative overflow-hidden">
+      <div class="absolute top-0 left-0 w-1 h-full bg-slate-300"></div>
+      <h3 class="font-bold text-lg text-ink mb-2">Sedentary (x1.2)</h3>
+      <p class="text-sm text-mute">Desk job, commute via car, very little or no structured exercise. Your daily steps are under 5,000. <em>Example: Standard office worker, programmer, driver.</em></p>
+    </div>
+    
+    <div class="bg-white rounded-2xl p-6 shadow-sm border border-hairline hover:shadow-md transition-shadow relative overflow-hidden">
+      <div class="absolute top-0 left-0 w-1 h-full bg-blue-300"></div>
+      <h3 class="font-bold text-lg text-ink mb-2">Lightly Active (x1.375)</h3>
+      <p class="text-sm text-mute">Light exercise 1 to 3 days per week, or a job requiring prolonged standing. Daily steps between 5,000 and 8,000. <em>Example: Teacher, cashier, daily walker.</em></p>
+    </div>
+    
+    <div class="bg-white rounded-2xl p-6 shadow-sm border border-hairline hover:shadow-md transition-shadow relative overflow-hidden">
+      <div class="absolute top-0 left-0 w-1 h-full bg-indigo-400"></div>
+      <h3 class="font-bold text-lg text-ink mb-2">Moderately Active (x1.55)</h3>
+      <p class="text-sm text-mute">Consistent training 3 to 5 days a week (weightlifting or intense cardio). Daily steps around 10,000. <em>Example: Regular gym-goer, nurse, restaurant server.</em></p>
+    </div>
+    
+    <div class="bg-white rounded-2xl p-6 shadow-sm border border-hairline hover:shadow-md transition-shadow relative overflow-hidden">
+      <div class="absolute top-0 left-0 w-1 h-full bg-purple-500"></div>
+      <h3 class="font-bold text-lg text-ink mb-2">Very Active (x1.725)</h3>
+      <p class="text-sm text-mute">Hard training 6 to 7 days a week, or intense physical labor. Daily steps consistently above 15,000. <em>Example: Amateur athlete, construction worker, agricultural worker.</em></p>
+    </div>
+  </div>
+
+  <div class="bg-blue-50/50 rounded-3xl p-8 mb-12 border border-blue-100">
+    <h3 class="text-xl font-bold text-ink mb-4">How to choose without making a mistake?</h3>
+    <p class="text-body mb-4">Most individuals dramatically overestimate the number of calories they burn through exercise. Follow these golden rules for accuracy:</p>
+    <ul class="space-y-3 text-body">
+      <li class="flex items-start"><svg class="w-6 h-6 text-brand mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> If you spend 8 hours a day sitting in a chair, <strong>start by selecting "Sedentary"</strong>, even if you hit the gym for 45 minutes afterwards.</li>
+      <li class="flex items-start"><svg class="w-6 h-6 text-brand mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <strong>NEAT (Non-Exercise Activity Thermogenesis) matters immensely.</strong> A nurse taking 15,000 steps during a shift burns far more total energy than an IT worker who lifts weights for an hour but remains sedentary the rest of the day.</li>
+      <li class="flex items-start"><svg class="w-6 h-6 text-brand mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> When in doubt, <strong>choose the lower activity tier</strong>. It is psychologically and physically easier to increase your calories if you are losing weight too rapidly, rather than having to slash them because you aren't seeing progress.</li>
+    </ul>
+  </div>
+
+  <h2 class="text-display-sm text-ink mb-6">Example of a Manual TDEE Calculation</h2>
+  
+  <p class="text-body mb-4">Let's look at a practical case study: <strong>Maria</strong> is a 30-year-old woman. She is 165 cm tall, weighs 65 kg, and is moderately active (training 4 times a week).</p>
+  
+  <div class="bg-gray-900 text-gray-100 rounded-2xl p-6 font-mono text-sm mb-8 shadow-xl overflow-x-auto">
+    <p class="text-gray-400 mb-2">// 1. Calculating Basal Metabolic Rate (BMR)</p>
+    <p>BMR = (10 × 65) + (6.25 × 165) - (5 × 30) - 161</p>
+    <p>BMR = 650 + 1031.25 - 150 - 161</p>
+    <p class="text-green-400 font-bold mb-4">BMR = 1,370 calories</p>
+    
+    <p class="text-gray-400 mb-2">// 2. Applying the Activity Factor (Moderate = 1.55)</p>
+    <p>TDEE = 1,370 × 1.55</p>
+    <p class="text-green-400 font-bold text-lg">TDEE = 2,123 calories/day</p>
+  </div>
+  
+  <p class="text-body mb-10">
+    This precise figure (2,123) represents Maria's maintenance level. To achieve healthy fat loss (a 20% deficit), she should consume roughly <strong>1,700 calories</strong> daily. To build muscle mass optimally (a slight surplus), she would aim for around <strong>2,300 calories</strong>.
+  </p>
+
+  <h2 class="text-display-sm text-ink mb-6">When TDEE Calculations Might Fail</h2>
+  
+  <p class="text-body mb-6">Mathematical formulas are not flawless. They provide estimates based on averages. There are highly specific situations where standard TDEE calculations require major adjustments:</p>
+  
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+    <div class="bg-canvas-soft rounded-xl p-5 border border-hairline">
+      <h4 class="font-bold text-ink">Significant Weight Loss</h4>
+      <p class="text-sm text-mute mt-2">As you lose body mass, your body burns fewer calories just to exist. You absolutely must recalculate your TDEE every time you lose 4-5 kg (10 lbs).</p>
+    </div>
+    <div class="bg-canvas-soft rounded-xl p-5 border border-hairline">
+      <h4 class="font-bold text-ink">Metabolic Adaptation</h4>
+      <p class="text-sm text-mute mt-2">Prolonged, extreme dieting can make your body highly efficient, unconsciously reducing NEAT and consequently lowering your actual TDEE below formula predictions.</p>
+    </div>
+    <div class="bg-canvas-soft rounded-xl p-5 border border-hairline">
+      <h4 class="font-bold text-ink">Underlying Medical Conditions</h4>
+      <p class="text-sm text-mute mt-2">Thyroid issues (like hypothyroidism), severe insulin resistance, or PCOS can significantly alter your real metabolic rate compared to estimated baselines.</p>
+    </div>
+    <div class="bg-canvas-soft rounded-xl p-5 border border-hairline">
+      <h4 class="font-bold text-ink">Advanced Age</h4>
+      <p class="text-sm text-mute mt-2">Metabolism tends to slow down slightly with each passing decade, largely driven by the natural loss of lean muscle mass (sarcopenia).</p>
+    </div>
+  </div>
+
+  <h2 class="text-display-sm text-ink mb-6">TDEE Adjustment Strategies (The Real-World Test)</h2>
+  
+  <p class="text-body mb-6">
+    Calculating your TDEE is merely the starting line. The true magic happens when you adapt that hypothetical number to your biological reality. Implement these expert strategies for absolute precision:
+  </p>
+  
+  <ul class="space-y-4 text-body mb-12 pl-4 border-l-4 border-brand/30">
+    <li><strong>The 2-Week Rule:</strong> Whenever you change your calories or activity level, wait a minimum of 14 full days before evaluating the results. The human body retains water and weight fluctuates wildly day-to-day. Patience is key.</li>
+    <li><strong>The 100-Calorie Rule:</strong> If your weight stalls, tweak your caloric intake by just 100 to 200 calories at a time. A drastic, sudden 500-calorie cut will only lead to uncontrollable hunger, lethargy, and muscle loss.</li>
+    <li><strong>The Weekly Average Protocol:</strong> Weigh yourself daily under identical conditions (fasted, after using the restroom) and calculate a 7-day average on Sundays. Compare Week 1's average to Week 2's average. Completely ignore the daily noise and focus on the trendline.</li>
   </ul>
-  <p>Remember: NEAT counts too. A nurse who walks 10,000 steps daily has higher TDEE than an office worker who drives everywhere, even if both go to the gym three times per week.</p>
 
-  <h2>Manual TDEE calculation example</h2>
-  <p>A 30-year-old woman, 165 cm, 65 kg, moderately active:</p>
-  <pre>BMR = 10 × 65 + 6.25 × 165 - 5 × 30 - 161 = 1,400
-TDEE = 1,400 × 1.55 = 2,170 calories/day</pre>
-  <p>This is her <a href="/guides/maintenance-calorie-calculator/">maintenance calorie calculator</a> number. She would eat 1,670–1,920 calories/day to lose weight, or 2,420–2,670 calories/day to gain.</p>
+  <!-- Interactive Tool Section -->
+  <div class="my-16">
+    <div class="text-center mb-8">
+      <h2 class="text-display-sm text-ink">Professional Calorie Calculator (TDEE)</h2>
+      <p class="text-body max-w-2xl mx-auto mt-2">Instantly calculate your accurate TDEE, BMR, and personalized macronutrient targets without doing manual math.</p>
+    </div>
+    <CalorieCalculator />
+  </div>
+  
+  <!-- Suggested Content Section -->
+  <section class="mt-20 pt-10 border-t border-hairline bg-canvas-soft/30 rounded-3xl p-8 mb-10">
+    <div class="text-center mb-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-ink">Suggested Content</h2>
+      <p class="text-body mt-2">Continue mastering your metabolism, nutrition, and body composition with our expert, science-backed guides.</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+      <a href="/guides/maintenance-calorie-calculator/" class="group block p-6 bg-white rounded-2xl border border-hairline shadow-sm hover:shadow-xl hover:border-brand/50 transition-all duration-300">
+        <h3 class="text-lg font-bold text-ink group-hover:text-brand transition-colors">Maintenance Calorie Calculator Guide</h3>
+        <p class="text-mute text-sm mt-2 line-clamp-2">Discover how to effortlessly maintain your ideal weight by deeply understanding energy balance and preventing the dreaded rebound effect.</p>
+        <span class="inline-flex items-center text-brand font-medium text-sm mt-4 group-hover:translate-x-1 transition-transform">Read article <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
+      </a>
+      
+      <a href="/guides/bmr-equations/" class="group block p-6 bg-white rounded-2xl border border-hairline shadow-sm hover:shadow-xl hover:border-brand/50 transition-all duration-300">
+        <h3 class="text-lg font-bold text-ink group-hover:text-brand transition-colors">BMR Equations Comparison</h3>
+        <p class="text-mute text-sm mt-2 line-clamp-2">A profound scientific analysis of the different formulas used to calculate basal metabolism, and determining which is best suited for your genetics.</p>
+        <span class="inline-flex items-center text-brand font-medium text-sm mt-4 group-hover:translate-x-1 transition-transform">Read article <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
+      </a>
+    </div>
+    
+    <div class="flex flex-col items-center p-8 bg-gradient-to-br from-brand to-indigo-600 rounded-3xl text-white shadow-2xl relative overflow-hidden">
+      <div class="absolute inset-0 bg-[url('/assets/noise.png')] opacity-10 mix-blend-overlay"></div>
+      <div class="relative z-10 text-center">
+        <h3 class="text-2xl font-bold mb-3">Ready to transform your body?</h3>
+        <p class="text-white/80 mb-6 max-w-lg mx-auto">Stop guessing and start progressing. Use our flagship tool to discover exactly what macronutrients you need to crush your fitness goals.</p>
+        <a href="/country/spain/calculadora-de-calorias.html" class="inline-flex items-center justify-center px-8 py-4 text-brand font-bold bg-white rounded-full hover:bg-gray-50 hover:scale-105 transition-all shadow-lg active:scale-95">
+          Go to the Calorie Calculator (Spain)
+        </a>
+      </div>
+    </div>
+  </section>
 
-  <h2>Measuring TDEE without equations</h2>
-  <p>If you want to verify your TDEE without formulas:</p>
-  <ol>
-    <li>Eat the same number of calories daily for 2 weeks using a food scale and tracking app.</li>
-    <li>Weigh yourself daily at the same time, then average the results weekly.</li>
-    <li>If weight stays stable within ±0.5 kg, you have found your TDEE.</li>
-    <li>If gaining/losing, adjust by 100–200 calories daily and repeat.</li>
-  </ol>
-  <p>This empirical approach is more accurate than any formula because it accounts for your unique metabolism, NEAT, and food thermogenesis.</p>
+  <!-- JSON-LD FAQ Schema explicitly added -->
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
-  <h2>When TDEE calculation breaks down</h2>
-  <p>Certain situations require adjustment:</p>
-  <ul>
-    <li><strong>Weight change:</strong> Recalculate every 4–5 kg</li>
-    <li><strong>Age:</strong> Metabolism slows ~2% per decade</li>
-    <li><strong>Medical conditions:</strong> Thyroid, diabetes, and hormonal disorders affect metabolism</li>
-    <li><strong>Medications:</strong> Some suppress appetite or alter metabolic rate</li>
-    <li><strong>Pregnancy:</strong> TDEE increases significantly; specialized guidance is needed</li>
-  </ul>
-
-  <h2>Improving TDEE calculation accuracy</h2>
-  <p>For better results:</p>
-  <ul>
-    <li>Use accurate measurements for weight and height — weigh yourself first thing in the morning.</li>
-    <li>Choose conservative activity level if unsure.</li>
-    <li>Track weight for 2–3 weeks before adjusting.</li>
-    <li>Account for non-exercise activity (NEAT) — steps matter.</li>
-    <li>Use the <a href="/calories-burned-calculator/">calories burned calculator</a> to see how specific workouts impact your daily total.</li>
-  </ul>
-
-  <h2>TDEE adjustment strategies</h2>
-  <p>Once you have your TDEE estimate, use these strategies to refine it:</p>
-  <ul>
-    <li><strong>The 2-week rule:</strong> make one change at a time and wait 2 weeks before making another.</li>
-    <li><strong>The 100-calorie rule:</strong> adjust by 100–200 calories per change, not 500. Small changes are easier to sustain and easier to interpret.</li>
-    <li><strong>The weekly weigh-in:</strong> average your daily weights over a week to smooth out water fluctuations.</li>
-    <li><strong>The trend line:</strong> look at the 2-week trend, not daily noise. A downward trend means you are in a deficit; upward means surplus.</li>
-  </ul>
-
-  <h2>Links to related TDEE tools</h2>
-  <p>Use these calculators to support your TDEE-based plan:</p>
-  <ul>
-    <li><a href="/tdee-calculator/">TDEE calculator</a> — find your maintenance calories instantly</li>
-    <li><a href="/bmr-calculator/">BMR calculator</a> — your resting metabolic baseline</li>
-    <li><a href="/macro-calculator/">Macro calculator</a> — split your calories into protein, carbs, and fats</li>
-    <li><a href="/weight-loss-calculator/">Weight loss calculator</a> — plan your timeline to goal weight</li>
-    <li><a href="/weight-gain-calculator/">Weight gain calculator</a> — plan a lean bulk</li>
-    <li><a href="/calories-burned-calculator/">Calories burned calculator</a> — see how exercise changes your daily total</li>
-  </ul>
-<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>
