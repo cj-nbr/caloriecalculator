@@ -1,0 +1,145 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
+import ArticleImage from '../../components/ArticleImage.astro';
+
+const title = "Best Calorie Counter & Macro Tracking Apps Reviewed";
+const description = "Discover the best calorie counter app, free calorie counter app options, and the best macro calculator app to reach your fitness goals faster.";
+---
+
+<ContentLayout title={title} description={description}>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="bg-white/90 backdrop-blur-xl shadow-2xl rounded-3xl overflow-hidden border border-gray-100 p-8 sm:p-12">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-500 mb-8 text-center tracking-tight">
+        The Best Calorie Counter & Macro Tracking Apps Reviewed
+      </h1>
+      
+      <p class="text-xl text-gray-700 leading-relaxed mb-8">
+        Tracking your nutrition is one of the most effective ways to ensure you reach your health and fitness goals. Whether you want to lose weight, build muscle, or simply eat healthier, finding the <strong>best calorie counter app</strong> or the <strong>best macro calculator app</strong> is essential. In this expert guide, we break down the top options available today.
+      </p>
+
+      <div class="my-12">
+        <ArticleImage 
+          src="/images/calorie-counter-apps.jpg" 
+          alt="Smartphones displaying various calorie counting apps"
+          class="rounded-3xl shadow-lg w-full object-cover h-96"
+        />
+      </div>
+
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">1. MyFitnessPal: The Industry Giant</h2>
+      <p class="text-lg text-gray-700 mb-6">
+        When people think of nutrition tracking, the <strong>MyFitnessPal calculator</strong> is often the first thing that comes to mind. It features one of the largest food databases in the world, with over 14 million foods.
+      </p>
+      <ul class="list-disc pl-6 mb-8 text-lg text-gray-700 space-y-2">
+        <li><strong>Pros:</strong> Massive database, barcode scanner, integrates with almost all fitness wearables.</li>
+        <li><strong>Cons:</strong> The free version has recently locked the barcode scanner behind a premium paywall.</li>
+        <li><strong>Best for:</strong> Beginners who want a simple, straightforward logging experience.</li>
+      </ul>
+
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">2. Cronometer: Unmatched Micronutrient Tracking</h2>
+      <p class="text-lg text-gray-700 mb-6">
+        If you are a data nerd or follow a specific diet (like keto, vegan, or paleo), <a href="https://cronometer.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline"><strong>Cronometer</strong></a> is arguably the <strong>best macro calculator app</strong> on the market. While most apps only track macronutrients (protein, carbs, fat), Cronometer tracks up to 82 micronutrients.
+      </p>
+      <ul class="list-disc pl-6 mb-8 text-lg text-gray-700 space-y-2">
+        <li><strong>Pros:</strong> Highly accurate database (all entries are verified by staff), extensive micronutrient tracking, totally free barcode scanner.</li>
+        <li><strong>Cons:</strong> The interface can be slightly overwhelming for absolute beginners.</li>
+        <li><strong>Best for:</strong> Advanced users, dietitians, and those tracking specific vitamins and minerals.</li>
+      </ul>
+
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">3. MacroFactor: The Smartest Coach in Your Pocket</h2>
+      <p class="text-lg text-gray-700 mb-6">
+        Created by the team at Stronger By Science, MacroFactor uses a dynamic algorithm to adjust your calorie targets based on your weight trend and tracked nutrition. It is the smartest and <strong>best macro calculator app</strong> for people who want auto-adjusting coaching.
+      </p>
+      <ul class="list-disc pl-6 mb-8 text-lg text-gray-700 space-y-2">
+        <li><strong>Pros:</strong> Adherence-neutral philosophy (doesn't shame you for going over calories), incredibly fast food logging workflow, highly accurate expenditure algorithm.</li>
+        <li><strong>Cons:</strong> No free tier available (subscription only).</li>
+        <li><strong>Best for:</strong> Bodybuilders, powerlifters, and anyone tired of calculating their own TDEE adjustments.</li>
+      </ul>
+
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">4. FatSecret: The Best Free Calorie Counter App</h2>
+      <p class="text-lg text-gray-700 mb-6">
+        If you are looking for a completely <strong>free calorie counter app</strong> that doesn't hide essential features behind a premium subscription, FatSecret is a phenomenal choice. It provides a barcode scanner, macro tracking, and a social community all for free.
+      </p>
+      <ul class="list-disc pl-6 mb-8 text-lg text-gray-700 space-y-2">
+        <li><strong>Pros:</strong> 100% free core features, image recognition for food, strong community support.</li>
+        <li><strong>Cons:</strong> Interface is a bit dated compared to modern competitors.</li>
+        <li><strong>Best for:</strong> Budget-conscious users who want all the essential tracking tools without paying.</li>
+      </ul>
+
+      <div class="my-16 bg-gradient-to-br from-blue-50 to-teal-50 p-8 rounded-3xl shadow-inner border border-blue-100">
+        <h3 class="text-2xl font-bold text-center text-blue-900 mb-6">Calculate Your Needs Before You Track</h3>
+        <p class="text-center text-gray-700 mb-8">Before downloading an app, you need to know your baseline targets. Use our free calorie calculator below to determine your maintenance calories and optimal macronutrient split.</p>
+        <CalorieCalculator />
+      </div>
+
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-6 mb-12">
+        <div class="bg-gray-50 p-6 rounded-2xl">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">What is the best free calorie counter app?</h3>
+          <p class="text-gray-700">For completely free features, FatSecret and the free tier of Cronometer are widely considered the best options available today, offering barcode scanning and detailed macro tracking without a premium subscription.</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-2xl">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Is the MyFitnessPal calculator accurate?</h3>
+          <p class="text-gray-700">The MyFitnessPal calculator is a good starting point, but its user-generated food database can sometimes contain inaccurate entries. Always verify entries with a green checkmark or compare them to nutrition labels.</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-2xl">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Does Cronometer track net carbs?</h3>
+          <p class="text-gray-700">Yes, Cronometer is highly customizable and allows you to track net carbs, making it incredibly popular among those following ketogenic or low-carb diets.</p>
+        </div>
+      </div>
+      
+      <div class="mt-16 pt-8 border-t border-gray-200">
+        <h3 class="text-2xl font-bold text-gray-900 mb-6">Suggested Content</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <a href="/guides/how-to-calculate-macros" class="block p-6 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <h4 class="text-lg font-bold text-blue-600 mb-2">How to Calculate Macros</h4>
+            <p class="text-gray-600 text-sm">Learn the step-by-step process of calculating your macros for bulking, cutting, or maintenance.</p>
+          </a>
+          <a href="/guides/intermittent-fasting-results" class="block p-6 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <h4 class="text-lg font-bold text-blue-600 mb-2">Intermittent Fasting Guide</h4>
+            <p class="text-gray-600 text-sm">Discover how intermittent fasting can accelerate your weight loss when paired with calorie tracking.</p>
+          </a>
+        </div>
+        <div class="mt-8 text-center">
+          <a href="/country/spain/calculadora-de-calorias.html" class="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-teal-500 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+            Volver a la Calculadora de Calorías
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the best free calorie counter app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For completely free features, FatSecret and the free tier of Cronometer are widely considered the best options available today, offering barcode scanning and detailed macro tracking without a premium subscription."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the MyFitnessPal calculator accurate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The MyFitnessPal calculator is a good starting point, but its user-generated food database can sometimes contain inaccurate entries. Always verify entries with a green checkmark or compare them to nutrition labels."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Cronometer track net carbs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Cronometer is highly customizable and allows you to track net carbs, making it incredibly popular among those following ketogenic or low-carb diets."
+          }
+        }
+      ]
+    }
+  </script>
+</ContentLayout>
