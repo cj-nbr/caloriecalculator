@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import Layout from "../../layouts/Layout.astro";
 import Section from "../../components/ui/Section.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -43,3 +44,5 @@ const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Guides",
 
   <!-- Ad placement - below content -->
   </Layout>
+
+<div class='my-10'><CalorieCalculator /></div>

@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -54,4 +55,5 @@ const faqs: FaqItem[] = [
 
   <h2 id="consistency-wins">Consistency wins</h2>
   <p>A moderate workout you repeat 5 times per week beats an extreme session you do once and quit. Build a routine around walking, cycling, or swimming, then add intensity gradually. For structured plans, explore the <a href="/workouts/">workout guides</a>.</p>
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

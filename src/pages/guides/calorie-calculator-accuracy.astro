@@ -1,4 +1,5 @@
 ﻿---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -88,4 +89,5 @@ const faqs: FaqItem[] = [
     { label: "Frankenfield, D., et al. (2005). Comparison of Predictive Equations for Resting Metabolic Rate in Healthy Nonobese and Obese Adults.", href: "https://pubmed.ncbi.nlm.nih.gov/15883556/" },
     { label: "Shcherbina, A., et al. (2017). Accuracy in Wrist-Worn, Sensor-Based Measurements of Heart Rate and Energy Expenditure.", href: "https://www.mdpi.com/2075-4426/7/2/3" }
   ]} />
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

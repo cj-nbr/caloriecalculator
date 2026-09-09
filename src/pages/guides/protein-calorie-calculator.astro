@@ -1,4 +1,5 @@
 ﻿---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -142,4 +143,5 @@ const faqs: FaqItem[] = [
     { label: "Buchholz, A. C., & Schoeller, D. A. (2004). Is a calorie a calorie?", href: "https://academic.oup.com/ajcn/article/79/5/899S/4690186" },
     { label: "Westerterp, K. R. (2004). Diet induced thermogenesis.", href: "https://nutritionandmetabolism.biomedcentral.com/articles/10.1186/1743-7075-1-5" }
   ]} />
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

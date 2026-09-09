@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -74,4 +75,5 @@ const faqs: FaqItem[] = [
   <p>Calculators provide clinical estimates, but they aren't flawless. If you eat your estimated TDEE but still gain weight, you likely <strong>overestimated your activity level</strong>. Most people classify themselves as "Moderately Active" when they are actually "Lightly Active." When in doubt, select the lower activity tier.</p>
   <p>Additionally, if you have dieted aggressively for months, you may have experienced metabolic adaptation, meaning your actual TDEE is temporarily lower than the calculated estimate. In this case, you should slowly reverse diet to restore your metabolism.</p>
 
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

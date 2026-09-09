@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -94,4 +95,5 @@ BMR = 650 + 1,031.25 - 140 - 161 = 1,380.25</pre>
     { label: "Dietary Reference Intakes for Energy — National Academies", href: "https://www.nap.edu/read/10490/chapter/1" },
     { label: "Energy expenditure — PubMed / NIH review", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
   ]} />
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

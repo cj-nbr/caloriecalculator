@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -81,4 +82,5 @@ const faqs: FaqItem[] = [
   <h2>Next Steps: Achieving Your Ideal Weight</h2>
   <p>Once you identify your target weight, you need a structured plan to reach it. Start by determining your daily energy burn using our <a href="/tdee-calculator/">TDEE calculator</a>. If your goal is to lose weight to reach your IBW, use our <a href="/guides/calorie-deficit-guide/">calorie deficit guide</a> to safely reduce your intake.</p>
 
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

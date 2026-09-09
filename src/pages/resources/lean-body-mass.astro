@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -116,4 +117,5 @@ const faqs: FaqItem[] = [
     { label: "Institute of Medicine — Dietary Reference Intakes for Energy (2005)", href: "https://www.nationalacademies.org/publication/dietary-reference-intakes-for-energy" },
     { label: "American Council on Exercise — Body Composition and LBM", href: "https://www.acefitness.org/resources/everyone/exercise/1087/physical-activity-calorie-counter/" },
   ]} />
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -121,4 +122,5 @@ const faqs: FaqItem[] = [
 
   <h2>Best practice: Use Mifflin-St Jeor</h2>
   <p>The scientific consensus favors Mifflin-St Jeor for everyday use. Our <a href="/">calorie calculator</a> uses it, ensuring your <a href="/guides/maintenance-calorie-calculator/">maintenance calories</a> and weight goals are based on the most accurate formula available.</p>
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

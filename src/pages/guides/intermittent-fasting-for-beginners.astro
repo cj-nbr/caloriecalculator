@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -121,4 +122,5 @@ const faqs: FaqItem[] = [
       <p class="mt-1 text-sm text-body">Keep exercise intensity safe and effective while fasting.</p>
     </div>
   </div>
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -81,4 +82,5 @@ const faqs: FaqItem[] = [
     <li><strong>Myth: Cardio is required for weight loss.</strong> Fact: While cardio is excellent for heart health, it is entirely optional for weight loss. A calorie deficit through diet alone is 100% effective. (Though cardio does increase your <a href="/calories-burned-calculator/">total burn</a>!).</li>
   </ul>
 
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -118,4 +119,5 @@ Stressed TDEE (moderate activity) = 1,725 × 1.55 = 2,674 calories/day</pre>
     { label: "Energy requirements — World Health Organization (WHO)", href: "https://www.who.int/tools/elena" },
     { label: "Energy expenditure — PubMed / NIH review", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
   ]} />
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

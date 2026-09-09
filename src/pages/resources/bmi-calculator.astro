@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -84,4 +85,5 @@ const faqs: FaqItem[] = [
   <h3>Does a normal BMI guarantee good health?</h3>
   <p>No. You can have a "normal" BMI but still suffer from poor metabolic health, high cholesterol, or a condition known as "skinny fat" (normal weight but high body fat and extremely low muscle mass).</p>
 
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

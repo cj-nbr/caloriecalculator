@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -63,4 +64,5 @@ const faqs: FaqItem[] = [
 
   <h2 id="summary">Summary</h2>
   <p>Healthy weight gain is about consistency, not perfection. Pick a 250–500 calorie surplus, hit your protein target, and train with progressive overload. Use the <a href="/maintenance-calories-calculator/">maintenance calories calculator</a> to check your baseline whenever your weight changes.</p>
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -80,5 +81,6 @@ const faqs: FaqItem[] = [
     { label: "MyFitnessPal Premium vs Free Features", href: "https://www.myfitnesspal.com/premium" },
     { label: "Cronometer Data Accuracy", href: "https://cronometer.com/help/foods/" }
   ]} />
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>
 

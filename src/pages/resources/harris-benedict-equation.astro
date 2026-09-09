@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -111,4 +112,5 @@ BMR = 447.593 + 647.29 + 511.17 - 151.55 = 1,454.5 calories/day</pre>
     { label: "A new predictive equation for resting energy expenditure — Mifflin & St Jeor (1990)", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
     { label: "Dietary Reference Intakes for Energy — National Academies", href: "https://www.nap.edu/read/10490/chapter/1" },
   ]} />
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

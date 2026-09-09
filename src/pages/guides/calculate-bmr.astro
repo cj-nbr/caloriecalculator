@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -106,4 +107,5 @@ const faqs: FaqItem[] = [
     { label: "A new predictive equation for resting energy expenditure — Mifflin & St Jeor (1990)", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
     { label: "Basal metabolic rate — Wikipedia summary of methods", href: "https://en.wikipedia.org/wiki/Basal_metabolic_rate" },
   ]} />
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

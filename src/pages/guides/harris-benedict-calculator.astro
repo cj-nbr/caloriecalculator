@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -107,4 +108,5 @@ BMR = 800 + 1,125 - 150 + 5 = 1,780 calories/day</pre>
     { label: "The Harris-Benedict equation reevaluated — Roza & Shizgal (1984)", href: "https://pubmed.ncbi.nlm.nih.gov/6741852/" },
     { label: "A new predictive equation for resting energy expenditure — Mifflin & St Jeor (1990)", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
   ]} />
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

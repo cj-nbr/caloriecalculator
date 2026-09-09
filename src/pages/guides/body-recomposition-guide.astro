@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -65,5 +66,6 @@ const faqs: FaqItem[] = [
     { label: "Campbell, B. I., et al. (2015). International Society of Sports Nutrition position stand: diets and body composition.", href: "https://jissn.biomedcentral.com/articles/10.1186/s12970-017-0174-y" },
     { label: "Barakat, C., et al. (2020). Body Recomposition: Can Trained Individuals Build Muscle and Lose Fat at the Same Time?", href: "https://journals.lww.com/nsca-scj/fulltext/2020/10000/body_recomposition__can_trained_individuals_build.3.aspx" }
   ]} />
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>
 

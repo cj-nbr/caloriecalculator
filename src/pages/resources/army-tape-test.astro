@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -91,4 +92,5 @@ const faqs: FaqItem[] = [
     { label: "Body composition assessment: Navy circumference method compared with a four-compartment model — PubMed", href: "https://pubmed.ncbi.nlm.nih.gov/19996798/" },
     { label: "American Council on Exercise — Body Fat Percentage Guidelines", href: "https://www.acefitness.org/resources/everyone/exercise/1087/physical-activity-calorie-counter/" },
   ]} />
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

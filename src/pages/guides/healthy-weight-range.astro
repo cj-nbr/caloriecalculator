@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -64,4 +65,5 @@ const faqs: FaqItem[] = [
     <li>Keep movement consistent — walking, cycling, and strength training all support weight stability.</li>
     <li>Use the <a href="/walking-calorie-calculator/">walking calorie calculator</a>, <a href="/cycling-calories-calculator/">cycling calories calculator</a>, or <a href="/swimming-calories-calculator/">swimming calories calculator</a> to estimate exercise burn and plan your week.</li>
   </ul>
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

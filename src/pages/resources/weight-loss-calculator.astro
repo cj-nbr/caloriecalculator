@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -72,4 +73,5 @@ const faqs: FaqItem[] = [
   <p>As you lose weight, your body requires less energy to move around. A 250 lb person burns significantly more calories walking up a flight of stairs than a 200 lb person. This means your TDEE shrinks as you lose weight.</p>
   <p>If you hit a plateau, your original calorie deficit has likely become your new <a href="/maintenance-calories-calculator/">maintenance calories</a>. To resume losing weight, you must return to the <a href="/weight-loss-calculator/">weight loss calculator</a>, input your <em>new</em> lighter body weight, and generate a new, lower daily calorie target.</p>
 
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

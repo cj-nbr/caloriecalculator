@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -121,4 +122,5 @@ const faqs: FaqItem[] = [
     { label: "Body fat via anthropometry — NIH / PMC", href: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5639749/" },
     { label: "Validity of U.S. Navy Body Fat Formula - Military Medicine", href: "https://pubmed.ncbi.nlm.nih.gov/" }
   ]} />
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

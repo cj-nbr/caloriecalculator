@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -65,11 +66,12 @@ const faqs: FaqItem[] = [
   <p>If you want to know <strong>how many calories should I eat to lose weight calculator online</strong>, the process is simple:</p>
   <p>Use our <a href="/calorie-deficit-calculator/">Calorie Deficit Calculator</a>. It will find your highly-accurate TDEE using the Mifflin-St Jeor formula, and safely subtract 500 calories. This mathematical approach guarantees roughly 1 pound of fat loss per week, without damaging your metabolism.</p>
   
-  <p>And if you want to dial in your nutrition further—such as figuring out <strong>how do I calculate calories from fat</strong>—you can use our <a href="/macro-calculator/">Macro Calculator</a> to split your target into the perfect ratio of protein, carbs, and fats.</p>
+  <p>And if you want to dial in your nutrition furtherï¿½such as figuring out <strong>how do I calculate calories from fat</strong>ï¿½you can use our <a href="/macro-calculator/">Macro Calculator</a> to split your target into the perfect ratio of protein, carbs, and fats.</p>
 
   <Sources sources={[
     { label: "Mifflin, M. D., et al. (1990). A new predictive equation for resting energy expenditure in healthy individuals.", href: "https://academic.oup.com/ajcn/article-abstract/51/2/241/4695304" },
     { label: "Frankenfield, D., et al. (2005). Comparison of Predictive Equations for Resting Metabolic Rate in Healthy Nonobese and Obese Adults.", href: "https://pubmed.ncbi.nlm.nih.gov/15883556/" }
   ]} />
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>
 

@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -136,4 +137,5 @@ const faqs: FaqItem[] = [
     
     <p>For personalized macronutrient planning, utilize our <a href="/protein-calculator/" class="text-blue-600 underline">protein calculator</a> and <a href="/macro-calculator/" class="text-blue-600 underline">macro calculator</a> in conjunction with your established calorie targets.</p>
   </div>
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -72,4 +73,5 @@ const faqs: FaqItem[] = [
     <li><strong>Myth: Eating massive amounts of protein builds more muscle.</strong> Fact: Muscle protein synthesis maxes out around 1.6 - 2.2 grams per kilogram of body weight. Eating 400g of protein won't build more muscle than 200g; the excess is simply oxidized for energy. Check your limit with the <a href="/protein-calculator/">protein calculator</a>.</li>
   </ul>
 
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

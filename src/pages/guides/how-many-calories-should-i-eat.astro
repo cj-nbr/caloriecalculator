@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -81,4 +82,5 @@ const faqs: FaqItem[] = [
     { label: "Dietary Guidelines for Americans — estimated calorie needs", href: "https://www.dietaryguidelines.gov/" },
     { label: "Mifflin-St Jeor equation for resting energy expenditure — NIH", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
   ]} />
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>

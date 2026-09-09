@@ -1,4 +1,5 @@
 ---
+import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
@@ -176,4 +177,5 @@ const faqs: FaqItem[] = [
     <p>Your macronutrient needs are not static. As your body composition changes, your metabolism adapts. If weight loss stalls for more than two consecutive weeks, you must adjust your variables. We recommend slightly increasing protein for enhanced satiety and a metabolic boost, while simultaneously reducing fats or carbohydrates by 10–15%. It is crucial to frequently reassess your baseline metrics using a <a href="/tdee-calculator/" class="text-blue-600 underline hover:text-blue-800">TDEE calculator</a> to stay aligned with your evolving physiological requirements.</p>
 
   </div>
+<div class='my-10'><CalorieCalculator /></div>
 </ContentLayout>
