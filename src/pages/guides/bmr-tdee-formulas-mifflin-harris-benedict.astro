@@ -3,8 +3,8 @@ import ContentLayout from '../../layouts/ContentLayout.astro';
 import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import ArticleImage from '../../components/ui/ArticleImage.astro';
 
-const title = "BMR & TDEE Formulas: Mifflin-St Jeor, Harris-Benedict, & Katch-McArdle";
-const description = "Understand the science behind calculating your Basal Metabolic Rate and Total Daily Energy Expenditure using top equations like Mifflin-St Jeor, Harris-Benedict, and Katch-McArdle.";
+const title = "BMR and TDEE Formulas: Mifflin-St Jeor, Harris-Benedict, and Katch-McArdle Explained";
+const description = "Understand the scientific principles and mathematical formulas behind calculating your Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE).";
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -12,10 +12,10 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Which BMR formula is the most accurate?",
+      "name": "Which BMR formula is considered the most accurate?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The Mifflin-St Jeor BMR calculator is widely considered the most accurate formula for the general population. It has been shown to estimate resting metabolic rate to within 10% of true values in most healthy adults."
+        "text": "The Mifflin-St Jeor equation is widely considered the most accurate BMR formula for the general population. Multiple scientific studies have shown that it estimates resting metabolic rate to within 10% of true values in a majority of healthy adults, outperforming older equations."
       }
     },
     {
@@ -23,7 +23,7 @@ const faqSchema = {
       "name": "How does the Katch-McArdle formula differ from others?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Unlike the Harris-Benedict equation or Mifflin-St Jeor, the Katch-McArdle calculator requires you to know your body fat percentage. Because it accounts for lean body mass, it is often more accurate for athletes and very lean individuals."
+        "text": "Unlike the Harris-Benedict or Mifflin-St Jeor equations, the Katch-McArdle formula requires you to know your exact body fat percentage. Because it accounts for your lean body mass rather than just total body weight, it is often far more accurate for athletes, bodybuilders, and very lean individuals."
       }
     },
     {
@@ -31,122 +31,159 @@ const faqSchema = {
       "name": "What is the difference between BMR and RMR?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "BMR (Basal Metabolic Rate) and RMR (Resting Metabolic Rate) are often used interchangeably. However, BMR is strictly measured under more rigorous conditions (after a 12-hour fast, in a dark room upon waking), whereas RMR is measured under less restrictive resting conditions."
+        "text": "BMR (Basal Metabolic Rate) and RMR (Resting Metabolic Rate) are closely related and often used interchangeably, but they have key differences in how they are measured. BMR is strictly measured under highly rigorous conditions (such as after a 12-hour fast, in a dark, temperature-controlled room immediately upon waking). In contrast, RMR is measured under less restrictive resting conditions and is usually slightly higher than BMR."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the Harris-Benedict equation still used if it is older?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Harris-Benedict equation, originally created in 1919 and revised by Roza and Shizgal in 1984, remains widely used because it has a long history of clinical application and provides a reasonable baseline for many individuals. However, modern dietitians generally prefer the Mifflin-St Jeor equation because Harris-Benedict tends to slightly overestimate calorie needs, particularly in overweight individuals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should I recalculate my BMR and TDEE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You should recalculate your BMR and TDEE whenever you experience a significant change in body weight (such as gaining or losing 5-10 pounds) or if your daily activity levels change drastically. Recalculating ensures your caloric targets align with your current metabolic requirements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can my BMR increase or decrease over time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, your BMR naturally fluctuates throughout your life. Factors that can increase your BMR include gaining muscle mass, recovering from an injury, or certain hormonal changes. Conversely, losing weight, losing muscle mass, and aging typically cause a decrease in your BMR."
       }
     }
   ]
 };
 ---
 
-<ContentLayout title={title} description={description}>
+<ContentLayout title={title} description={description} h1="BMR and TDEE Formulas Explained: The Science of Metabolism" path="/guides/bmr-tdee-formulas-mifflin-harris-benedict">
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
 
-  <main class="max-w-4xl mx-auto px-4 py-12 md:py-24">
-    <header class="text-center mb-16">
-      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
-        BMR & TDEE Formulas Explained
-      </h1>
-      <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-        Discover the science behind the most popular equations to calculate your resting metabolic rate and total daily energy expenditure.
-      </p>
-    </header>
+  <p>Discover the precise science behind the most popular equations used to calculate your resting metabolic rate and total daily energy expenditure. Whether your primary goal is to lose weight, gain muscle mass, or simply maintain your current physique, you absolutely need to understand how your body expends energy on a daily basis. Without this fundamental knowledge, creating an effective and sustainable nutrition plan is virtually impossible.</p>
 
-    <div class="mb-12">
-      <CalorieCalculator />
+  <ArticleImage src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Scientific calculator on a desk next to fitness notes" />
+
+  <div class="bg-white/80 backdrop-blur-md rounded-3xl p-8 my-10 shadow-xl border border-gray-100">
+    <h3 class="text-center mb-6">Use Our Integrated Calculator</h3>
+    <CalorieCalculator />
+  </div>
+
+  <h2>Understanding Basal Metabolic Rate (BMR)</h2>
+  <p>Your Basal Metabolic Rate (BMR) represents the absolute total number of calories your body requires to perform its most basic, life-sustaining functions. If you were to lie in bed all day in a state of absolute rest, not moving a single muscle, your body would still burn this exact number of calories just to keep you alive. These fundamental bodily functions include breathing, circulating blood, cellular reproduction, nutrient processing, and maintaining brain function. Surprisingly, your BMR accounts for roughly 60% to 75% of your total daily calorie burn, depending on your lifestyle and genetics.</p>
+
+  <h3>The Mifflin-St Jeor Formula</h3>
+  <p>Introduced to the medical community in 1990 by researchers Mifflin and St Jeor, this formula has rapidly become the gold standard in clinical settings and modern nutritional science. Extensive peer-reviewed studies indicate that it is significantly more accurate than older formulas. In fact, it successfully predicts the true resting metabolic rate within a 10% margin of error for both lean and obese individuals, making it highly reliable for the general population.</p>
+  <ul>
+    <li><strong>Men:</strong> BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) + 5</li>
+    <li><strong>Women:</strong> BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) - 161</li>
+  </ul>
+  <p>One of the main reasons the Mifflin-St Jeor equation is favored today is because it does not heavily overestimate caloric needs, a common flaw found in equations developed earlier in the 20th century when lifestyles were generally much more active.</p>
+
+  <h3>The Revised Harris-Benedict Equation</h3>
+  <p>The original Harris-Benedict equation was established in 1919 and served as the absolute standard for metabolic calculations for several decades. Realizing its limitations as the general population's body composition changed, researchers Roza and Shizgal revised the formula in 1984 to improve its overall precision. Although it is still widely used in many fitness applications, clinical data suggests it tends to slightly overestimate daily caloric needs, particularly in individuals carrying excess body fat, when compared directly to the Mifflin-St Jeor equation.</p>
+  <ul>
+    <li><strong>Men:</strong> BMR = 88.362 + (13.397 × weight in kg) + (4.799 × height in cm) - (5.677 × age in years)</li>
+    <li><strong>Women:</strong> BMR = 447.593 + (9.247 × weight in kg) + (3.098 × height in cm) - (4.330 × age in years)</li>
+  </ul>
+  
+  <h3>The Katch-McArdle Formula</h3>
+  <p>For elite athletes, competitive bodybuilders, and fitness enthusiasts who accurately know their body fat percentage, the Katch-McArdle formula is undeniably the preferred choice. Unlike the Harris-Benedict and Mifflin-St Jeor equations—which rely entirely on total body weight—the Katch-McArdle equation uses your Lean Body Mass (LBM) to calculate your metabolic rate. Since muscle tissue is highly metabolically active (meaning it burns more calories at rest than fat tissue), this formula provides a highly tailored, exceptionally precise approach for individuals with significant muscle mass.</p>
+  <ul>
+    <li><strong>Formula:</strong> BMR = 370 + (21.6 × Lean Body Mass in kg)</li>
+  </ul>
+  <p>To use this formula, you must first calculate your lean body mass by subtracting your fat mass from your total weight. Because it requires an accurate body fat measurement (ideally from a DEXA scan or hydrostatic weighing), it is less accessible for beginners but invaluable for advanced athletes.</p>
+
+  <h2>Calculating Total Daily Energy Expenditure (TDEE)</h2>
+  <p>Once you have determined your BMR using one of the formulas above, your next vital step is to multiply that number by an Activity Multiplier to find your Total Daily Energy Expenditure (TDEE). Your TDEE represents the grand total of calories you burn over a 24-hour period, accounting for structured exercise, Non-Exercise Activity Thermogenesis (NEAT, which includes fidgeting and walking around), and the Thermic Effect of Food (TEF, the energy your body uses to digest food).</p>
+
+  <table class="min-w-full divide-y divide-gray-200 mt-4 mb-8 text-left">
+    <thead>
+      <tr>
+        <th>Activity Level Classification</th>
+        <th>Standard Multiplier</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Sedentary</td>
+        <td>BMR × 1.2</td>
+        <td>Office job, mostly sitting, very little to no formal exercise.</td>
+      </tr>
+      <tr>
+        <td>Lightly Active</td>
+        <td>BMR × 1.375</td>
+        <td>Light exercise or sports 1-3 days a week, or a job requiring standing.</td>
+      </tr>
+      <tr>
+        <td>Moderately Active</td>
+        <td>BMR × 1.55</td>
+        <td>Moderate-intensity exercise or sports 3-5 days a week.</td>
+      </tr>
+      <tr>
+        <td>Very Active</td>
+        <td>BMR × 1.725</td>
+        <td>Hard exercise or intensive sports 6-7 days a week.</td>
+      </tr>
+      <tr>
+        <td>Extra Active</td>
+        <td>BMR × 1.9</td>
+        <td>Very hard daily exercise, physical labor job, or training twice a day.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Expert Advice for Optimal Results</h2>
+  <ul>
+    <li><strong>Track Your Macronutrients:</strong> Knowing your total daily calories is only step one. Learning how to properly divide those calories into optimal amounts of protein, dietary fats, and carbohydrates is vital for achieving the best physiological results, preserving muscle mass, and maintaining energy levels.</li>
+    <li><strong>Adjust As You Go:</strong> These mathematical formulas are incredibly useful, but they only give you an estimated starting point. Monitor your weight and physical measurements, and adjust your caloric intake up or down after two to three weeks of consistent tracking.</li>
+    <li><strong>Be Honest About Your Activity:</strong> The single biggest mistake people make when calculating their TDEE is drastically overestimating their daily activity level. If you work a desk job but go to the gym for an hour, you are likely only "Lightly Active." When in doubt, start with a lower multiplier.</li>
+  </ul>
+
+  <h2>Frequently Asked Questions (FAQ)</h2>
+  <h3>Which BMR formula is considered the most accurate?</h3>
+  <p>The Mifflin-St Jeor equation is widely considered the most accurate BMR formula for the general population. Multiple scientific studies have shown that it estimates resting metabolic rate to within 10% of true values in a majority of healthy adults, outperforming older equations.</p>
+  
+  <h3>How does the Katch-McArdle formula differ from others?</h3>
+  <p>Unlike the Harris-Benedict or Mifflin-St Jeor equations, the Katch-McArdle formula requires you to know your exact body fat percentage. Because it accounts for your lean body mass rather than just total body weight, it is often far more accurate for athletes, bodybuilders, and very lean individuals.</p>
+
+  <h3>What is the difference between BMR and RMR?</h3>
+  <p>BMR (Basal Metabolic Rate) and RMR (Resting Metabolic Rate) are closely related and often used interchangeably, but they have key differences in how they are measured. BMR is strictly measured under highly rigorous conditions (such as after a 12-hour fast, in a dark, temperature-controlled room immediately upon waking). In contrast, RMR is measured under less restrictive resting conditions and is usually slightly higher than BMR.</p>
+
+  <h3>Why is the Harris-Benedict equation still used if it is older?</h3>
+  <p>The Harris-Benedict equation, originally created in 1919 and revised by Roza and Shizgal in 1984, remains widely used because it has a long history of clinical application and provides a reasonable baseline for many individuals. However, modern dietitians generally prefer the Mifflin-St Jeor equation because Harris-Benedict tends to slightly overestimate calorie needs, particularly in overweight individuals.</p>
+
+  <h3>How often should I recalculate my BMR and TDEE?</h3>
+  <p>You should recalculate your BMR and TDEE whenever you experience a significant change in body weight (such as gaining or losing 5-10 pounds) or if your daily activity levels change drastically. Recalculating ensures your caloric targets align with your current metabolic requirements.</p>
+
+  <h3>Can my BMR increase or decrease over time?</h3>
+  <p>Yes, your BMR naturally fluctuates throughout your life. Factors that can increase your BMR include gaining muscle mass, recovering from an injury, or certain hormonal changes. Conversely, losing weight, losing muscle mass, and aging typically cause a decrease in your BMR.</p>
+
+  <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 mt-12 border border-blue-100/50 shadow-lg">
+    <h2 class="text-center text-blue-900 mt-0">Suggested Content</h2>
+    <p class="text-center text-blue-800/80 mb-8">Continue optimizing your nutrition and training with our expert guides.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <a href="/guides/how-many-calories-to-lose-weight-calculator" class="block p-6 bg-white/90 backdrop-blur rounded-2xl shadow-sm hover:shadow-md transition-all border border-white/50 no-underline">
+        <h3 class="text-blue-700 mt-0 mb-2 text-xl">Calories for Weight Loss</h3>
+        <p class="text-gray-600 m-0 text-sm">Discover exactly how to apply your BMR and TDEE to create the perfect, sustainable caloric deficit.</p>
+      </a>
+      <a href="/guides/fast-food-restaurant-calorie-calculator" class="block p-6 bg-white/90 backdrop-blur rounded-2xl shadow-sm hover:shadow-md transition-all border border-white/50 no-underline">
+        <h3 class="text-blue-700 mt-0 mb-2 text-xl">Fast Food Calories</h3>
+        <p class="text-gray-600 m-0 text-sm">Learn how to accurately estimate calories when eating out based on your daily energy expenditure.</p>
+      </a>
     </div>
-
-    <article class="prose prose-lg md:prose-xl prose-blue mx-auto text-gray-700 bg-white/80 backdrop-blur-md rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100">
-      
-      <h2>Understanding Basal Metabolic Rate (BMR)</h2>
-      <p>
-        If you want to <a href="/guides/weight-loss" class="text-blue-600 hover:underline">lose weight</a>, build muscle, or simply maintain your current physique, you need to understand how your body burns energy. This starts with knowing your <strong>Basal Metabolic Rate formula</strong>. Your BMR represents the total number of calories your body requires to perform its most basic, life-sustaining functions—like breathing, circulating blood, and cellular reproduction.
-      </p>
-
-      <h3>Mifflin-St Jeor BMR Calculator</h3>
-      <p>
-        Introduced in 1990, the <strong>Mifflin-St Jeor BMR calculator</strong> has become the gold standard in clinical settings. Studies indicate that it is more accurate than older formulas, predicting resting metabolic rate within a 10% margin of error for both lean and obese individuals.
-      </p>
-      <div class="bg-blue-50/50 rounded-2xl p-6 my-6 border border-blue-100">
-        <h4 class="font-semibold text-blue-900 mt-0">The Formula:</h4>
-        <ul class="mb-0">
-          <li><strong>Men:</strong> BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) + 5</li>
-          <li><strong>Women:</strong> BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) - 161</li>
-        </ul>
-      </div>
-
-      <h3>The Revised Harris-Benedict Equation</h3>
-      <p>
-        The original <strong>Harris-Benedict equation</strong> was created in 1919 and was the leading standard for decades. It was later revised by Roza and Shizgal in 1984 to improve accuracy. While still widely used, it tends to slightly overestimate calorie needs, particularly in overweight individuals, compared to Mifflin-St Jeor.
-      </p>
-      
-      <h3>The Katch-McArdle Calculator</h3>
-      <p>
-        For athletes, bodybuilders, and those who know their body fat percentage, the <strong>Katch-McArdle calculator</strong> is often preferred. Unlike other formulas that rely solely on total body weight, Katch-McArdle uses Lean Body Mass (LBM). Since muscle tissue is highly active metabolically, this formula provides a highly tailored approach to <strong>calculate my resting metabolic rate</strong>.
-      </p>
-      <div class="bg-indigo-50/50 rounded-2xl p-6 my-6 border border-indigo-100">
-        <p class="mb-0"><strong>Formula:</strong> BMR = 370 + (21.6 × Lean Body Mass in kg)</p>
-      </div>
-
-      <h2>Calculating Total Daily Energy Expenditure (TDEE)</h2>
-      <p>
-        Once you have your BMR, you must multiply it by an Activity Multiplier to find your TDEE. This represents the total calories you burn in a 24-hour period, accounting for exercise, daily movement, and the thermic effect of food.
-      </p>
-
-      <div class="overflow-x-auto my-8">
-        <table class="min-w-full text-left rounded-2xl overflow-hidden shadow-sm border border-gray-200">
-          <thead class="bg-gray-50">
-            <tr>
-              <th class="px-6 py-4 font-semibold text-gray-900">Activity Level</th>
-              <th class="px-6 py-4 font-semibold text-gray-900">Multiplier</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-200 bg-white">
-            <tr>
-              <td class="px-6 py-4">Sedentary (office job, little to no exercise)</td>
-              <td class="px-6 py-4">BMR × 1.2</td>
-            </tr>
-            <tr>
-              <td class="px-6 py-4">Lightly Active (light exercise 1-3 days/week)</td>
-              <td class="px-6 py-4">BMR × 1.375</td>
-            </tr>
-            <tr>
-              <td class="px-6 py-4">Moderately Active (moderate exercise 3-5 days/week)</td>
-              <td class="px-6 py-4">BMR × 1.55</td>
-            </tr>
-            <tr>
-              <td class="px-6 py-4">Very Active (hard exercise 6-7 days/week)</td>
-              <td class="px-6 py-4">BMR × 1.725</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h2>Expert Tips for Using These Formulas</h2>
-      <ul>
-        <li><strong>Track your macros:</strong> Knowing your calories is step one. Learn how to divide them into protein, fats, and carbs for optimal results. Check out external resources like <a href="https://examine.com/nutrition/protein-intake-calculator/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Examine.com's protein guide</a> for deep nutritional science.</li>
-        <li><strong>Adjust as you go:</strong> Formulas give you an estimated starting point. Track your weight and adjust calories up or down after two weeks of consistent tracking.</li>
-        <li><strong>Be honest about activity:</strong> The biggest mistake people make is overestimating their daily activity level. When in doubt, start with a lower multiplier.</li>
-      </ul>
-
-      <hr class="my-12 border-gray-200" />
-
-      <h2>Frequently Asked Questions</h2>
-      <div class="space-y-6 mt-8 mb-12">
-        <div class="bg-gray-50 rounded-2xl p-6">
-          <h3 class="text-xl font-bold mt-0 mb-2">Which BMR formula is the most accurate?</h3>
-          <p class="mb-0">The Mifflin-St Jeor BMR calculator is widely considered the most accurate formula for the general population. It has been shown to estimate resting metabolic rate to within 10% of true values in most healthy adults.</p>
-        </div>
-        <div class="bg-gray-50 rounded-2xl p-6">
-          <h3 class="text-xl font-bold mt-0 mb-2">How does the Katch-McArdle formula differ from others?</h3>
-          <p class="mb-0">Unlike the Harris-Benedict equation or Mifflin-St Jeor, the Katch-McArdle calculator requires you to know your body fat percentage. Because it accounts for lean body mass, it is often more accurate for athletes and very lean individuals.</p>
-        </div>
-        <div class="bg-gray-50 rounded-2xl p-6">
-          <h3 class="text-xl font-bold mt-0 mb-2">What is the difference between BMR and RMR?</h3>
-          <p class="mb-0">BMR (Basal Metabolic Rate) and RMR (Resting Metabolic Rate) are often used interchangeably. However, BMR is strictly measured under more rigorous conditions (after a 12-hour fast, in a dark room upon waking), whereas RMR is measured under less restrictive resting conditions.</p>
-        </div>
-      </div>
-    </article>
-  </main>
+    <div class="text-center">
+      <a href="/country/spain/calculadora-de-calorias.html" class="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all no-underline">
+        Back to the Calorie Calculator
+      </a>
+    </div>
+  </div>
 </ContentLayout>
