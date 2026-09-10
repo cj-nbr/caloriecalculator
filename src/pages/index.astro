@@ -189,31 +189,7 @@ const jsonLd = [
     </div>
   </Section>
 
-  <!-- ── All calculators ──────────────────────────────── -->
-  <Section class="border-t border-hairline">
-    <div class="mb-10 text-center">
-      <h2 class="text-display-md text-gradient">Explore all {allCalculators.length} calculators</h2>
-      <p class="mx-auto mt-3 max-w-xl text-body">
-        A complete toolkit for calories, body composition, and nutrition.
-      </p>
-    </div>
-    <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        allCalculators.map((c) => (
-          <a
-            href={c.href}
-            class="card group flex items-center justify-between gap-3 p-4 transition-all hover:border-hairline-strong hover:bg-canvas-soft"
-          >
-            <div>
-              <span class="block text-sm font-medium text-ink">{c.label}</span>
-              {c.desc && <span class="block text-xs text-mute">{c.desc}</span>}
-            </div>
-            <svg class="h-4 w-4 shrink-0 text-mute transition-transform group-hover:translate-x-0.5 group-hover:text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-          </a>
-        ))
-      }
-    </div>
-  </Section>
+  
 
   <!-- ── Educational / SEO content ────────────────────── -->
   <Section class="border-t border-hairline">

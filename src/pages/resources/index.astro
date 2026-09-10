@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import Section from "../../components/ui/Section.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
 import { breadcrumbSchema } from "../../lib/seo";
+import { ALL_CALCULATORS } from "../../data/site";
 
 const resources = [
   { label: "What is BMR?", href: "/resources/what-is-bmr/" },
@@ -23,6 +24,20 @@ const resources = [
   { label: "Calorie Deficit Guide", href: "/resources/calorie-deficit-guide/" },
   { label: "Calorie Surplus Guide", href: "/resources/calorie-surplus-guide/" },
 ];
+
+const extraCalculators = [
+  { label: "Healthy Weight Calculator", href: "/healthy-weight-calculator/", desc: "BMI-based healthy weight range" },
+  { label: "Weight Gain Calculator", href: "/weight-gain-calculator/", desc: "Calorie surplus and timeline" },
+  { label: "Maintenance Calories Calculator", href: "/maintenance-calories-calculator/", desc: "Daily calories to stay at your current weight" },
+  { label: "Meal Calorie Calculator", href: "/meal-calorie-calculator/", desc: "Split daily calories across meals" },
+  { label: "Recipe Calorie Calculator", href: "/recipe-calorie-calculator/", desc: "Total and per-serving recipe calories" },
+  { label: "Intermittent Fasting Calculator", href: "/intermittent-fasting-calculator/", desc: "Fasting and eating window planner" },
+  { label: "Cycling Calories Calculator", href: "/cycling-calories-calculator/", desc: "Calories burned cycling by pace" },
+  { label: "Swimming Calories Calculator", href: "/swimming-calories-calculator/", desc: "Calories burned swimming by intensity" },
+];
+
+const allCalculators = [...ALL_CALCULATORS, ...extraCalculators];
+
 const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Resources", path: "/resources/" }])];
 ---
 
