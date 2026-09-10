@@ -1,17 +1,41 @@
 ---
-import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 import Layout from "../../layouts/Layout.astro";
 import Section from "../../components/ui/Section.astro";
 import ArticleImage from "../../components/ui/ArticleImage.astro";
-import { NAV } from "../../data/site";
 import { breadcrumbSchema } from "../../lib/seo";
 
-const guides = NAV.find((n) => n.label === "Guides")!.children!;
+const guides = [
+  { label: "How Many Calories Should I Eat?", href: "/guides/how-many-calories-should-i-eat/" },
+  { label: "Body Recomposition Guide", href: "/guides/body-recomposition-guide/" },
+  { label: "Best Free Calorie Calculator Apps", href: "/guides/best-free-calorie-calculator/" },
+  { label: "Are Calorie Calculators Accurate?", href: "/guides/are-calorie-calculators-accurate/" },
+  { label: "Maintenance Calories", href: "/guides/maintenance-calories/" },
+  { label: "TDEE Calculation Methods", href: "/guides/tdee-calculation/" },
+  { label: "What is TDEE?", href: "/guides/whats-my-tdee/" },
+  { label: "BMR equations", href: "/guides/bmr-equations/" },
+  { label: "Calculate Your BMR", href: "/guides/calculate-bmr/" },
+  { label: "Calorie Calculator Accuracy", href: "/guides/calorie-calculator-accuracy/" },
+  { label: "Weight Loss Guide", href: "/guides/weight-loss-guide/" },
+  { label: "Weight Gain Guide", href: "/guides/weight-gain-guide/" },
+  { label: "How to Gain Weight", href: "/guides/how-to-gain-weight/" },
+  { label: "Calorie Deficit Guide", href: "/guides/calorie-deficit-guide/" },
+  { label: "Calorie Surplus Guide", href: "/guides/calorie-surplus-guide/" },
+  { label: "Protein Guide", href: "/guides/protein-guide/" },
+  { label: "Protein Calories", href: "/guides/protein-calories/" },
+  { label: "Macro Guide", href: "/guides/macro-guide/" },
+  { label: "Intermittent Fasting for Beginners", href: "/guides/intermittent-fasting-for-beginners/" },
+  { label: "Calorie Counting Recipes", href: "/guides/calorie-counting-recipes/" },
+  { label: "Calories Burned Swimming", href: "/guides/calories-burned-swimming/" },
+  { label: "Epley Formula", href: "/guides/epley-formula/" },
+  { label: "Harris-Benedict Revised", href: "/guides/harris-benedict-revised/" },
+  { label: "Mifflin-St Jeor Stress Factors", href: "/guides/mifflin-st-jeor-stress-factors/" },
+];
+
 const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Guides", path: "/guides/" }])];
 ---
 
 <Layout
-  title="Nutrition & Weight Guides — Calorie Calculator Free"
+  title="Nutrition & Weight Guides – Calorie Calculator Free"
   description="Free, science-based guides on calories, macros, protein, weight loss, and weight gain to help you reach your goals."
   canonical="/guides/"
   jsonLd={jsonLd}
@@ -41,8 +65,4 @@ const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Guides",
       }
     </div>
   </Section>
-
-  <!-- Ad placement - below content -->
-  </Layout>
-
-<div class='my-10'><CalorieCalculator /></div>
+</Layout>

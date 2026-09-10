@@ -67,76 +67,14 @@ export const ALL_CALCULATORS: NavLink[] = [
 
 /** Header dropdown groups. */
 export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
-  {
-    label: "Home",
-    href: "/",
-  },
-  {
-    label: "Guides",
-    href: "/guides/",
-    children: [
-      { label: "How Many Calories Should I Eat?", href: "/guides/how-many-calories-should-i-eat/" },
-      { label: "Body Recomposition Guide", href: "/guides/body-recomposition-guide/" },
-      { label: "Best Free Calorie Calculator Apps", href: "/guides/best-free-calorie-calculator/" },
-      { label: "Are Calorie Calculators Accurate?", href: "/guides/are-calorie-calculators-accurate/" },
-      { label: "Maintenance Calories", href: "/guides/maintenance-calories/" },
-      { label: "TDEE Calculation Methods", href: "/guides/tdee-calculation/" },
-      { label: "What is TDEE?", href: "/guides/whats-my-tdee/" },
-      { label: "BMR equations", href: "/guides/bmr-equations/" },
-      { label: "Calculate Your BMR", href: "/guides/calculate-bmr/" },
-      { label: "Calorie Calculator Accuracy", href: "/guides/calorie-calculator-accuracy/" },
-      { label: "Weight Loss Guide", href: "/guides/weight-loss-guide/" },
-      { label: "Weight Gain Guide", href: "/guides/weight-gain-guide/" },
-      { label: "How to Gain Weight", href: "/guides/how-to-gain-weight/" },
-      { label: "Calorie Deficit Guide", href: "/guides/calorie-deficit-guide/" },
-      { label: "Calorie Surplus Guide", href: "/guides/calorie-surplus-guide/" },
-      { label: "Protein Guide", href: "/guides/protein-guide/" },
-      { label: "Protein Calories", href: "/guides/protein-calories/" },
-      { label: "Macro Guide", href: "/guides/macro-guide/" },
-      { label: "Intermittent Fasting for Beginners", href: "/guides/intermittent-fasting-for-beginners/" },
-      { label: "Calorie Counting Recipes", href: "/guides/calorie-counting-recipes/" },
-      { label: "Calories Burned Swimming", href: "/guides/calories-burned-swimming/" },
-      { label: "Epley Formula", href: "/guides/epley-formula/" },
-      { label: "Harris-Benedict Revised", href: "/guides/harris-benedict-revised/" },
-      { label: "Mifflin-St Jeor Stress Factors", href: "/guides/mifflin-st-jeor-stress-factors/" },
-    ],
-  },
-  {
-    label: "Workouts",
-    href: "/workouts/",
-    children: [
-      { label: "Leg Workouts", href: "/workouts/leg-workouts/", desc: "Leg day routines and hamstring work" },
-      { label: "Lying Leg Raises", href: "/workouts/lying-leg-raises/", desc: "Lower abs and core control" },
-      { label: "Leg Curl Machine", href: "/workouts/leg-curl-machine/", desc: "Setup, form, benefits, and mistakes" },
-      { label: "Leg Extension Machine", href: "/workouts/leg-curl-machine/leg-extension-machine/", desc: "Quad machine guide" },
-      { label: "Chest Workouts", href: "/workouts/chest-workouts/", desc: "Push-up, press, flye, and chest training" },
-      { label: "Back Workouts", href: "/workouts/back-workouts/", desc: "Rows, pulldowns, pull-ups, and posture" },
-      { label: "Shoulder Workouts", href: "/workouts/shoulder-workouts/", desc: "Presses, raises, and shoulder stability" },
-      { label: "Home Workouts", href: "/workouts/home-workouts/", desc: "No-equipment routines" },
-    ],
-  },
-  {
-    label: "Resources",
-    href: "/resources/",
-    children: [
-      { label: "What is BMR?", href: "/resources/what-is-bmr/" },
-      { label: "What is TDEE?", href: "/resources/what-is-tdee/" },
-      { label: "Mifflin-St Jeor Equation", href: "/resources/mifflin-st-jeor-equation/" },
-      { label: "Mifflin-St Jeor for Women", href: "/resources/mifflin-st-jeor-women/" },
-      { label: "Harris-Benedict Equation", href: "/resources/harris-benedict-equation/" },
-      { label: "Calories Burned in a Day", href: "/resources/calories-burned-in-a-day/" },
-      { label: "Body Fat Percentage", href: "/resources/body-fat-percentage/" },
-      { label: "Army Tape Test", href: "/resources/army-tape-test/" },
-      { label: "Lean Body Mass Guide", href: "/resources/lean-body-mass/" },
-      { label: "Ideal Body Weight", href: "/resources/ideal-body-weight/" },
-      { label: "Calorie Deficit Guide", href: "/resources/calorie-deficit-guide/" },
-      { label: "Calorie Surplus Guide", href: "/resources/calorie-surplus-guide/" },
-    ],
-  },
+  { label: "Home", href: "/" },
+  { label: "Guides", href: "/guides/" },
+  { label: "Workouts", href: "/workouts/" },
+  { label: "Resources", href: "/resources/" },
   { label: "About", href: "/about/" },
 ];
 
-/** Footer link groups. */
+  /** Footer link groups. */
 export const FOOTER: { title: string; links: NavLink[] }[] = [
       {
         title: "Company",
