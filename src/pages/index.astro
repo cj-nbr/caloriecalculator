@@ -4,10 +4,8 @@ import Section from "../components/ui/Section.astro";
 import Button from "../components/ui/Button.astro";
 import CalorieCalculator from "../components/calculators/CalorieCalculator.astro";
 import FaqSection from "../components/FaqSection.astro";
-import Testimonials from "../components/ui/Testimonials.astro";
 import Sources from "../components/ui/Sources.astro";
 import ArticleImage from "../components/ui/ArticleImage.astro";
-import { SITE, NAV, FOOTER, ALL_CALCULATORS } from "../data/site";
 import { HOME_FAQS } from "../data/faqs";
 import {
   organizationSchema,
@@ -16,48 +14,10 @@ import {
   calculatorSchema,
 } from "../lib/seo";
 
-const calculators = ALL_CALCULATORS;
-
-const extraCalculators = [
-  { label: "Healthy Weight Calculator", href: "/healthy-weight-calculator/", desc: "BMI-based healthy weight range" },
-  { label: "Weight Gain Calculator", href: "/weight-gain-calculator/", desc: "Calorie surplus and timeline" },
-  { label: "Maintenance Calories Calculator", href: "/maintenance-calories-calculator/", desc: "Daily calories to stay at your current weight" },
-  { label: "Meal Calorie Calculator", href: "/meal-calorie-calculator/", desc: "Split daily calories across meals" },
-  { label: "Recipe Calorie Calculator", href: "/recipe-calorie-calculator/", desc: "Total and per-serving recipe calories" },
-  { label: "Intermittent Fasting Calculator", href: "/intermittent-fasting-calculator/", desc: "Fasting and eating window planner" },
-  { label: "Cycling Calories Calculator", href: "/cycling-calories-calculator/", desc: "Calories burned cycling by pace" },
-  { label: "Swimming Calories Calculator", href: "/swimming-calories-calculator/", desc: "Calories burned swimming by intensity" },
-];
-
-const allCalculators = [...calculators, ...extraCalculators];
-
 const trust = [
-  { label: "Science-backed formulas", icon: "M9 12l2 2 4-4", description: "Mifflin-St Jeor BMR and established activity multipliers" },
-  { label: "Private by design", icon: "M13 2L3 14h9l-1 8 10-12h-9z", description: "All calculations run in your browser — no data leaves your device" },
-  { label: "Free", icon: "M20 6L9 17l-5-5", description: "11+ calculators with no sign-up, no paywall, no limits" },
-];
-
-const features = [
-  {
-    title: "BMR and TDEE breakdown",
-    body: "See exactly how many calories your body burns at rest (BMR) and in total each day (TDEE), calculated with the Mifflin-St Jeor equation.",
-    icon: "M3 3v18h18M7 15l3-4 3 2 4-6",
-  },
-  {
-    title: "Goal-based targets",
-    body: "Get personalized calorie numbers for maintenance, weight loss, or weight gain — from a gentle 0.5 lb/week to aggressive cutting or bulking.",
-    icon: "M12 2v20M2 12h20",
-  },
-  {
-    title: "Macro split breakdown",
-    body: "See protein, carbs, and fat in grams and calories, with a donut chart showing your distribution.",
-    icon: "M21 12a9 9 0 1 1-9-9v9z",
-  },
-  {
-    title: "Weekly timeline",
-    body: "Understand how long it takes to reach a goal weight at your chosen calorie pace — 0.5, 1, or 2 lb/week.",
-    icon: "M3 3v18h18M7 14l4-4 3 3 5-6",
-  },
+  { label: "Science-backed formulas", icon: "M9 12l2 2 4-4", description: "Uses the Mifflin-St Jeor BMR equation." },
+  { label: "Private by design", icon: "M13 2L3 14h9l-1 8 10-12h-9z", description: "Calculations run securely in your browser." },
+  { label: "Free & fast", icon: "M20 6L9 17l-5-5", description: "No sign-up, no paywall, completely free." },
 ];
 
 const jsonLd = [
@@ -65,7 +25,7 @@ const jsonLd = [
   websiteSchema(),
   calculatorSchema(
     "Calorie Calculator",
-    "Free calorie calculator to find your daily calorie needs for weight loss, gain, or maintenance.",
+    "Free calorie calculator to find your estimated daily calorie needs for weight loss, gain, or maintenance.",
     "/"
   ),
   faqSchema(HOME_FAQS),
@@ -73,11 +33,11 @@ const jsonLd = [
 ---
 
 <Layout
-  title="Calorie Calculator Free — Daily Calorie & TDEE Calculator"
-  description="Free calorie calculator for your daily calorie needs — weight loss, gain, or maintenance. Get your TDEE, BMR, calorie deficit and macros instantly."
+  title="Free Calorie Calculator: TDEE, Macros & Weight Loss"
+  description="Estimate your daily calorie needs for weight loss, maintenance, or muscle gain. Get your TDEE, BMR, and personalized macro targets instantly."
   jsonLd={jsonLd}
 >
-  <!-- ?? Calculator (Top) -->
+  <!-- 📈 Calculator (Top) -->
   <section class="relative overflow-hidden pt-12 pb-12">
     <div class="bg-grid pointer-events-none absolute inset-0 -z-10" aria-hidden="true"></div>
     <div
@@ -89,18 +49,11 @@ const jsonLd = [
     
     <div class="container-page">
       <div class="mb-10 text-center">
-        <a
-          href="/guides/how-many-calories-should-i-eat/"
-          class="inline-flex items-center gap-2 rounded-full border border-hairline bg-canvas-soft px-3 py-1 text-xs text-body transition-colors hover:text-ink mb-6"
-        >
-          <span class="h-1.5 w-1.5 rounded-full bg-success"></span>
-          Updated for 2026
-        </a>
         <h1 class="mx-auto text-display-xl tracking-tight text-ink">
           Free <span class="text-gradient">Calorie Calculator</span>
         </h1>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-body">
-          Discover your exact daily calories to lose fat, build muscle, or maintain weight.
+          Enter your metrics below to estimate your daily calorie needs for weight loss, maintenance, or muscle gain. You'll instantly receive a personalized starting point, including your TDEE, BMR, and macro breakdown.
         </p>
       </div>
       
@@ -110,192 +63,119 @@ const jsonLd = [
     </div>
   </section>
 
-  <!-- ?? Key Points (Trust) -->
+  <!-- 🛡️ Key Points (Trust) -->
   <Section class="border-t border-hairline bg-canvas-soft/30">
-    <div class="mb-10 text-center">
-      <h2 class="text-2xl font-bold text-gradient">Why use this calculator?</h2>
-    </div>
     <div class="grid gap-6 sm:grid-cols-3 max-w-5xl mx-auto">
       {trust.map((t) => (
         <div class="card p-6 flex flex-col items-center text-center bg-canvas hover:border-ink transition-colors">
-          <div class="mb-4 inline-grid h-12 w-12 place-items-center rounded-full bg-canvas-soft text-success">
+          <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-canvas-soft text-brand">
             <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d={t.icon} />
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-ink mb-2">{t.label}</h3>
-          <p class="text-sm text-body">{t.description}</p>
+          <h3 class="text-base font-semibold text-ink">{t.label}</h3>
+          <p class="mt-2 text-sm text-body">{t.description}</p>
         </div>
       ))}
     </div>
   </Section>
 
-  <!-- Ad placement - below calculator -->
-   <!-- Tools: Food Calories Search (placed above the features section) -->
-  <Section class="border-t border-hairline">
-    <div class="mb-10 text-center">
-      <h2 class="text-display-md text-gradient">Tools</h2>
-      <p class="mx-auto mt-3 max-w-xl text-body">
-        Beyond calculators — handy tools to make tracking your nutrition easier.
-      </p>
-    </div>
-    <div class="card relative overflow-hidden p-6 sm:p-10">
-      <div
-        class="pointer-events-none absolute right-0 top-0 -z-0 h-64 w-64 rounded-full opacity-20 blur-[100px]"
-        style="background: radial-gradient(circle, #00dfd8, transparent 70%);"
-        aria-hidden="true"
-      >
-      </div>
-      <div class="relative grid items-center gap-6 lg:grid-cols-[1fr_auto]">
-        <div>
-          <div class="mb-4 inline-grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-grad-develop-start to-grad-develop-end text-white">
-            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /></svg>
-          </div>
-          <h3 class="text-display-sm text-ink">Food Calories Search</h3>
-          <p class="mt-2 max-w-xl text-body">
-            Search nutrition facts, calories, protein, carbs, fats, vitamins, and
-            minerals for thousands of foods.
-          </p>
-        </div>
-        <div class="shrink-0">
-          <Button href="/food-calories-search/" size="lg">Search Food Calories</Button>
-        </div>
-      </div>
-    </div>
-  </Section>
-
-  <!-- ── Features ─────────────────────────────────────── -->
-  <Section class="border-t border-hairline">
-    <div class="mb-12 max-w-2xl">
-      <h2 class="text-display-md text-gradient">How we calculate your numbers</h2>
-      <p class="mt-3 text-body">
-        Every calculator uses peer-reviewed equations — Mifflin-St Jeor for metabolism, the U.S. Navy circumference method for body fat, and standard MET values for activity. Inputs, formulas, and assumptions are disclosed on each page.
-      </p>
-    </div>
-    <div class="grid gap-5 sm:grid-cols-2">
-      {
-        features.map((f) => (
-          <article class="card group p-6 transition-colors hover:border-hairline-strong">
-            <div class={`mb-4 inline-grid h-11 w-11 place-items-center rounded-xl bg-canvas text-ink`}>
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d={f.icon} />
-              </svg>
-            </div>
-            <h3 class="text-base font-semibold text-ink">{f.title}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-body">{f.body}</p>
-          </article>
-        ))
-      }
-    </div>
-  </Section>
-
-  
-
-  <!-- ── Educational / SEO content ────────────────────── -->
+  <!-- 📚 Educational / SEO content -->
   <Section class="border-t border-hairline">
     <div class="prose-content mx-auto max-w-3xl">
-<h2>The free online calorie calculator that does the math for you</h2>
-       <p>
-         Our <strong>calorie calculator</strong> is a fast, accurate, and completely
-         <strong>free</strong> tool — an <strong>online calorie calculator</strong> that tells you exactly how many calories to eat
-         each day to reach your goal — whether that's losing fat, gaining weight, or
-         maintaining where you are. Instead of guessing, you get a personalized
-         <strong>daily calorie calculator</strong> result in seconds, backed by the
-         same science-based formulas used by dietitians and researchers worldwide.
-      </p>
 
-      <h3>How the calorie calculator works</h3>
+      <h2>How the Calorie Calculator Works</h2>
       <p>
-        The number of calories you need each day depends on your age, sex, height,
-        weight, and activity level. Your body burns a baseline amount just to stay
-        alive — your <a href="/bmr-calculator/">Basal Metabolic Rate (BMR)</a> — and
-        burns more on top of that through movement and exercise. Add them together and
-        you get your <a href="/tdee-calculator/">Total Daily Energy Expenditure (TDEE)</a>.
-        Our built-in <strong>TDEE calculator</strong> handles this automatically using
-        the trusted Mifflin-St Jeor equation, so your <strong>maintenance calorie
-        calculator</strong> number is as accurate as a simple formula can get.
+        This calculator acts as a starting point to help you understand your body's energy needs. By entering your age, gender, height, weight, and activity level, the tool estimates the total number of calories your body burns in a single day.
       </p>
-
-      <h3>Calorie calculator for weight loss and weight gain</h3>
       <p>
-        Once you know your maintenance calories, reaching any goal becomes simple math.
-        To lose weight, you eat fewer calories than you burn — a
-        <a href="/guides/calorie-deficit-guide/">calorie deficit</a>. Our
-        <strong>calorie deficit calculator</strong> shows you the daily target for a
-        gentle, steady, or aggressive pace, so you always know how many calories you
-        should eat to lose weight safely. A deficit of about 500 calories per day
-        produces roughly one pound of fat loss per week, since a pound of body fat
-        stores about 3,500 calories. Want to build muscle instead? Use the
-        <strong>calorie calculator to gain weight</strong> by selecting a weight-gain
-        goal, which adds a controlled surplus on top of your TDEE. If you're tracking a
-        specific target, the <a href="/weight-loss-calculator/">weight loss calculator</a>
-        estimates how long it will take to reach your goal weight.
+        Once the baseline is calculated, you can select your goal (such as weight loss, maintenance, or weight gain). The calculator then adjusts your daily calorie target and provides a suggested macronutrient split (protein, carbohydrates, and fats) to help you plan your meals effectively.
       </p>
 
-      <h3>From calories to food and macros</h3>
-<p>
-          Every result from this <strong>free food calorie calculator</strong> also splits
-          your daily total into grams of protein, carbohydrates, and fat with our
-          <a href="/macro-calculator/">macro calculator</a>. Whether you're logging a home
-          recipe, a restaurant meal, or a quick snack, you can match the calories of your
-          food against your personalized budget. Protein provides 4 calories per gram — use our
-          <a href="/protein-calculator/">protein calculator</a> to hit your daily protein target.
-        </p>
-        <p class="mt-4">
-          Pair it with the <a href="/protein-calculator/">protein calculator</a> to make sure you're eating
-          enough protein to preserve muscle while you lose fat or build it while you gain.
-          Learn all about <a href="/guides/protein-calories/">protein calories</a> and the
-          <a href="/guides/macro-guide/">macro guide</a> for complete nutrition tracking.
-        </p>
-
-      <h3>Your daily food calorie calculator and tracker</h3>
+      <h2>How We Calculate Your Daily Calories</h2>
       <p>
-        Think of this as your everyday <strong>online calorie calculator</strong> — a
-        fast, app-like <strong>food calorie calculator</strong> you can return to any
-        time you need to check your numbers. There's nothing to download: it works
-        instantly in your browser on phone, tablet, or desktop, which makes it a
-        practical free alternative to a paid <strong>food calorie calculator app</strong>.
-        Your most recent results are saved on your own device so you can pick up where
-        you left off, and you can copy, print, or share your results with a single tap.
-        Because your calorie needs change as your body changes, it's smart to revisit the
-        calculator every few weeks — recalculating after every 4–5 kg (about 10 lb) of
-        weight change keeps your daily target accurate and your progress steady.
+        To provide a reliable estimate, our calculator uses a standard, two-step mathematical process widely used by dietitians and health professionals. 
+      </p>
+      
+      <h3>Basal Metabolic Rate (BMR)</h3>
+      <p>
+        Your BMR is the amount of energy your body requires simply to stay alive at rest—powering your brain, breathing, and keeping your heart beating. We use the <strong>Mifflin-St Jeor equation</strong> to estimate this, which research has shown to be highly reliable for the general population.
       </p>
 
-      <h3>Why choose our calorie calculator?</h3>
+      <h3>Total Daily Energy Expenditure (TDEE)</h3>
+      <p>
+        You burn more calories than your BMR because you move around during the day. TDEE takes your BMR and multiplies it by an <strong>Activity Level Multiplier</strong>. This final TDEE number represents the estimated total calories you burn in a typical 24-hour period.
+      </p>
+
+      <h3>Activity Levels Explained</h3>
       <ul>
-        <li><strong>Calorie calculator free</strong> — every tool here is 100% free, with no sign-up, no paywall, and no limits.</li>
-        <li><strong>Private by design</strong> — calculations run entirely in your browser; your data never leaves your device.</li>
-        <li><strong>Science-based</strong> — built on the Mifflin-St Jeor BMR equation and standard activity multipliers.</li>
-        <li><strong>Works everywhere</strong> — a mobile-first, app-like experience that loads instantly on any device.</li>
-        <li><strong>Complete toolkit</strong> — 11 connected calculators covering calories, BMI, body fat, water intake, and more.</li>
+        <li><strong>Sedentary (x1.2):</strong> Little to no exercise, desk job.</li>
+        <li><strong>Lightly Active (x1.375):</strong> Light exercise 1–3 days a week.</li>
+        <li><strong>Moderately Active (x1.55):</strong> Moderate exercise 3–5 days a week.</li>
+        <li><strong>Very Active (x1.725):</strong> Hard exercise 6–7 days a week.</li>
+        <li><strong>Extra Active (x1.9):</strong> Very hard exercise, physical job, or training twice a day.</li>
       </ul>
 
- <p>
-          Whether you searched for a <strong>daily calorie calculator</strong>, a
-          <strong>calorie deficit calculator</strong>, a <strong>TDEE calculator</strong>,
-          a <strong>maintenance calorie calculator</strong>, or simply a reliable <strong>online calorie calculator</strong> or <strong>free food calorie calculator</strong>, you're in the
-          right place. Enter your details above to get your personalized numbers, then
-          explore the guides below to put your plan into action and reach your goal faster.
-        </p>
+      <h2>Calories for Weight Loss</h2>
+      <p>
+        If your goal is to lose weight, you must consume fewer calories than your TDEE. This is called a <strong>calorie deficit</strong>. A widely accepted guideline is that a deficit of roughly 500 calories per day leads to an estimated 1 pound of weight loss per week.
+      </p>
+      <p>
+        The calculator provides options for mild weight loss (0.5 lbs/week), standard weight loss (1 lb/week), and extreme weight loss (2 lbs/week). Keep in mind that extreme deficits can be difficult to sustain and may cause muscle loss, so moderate, steady targets are generally recommended.
+      </p>
 
-     <Sources sources={[
-       { label: "Dietary Guidelines for Americans — calorie needs", href: "https://www.dietaryguidelines.gov/" },
-       { label: "Mifflin-St Jeor equation for resting energy expenditure — NIH", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
+      <h2>Calories for Weight Gain</h2>
+      <p>
+        To gain weight—or build muscle—you need to consume more calories than you burn. This is called a <strong>calorie surplus</strong>. Adding 250 to 500 calories above your TDEE provides your body with the extra energy needed to fuel workouts and synthesize new muscle tissue.
+      </p>
+
+      <h2>Maintenance Calories</h2>
+      <p>
+        Maintenance calories are simply your TDEE. If you eat this exact amount of calories over a sustained period, your weight should remain relatively stable. This is a great target for those who are happy with their current weight and want to focus on body recomposition or athletic performance.
+      </p>
+
+      <h2>Example Calculation</h2>
+      <p>
+        Let's look at an example for a 30-year-old male who is 180 cm (5'11") tall, weighs 80 kg (176 lbs), and works a desk job (Sedentary).
+      </p>
+      <ul>
+        <li><strong>BMR Calculation:</strong> Using the Mifflin-St Jeor equation, his body burns roughly <strong>1,816 calories</strong> at rest.</li>
+        <li><strong>TDEE Calculation:</strong> Because he is sedentary, we multiply 1,816 by 1.2, resulting in a TDEE of roughly <strong>2,179 calories</strong>.</li>
+        <li><strong>Weight Loss Target:</strong> If he wants to lose 1 pound per week, he subtracts 500 calories, giving him a daily target of <strong>1,679 calories</strong>.</li>
+      </ul>
+
+      <h2>How Accurate Is a Calorie Calculator?</h2>
+      <p>
+        It is important to understand that <strong>all calorie calculators provide estimates, not exact measurements</strong>. Formulas like Mifflin-St Jeor are based on population averages. Your true individual metabolism can be influenced by genetics, body composition (muscle mass burns more calories than fat), hormonal fluctuations, and neat (non-exercise activity thermogenesis). 
+      </p>
+      <p>
+        The best approach is to use the calculator's result as your starting point. Eat at that target for two to three weeks, monitor how your body weight changes, and adjust your calories up or down based on your real-world progress.
+      </p>
+
+      <h2>Important Limitations & Safety</h2>
+      <p>
+        While calorie tracking is a useful tool, it is not appropriate for everyone. 
+      </p>
+      <ul>
+        <li><strong>Minimum Intake:</strong> Generally, women should not consume fewer than 1,200 calories per day, and men should not consume fewer than 1,500 calories per day without medical supervision.</li>
+        <li><strong>Medical Conditions:</strong> Those with metabolic disorders, thyroid conditions, or other health issues should consult a doctor, as standard formulas may not apply.</li>
+        <li><strong>Eating Disorders:</strong> If you have a history of disordered eating, calorie counting may be harmful. Please consult a qualified mental health or medical professional.</li>
+      </ul>
+
+      <Sources sources={[
+        { label: "Dietary Guidelines for Americans — Calorie Needs", href: "https://www.dietaryguidelines.gov/" },
+        { label: "Mifflin-St Jeor equation for resting energy expenditure — NIH", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
       ]} />
-
-      <ArticleImage src="/assets/images/articles/balanced-plate.svg" alt="Illustration of a balanced plate divided into protein, carbohydrate, and fat segments for meal planning." />
 
     </div>
   </Section>
 
-  <!-- ── FAQ ──────────────────────────────────────────── -->
+  <!-- ❓ FAQ -->
   <Section class="border-t border-hairline">
-    <Testimonials />
     <FaqSection items={HOME_FAQS} />
   </Section>
 
-  <!-- ── CTA banner ───────────────────────────────────── -->
+  <!-- 🚀 CTA banner -->
   <Section class="border-t border-hairline">
     <div class="card relative overflow-hidden p-8 text-center sm:p-14">
       <div
