@@ -1,7 +1,81 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/ui/Section.astro";
-import { ALL_CALCULATORS, NAV } from "../data/site";
+
+// Dynamically fetch all .astro pages
+const allPages = import.meta.glob('/src/pages/**/*.astro', { eager: true });
+
+function formatTitle(slug) {
+  if (!slug) return '';
+  return slug
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+const excluded = ['/404', '/500', '/index', '/html-sitemap', '/about', '/contact', '/privacy-policy', '/terms', '/disclaimer', '/editorial-policy'];
+
+// Group pages by directory
+const categorizedPages = {};
+
+for (const path in allPages) {
+  // Convert /src/pages/guides/something.astro to /guides/something/
+  let urlPath = path.replace('/src/pages', '').replace('.astro', '');
+  
+  if (excluded.includes(urlPath)) continue;
+  
+  // Clean up index files
+  if (urlPath.endsWith('/index')) {
+    urlPath = urlPath.replace('/index', '/');
+  } else {
+    urlPath = `${urlPath}/`;
+  }
+  
+  // Skip root /
+  if (urlPath === '/') continue;
+
+  // Determine category
+  const parts = urlPath.split('/').filter(Boolean);
+  let category = 'Main Tools & Calculators';
+  let titleSlug = parts[parts.length - 1];
+  
+  if (parts.length > 1) {
+    category = formatTitle(parts[0]);
+    if (parts.length > 2) {
+      category = `${formatTitle(parts[0])} - ${formatTitle(parts[1])}`;
+    }
+  }
+
+  const title = formatTitle(titleSlug);
+
+  if (!categorizedPages[category]) {
+    categorizedPages[category] = [];
+  }
+  
+  categorizedPages[category].push({
+    title: title,
+    href: urlPath
+  });
+}
+
+// Manually append the Spanish/Korean files we moved
+categorizedPages['International & Regional'] = [
+  { title: 'Korean Weight Loss Calorie Calculator', href: '/country/korean-weight-loss-calorie-calculator/' },
+  { title: 'Diet Recommended Calorie Guide (Korean)', href: '/country/diet-recommended-calorie-guide/' },
+  { title: 'Food Exercise Calorie App (Korean)', href: '/country/food-exercise-calorie-app/' },
+  { title: 'Korean Community Calorie Calculator', href: '/country/korean-community-calorie-calculator/' },
+  { title: 'Calculadora De Calorias (Spain)', href: '/country/spain/calculadora-de-calorias/' },
+  { title: 'Calculadora De Tmb Y Gasto Calorico (Spain)', href: '/country/spain/calculadora-de-tmb-y-gasto-calorico/' },
+  { title: 'Calculadora De Calorias Para Perder Peso Y Ganar Musculo (Spain)', href: '/country/spain/calculadora-de-calorias-para-perder-peso-y-ganar-musculo/' },
+  { title: 'Calcular Calorias De Alimentos Y Macros (Spain)', href: '/country/spain/calcular-calorias-de-alimentos-y-macros/' },
+];
+
+// Sort categories to put "Main Tools" first
+const sortedCategories = Object.keys(categorizedPages).sort((a, b) => {
+  if (a === 'Main Tools & Calculators') return -1;
+  if (b === 'Main Tools & Calculators') return 1;
+  return a.localeCompare(b);
+});
 ---
 
 <Layout
@@ -14,48 +88,32 @@ import { ALL_CALCULATORS, NAV } from "../data/site";
       <p class="text-body max-w-2xl mb-12">Welcome to our complete directory. Here you will find direct links to every free calculator, workout guide, and nutrition resource on our site.</p>
 
       <div class="grid gap-12 lg:grid-cols-2">
-        <!-- Calculators Directory -->
-        <div>
-          <h2 class="text-2xl font-bold text-ink mb-6 pb-2 border-b border-hairline">All Calculators</h2>
-          <ul class="space-y-3">
-            {ALL_CALCULATORS.map((calc) => (
-              <li>
-                <a href={calc.href} class="text-brand hover:underline font-medium">{calc.label}</a>
-                <p class="text-sm text-mute">{calc.desc}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <!-- Guides & Articles Directory -->
-        <div class="space-y-12">
-          {NAV.filter(nav => nav.children && nav.children.length > 0).map((navSection) => (
-            <div>
-              <h2 class="text-2xl font-bold text-ink mb-6 pb-2 border-b border-hairline">{navSection.label}</h2>
-              <ul class="space-y-3">
-                {navSection.children?.map((child) => (
-                  <li>
-                    <a href={child.href} class="text-brand hover:underline font-medium">{child.label}</a>
-                    {child.desc && <p class="text-sm text-mute">{child.desc}</p>}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-          
+        
+        {sortedCategories.map(category => (
           <div>
-            <h2 class="text-2xl font-bold text-ink mb-6 pb-2 border-b border-hairline">Company & Legal</h2>
+            <h2 class="text-2xl font-bold text-ink mb-6 pb-2 border-b border-hairline">{category}</h2>
             <ul class="space-y-3">
-              <li><a href="/about/" class="text-brand hover:underline font-medium">About Us</a></li>
-              <li><a href="/editorial-policy/" class="text-brand hover:underline font-medium">Editorial Policy</a></li>
-              <li><a href="/contact/" class="text-brand hover:underline font-medium">Contact Us</a></li>
-              <li><a href="/privacy-policy/" class="text-brand hover:underline font-medium">Privacy Policy</a></li>
-              <li><a href="/terms/" class="text-brand hover:underline font-medium">Terms of Service</a></li>
+              {categorizedPages[category].map(page => (
+                <li>
+                  <a href={page.href} class="text-brand hover:underline font-medium">{page.title}</a>
+                </li>
+              ))}
             </ul>
           </div>
+        ))}
+        
+        <div>
+          <h2 class="text-2xl font-bold text-ink mb-6 pb-2 border-b border-hairline">Company & Legal</h2>
+          <ul class="space-y-3">
+            <li><a href="/about/" class="text-brand hover:underline font-medium">About Us</a></li>
+            <li><a href="/editorial-policy/" class="text-brand hover:underline font-medium">Editorial Policy</a></li>
+            <li><a href="/contact/" class="text-brand hover:underline font-medium">Contact Us</a></li>
+            <li><a href="/privacy-policy/" class="text-brand hover:underline font-medium">Privacy Policy</a></li>
+            <li><a href="/terms/" class="text-brand hover:underline font-medium">Terms of Service</a></li>
+            <li><a href="/disclaimer/" class="text-brand hover:underline font-medium">Disclaimer</a></li>
+          </ul>
         </div>
       </div>
     </div>
   </Section>
 </Layout>
-
