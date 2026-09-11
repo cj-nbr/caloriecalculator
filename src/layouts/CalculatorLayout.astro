@@ -2,13 +2,11 @@
 import Layout from "./Layout.astro";
 import Section from "../components/ui/Section.astro";
 import FaqSection from "../components/FaqSection.astro";
-import ReviewBadge from "../components/ui/ReviewBadge.astro";
-import ExpertBio from "../components/ui/ExpertBio.astro";
+
+
 import { NAV, FOOTER, ALL_CALCULATORS } from "../data/site";
 import type { FaqItem } from "../lib/seo";
 import { breadcrumbSchema, calculatorSchema, faqSchema } from "../lib/seo";
-import { DEFAULT_AUTHOR, DEFAULT_REVIEWER } from "../data/authors";
-import type { Expert } from "../data/authors";
 
 interface Props {
   title: string;
@@ -17,8 +15,6 @@ interface Props {
   intro: string;
   path: string;
   faqs?: FaqItem[];
-  author?: Expert;
-  reviewer?: Expert;
 }
 
 const { 
@@ -28,8 +24,6 @@ const {
   intro, 
   path, 
   faqs = [],
-  author = DEFAULT_AUTHOR,
-  reviewer = DEFAULT_REVIEWER
 } = Astro.props;
 
 const crumbs = [
@@ -39,7 +33,7 @@ const crumbs = [
 
 const jsonLd = [
   breadcrumbSchema(crumbs),
-  calculatorSchema(h1, description, path, reviewer),
+  calculatorSchema(h1, description, path),
   ...(faqs.length ? [faqSchema(faqs)] : []),
 ];
 
@@ -69,11 +63,9 @@ const related = ALL_CALCULATORS.filter((c) => c.href !== path).slice(0, 6);
     <div class="container-page py-12 sm:py-16">
       <h1 class="max-w-3xl text-display-lg text-ink">{h1}</h1>
       <p class="mt-4 max-w-2xl text-lg text-body">{intro}</p>
-      <ReviewBadge updatedDate="August 2026" />
+      
       <div class="mt-4 flex flex-wrap gap-4 text-sm text-mute">
-         <div class="flex items-center gap-2"><img src={author.image} alt={author.name} class="w-6 h-6 rounded-full object-cover" /> <span>Built & written by <span class="font-medium text-ink">{author.name}</span></span></div>
-         <div class="flex items-center gap-2"><img src={reviewer.image} alt={reviewer.name} class="w-6 h-6 rounded-full object-cover" /> <span>Medically reviewed by <span class="font-medium text-ink">{reviewer.name}</span></span></div>
-      </div>
+         </div>
     </div>
   </header>
 
@@ -86,7 +78,7 @@ const related = ALL_CALCULATORS.filter((c) => c.href !== path).slice(0, 6);
       <div class="prose-content mx-auto max-w-3xl">
         <slot name="content" />
         
-        <ExpertBio expert={reviewer} title="Medically Reviewed By" />
+        
       </div>
     </div>
   </div>

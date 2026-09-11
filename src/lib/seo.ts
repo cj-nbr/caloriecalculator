@@ -1,6 +1,5 @@
 /** seo.ts - JSON-LD structured-data builders. */
 import { SITE } from "../data/site";
-import type { Expert } from "../data/authors";
 
 export interface FaqItem {
   q: string;
@@ -64,7 +63,7 @@ function getPersonSchema(expert: Expert) {
 }
 
 /** WebApplication schema for a calculator tool page. */
-export function calculatorSchema(name: string, description: string, path: string, reviewer?: Expert) {
+export function calculatorSchema(name: string, description: string, path: string) {
   const schema: any = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
@@ -75,12 +74,11 @@ export function calculatorSchema(name: string, description: string, path: string
     operatingSystem: "Any",
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   };
-  if (reviewer) schema.reviewedBy = getPersonSchema(reviewer);
   return schema;
 }
 
 /** SoftwareApplication schema for tool pages. */
-export function softwareApplicationSchema(name: string, description: string, path: string, reviewer?: Expert) {
+export function softwareApplicationSchema(name: string, description: string, path: string) {
   const schema: any = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -91,7 +89,6 @@ export function softwareApplicationSchema(name: string, description: string, pat
     operatingSystem: "Any",
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   };
-  if (reviewer) schema.reviewedBy = getPersonSchema(reviewer);
   return schema;
 }
 
@@ -118,6 +115,5 @@ export function articleSchema(opts: {
     },
   };
   if (opts.dateModified) data.dateModified = opts.dateModified;
-  if (opts.reviewer) data.reviewedBy = getPersonSchema(opts.reviewer);
   return data;
 }
