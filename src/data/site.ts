@@ -71,8 +71,7 @@ export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
   { label: "Guides", href: "/guides/" },
   { label: "Workouts", href: "/workouts/" },
   { label: "Resources", href: "/resources/" },
-  { label: "About", href: "/about/" },
-];
+  ];
 
   /** Footer link groups. */
 export const FOOTER: { title: string; links: NavLink[] }[] = [
