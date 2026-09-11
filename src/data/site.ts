@@ -42,10 +42,10 @@ export const ALL_CALCULATORS: NavLink[] = [
   { label: "Swimming Calories Calculator", href: "/swimming-calories-calculator/", desc: "Calories burned swimming" },
   { label: "Recipe Calorie Calculator", href: "/recipe-calorie-calculator/", desc: "Total & per-serving recipe calories" },
   { label: "Intermittent Fasting Calculator", href: "/intermittent-fasting-calculator/", desc: "Fasting window planner" },
-  { label: "One Rep Max Calculator", href: "/one-rep-max-calculator/", desc: "Estimate your 1RM" },
-  { label: "Target Heart Rate Calculator", href: "/target-heart-rate-calculator/", desc: "Training heart rate zones" },
+
+
   { label: "Alcohol Calories Calculator", href: "/alcohol-calories-calculator/", desc: "Calories in beer, wine & spirits" },
-  { label: "Pace Calculator", href: "/pace-calculator/", desc: "Running, walking, cycling pace" },
+
   { label: "Maintenance Calorie Calculator", href: "/guides/maintenance-calorie-calculator/", desc: "Maintenance guide" },
   { label: "Online Calorie Calculator", href: "/guides/online-calorie-calculator/", desc: "Online tool guide" },
   { label: "Metabolism Calculator", href: "/guides/metabolism-calculator/", desc: "Metabolism guide" },
