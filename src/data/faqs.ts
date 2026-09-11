@@ -6,18 +6,9 @@ import type { FaqItem } from "../lib/seo";
  * faqSchema() for rich results in Google.
  */
 export const HOME_FAQS: FaqItem[] = [
-  {
-    q: "What is a maintenance calorie calculator?",
-    a: "A maintenance calorie calculator finds how many calories you can eat each day without gaining or losing weight. It calculates your TDEE using your age, sex, height, weight, and activity level.",
-  },
-  {
-    q: "What is an online calorie calculator?",
-    a: "An online calorie calculator is a web-based tool that calculates your daily calorie needs in seconds. No app download or account is required — just enter your details and get your personalized target.",
-  },
-  {
-    q: "What is a calorie deficit calculator?",
-    a: "A calorie deficit calculator works out how many calories you need to eat to lose weight. It first estimates your maintenance calories (your TDEE) and then subtracts a deficit, giving you a daily target that's lower than the calories you burn so your body uses stored fat for energy.",
-  },
+  
+  
+  
   {
     q: "How do I set a calorie deficit with this calculator?",
     a: "Enter your age, sex, height, weight, and activity level, then choose a weight-loss goal. The calculator instantly sets your deficit for you — a 'mild' goal uses about a 250-calorie deficit, 'weight loss' uses 500, and 'extreme' uses 1,000. The number it shows is the daily calorie target you eat to lose weight at that pace.",
@@ -26,18 +17,12 @@ export const HOME_FAQS: FaqItem[] = [
     q: "How does the calorie deficit calculator work?",
     a: "It calculates your Basal Metabolic Rate with the Mifflin-St Jeor equation, multiplies it by an activity factor to find your TDEE (maintenance calories), then subtracts your chosen deficit. The result is the number of calories to eat each day to lose weight.",
   },
-  {
-    q: "Which calorie calculators are considered reliable?",
-    a: "Reliable predictive calorie calculators use the Mifflin-St Jeor equation, which research has shown to be effective for the general population. Our calculator uses Mifflin-St Jeor to provide a personalized starting point. It typically provides a solid estimate — track your results for 2–3 weeks and adjust to fine-tune.",
-  },
+  
   {
     q: "What should my calorie deficit be?",
     a: "For most people a deficit of 300–500 calories per day is ideal: it produces about 0.5–1 lb (0.25–0.45 kg) of fat loss per week and is sustainable. Larger deficits speed up loss but risk muscle loss and hunger. The calculator lets you pick the pace and shows the matching deficit.",
   },
-  {
-    q: "How can I set a calorie deficit for free?",
-    a: "Use this free calorie deficit calculator — no sign-up or payment required. Enter your details, choose a weight-loss goal, and it shows your free daily calorie target and the exact size of your deficit in seconds.",
-  },
+  
   {
     q: "How much weight will I lose with this calorie calculator?",
     a: "A widely used simplified rule suggests that roughly 3,500 calories equals a pound of fat, meaning a 500-calorie daily deficit projects to about 1 lb of loss per week. However, weight loss isn't perfectly linear, as water weight and metabolic adaptations play a role. The calculator shows your estimated weekly target, offering a useful framework for setting your pace.",
@@ -74,10 +59,7 @@ export const HOME_FAQS: FaqItem[] = [
     q: "How much should I eat according to the calorie calculator?",
     a: "Your ideal intake depends on your goal: eat at your TDEE to maintain, below it to lose, and above it to gain. Enter your details above and the calculator shows the exact daily calorie amount and macro breakdown for each goal.",
   },
-  {
-    q: "What is the best calorie deficit calculator?",
-    a: "The best calorie deficit calculator is accurate, free, easy to use, and shows both your maintenance calories and goal-based targets with macros. Ours uses the science-backed Mifflin-St Jeor equation, runs privately in your browser, and is completely free.",
-  },
+  
   {
     q: "Can I use this calorie calculator for restaurant or fast-food meals?",
     a: "Yes. This tool calculates how many calories you should eat each day. To stay on track with restaurant or fast-food meals, check the calories on the menu or nutrition info and fit them within the daily target the calculator gives you.",
