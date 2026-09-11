@@ -69,7 +69,7 @@ export const ALL_CALCULATORS: NavLink[] = [
 export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
   { label: "Home", href: "/" },
   { label: "Guides", href: "/guides/" },
-  { label: "Workouts", href: "/workouts/" },
+
   { label: "Resources", href: "/resources/" },
   ];
 
