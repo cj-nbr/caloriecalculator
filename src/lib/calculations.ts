@@ -7,7 +7,7 @@
  * boundary so the math here stays in metric.
  *
  * Formula references:
- *  - BMR: Mifflin-St Jeor (1990) — most accurate for the general population.
+ *  - BMR: Mifflin-St Jeor (1990) — highly reliable for the general population.
  *  - TDEE: BMR x activity multiplier.
  *  - Body fat: U.S. Navy circumference method.
  *  - Lean mass: Boer (1984).

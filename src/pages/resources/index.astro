@@ -35,7 +35,7 @@ const extraCalculators = [
   { label: "Swimming Calories Calculator", href: "/swimming-calories-calculator/", desc: "Calories burned swimming by intensity" },
 ];
 
-const allCalculators = [...ALL_CALCULATORS, ...extraCalculators];
+const allCalculators = [...ALL_CALCULATORS, ...extraCalculators].filter(c => c.href !== "/");
 
 const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Resources", path: "/resources/" }])];
 ---
