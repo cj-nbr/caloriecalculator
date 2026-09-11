@@ -13,6 +13,7 @@ export interface Props {
   canonical?: string;
   ogType?: "website" | "article";
   noindex?: boolean;
+  exactTitle?: boolean;
   /** One or more JSON-LD structured-data objects. */
   jsonLd?: Record<string, any>[];
 }
@@ -23,6 +24,7 @@ const {
   canonical,
   ogType = "website",
   noindex = false,
+  exactTitle = false,
   jsonLd = [],
 } = Astro.props;
 
@@ -36,7 +38,7 @@ canonicalUrl.hash = '';
 canonicalUrl.hostname = SITE.domain;
 canonicalUrl.protocol = "https:";
 const canonicalUrlString = canonicalUrl.href;
-const fullTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
+const fullTitle = exactTitle ? title : (title.includes(SITE.name) ? title : `${title} | ${SITE.name}`);
 const ogImage = new URL("/og-default.svg", SITE.url).href;
 ---
 

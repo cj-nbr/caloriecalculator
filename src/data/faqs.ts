@@ -27,8 +27,8 @@ export const HOME_FAQS: FaqItem[] = [
     a: "It calculates your Basal Metabolic Rate with the Mifflin-St Jeor equation, multiplies it by an activity factor to find your TDEE (maintenance calories), then subtracts your chosen deficit. The result is the number of calories to eat each day to lose weight.",
   },
   {
-    q: "What is the most accurate calorie calculator?",
-    a: "The most accurate predictive calorie calculators use the Mifflin-St Jeor equation, which research has shown to be more reliable than the older Harris-Benedict formula for the general population. Our calculator uses Mifflin-St Jeor and is typically within about 10% of your true needs — track your results for 2–3 weeks and adjust to fine-tune.",
+    q: "Which calorie calculators are considered reliable?",
+    a: "Reliable predictive calorie calculators use the Mifflin-St Jeor equation, which research has shown to be effective for the general population. Our calculator uses Mifflin-St Jeor to provide a personalized starting point. It typically provides a solid estimate — track your results for 2–3 weeks and adjust to fine-tune.",
   },
   {
     q: "What should my calorie deficit be?",
@@ -40,7 +40,7 @@ export const HOME_FAQS: FaqItem[] = [
   },
   {
     q: "How much weight will I lose with this calorie calculator?",
-    a: "Because roughly 3,500 calories equals a pound of fat, a 500-calorie daily deficit leads to about 1 lb of loss per week, and 1,000 calories per day to about 2 lb. The calculator shows your weekly target, and the weight loss calculator estimates how long it will take to reach a specific goal weight.",
+    a: "A widely used simplified rule suggests that roughly 3,500 calories equals a pound of fat, meaning a 500-calorie daily deficit projects to about 1 lb of loss per week. However, weight loss isn't perfectly linear, as water weight and metabolic adaptations play a role. The calculator shows your estimated weekly target, offering a useful framework for setting your pace.",
   },
   {
     q: "What is my calorie deficit?",
@@ -87,11 +87,11 @@ export const HOME_FAQS: FaqItem[] = [
     a: "Aim for a daily deficit of 300–500 calories for steady, sustainable fat loss of around 0.5–1 lb per week. If you want faster results you can go up to 1,000 calories, but pair it with high protein and resistance training to protect muscle. The calculator sets the deficit for the pace you choose.",
   },
   {
-    q: "Which calorie calculator is the most accurate?",
-    a: "Calculators based on the Mifflin-St Jeor equation are the most accurate for everyday use, which is why we use it. No formula is perfect because individual metabolism varies, so use your result as a starting point and adjust based on real-world weight change over a few weeks.",
+    q: "How do I know if my calorie calculation is correct?",
+    a: "Calculators based on the Mifflin-St Jeor equation provide an excellent estimate for everyday use, which is why we use it. No formula is perfect because individual metabolism varies, so use your result as a starting point and adjust based on real-world weight change over a few weeks.",
   },
   {
-    q: "What exactly is a calorie deficit calculator and how do I read the result?",
+    q: "What is a calorie deficit calculator and how do I read the result?",
     a: "It's a tool that tells you how many calories to eat to lose weight. The headline number is your daily calorie target; the deficit is how far below maintenance that target sits. Eat around that number each day, and the weekly figure shows your expected rate of fat loss.",
   },
 ];
