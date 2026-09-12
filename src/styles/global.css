@@ -5,7 +5,7 @@
 
 /*
   Class-based dark mode. The theme script on <html> toggles `.dark`.
-  Dark is the default (see Layout.astro inline script).
+  Light is the default (see Layout.astro inline script).
 */
 @custom-variant dark (&:where(.dark, .dark *));
 
