@@ -1,6 +1,6 @@
 ---
 /**
- * CalorieCalculator — the flagship interactive calculator.
+ * CalculadoraCalorias — the flagship interactive calculator.
  * Renders a form + results panel. All computation runs client-side in the
  * <script> below, importing the shared lib so the math has one source of truth.
  */
@@ -18,7 +18,7 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
   <form id="calc-form" class="card p-5 sm:p-6" novalidate>
     <!-- Helper note: clarifies the pre-filled example values -->
     <p role="note" class="mb-4 text-xs leading-relaxed text-mute">
-      Los valores de ejemplo están prellenados. Ingresa tus propios datos para obtener resultados precisos.
+      Example values are pre-filled. Enter your own details for accurate results.
     </p>
     <!-- Unit system -->
     <div
@@ -30,9 +30,9 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
       <button type="button" data-unit="imperial" class="unit-tab h-9 rounded-full text-sm font-medium transition-colors" role="tab" aria-selected="false">Imperial</button>
     </div>
 
-    <!-- Sex -->
+    <!-- Sexo -->
     <fieldset class="mb-4">
-      <legend class="mb-1.5 block text-sm font-medium text-ink">Sexo</legend>
+      <legend class="mb-1.5 block text-sm font-medium text-ink">Gender</legend>
       <div class="grid grid-cols-2 gap-2">
         <label class="sex-opt flex h-11 cursor-pointer items-center justify-center gap-2 rounded-lg border border-hairline text-sm font-medium text-body transition-colors has-[:checked]:border-brand has-[:checked]:bg-brand/10 has-[:checked]:text-ink">
           <input type="radio" name="sex" value="male" class="sr-only" checked />
@@ -51,7 +51,7 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
         <label for="age" class="block text-sm font-medium text-ink">Edad</label>
         <input id="age" name="age" type="number" inputmode="numeric" min="15" max="100" value="30" class={inputCls} />
       </div>
-      <!-- Peso -->
+      <!-- Weight -->
       <div class="space-y-1.5">
         <label for="weight" class="block text-sm font-medium text-ink">
           Peso <span class="weight-unit text-mute">(kg)</span>
@@ -60,21 +60,21 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
       </div>
     </div>
 
-    <!-- Altura -->
+    <!-- Height -->
     <div class="mb-4">
       <label class="mb-1.5 block text-sm font-medium text-ink">
         Altura <span class="height-unit text-mute">(cm)</span>
       </label>
       <div id="height-metric">
-        <input id="height-cm" type="number" inputmode="numeric" min="100" max="250" value="175" class={inputCls}  aria-label="Altura in centimetres" />
+        <input id="height-cm" type="number" inputmode="numeric" min="100" max="250" value="175" class={inputCls}  aria-label="Height en centímetros" />
       </div>
       <div id="height-imperial" class="hidden grid-cols-2 gap-3">
         <div class="relative">
-          <input id="height-ft" type="number" inputmode="numeric" min="3" max="8" value="5" class={inputCls}  aria-label="Altura in feet" />
+          <input id="height-ft" type="number" inputmode="numeric" min="3" max="8" value="5" class={inputCls}  aria-label="Height en pies" />
           <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">ft</span>
         </div>
         <div class="relative">
-          <input id="height-in" type="number" inputmode="numeric" min="0" max="11" value="9" class={inputCls}  aria-label="Altura in inches" />
+          <input id="height-in" type="number" inputmode="numeric" min="0" max="11" value="9" class={inputCls}  aria-label="Height en pulgadas" />
           <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">in</span>
         </div>
       </div>
@@ -82,21 +82,21 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
 
     <!-- Activity -->
     <div class="mb-5 space-y-1.5">
-      <label for="activity" class="block text-sm font-medium text-ink">Activity level</label>
+      <label for="activity" class="block text-sm font-medium text-ink">Nivel de actividad</label>
       <div class="relative">
         <select id="activity" name="activity" class={selectCls}>
-          <option value="sedentary">Sedentary — little or no exercise</option>
-          <option value="light">Lightly active — 1–3 days/week</option>
-          <option value="moderate" selected>Moderately active — 3–5 days/week</option>
-          <option value="active">Very active — 6–7 days/week</option>
-          <option value="athlete">Extra active — hard exercise + job</option>
+          <option value="sedentary">Sedentario — poco o ningún ejercicio</option>
+          <option value="light">Actividad ligera — 1 a 3 días por semana</option>
+          <option value="moderate" selected>Actividad moderada — 3 a 5 días por semana</option>
+          <option value="active">Muy activo — 6 a 7 días por semana</option>
+          <option value="athlete">Extremadamente activo — ejercicio duro o trabajo físico</option>
         </select>
         <svg class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6" /></svg>
       </div>
     </div>
 
     <button type="submit" id="calc-btn" class="shimmer-btn inline-flex h-12 w-full items-center justify-center rounded-full bg-ink text-base font-medium text-canvas transition-all hover:opacity-90 active:scale-[0.99]">
-      Calculate
+      Calcular
     </button>
   </form>
 
@@ -108,30 +108,30 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
       <div class="relative">
         <div class="flex flex-wrap items-end justify-between gap-3">
           <div>
-            <p class="text-sm text-mute">Your daily calories to <span id="goal-label" class="text-ink">mantener el peso</span></p>
+            <p class="text-sm text-mute">Tus calorías diarias para <span id="goal-label" class="text-ink">mantener peso</span></p>
             <p class="mt-1">
               <span id="result-calories" class="text-display-lg text-ink tabular-nums">2,000</span>
-              <span class="text-lg text-mute">kcal/day</span>
+              <span class="text-lg text-mute">kcal/día</span>
             </p>
           </div>
           <div class="text-right">
-            <p class="text-xs text-mute">Weekly</p>
+            <p class="text-xs text-mute">Semanal</p>
             <p id="result-weekly" class="text-display-sm text-ink tabular-nums">14,000</p>
           </div>
         </div>
 
         <!-- Objetivo selector -->
         <div class="mt-5 space-y-1.5">
-          <label for="goal" class="block text-xs font-medium text-mute">Adjust goal</label>
+          <label for="goal" class="block text-xs font-medium text-mute">Ajustar objetivo</label>
           <div class="relative">
             <select id="goal" class="h-11 w-full appearance-none rounded-lg border border-hairline bg-canvas px-3.5 pr-9 text-sm text-ink focus:border-brand focus:outline-none">
               <option value="maintain" selected>Mantener mi peso</option>
-              <option value="mildLoss">Mild pérdida de peso — 0.5 lb/week</option>
-              <option value="loss">Peso loss — 1 lb/week</option>
-              <option value="extremeLoss">Extreme loss — 2 lb/week</option>
-              <option value="mildGain">Mild ganancia de peso — 0.5 lb/week</option>
-              <option value="gain">Peso gain — 1 lb/week</option>
-              <option value="extremeGain">Extreme gain — 2 lb/week</option>
+              <option value="mildLoss">Pérdida de peso leve — 0.25 kg/semana</option>
+              <option value="loss">Pérdida de peso — 0.5 kg/semana</option>
+              <option value="extremeLoss">Pérdida extrema — 1 kg/semana</option>
+              <option value="mildGain">Ganancia de peso leve — 0.25 kg/semana</option>
+              <option value="gain">Ganancia de peso — 0.5 kg/semana</option>
+              <option value="extremeGain">Ganancia extrema — 1 kg/semana</option>
             </select>
             <svg class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6" /></svg>
           </div>
@@ -160,19 +160,19 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
       <div class="card p-5">
         <p class="text-xs uppercase tracking-wide text-mute">BMR</p>
         <p id="result-bmr" class="mt-1 text-display-sm text-ink tabular-nums">1,600</p>
-        <p class="mt-1 text-xs text-mute">Basal metabolic rate</p>
+        <p class="mt-1 text-xs text-mute">Tasa metabólica basal</p>
       </div>
       <div class="card p-5">
         <p class="text-xs uppercase tracking-wide text-mute">TDEE</p>
         <p id="result-tdee" class="mt-1 text-display-sm text-ink tabular-nums">2,000</p>
-        <p class="mt-1 text-xs text-mute">Total daily energy</p>
+        <p class="mt-1 text-xs text-mute">Energía diaria total</p>
       </div>
     </div>
 
     <!-- Macros -->
     <div class="card p-5 sm:p-6">
       <div class="flex items-center justify-between">
-        <h3 class="text-sm font-semibold text-ink">Recommended macros</h3>
+        <h3 class="text-sm font-semibold text-ink">Macros recomendados</h3>
         <span class="text-xs text-mute">30P / 40C / 30F</span>
       </div>
       <div class="mt-4 flex flex-col items-center gap-6 sm:flex-row">
@@ -194,7 +194,7 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
             <span class="text-sm font-medium text-ink"><span id="macro-carbs" class="tabular-nums">200</span> g</span>
           </li>
           <li class="flex items-center justify-between gap-3">
-            <span class="flex items-center gap-2 text-sm text-body"><span class="h-3 w-3 rounded-full bg-fat"></span>Grasas</span>
+            <span class="flex items-center gap-2 text-sm text-body"><span class="h-3 w-3 rounded-full bg-fat"></span>Fat</span>
             <span class="text-sm font-medium text-ink"><span id="macro-fat" class="tabular-nums">67</span> g</span>
           </li>
         </ul>
@@ -204,7 +204,7 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
     <!-- All goals table -->
     <div class="card overflow-hidden">
       <table class="w-full text-sm">
-        <caption class="sr-only">Daily calories for each weight goal</caption>
+        <caption class="sr-only">Calorías diarias para cada objetivo de peso</caption>
         <thead>
           <tr class="border-b border-hairline text-left text-xs uppercase tracking-wide text-mute">
             <th scope="col" class="px-4 py-3 font-medium">Objetivo</th>
@@ -230,7 +230,7 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
     goalCalories,
     macrosFromCalories,
     GOALS,
-    type Sex,
+    type Sexo,
     type ActivityKey,
     type ObjetivoKey,
   } from "../../lib/calculations";
@@ -270,7 +270,7 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
 
     function readInputs() {
       const sex = (form.querySelector('input[name="sex"]:checked') as HTMLInputElement)
-        .value as Sex;
+        .value as Sexo;
       const age = parseFloat(($("age") as HTMLInputElement).value) || 0;
       const activity = ($("activity") as HTMLSelectElement).value as ActivityKey;
 
@@ -309,19 +309,7 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
       $("result-tdee").textContent = fmt(tdeeVal);
       $("result-calories").textContent = fmt(cals);
       $("result-weekly").textContent = fmt(cals * 7);
-      
-      const GOALS_ES = {
-        maintain: { label: "Mantener mi peso" },
-        mildLoss: { label: "Pérdida suave" },
-        loss: { label: "Pérdida de peso" },
-        extremeLoss: { label: "Pérdida extrema" },
-        mildGain: { label: "Ganancia suave" },
-        gain: { label: "Ganancia de peso" },
-        extremeGain: { label: "Ganancia rápida" }
-      };
-      
-      $("goal-label").textContent = GOALS_ES[goal].label.toLowerCase();
-
+      $("goal-label").textContent = GOALS[goal].label.toLowerCase();
 
       // Macros
       const m = macrosFromCalories(cals);
@@ -342,7 +330,7 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
           const c = goalCalories(tdeeVal, k, sex);
           const active = k === goal;
           return `<tr class="border-b border-hairline last:border-0 ${active ? "bg-brand/5" : ""}">
-            <td class="px-4 py-2.5 ${active ? "text-ink font-medium" : "text-body"}">${GOALS_ES[k].label}</td>
+            <td class="px-4 py-2.5 ${active ? "text-ink font-medium" : "text-body"}">${GOALS[k].label}</td>
             <td class="px-4 py-2.5 text-right tabular-nums ${active ? "text-ink font-medium" : "text-body"}">${fmt(c)}</td>
             <td class="hidden px-4 py-2.5 text-right tabular-nums text-mute sm:table-cell">${fmt(c * 7)}</td>
           </tr>`;
@@ -441,11 +429,11 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
 
     // Copiar result
     $("copy-btn")?.addEventListener("click", async () => {
-      const text = `Mi objetivo de calorías diarias (${$("goal-label").textContent}): ${$("result-calories").textContent} kcal/day. BMR ${$("result-bmr").textContent}, TDEE ${$("result-tdee").textContent}. Proteínas ${$("macro-protein").textContent}g · Carbohidratos ${$("macro-carbs").textContent}g · Grasas ${$("macro-fat").textContent}g. — caloriecalculatorfree.com`;
+      const text = `My daily calorie target (${$("goal-label").textContent}): ${$("result-calories").textContent} kcal/día. BMR ${$("result-bmr").textContent}, TDEE ${$("result-tdee").textContent}. Proteínas ${$("macro-protein").textContent}g · Carbohidratos ${$("macro-carbs").textContent}g · Fat ${$("macro-fat").textContent}g. — caloriecalculatorfree.com`;
       try {
         await navigator.clipboard.writeText(text);
         const l = $("copy-label");
-        l.textContent = "¡Copiado!";
+        l.textContent = "Copied!";
         setTimeout(() => (l.textContent = "Copiar"), 1500);
       } catch {}
     });
@@ -459,7 +447,7 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
       const label = $("share-label");
       const shareData = {
         title: "My calorie results — Calorie Calculator Free",
-        text: `Mi objetivo de calorías diarias: ${$("result-calories").textContent} kcal. Calcula las tuyas:`,
+        text: `My daily calorie target: ${$("result-calories").textContent} kcal. Calcular yours:`,
         url,
       };
       try {
@@ -467,7 +455,7 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
           await navigator.share(shareData);
         } else {
           await navigator.clipboard.writeText(url);
-          label.textContent = "¡Enlace copiado!";
+          label.textContent = "Link copied!";
           setTimeout(() => (label.textContent = "Compartir"), 1500);
         }
       } catch {}
