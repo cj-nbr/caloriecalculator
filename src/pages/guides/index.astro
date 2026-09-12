@@ -7,40 +7,33 @@ import { breadcrumbSchema } from "../../lib/seo";
 const guides = [
   { label: "How Many Calories Should I Eat?", href: "/guides/how-many-calories-should-i-eat/" },
   { label: "Body Recomposition Guide", href: "/guides/body-recomposition-guide/" },
-  { label: "Best Free Calorie Calculator Apps", href: "/guides/best-free-calorie-calculator/" },
-  { label: "Are Calorie Calculators Accurate?", href: "/guides/are-calorie-calculators-accurate/" },
+  { label: "Calorie Calculator Accuracy", href: "/guides/calorie-calculator-accuracy/" },
   { label: "Maintenance Calories", href: "/guides/maintenance-calories/" },
-  { label: "TDEE Calculation Methods", href: "/guides/tdee-calculation/" },
   { label: "What is TDEE?", href: "/guides/whats-my-tdee/" },
   { label: "BMR equations", href: "/guides/bmr-equations/" },
-  { label: "Calorie Calculator Accuracy", href: "/guides/calorie-calculator-accuracy/" },
   { label: "Weight Loss Guide", href: "/guides/weight-loss-guide/" },
   { label: "Weight Gain Guide", href: "/guides/weight-gain-guide/" },
   { label: "How to Gain Weight", href: "/guides/how-to-gain-weight/" },
   { label: "Calorie Deficit Guide", href: "/guides/calorie-deficit-guide/" },
   { label: "Calorie Surplus Guide", href: "/guides/calorie-surplus-guide/" },
   { label: "Protein Guide", href: "/guides/protein-guide/" },
-  { label: "Protein Calories", href: "/guides/protein-calories/" },
   { label: "Macro Guide", href: "/guides/macro-guide/" },
   { label: "Intermittent Fasting for Beginners", href: "/guides/intermittent-fasting-for-beginners/" },
-  { label: "Calorie Counting Recipes", href: "/guides/calorie-counting-recipes/" },
-  { label: "Calories Burned Swimming", href: "/guides/calories-burned-swimming/" },
-    { label: "Mifflin-St Jeor Stress Factors", href: "/guides/mifflin-st-jeor-stress-factors/" },
-  { label: "Protein Calculator Guide", href: "/guides/protein-calculator-guide/" },
-  { label: "TDEE Calculator Guide", href: "/guides/tdee-calculator-guide/" },
   { label: "Calories Burned in a Day", href: "/guides/calories-burned-in-a-day/" },
+  { label: "Calories Burned Swimming", href: "/guides/calories-burned-swimming/" },
+  { label: "Mifflin-St Jeor Stress Factors", href: "/guides/mifflin-st-jeor-stress-factors/" },
 ];
 
 const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Guides", path: "/guides/" }])];
 ---
 
 <Layout
-  title="Nutrition & Weight Guides – Calorie Calculator Free"
+  title="Nutrition & Weight Guides — Calorie Calculator Free"
   description="Free, science-based guides on calories, macros, protein, weight loss, and weight gain to help you reach your goals."
   canonical="/guides/"
   jsonLd={jsonLd}
 >
-   <header class="relative overflow-hidden border-b border-hairline">
+  <header class="relative overflow-hidden border-b border-hairline">
     <div class="bg-grid pointer-events-none absolute inset-0 -z-10 opacity-50" aria-hidden="true"></div>
     <div class="container-page py-12 sm:py-16">
       <p class="text-sm font-medium text-brand">Guides</p>
@@ -48,12 +41,14 @@ const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Guides",
       <p class="mt-4 max-w-2xl text-lg text-body">Clear, science-based guides to help you understand calories, macros, and how to reach any weight goal.</p>
     </div>
   </header>
+  
   <Section>
     <ArticleImage src="/assets/images/articles/workout-routine.svg" alt="Illustration of nutrition and workout planning guides for achieving health goals." />
 
     <div class="prose-content mx-auto max-w-3xl">
       <p>These guides turn the numbers from our calculators into a plan you can follow. They cover how to set a calorie target, build a deficit or surplus, choose your macros, and apply the results to real meals and training. Start with <a href="/guides/how-many-calories-should-i-eat/">how many calories you should eat</a>, then move on to the topic that matches your goal.</p>
     </div>
+    
     <div class="mt-8 grid gap-3 sm:grid-cols-2">
       {
         guides.map((g) => (
@@ -66,4 +61,3 @@ const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Guides",
     </div>
   </Section>
 </Layout>
-
