@@ -11,7 +11,7 @@ const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Resource
 
 <Layout
   title="Resources & Calculators — Calorie Calculator Free"
-  description="Explore all 14 free calculators and reference resources for BMR, TDEE, and daily calorie needs."
+  description={`Explore all ${allCalculators.length} free calculators and reference resources for BMR, TDEE, and daily calorie needs.`}
   canonical="/resources/"
   jsonLd={jsonLd}
 >
@@ -27,7 +27,7 @@ const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Resource
   <Section class="bg-canvas-soft">
     <div class="container-page py-12">
       <div class="mb-10 text-center">
-        <h2 class="text-display-md text-gradient">Explore all {allCalculators.length + 1} calculators</h2>
+        <h2 class="text-display-md text-gradient">Explore all {allCalculators.length} calculators</h2>
         <p class="mx-auto mt-3 max-w-xl text-body">
           Select a tool below to calculate your specific goals.
         </p>
