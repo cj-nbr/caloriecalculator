@@ -31,16 +31,6 @@ export const ALL_CALCULATORS: NavLink[] = [
   { label: "Cycling Calories Calculator", href: "/cycling-calories-calculator/", desc: "Calories burned cycling" },
   { label: "Swimming Calories Calculator", href: "/swimming-calories-calculator/", desc: "Calories burned swimming" },
   { label: "Recipe Calorie Calculator", href: "/recipe-calorie-calculator/", desc: "Total & per-serving recipe calories" },
-
-
-  { label: "Alcohol Calories Calculator", href: "/alcohol-calories-calculator/", desc: "Calories in beer, wine & spirits" },
-  { label: "Online Calorie Calculator", href: "/guides/online-calorie-calculator/", desc: "Online tool guide" },
-  { label: "Calorie Calculator by Age", href: "/guides/calorie-calculator-by-age/", desc: "Age-based calculator" },
-  { label: "Calorie Calculator for Women", href: "/guides/calorie-calculator-for-women/", desc: "Women's calorie needs" },
-  { label: "Calorie Calculator for Men", href: "/guides/calorie-calculator-for-men/", desc: "Men's calorie needs" },
-  { label: "Bike Calorie Calculator", href: "/guides/bike-calorie-calculator/", desc: "Biking calories" },
-  { label: "Alcohol Calorie Counter", href: "/guides/alcohol-calorie-counter/", desc: "Alcohol calories" },
-  { label: "Protein Calculator Guide", href: "/resources/protein-calculator/", desc: "Protein needs" },
 ];
 
 /** Header dropdown groups. */
@@ -73,4 +63,5 @@ export const FOOTER: { title: string; links: NavLink[] }[] = [
     ],
   },
 ];
+
 

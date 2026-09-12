@@ -7,14 +7,8 @@ import { ALL_CALCULATORS } from "../../data/site";
 
 const resources = [
   { label: "What is BMR?", href: "/resources/what-is-bmr/" },
-  { label: "What is TDEE?", href: "/resources/what-is-tdee/" },
   { label: "Mifflin-St Jeor Equation", href: "/resources/mifflin-st-jeor-equation/" },
-  { label: "Calories Burned in a Day", href: "/resources/calories-burned-in-a-day/" },
-  { label: "TDEE Calculator Guide", href: "/resources/tdee-calculator/" },
-  { label: "Protein Calculator Guide", href: "/resources/protein-calculator/" },
-  { label: "Protein to Calories", href: "/resources/protein-to-calories/" },
-  { label: "Calorie Deficit Guide", href: "/resources/calorie-deficit-guide/" },
-  { label: "Calorie Surplus Guide", href: "/resources/calorie-surplus-guide/" },
+  { label: "Mifflin-St Jeor Women", href: "/resources/mifflin-st-jeor-women/" },
 ];
 
 const extraCalculators = [
@@ -30,12 +24,12 @@ const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Resource
 ---
 
 <Layout
-  title="Resources & Calculators – Calorie Calculator Free"
-  description="Explore all 51+ free calculators and reference resources for BMR, TDEE, and daily calorie needs."
+  title="Resources & Calculators — Calorie Calculator Free"
+  description="Explore all free calculators and reference resources for BMR, TDEE, and daily calorie needs."
   canonical="/resources/"
   jsonLd={jsonLd}
 >
-   <header class="relative overflow-hidden border-b border-hairline">
+  <header class="relative overflow-hidden border-b border-hairline">
     <div class="bg-grid pointer-events-none absolute inset-0 -z-10 opacity-50" aria-hidden="true"></div>
     <div class="container-page py-12 sm:py-16">
       <p class="text-sm font-medium text-brand">Resources</p>
@@ -43,6 +37,7 @@ const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Resource
       <p class="mt-4 max-w-2xl text-lg text-body">Plain-English explanations of the key concepts behind your calorie needs.</p>
     </div>
   </header>
+
   <Section>
     <ArticleImage src="/assets/images/articles/energy-level.svg" alt="Illustration of energy expenditure and metabolism for understanding calorie science." />
 
@@ -61,7 +56,7 @@ const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Resource
     </div>
   </Section>
 
-  <!-- 🧮 All calculators -->
+  <!-- All calculators -->
   <Section class="border-t border-hairline bg-canvas-soft">
     <div class="container-page py-12">
       <div class="mb-10 text-center">
@@ -88,5 +83,5 @@ const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Resource
       </div>
     </div>
   </Section>
-
 </Layout>
+
