@@ -1,7 +1,7 @@
 ---
+import Button from "../../components/ui/Button.astro";
 import ContentLayout from '../../layouts/ContentLayout.astro';
 import ArticleImage from '../../components/ui/ArticleImage.astro';
-import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
 
 const seoTitle = "How Many Calories in a Gram: The Complete Guide | Kcal Calculator";
 const seoDescription = "Discover exactly how many calories are in a gram of fat, protein, and carbohydrates. Use our cal calculator to optimize your nutrition and reach your fitness goals.";
@@ -136,7 +136,13 @@ const seoDescription = "Discover exactly how many calories are in a gram of fat,
         Do not leave your health and fitness results to chance. Utilize our advanced <strong>kcal calculator</strong> to precisely determine how much you need to eat based on your daily metabolic requirements and long-term objectives.
       </p>
       <div class="bg-white rounded-2xl shadow-lg p-6">
-        <CalorieCalculator />
+        
+    <div class="my-8 rounded-2xl border border-hairline bg-canvas-soft p-6 text-center sm:p-8">
+      <h3 class="mt-0 text-xl font-semibold text-ink">Ready to calculate your needs?</h3>
+      <p class="mt-2 mb-6 text-body">Use our free, science-backed calculator to find your exact calorie and macro targets.</p>
+      <Button href="/" size="lg" class="w-full sm:w-auto">Open Calorie Calculator</Button>
+    </div>
+    
       </div>
     </section>
 

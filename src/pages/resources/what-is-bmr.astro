@@ -1,5 +1,6 @@
 ---
-import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
+import Button from "../../components/ui/Button.astro";
+
 import MedicalNote from "../../components/ui/MedicalNote.astro";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import type { FaqItem } from "../../lib/seo";
@@ -91,5 +92,11 @@ const faqs: FaqItem[] = [
     { label: "A new predictive equation for resting energy expenditure — Mifflin & St Jeor (1990)", href: "https://pubmed.ncbi.nlm.nih.gov/2305711/" },
     { label: "Basal metabolic rate — Wikipedia summary of methods", href: "https://en.wikipedia.org/wiki/Basal_metabolic_rate" },
   ]} />
-<div class='my-10'><CalorieCalculator /></div>
+<div class='my-10'>
+    <div class="my-8 rounded-2xl border border-hairline bg-canvas-soft p-6 text-center sm:p-8">
+      <h3 class="mt-0 text-xl font-semibold text-ink">Ready to calculate your needs?</h3>
+      <p class="mt-2 mb-6 text-body">Use our free, science-backed calculator to find your exact calorie and macro targets.</p>
+      <Button href="/" size="lg" class="w-full sm:w-auto">Open Calorie Calculator</Button>
+    </div>
+    </div>
 </ContentLayout>

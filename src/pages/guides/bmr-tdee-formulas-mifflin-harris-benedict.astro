@@ -1,6 +1,7 @@
 ---
+import Button from "../../components/ui/Button.astro";
 import ContentLayout from '../../layouts/ContentLayout.astro';
-import CalorieCalculator from '../../components/calculators/CalorieCalculator.astro';
+
 import ArticleImage from '../../components/ui/ArticleImage.astro';
 
 const title = "BMR and TDEE Formulas: Mifflin-St Jeor, Harris-Benedict, and Katch-McArdle Explained";
@@ -78,7 +79,13 @@ const faqSchema = {
   <div class="container-page">
     <h2 class="text-center mb-8 text-3xl font-bold">Interactive Calculator</h2>
     <div class="mx-auto max-w-4xl">
-      <CalorieCalculator />
+      
+    <div class="my-8 rounded-2xl border border-hairline bg-canvas-soft p-6 text-center sm:p-8">
+      <h3 class="mt-0 text-xl font-semibold text-ink">Ready to calculate your needs?</h3>
+      <p class="mt-2 mb-6 text-body">Use our free, science-backed calculator to find your exact calorie and macro targets.</p>
+      <Button href="/" size="lg" class="w-full sm:w-auto">Open Calorie Calculator</Button>
+    </div>
+    
     </div>
   </div>
 </section>
