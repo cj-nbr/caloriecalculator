@@ -49,14 +49,14 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
       <!-- Edad -->
       <div class="space-y-1.5">
         <label for="age" class="block text-sm font-medium text-ink">Edad</label>
-        <input id="age" name="age" type="number" inputmode="numeric" min="15" max="100" value="" placeholder="30" class={inputCls} />
+        <input id="age" name="age" type="number" inputmode="numeric" min="15" max="100" value="30" class={inputCls} />
       </div>
       <!-- Weight -->
       <div class="space-y-1.5">
         <label for="weight" class="block text-sm font-medium text-ink">
           Peso <span class="weight-unit text-mute">(kg)</span>
         </label>
-        <input id="weight" name="weight" type="number" inputmode="decimal" min="20" step="0.1" value="" placeholder="70" class={inputCls} />
+        <input id="weight" name="weight" type="number" inputmode="decimal" min="20" step="0.1" value="70" class={inputCls} />
       </div>
     </div>
 
@@ -66,15 +66,15 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
         Altura <span class="height-unit text-mute">(cm)</span>
       </label>
       <div id="height-metric">
-        <input id="height-cm" type="number" inputmode="numeric" min="100" max="250" value="" placeholder="175" class={inputCls} aria-label="Altura en centímetros" />
+        <input id="height-cm" type="number" inputmode="numeric" min="100" max="250" value="175" class={inputCls} aria-label="Altura en centímetros" />
       </div>
       <div id="height-imperial" class="hidden grid-cols-2 gap-3">
         <div class="relative">
-          <input id="height-ft" type="number" inputmode="numeric" min="3" max="8" value="" placeholder="5" class={inputCls} aria-label="Altura en pies" />
+          <input id="height-ft" type="number" inputmode="numeric" min="3" max="8" value="5" class={inputCls} aria-label="Altura en pies" />
           <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">ft</span>
         </div>
         <div class="relative">
-          <input id="height-in" type="number" inputmode="numeric" min="0" max="11" value="" placeholder="9" class={inputCls} aria-label="Altura en pulgadas" />
+          <input id="height-in" type="number" inputmode="numeric" min="0" max="11" value="9" class={inputCls} aria-label="Altura en pulgadas" />
           <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">in</span>
         </div>
       </div>
