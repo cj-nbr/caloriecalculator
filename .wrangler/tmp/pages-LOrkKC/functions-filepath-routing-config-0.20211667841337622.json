@@ -1,0 +1,13 @@
+{
+  "routes": [
+    {
+      "routePath": "/api/food-search",
+      "mountPath": "/api",
+      "method": "GET",
+      "module": [
+        "api/food-search.js:onRequestGet"
+      ]
+    }
+  ],
+  "baseURL": "/"
+}

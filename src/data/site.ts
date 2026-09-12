@@ -22,16 +22,11 @@ export interface NavLink {
 export const ALL_CALCULATORS: NavLink[] = [
   { label: "Calorie Calculator", href: "/", desc: "Daily calories for your goal" },
   { label: "TDEE Calculator", href: "/tdee-calculator/", desc: "Total daily energy expenditure" },
-  { label: "BMR Calculator", href: "/bmr-calculator/", desc: "Basal metabolic rate" },
   { label: "BMI Calculator", href: "/bmi-calculator/", desc: "Body mass index" },
-  { label: "Macro Calculator", href: "/macro-calculator/", desc: "Protein, carbs & fat split" },
   { label: "Body Fat Calculator", href: "/body-fat-calculator/", desc: "U.S. Navy method" },
   { label: "Army Body Fat Calculator", href: "/army-body-fat-calculator/", desc: "U.S. Army tape test" },
-  { label: "Ideal Weight", href: "/ideal-weight-calculator/", desc: "Healthy weight range" },
   { label: "Lean Body Mass", href: "/lean-body-mass-calculator/", desc: "Fat-free mass" },
   { label: "Protein Calculator", href: "/protein-calculator/", desc: "Daily protein target" },
-  { label: "Water Intake", href: "/water-intake-calculator/", desc: "Daily hydration" },
-  { label: "Weight Loss", href: "/weight-loss-calculator/", desc: "Plan & timeline" },
   { label: "Weight Gain", href: "/weight-gain-calculator/", desc: "Calorie surplus & timeline" },
   { label: "Calorie Deficit Calculator", href: "/calorie-deficit-calculator/", desc: "Daily deficit target" },
   { label: "Calories Burned", href: "/calories-burned-calculator/", desc: "Exercise calorie burn" },
@@ -41,27 +36,17 @@ export const ALL_CALCULATORS: NavLink[] = [
   { label: "Cycling Calories Calculator", href: "/cycling-calories-calculator/", desc: "Calories burned cycling" },
   { label: "Swimming Calories Calculator", href: "/swimming-calories-calculator/", desc: "Calories burned swimming" },
   { label: "Recipe Calorie Calculator", href: "/recipe-calorie-calculator/", desc: "Total & per-serving recipe calories" },
-  { label: "Intermittent Fasting Calculator", href: "/intermittent-fasting-calculator/", desc: "Fasting window planner" },
 
 
   { label: "Alcohol Calories Calculator", href: "/alcohol-calories-calculator/", desc: "Calories in beer, wine & spirits" },
-
-  { label: "Maintenance Calorie Calculator", href: "/guides/maintenance-calorie-calculator/", desc: "Maintenance guide" },
   { label: "Online Calorie Calculator", href: "/guides/online-calorie-calculator/", desc: "Online tool guide" },
   { label: "Metabolism Calculator", href: "/guides/metabolism-calculator/", desc: "Metabolism guide" },
   { label: "Calorie Calculator by Age", href: "/guides/calorie-calculator-by-age/", desc: "Age-based calculator" },
   { label: "Calorie Calculator for Women", href: "/guides/calorie-calculator-for-women/", desc: "Women's calorie needs" },
   { label: "Calorie Calculator for Men", href: "/guides/calorie-calculator-for-men/", desc: "Men's calorie needs" },
-  { label: "Weight Loss Calorie Calculator", href: "/guides/weight-loss-calorie-calculator/", desc: "Weight loss guide" },
-  { label: "BMR Calculator Guide", href: "/guides/bmr-calculator/", desc: "BMR guide" },
   { label: "Bike Calorie Calculator", href: "/guides/bike-calorie-calculator/", desc: "Biking calories" },
-  { label: "Harris-Benedict Calculator", href: "/guides/harris-benedict-calculator/", desc: "Harris-Benedict formula" },
   { label: "Alcohol Calorie Counter", href: "/guides/alcohol-calorie-counter/", desc: "Alcohol calories" },
   { label: "BMI Calculator Guide", href: "/resources/bmi-calculator/", desc: "BMI guide" },
-  { label: "Macro Calculator Guide", href: "/resources/macro-calculator/", desc: "Macro guide" },
-  { label: "Maintenance Calculator (Resource)", href: "/resources/maintenance-calorie-calculator/", desc: "Maintenance calories" },
-  { label: "Weight Loss Calculator Guide", href: "/resources/weight-loss-calculator/", desc: "Weight loss resource" },
-  { label: "Water Intake Calculator", href: "/resources/water-intake-calculator/", desc: "Water needs" },
   { label: "Protein Calculator Guide", href: "/resources/protein-calculator/", desc: "Protein needs" },
 ];
 
@@ -95,3 +80,4 @@ export const FOOTER: { title: string; links: NavLink[] }[] = [
     ],
   },
 ];
+

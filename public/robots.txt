@@ -3,10 +3,8 @@ Allow: /
 Allow: /country/
 Allow: /healthy-weight-calculator/
 Allow: /weight-gain-calculator/
-Allow: /maintenance-calories-calculator/
 Allow: /meal-calorie-calculator/
 Allow: /recipe-calorie-calculator/
-Allow: /intermittent-fasting-calculator/
 Allow: /cycling-calories-calculator/
 Allow: /swimming-calories-calculator/
 Allow: /alcohol-calories-calculator/
@@ -20,3 +18,4 @@ Allow: /
 # Bing-specific
 User-agent: Bingbot
 Allow: /
+
