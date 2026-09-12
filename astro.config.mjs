@@ -20,7 +20,10 @@ export default defineConfig({
       'https://caloriecalculatorfree.com/country/spain/calcular-calorias-de-alimentos-y-macros/'
     ]
   })],
-  prefetch: true,
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'hover'
+  },
   build: {
     inlineStylesheets: 'auto',
   },
