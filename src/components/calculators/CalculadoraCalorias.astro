@@ -49,14 +49,14 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
       <!-- Edad -->
       <div class="space-y-1.5">
         <label for="age" class="block text-sm font-medium text-ink">Edad</label>
-        <input id="age" name="age" type="number" inputmode="numeric" min="15" max="100" value="30" class={inputCls} />
+        <input id="age" name="age" type="number" inputmode="numeric" min="15" max="100" value="" placeholder="30" class={inputCls} />
       </div>
       <!-- Weight -->
       <div class="space-y-1.5">
         <label for="weight" class="block text-sm font-medium text-ink">
           Peso <span class="weight-unit text-mute">(kg)</span>
         </label>
-        <input id="weight" name="weight" type="number" inputmode="decimal" min="20" step="0.1" value="70" class={inputCls} />
+        <input id="weight" name="weight" type="number" inputmode="decimal" min="20" step="0.1" value="" placeholder="70" class={inputCls} />
       </div>
     </div>
 
@@ -66,15 +66,15 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
         Altura <span class="height-unit text-mute">(cm)</span>
       </label>
       <div id="height-metric">
-        <input id="height-cm" type="number" inputmode="numeric" min="100" max="250" value="" placeholder="175" class={inputCls}  aria-label="Height en centímetros" />
+        <input id="height-cm" type="number" inputmode="numeric" min="100" max="250" value="" placeholder="175" class={inputCls} aria-label="Altura en centímetros" />
       </div>
       <div id="height-imperial" class="hidden grid-cols-2 gap-3">
         <div class="relative">
-          <input id="height-ft" type="number" inputmode="numeric" min="3" max="8" value="5" class={inputCls}  aria-label="Height en pies" />
+          <input id="height-ft" type="number" inputmode="numeric" min="3" max="8" value="" placeholder="5" class={inputCls} aria-label="Altura en pies" />
           <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">ft</span>
         </div>
         <div class="relative">
-          <input id="height-in" type="number" inputmode="numeric" min="0" max="11" value="9" class={inputCls}  aria-label="Height en pulgadas" />
+          <input id="height-in" type="number" inputmode="numeric" min="0" max="11" value="" placeholder="9" class={inputCls} aria-label="Altura en pulgadas" />
           <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-mute">in</span>
         </div>
       </div>
@@ -217,8 +217,8 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
     </div>
 
     <p class="text-xs leading-relaxed text-mute">
-      Estimates use the Mifflin-St Jeor equation. Individual needs vary —
-      use these as a starting point and adjust based on real-world results.
+      Las estimaciones utilizan la ecuación de Mifflin-St Jeor. Las necesidades individuales varían —
+      usa esto como un punto de partida y ajusta según tus resultados en el mundo real.
     </p>
   </div>
 </div>
@@ -413,7 +413,7 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
         const w = $("weight") as HTMLInputElement;
         const v = parseFloat(w.value) || 0;
         if (v) w.value = (unit === "imperial" ? v * 2.2046226218 : v / 2.2046226218).toFixed(1);
-        if (window.location.search || hasCalculated) render();
+        render();
       });
     });
 
@@ -467,7 +467,12 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      if (window.location.search || hasCalculated) render();
+      const { age, weightKg, heightCm } = readInputs();
+      if (age <= 0 || weightKg <= 0 || heightCm <= 0) {
+        alert("Por favor completa todos los campos requeridos (Edad, Peso y Altura) antes de calcular.");
+        return;
+      }
+      render();
     });
     prefillFromUrl();
   }
