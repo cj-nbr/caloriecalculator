@@ -132,7 +132,7 @@ const ogImage = new URL("/og-default.svg", SITE.url).href;
     <script is:inline>
       (function () {
         try {
-          var stored = localStorage.getItem("theme");
+          var stored = localStorage.getItem("theme-preference");
           // Default to light mode for all new visitors
           var theme = stored || "light"; 
           document.documentElement.classList.toggle("dark", theme === "dark");

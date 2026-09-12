@@ -133,11 +133,11 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
-    color-scheme: dark;
+    color-scheme: light;
   }
 
-  html:not(.dark) {
-    color-scheme: light;
+  html.dark {
+    color-scheme: dark;
   }
 
   body {
