@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Allow: /country/
+Allow: /country/spain/calculadora-de-calorias/
 Allow: /meal-calorie-calculator/
 Allow: /recipe-calorie-calculator/
 Allow: /cycling-calories-calculator/
