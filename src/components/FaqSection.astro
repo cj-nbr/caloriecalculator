@@ -3,8 +3,9 @@ import type { FaqItem } from "../lib/seo";
 interface Props {
   items: FaqItem[];
   title?: string;
+  hideSidebar?: boolean;
 }
-const { items, title = "Frequently asked questions" } = Astro.props;
+const { items, title = "Frequently asked questions", hideSidebar = false } = Astro.props;
 ---
 
 <div class="mx-auto max-w-5xl grid lg:grid-cols-[1fr_320px] gap-12 items-start">
@@ -27,7 +28,7 @@ const { items, title = "Frequently asked questions" } = Astro.props;
     </div>
   </div>
 
-  <aside class="hidden lg:block sticky top-24">
+  {!hideSidebar && <aside class="hidden lg:block sticky top-24">
     <div class="rounded-2xl border border-hairline bg-canvas-soft p-6 shadow-sm">
       <h3 class="font-semibold text-lg text-ink">Still have questions?</h3>
       <p class="text-sm text-body mt-2 mb-4 leading-relaxed">
@@ -50,5 +51,5 @@ const { items, title = "Frequently asked questions" } = Astro.props;
         </a>
       </div>
     </div>
-  </aside>
+  </aside>}
 </div>

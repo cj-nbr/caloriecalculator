@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: "¿Qué fórmula utiliza la calculadora?",
-    a: "Utilizamos la ecuación de Mifflin-St Jeor, que es ampliamente considerada por los profesionales de la salud y la nutrición como una de las fórmulas más precisas para estimar la Tasa Metabólica Basal (TMB) en la población moderna."
+    a: "Utilizamos la ecuación de Mifflin-St Jeor, que es ampliamente considerada por los profesionales de la salud y la nutrición como una de las fórmulas basada en la ecuación de Mifflin-St Jeors para estimar la Tasa Metabólica Basal (TMB) en la población moderna."
   },
   {
     q: "¿Qué es el TDEE o GET?",
@@ -64,10 +64,10 @@ const hreflangs = [
     <div class="container-page max-w-3xl prose prose-brand text-body">
       <h2 class="text-display-md text-ink mb-6">¿Cómo calculamos tus calorías?</h2>
       <p>
-        Para proporcionarte la estimación más precisa, nuestra calculadora sigue un proceso científico de tres pasos basado en datos metabólicos comprobados:
+        Para proporcionarte la estimación basada en la ecuación de Mifflin-St Jeor, nuestra calculadora sigue un proceso científico de tres pasos basado en datos metabólicos comprobados:
       </p>
       <ul>
-        <li><strong>Paso 1: Estimación de la TMB.</strong> Utilizamos la ecuación de <em>Mifflin-St Jeor</em> para calcular tu Tasa Metabólica Basal. Se considera la fórmula más precisa para la población general moderna.</li>
+        <li><strong>Paso 1: Estimación de la TMB.</strong> Utilizamos la ecuación de <em>Mifflin-St Jeor</em> para calcular tu Tasa Metabólica Basal. Se considera la fórmula de Mifflin-St Jeor para la población general moderna.</li>
         <li><strong>Paso 2: Ajuste por Nivel de Actividad.</strong> Multiplicamos tu TMB por un factor de actividad establecido para calcular tu Gasto Energético Total (GET / TDEE).</li>
         <li><strong>Paso 3: Cálculo del Objetivo.</strong> Dependiendo de si deseas mantener, perder,o ganar peso, aplicamos un déficit o superávit calórico controlado para generar un resultado seguro y sostenible.</li>
       </ul>
@@ -112,5 +112,5 @@ const hreflangs = [
     </div>
   </Section>
 
-  <FaqSection items={faqs} title="Preguntas frecuentes" />
+  <FaqSection hideSidebar={true} items={faqs} title="Preguntas frecuentes" />
 </Layout>

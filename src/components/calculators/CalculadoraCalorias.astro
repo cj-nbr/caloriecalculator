@@ -18,7 +18,7 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
   <form id="calc-form" class="card p-5 sm:p-6" novalidate>
     <!-- Helper note: clarifies the pre-filled example values -->
     <p role="note" class="mb-4 text-xs leading-relaxed text-mute">
-      Example values are pre-filled. Enter your own details for accurate results.
+      Introduce tus propios datos para obtener resultados personalizados.
     </p>
     <!-- Unit system -->
     <div
@@ -66,7 +66,7 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
         Altura <span class="height-unit text-mute">(cm)</span>
       </label>
       <div id="height-metric">
-        <input id="height-cm" type="number" inputmode="numeric" min="100" max="250" value="175" class={inputCls}  aria-label="Height en centímetros" />
+        <input id="height-cm" type="number" inputmode="numeric" min="100" max="250" value="" placeholder="175" class={inputCls}  aria-label="Height en centímetros" />
       </div>
       <div id="height-imperial" class="hidden grid-cols-2 gap-3">
         <div class="relative">
@@ -110,7 +110,7 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
           <div>
             <p class="text-sm text-mute">Tus calorías diarias para <span id="goal-label" class="text-ink">mantener peso</span></p>
             <p class="mt-1">
-              <span id="result-calories" class="text-display-lg text-ink tabular-nums">2,000</span>
+              <span id="result-calories" class="text-display-md text-ink tracking-tight tabular-nums">-</span>
               <span class="text-lg text-mute">kcal/día</span>
             </p>
           </div>
@@ -208,7 +208,7 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
         <thead>
           <tr class="border-b border-hairline text-left text-xs uppercase tracking-wide text-mute">
             <th scope="col" class="px-4 py-3 font-medium">Objetivo</th>
-            <th scope="col" class="px-4 py-3 text-right font-medium">Per day</th>
+            <th scope="col" class="px-4 py-3 text-right font-medium">Por día</th>
             <th scope="col" class="hidden px-4 py-3 text-right font-medium sm:table-cell">Per week</th>
           </tr>
         </thead>
@@ -413,7 +413,7 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
         const w = $("weight") as HTMLInputElement;
         const v = parseFloat(w.value) || 0;
         if (v) w.value = (unit === "imperial" ? v * 2.2046226218 : v / 2.2046226218).toFixed(1);
-        render();
+        if (window.location.search || hasCalculated) render();
       });
     });
 
@@ -467,7 +467,7 @@ const selectCls = inputCls + " appearance-none bg-no-repeat pr-9";
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      render();
+      if (window.location.search || hasCalculated) render();
     });
     prefillFromUrl();
   }
