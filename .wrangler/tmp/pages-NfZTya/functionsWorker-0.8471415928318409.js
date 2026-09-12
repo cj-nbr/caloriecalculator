@@ -136,7 +136,7 @@ async function onRequestGet(context) {
 }
 __name(onRequestGet, "onRequestGet");
 
-// ../.wrangler/tmp/pages-LOrkKC/functionsRoutes-0.973747681678104.mjs
+// ../.wrangler/tmp/pages-NfZTya/functionsRoutes-0.6989829641930341.mjs
 var routes = [
   {
     routePath: "/api/food-search",

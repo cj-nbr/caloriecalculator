@@ -22,12 +22,7 @@ export interface NavLink {
 export const ALL_CALCULATORS: NavLink[] = [
   { label: "Calorie Calculator", href: "/", desc: "Daily calories for your goal" },
   { label: "TDEE Calculator", href: "/tdee-calculator/", desc: "Total daily energy expenditure" },
-  { label: "BMI Calculator", href: "/bmi-calculator/", desc: "Body mass index" },
-  { label: "Body Fat Calculator", href: "/body-fat-calculator/", desc: "U.S. Navy method" },
-  { label: "Army Body Fat Calculator", href: "/army-body-fat-calculator/", desc: "U.S. Army tape test" },
-  { label: "Lean Body Mass", href: "/lean-body-mass-calculator/", desc: "Fat-free mass" },
   { label: "Protein Calculator", href: "/protein-calculator/", desc: "Daily protein target" },
-  { label: "Weight Gain", href: "/weight-gain-calculator/", desc: "Calorie surplus & timeline" },
   { label: "Calorie Deficit Calculator", href: "/calorie-deficit-calculator/", desc: "Daily deficit target" },
   { label: "Calories Burned", href: "/calories-burned-calculator/", desc: "Exercise calorie burn" },
   { label: "Running Calorie Calculator", href: "/running-calorie-calculator/", desc: "Calories burned running" },
@@ -40,13 +35,11 @@ export const ALL_CALCULATORS: NavLink[] = [
 
   { label: "Alcohol Calories Calculator", href: "/alcohol-calories-calculator/", desc: "Calories in beer, wine & spirits" },
   { label: "Online Calorie Calculator", href: "/guides/online-calorie-calculator/", desc: "Online tool guide" },
-  { label: "Metabolism Calculator", href: "/guides/metabolism-calculator/", desc: "Metabolism guide" },
   { label: "Calorie Calculator by Age", href: "/guides/calorie-calculator-by-age/", desc: "Age-based calculator" },
   { label: "Calorie Calculator for Women", href: "/guides/calorie-calculator-for-women/", desc: "Women's calorie needs" },
   { label: "Calorie Calculator for Men", href: "/guides/calorie-calculator-for-men/", desc: "Men's calorie needs" },
   { label: "Bike Calorie Calculator", href: "/guides/bike-calorie-calculator/", desc: "Biking calories" },
   { label: "Alcohol Calorie Counter", href: "/guides/alcohol-calorie-counter/", desc: "Alcohol calories" },
-  { label: "BMI Calculator Guide", href: "/resources/bmi-calculator/", desc: "BMI guide" },
   { label: "Protein Calculator Guide", href: "/resources/protein-calculator/", desc: "Protein needs" },
 ];
 

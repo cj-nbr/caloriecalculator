@@ -1,14 +1,11 @@
 User-agent: *
 Allow: /
 Allow: /country/
-Allow: /healthy-weight-calculator/
-Allow: /weight-gain-calculator/
 Allow: /meal-calorie-calculator/
 Allow: /recipe-calorie-calculator/
 Allow: /cycling-calories-calculator/
 Allow: /swimming-calories-calculator/
 Allow: /alcohol-calories-calculator/
-Allow: /army-body-fat-calculator/
 Allow: /guides/
 Allow: /resources/
 Sitemap: https://caloriecalculatorfree.com/sitemap-index.xml
@@ -18,4 +15,5 @@ Allow: /
 # Bing-specific
 User-agent: Bingbot
 Allow: /
+
 
