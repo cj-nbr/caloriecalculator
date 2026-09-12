@@ -1,4 +1,4 @@
-/** site.ts — global site constants & navigation structure. */
+/** site.ts - global site constants & navigation structure. */
 
 export const SITE = {
   name: "Calorie Calculator Free",
@@ -31,37 +31,30 @@ export const ALL_CALCULATORS: NavLink[] = [
   { label: "Cycling Calories Calculator", href: "/cycling-calories-calculator/", desc: "Calories burned cycling" },
   { label: "Swimming Calories Calculator", href: "/swimming-calories-calculator/", desc: "Calories burned swimming" },
   { label: "Recipe Calorie Calculator", href: "/recipe-calorie-calculator/", desc: "Total & per-serving recipe calories" },
+  { label: "Meal Calorie Calculator", href: "/meal-calorie-calculator/", desc: "Split daily calories across meals" },
+  { label: "Korean Calorie Calculator", href: "/country/korean-weight-loss-calorie-calculator/", desc: "Korean standard weight loss calculator" },
+  { label: "Spanish Calorie Calculator", href: "/country/spain/calculadora-de-calorias/", desc: "Calculadora de calorías diaria" },
 ];
 
 /** Header dropdown groups. */
 export const NAV: { label: string; href?: string; children?: NavLink[] }[] = [
   { label: "Home", href: "/" },
   { label: "Guides", href: "/guides/" },
-
   { label: "Resources", href: "/resources/" },
-  ];
+];
 
-  /** Footer link groups. */
+/** Footer link groups. */
 export const FOOTER: { title: string; links: NavLink[] }[] = [
-      {
-        title: "Company",
-        links: [
-          { label: "About", href: "/about/" },
-          { label: "Editorial Policy", href: "/editorial-policy/" },
-          { label: "Contact", href: "/contact/" },
-          { label: "Privacy Policy", href: "/privacy-policy/" },
-          { label: "Terms", href: "/terms/" },
-          { label: "Disclaimer", href: "/disclaimer/" },
-          { label: "HTML Sitemap", href: "/html-sitemap/" },
-        ],
-      },
   {
-    title: "Tools",
+    title: "Company",
     links: [
-      { label: "Korean Calorie Calculator", href: "/country/korean-weight-loss-calorie-calculator/" },
-      { label: "Spanish Calorie Calculator", href: "/country/spain/calculadora-de-calorias/" },
+      { label: "About", href: "/about/" },
+      { label: "Editorial Policy", href: "/editorial-policy/" },
+      { label: "Contact", href: "/contact/" },
+      { label: "Privacy Policy", href: "/privacy-policy/" },
+      { label: "Terms", href: "/terms/" },
+      { label: "Disclaimer", href: "/disclaimer/" },
+      { label: "HTML Sitemap", href: "/html-sitemap/" },
     ],
   },
 ];
-
-

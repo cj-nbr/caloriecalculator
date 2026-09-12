@@ -1,31 +1,17 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Section from "../../components/ui/Section.astro";
-import ArticleImage from "../../components/ui/ArticleImage.astro";
 import { breadcrumbSchema } from "../../lib/seo";
 import { ALL_CALCULATORS } from "../../data/site";
 
-const resources = [
-  { label: "What is BMR?", href: "/resources/what-is-bmr/" },
-  { label: "Mifflin-St Jeor Equation", href: "/resources/mifflin-st-jeor-equation/" },
-  { label: "Mifflin-St Jeor Women", href: "/resources/mifflin-st-jeor-women/" },
-];
-
-const extraCalculators = [
-  { label: "Meal Calorie Calculator", href: "/meal-calorie-calculator/", desc: "Split daily calories across meals" },
-  { label: "Recipe Calorie Calculator", href: "/recipe-calorie-calculator/", desc: "Total and per-serving recipe calories" },
-  { label: "Cycling Calories Calculator", href: "/cycling-calories-calculator/", desc: "Calories burned cycling by pace" },
-  { label: "Swimming Calories Calculator", href: "/swimming-calories-calculator/", desc: "Calories burned swimming by intensity" },
-];
-
-const allCalculators = [...ALL_CALCULATORS, ...extraCalculators].filter(c => c.href !== "/");
+const allCalculators = ALL_CALCULATORS.filter(c => c.href !== "/");
 
 const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Resources", path: "/resources/" }])];
 ---
 
 <Layout
   title="Resources & Calculators — Calorie Calculator Free"
-  description="Explore all free calculators and reference resources for BMR, TDEE, and daily calorie needs."
+  description="Explore all 14 free calculators and reference resources for BMR, TDEE, and daily calorie needs."
   canonical="/resources/"
   jsonLd={jsonLd}
 >
@@ -33,36 +19,17 @@ const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Resource
     <div class="bg-grid pointer-events-none absolute inset-0 -z-10 opacity-50" aria-hidden="true"></div>
     <div class="container-page py-12 sm:py-16">
       <p class="text-sm font-medium text-brand">Resources</p>
-      <h1 class="mt-2 text-display-lg text-ink">Reference resources</h1>
-      <p class="mt-4 max-w-2xl text-lg text-body">Plain-English explanations of the key concepts behind your calorie needs.</p>
+      <h1 class="mt-2 text-display-lg text-ink">All Calculators</h1>
+      <p class="mt-4 max-w-2xl text-lg text-body">A complete toolkit for calories, body composition, and nutrition.</p>
     </div>
   </header>
 
-  <Section>
-    <ArticleImage src="/assets/images/articles/energy-level.svg" alt="Illustration of energy expenditure and metabolism for understanding calorie science." />
-
-    <div class="prose-content mx-auto max-w-3xl">
-      <p>These references explain the science behind the calculators on this site — what each measurement means, how it is estimated, and where the numbers come from. Use them alongside the tools to understand your results, then apply them with the relevant calculator. Each topic is written for everyday readers, not specialists.</p>
-    </div>
-    <div class="mt-8 grid gap-3 sm:grid-cols-2">
-      {
-        resources.map((r) => (
-          <a href={r.href} class="card group flex items-center justify-between gap-3 p-5 transition-all hover:border-hairline-strong hover:bg-canvas-soft">
-            <span class="text-base font-medium text-ink">{r.label}</span>
-            <svg class="h-4 w-4 shrink-0 text-mute transition-transform group-hover:translate-x-0.5 group-hover:text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-          </a>
-        ))
-      }
-    </div>
-  </Section>
-
-  <!-- All calculators -->
-  <Section class="border-t border-hairline bg-canvas-soft">
+  <Section class="bg-canvas-soft">
     <div class="container-page py-12">
       <div class="mb-10 text-center">
-        <h2 class="text-display-md text-gradient">Explore all {allCalculators.length} calculators</h2>
+        <h2 class="text-display-md text-gradient">Explore all {allCalculators.length + 1} calculators</h2>
         <p class="mx-auto mt-3 max-w-xl text-body">
-          A complete toolkit for calories, body composition, and nutrition.
+          Select a tool below to calculate your specific goals.
         </p>
       </div>
       <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -84,4 +51,3 @@ const jsonLd = [breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Resource
     </div>
   </Section>
 </Layout>
-
