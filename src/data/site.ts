@@ -17,23 +17,24 @@ export interface NavLink {
   label: string;
   href: string;
   desc?: string;
+  lang?: 'en' | 'es';
 }
 
 export const ALL_CALCULATORS: NavLink[] = [
-  { label: "Calorie Calculator", href: "/", desc: "Daily calories for your goal" },
-  { label: "TDEE Calculator", href: "/tdee-calculator/", desc: "Total daily energy expenditure" },
-  { label: "Protein Calculator", href: "/protein-calculator/", desc: "Daily protein target" },
-  { label: "Calorie Deficit Calculator", href: "/calorie-deficit-calculator/", desc: "Daily deficit target" },
-  { label: "Calories Burned", href: "/calories-burned-calculator/", desc: "Exercise calorie burn" },
-  { label: "Running Calorie Calculator", href: "/running-calorie-calculator/", desc: "Calories burned running" },
-  { label: "Walking Calorie Calculator", href: "/walking-calorie-calculator/", desc: "Calories burned walking" },
-  { label: "Treadmill Calorie Calculator", href: "/treadmill-calorie-calculator/", desc: "Treadmill calorie burn" },
-  { label: "Cycling Calories Calculator", href: "/cycling-calories-calculator/", desc: "Calories burned cycling" },
-  { label: "Swimming Calories Calculator", href: "/swimming-calories-calculator/", desc: "Calories burned swimming" },
-  { label: "Recipe Calorie Calculator", href: "/recipe-calorie-calculator/", desc: "Total & per-serving recipe calories" },
-  { label: "Meal Calorie Calculator", href: "/meal-calorie-calculator/", desc: "Split daily calories across meals" },
+  { label: "Calorie Calculator", href: "/", desc: "Daily calories for your goal", lang: 'en' },
+  { label: "TDEE Calculator", href: "/tdee-calculator/", desc: "Total daily energy expenditure", lang: 'en' },
+  { label: "Protein Calculator", href: "/protein-calculator/", desc: "Daily protein target", lang: 'en' },
+  { label: "Calorie Deficit Calculator", href: "/calorie-deficit-calculator/", desc: "Daily deficit target", lang: 'en' },
+  { label: "Calories Burned", href: "/calories-burned-calculator/", desc: "Exercise calorie burn", lang: 'en' },
+  { label: "Running Calorie Calculator", href: "/running-calorie-calculator/", desc: "Calories burned running", lang: 'en' },
+  { label: "Walking Calorie Calculator", href: "/walking-calorie-calculator/", desc: "Calories burned walking", lang: 'en' },
+  { label: "Treadmill Calorie Calculator", href: "/treadmill-calorie-calculator/", desc: "Treadmill calorie burn", lang: 'en' },
+  { label: "Cycling Calories Calculator", href: "/cycling-calories-calculator/", desc: "Calories burned cycling", lang: 'en' },
+  { label: "Swimming Calories Calculator", href: "/swimming-calories-calculator/", desc: "Calories burned swimming", lang: 'en' },
+  { label: "Recipe Calorie Calculator", href: "/recipe-calorie-calculator/", desc: "Total & per-serving recipe calories", lang: 'en' },
+  { label: "Meal Calorie Calculator", href: "/meal-calorie-calculator/", desc: "Split daily calories across meals", lang: 'en' },
 
-  { label: "Spanish Calorie Calculator", href: "/country/spain/calculadora-de-calorias/", desc: "Calculadora de calorías diaria" },
+  { label: "Calculadora de Calorías", href: "/country/spain/calculadora-de-calorias/", desc: "Calculadora de calorías diaria", lang: 'es' },
 ];
 
 /** Header dropdown groups. */

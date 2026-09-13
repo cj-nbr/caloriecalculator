@@ -1,8 +1,7 @@
-﻿---
+---
 import Layout from "./Layout.astro";
 import Section from "../components/ui/Section.astro";
 import FaqSection from "../components/FaqSection.astro";
-
 
 import { NAV, FOOTER, ALL_CALCULATORS } from "../data/site";
 import type { FaqItem } from "../lib/seo";
@@ -15,6 +14,7 @@ interface Props {
   intro: string;
   path: string;
   faqs?: FaqItem[];
+  lang?: string;
 }
 
 const { 
@@ -24,6 +24,7 @@ const {
   intro, 
   path, 
   faqs = [],
+  lang = 'en',
 } = Astro.props;
 
 const crumbs = [
@@ -37,12 +38,13 @@ const jsonLd = [
   ...(faqs.length ? [faqSchema(faqs)] : []),
 ];
 
-const related = ALL_CALCULATORS.filter((c) => c.href !== path).slice(0, 6);
+const related = ALL_CALCULATORS.filter((c) => c.href !== path && c.lang === lang).slice(0, 6);
+const showRelated = related.length > 0;
 ---
 
-<Layout title={title} description={description} canonical={path} jsonLd={jsonLd}>
+<Layout title={title} description={description} canonical={path} jsonLd={jsonLd} lang={lang}>
   <nav aria-label="Breadcrumb" class="border-b border-hairline bg-canvas-soft/40">
-    <ol class="container-page flex items-center gap-2 py-3 text-xs text-mute">
+    <ol class="container-page flex flex-wrap items-center gap-2 py-3 text-xs text-mute">
       {
         crumbs.map((c, i) => (
           <li class="flex items-center gap-2">
@@ -77,8 +79,6 @@ const related = ALL_CALCULATORS.filter((c) => c.href !== path).slice(0, 6);
     <div class="container-page py-12 sm:py-16">
       <div class="prose-content mx-auto max-w-3xl">
         <slot name="content" />
-        
-        
       </div>
     </div>
   </div>
@@ -91,25 +91,27 @@ const related = ALL_CALCULATORS.filter((c) => c.href !== path).slice(0, 6);
     )
   }
 
-  <Section class="border-t border-hairline">
-    <h2 class="text-display-sm text-ink">Related calculators</h2>
-    <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        related.map((c) => (
-          <a
-            href={c.href}
-            class="card group flex items-center justify-between gap-3 p-4 transition-all hover:border-hairline-strong hover:bg-canvas-soft"
-          >
-            <div>
-              <span class="block text-sm font-medium text-ink">{c.label}</span>
-              {c.desc && <span class="block text-xs text-mute">{c.desc}</span>}
-            </div>
-            <svg class="h-4 w-4 shrink-0 text-mute transition-transform group-hover:translate-x-0.5 group-hover:text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-          </a>
-        ))
-      }
-    </div>
-  </Section>
+  {showRelated && (
+    <Section class="border-t border-hairline">
+      <h2 class="text-display-sm text-ink">{lang === 'es' ? 'Calculadoras relacionadas' : 'Related calculators'}</h2>
+      <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          related.map((c) => (
+            <a
+              href={c.href}
+              class="card group flex items-center justify-between gap-3 p-4 transition-all hover:border-hairline-strong hover:bg-canvas-soft"
+            >
+              <div>
+                <span class="block text-sm font-medium text-ink">{c.label}</span>
+                {c.desc && <span class="block text-xs text-mute">{c.desc}</span>}
+              </div>
+              <svg class="h-4 w-4 shrink-0 text-mute transition-transform group-hover:translate-x-0.5 group-hover:text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
+          ))
+        }
+      </div>
+    </Section>
+  )}
 </Layout>
 
 <style is:global>
