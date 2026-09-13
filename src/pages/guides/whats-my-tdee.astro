@@ -9,7 +9,7 @@ import Sources from "../../components/ui/Sources.astro";
 const faqs: FaqItem[] = [
   { q: "How do I calculate my exact TDEE?", a: "To accurately calculate your Total Daily Energy Expenditure (TDEE), first determine your Basal Metabolic Rate (BMR) using a clinically validated formula such as the Mifflin-St Jeor equation. Once you have your BMR, multiply it by an activity factor ranging from 1.2 (sedentary) to 1.9 (professional athlete). This accounts for all physical movement throughout the day." },
   { q: "What is a good TDEE level for weight loss?", a: "For sustainable and healthy fat loss, it is universally recommended to establish a caloric deficit of 300 to 500 calories below your maintenance TDEE. This creates a physiological environment that typically results in approximately 0.5 to 1 pound (0.25 to 0.5 kg) of weight loss per week, minimizing the risk of lean muscle catabolism." },
-  { q: "Is TDEE the exact same thing as my maintenance calories?", a: "Yes, precisely. Your TDEE represents your maintenance calories. If your daily dietary caloric intake exactly matches your Total Daily Energy Expenditure, your body weight will remain perfectly stable without long-term macroscopic fluctuations." },
+  { q: "Is TDEE the exact same thing as my maintenance calories?", a: "Yes, precisely. Your TDEE represents your maintenance calories. If your daily dietary caloric intake exactly matches your Total Daily Energy Expenditure, your body weight will remain relatively stable without long-term macroscopic fluctuations." },
   { q: "Does my TDEE change over time or is it a static number?", a: "Your TDEE is a highly dynamic figure that fluctuates continuously. It decreases as you lose weight—because a smaller physiological mass requires less ambient energy to maintain—or as you age. Conversely, it increases if you accrue lean muscle mass. We advise recalculating your TDEE every 4 to 6 weeks or following any 5 to 10-pound weight fluctuation." },
   { q: "Why does my calculated TDEE seem disproportionately high?", a: "It is empirically common for individuals to inadvertently overestimate their physical activity levels. If your TDEE seems excessive, you likely selected an activity multiplier that is too aggressive. We suggest defaulting to a lower tier, such as 'lightly active', and rigorously monitoring your body weight for 2 to 3 weeks to titrate your intake based on empirical results." },
   { q: "How does body composition affect TDEE?", a: "Muscle tissue is significantly more metabolically active than adipose (fat) tissue. Consequently, individuals with a higher percentage of lean muscle mass will have a demonstrably higher Basal Metabolic Rate (BMR) and, by extension, a higher TDEE compared to individuals of the exact same weight but with a higher body fat percentage." },
@@ -31,9 +31,9 @@ const faqSchema = {
 ---
 
 <ContentLayout
-  title="What is my TDEE? — Calculate Your Exact Daily Calorie Needs"
+  title="What is my TDEE? — calculate your daily Calorie Needs"
   h1="What is my TDEE? (Total Daily Energy Expenditure)"
-  description="Discover the science of TDEE, how to calculate your exact daily caloric requirements, and leverage this comprehensive expert guide to lose fat, maintain, or build muscle."
+  description="Discover the science of TDEE, how to calculate your daily caloric requirements, and leverage this comprehensive expert guide to lose fat, maintain, or build muscle."
   path="/guides/whats-my-tdee/"
   category="Guides"
   categoryPath="/guides/"
@@ -90,7 +90,7 @@ const faqSchema = {
       <div class="flex-shrink-0 w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center font-bold text-xl">1</div>
       <div>
         <h3 class="text-xl font-bold text-ink mb-2">Determine Your Basal Metabolic Rate (BMR)</h3>
-        <p class="text-body">Leverage the clinically validated Mifflin-St Jeor equation, widely regarded in nutritional epidemiology as the modern gold standard. <br/> For Men: <code>10 × weight(kg) + 6.25 × height(cm) − 5 × age + 5</code>. <br/> For Women: <code>10 × weight(kg) + 6.25 × height(cm) − 5 × age − 161</code>. Alternatively, our <a href="/" class="text-indigo-600 underline">BMR</a> instantly computes this metric.</p>
+        <p class="text-body">Leverage the clinically validated Mifflin-St Jeor equation, widely regarded in nutritional epidemiology as a modern and reliable standard. <br/> For Men: <code>10 × weight(kg) + 6.25 × height(cm) − 5 × age + 5</code>. <br/> For Women: <code>10 × weight(kg) + 6.25 × height(cm) − 5 × age − 161</code>. Alternatively, our <a href="/" class="text-indigo-600 underline">BMR</a> instantly computes this metric.</p>
       </div>
     </div>
 
