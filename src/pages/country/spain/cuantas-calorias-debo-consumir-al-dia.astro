@@ -1,0 +1,115 @@
+---
+import Button from "../../../components/ui/Button.astro";
+import ContentLayout from "../../../layouts/ContentLayout.astro";
+import ArticleImage from "../../../components/ui/ArticleImage.astro";
+import type { FaqItem } from "../../../lib/seo";
+
+const faqs: FaqItem[] = [
+  { 
+    q: "¿Cuántas calorías debo consumir al día para mantener mi peso?", 
+    a: "Depende de tus características personales y tu nivel de actividad física. Si calculas tu GET (Gasto Energético Total), la cifra resultante es tu nivel de mantenimiento. Consumir esa cantidad hará que tu peso se mantenga relativamente estable." 
+  },
+  { 
+    q: "¿Cuántas calorías debo consumir para perder peso?", 
+    a: "Para perder peso, generalmente se necesita crear un déficit calórico consumiendo menos energía de la que gastas. Muchos profesionales sugieren una reducción moderada (por ejemplo, 300 a 500 calorías menos de tu mantenimiento), pero es mejor adaptar esto a tus circunstancias personales." 
+  },
+  { 
+    q: "¿Las calorías que necesito dependen de mi edad?", 
+    a: "Sí. A medida que envejecemos, la masa muscular tiende a disminuir y el metabolismo basal se ralentiza ligeramente, lo que significa que generalmente se necesitan menos calorías diarias en comparación con la juventud, asumiendo que el nivel de actividad sea el mismo." 
+  },
+  { 
+    q: "¿Cómo se calculan las calorías diarias?", 
+    a: "Se estiman calculando primero la Tasa Metabólica Basal (TMB), que son las calorías que quemas en reposo. Luego, la TMB se multiplica por un factor de actividad física para obtener el Gasto Energético Total (GET)." 
+  },
+  { 
+    q: "¿Qué diferencia hay entre TMB y TDEE?", 
+    a: "La TMB (Tasa Metabólica Basal) es la energía necesaria solo para mantener las funciones vitales en reposo absoluto. El TDEE (o GET, Gasto Energético Total) incluye la TMB más todas las calorías quemadas mediante el movimiento diario, el ejercicio y la digestión de alimentos." 
+  },
+  { 
+    q: "¿Puedo usar una calculadora de calorías para ganar peso?", 
+    a: "Sí. Si tu objetivo es aumentar masa muscular o subir de peso, puedes usar la calculadora para estimar tu gasto total y luego añadir un excedente moderado a esa cantidad para favorecer el aumento de peso de forma controlada." 
+  },
+];
+
+const seoTitle = "¿Cuántas Calorías Debo Consumir al Día? Guía y Cálculo";
+const seoDescription = "Descubre cuántas calorías necesitas al día según tu edad, peso y nivel de actividad. Aprende a calcular tus necesidades calóricas para mantener, perder o ganar peso.";
+---
+
+<ContentLayout
+  title={seoTitle}
+  h1="¿Cuántas calorías debo consumir al día?"
+  description={seoDescription}
+  path="/country/spain/cuantas-calorias-debo-consumir-al-dia/"
+  category="Guías"
+  categoryPath="/country/spain/calculadora-de-calorias/"
+  lead="Comprender tus necesidades calóricas es el primer paso para alcanzar cualquier objetivo físico. Aprende qué factores influyen en tu gasto de energía y cómo estimar tus calorías diarias de forma sencilla."
+  updated="Septiembre 2026"
+  faqs={faqs}
+  lang="es"
+>
+  <ArticleImage src="/assets/images/articles/daily-burn.svg" alt="Ilustración que representa el gasto calórico diario a través del metabolismo y la actividad física." />
+
+  <p>Una de las preguntas más comunes en el mundo de la nutrición y el fitness es: <strong>"¿Cuántas calorías debo consumir al día?"</strong>. La respuesta rápida es que no existe una única cifra mágica. Tus necesidades de energía varían enormemente dependiendo de factores como tu edad, sexo, peso, altura, nivel de actividad física y tu objetivo personal (perder grasa, ganar masa muscular o simplemente mantenerte sano).</p>
+
+  <p>En esta guía, desglosaremos exactamente cómo estos factores afectan a tu metabolismo y cómo puedes estimar tus necesidades calóricas de manera inteligente usando herramientas como nuestra <a href="/country/spain/calculadora-de-calorias/" class="text-brand hover:underline font-medium">calculadora de calorías</a>.</p>
+
+  <h2 class="text-3xl font-bold text-ink mt-12 mb-6">¿Cuántas calorías necesita una persona al día?</h2>
+  <p>Históricamente, es posible que hayas visto etiquetas nutricionales basadas en una dieta estándar de 2,000 calorías. Sin embargo, utilizar este número como una regla universal para todo el mundo es un error. Las 2,000 calorías son solo una referencia general establecida hace décadas para estandarizar el etiquetado de los alimentos.</p>
+  <p>En la vida real, una mujer joven y muy activa podría necesitar 2,500 calorías o más simplemente para mantener su peso, mientras que un hombre mayor con un estilo de vida sedentario podría necesitar menos de 2,000. Por lo tanto, las calorías que necesitas son una <strong>estimación individual</strong> que depende completamente de las características únicas de tu cuerpo y de tu rutina diaria.</p>
+
+  <h2 class="text-3xl font-bold text-ink mt-12 mb-6">¿Qué factores determinan tus necesidades de calorías?</h2>
+  <p>Para entender por qué el gasto energético es tan personal, debemos analizar los componentes biológicos y de estilo de vida que dictan cuánta energía utiliza tu cuerpo cada día.</p>
+
+  <h3 class="text-2xl font-semibold text-ink mt-8 mb-4">Edad</h3>
+  <p>A medida que cumples años, tu metabolismo tiende a ralentizarse de forma natural. Esto se debe principalmente a la pérdida progresiva de masa muscular (sarcopenia) y a cambios hormonales. Por lo general, una persona de 25 años necesitará consumir más calorías que una persona de 65 años con el mismo peso y nivel de actividad.</p>
+
+  <h3 class="text-2xl font-semibold text-ink mt-8 mb-4">Sexo</h3>
+  <p>En promedio, los hombres tienden a tener un porcentaje de masa muscular más alto y una estatura mayor que las mujeres de la misma edad. Dado que el músculo es un tejido metabólicamente activo (es decir, quema calorías incluso cuando estás en reposo), los hombres suelen requerir un consumo calórico superior al de las mujeres.</p>
+
+  <h3 class="text-2xl font-semibold text-ink mt-8 mb-4">Peso y altura</h3>
+  <p>El tamaño de tu cuerpo importa. Las personas más altas y con mayor peso corporal tienen más tejido que mantener, lo que significa que su cuerpo necesita quemar más energía simplemente para realizar funciones vitales básicas como la respiración o la circulación sanguínea.</p>
+
+  <h3 class="text-2xl font-semibold text-ink mt-8 mb-4">Nivel de actividad física</h3>
+  <p>Este es el factor sobre el cual tienes un control más directo. El movimiento diario puede variar desde un estilo de vida sedentario (trabajo de oficina, poco ejercicio) hasta un estilo de vida muy activo (trabajo físico intenso, entrenamientos diarios). Cuanto más te muevas, más combustible necesitará tu cuerpo.</p>
+
+  <h2 class="text-3xl font-bold text-ink mt-12 mb-6">¿Cómo se calculan las calorías diarias?</h2>
+  <p>Calcular cuánta energía quemas en un día implica entender dos conceptos clave:</p>
+  <ul class="list-disc pl-6 space-y-3 mb-6">
+    <li><strong>TMB (Tasa Metabólica Basal):</strong> Son las calorías que tu cuerpo gasta en completo reposo.</li>
+    <li><strong>TDEE o GET (Gasto Energético Total):</strong> Es el total de calorías que quemas al sumar tu TMB y la energía gastada por tu actividad física y la digestión.</li>
+  </ul>
+  <p>Para hallar este número, los profesionales de la salud utilizan diversas fórmulas matemáticas. Una ecuación ampliamente utilizada para estimar la tasa metabólica basal es la <strong>ecuación de Mifflin-St Jeor</strong>. Nuestra herramienta de cálculo se basa en este principio: estima primero tu TMB y luego aplica un multiplicador según cuánto te muevas a lo largo de la semana para hallar tu TDEE.</p>
+
+  <h2 class="text-3xl font-bold text-ink mt-12 mb-6">¿Cuántas calorías necesito para mantener mi peso?</h2>
+  <p>Tus calorías de mantenimiento son exactamente el número de calorías que conforman tu Gasto Energético Total (GET). Si la energía que obtienes de los alimentos es igual a la energía que tu cuerpo gasta, tu peso se mantendrá estable con el tiempo.</p>
+  <p>Dado que el nivel de actividad de una persona puede cambiar de un día a otro, las calorías de mantenimiento son una estimación promedio. Si quieres conocer este número sin hacer cálculos manuales, <a href="/country/spain/calculadora-de-calorias/" class="text-brand hover:underline font-medium">calcula tus calorías diarias</a> introduciendo tus datos en nuestra herramienta.</p>
+
+  <h2 class="text-3xl font-bold text-ink mt-12 mb-6">¿Cuántas calorías necesito para perder peso?</h2>
+  <p>Para perder grasa corporal, debes consumir menos energía de la que tu cuerpo utiliza. A esto se le llama crear un <strong>déficit calórico</strong>.</p>
+  <p>Al encontrarse con un déficit de energía procedente de los alimentos, el cuerpo se ve obligado a recurrir a sus reservas de energía (la grasa corporal) para compensar la diferencia. La mayoría de los expertos recomiendan un déficit moderado y sostenible. Las restricciones extremas de calorías no solo son difíciles de mantener, sino que pueden provocar pérdida de masa muscular y falta de nutrientes. Los resultados reales pueden variar, por lo que es vital usar cualquier cifra como una estimación inicial y ajustarla de acuerdo a tu progreso.</p>
+
+  <h2 class="text-3xl font-bold text-ink mt-12 mb-6">¿Cuántas calorías necesito para ganar peso?</h2>
+  <p>Ganar peso (y especialmente masa muscular) requiere lo contrario: un <strong>superávit calórico</strong>. Esto significa que debes consumir más calorías de las que gastas, a la vez que combinas esa energía extra con un entrenamiento de fuerza adecuado.</p>
+  <p>Al igual que ocurre con la pérdida de grasa, el superávit debe ser moderado. Comer en exceso de forma descontrolada provocará principalmente un aumento de grasa corporal, no de músculo. Un pequeño excedente sostenido en el tiempo es generalmente la opción más responsable.</p>
+
+  <h2 class="text-3xl font-bold text-ink mt-12 mb-6">¿Cómo puedo calcular mis calorías diarias?</h2>
+  <p>Intentar calcular todo esto manualmente con papel y calculadora puede resultar confuso y propenso a errores. Para facilitarte el proceso, hemos creado una herramienta que automatiza las complejas ecuaciones matemáticas.</p>
+  <p>Simplemente necesitas proporcionar:</p>
+  <ul class="list-disc pl-6 space-y-3 mb-8">
+    <li>Tu edad y sexo.</li>
+    <li>Tu peso y altura actuales.</li>
+    <li>Tu nivel de actividad física realista.</li>
+    <li>Tu objetivo principal (perder, mantener o ganar peso).</li>
+  </ul>
+  
+  <div class="text-center my-10">
+    <Button href="/country/spain/calculadora-de-calorias/" variant="primary" size="lg" class="w-full sm:w-auto">
+      Estimar tus Necesidades Calóricas
+    </Button>
+  </div>
+
+  <h2 class="text-3xl font-bold text-ink mt-12 mb-6">¿Es exacta una estimación de calorías?</h2>
+  <p>Es muy importante entender que <strong>las fórmulas proporcionan una estimación</strong>. Las necesidades reales pueden variar significativamente entre diferentes personas, incluso si comparten la misma edad, altura y peso. Factores como la genética, el historial de dietas, la composición corporal detallada y las fluctuaciones hormonales juegan un papel importante.</p>
+  <p>Por lo tanto, no debes ver el resultado de una calculadora como una regla inquebrantable. Considéralo un excelente punto de partida. La mejor estrategia es consumir las calorías recomendadas de forma constante durante un par de semanas y observar cómo responde tu cuerpo. Si tu objetivo es perder peso y la báscula no se mueve, es posible que necesites reducir ligeramente tu ingesta o aumentar tu actividad física. El ajuste basado en resultados reales es la clave del éxito a largo plazo.</p>
+
+</ContentLayout>
