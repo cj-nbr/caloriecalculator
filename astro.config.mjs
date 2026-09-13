@@ -9,16 +9,7 @@ export default defineConfig({
   site: 'https://caloriecalculatorfree.com',
   trailingSlash: 'always',
   integrations: [sitemap({
-    customPages: [
-      'https://caloriecalculatorfree.com/country/korean-weight-loss-calorie-calculator/',
-      'https://caloriecalculatorfree.com/country/diet-recommended-calorie-guide/',
-      'https://caloriecalculatorfree.com/country/food-exercise-calorie-app/',
-      'https://caloriecalculatorfree.com/country/korean-community-calorie-calculator/',
-
-
-
-
-    ]
+    customPages: []
   })],
   prefetch: {
     prefetchAll: true,

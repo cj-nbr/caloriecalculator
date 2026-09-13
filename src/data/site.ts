@@ -32,7 +32,7 @@ export const ALL_CALCULATORS: NavLink[] = [
   { label: "Swimming Calories Calculator", href: "/swimming-calories-calculator/", desc: "Calories burned swimming" },
   { label: "Recipe Calorie Calculator", href: "/recipe-calorie-calculator/", desc: "Total & per-serving recipe calories" },
   { label: "Meal Calorie Calculator", href: "/meal-calorie-calculator/", desc: "Split daily calories across meals" },
-  { label: "Korean Calorie Calculator", href: "/country/korean-weight-loss-calorie-calculator/", desc: "Korean standard weight loss calculator" },
+
   { label: "Spanish Calorie Calculator", href: "/country/spain/calculadora-de-calorias/", desc: "Calculadora de calorías diaria" },
 ];
 
